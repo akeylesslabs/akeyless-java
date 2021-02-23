@@ -1,0 +1,14 @@
+
+
+# ItemTargetAssociation
+
+ItemTargetAssociation includes details of an association between an item and a target.
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**assocId** | **String** |  |  [optional]
+**targetName** | **String** |  |  [optional]
+
+
+
