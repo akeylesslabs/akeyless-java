@@ -278,4 +278,11 @@
         <junit-version>4.13</junit-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>akeyless-artifactory-primary-0-releases</name>
+			<url>https://akeyless.jfrog.io/artifactory/akeyless-java</url>
+		</repository>
+	</distributionManagement>
 </project>

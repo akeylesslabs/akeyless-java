@@ -37,8 +37,8 @@ Add the following repository definition to your Maven settings file (default
 ```xml
 <repository>
     <id>central</id>
-    <name>akeyless-artifactory-primary-0-releases</name>
-    <url>https://akeyless.jfrog.io/artifactory/sdk</url>
+    <url>https://akeyless.jfrog.io/artifactory/akeyless-java</url>
+    <snapshots><enabled>false</enabled></snapshots>
 </repository>
 ```
 
