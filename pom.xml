@@ -5,7 +5,7 @@
     <artifactId>akeyless-java</artifactId>
     <packaging>jar</packaging>
     <name>akeyless-java</name>
-    <version>2.0.10</version>
+    <version>2.1.0</version>
     <url>https://github.com/akeylesslabs/akeyless-java</url>
     <description>Akeyless Java SDK</description>
     <scm>
@@ -278,11 +278,4 @@
         <junit-version>4.13</junit-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>akeylesslabs-artifactory-primary-0-releases</name>
-			<url>https://akeylesslabs.jfrog.io/artifactory/akeyless-java</url>
-		</repository>
-	</distributionManagement>
 </project>
