@@ -53,6 +53,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_CLOUD_ID)
   private String cloudId;
 
+  public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
+  @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
+  private String gcpAudience;
+
   public static final String SERIALIZED_NAME_JWT = "jwt";
   @SerializedName(SERIALIZED_NAME_JWT)
   private String jwt;
@@ -123,11 +127,11 @@ public class Auth {
   }
 
    /**
-   * Access Type (access_key/password/saml/ldap/azure_ad/aws_iam/universal_identity/jwt)
+   * Access Type (access_key/password/saml/ldap/azure_ad/aws_iam/universal_identity/jwt/gcp)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/azure_ad/aws_iam/universal_identity/jwt)")
+  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/azure_ad/aws_iam/universal_identity/jwt/gcp)")
 
   public String getAccessType() {
     return accessType;
@@ -192,11 +196,11 @@ public class Auth {
   }
 
    /**
-   * The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam)
+   * The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp)
    * @return cloudId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The cloud identity (relevant only for access-type=azure_ad,aws_iam)")
+  @ApiModelProperty(value = "The cloud identity (relevant only for access-type=azure_ad,aws_iam,gcp)")
 
   public String getCloudId() {
     return cloudId;
@@ -205,6 +209,29 @@ public class Auth {
 
   public void setCloudId(String cloudId) {
     this.cloudId = cloudId;
+  }
+
+
+  public Auth gcpAudience(String gcpAudience) {
+    
+    this.gcpAudience = gcpAudience;
+    return this;
+  }
+
+   /**
+   * GCP JWT audience
+   * @return gcpAudience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GCP JWT audience")
+
+  public String getGcpAudience() {
+    return gcpAudience;
+  }
+
+
+  public void setGcpAudience(String gcpAudience) {
+    this.gcpAudience = gcpAudience;
   }
 
 
@@ -315,6 +342,7 @@ public class Auth {
         Objects.equals(this.adminEmail, auth.adminEmail) &&
         Objects.equals(this.adminPassword, auth.adminPassword) &&
         Objects.equals(this.cloudId, auth.cloudId) &&
+        Objects.equals(this.gcpAudience, auth.gcpAudience) &&
         Objects.equals(this.jwt, auth.jwt) &&
         Objects.equals(this.ldapPassword, auth.ldapPassword) &&
         Objects.equals(this.ldapUsername, auth.ldapUsername) &&
@@ -323,7 +351,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, jwt, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, gcpAudience, jwt, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -337,6 +365,7 @@ public class Auth {
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
+    sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    ldapPassword: ").append(toIndentedString(ldapPassword)).append("\n");
     sb.append("    ldapUsername: ").append(toIndentedString(ldapUsername)).append("\n");

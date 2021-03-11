@@ -196,11 +196,11 @@ public class GatewayCreateProducerAws {
   }
 
    /**
-   * AWS Role ARNs to be use in the Assume Role operation (relevant only for assume_rile mode)
+   * AWS Role ARNs to be used in the Assume Role operation (relevant only for assume_role mode)
    * @return awsRoleArns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AWS Role ARNs to be use in the Assume Role operation (relevant only for assume_rile mode)")
+  @ApiModelProperty(value = "AWS Role ARNs to be used in the Assume Role operation (relevant only for assume_role mode)")
 
   public String getAwsRoleArns() {
     return awsRoleArns;

@@ -24,6 +24,7 @@ import io.akeyless.client.model.APIKeyAccessRules;
 import io.akeyless.client.model.AWSIAMAccessRules;
 import io.akeyless.client.model.AzureADAccessRules;
 import io.akeyless.client.model.EmailPassAccessRules;
+import io.akeyless.client.model.GCPAccessRules;
 import io.akeyless.client.model.HuaweiAccessRules;
 import io.akeyless.client.model.LDAPAccessRules;
 import io.akeyless.client.model.OAuth2AccessRules;
@@ -65,6 +66,10 @@ public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_EMAIL_PASS_ACCESS_RULES = "email_pass_access_rules";
   @SerializedName(SERIALIZED_NAME_EMAIL_PASS_ACCESS_RULES)
   private EmailPassAccessRules emailPassAccessRules;
+
+  public static final String SERIALIZED_NAME_GCP_ACCESS_RULES = "gcp_access_rules";
+  @SerializedName(SERIALIZED_NAME_GCP_ACCESS_RULES)
+  private GCPAccessRules gcpAccessRules;
 
   public static final String SERIALIZED_NAME_HUAWEI_ACCESS_RULES = "huawei_access_rules";
   @SerializedName(SERIALIZED_NAME_HUAWEI_ACCESS_RULES)
@@ -252,6 +257,29 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo gcpAccessRules(GCPAccessRules gcpAccessRules) {
+    
+    this.gcpAccessRules = gcpAccessRules;
+    return this;
+  }
+
+   /**
+   * Get gcpAccessRules
+   * @return gcpAccessRules
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GCPAccessRules getGcpAccessRules() {
+    return gcpAccessRules;
+  }
+
+
+  public void setGcpAccessRules(GCPAccessRules gcpAccessRules) {
+    this.gcpAccessRules = gcpAccessRules;
+  }
+
+
   public AuthMethodAccessInfo huaweiAccessRules(HuaweiAccessRules huaweiAccessRules) {
     
     this.huaweiAccessRules = huaweiAccessRules;
@@ -406,6 +434,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.azureAdAccessRules, authMethodAccessInfo.azureAdAccessRules) &&
         Objects.equals(this.cidrWhitelist, authMethodAccessInfo.cidrWhitelist) &&
         Objects.equals(this.emailPassAccessRules, authMethodAccessInfo.emailPassAccessRules) &&
+        Objects.equals(this.gcpAccessRules, authMethodAccessInfo.gcpAccessRules) &&
         Objects.equals(this.huaweiAccessRules, authMethodAccessInfo.huaweiAccessRules) &&
         Objects.equals(this.ldapAccessRules, authMethodAccessInfo.ldapAccessRules) &&
         Objects.equals(this.oauth2AccessRules, authMethodAccessInfo.oauth2AccessRules) &&
@@ -416,7 +445,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, huaweiAccessRules, ldapAccessRules, oauth2AccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, gcpAccessRules, huaweiAccessRules, ldapAccessRules, oauth2AccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
   }
 
 
@@ -431,6 +460,7 @@ public class AuthMethodAccessInfo {
     sb.append("    azureAdAccessRules: ").append(toIndentedString(azureAdAccessRules)).append("\n");
     sb.append("    cidrWhitelist: ").append(toIndentedString(cidrWhitelist)).append("\n");
     sb.append("    emailPassAccessRules: ").append(toIndentedString(emailPassAccessRules)).append("\n");
+    sb.append("    gcpAccessRules: ").append(toIndentedString(gcpAccessRules)).append("\n");
     sb.append("    huaweiAccessRules: ").append(toIndentedString(huaweiAccessRules)).append("\n");
     sb.append("    ldapAccessRules: ").append(toIndentedString(ldapAccessRules)).append("\n");
     sb.append("    oauth2AccessRules: ").append(toIndentedString(oauth2AccessRules)).append("\n");

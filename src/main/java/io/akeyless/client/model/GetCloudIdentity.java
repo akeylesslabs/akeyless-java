@@ -25,14 +25,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * getCloudIdentity is a command that gets Cloud Identity Token (relevant only for access-type&#x3D;azure_ad, aws_iam).
+ * getCloudIdentity is a command that gets Cloud Identity Token (relevant only for access-type&#x3D;azure_ad, aws_iam, gcp).
  */
-@ApiModel(description = "getCloudIdentity is a command that gets Cloud Identity Token (relevant only for access-type=azure_ad, aws_iam).")
+@ApiModel(description = "getCloudIdentity is a command that gets Cloud Identity Token (relevant only for access-type=azure_ad, aws_iam, gcp).")
 
 public class GetCloudIdentity {
   public static final String SERIALIZED_NAME_AZURE_AD_OBJECT_ID = "azure_ad_object_id";
   @SerializedName(SERIALIZED_NAME_AZURE_AD_OBJECT_ID)
   private String azureAdObjectId;
+
+  public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
+  @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
+  private String gcpAudience;
 
   public static final String SERIALIZED_NAME_URL_SAFE = "url_safe";
   @SerializedName(SERIALIZED_NAME_URL_SAFE)
@@ -62,6 +66,29 @@ public class GetCloudIdentity {
   }
 
 
+  public GetCloudIdentity gcpAudience(String gcpAudience) {
+    
+    this.gcpAudience = gcpAudience;
+    return this;
+  }
+
+   /**
+   * GCP JWT audience
+   * @return gcpAudience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GCP JWT audience")
+
+  public String getGcpAudience() {
+    return gcpAudience;
+  }
+
+
+  public void setGcpAudience(String gcpAudience) {
+    this.gcpAudience = gcpAudience;
+  }
+
+
   public GetCloudIdentity urlSafe(Boolean urlSafe) {
     
     this.urlSafe = urlSafe;
@@ -69,11 +96,11 @@ public class GetCloudIdentity {
   }
 
    /**
-   * escapes the token so it can be safely placed inside a URL query
+   * Escapes the token so it can be safely placed inside a URL query
    * @return urlSafe
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "escapes the token so it can be safely placed inside a URL query")
+  @ApiModelProperty(value = "Escapes the token so it can be safely placed inside a URL query")
 
   public Boolean getUrlSafe() {
     return urlSafe;
@@ -95,12 +122,13 @@ public class GetCloudIdentity {
     }
     GetCloudIdentity getCloudIdentity = (GetCloudIdentity) o;
     return Objects.equals(this.azureAdObjectId, getCloudIdentity.azureAdObjectId) &&
+        Objects.equals(this.gcpAudience, getCloudIdentity.gcpAudience) &&
         Objects.equals(this.urlSafe, getCloudIdentity.urlSafe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureAdObjectId, urlSafe);
+    return Objects.hash(azureAdObjectId, gcpAudience, urlSafe);
   }
 
 
@@ -109,6 +137,7 @@ public class GetCloudIdentity {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCloudIdentity {\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
+    sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    urlSafe: ").append(toIndentedString(urlSafe)).append("\n");
     sb.append("}");
     return sb.toString();

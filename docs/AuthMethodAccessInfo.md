@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **azureAdAccessRules** | [**AzureADAccessRules**](AzureADAccessRules.md) |  |  [optional]
 **cidrWhitelist** | **String** |  |  [optional]
 **emailPassAccessRules** | [**EmailPassAccessRules**](EmailPassAccessRules.md) |  |  [optional]
+**gcpAccessRules** | [**GCPAccessRules**](GCPAccessRules.md) |  |  [optional]
 **huaweiAccessRules** | [**HuaweiAccessRules**](HuaweiAccessRules.md) |  |  [optional]
 **ldapAccessRules** | [**LDAPAccessRules**](LDAPAccessRules.md) |  |  [optional]
 **oauth2AccessRules** | [**OAuth2AccessRules**](OAuth2AccessRules.md) |  |  [optional]

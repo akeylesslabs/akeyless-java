@@ -53,6 +53,10 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_AZURE_AD_OBJECT_ID)
   private String azureAdObjectId;
 
+  public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
+  @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
+  private String gcpAudience;
+
 
   public Configure accessId(String accessId) {
     
@@ -192,6 +196,29 @@ public class Configure {
   }
 
 
+  public Configure gcpAudience(String gcpAudience) {
+    
+    this.gcpAudience = gcpAudience;
+    return this;
+  }
+
+   /**
+   * GCP JWT audience
+   * @return gcpAudience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GCP JWT audience")
+
+  public String getGcpAudience() {
+    return gcpAudience;
+  }
+
+
+  public void setGcpAudience(String gcpAudience) {
+    this.gcpAudience = gcpAudience;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -206,12 +233,13 @@ public class Configure {
         Objects.equals(this.accessType, configure.accessType) &&
         Objects.equals(this.adminEmail, configure.adminEmail) &&
         Objects.equals(this.adminPassword, configure.adminPassword) &&
-        Objects.equals(this.azureAdObjectId, configure.azureAdObjectId);
+        Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
+        Objects.equals(this.gcpAudience, configure.gcpAudience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, gcpAudience);
   }
 
 
@@ -225,6 +253,7 @@ public class Configure {
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
+    sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("}");
     return sb.toString();
   }

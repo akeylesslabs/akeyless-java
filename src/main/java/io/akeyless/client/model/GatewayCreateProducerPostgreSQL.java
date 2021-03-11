@@ -56,7 +56,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   public static final String SERIALIZED_NAME_POSTGRESQL_PORT = "postgresql-port";
   @SerializedName(SERIALIZED_NAME_POSTGRESQL_PORT)
-  private String postgresqlPort = "3306";
+  private String postgresqlPort = "5432";
 
   public static final String SERIALIZED_NAME_POSTGRESQL_USERNAME = "postgresql-username";
   @SerializedName(SERIALIZED_NAME_POSTGRESQL_USERNAME)

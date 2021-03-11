@@ -25,18 +25,42 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayCreateProducerMongo is a command that creates mongo producer
+ * gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer
  */
-@ApiModel(description = "gatewayCreateProducerMongo is a command that creates mongo producer")
+@ApiModel(description = "gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer")
 
 public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
   @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
   private String gatewayUrl = "http://localhost:8000";
 
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb-atlas-api-private-key";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
+  private String mongodbAtlasApiPrivateKey;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY = "mongodb-atlas-api-public-key";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY)
+  private String mongodbAtlasApiPublicKey;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID = "mongodb-atlas-project-id";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID)
+  private String mongodbAtlasProjectId;
+
+  public static final String SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB = "mongodb-default-auth-db";
+  @SerializedName(SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB)
+  private String mongodbDefaultAuthDb;
+
+  public static final String SERIALIZED_NAME_MONGODB_HOST_PORT = "mongodb-host-port";
+  @SerializedName(SERIALIZED_NAME_MONGODB_HOST_PORT)
+  private String mongodbHostPort;
+
   public static final String SERIALIZED_NAME_MONGODB_NAME = "mongodb-name";
   @SerializedName(SERIALIZED_NAME_MONGODB_NAME)
   private String mongodbName;
+
+  public static final String SERIALIZED_NAME_MONGODB_PASSWORD = "mongodb-password";
+  @SerializedName(SERIALIZED_NAME_MONGODB_PASSWORD)
+  private String mongodbPassword;
 
   public static final String SERIALIZED_NAME_MONGODB_ROLES = "mongodb-roles";
   @SerializedName(SERIALIZED_NAME_MONGODB_ROLES)
@@ -45,6 +69,14 @@ public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_MONGODB_SERVER_URI = "mongodb-server-uri";
   @SerializedName(SERIALIZED_NAME_MONGODB_SERVER_URI)
   private String mongodbServerUri;
+
+  public static final String SERIALIZED_NAME_MONGODB_URI_OPTIONS = "mongodb-uri-options";
+  @SerializedName(SERIALIZED_NAME_MONGODB_URI_OPTIONS)
+  private String mongodbUriOptions;
+
+  public static final String SERIALIZED_NAME_MONGODB_USERNAME = "mongodb-username";
+  @SerializedName(SERIALIZED_NAME_MONGODB_USERNAME)
+  private String mongodbUsername;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -90,6 +122,121 @@ public class GatewayCreateProducerMongo {
   }
 
 
+  public GatewayCreateProducerMongo mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
+    
+    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
+    return this;
+  }
+
+   /**
+   * MongoDB Atlas private key
+   * @return mongodbAtlasApiPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Atlas private key")
+
+  public String getMongodbAtlasApiPrivateKey() {
+    return mongodbAtlasApiPrivateKey;
+  }
+
+
+  public void setMongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
+    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
+    
+    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
+    return this;
+  }
+
+   /**
+   * MongoDB Atlas public key
+   * @return mongodbAtlasApiPublicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Atlas public key")
+
+  public String getMongodbAtlasApiPublicKey() {
+    return mongodbAtlasApiPublicKey;
+  }
+
+
+  public void setMongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
+    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbAtlasProjectId(String mongodbAtlasProjectId) {
+    
+    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+    return this;
+  }
+
+   /**
+   * MongoDB Atlas project ID
+   * @return mongodbAtlasProjectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Atlas project ID")
+
+  public String getMongodbAtlasProjectId() {
+    return mongodbAtlasProjectId;
+  }
+
+
+  public void setMongodbAtlasProjectId(String mongodbAtlasProjectId) {
+    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
+    
+    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
+    return this;
+  }
+
+   /**
+   * MongoDB server default authentication database
+   * @return mongodbDefaultAuthDb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server default authentication database")
+
+  public String getMongodbDefaultAuthDb() {
+    return mongodbDefaultAuthDb;
+  }
+
+
+  public void setMongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
+    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbHostPort(String mongodbHostPort) {
+    
+    this.mongodbHostPort = mongodbHostPort;
+    return this;
+  }
+
+   /**
+   * MongoDB server host and port
+   * @return mongodbHostPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server host and port")
+
+  public String getMongodbHostPort() {
+    return mongodbHostPort;
+  }
+
+
+  public void setMongodbHostPort(String mongodbHostPort) {
+    this.mongodbHostPort = mongodbHostPort;
+  }
+
+
   public GatewayCreateProducerMongo mongodbName(String mongodbName) {
     
     this.mongodbName = mongodbName;
@@ -109,6 +256,29 @@ public class GatewayCreateProducerMongo {
 
   public void setMongodbName(String mongodbName) {
     this.mongodbName = mongodbName;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbPassword(String mongodbPassword) {
+    
+    this.mongodbPassword = mongodbPassword;
+    return this;
+  }
+
+   /**
+   * MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters
+   * @return mongodbPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters")
+
+  public String getMongodbPassword() {
+    return mongodbPassword;
+  }
+
+
+  public void setMongodbPassword(String mongodbPassword) {
+    this.mongodbPassword = mongodbPassword;
   }
 
 
@@ -142,10 +312,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Server URI
+   * MongoDB server URI
    * @return mongodbServerUri
   **/
-  @ApiModelProperty(required = true, value = "Server URI")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server URI")
 
   public String getMongodbServerUri() {
     return mongodbServerUri;
@@ -154,6 +325,52 @@ public class GatewayCreateProducerMongo {
 
   public void setMongodbServerUri(String mongodbServerUri) {
     this.mongodbServerUri = mongodbServerUri;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbUriOptions(String mongodbUriOptions) {
+    
+    this.mongodbUriOptions = mongodbUriOptions;
+    return this;
+  }
+
+   /**
+   * MongoDB server URI options
+   * @return mongodbUriOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server URI options")
+
+  public String getMongodbUriOptions() {
+    return mongodbUriOptions;
+  }
+
+
+  public void setMongodbUriOptions(String mongodbUriOptions) {
+    this.mongodbUriOptions = mongodbUriOptions;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbUsername(String mongodbUsername) {
+    
+    this.mongodbUsername = mongodbUsername;
+    return this;
+  }
+
+   /**
+   * MongoDB server username
+   * @return mongodbUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server username")
+
+  public String getMongodbUsername() {
+    return mongodbUsername;
+  }
+
+
+  public void setMongodbUsername(String mongodbUsername) {
+    this.mongodbUsername = mongodbUsername;
   }
 
 
@@ -186,11 +403,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Dynamic producer encryption key
+   * Encrypt producer with following key
    * @return producerEncryptionKeyName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dynamic producer encryption key")
+  @ApiModelProperty(value = "Encrypt producer with following key")
 
   public String getProducerEncryptionKeyName() {
     return producerEncryptionKeyName;
@@ -281,9 +498,17 @@ public class GatewayCreateProducerMongo {
     }
     GatewayCreateProducerMongo gatewayCreateProducerMongo = (GatewayCreateProducerMongo) o;
     return Objects.equals(this.gatewayUrl, gatewayCreateProducerMongo.gatewayUrl) &&
+        Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
+        Objects.equals(this.mongodbAtlasApiPublicKey, gatewayCreateProducerMongo.mongodbAtlasApiPublicKey) &&
+        Objects.equals(this.mongodbAtlasProjectId, gatewayCreateProducerMongo.mongodbAtlasProjectId) &&
+        Objects.equals(this.mongodbDefaultAuthDb, gatewayCreateProducerMongo.mongodbDefaultAuthDb) &&
+        Objects.equals(this.mongodbHostPort, gatewayCreateProducerMongo.mongodbHostPort) &&
         Objects.equals(this.mongodbName, gatewayCreateProducerMongo.mongodbName) &&
+        Objects.equals(this.mongodbPassword, gatewayCreateProducerMongo.mongodbPassword) &&
         Objects.equals(this.mongodbRoles, gatewayCreateProducerMongo.mongodbRoles) &&
         Objects.equals(this.mongodbServerUri, gatewayCreateProducerMongo.mongodbServerUri) &&
+        Objects.equals(this.mongodbUriOptions, gatewayCreateProducerMongo.mongodbUriOptions) &&
+        Objects.equals(this.mongodbUsername, gatewayCreateProducerMongo.mongodbUsername) &&
         Objects.equals(this.name, gatewayCreateProducerMongo.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMongo.producerEncryptionKeyName) &&
         Objects.equals(this.token, gatewayCreateProducerMongo.token) &&
@@ -293,7 +518,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, mongodbName, mongodbRoles, mongodbServerUri, name, producerEncryptionKeyName, token, uidToken, userTtl);
+    return Objects.hash(gatewayUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, token, uidToken, userTtl);
   }
 
 
@@ -302,9 +527,17 @@ public class GatewayCreateProducerMongo {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMongo {\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
+    sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
+    sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
+    sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
+    sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
+    sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
     sb.append("    mongodbName: ").append(toIndentedString(mongodbName)).append("\n");
+    sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
     sb.append("    mongodbRoles: ").append(toIndentedString(mongodbRoles)).append("\n");
     sb.append("    mongodbServerUri: ").append(toIndentedString(mongodbServerUri)).append("\n");
+    sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
+    sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

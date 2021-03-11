@@ -325,9 +325,37 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_LAST_ADMIN_ROTATION)
   private Long lastAdminRotation;
 
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
+  private String mongodbAtlasApiPrivateKey;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY = "mongodb_atlas_api_public_key";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY)
+  private String mongodbAtlasApiPublicKey;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID = "mongodb_atlas_project_id";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID)
+  private String mongodbAtlasProjectId;
+
   public static final String SERIALIZED_NAME_MONGODB_DB_NAME = "mongodb_db_name";
   @SerializedName(SERIALIZED_NAME_MONGODB_DB_NAME)
   private String mongodbDbName;
+
+  public static final String SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB = "mongodb_default_auth_db";
+  @SerializedName(SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB)
+  private String mongodbDefaultAuthDb;
+
+  public static final String SERIALIZED_NAME_MONGODB_HOST_PORT = "mongodb_host_port";
+  @SerializedName(SERIALIZED_NAME_MONGODB_HOST_PORT)
+  private String mongodbHostPort;
+
+  public static final String SERIALIZED_NAME_MONGODB_IS_ATLAS = "mongodb_is_atlas";
+  @SerializedName(SERIALIZED_NAME_MONGODB_IS_ATLAS)
+  private Boolean mongodbIsAtlas;
+
+  public static final String SERIALIZED_NAME_MONGODB_PASSWORD = "mongodb_password";
+  @SerializedName(SERIALIZED_NAME_MONGODB_PASSWORD)
+  private String mongodbPassword;
 
   public static final String SERIALIZED_NAME_MONGODB_ROLES = "mongodb_roles";
   @SerializedName(SERIALIZED_NAME_MONGODB_ROLES)
@@ -336,6 +364,14 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_MONGODB_URI_CONNECTION = "mongodb_uri_connection";
   @SerializedName(SERIALIZED_NAME_MONGODB_URI_CONNECTION)
   private String mongodbUriConnection;
+
+  public static final String SERIALIZED_NAME_MONGODB_URI_OPTIONS = "mongodb_uri_options";
+  @SerializedName(SERIALIZED_NAME_MONGODB_URI_OPTIONS)
+  private String mongodbUriOptions;
+
+  public static final String SERIALIZED_NAME_MONGODB_USERNAME = "mongodb_username";
+  @SerializedName(SERIALIZED_NAME_MONGODB_USERNAME)
+  private String mongodbUsername;
 
   public static final String SERIALIZED_NAME_MSSQL_CREATION_STATEMENTS = "mssql_creation_statements";
   @SerializedName(SERIALIZED_NAME_MSSQL_CREATION_STATEMENTS)
@@ -2120,6 +2156,75 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
+    
+    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get mongodbAtlasApiPrivateKey
+   * @return mongodbAtlasApiPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbAtlasApiPrivateKey() {
+    return mongodbAtlasApiPrivateKey;
+  }
+
+
+  public void setMongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
+    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
+  }
+
+
+  public DSProducerDetails mongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
+    
+    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
+    return this;
+  }
+
+   /**
+   * Get mongodbAtlasApiPublicKey
+   * @return mongodbAtlasApiPublicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbAtlasApiPublicKey() {
+    return mongodbAtlasApiPublicKey;
+  }
+
+
+  public void setMongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
+    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
+  }
+
+
+  public DSProducerDetails mongodbAtlasProjectId(String mongodbAtlasProjectId) {
+    
+    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+    return this;
+  }
+
+   /**
+   * mongodb atlas fields
+   * @return mongodbAtlasProjectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "mongodb atlas fields")
+
+  public String getMongodbAtlasProjectId() {
+    return mongodbAtlasProjectId;
+  }
+
+
+  public void setMongodbAtlasProjectId(String mongodbAtlasProjectId) {
+    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+  }
+
+
   public DSProducerDetails mongodbDbName(String mongodbDbName) {
     
     this.mongodbDbName = mongodbDbName;
@@ -2127,11 +2232,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get mongodbDbName
+   * common fields
    * @return mongodbDbName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "common fields")
 
   public String getMongodbDbName() {
     return mongodbDbName;
@@ -2140,6 +2245,98 @@ public class DSProducerDetails {
 
   public void setMongodbDbName(String mongodbDbName) {
     this.mongodbDbName = mongodbDbName;
+  }
+
+
+  public DSProducerDetails mongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
+    
+    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
+    return this;
+  }
+
+   /**
+   * Get mongodbDefaultAuthDb
+   * @return mongodbDefaultAuthDb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbDefaultAuthDb() {
+    return mongodbDefaultAuthDb;
+  }
+
+
+  public void setMongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
+    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
+  }
+
+
+  public DSProducerDetails mongodbHostPort(String mongodbHostPort) {
+    
+    this.mongodbHostPort = mongodbHostPort;
+    return this;
+  }
+
+   /**
+   * Get mongodbHostPort
+   * @return mongodbHostPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbHostPort() {
+    return mongodbHostPort;
+  }
+
+
+  public void setMongodbHostPort(String mongodbHostPort) {
+    this.mongodbHostPort = mongodbHostPort;
+  }
+
+
+  public DSProducerDetails mongodbIsAtlas(Boolean mongodbIsAtlas) {
+    
+    this.mongodbIsAtlas = mongodbIsAtlas;
+    return this;
+  }
+
+   /**
+   * Get mongodbIsAtlas
+   * @return mongodbIsAtlas
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getMongodbIsAtlas() {
+    return mongodbIsAtlas;
+  }
+
+
+  public void setMongodbIsAtlas(Boolean mongodbIsAtlas) {
+    this.mongodbIsAtlas = mongodbIsAtlas;
+  }
+
+
+  public DSProducerDetails mongodbPassword(String mongodbPassword) {
+    
+    this.mongodbPassword = mongodbPassword;
+    return this;
+  }
+
+   /**
+   * Get mongodbPassword
+   * @return mongodbPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbPassword() {
+    return mongodbPassword;
+  }
+
+
+  public void setMongodbPassword(String mongodbPassword) {
+    this.mongodbPassword = mongodbPassword;
   }
 
 
@@ -2173,11 +2370,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get mongodbUriConnection
+   * mongodb fields
    * @return mongodbUriConnection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "mongodb fields")
 
   public String getMongodbUriConnection() {
     return mongodbUriConnection;
@@ -2186,6 +2383,52 @@ public class DSProducerDetails {
 
   public void setMongodbUriConnection(String mongodbUriConnection) {
     this.mongodbUriConnection = mongodbUriConnection;
+  }
+
+
+  public DSProducerDetails mongodbUriOptions(String mongodbUriOptions) {
+    
+    this.mongodbUriOptions = mongodbUriOptions;
+    return this;
+  }
+
+   /**
+   * Get mongodbUriOptions
+   * @return mongodbUriOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbUriOptions() {
+    return mongodbUriOptions;
+  }
+
+
+  public void setMongodbUriOptions(String mongodbUriOptions) {
+    this.mongodbUriOptions = mongodbUriOptions;
+  }
+
+
+  public DSProducerDetails mongodbUsername(String mongodbUsername) {
+    
+    this.mongodbUsername = mongodbUsername;
+    return this;
+  }
+
+   /**
+   * Get mongodbUsername
+   * @return mongodbUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbUsername() {
+    return mongodbUsername;
+  }
+
+
+  public void setMongodbUsername(String mongodbUsername) {
+    this.mongodbUsername = mongodbUsername;
   }
 
 
@@ -2732,9 +2975,18 @@ public class DSProducerDetails {
         Objects.equals(this.hostName, dsProducerDetails.hostName) &&
         Objects.equals(this.hostPort, dsProducerDetails.hostPort) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
+        Objects.equals(this.mongodbAtlasApiPrivateKey, dsProducerDetails.mongodbAtlasApiPrivateKey) &&
+        Objects.equals(this.mongodbAtlasApiPublicKey, dsProducerDetails.mongodbAtlasApiPublicKey) &&
+        Objects.equals(this.mongodbAtlasProjectId, dsProducerDetails.mongodbAtlasProjectId) &&
         Objects.equals(this.mongodbDbName, dsProducerDetails.mongodbDbName) &&
+        Objects.equals(this.mongodbDefaultAuthDb, dsProducerDetails.mongodbDefaultAuthDb) &&
+        Objects.equals(this.mongodbHostPort, dsProducerDetails.mongodbHostPort) &&
+        Objects.equals(this.mongodbIsAtlas, dsProducerDetails.mongodbIsAtlas) &&
+        Objects.equals(this.mongodbPassword, dsProducerDetails.mongodbPassword) &&
         Objects.equals(this.mongodbRoles, dsProducerDetails.mongodbRoles) &&
         Objects.equals(this.mongodbUriConnection, dsProducerDetails.mongodbUriConnection) &&
+        Objects.equals(this.mongodbUriOptions, dsProducerDetails.mongodbUriOptions) &&
+        Objects.equals(this.mongodbUsername, dsProducerDetails.mongodbUsername) &&
         Objects.equals(this.mssqlCreationStatements, dsProducerDetails.mssqlCreationStatements) &&
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
@@ -2759,7 +3011,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, allowSubdomains, allowedDomains, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, autoGeneratedFolder, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createCertUsingPki, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gkeClusterCaCertificate, gkeClusterComputeZone, gkeClusterEndpoint, gkeClusterName, gkeProjectId, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, lastAdminRotation, mongodbDbName, mongodbRoles, mongodbUriConnection, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rootFirstInChain, shouldStop, signerKeyName, storePrivateKey, userPrincipalName, userTtl, venafiApiKey, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, allowSubdomains, allowedDomains, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, autoGeneratedFolder, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createCertUsingPki, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gkeClusterCaCertificate, gkeClusterComputeZone, gkeClusterEndpoint, gkeClusterName, gkeProjectId, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rootFirstInChain, shouldStop, signerKeyName, storePrivateKey, userPrincipalName, userTtl, venafiApiKey, venafiZone);
   }
 
 
@@ -2841,9 +3093,18 @@ public class DSProducerDetails {
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");
+    sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
+    sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
+    sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
     sb.append("    mongodbDbName: ").append(toIndentedString(mongodbDbName)).append("\n");
+    sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
+    sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
+    sb.append("    mongodbIsAtlas: ").append(toIndentedString(mongodbIsAtlas)).append("\n");
+    sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
     sb.append("    mongodbRoles: ").append(toIndentedString(mongodbRoles)).append("\n");
     sb.append("    mongodbUriConnection: ").append(toIndentedString(mongodbUriConnection)).append("\n");
+    sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
+    sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    mssqlCreationStatements: ").append(toIndentedString(mssqlCreationStatements)).append("\n");
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
