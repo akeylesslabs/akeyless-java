@@ -34,6 +34,10 @@ public class GetCloudIdentity {
   @SerializedName(SERIALIZED_NAME_AZURE_AD_OBJECT_ID)
   private String azureAdObjectId;
 
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
+  private Boolean debug;
+
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
@@ -63,6 +67,29 @@ public class GetCloudIdentity {
 
   public void setAzureAdObjectId(String azureAdObjectId) {
     this.azureAdObjectId = azureAdObjectId;
+  }
+
+
+  public GetCloudIdentity debug(Boolean debug) {
+    
+    this.debug = debug;
+    return this;
+  }
+
+   /**
+   * Get debug
+   * @return debug
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getDebug() {
+    return debug;
+  }
+
+
+  public void setDebug(Boolean debug) {
+    this.debug = debug;
   }
 
 
@@ -122,13 +149,14 @@ public class GetCloudIdentity {
     }
     GetCloudIdentity getCloudIdentity = (GetCloudIdentity) o;
     return Objects.equals(this.azureAdObjectId, getCloudIdentity.azureAdObjectId) &&
+        Objects.equals(this.debug, getCloudIdentity.debug) &&
         Objects.equals(this.gcpAudience, getCloudIdentity.gcpAudience) &&
         Objects.equals(this.urlSafe, getCloudIdentity.urlSafe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureAdObjectId, gcpAudience, urlSafe);
+    return Objects.hash(azureAdObjectId, debug, gcpAudience, urlSafe);
   }
 
 
@@ -137,6 +165,7 @@ public class GetCloudIdentity {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCloudIdentity {\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    urlSafe: ").append(toIndentedString(urlSafe)).append("\n");
     sb.append("}");

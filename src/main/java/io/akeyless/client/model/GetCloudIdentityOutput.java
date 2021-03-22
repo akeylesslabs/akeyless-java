@@ -29,9 +29,36 @@ import java.io.IOException;
  */
 
 public class GetCloudIdentityOutput {
+  public static final String SERIALIZED_NAME_PROVIDER = "provider";
+  @SerializedName(SERIALIZED_NAME_PROVIDER)
+  private String provider;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+
+  public GetCloudIdentityOutput provider(String provider) {
+    
+    this.provider = provider;
+    return this;
+  }
+
+   /**
+   * Get provider
+   * @return provider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProvider() {
+    return provider;
+  }
+
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
 
 
   public GetCloudIdentityOutput token(String token) {
@@ -66,12 +93,13 @@ public class GetCloudIdentityOutput {
       return false;
     }
     GetCloudIdentityOutput getCloudIdentityOutput = (GetCloudIdentityOutput) o;
-    return Objects.equals(this.token, getCloudIdentityOutput.token);
+    return Objects.equals(this.provider, getCloudIdentityOutput.provider) &&
+        Objects.equals(this.token, getCloudIdentityOutput.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(provider, token);
   }
 
 
@@ -79,6 +107,7 @@ public class GetCloudIdentityOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCloudIdentityOutput {\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();

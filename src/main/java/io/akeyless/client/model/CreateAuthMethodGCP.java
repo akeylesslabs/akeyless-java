@@ -44,23 +44,23 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
-  public static final String SERIALIZED_NAME_BOUND_LABELS = "bound_labels";
+  public static final String SERIALIZED_NAME_BOUND_LABELS = "bound-labels";
   @SerializedName(SERIALIZED_NAME_BOUND_LABELS)
   private List<String> boundLabels = null;
 
-  public static final String SERIALIZED_NAME_BOUND_PROJECTS = "bound_projects";
+  public static final String SERIALIZED_NAME_BOUND_PROJECTS = "bound-projects";
   @SerializedName(SERIALIZED_NAME_BOUND_PROJECTS)
   private List<String> boundProjects = null;
 
-  public static final String SERIALIZED_NAME_BOUND_REGIONS = "bound_regions";
+  public static final String SERIALIZED_NAME_BOUND_REGIONS = "bound-regions";
   @SerializedName(SERIALIZED_NAME_BOUND_REGIONS)
   private List<String> boundRegions = null;
 
-  public static final String SERIALIZED_NAME_BOUND_SERVICE_ACCOUNTS = "bound_service_accounts";
+  public static final String SERIALIZED_NAME_BOUND_SERVICE_ACCOUNTS = "bound-service-accounts";
   @SerializedName(SERIALIZED_NAME_BOUND_SERVICE_ACCOUNTS)
   private List<String> boundServiceAccounts = null;
 
-  public static final String SERIALIZED_NAME_BOUND_ZONES = "bound_zones";
+  public static final String SERIALIZED_NAME_BOUND_ZONES = "bound-zones";
   @SerializedName(SERIALIZED_NAME_BOUND_ZONES)
   private List<String> boundZones = null;
 
@@ -68,13 +68,9 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_DATA = "service_account_data";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_DATA)
-  private String serviceAccountData;
-
-  public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_FILE = "service_account_file";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_FILE)
-  private String serviceAccountFile;
+  public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA = "service-account-creds-data";
+  @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA)
+  private String serviceAccountCredsData;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -343,49 +339,26 @@ public class CreateAuthMethodGCP {
   }
 
 
-  public CreateAuthMethodGCP serviceAccountData(String serviceAccountData) {
+  public CreateAuthMethodGCP serviceAccountCredsData(String serviceAccountCredsData) {
     
-    this.serviceAccountData = serviceAccountData;
+    this.serviceAccountCredsData = serviceAccountCredsData;
     return this;
   }
 
    /**
    * ServiceAccount credentials data instead of giving a file path, base64 encoded
-   * @return serviceAccountData
+   * @return serviceAccountCredsData
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ServiceAccount credentials data instead of giving a file path, base64 encoded")
 
-  public String getServiceAccountData() {
-    return serviceAccountData;
+  public String getServiceAccountCredsData() {
+    return serviceAccountCredsData;
   }
 
 
-  public void setServiceAccountData(String serviceAccountData) {
-    this.serviceAccountData = serviceAccountData;
-  }
-
-
-  public CreateAuthMethodGCP serviceAccountFile(String serviceAccountFile) {
-    
-    this.serviceAccountFile = serviceAccountFile;
-    return this;
-  }
-
-   /**
-   * ServiceAccount credentials file path to be used by Akeyless to validate IAM (Human) and GCE (Machine) logins with GCP
-   * @return serviceAccountFile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ServiceAccount credentials file path to be used by Akeyless to validate IAM (Human) and GCE (Machine) logins with GCP")
-
-  public String getServiceAccountFile() {
-    return serviceAccountFile;
-  }
-
-
-  public void setServiceAccountFile(String serviceAccountFile) {
-    this.serviceAccountFile = serviceAccountFile;
+  public void setServiceAccountCredsData(String serviceAccountCredsData) {
+    this.serviceAccountCredsData = serviceAccountCredsData;
   }
 
 
@@ -476,8 +449,7 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.boundServiceAccounts, createAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, createAuthMethodGCP.boundZones) &&
         Objects.equals(this.name, createAuthMethodGCP.name) &&
-        Objects.equals(this.serviceAccountData, createAuthMethodGCP.serviceAccountData) &&
-        Objects.equals(this.serviceAccountFile, createAuthMethodGCP.serviceAccountFile) &&
+        Objects.equals(this.serviceAccountCredsData, createAuthMethodGCP.serviceAccountCredsData) &&
         Objects.equals(this.token, createAuthMethodGCP.token) &&
         Objects.equals(this.type, createAuthMethodGCP.type) &&
         Objects.equals(this.uidToken, createAuthMethodGCP.uidToken);
@@ -485,7 +457,7 @@ public class CreateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, name, serviceAccountData, serviceAccountFile, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, name, serviceAccountCredsData, token, type, uidToken);
   }
 
 
@@ -502,8 +474,7 @@ public class CreateAuthMethodGCP {
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    serviceAccountData: ").append(toIndentedString(serviceAccountData)).append("\n");
-    sb.append("    serviceAccountFile: ").append(toIndentedString(serviceAccountFile)).append("\n");
+    sb.append("    serviceAccountCredsData: ").append(toIndentedString(serviceAccountCredsData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -16,8 +16,7 @@ Name | Type | Description | Notes
 **boundServiceAccounts** | **List&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Human authentication section &#x3D;&#x3D;&#x3D; List of service accounts the service account must be part of in order to be authenticated. |  [optional]
 **boundZones** | **List&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Machine authentication section &#x3D;&#x3D;&#x3D; List of zones that a GCE instance must belong to in order to be authenticated. TODO: If bound_instance_groups is provided, it is assumed to be a zonal group and the group must belong to this zone. |  [optional]
 **name** | **String** | Auth Method name | 
-**serviceAccountData** | **String** | ServiceAccount credentials data instead of giving a file path, base64 encoded |  [optional]
-**serviceAccountFile** | **String** | ServiceAccount credentials file path to be used by Akeyless to validate IAM (Human) and GCE (Machine) logins with GCP |  [optional]
+**serviceAccountCredsData** | **String** | ServiceAccount credentials data instead of giving a file path, base64 encoded |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **type** | **String** | Type of the GCP Access Rules |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
