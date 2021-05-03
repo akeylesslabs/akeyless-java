@@ -29,13 +29,21 @@ import java.io.IOException;
  */
 
 public class UpdateAWSTargetDetails {
-  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access_key_id";
+  public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";
+  @SerializedName(SERIALIZED_NAME_ACCESS_KEY)
+  private String accessKey;
+
+  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access-key-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
   private String accessKeyId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
+  @SerializedName(SERIALIZED_NAME_NEW_VERSION)
+  private Boolean newVersion = false;
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
@@ -45,11 +53,7 @@ public class UpdateAWSTargetDetails {
   @SerializedName(SERIALIZED_NAME_REGION)
   private String region;
 
-  public static final String SERIALIZED_NAME_SECRET_ACCESS_KEY = "secret_access_key";
-  @SerializedName(SERIALIZED_NAME_SECRET_ACCESS_KEY)
-  private String secretAccessKey;
-
-  public static final String SERIALIZED_NAME_SESSION_TOKEN = "session_token";
+  public static final String SERIALIZED_NAME_SESSION_TOKEN = "session-token";
   @SerializedName(SERIALIZED_NAME_SESSION_TOKEN)
   private String sessionToken;
 
@@ -60,6 +64,29 @@ public class UpdateAWSTargetDetails {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public UpdateAWSTargetDetails accessKey(String accessKey) {
+    
+    this.accessKey = accessKey;
+    return this;
+  }
+
+   /**
+   * Get accessKey
+   * @return accessKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessKey() {
+    return accessKey;
+  }
+
+
+  public void setAccessKey(String accessKey) {
+    this.accessKey = accessKey;
+  }
 
 
   public UpdateAWSTargetDetails accessKeyId(String accessKeyId) {
@@ -107,6 +134,29 @@ public class UpdateAWSTargetDetails {
   }
 
 
+  public UpdateAWSTargetDetails newVersion(Boolean newVersion) {
+    
+    this.newVersion = newVersion;
+    return this;
+  }
+
+   /**
+   * Whether to create a new version of not
+   * @return newVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to create a new version of not")
+
+  public Boolean getNewVersion() {
+    return newVersion;
+  }
+
+
+  public void setNewVersion(Boolean newVersion) {
+    this.newVersion = newVersion;
+  }
+
+
   public UpdateAWSTargetDetails protectionKey(String protectionKey) {
     
     this.protectionKey = protectionKey;
@@ -150,29 +200,6 @@ public class UpdateAWSTargetDetails {
 
   public void setRegion(String region) {
     this.region = region;
-  }
-
-
-  public UpdateAWSTargetDetails secretAccessKey(String secretAccessKey) {
-    
-    this.secretAccessKey = secretAccessKey;
-    return this;
-  }
-
-   /**
-   * Get secretAccessKey
-   * @return secretAccessKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getSecretAccessKey() {
-    return secretAccessKey;
-  }
-
-
-  public void setSecretAccessKey(String secretAccessKey) {
-    this.secretAccessKey = secretAccessKey;
   }
 
 
@@ -254,11 +281,12 @@ public class UpdateAWSTargetDetails {
       return false;
     }
     UpdateAWSTargetDetails updateAWSTargetDetails = (UpdateAWSTargetDetails) o;
-    return Objects.equals(this.accessKeyId, updateAWSTargetDetails.accessKeyId) &&
+    return Objects.equals(this.accessKey, updateAWSTargetDetails.accessKey) &&
+        Objects.equals(this.accessKeyId, updateAWSTargetDetails.accessKeyId) &&
         Objects.equals(this.name, updateAWSTargetDetails.name) &&
+        Objects.equals(this.newVersion, updateAWSTargetDetails.newVersion) &&
         Objects.equals(this.protectionKey, updateAWSTargetDetails.protectionKey) &&
         Objects.equals(this.region, updateAWSTargetDetails.region) &&
-        Objects.equals(this.secretAccessKey, updateAWSTargetDetails.secretAccessKey) &&
         Objects.equals(this.sessionToken, updateAWSTargetDetails.sessionToken) &&
         Objects.equals(this.token, updateAWSTargetDetails.token) &&
         Objects.equals(this.uidToken, updateAWSTargetDetails.uidToken);
@@ -266,7 +294,7 @@ public class UpdateAWSTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, name, protectionKey, region, secretAccessKey, sessionToken, token, uidToken);
+    return Objects.hash(accessKey, accessKeyId, name, newVersion, protectionKey, region, sessionToken, token, uidToken);
   }
 
 
@@ -274,11 +302,12 @@ public class UpdateAWSTargetDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAWSTargetDetails {\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
     sb.append("    sessionToken: ").append(toIndentedString(sessionToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

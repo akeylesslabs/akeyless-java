@@ -23,29 +23,47 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * UpdateSSHTargetDetails
  */
 
 public class UpdateSSHTargetDetails {
-  public static final String SERIALIZED_NAME_IP = "ip";
-  @SerializedName(SERIALIZED_NAME_IP)
-  private List<String> ip = null;
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
+  private String host;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
+  @SerializedName(SERIALIZED_NAME_NEW_VERSION)
+  private Boolean newVersion = false;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
 
+  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+  private String privateKey;
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSWORD = "private-key-password";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSWORD)
+  private String privateKeyPassword;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
+
+  public static final String SERIALIZED_NAME_SSH_PASSWORD = "ssh-password";
+  @SerializedName(SERIALIZED_NAME_SSH_PASSWORD)
+  private String sshPassword;
+
+  public static final String SERIALIZED_NAME_SSH_USERNAME = "ssh-username";
+  @SerializedName(SERIALIZED_NAME_SSH_USERNAME)
+  private String sshUsername;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -56,34 +74,26 @@ public class UpdateSSHTargetDetails {
   private String uidToken;
 
 
-  public UpdateSSHTargetDetails ip(List<String> ip) {
+  public UpdateSSHTargetDetails host(String host) {
     
-    this.ip = ip;
-    return this;
-  }
-
-  public UpdateSSHTargetDetails addIpItem(String ipItem) {
-    if (this.ip == null) {
-      this.ip = new ArrayList<String>();
-    }
-    this.ip.add(ipItem);
+    this.host = host;
     return this;
   }
 
    /**
-   * Get ip
-   * @return ip
+   * Get host
+   * @return host
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getIp() {
-    return ip;
+  public String getHost() {
+    return host;
   }
 
 
-  public void setIp(List<String> ip) {
-    this.ip = ip;
+  public void setHost(String host) {
+    this.host = host;
   }
 
 
@@ -106,6 +116,29 @@ public class UpdateSSHTargetDetails {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateSSHTargetDetails newVersion(Boolean newVersion) {
+    
+    this.newVersion = newVersion;
+    return this;
+  }
+
+   /**
+   * Whether to create a new version of not
+   * @return newVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to create a new version of not")
+
+  public Boolean getNewVersion() {
+    return newVersion;
+  }
+
+
+  public void setNewVersion(Boolean newVersion) {
+    this.newVersion = newVersion;
   }
 
 
@@ -132,6 +165,52 @@ public class UpdateSSHTargetDetails {
   }
 
 
+  public UpdateSSHTargetDetails privateKey(String privateKey) {
+    
+    this.privateKey = privateKey;
+    return this;
+  }
+
+   /**
+   * Get privateKey
+   * @return privateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivateKey() {
+    return privateKey;
+  }
+
+
+  public void setPrivateKey(String privateKey) {
+    this.privateKey = privateKey;
+  }
+
+
+  public UpdateSSHTargetDetails privateKeyPassword(String privateKeyPassword) {
+    
+    this.privateKeyPassword = privateKeyPassword;
+    return this;
+  }
+
+   /**
+   * Get privateKeyPassword
+   * @return privateKeyPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivateKeyPassword() {
+    return privateKeyPassword;
+  }
+
+
+  public void setPrivateKeyPassword(String privateKeyPassword) {
+    this.privateKeyPassword = privateKeyPassword;
+  }
+
+
   public UpdateSSHTargetDetails protectionKey(String protectionKey) {
     
     this.protectionKey = protectionKey;
@@ -152,6 +231,52 @@ public class UpdateSSHTargetDetails {
 
   public void setProtectionKey(String protectionKey) {
     this.protectionKey = protectionKey;
+  }
+
+
+  public UpdateSSHTargetDetails sshPassword(String sshPassword) {
+    
+    this.sshPassword = sshPassword;
+    return this;
+  }
+
+   /**
+   * Get sshPassword
+   * @return sshPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshPassword() {
+    return sshPassword;
+  }
+
+
+  public void setSshPassword(String sshPassword) {
+    this.sshPassword = sshPassword;
+  }
+
+
+  public UpdateSSHTargetDetails sshUsername(String sshUsername) {
+    
+    this.sshUsername = sshUsername;
+    return this;
+  }
+
+   /**
+   * Get sshUsername
+   * @return sshUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshUsername() {
+    return sshUsername;
+  }
+
+
+  public void setSshUsername(String sshUsername) {
+    this.sshUsername = sshUsername;
   }
 
 
@@ -210,17 +335,22 @@ public class UpdateSSHTargetDetails {
       return false;
     }
     UpdateSSHTargetDetails updateSSHTargetDetails = (UpdateSSHTargetDetails) o;
-    return Objects.equals(this.ip, updateSSHTargetDetails.ip) &&
+    return Objects.equals(this.host, updateSSHTargetDetails.host) &&
         Objects.equals(this.name, updateSSHTargetDetails.name) &&
+        Objects.equals(this.newVersion, updateSSHTargetDetails.newVersion) &&
         Objects.equals(this.port, updateSSHTargetDetails.port) &&
+        Objects.equals(this.privateKey, updateSSHTargetDetails.privateKey) &&
+        Objects.equals(this.privateKeyPassword, updateSSHTargetDetails.privateKeyPassword) &&
         Objects.equals(this.protectionKey, updateSSHTargetDetails.protectionKey) &&
+        Objects.equals(this.sshPassword, updateSSHTargetDetails.sshPassword) &&
+        Objects.equals(this.sshUsername, updateSSHTargetDetails.sshUsername) &&
         Objects.equals(this.token, updateSSHTargetDetails.token) &&
         Objects.equals(this.uidToken, updateSSHTargetDetails.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ip, name, port, protectionKey, token, uidToken);
+    return Objects.hash(host, name, newVersion, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken);
   }
 
 
@@ -228,10 +358,15 @@ public class UpdateSSHTargetDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHTargetDetails {\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
+    sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

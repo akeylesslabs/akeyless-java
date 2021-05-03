@@ -33,6 +33,14 @@ public class GetTargetDetails {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_SHOW_VERSIONS = "show-versions";
+  @SerializedName(SERIALIZED_NAME_SHOW_VERSIONS)
+  private Boolean showVersions = false;
+
+  public static final String SERIALIZED_NAME_TARGET_VERSION = "target-version";
+  @SerializedName(SERIALIZED_NAME_TARGET_VERSION)
+  private Integer targetVersion;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -61,6 +69,52 @@ public class GetTargetDetails {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GetTargetDetails showVersions(Boolean showVersions) {
+    
+    this.showVersions = showVersions;
+    return this;
+  }
+
+   /**
+   * Include all target versions in reply
+   * @return showVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Include all target versions in reply")
+
+  public Boolean getShowVersions() {
+    return showVersions;
+  }
+
+
+  public void setShowVersions(Boolean showVersions) {
+    this.showVersions = showVersions;
+  }
+
+
+  public GetTargetDetails targetVersion(Integer targetVersion) {
+    
+    this.targetVersion = targetVersion;
+    return this;
+  }
+
+   /**
+   * Target version
+   * @return targetVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target version")
+
+  public Integer getTargetVersion() {
+    return targetVersion;
+  }
+
+
+  public void setTargetVersion(Integer targetVersion) {
+    this.targetVersion = targetVersion;
   }
 
 
@@ -120,13 +174,15 @@ public class GetTargetDetails {
     }
     GetTargetDetails getTargetDetails = (GetTargetDetails) o;
     return Objects.equals(this.name, getTargetDetails.name) &&
+        Objects.equals(this.showVersions, getTargetDetails.showVersions) &&
+        Objects.equals(this.targetVersion, getTargetDetails.targetVersion) &&
         Objects.equals(this.token, getTargetDetails.token) &&
         Objects.equals(this.uidToken, getTargetDetails.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(name, showVersions, targetVersion, token, uidToken);
   }
 
 
@@ -135,6 +191,8 @@ public class GetTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTargetDetails {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
+    sb.append("    targetVersion: ").append(toIndentedString(targetVersion)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

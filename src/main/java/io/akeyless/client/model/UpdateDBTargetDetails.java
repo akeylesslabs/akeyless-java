@@ -49,6 +49,10 @@ public class UpdateDBTargetDetails {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
+  @SerializedName(SERIALIZED_NAME_NEW_VERSION)
+  private Boolean newVersion = false;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
@@ -185,6 +189,29 @@ public class UpdateDBTargetDetails {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateDBTargetDetails newVersion(Boolean newVersion) {
+    
+    this.newVersion = newVersion;
+    return this;
+  }
+
+   /**
+   * Whether to create a new version of not
+   * @return newVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to create a new version of not")
+
+  public Boolean getNewVersion() {
+    return newVersion;
+  }
+
+
+  public void setNewVersion(Boolean newVersion) {
+    this.newVersion = newVersion;
   }
 
 
@@ -340,6 +367,7 @@ public class UpdateDBTargetDetails {
         Objects.equals(this.mongoDbName, updateDBTargetDetails.mongoDbName) &&
         Objects.equals(this.mongoUri, updateDBTargetDetails.mongoUri) &&
         Objects.equals(this.name, updateDBTargetDetails.name) &&
+        Objects.equals(this.newVersion, updateDBTargetDetails.newVersion) &&
         Objects.equals(this.port, updateDBTargetDetails.port) &&
         Objects.equals(this.protectionKey, updateDBTargetDetails.protectionKey) &&
         Objects.equals(this.pwd, updateDBTargetDetails.pwd) &&
@@ -350,7 +378,7 @@ public class UpdateDBTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbType, hostName, mongoDbName, mongoUri, name, port, protectionKey, pwd, token, uidToken, userName);
+    return Objects.hash(dbType, hostName, mongoDbName, mongoUri, name, newVersion, port, protectionKey, pwd, token, uidToken, userName);
   }
 
 
@@ -363,6 +391,7 @@ public class UpdateDBTargetDetails {
     sb.append("    mongoDbName: ").append(toIndentedString(mongoDbName)).append("\n");
     sb.append("    mongoUri: ").append(toIndentedString(mongoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");

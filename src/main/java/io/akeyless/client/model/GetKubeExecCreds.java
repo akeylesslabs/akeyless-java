@@ -42,13 +42,9 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_COMMON_NAME)
   private String commonName;
 
-  public static final String SERIALIZED_NAME_KEY_FILE_PATH = "key-file-path";
-  @SerializedName(SERIALIZED_NAME_KEY_FILE_PATH)
-  private String keyFilePath;
-
-  public static final String SERIALIZED_NAME_OUTFILE = "outfile";
-  @SerializedName(SERIALIZED_NAME_OUTFILE)
-  private String outfile;
+  public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
+  @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
+  private String keyDataBase64;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -131,48 +127,26 @@ public class GetKubeExecCreds {
   }
 
 
-  public GetKubeExecCreds keyFilePath(String keyFilePath) {
+  public GetKubeExecCreds keyDataBase64(String keyDataBase64) {
     
-    this.keyFilePath = keyFilePath;
+    this.keyDataBase64 = keyDataBase64;
     return this;
   }
 
    /**
-   * The client public or private key file path (in case of a private key, it will be use to extract the public key)
-   * @return keyFilePath
-  **/
-  @ApiModelProperty(required = true, value = "The client public or private key file path (in case of a private key, it will be use to extract the public key)")
-
-  public String getKeyFilePath() {
-    return keyFilePath;
-  }
-
-
-  public void setKeyFilePath(String keyFilePath) {
-    this.keyFilePath = keyFilePath;
-  }
-
-
-  public GetKubeExecCreds outfile(String outfile) {
-    
-    this.outfile = outfile;
-    return this;
-  }
-
-   /**
-   * Output file path with the certificate. If not provided, the file with the certificate will be created in the same location of the provided public key with the -cert extension
-   * @return outfile
+   * PKI key file contents. If this option is used, the certificate will be printed to stdout
+   * @return keyDataBase64
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Output file path with the certificate. If not provided, the file with the certificate will be created in the same location of the provided public key with the -cert extension")
+  @ApiModelProperty(value = "PKI key file contents. If this option is used, the certificate will be printed to stdout")
 
-  public String getOutfile() {
-    return outfile;
+  public String getKeyDataBase64() {
+    return keyDataBase64;
   }
 
 
-  public void setOutfile(String outfile) {
-    this.outfile = outfile;
+  public void setKeyDataBase64(String keyDataBase64) {
+    this.keyDataBase64 = keyDataBase64;
   }
 
 
@@ -257,8 +231,7 @@ public class GetKubeExecCreds {
     return Objects.equals(this.altNames, getKubeExecCreds.altNames) &&
         Objects.equals(this.certIssuerName, getKubeExecCreds.certIssuerName) &&
         Objects.equals(this.commonName, getKubeExecCreds.commonName) &&
-        Objects.equals(this.keyFilePath, getKubeExecCreds.keyFilePath) &&
-        Objects.equals(this.outfile, getKubeExecCreds.outfile) &&
+        Objects.equals(this.keyDataBase64, getKubeExecCreds.keyDataBase64) &&
         Objects.equals(this.token, getKubeExecCreds.token) &&
         Objects.equals(this.uidToken, getKubeExecCreds.uidToken) &&
         Objects.equals(this.uriSans, getKubeExecCreds.uriSans);
@@ -266,7 +239,7 @@ public class GetKubeExecCreds {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, keyFilePath, outfile, token, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, token, uidToken, uriSans);
   }
 
 
@@ -277,8 +250,7 @@ public class GetKubeExecCreds {
     sb.append("    altNames: ").append(toIndentedString(altNames)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
-    sb.append("    keyFilePath: ").append(toIndentedString(keyFilePath)).append("\n");
-    sb.append("    outfile: ").append(toIndentedString(outfile)).append("\n");
+    sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uriSans: ").append(toIndentedString(uriSans)).append("\n");

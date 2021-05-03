@@ -29,7 +29,11 @@ import java.io.IOException;
  */
 
 public class CreateAwsTarget {
-  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access_key_id";
+  public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";
+  @SerializedName(SERIALIZED_NAME_ACCESS_KEY)
+  private String accessKey;
+
+  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access-key-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
   private String accessKeyId;
 
@@ -49,11 +53,7 @@ public class CreateAwsTarget {
   @SerializedName(SERIALIZED_NAME_REGION)
   private String region;
 
-  public static final String SERIALIZED_NAME_SECRET_ACCESS_KEY = "secret_access_key";
-  @SerializedName(SERIALIZED_NAME_SECRET_ACCESS_KEY)
-  private String secretAccessKey;
-
-  public static final String SERIALIZED_NAME_SESSION_TOKEN = "session_token";
+  public static final String SERIALIZED_NAME_SESSION_TOKEN = "session-token";
   @SerializedName(SERIALIZED_NAME_SESSION_TOKEN)
   private String sessionToken;
 
@@ -64,6 +64,29 @@ public class CreateAwsTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public CreateAwsTarget accessKey(String accessKey) {
+    
+    this.accessKey = accessKey;
+    return this;
+  }
+
+   /**
+   * Get accessKey
+   * @return accessKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessKey() {
+    return accessKey;
+  }
+
+
+  public void setAccessKey(String accessKey) {
+    this.accessKey = accessKey;
+  }
 
 
   public CreateAwsTarget accessKeyId(String accessKeyId) {
@@ -180,29 +203,6 @@ public class CreateAwsTarget {
   }
 
 
-  public CreateAwsTarget secretAccessKey(String secretAccessKey) {
-    
-    this.secretAccessKey = secretAccessKey;
-    return this;
-  }
-
-   /**
-   * Get secretAccessKey
-   * @return secretAccessKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getSecretAccessKey() {
-    return secretAccessKey;
-  }
-
-
-  public void setSecretAccessKey(String secretAccessKey) {
-    this.secretAccessKey = secretAccessKey;
-  }
-
-
   public CreateAwsTarget sessionToken(String sessionToken) {
     
     this.sessionToken = sessionToken;
@@ -281,12 +281,12 @@ public class CreateAwsTarget {
       return false;
     }
     CreateAwsTarget createAwsTarget = (CreateAwsTarget) o;
-    return Objects.equals(this.accessKeyId, createAwsTarget.accessKeyId) &&
+    return Objects.equals(this.accessKey, createAwsTarget.accessKey) &&
+        Objects.equals(this.accessKeyId, createAwsTarget.accessKeyId) &&
         Objects.equals(this.comment, createAwsTarget.comment) &&
         Objects.equals(this.name, createAwsTarget.name) &&
         Objects.equals(this.protectionKey, createAwsTarget.protectionKey) &&
         Objects.equals(this.region, createAwsTarget.region) &&
-        Objects.equals(this.secretAccessKey, createAwsTarget.secretAccessKey) &&
         Objects.equals(this.sessionToken, createAwsTarget.sessionToken) &&
         Objects.equals(this.token, createAwsTarget.token) &&
         Objects.equals(this.uidToken, createAwsTarget.uidToken);
@@ -294,7 +294,7 @@ public class CreateAwsTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, comment, name, protectionKey, region, secretAccessKey, sessionToken, token, uidToken);
+    return Objects.hash(accessKey, accessKeyId, comment, name, protectionKey, region, sessionToken, token, uidToken);
   }
 
 
@@ -302,12 +302,12 @@ public class CreateAwsTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAwsTarget {\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
     sb.append("    sessionToken: ").append(toIndentedString(sessionToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

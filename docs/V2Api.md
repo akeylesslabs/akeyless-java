@@ -20,10 +20,12 @@ Method | HTTP request | Description
 [**createDBTarget**](V2Api.md#createDBTarget) | **POST** /create-db-target | 
 [**createDynamicSecret**](V2Api.md#createDynamicSecret) | **POST** /create-dynamic-secret | 
 [**createKey**](V2Api.md#createKey) | **POST** /create-key | 
+[**createManagedKey**](V2Api.md#createManagedKey) | **POST** /create-managed-key | 
 [**createPKICertIssuer**](V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
 [**createRabbitMQTarget**](V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitMQ-target | 
 [**createRdpTarget**](V2Api.md#createRdpTarget) | **POST** /create-rdp-target | 
 [**createRole**](V2Api.md#createRole) | **POST** /create-role | 
+[**createRotatedSecret**](V2Api.md#createRotatedSecret) | **POST** /create-rotated-secret | 
 [**createSSHCertIssuer**](V2Api.md#createSSHCertIssuer) | **POST** /create-ssh-cert-issuer | 
 [**createSSHTarget**](V2Api.md#createSSHTarget) | **POST** /create-ssh-target | 
 [**createSecret**](V2Api.md#createSecret) | **POST** /create-secret | 
@@ -43,13 +45,17 @@ Method | HTTP request | Description
 [**deleteTargetAssociation**](V2Api.md#deleteTargetAssociation) | **POST** /delete-assoc-target-item | 
 [**deleteTargets**](V2Api.md#deleteTargets) | **POST** /delete-targets | 
 [**describeItem**](V2Api.md#describeItem) | **POST** /describe-item | 
+[**describePermissions**](V2Api.md#describePermissions) | **POST** /describe-permissions | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptPKCS1**](V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
 [**gatewayAddSubAdmins**](V2Api.md#gatewayAddSubAdmins) | **POST** /gateway-add-sub-admins | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
 [**gatewayCreateProducerAws**](V2Api.md#gatewayCreateProducerAws) | **POST** /gateway-create-producer-aws | 
 [**gatewayCreateProducerAzure**](V2Api.md#gatewayCreateProducerAzure) | **POST** /gateway-create-producer-azure | 
+[**gatewayCreateProducerCertificateAutomation**](V2Api.md#gatewayCreateProducerCertificateAutomation) | **POST** /gateway-create-producer-certificate-automation | 
+[**gatewayCreateProducerCustom**](V2Api.md#gatewayCreateProducerCustom) | **POST** /gateway-create-producer-custom | 
 [**gatewayCreateProducerEks**](V2Api.md#gatewayCreateProducerEks) | **POST** /gateway-create-producer-eks | 
+[**gatewayCreateProducerGcp**](V2Api.md#gatewayCreateProducerGcp) | **POST** /gateway-create-producer-gcp | 
 [**gatewayCreateProducerGke**](V2Api.md#gatewayCreateProducerGke) | **POST** /gateway-create-producer-gke | 
 [**gatewayCreateProducerMSSQL**](V2Api.md#gatewayCreateProducerMSSQL) | **POST** /gateway-create-producer-mssql | 
 [**gatewayCreateProducerMongo**](V2Api.md#gatewayCreateProducerMongo) | **POST** /gateway-create-producer-mongo | 
@@ -57,7 +63,6 @@ Method | HTTP request | Description
 [**gatewayCreateProducerPostgreSQL**](V2Api.md#gatewayCreateProducerPostgreSQL) | **POST** /gateway-create-producer-postgresql | 
 [**gatewayCreateProducerRabbitMQ**](V2Api.md#gatewayCreateProducerRabbitMQ) | **POST** /gateway-create-producer-rabbitmq | 
 [**gatewayCreateProducerRdp**](V2Api.md#gatewayCreateProducerRdp) | **POST** /gateway-create-producer-rdp | 
-[**gatewayCreateProducerVenafi**](V2Api.md#gatewayCreateProducerVenafi) | **POST** /gateway-create-producer-venafi | 
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 [**gatewayDeleteSubAdmins**](V2Api.md#gatewayDeleteSubAdmins) | **POST** /gateway-delete-sub-admins | 
 [**gatewayGetConfig**](V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
@@ -68,12 +73,16 @@ Method | HTTP request | Description
 [**gatewayRevokeTmpUsers**](V2Api.md#gatewayRevokeTmpUsers) | **POST** /gateway-revoke-producer-tmp-creds | 
 [**gatewayStartProducer**](V2Api.md#gatewayStartProducer) | **POST** /gateway-start-producer | 
 [**gatewayStopProducer**](V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
+[**gatewayUpdateItem**](V2Api.md#gatewayUpdateItem) | **POST** /update-managed-key | 
 [**gatewayUpdateTmpUsers**](V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
 [**getAccountLogo**](V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 [**getAuthMethod**](V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
 [**getDynamicSecretValue**](V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
+[**getKubeExecCreds**](V2Api.md#getKubeExecCreds) | **POST** /get-kube-exec-creds | 
+[**getPKICertificate**](V2Api.md#getPKICertificate) | **POST** /get-pki-certificate | 
 [**getRSAPublic**](V2Api.md#getRSAPublic) | **POST** /get-rsa-public | 
 [**getRole**](V2Api.md#getRole) | **POST** /get-role | 
+[**getRotatedSecretValue**](V2Api.md#getRotatedSecretValue) | **POST** /get-rotated-secret-value | 
 [**getSSHCertificate**](V2Api.md#getSSHCertificate) | **POST** /get-ssh-certificate | 
 [**getSecretValue**](V2Api.md#getSecretValue) | **POST** /get-secret-value | 
 [**getTarget**](V2Api.md#getTarget) | **POST** /get-target | 
@@ -103,6 +112,8 @@ Method | HTTP request | Description
 [**updateRDPTargetDetails**](V2Api.md#updateRDPTargetDetails) | **POST** /update-rdp-target-details | 
 [**updateRabbitMQTargetDetails**](V2Api.md#updateRabbitMQTargetDetails) | **POST** /update-rabbitmq-target-details | 
 [**updateRole**](V2Api.md#updateRole) | **POST** /update-role | 
+[**updateRotatedSecret**](V2Api.md#updateRotatedSecret) | **POST** /update-rotated-secret | 
+[**updateRotationSettings**](V2Api.md#updateRotationSettings) | **POST** /update-rotation-settingsrotate-key | 
 [**updateSSHTargetDetails**](V2Api.md#updateSSHTargetDetails) | **POST** /update-ssh-target-details | 
 [**updateSecretVal**](V2Api.md#updateSecretVal) | **POST** /update-secret-val | 
 [**updateTarget**](V2Api.md#updateTarget) | **POST** /update-target | 
@@ -847,7 +858,7 @@ No authorization required
 
 <a name="createAwsTarget"></a>
 # **createAwsTarget**
-> Object createAwsTarget(body)
+> CreateTargetOutput createAwsTarget(body)
 
 
 
@@ -868,7 +879,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     CreateAwsTarget body = new CreateAwsTarget(); // CreateAwsTarget | 
     try {
-      Object result = apiInstance.createAwsTarget(body);
+      CreateTargetOutput result = apiInstance.createAwsTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createAwsTarget");
@@ -889,7 +900,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -908,7 +919,7 @@ No authorization required
 
 <a name="createDBTarget"></a>
 # **createDBTarget**
-> Object createDBTarget(body)
+> CreateTargetOutput createDBTarget(body)
 
 
 
@@ -929,7 +940,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     CreateDBTarget body = new CreateDBTarget(); // CreateDBTarget | 
     try {
-      Object result = apiInstance.createDBTarget(body);
+      CreateTargetOutput result = apiInstance.createDBTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createDBTarget");
@@ -950,7 +961,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -1089,6 +1100,67 @@ No authorization required
 **200** | createKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="createManagedKey"></a>
+# **createManagedKey**
+> CreateManagedKeyOutput createManagedKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateManagedKey body = new CreateManagedKey(); // CreateManagedKey | 
+    try {
+      CreateManagedKeyOutput result = apiInstance.createManagedKey(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createManagedKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateManagedKey**](CreateManagedKey.md)|  |
+
+### Return type
+
+[**CreateManagedKeyOutput**](CreateManagedKeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | CreateManagedKeyResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="createPKICertIssuer"></a>
 # **createPKICertIssuer**
 > CreatePKICertIssuerOutput createPKICertIssuer(body)
@@ -1152,7 +1224,7 @@ No authorization required
 
 <a name="createRabbitMQTarget"></a>
 # **createRabbitMQTarget**
-> Object createRabbitMQTarget(body)
+> CreateTargetOutput createRabbitMQTarget(body)
 
 
 
@@ -1173,7 +1245,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     CreateRabbitMQTarget body = new CreateRabbitMQTarget(); // CreateRabbitMQTarget | 
     try {
-      Object result = apiInstance.createRabbitMQTarget(body);
+      CreateTargetOutput result = apiInstance.createRabbitMQTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createRabbitMQTarget");
@@ -1194,7 +1266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -1213,7 +1285,7 @@ No authorization required
 
 <a name="createRdpTarget"></a>
 # **createRdpTarget**
-> Object createRdpTarget(body)
+> CreateTargetOutput createRdpTarget(body)
 
 
 
@@ -1234,7 +1306,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     CreateRdpTarget body = new CreateRdpTarget(); // CreateRdpTarget | 
     try {
-      Object result = apiInstance.createRdpTarget(body);
+      CreateTargetOutput result = apiInstance.createRdpTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createRdpTarget");
@@ -1255,7 +1327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -1333,6 +1405,67 @@ No authorization required
 **200** | createRoleResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="createRotatedSecret"></a>
+# **createRotatedSecret**
+> CreateRotatedSecretOutput createRotatedSecret(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateRotatedSecret body = new CreateRotatedSecret(); // CreateRotatedSecret | 
+    try {
+      CreateRotatedSecretOutput result = apiInstance.createRotatedSecret(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createRotatedSecret");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateRotatedSecret**](CreateRotatedSecret.md)|  |
+
+### Return type
+
+[**CreateRotatedSecretOutput**](CreateRotatedSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createRotatedSecretResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="createSSHCertIssuer"></a>
 # **createSSHCertIssuer**
 > CreateSSHCertIssuerOutput createSSHCertIssuer(body)
@@ -1396,7 +1529,7 @@ No authorization required
 
 <a name="createSSHTarget"></a>
 # **createSSHTarget**
-> Object createSSHTarget(body)
+> CreateTargetOutput createSSHTarget(body)
 
 
 
@@ -1417,7 +1550,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     CreateSSHTarget body = new CreateSSHTarget(); // CreateSSHTarget | 
     try {
-      Object result = apiInstance.createSSHTarget(body);
+      CreateTargetOutput result = apiInstance.createSSHTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createSSHTarget");
@@ -1438,7 +1571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -1518,7 +1651,7 @@ No authorization required
 
 <a name="createTarget"></a>
 # **createTarget**
-> Object createTarget(body)
+> CreateTargetOutput createTarget(body)
 
 
 
@@ -1539,7 +1672,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     Object body = null; // Object | 
     try {
-      Object result = apiInstance.createTarget(body);
+      CreateTargetOutput result = apiInstance.createTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createTarget");
@@ -1560,7 +1693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -1579,7 +1712,7 @@ No authorization required
 
 <a name="createWebTarget"></a>
 # **createWebTarget**
-> Object createWebTarget(body)
+> CreateTargetOutput createWebTarget(body)
 
 
 
@@ -1600,7 +1733,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     CreateWebTarget body = new CreateWebTarget(); // CreateWebTarget | 
     try {
-      Object result = apiInstance.createWebTarget(body);
+      CreateTargetOutput result = apiInstance.createWebTarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#createWebTarget");
@@ -1621,7 +1754,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CreateTargetOutput**](CreateTargetOutput.md)
 
 ### Authorization
 
@@ -2492,6 +2625,67 @@ No authorization required
 **200** | describeItemResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="describePermissions"></a>
+# **describePermissions**
+> DescribePermissionsOutput describePermissions(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DescribePermissions body = new DescribePermissions(); // DescribePermissions | 
+    try {
+      DescribePermissionsOutput result = apiInstance.describePermissions(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#describePermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DescribePermissions**](DescribePermissions.md)|  |
+
+### Return type
+
+[**DescribePermissionsOutput**](DescribePermissionsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | DescribePermissionsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="encrypt"></a>
 # **encrypt**
 > EncryptOutput encrypt(body)
@@ -2858,6 +3052,128 @@ No authorization required
 **201** | gatewayCreateProducerAzureResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayCreateProducerCertificateAutomation"></a>
+# **gatewayCreateProducerCertificateAutomation**
+> GatewayCreateProducerCertificateAutomationOutput gatewayCreateProducerCertificateAutomation(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateProducerCertificateAutomation body = new GatewayCreateProducerCertificateAutomation(); // GatewayCreateProducerCertificateAutomation | 
+    try {
+      GatewayCreateProducerCertificateAutomationOutput result = apiInstance.gatewayCreateProducerCertificateAutomation(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateProducerCertificateAutomation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateProducerCertificateAutomation**](GatewayCreateProducerCertificateAutomation.md)|  |
+
+### Return type
+
+[**GatewayCreateProducerCertificateAutomationOutput**](GatewayCreateProducerCertificateAutomationOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayCreateProducerCertificateAutomationResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayCreateProducerCustom"></a>
+# **gatewayCreateProducerCustom**
+> GatewayCreateProducerCustomOutput gatewayCreateProducerCustom(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateProducerCustom body = new GatewayCreateProducerCustom(); // GatewayCreateProducerCustom | 
+    try {
+      GatewayCreateProducerCustomOutput result = apiInstance.gatewayCreateProducerCustom(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateProducerCustom");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateProducerCustom**](GatewayCreateProducerCustom.md)|  | [optional]
+
+### Return type
+
+[**GatewayCreateProducerCustomOutput**](GatewayCreateProducerCustomOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayCreateProducerCustomResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayCreateProducerEks"></a>
 # **gatewayCreateProducerEks**
 > GatewayCreateProducerEksOutput gatewayCreateProducerEks(body)
@@ -2917,6 +3233,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayCreateProducerEksResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayCreateProducerGcp"></a>
+# **gatewayCreateProducerGcp**
+> GatewayCreateProducerGcpOutput gatewayCreateProducerGcp(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateProducerGcp body = new GatewayCreateProducerGcp(); // GatewayCreateProducerGcp | 
+    try {
+      GatewayCreateProducerGcpOutput result = apiInstance.gatewayCreateProducerGcp(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateProducerGcp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateProducerGcp**](GatewayCreateProducerGcp.md)|  |
+
+### Return type
+
+[**GatewayCreateProducerGcpOutput**](GatewayCreateProducerGcpOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayCreateProducerGcpResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateProducerGke"></a>
@@ -3344,67 +3721,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayCreateProducerRdpResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="gatewayCreateProducerVenafi"></a>
-# **gatewayCreateProducerVenafi**
-> GatewayCreateProducerAwsOutput gatewayCreateProducerVenafi(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    GatewayCreateProducerAws body = new GatewayCreateProducerAws(); // GatewayCreateProducerAws | 
-    try {
-      GatewayCreateProducerAwsOutput result = apiInstance.gatewayCreateProducerVenafi(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#gatewayCreateProducerVenafi");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GatewayCreateProducerAws**](GatewayCreateProducerAws.md)|  |
-
-### Return type
-
-[**GatewayCreateProducerAwsOutput**](GatewayCreateProducerAwsOutput.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | gatewayCreateProducerVenafiResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayDeleteProducer"></a>
@@ -4016,6 +4332,62 @@ No authorization required
 **200** | gatewayStopProducerResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayUpdateItem"></a>
+# **gatewayUpdateItem**
+> gatewayUpdateItem()
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    try {
+      apiInstance.gatewayUpdateItem();
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateItem");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayUpdateTmpUsers"></a>
 # **gatewayUpdateTmpUsers**
 > gatewayUpdateTmpUsers(body)
@@ -4255,6 +4627,124 @@ No authorization required
 **200** | getDynamicSecretValueResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="getKubeExecCreds"></a>
+# **getKubeExecCreds**
+> GetKubeExecCredsOutput getKubeExecCreds(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GetKubeExecCreds body = new GetKubeExecCreds(); // GetKubeExecCreds | 
+    try {
+      GetKubeExecCredsOutput result = apiInstance.getKubeExecCreds(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getKubeExecCreds");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GetKubeExecCreds**](GetKubeExecCreds.md)|  |
+
+### Return type
+
+[**GetKubeExecCredsOutput**](GetKubeExecCredsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | getKubeExecCredsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="getPKICertificate"></a>
+# **getPKICertificate**
+> GetPKICertificateOutput getPKICertificate()
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    try {
+      GetPKICertificateOutput result = apiInstance.getPKICertificate();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getPKICertificate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetPKICertificateOutput**](GetPKICertificateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | getPKICertificateResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="getRSAPublic"></a>
 # **getRSAPublic**
 > GetRSAPublicOutput getRSAPublic(body)
@@ -4375,6 +4865,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | getRoleResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="getRotatedSecretValue"></a>
+# **getRotatedSecretValue**
+> Map&lt;String, String&gt; getRotatedSecretValue(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GetRotatedSecretValue body = new GetRotatedSecretValue(); // GetRotatedSecretValue | 
+    try {
+      Map<String, String> result = apiInstance.getRotatedSecretValue(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getRotatedSecretValue");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GetRotatedSecretValue**](GetRotatedSecretValue.md)|  |
+
+### Return type
+
+**Map&lt;String, String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | getRotatedSecretValueResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="getSSHCertificate"></a>
@@ -5191,7 +5742,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    RotateKey body = new RotateKey(); // RotateKey | 
+    UpdateRotationSettings body = new UpdateRotationSettings(); // UpdateRotationSettings | 
     try {
       RotateKeyOutput result = apiInstance.rotateKey(body);
       System.out.println(result);
@@ -5210,7 +5761,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RotateKey**](RotateKey.md)|  |
+ **body** | [**UpdateRotationSettings**](UpdateRotationSettings.md)|  |
 
 ### Return type
 
@@ -6144,6 +6695,124 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateRoleResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateRotatedSecret"></a>
+# **updateRotatedSecret**
+> UpdateRotatedSecretOutput updateRotatedSecret(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateRotatedSecret body = new UpdateRotatedSecret(); // UpdateRotatedSecret | 
+    try {
+      UpdateRotatedSecretOutput result = apiInstance.updateRotatedSecret(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateRotatedSecret");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateRotatedSecret**](UpdateRotatedSecret.md)|  |
+
+### Return type
+
+[**UpdateRotatedSecretOutput**](UpdateRotatedSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateRotatedSecretResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateRotationSettings"></a>
+# **updateRotationSettings**
+> RotateKeyOutput updateRotationSettings()
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    try {
+      RotateKeyOutput result = apiInstance.updateRotationSettings();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateRotationSettings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RotateKeyOutput**](RotateKeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | rotateKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateSSHTargetDetails"></a>

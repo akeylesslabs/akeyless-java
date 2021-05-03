@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.ItemVersion;
 import io.akeyless.client.model.TargetItemAssociation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,9 +33,17 @@ import java.util.List;
  */
 
 public class Target {
+  public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
+  @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
+  private List<String> clientPermissions = null;
+
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
+
+  public static final String SERIALIZED_NAME_LAST_VERSION = "last_version";
+  @SerializedName(SERIALIZED_NAME_LAST_VERSION)
+  private Integer lastVersion;
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection_key_name";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
@@ -56,9 +65,44 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_TARGET_TYPE)
   private String targetType;
 
+  public static final String SERIALIZED_NAME_TARGET_VERSIONS = "target_versions";
+  @SerializedName(SERIALIZED_NAME_TARGET_VERSIONS)
+  private List<ItemVersion> targetVersions = null;
+
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
+
+
+  public Target clientPermissions(List<String> clientPermissions) {
+    
+    this.clientPermissions = clientPermissions;
+    return this;
+  }
+
+  public Target addClientPermissionsItem(String clientPermissionsItem) {
+    if (this.clientPermissions == null) {
+      this.clientPermissions = new ArrayList<String>();
+    }
+    this.clientPermissions.add(clientPermissionsItem);
+    return this;
+  }
+
+   /**
+   * Get clientPermissions
+   * @return clientPermissions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getClientPermissions() {
+    return clientPermissions;
+  }
+
+
+  public void setClientPermissions(List<String> clientPermissions) {
+    this.clientPermissions = clientPermissions;
+  }
 
 
   public Target comment(String comment) {
@@ -81,6 +125,29 @@ public class Target {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public Target lastVersion(Integer lastVersion) {
+    
+    this.lastVersion = lastVersion;
+    return this;
+  }
+
+   /**
+   * Get lastVersion
+   * @return lastVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getLastVersion() {
+    return lastVersion;
+  }
+
+
+  public void setLastVersion(Integer lastVersion) {
+    this.lastVersion = lastVersion;
   }
 
 
@@ -207,6 +274,37 @@ public class Target {
   }
 
 
+  public Target targetVersions(List<ItemVersion> targetVersions) {
+    
+    this.targetVersions = targetVersions;
+    return this;
+  }
+
+  public Target addTargetVersionsItem(ItemVersion targetVersionsItem) {
+    if (this.targetVersions == null) {
+      this.targetVersions = new ArrayList<ItemVersion>();
+    }
+    this.targetVersions.add(targetVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get targetVersions
+   * @return targetVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ItemVersion> getTargetVersions() {
+    return targetVersions;
+  }
+
+
+  public void setTargetVersions(List<ItemVersion> targetVersions) {
+    this.targetVersions = targetVersions;
+  }
+
+
   public Target withCustomerFragment(Boolean withCustomerFragment) {
     
     this.withCustomerFragment = withCustomerFragment;
@@ -239,18 +337,21 @@ public class Target {
       return false;
     }
     Target target = (Target) o;
-    return Objects.equals(this.comment, target.comment) &&
+    return Objects.equals(this.clientPermissions, target.clientPermissions) &&
+        Objects.equals(this.comment, target.comment) &&
+        Objects.equals(this.lastVersion, target.lastVersion) &&
         Objects.equals(this.protectionKeyName, target.protectionKeyName) &&
         Objects.equals(this.targetId, target.targetId) &&
         Objects.equals(this.targetItemsAssoc, target.targetItemsAssoc) &&
         Objects.equals(this.targetName, target.targetName) &&
         Objects.equals(this.targetType, target.targetType) &&
+        Objects.equals(this.targetVersions, target.targetVersions) &&
         Objects.equals(this.withCustomerFragment, target.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, withCustomerFragment);
+    return Objects.hash(clientPermissions, comment, lastVersion, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
   }
 
 
@@ -258,12 +359,15 @@ public class Target {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Target {\n");
+    sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetItemsAssoc: ").append(toIndentedString(targetItemsAssoc)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
+    sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");
     return sb.toString();

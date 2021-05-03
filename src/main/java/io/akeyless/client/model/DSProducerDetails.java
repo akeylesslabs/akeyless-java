@@ -171,6 +171,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_CHEF_SKIP_SSL)
   private Boolean chefSkipSsl;
 
+  public static final String SERIALIZED_NAME_CREATE_SYNC_URL = "create_sync_url";
+  @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
+  private String createSyncUrl;
+
   public static final String SERIALIZED_NAME_DB_HOST_NAME = "db_host_name";
   @SerializedName(SERIALIZED_NAME_DB_HOST_NAME)
   private String dbHostName;
@@ -266,6 +270,30 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_FIXED_USER_ONLY = "fixed_user_only";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private String fixedUserOnly;
+
+  public static final String SERIALIZED_NAME_GCP_KEY_ALGO = "gcp_key_algo";
+  @SerializedName(SERIALIZED_NAME_GCP_KEY_ALGO)
+  private String gcpKeyAlgo;
+
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp_service_account_email";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
+  private String gcpServiceAccountEmail;
+
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY = "gcp_service_account_key";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
+  private List<Integer> gcpServiceAccountKey = null;
+
+  public static final String SERIALIZED_NAME_GCP_TOKEN_LIFETIME = "gcp_token_lifetime";
+  @SerializedName(SERIALIZED_NAME_GCP_TOKEN_LIFETIME)
+  private String gcpTokenLifetime;
+
+  public static final String SERIALIZED_NAME_GCP_TOKEN_SCOPE = "gcp_token_scope";
+  @SerializedName(SERIALIZED_NAME_GCP_TOKEN_SCOPE)
+  private String gcpTokenScope;
+
+  public static final String SERIALIZED_NAME_GCP_TOKEN_TYPE = "gcp_token_type";
+  @SerializedName(SERIALIZED_NAME_GCP_TOKEN_TYPE)
+  private String gcpTokenType;
 
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
@@ -371,6 +399,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_MYSQL_CREATION_STATEMENTS)
   private String mysqlCreationStatements;
 
+  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
+  @SerializedName(SERIALIZED_NAME_PAYLOAD)
+  private String payload;
+
   public static final String SERIALIZED_NAME_POSTGRES_CREATION_STATEMENTS = "postgres_creation_statements";
   @SerializedName(SERIALIZED_NAME_POSTGRES_CREATION_STATEMENTS)
   private String postgresCreationStatements;
@@ -407,9 +439,21 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_RABBITMQ_USER_WRITE_PERMISSION)
   private String rabbitmqUserWritePermission;
 
+  public static final String SERIALIZED_NAME_REVOKE_SYNC_URL = "revoke_sync_url";
+  @SerializedName(SERIALIZED_NAME_REVOKE_SYNC_URL)
+  private String revokeSyncUrl;
+
+  public static final String SERIALIZED_NAME_ROTATE_SYNC_URL = "rotate_sync_url";
+  @SerializedName(SERIALIZED_NAME_ROTATE_SYNC_URL)
+  private String rotateSyncUrl;
+
   public static final String SERIALIZED_NAME_SHOULD_STOP = "should_stop";
   @SerializedName(SERIALIZED_NAME_SHOULD_STOP)
   private String shouldStop;
+
+  public static final String SERIALIZED_NAME_TIMEOUT_SECONDS = "timeout_seconds";
+  @SerializedName(SERIALIZED_NAME_TIMEOUT_SECONDS)
+  private Long timeoutSeconds;
 
   public static final String SERIALIZED_NAME_USER_PRINCIPAL_NAME = "user_principal_name";
   @SerializedName(SERIALIZED_NAME_USER_PRINCIPAL_NAME)
@@ -1277,6 +1321,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails createSyncUrl(String createSyncUrl) {
+    
+    this.createSyncUrl = createSyncUrl;
+    return this;
+  }
+
+   /**
+   * Get createSyncUrl
+   * @return createSyncUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCreateSyncUrl() {
+    return createSyncUrl;
+  }
+
+
+  public void setCreateSyncUrl(String createSyncUrl) {
+    this.createSyncUrl = createSyncUrl;
+  }
+
+
   public DSProducerDetails dbHostName(String dbHostName) {
     
     this.dbHostName = dbHostName;
@@ -1826,6 +1893,152 @@ public class DSProducerDetails {
 
   public void setFixedUserOnly(String fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
+  }
+
+
+  public DSProducerDetails gcpKeyAlgo(String gcpKeyAlgo) {
+    
+    this.gcpKeyAlgo = gcpKeyAlgo;
+    return this;
+  }
+
+   /**
+   * Get gcpKeyAlgo
+   * @return gcpKeyAlgo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpKeyAlgo() {
+    return gcpKeyAlgo;
+  }
+
+
+  public void setGcpKeyAlgo(String gcpKeyAlgo) {
+    this.gcpKeyAlgo = gcpKeyAlgo;
+  }
+
+
+  public DSProducerDetails gcpServiceAccountEmail(String gcpServiceAccountEmail) {
+    
+    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+    return this;
+  }
+
+   /**
+   * Get gcpServiceAccountEmail
+   * @return gcpServiceAccountEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpServiceAccountEmail() {
+    return gcpServiceAccountEmail;
+  }
+
+
+  public void setGcpServiceAccountEmail(String gcpServiceAccountEmail) {
+    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+  }
+
+
+  public DSProducerDetails gcpServiceAccountKey(List<Integer> gcpServiceAccountKey) {
+    
+    this.gcpServiceAccountKey = gcpServiceAccountKey;
+    return this;
+  }
+
+  public DSProducerDetails addGcpServiceAccountKeyItem(Integer gcpServiceAccountKeyItem) {
+    if (this.gcpServiceAccountKey == null) {
+      this.gcpServiceAccountKey = new ArrayList<Integer>();
+    }
+    this.gcpServiceAccountKey.add(gcpServiceAccountKeyItem);
+    return this;
+  }
+
+   /**
+   * Get gcpServiceAccountKey
+   * @return gcpServiceAccountKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Integer> getGcpServiceAccountKey() {
+    return gcpServiceAccountKey;
+  }
+
+
+  public void setGcpServiceAccountKey(List<Integer> gcpServiceAccountKey) {
+    this.gcpServiceAccountKey = gcpServiceAccountKey;
+  }
+
+
+  public DSProducerDetails gcpTokenLifetime(String gcpTokenLifetime) {
+    
+    this.gcpTokenLifetime = gcpTokenLifetime;
+    return this;
+  }
+
+   /**
+   * Get gcpTokenLifetime
+   * @return gcpTokenLifetime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpTokenLifetime() {
+    return gcpTokenLifetime;
+  }
+
+
+  public void setGcpTokenLifetime(String gcpTokenLifetime) {
+    this.gcpTokenLifetime = gcpTokenLifetime;
+  }
+
+
+  public DSProducerDetails gcpTokenScope(String gcpTokenScope) {
+    
+    this.gcpTokenScope = gcpTokenScope;
+    return this;
+  }
+
+   /**
+   * Get gcpTokenScope
+   * @return gcpTokenScope
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpTokenScope() {
+    return gcpTokenScope;
+  }
+
+
+  public void setGcpTokenScope(String gcpTokenScope) {
+    this.gcpTokenScope = gcpTokenScope;
+  }
+
+
+  public DSProducerDetails gcpTokenType(String gcpTokenType) {
+    
+    this.gcpTokenType = gcpTokenType;
+    return this;
+  }
+
+   /**
+   * Get gcpTokenType
+   * @return gcpTokenType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpTokenType() {
+    return gcpTokenType;
+  }
+
+
+  public void setGcpTokenType(String gcpTokenType) {
+    this.gcpTokenType = gcpTokenType;
   }
 
 
@@ -2427,6 +2640,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails payload(String payload) {
+    
+    this.payload = payload;
+    return this;
+  }
+
+   /**
+   * Get payload
+   * @return payload
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPayload() {
+    return payload;
+  }
+
+
+  public void setPayload(String payload) {
+    this.payload = payload;
+  }
+
+
   public DSProducerDetails postgresCreationStatements(String postgresCreationStatements) {
     
     this.postgresCreationStatements = postgresCreationStatements;
@@ -2634,6 +2870,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails revokeSyncUrl(String revokeSyncUrl) {
+    
+    this.revokeSyncUrl = revokeSyncUrl;
+    return this;
+  }
+
+   /**
+   * Get revokeSyncUrl
+   * @return revokeSyncUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRevokeSyncUrl() {
+    return revokeSyncUrl;
+  }
+
+
+  public void setRevokeSyncUrl(String revokeSyncUrl) {
+    this.revokeSyncUrl = revokeSyncUrl;
+  }
+
+
+  public DSProducerDetails rotateSyncUrl(String rotateSyncUrl) {
+    
+    this.rotateSyncUrl = rotateSyncUrl;
+    return this;
+  }
+
+   /**
+   * Get rotateSyncUrl
+   * @return rotateSyncUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRotateSyncUrl() {
+    return rotateSyncUrl;
+  }
+
+
+  public void setRotateSyncUrl(String rotateSyncUrl) {
+    this.rotateSyncUrl = rotateSyncUrl;
+  }
+
+
   public DSProducerDetails shouldStop(String shouldStop) {
     
     this.shouldStop = shouldStop;
@@ -2654,6 +2936,29 @@ public class DSProducerDetails {
 
   public void setShouldStop(String shouldStop) {
     this.shouldStop = shouldStop;
+  }
+
+
+  public DSProducerDetails timeoutSeconds(Long timeoutSeconds) {
+    
+    this.timeoutSeconds = timeoutSeconds;
+    return this;
+  }
+
+   /**
+   * Get timeoutSeconds
+   * @return timeoutSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getTimeoutSeconds() {
+    return timeoutSeconds;
+  }
+
+
+  public void setTimeoutSeconds(Long timeoutSeconds) {
+    this.timeoutSeconds = timeoutSeconds;
   }
 
 
@@ -3054,6 +3359,7 @@ public class DSProducerDetails {
         Objects.equals(this.chefServerUrl, dsProducerDetails.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, dsProducerDetails.chefServerUsername) &&
         Objects.equals(this.chefSkipSsl, dsProducerDetails.chefSkipSsl) &&
+        Objects.equals(this.createSyncUrl, dsProducerDetails.createSyncUrl) &&
         Objects.equals(this.dbHostName, dsProducerDetails.dbHostName) &&
         Objects.equals(this.dbIsolationLevel, dsProducerDetails.dbIsolationLevel) &&
         Objects.equals(this.dbMaxIdleConns, dsProducerDetails.dbMaxIdleConns) &&
@@ -3078,6 +3384,12 @@ public class DSProducerDetails {
         Objects.equals(this.enableAdminRotation, dsProducerDetails.enableAdminRotation) &&
         Objects.equals(this.failureMessage, dsProducerDetails.failureMessage) &&
         Objects.equals(this.fixedUserOnly, dsProducerDetails.fixedUserOnly) &&
+        Objects.equals(this.gcpKeyAlgo, dsProducerDetails.gcpKeyAlgo) &&
+        Objects.equals(this.gcpServiceAccountEmail, dsProducerDetails.gcpServiceAccountEmail) &&
+        Objects.equals(this.gcpServiceAccountKey, dsProducerDetails.gcpServiceAccountKey) &&
+        Objects.equals(this.gcpTokenLifetime, dsProducerDetails.gcpTokenLifetime) &&
+        Objects.equals(this.gcpTokenScope, dsProducerDetails.gcpTokenScope) &&
+        Objects.equals(this.gcpTokenType, dsProducerDetails.gcpTokenType) &&
         Objects.equals(this.gkeClusterCaCertificate, dsProducerDetails.gkeClusterCaCertificate) &&
         Objects.equals(this.gkeClusterComputeZone, dsProducerDetails.gkeClusterComputeZone) &&
         Objects.equals(this.gkeClusterEndpoint, dsProducerDetails.gkeClusterEndpoint) &&
@@ -3104,6 +3416,7 @@ public class DSProducerDetails {
         Objects.equals(this.mssqlCreationStatements, dsProducerDetails.mssqlCreationStatements) &&
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
+        Objects.equals(this.payload, dsProducerDetails.payload) &&
         Objects.equals(this.postgresCreationStatements, dsProducerDetails.postgresCreationStatements) &&
         Objects.equals(this.rabbitmqServerPassword, dsProducerDetails.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, dsProducerDetails.rabbitmqServerUri) &&
@@ -3113,7 +3426,10 @@ public class DSProducerDetails {
         Objects.equals(this.rabbitmqUserTags, dsProducerDetails.rabbitmqUserTags) &&
         Objects.equals(this.rabbitmqUserVhost, dsProducerDetails.rabbitmqUserVhost) &&
         Objects.equals(this.rabbitmqUserWritePermission, dsProducerDetails.rabbitmqUserWritePermission) &&
+        Objects.equals(this.revokeSyncUrl, dsProducerDetails.revokeSyncUrl) &&
+        Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
         Objects.equals(this.shouldStop, dsProducerDetails.shouldStop) &&
+        Objects.equals(this.timeoutSeconds, dsProducerDetails.timeoutSeconds) &&
         Objects.equals(this.userPrincipalName, dsProducerDetails.userPrincipalName) &&
         Objects.equals(this.userTtl, dsProducerDetails.userTtl) &&
         Objects.equals(this.venafiAllowSubdomains, dsProducerDetails.venafiAllowSubdomains) &&
@@ -3133,7 +3449,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gkeClusterCaCertificate, gkeClusterComputeZone, gkeClusterEndpoint, gkeClusterName, gkeProjectId, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, shouldStop, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterComputeZone, gkeClusterEndpoint, gkeClusterName, gkeProjectId, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, revokeSyncUrl, rotateSyncUrl, shouldStop, timeoutSeconds, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -3176,6 +3492,7 @@ public class DSProducerDetails {
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
+    sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
     sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
     sb.append("    dbIsolationLevel: ").append(toIndentedString(dbIsolationLevel)).append("\n");
     sb.append("    dbMaxIdleConns: ").append(toIndentedString(dbMaxIdleConns)).append("\n");
@@ -3200,6 +3517,12 @@ public class DSProducerDetails {
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");
+    sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
+    sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
+    sb.append("    gcpTokenLifetime: ").append(toIndentedString(gcpTokenLifetime)).append("\n");
+    sb.append("    gcpTokenScope: ").append(toIndentedString(gcpTokenScope)).append("\n");
+    sb.append("    gcpTokenType: ").append(toIndentedString(gcpTokenType)).append("\n");
     sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
     sb.append("    gkeClusterComputeZone: ").append(toIndentedString(gkeClusterComputeZone)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
@@ -3226,6 +3549,7 @@ public class DSProducerDetails {
     sb.append("    mssqlCreationStatements: ").append(toIndentedString(mssqlCreationStatements)).append("\n");
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
+    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    postgresCreationStatements: ").append(toIndentedString(postgresCreationStatements)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
@@ -3235,7 +3559,10 @@ public class DSProducerDetails {
     sb.append("    rabbitmqUserTags: ").append(toIndentedString(rabbitmqUserTags)).append("\n");
     sb.append("    rabbitmqUserVhost: ").append(toIndentedString(rabbitmqUserVhost)).append("\n");
     sb.append("    rabbitmqUserWritePermission: ").append(toIndentedString(rabbitmqUserWritePermission)).append("\n");
+    sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
+    sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
     sb.append("    shouldStop: ").append(toIndentedString(shouldStop)).append("\n");
+    sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("    venafiAllowSubdomains: ").append(toIndentedString(venafiAllowSubdomains)).append("\n");

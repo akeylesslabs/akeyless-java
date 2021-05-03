@@ -33,6 +33,10 @@ public class GetTarget {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_SHOW_VERSIONS = "show-versions";
+  @SerializedName(SERIALIZED_NAME_SHOW_VERSIONS)
+  private Boolean showVersions = false;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -61,6 +65,29 @@ public class GetTarget {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GetTarget showVersions(Boolean showVersions) {
+    
+    this.showVersions = showVersions;
+    return this;
+  }
+
+   /**
+   * Include all target versions in reply
+   * @return showVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Include all target versions in reply")
+
+  public Boolean getShowVersions() {
+    return showVersions;
+  }
+
+
+  public void setShowVersions(Boolean showVersions) {
+    this.showVersions = showVersions;
   }
 
 
@@ -120,13 +147,14 @@ public class GetTarget {
     }
     GetTarget getTarget = (GetTarget) o;
     return Objects.equals(this.name, getTarget.name) &&
+        Objects.equals(this.showVersions, getTarget.showVersions) &&
         Objects.equals(this.token, getTarget.token) &&
         Objects.equals(this.uidToken, getTarget.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(name, showVersions, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class GetTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTarget {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

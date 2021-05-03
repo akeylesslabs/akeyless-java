@@ -49,6 +49,10 @@ public class UpdateRDPTargetDetails {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
+  @SerializedName(SERIALIZED_NAME_NEW_VERSION)
+  private Boolean newVersion = false;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
@@ -176,6 +180,29 @@ public class UpdateRDPTargetDetails {
   }
 
 
+  public UpdateRDPTargetDetails newVersion(Boolean newVersion) {
+    
+    this.newVersion = newVersion;
+    return this;
+  }
+
+   /**
+   * Whether to create a new version of not
+   * @return newVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to create a new version of not")
+
+  public Boolean getNewVersion() {
+    return newVersion;
+  }
+
+
+  public void setNewVersion(Boolean newVersion) {
+    this.newVersion = newVersion;
+  }
+
+
   public UpdateRDPTargetDetails protectionKey(String protectionKey) {
     
     this.protectionKey = protectionKey;
@@ -259,6 +286,7 @@ public class UpdateRDPTargetDetails {
         Objects.equals(this.hostName, updateRDPTargetDetails.hostName) &&
         Objects.equals(this.hostPort, updateRDPTargetDetails.hostPort) &&
         Objects.equals(this.name, updateRDPTargetDetails.name) &&
+        Objects.equals(this.newVersion, updateRDPTargetDetails.newVersion) &&
         Objects.equals(this.protectionKey, updateRDPTargetDetails.protectionKey) &&
         Objects.equals(this.token, updateRDPTargetDetails.token) &&
         Objects.equals(this.uidToken, updateRDPTargetDetails.uidToken);
@@ -266,7 +294,7 @@ public class UpdateRDPTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, adminPwd, hostName, hostPort, name, protectionKey, token, uidToken);
+    return Objects.hash(adminName, adminPwd, hostName, hostPort, name, newVersion, protectionKey, token, uidToken);
   }
 
 
@@ -279,6 +307,7 @@ public class UpdateRDPTargetDetails {
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

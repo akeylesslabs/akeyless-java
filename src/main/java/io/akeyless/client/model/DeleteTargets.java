@@ -49,10 +49,10 @@ public class DeleteTargets {
   }
 
    /**
-   * Path to delete the auth methods from
+   * Path to delete the targets from
    * @return path
   **/
-  @ApiModelProperty(required = true, value = "Path to delete the auth methods from")
+  @ApiModelProperty(required = true, value = "Path to delete the targets from")
 
   public String getPath() {
     return path;

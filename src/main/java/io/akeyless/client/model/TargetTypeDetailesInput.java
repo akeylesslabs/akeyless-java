@@ -23,22 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * TargetTypeDetailesInput
  */
 
 public class TargetTypeDetailesInput {
-  public static final String SERIALIZED_NAME_ADMIN_NAME = "admin_name";
-  @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
-  private String adminName;
-
-  public static final String SERIALIZED_NAME_ADMIN_PWD = "admin_pwd";
-  @SerializedName(SERIALIZED_NAME_ADMIN_PWD)
-  private String adminPwd;
-
   public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws_access_key_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
   private String awsAccessKeyId;
@@ -83,17 +73,9 @@ public class TargetTypeDetailesInput {
   @SerializedName(SERIALIZED_NAME_DB_USER_NAME)
   private String dbUserName;
 
-  public static final String SERIALIZED_NAME_HOST_NAME = "host_name";
-  @SerializedName(SERIALIZED_NAME_HOST_NAME)
-  private String hostName;
-
-  public static final String SERIALIZED_NAME_HOST_PORT = "host_port";
-  @SerializedName(SERIALIZED_NAME_HOST_PORT)
-  private String hostPort;
-
-  public static final String SERIALIZED_NAME_IP = "ip";
-  @SerializedName(SERIALIZED_NAME_IP)
-  private List<String> ip = null;
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
+  private String host;
 
   public static final String SERIALIZED_NAME_MONGODB_DB_NAME = "mongodb_db_name";
   @SerializedName(SERIALIZED_NAME_MONGODB_DB_NAME)
@@ -103,9 +85,21 @@ public class TargetTypeDetailesInput {
   @SerializedName(SERIALIZED_NAME_MONGODB_URI_CONNECTION)
   private String mongodbUriConnection;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private_key";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+  private String privateKey;
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSWORD = "private_key_password";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSWORD)
+  private String privateKeyPassword;
 
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
@@ -123,51 +117,9 @@ public class TargetTypeDetailesInput {
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
-
-  public TargetTypeDetailesInput adminName(String adminName) {
-    
-    this.adminName = adminName;
-    return this;
-  }
-
-   /**
-   * Get adminName
-   * @return adminName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAdminName() {
-    return adminName;
-  }
-
-
-  public void setAdminName(String adminName) {
-    this.adminName = adminName;
-  }
-
-
-  public TargetTypeDetailesInput adminPwd(String adminPwd) {
-    
-    this.adminPwd = adminPwd;
-    return this;
-  }
-
-   /**
-   * Get adminPwd
-   * @return adminPwd
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAdminPwd() {
-    return adminPwd;
-  }
-
-
-  public void setAdminPwd(String adminPwd) {
-    this.adminPwd = adminPwd;
-  }
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public TargetTypeDetailesInput awsAccessKeyId(String awsAccessKeyId) {
@@ -423,80 +375,26 @@ public class TargetTypeDetailesInput {
   }
 
 
-  public TargetTypeDetailesInput hostName(String hostName) {
+  public TargetTypeDetailesInput host(String host) {
     
-    this.hostName = hostName;
+    this.host = host;
     return this;
   }
 
    /**
-   * Get hostName
-   * @return hostName
+   * Get host
+   * @return host
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getHostName() {
-    return hostName;
+  public String getHost() {
+    return host;
   }
 
 
-  public void setHostName(String hostName) {
-    this.hostName = hostName;
-  }
-
-
-  public TargetTypeDetailesInput hostPort(String hostPort) {
-    
-    this.hostPort = hostPort;
-    return this;
-  }
-
-   /**
-   * Get hostPort
-   * @return hostPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getHostPort() {
-    return hostPort;
-  }
-
-
-  public void setHostPort(String hostPort) {
-    this.hostPort = hostPort;
-  }
-
-
-  public TargetTypeDetailesInput ip(List<String> ip) {
-    
-    this.ip = ip;
-    return this;
-  }
-
-  public TargetTypeDetailesInput addIpItem(String ipItem) {
-    if (this.ip == null) {
-      this.ip = new ArrayList<String>();
-    }
-    this.ip.add(ipItem);
-    return this;
-  }
-
-   /**
-   * Get ip
-   * @return ip
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getIp() {
-    return ip;
-  }
-
-
-  public void setIp(List<String> ip) {
-    this.ip = ip;
+  public void setHost(String host) {
+    this.host = host;
   }
 
 
@@ -546,6 +444,29 @@ public class TargetTypeDetailesInput {
   }
 
 
+  public TargetTypeDetailesInput password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Get password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public TargetTypeDetailesInput port(String port) {
     
     this.port = port;
@@ -566,6 +487,52 @@ public class TargetTypeDetailesInput {
 
   public void setPort(String port) {
     this.port = port;
+  }
+
+
+  public TargetTypeDetailesInput privateKey(String privateKey) {
+    
+    this.privateKey = privateKey;
+    return this;
+  }
+
+   /**
+   * Get privateKey
+   * @return privateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivateKey() {
+    return privateKey;
+  }
+
+
+  public void setPrivateKey(String privateKey) {
+    this.privateKey = privateKey;
+  }
+
+
+  public TargetTypeDetailesInput privateKeyPassword(String privateKeyPassword) {
+    
+    this.privateKeyPassword = privateKeyPassword;
+    return this;
+  }
+
+   /**
+   * Get privateKeyPassword
+   * @return privateKeyPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivateKeyPassword() {
+    return privateKeyPassword;
+  }
+
+
+  public void setPrivateKeyPassword(String privateKeyPassword) {
+    this.privateKeyPassword = privateKeyPassword;
   }
 
 
@@ -661,6 +628,29 @@ public class TargetTypeDetailesInput {
   }
 
 
+  public TargetTypeDetailesInput username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -670,9 +660,7 @@ public class TargetTypeDetailesInput {
       return false;
     }
     TargetTypeDetailesInput targetTypeDetailesInput = (TargetTypeDetailesInput) o;
-    return Objects.equals(this.adminName, targetTypeDetailesInput.adminName) &&
-        Objects.equals(this.adminPwd, targetTypeDetailesInput.adminPwd) &&
-        Objects.equals(this.awsAccessKeyId, targetTypeDetailesInput.awsAccessKeyId) &&
+    return Objects.equals(this.awsAccessKeyId, targetTypeDetailesInput.awsAccessKeyId) &&
         Objects.equals(this.awsRegion, targetTypeDetailesInput.awsRegion) &&
         Objects.equals(this.awsSecretAccessKey, targetTypeDetailesInput.awsSecretAccessKey) &&
         Objects.equals(this.awsSessionToken, targetTypeDetailesInput.awsSessionToken) &&
@@ -683,21 +671,23 @@ public class TargetTypeDetailesInput {
         Objects.equals(this.dbServerCertificates, targetTypeDetailesInput.dbServerCertificates) &&
         Objects.equals(this.dbServerName, targetTypeDetailesInput.dbServerName) &&
         Objects.equals(this.dbUserName, targetTypeDetailesInput.dbUserName) &&
-        Objects.equals(this.hostName, targetTypeDetailesInput.hostName) &&
-        Objects.equals(this.hostPort, targetTypeDetailesInput.hostPort) &&
-        Objects.equals(this.ip, targetTypeDetailesInput.ip) &&
+        Objects.equals(this.host, targetTypeDetailesInput.host) &&
         Objects.equals(this.mongodbDbName, targetTypeDetailesInput.mongodbDbName) &&
         Objects.equals(this.mongodbUriConnection, targetTypeDetailesInput.mongodbUriConnection) &&
+        Objects.equals(this.password, targetTypeDetailesInput.password) &&
         Objects.equals(this.port, targetTypeDetailesInput.port) &&
+        Objects.equals(this.privateKey, targetTypeDetailesInput.privateKey) &&
+        Objects.equals(this.privateKeyPassword, targetTypeDetailesInput.privateKeyPassword) &&
         Objects.equals(this.rabbitmqServerPassword, targetTypeDetailesInput.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailesInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailesInput.rabbitmqServerUser) &&
-        Objects.equals(this.url, targetTypeDetailesInput.url);
+        Objects.equals(this.url, targetTypeDetailesInput.url) &&
+        Objects.equals(this.username, targetTypeDetailesInput.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, adminPwd, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, hostName, hostPort, ip, mongodbDbName, mongodbUriConnection, port, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, url);
+    return Objects.hash(awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, host, mongodbDbName, mongodbUriConnection, password, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, url, username);
   }
 
 
@@ -705,8 +695,6 @@ public class TargetTypeDetailesInput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetTypeDetailesInput {\n");
-    sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
-    sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");
@@ -718,16 +706,18 @@ public class TargetTypeDetailesInput {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
-    sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
-    sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    mongodbDbName: ").append(toIndentedString(mongodbDbName)).append("\n");
     sb.append("    mongodbUriConnection: ").append(toIndentedString(mongodbUriConnection)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

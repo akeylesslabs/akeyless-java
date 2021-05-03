@@ -33,6 +33,10 @@ public class DefaultConfigPart {
   @SerializedName(SERIALIZED_NAME_DEFAULT_PROTECTION_KEY_ID)
   private Long defaultProtectionKeyId;
 
+  public static final String SERIALIZED_NAME_DEFAULT_SECRET_LOCATION = "default_secret_location";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_SECRET_LOCATION)
+  private String defaultSecretLocation;
+
   public static final String SERIALIZED_NAME_OPEN_ID_CONNECT_ACCESS_ID = "open_id_connect_access_id";
   @SerializedName(SERIALIZED_NAME_OPEN_ID_CONNECT_ACCESS_ID)
   private String openIdConnectAccessId;
@@ -62,6 +66,29 @@ public class DefaultConfigPart {
 
   public void setDefaultProtectionKeyId(Long defaultProtectionKeyId) {
     this.defaultProtectionKeyId = defaultProtectionKeyId;
+  }
+
+
+  public DefaultConfigPart defaultSecretLocation(String defaultSecretLocation) {
+    
+    this.defaultSecretLocation = defaultSecretLocation;
+    return this;
+  }
+
+   /**
+   * Get defaultSecretLocation
+   * @return defaultSecretLocation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDefaultSecretLocation() {
+    return defaultSecretLocation;
+  }
+
+
+  public void setDefaultSecretLocation(String defaultSecretLocation) {
+    this.defaultSecretLocation = defaultSecretLocation;
   }
 
 
@@ -121,13 +148,14 @@ public class DefaultConfigPart {
     }
     DefaultConfigPart defaultConfigPart = (DefaultConfigPart) o;
     return Objects.equals(this.defaultProtectionKeyId, defaultConfigPart.defaultProtectionKeyId) &&
+        Objects.equals(this.defaultSecretLocation, defaultConfigPart.defaultSecretLocation) &&
         Objects.equals(this.openIdConnectAccessId, defaultConfigPart.openIdConnectAccessId) &&
         Objects.equals(this.samlAccessId, defaultConfigPart.samlAccessId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultProtectionKeyId, openIdConnectAccessId, samlAccessId);
+    return Objects.hash(defaultProtectionKeyId, defaultSecretLocation, openIdConnectAccessId, samlAccessId);
   }
 
 
@@ -136,6 +164,7 @@ public class DefaultConfigPart {
     StringBuilder sb = new StringBuilder();
     sb.append("class DefaultConfigPart {\n");
     sb.append("    defaultProtectionKeyId: ").append(toIndentedString(defaultProtectionKeyId)).append("\n");
+    sb.append("    defaultSecretLocation: ").append(toIndentedString(defaultSecretLocation)).append("\n");
     sb.append("    openIdConnectAccessId: ").append(toIndentedString(openIdConnectAccessId)).append("\n");
     sb.append("    samlAccessId: ").append(toIndentedString(samlAccessId)).append("\n");
     sb.append("}");

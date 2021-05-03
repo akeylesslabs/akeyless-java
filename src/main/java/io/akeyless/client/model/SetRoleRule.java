@@ -134,11 +134,11 @@ public class SetRoleRule {
   }
 
    /**
-   * item-rule, role-rule or auth-method-rule
+   * item-rule, target-rule, role-rule, auth-method-rule, search-rule or reports-rule
    * @return ruleType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "item-rule, role-rule or auth-method-rule")
+  @ApiModelProperty(value = "item-rule, target-rule, role-rule, auth-method-rule, search-rule or reports-rule")
 
   public String getRuleType() {
     return ruleType;

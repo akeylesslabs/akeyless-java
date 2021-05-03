@@ -482,6 +482,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /create-managed-key:
+    post:
+      operationId: CreateManagedKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateManagedKey'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateManagedKeyOutput'
+          description: CreateManagedKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /create-pki-cert-issuer:
     post:
       operationId: createPKICertIssuer
@@ -585,6 +614,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/createRoleOutput'
           description: createRoleResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /create-rotated-secret:
+    post:
+      operationId: createRotatedSecret
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createRotatedSecret'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createRotatedSecretOutput'
+          description: createRotatedSecretResponse wraps response body.
         default:
           content:
             application/json:
@@ -1149,6 +1207,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /describe-permissions:
+    post:
+      operationId: describePermissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/describePermissions'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribePermissionsOutput'
+          description: DescribePermissionsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /encrypt:
     post:
       operationId: encrypt
@@ -1323,6 +1410,65 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-create-producer-certificate-automation:
+    post:
+      operationId: gatewayCreateProducerCertificateAutomation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayCreateProducerCertificateAutomation'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayCreateProducerCertificateAutomationOutput'
+          description: gatewayCreateProducerCertificateAutomationResponse wraps response
+            body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-create-producer-custom:
+    post:
+      operationId: gatewayCreateProducerCustom
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayCreateProducerCustom'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayCreateProducerCustomOutput'
+          description: gatewayCreateProducerCustomResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-create-producer-eks:
     post:
       operationId: gatewayCreateProducerEks
@@ -1339,6 +1485,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayCreateProducerEksOutput'
           description: gatewayCreateProducerEksResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-create-producer-gcp:
+    post:
+      operationId: gatewayCreateProducerGcp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayCreateProducerGcp'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayCreateProducerGcpOutput'
+          description: gatewayCreateProducerGcpResponse wraps response body.
         default:
           content:
             application/json:
@@ -1542,35 +1717,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayCreateProducerRdpOutput'
           description: gatewayCreateProducerRdpResponse wraps response body.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JSONError'
-          description: |-
-            errorResponse wraps any error to return it as a JSON object with one "error"
-            field.
-      tags:
-      - v2
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /gateway-create-producer-venafi:
-    post:
-      operationId: gatewayCreateProducerVenafi
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/gatewayCreateProducerAws'
-        required: true
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/gatewayCreateProducerAwsOutput'
-          description: gatewayCreateProducerVenafiResponse wraps response body.
         default:
           content:
             application/json:
@@ -1982,6 +2128,56 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /get-kube-exec-creds:
+    post:
+      operationId: getKubeExecCreds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getKubeExecCreds'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getKubeExecCredsOutput'
+          description: getKubeExecCredsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /get-pki-certificate:
+    post:
+      operationId: GetPKICertificate
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPKICertificateOutput'
+          description: getPKICertificateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-accepts: application/json
   /get-role:
     post:
       operationId: getRole
@@ -1998,6 +2194,37 @@ paths:
               schema:
                 $ref: '#/components/schemas/Role'
           description: getRoleResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /get-rotated-secret-value:
+    post:
+      operationId: getRotatedSecretValue
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getRotatedSecretValue'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+          description: getRotatedSecretValueResponse wraps response body.
         default:
           content:
             application/json:
@@ -2426,7 +2653,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/rotateKey'
+              $ref: '#/components/schemas/updateRotationSettings'
         required: true
       responses:
         "200":
@@ -2796,6 +3023,23 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /update-managed-key:
+    post:
+      operationId: gatewayUpdateItem
+      responses:
+        "201":
+          $ref: '#/components/responses/gatewayUpdateItemResponse'
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-accepts: application/json
   /update-rabbitmq-target-details:
     post:
       operationId: updateRabbitMQTargetDetails
@@ -2882,6 +3126,56 @@ paths:
       - v2
       x-codegen-request-body-name: body
       x-contentType: application/json
+      x-accepts: application/json
+  /update-rotated-secret:
+    post:
+      operationId: updateRotatedSecret
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateRotatedSecret'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateRotatedSecretOutput'
+          description: updateRotatedSecretResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /update-rotation-settingsrotate-key:
+    post:
+      operationId: updateRotationSettings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RotateKeyOutput'
+          description: rotateKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
       x-accepts: application/json
   /update-secret-val:
     post:
@@ -3088,6 +3382,18 @@ paths:
       x-accepts: application/json
 components:
   responses:
+    CreateManagedKeyResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateManagedKeyOutput'
+      description: CreateManagedKeyResponse wraps response body.
+    DescribePermissionsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DescribePermissionsOutput'
+      description: DescribePermissionsResponse wraps response body.
     assocRoleAuthMethodResponse:
       content:
         application/json:
@@ -3190,6 +3496,12 @@ components:
           schema:
             $ref: '#/components/schemas/createRoleOutput'
       description: createRoleResponse wraps response body.
+    createRotatedSecretResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createRotatedSecretOutput'
+      description: createRotatedSecretResponse wraps response body.
     createSSHCertIssuerResponse:
       content:
         application/json:
@@ -3348,12 +3660,37 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayCreateProducerAzureOutput'
       description: gatewayCreateProducerAzureResponse wraps response body.
+    gatewayCreateProducerCertificateAutomationResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayCreateProducerCertificateAutomationOutput'
+      description: gatewayCreateProducerCertificateAutomationResponse wraps response
+        body.
+    gatewayCreateProducerChefResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayCreateProducerChefOutput'
+      description: gatewayCreateProducerChefResponse wraps response body.
+    gatewayCreateProducerCustomResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayCreateProducerCustomOutput'
+      description: gatewayCreateProducerCustomResponse wraps response body.
     gatewayCreateProducerEksResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/gatewayCreateProducerEksOutput'
       description: gatewayCreateProducerEksResponse wraps response body.
+    gatewayCreateProducerGcpResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayCreateProducerGcpOutput'
+      description: gatewayCreateProducerGcpResponse wraps response body.
     gatewayCreateProducerGkeResponse:
       content:
         application/json:
@@ -3396,12 +3733,6 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayCreateProducerRdpOutput'
       description: gatewayCreateProducerRdpResponse wraps response body.
-    gatewayCreateProducerVenafiResponse:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/gatewayCreateProducerAwsOutput'
-      description: gatewayCreateProducerVenafiResponse wraps response body.
     gatewayDeleteProducerResponse:
       content:
         application/json:
@@ -3522,6 +3853,14 @@ components:
           schema:
             $ref: '#/components/schemas/Role'
       description: getRoleResponse wraps response body.
+    getRotatedSecretValueResponse:
+      content:
+        application/json:
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      description: getRotatedSecretValueResponse wraps response body.
     getSSHCertificateResponse:
       content:
         application/json:
@@ -3674,6 +4013,12 @@ components:
           schema:
             $ref: '#/components/schemas/updateItemOutput'
       description: updateItemResponse wraps response body.
+    updateManagedKeyResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateManagedKeyOutput'
+      description: updateManagedKeyResponse wraps response body.
     updateResponse:
       content:
         application/json:
@@ -3686,6 +4031,12 @@ components:
           schema:
             $ref: '#/components/schemas/updateRoleOutput'
       description: updateRoleResponse wraps response body.
+    updateRotatedSecretResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateRotatedSecretOutput'
+      description: updateRotatedSecretResponse wraps response body.
     updateSecretValResponse:
       content:
         application/json:
@@ -3875,7 +4226,7 @@ components:
         cf:
           customer_fragements:
             key: customer_fragements
-        version: 7
+        version: 9
         producers:
           producers:
           - name: name
@@ -4050,7 +4401,8 @@ components:
         saml:
           saml_access_id: saml_access_id
           open_id_connect_access_id: open_id_connect_access_id
-          default_protection_key_id: 2
+          default_protection_key_id: 7
+          default_secret_location: default_secret_location
         uidentity:
           uid_access_id: uid_access_id
           uid_rotate_interval: uid_rotate_interval
@@ -4062,6 +4414,16 @@ components:
           admins:
           - admins
           - admins
+        rotators:
+          rotators:
+          - name: name
+            id: 2
+            last_error: last_error
+            type: type
+          - name: name
+            id: 2
+            last_error: last_error
+            type: type
       properties:
         admins:
           $ref: '#/components/schemas/AdminsConfigPart'
@@ -4084,6 +4446,8 @@ components:
           $ref: '#/components/schemas/MigrationsConfigPart'
         producers:
           $ref: '#/components/schemas/ProducersConfigPart'
+        rotators:
+          $ref: '#/components/schemas/RotatorsConfigPart'
         saml:
           $ref: '#/components/schemas/DefaultConfigPart'
         uidentity:
@@ -4809,6 +5173,87 @@ components:
     ChefAccessMode:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+    CreateManagedKey:
+      description: CreateManagedKey is a command that creates managed key
+      example:
+        metadata: metadata
+        name: name
+        managed-key-value: managed-key-value
+        target-name: target-name
+        alg: alg
+        protection_key: protection_key
+        uid-token: uid-token
+        tags:
+        - tags
+        - tags
+        token: token
+      properties:
+        alg:
+          description: 'Managed Key type; options: [AES256GCM, RSA2048]'
+          type: string
+          x-go-name: Alg
+        managed-key-value:
+          description: Base64-encoded managed key value
+          type: string
+          x-go-name: ManagedKeyValue
+        metadata:
+          description: Metadata about the managed key
+          type: string
+          x-go-name: Metadata
+        name:
+          description: ManagedKey name
+          type: string
+          x-go-name: ManagedKeyName
+        protection_key:
+          description: The name of a key that used to encrypt the secret value (if
+            empty, the account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        tags:
+          description: List of the tags attached to this managed key
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - alg
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    CreateManagedKeyOutput:
+      example:
+        managed_key_type: managed_key_type
+        managed_key_id: 0
+        managed_key_name: managed_key_name
+      properties:
+        managed_key_id:
+          format: int64
+          type: integer
+          x-go-name: ManagedKeyId
+        managed_key_name:
+          type: string
+          x-go-name: ManagedKeyName
+        managed_key_type:
+          title: ManagedKeyType defines types of keys that can be managed by ManagedKey
+            supported by AKEYLESS.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreateRoleAuthMethodAssocOutput:
       description: |-
         CreateRoleAuthMethodAssocOutput defines output of CreateRoleAuthMethodAssoc
@@ -4861,12 +5306,13 @@ components:
         dynamic_secret_type: dynamic_secret_type
         venafi_sign_using_akeyless_pki: true
         dynamic_secret_key: dynamic_secret_key
-        last_admin_rotation: 1
+        last_admin_rotation: 5
         chef_server_key: chef_server_key
         db_max_open_conns: db_max_open_conns
         admin_rotation_interval_days: 0
         mssql_creation_statements: mssql_creation_statements
         admin_pwd: admin_pwd
+        gcp_token_scope: gcp_token_scope
         venafi_allowed_domains:
         - venafi_allowed_domains
         - venafi_allowed_domains
@@ -4886,7 +5332,10 @@ components:
         artifactory_base_url: artifactory_base_url
         azure_client_secret: azure_client_secret
         azure_user_groups_obj_id: azure_user_groups_obj_id
+        gcp_token_type: gcp_token_type
+        create_sync_url: create_sync_url
         aws_session_token: aws_session_token
+        gcp_token_lifetime: gcp_token_lifetime
         db_isolation_level: db_isolation_level
         rabbitmq_user_vhost: rabbitmq_user_vhost
         mongodb_username: mongodb_username
@@ -4899,6 +5348,7 @@ components:
         eks_access_key_id: eks_access_key_id
         venafi_base_url: venafi_base_url
         user_ttl: user_ttl
+        timeout_seconds: 5
         eks_assume_role: eks_assume_role
         venafi_use_tpp: true
         mongodb_password: mongodb_password
@@ -4913,6 +5363,7 @@ components:
         venafi_api_key: venafi_api_key
         mongodb_host_port: mongodb_host_port
         artifactory_token_scope: artifactory_token_scope
+        revoke_sync_url: revoke_sync_url
         gke_cluster_ca_certificate: gke_cluster_ca_certificate
         host_port: host_port
         enable_admin_rotation: true
@@ -4924,14 +5375,19 @@ components:
         mongodb_atlas_project_id: mongodb_atlas_project_id
         db_user_name: db_user_name
         eks_region: eks_region
+        payload: payload
         artifactory_admin_apikey: artifactory_admin_apikey
         azure_app_object_id: azure_app_object_id
         venafi_allow_subdomains: true
         aws_user_console_access: true
         user_principal_name: user_principal_name
         db_server_certificates: db_server_certificates
+        gcp_key_algo: gcp_key_algo
         db_server_name: db_server_name
         venafi_zone: venafi_zone
+        gcp_service_account_key:
+        - 1
+        - 1
         venafi_store_private_key: true
         venafi_tpp_username: venafi_tpp_username
         azure_user_portal_access: true
@@ -4943,6 +5399,7 @@ components:
         db_pwd: db_pwd
         gke_service_account_name: gke_service_account_name
         mysql_creation_statements: mysql_creation_statements
+        gcp_service_account_email: gcp_service_account_email
         dynamic_secret_name: dynamic_secret_name
         rabbitmq_server_uri: rabbitmq_server_uri
         chef_server_access_mode: chef_server_access_mode
@@ -4961,6 +5418,7 @@ components:
         chef_server_port: chef_server_port
         mongodb_is_atlas: true
         eks_cluster_ca_certificate: eks_cluster_ca_certificate
+        rotate_sync_url: rotate_sync_url
         aws_access_key_id: aws_access_key_id
         aws_region: aws_region
         eks_cluster_name: eks_cluster_name
@@ -5076,6 +5534,9 @@ components:
         chef_skip_ssl:
           type: boolean
           x-go-name: ChefSkipSSL
+        create_sync_url:
+          type: string
+          x-go-name: CreateSyncURL
         db_host_name:
           type: string
           x-go-name: DbHostName
@@ -5158,6 +5619,27 @@ components:
         fixed_user_only:
           type: string
           x-go-name: FixedUserOnly
+        gcp_key_algo:
+          type: string
+          x-go-name: GCPKeyAlgorithm
+        gcp_service_account_email:
+          type: string
+          x-go-name: GCPServiceAccountEmail
+        gcp_service_account_key:
+          items:
+            format: uint8
+            type: integer
+          type: array
+          x-go-name: GCPServiceAccountKey
+        gcp_token_lifetime:
+          type: string
+          x-go-name: GCPTokenLifetime
+        gcp_token_scope:
+          type: string
+          x-go-name: GCPTokenScopes
+        gcp_token_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
         gke_cluster_ca_certificate:
           type: string
           x-go-name: GKEClusterCACertificate
@@ -5240,6 +5722,9 @@ components:
         mysql_creation_statements:
           type: string
           x-go-name: MysqlCreationStatements
+        payload:
+          type: string
+          x-go-name: Payload
         postgres_creation_statements:
           type: string
           x-go-name: PostgresCreationStatements
@@ -5267,10 +5752,20 @@ components:
         rabbitmq_user_write_permission:
           type: string
           x-go-name: RabbitmqUserWritePermission
+        revoke_sync_url:
+          type: string
+          x-go-name: RevokeSyncURL
+        rotate_sync_url:
+          type: string
+          x-go-name: RotateSyncURL
         should_stop:
           description: TODO delete this after migration
           type: string
           x-go-name: ShouldStop
+        timeout_seconds:
+          format: int64
+          type: integer
+          x-go-name: TimeoutSeconds
         user_principal_name:
           type: string
           x-go-name: AzurePrincipalName
@@ -5324,12 +5819,16 @@ components:
       example:
         saml_access_id: saml_access_id
         open_id_connect_access_id: open_id_connect_access_id
-        default_protection_key_id: 2
+        default_protection_key_id: 7
+        default_secret_location: default_secret_location
       properties:
         default_protection_key_id:
           format: int64
           type: integer
-          x-go-name: DefaultProtectionKeyID
+          x-go-name: ProtectionKeyID
+        default_secret_location:
+          type: string
+          x-go-name: SecretLocation
         open_id_connect_access_id:
           type: string
           x-go-name: OktaOpenIdConnectAccessId
@@ -5340,7 +5839,8 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     DeleteItemOutput:
       example:
-        version_deleted: 0
+        version_deleted: 6
+        item_id: 0
         deletion_date: 2000-01-23T04:56:07.000+00:00
         item_name: item_name
       properties:
@@ -5348,6 +5848,10 @@ components:
           format: date-time
           type: string
           x-go-name: DeletionDate
+        item_id:
+          format: int64
+          type: integer
+          x-go-name: ItemID
         item_name:
           type: string
           x-go-name: ItemName
@@ -5356,6 +5860,21 @@ components:
           type: integer
           x-go-name: VersionDeleted
       title: DeleteItemOutput defines output of DeleteItem operation.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    DescribePermissionsOutput:
+      example:
+        client_permissions:
+        - client_permissions
+        - client_permissions
+      properties:
+        client_permissions:
+          items:
+            type: string
+          type: array
+          x-go-name: ClientPermissions
+      title: DescribePermissionsOutput defines output of DescribePermissionsOutput
+        operation.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     Duration:
@@ -5371,16 +5890,22 @@ components:
         DynamicSecretProducerInfo The dynamic secret producer info
         This parameter relevant and required only in case of create update dynamic secret.
       example:
+        gw_cluster_id: 2
         producer_type: producer_type
         producer_status: producer_status
         producer_metadata: producer_metadata
       properties:
+        gw_cluster_id:
+          format: int64
+          type: integer
+          x-go-name: GWClusterID
         producer_metadata:
           type: string
           x-go-name: ProducerMetadata
         producer_status:
-          description: ProducerStatus defines types of Producer Status
+          description: RotationStatus defines types of rotation Status
           type: string
+          x-go-name: RotationStatus
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         producer_type:
           type: string
@@ -5441,6 +5966,19 @@ components:
           type: array
           x-go-name: Result
       title: EncryptOutput defines output of Encrypt operation.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ExternalKMSKeyId:
+      example:
+        key_id: key_id
+        key_reference: key_reference
+      properties:
+        key_id:
+          type: string
+          x-go-name: KeyId
+        key_reference:
+          type: string
+          x-go-name: KeyReference
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GCPAccessRules:
@@ -5526,6 +6064,9 @@ components:
     GCPAccessRulesType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GCPCredentialsType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
     GeneralConfigPart:
       example:
         tcp_port: tcp_port
@@ -5583,19 +6124,12 @@ components:
           description: The common name to be included in the PKI certificate
           type: string
           x-go-name: CommonName
-        key-file-path:
+        key-data-base64:
           description: |-
-            The client public or private key file path (in case of a private key, it
-            will be use to extract the public key)
+            PKI key file contents. If this option is used, the certificate
+            will be printed to stdout
           type: string
-          x-go-name: KeyFilePath
-        outfile:
-          description: |-
-            Output file path with the certificate. If not provided, the file with
-            the certificate will be created in the same location of the provided
-            public key with the -cert extension
-          type: string
-          x-go-name: OutFilePath
+          x-go-name: KeyData
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -5614,7 +6148,6 @@ components:
           x-go-name: URISANs
       required:
       - cert-issuer-name
-      - key-file-path
       title: GetPKICertificate is a command that generates PKI certificate.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -5656,34 +6189,63 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     GetTargetDetailsOutput:
       example:
-        Value:
+        value:
           rabbitmq_server_password: rabbitmq_server_password
           aws_session_token: aws_session_token
-          host_port: host_port
           aws_secret_access_key: aws_secret_access_key
-          ip:
-          - ip
-          - ip
           db_pwd: db_pwd
+          private_key: private_key
           mongodb_db_name: mongodb_db_name
           url: url
           db_host_name: db_host_name
           mongodb_uri_connection: mongodb_uri_connection
+          password: password
           rabbitmq_server_uri: rabbitmq_server_uri
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           db_name: db_name
           db_user_name: db_user_name
           port: port
+          private_key_password: private_key_password
           db_server_certificates: db_server_certificates
-          admin_name: admin_name
+          host: host
           db_port: db_port
           db_server_name: db_server_name
           rabbitmq_server_user: rabbitmq_server_user
-          host_name: host_name
-          admin_pwd: admin_pwd
+          username: username
+        target:
+          last_version: 0
+          target_items_assoc:
+          - assoc_id: assoc_id
+            item_name: item_name
+          - assoc_id: assoc_id
+            item_name: item_name
+          client_permissions:
+          - client_permissions
+          - client_permissions
+          with_customer_fragment: true
+          target_name: target_name
+          target_versions:
+          - item_version_state: item_version_state
+            with_customer_fragment: true
+            deletion_date: 2000-01-23T04:56:07.000+00:00
+            protection_key_name: protection_key_name
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 1
+          - item_version_state: item_version_state
+            with_customer_fragment: true
+            deletion_date: 2000-01-23T04:56:07.000+00:00
+            protection_key_name: protection_key_name
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 1
+          target_type: target_type
+          comment: comment
+          protection_key_name: protection_key_name
+          target_id: 6
       properties:
-        Value:
+        target:
+          $ref: '#/components/schemas/Target'
+        value:
           $ref: '#/components/schemas/TargetTypeDetailesInput'
       title: GetTargetDetailsOutput defines output of GetTargetDetails operation.
       type: object
@@ -5803,7 +6365,7 @@ components:
         auto_rotate: true
         item_state: item_state
         cert_issuer_signer_key_name: cert_issuer_signer_key_name
-        item_id: 2
+        item_id: 7
         item_tags:
         - item_tags
         - item_tags
@@ -5878,23 +6440,70 @@ components:
           deletion_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 9
+          version: 1
         - item_version_state: item_version_state
           with_customer_fragment: true
           deletion_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 9
+          version: 1
         item_targets_assoc:
         - assoc_id: assoc_id
           target_name: target_name
         - assoc_id: assoc_id
           target_name: target_name
         item_name: item_name
-        item_size: 7
+        item_size: 1
         is_enabled: true
         item_general_info:
+          rotated_secret_details:
+            rotator_creds_type: rotator_creds_type
+            gw_cluster_id: 3
+            rotation_hour: 4
+            rotation_statement: rotation_statement
+            rotator_status: rotator_status
+            rotator_type: rotator_type
+            delete_previous_version_in_days: 9
+            last_rotation_error: last_rotation_error
+            number_of_versions_to_save: 2
+          managed_key_details:
+            target_alias_helper: target_alias_helper
+            is_provided_by_user: true
+            key_type: key_type
+            managed_key_id: managed_key_id
+            key_state: key_state
+            targets:
+            - external_kms_id:
+                key_id: key_id
+                key_reference: key_reference
+              target_assoc_id: target_assoc_id
+              key_purpose:
+              - null
+              - null
+              key_statuses:
+              - key_id: 7
+                last_status: last_status
+                last_error: last_error
+              - key_id: 7
+                last_status: last_status
+                last_error: last_error
+            - external_kms_id:
+                key_id: key_id
+                key_reference: key_reference
+              target_assoc_id: target_assoc_id
+              key_purpose:
+              - null
+              - null
+              key_statuses:
+              - key_id: 7
+                last_status: last_status
+                last_error: last_error
+              - key_id: 7
+                last_status: last_status
+                last_error: last_error
+            is_unexportable: true
           dynamic_secret_producer_details:
+            gw_cluster_id: 2
             producer_type: producer_type
             producer_status: producer_status
             producer_metadata: producer_metadata
@@ -5962,14 +6571,14 @@ components:
               allowed_user_key_lengths:
                 key: 5
             cert_issuer_type: cert_issuer_type
-        last_version: 3
+        last_version: 1
         next_rotation_date: 2000-01-23T04:56:07.000+00:00
         client_permissions:
         - client_permissions
         - client_permissions
         with_customer_fragment: true
         certificates: certificates
-        rotation_interval: 2
+        rotation_interval: 6
         item_metadata: item_metadata
         deletion_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
@@ -6063,7 +6672,54 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ItemGeneralInfo:
       example:
+        rotated_secret_details:
+          rotator_creds_type: rotator_creds_type
+          gw_cluster_id: 3
+          rotation_hour: 4
+          rotation_statement: rotation_statement
+          rotator_status: rotator_status
+          rotator_type: rotator_type
+          delete_previous_version_in_days: 9
+          last_rotation_error: last_rotation_error
+          number_of_versions_to_save: 2
+        managed_key_details:
+          target_alias_helper: target_alias_helper
+          is_provided_by_user: true
+          key_type: key_type
+          managed_key_id: managed_key_id
+          key_state: key_state
+          targets:
+          - external_kms_id:
+              key_id: key_id
+              key_reference: key_reference
+            target_assoc_id: target_assoc_id
+            key_purpose:
+            - null
+            - null
+            key_statuses:
+            - key_id: 7
+              last_status: last_status
+              last_error: last_error
+            - key_id: 7
+              last_status: last_status
+              last_error: last_error
+          - external_kms_id:
+              key_id: key_id
+              key_reference: key_reference
+            target_assoc_id: target_assoc_id
+            key_purpose:
+            - null
+            - null
+            key_statuses:
+            - key_id: 7
+              last_status: last_status
+              last_error: last_error
+            - key_id: 7
+              last_status: last_status
+              last_error: last_error
+          is_unexportable: true
         dynamic_secret_producer_details:
+          gw_cluster_id: 2
           producer_type: producer_type
           producer_status: producer_status
           producer_metadata: producer_metadata
@@ -6136,6 +6792,10 @@ components:
           $ref: '#/components/schemas/CertificateIssueInfo'
         dynamic_secret_producer_details:
           $ref: '#/components/schemas/DynamicSecretProducerInfo'
+        managed_key_details:
+          $ref: '#/components/schemas/ManagedKeyDetailsInfo'
+        rotated_secret_details:
+          $ref: '#/components/schemas/RotatedSecretDetailsInfo'
       title: ItemGeneralInfo defines item general info.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -6170,7 +6830,7 @@ components:
         deletion_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 9
+        version: 1
       properties:
         creation_date:
           format: date-time
@@ -6783,7 +7443,7 @@ components:
         - auto_rotate: true
           item_state: item_state
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 2
+          item_id: 7
           item_tags:
           - item_tags
           - item_tags
@@ -6858,23 +7518,70 @@ components:
             deletion_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 9
+            version: 1
           - item_version_state: item_version_state
             with_customer_fragment: true
             deletion_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 9
+            version: 1
           item_targets_assoc:
           - assoc_id: assoc_id
             target_name: target_name
           - assoc_id: assoc_id
             target_name: target_name
           item_name: item_name
-          item_size: 7
+          item_size: 1
           is_enabled: true
           item_general_info:
+            rotated_secret_details:
+              rotator_creds_type: rotator_creds_type
+              gw_cluster_id: 3
+              rotation_hour: 4
+              rotation_statement: rotation_statement
+              rotator_status: rotator_status
+              rotator_type: rotator_type
+              delete_previous_version_in_days: 9
+              last_rotation_error: last_rotation_error
+              number_of_versions_to_save: 2
+            managed_key_details:
+              target_alias_helper: target_alias_helper
+              is_provided_by_user: true
+              key_type: key_type
+              managed_key_id: managed_key_id
+              key_state: key_state
+              targets:
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                key_purpose:
+                - null
+                - null
+                key_statuses:
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                key_purpose:
+                - null
+                - null
+                key_statuses:
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+              is_unexportable: true
             dynamic_secret_producer_details:
+              gw_cluster_id: 2
               producer_type: producer_type
               producer_status: producer_status
               producer_metadata: producer_metadata
@@ -6942,14 +7649,14 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 3
+          last_version: 1
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           client_permissions:
           - client_permissions
           - client_permissions
           with_customer_fragment: true
           certificates: certificates
-          rotation_interval: 2
+          rotation_interval: 6
           item_metadata: item_metadata
           deletion_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
@@ -6957,7 +7664,7 @@ components:
         - auto_rotate: true
           item_state: item_state
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 2
+          item_id: 7
           item_tags:
           - item_tags
           - item_tags
@@ -7032,23 +7739,70 @@ components:
             deletion_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 9
+            version: 1
           - item_version_state: item_version_state
             with_customer_fragment: true
             deletion_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 9
+            version: 1
           item_targets_assoc:
           - assoc_id: assoc_id
             target_name: target_name
           - assoc_id: assoc_id
             target_name: target_name
           item_name: item_name
-          item_size: 7
+          item_size: 1
           is_enabled: true
           item_general_info:
+            rotated_secret_details:
+              rotator_creds_type: rotator_creds_type
+              gw_cluster_id: 3
+              rotation_hour: 4
+              rotation_statement: rotation_statement
+              rotator_status: rotator_status
+              rotator_type: rotator_type
+              delete_previous_version_in_days: 9
+              last_rotation_error: last_rotation_error
+              number_of_versions_to_save: 2
+            managed_key_details:
+              target_alias_helper: target_alias_helper
+              is_provided_by_user: true
+              key_type: key_type
+              managed_key_id: managed_key_id
+              key_state: key_state
+              targets:
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                key_purpose:
+                - null
+                - null
+                key_statuses:
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                key_purpose:
+                - null
+                - null
+                key_statuses:
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+                - key_id: 7
+                  last_status: last_status
+                  last_error: last_error
+              is_unexportable: true
             dynamic_secret_producer_details:
+              gw_cluster_id: 2
               producer_type: producer_type
               producer_status: producer_status
               producer_metadata: producer_metadata
@@ -7116,14 +7870,14 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 3
+          last_version: 1
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           client_permissions:
           - client_permissions
           - client_permissions
           with_customer_fragment: true
           certificates: certificates
-          rotation_interval: 2
+          rotation_interval: 6
           item_metadata: item_metadata
           deletion_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
@@ -7236,28 +7990,62 @@ components:
       example:
         next_page: next_page
         targets:
-        - target_items_assoc:
+        - last_version: 0
+          target_items_assoc:
           - assoc_id: assoc_id
             item_name: item_name
           - assoc_id: assoc_id
             item_name: item_name
+          client_permissions:
+          - client_permissions
+          - client_permissions
           with_customer_fragment: true
           target_name: target_name
+          target_versions:
+          - item_version_state: item_version_state
+            with_customer_fragment: true
+            deletion_date: 2000-01-23T04:56:07.000+00:00
+            protection_key_name: protection_key_name
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 1
+          - item_version_state: item_version_state
+            with_customer_fragment: true
+            deletion_date: 2000-01-23T04:56:07.000+00:00
+            protection_key_name: protection_key_name
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 1
           target_type: target_type
           comment: comment
           protection_key_name: protection_key_name
-          target_id: 0
-        - target_items_assoc:
+          target_id: 6
+        - last_version: 0
+          target_items_assoc:
           - assoc_id: assoc_id
             item_name: item_name
           - assoc_id: assoc_id
             item_name: item_name
+          client_permissions:
+          - client_permissions
+          - client_permissions
           with_customer_fragment: true
           target_name: target_name
+          target_versions:
+          - item_version_state: item_version_state
+            with_customer_fragment: true
+            deletion_date: 2000-01-23T04:56:07.000+00:00
+            protection_key_name: protection_key_name
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 1
+          - item_version_state: item_version_state
+            with_customer_fragment: true
+            deletion_date: 2000-01-23T04:56:07.000+00:00
+            protection_key_name: protection_key_name
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 1
           target_type: target_type
           comment: comment
           protection_key_name: protection_key_name
-          target_id: 0
+          target_id: 6
       properties:
         next_page:
           type: string
@@ -7347,6 +8135,138 @@ components:
           x-go-name: TargetLogzIoToken
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    ManagedKeyDetailsInfo:
+      example:
+        target_alias_helper: target_alias_helper
+        is_provided_by_user: true
+        key_type: key_type
+        managed_key_id: managed_key_id
+        key_state: key_state
+        targets:
+        - external_kms_id:
+            key_id: key_id
+            key_reference: key_reference
+          target_assoc_id: target_assoc_id
+          key_purpose:
+          - null
+          - null
+          key_statuses:
+          - key_id: 7
+            last_status: last_status
+            last_error: last_error
+          - key_id: 7
+            last_status: last_status
+            last_error: last_error
+        - external_kms_id:
+            key_id: key_id
+            key_reference: key_reference
+          target_assoc_id: target_assoc_id
+          key_purpose:
+          - null
+          - null
+          key_statuses:
+          - key_id: 7
+            last_status: last_status
+            last_error: last_error
+          - key_id: 7
+            last_status: last_status
+            last_error: last_error
+        is_unexportable: true
+      properties:
+        is_provided_by_user:
+          type: boolean
+          x-go-name: IsProvidedByUser
+        is_unexportable:
+          type: boolean
+          x-go-name: IsUnexportable
+        key_state:
+          description: ItemState defines the different states an Item can be in
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        key_type:
+          title: ManagedKeyType defines types of keys that can be managed by ManagedKey
+            supported by AKEYLESS.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        managed_key_id:
+          type: string
+          x-go-name: ManagedKeyId
+        target_alias_helper:
+          type: string
+          x-go-name: TargetAliasHelper
+        targets:
+          items:
+            $ref: '#/components/schemas/ManagedKeyTargetInfo'
+          type: array
+          x-go-name: Targets
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ManagedKeyPurpose:
+      description: ManagedKeyPurpose defines purpose for managed keys
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ManagedKeyStatusInfo:
+      example:
+        key_id: 7
+        last_status: last_status
+        last_error: last_error
+      properties:
+        key_id:
+          format: int64
+          type: integer
+          x-go-name: Version
+        last_error:
+          type: string
+          x-go-name: LastError
+        last_status:
+          description: ManagedKeyTargetStatus defines status of managed key target
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ManagedKeyTargetInfo:
+      example:
+        external_kms_id:
+          key_id: key_id
+          key_reference: key_reference
+        target_assoc_id: target_assoc_id
+        key_purpose:
+        - null
+        - null
+        key_statuses:
+        - key_id: 7
+          last_status: last_status
+          last_error: last_error
+        - key_id: 7
+          last_status: last_status
+          last_error: last_error
+      properties:
+        external_kms_id:
+          $ref: '#/components/schemas/ExternalKMSKeyId'
+        key_purpose:
+          items:
+            $ref: '#/components/schemas/ManagedKeyPurpose'
+          type: array
+          x-go-name: Purpose
+        key_statuses:
+          items:
+            $ref: '#/components/schemas/ManagedKeyStatusInfo'
+          type: array
+          x-go-name: StatusInfo
+        target_assoc_id:
+          type: string
+          x-go-name: TargetAssociationID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ManagedKeyTargetStatus:
+      description: ManagedKeyTargetStatus defines status of managed key target
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ManagedKeyType:
+      title: ManagedKeyType defines types of keys that can be managed by ManagedKey
+        supported by AKEYLESS.
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     MigrationGeneral:
       example:
         prefix: prefix
@@ -7766,8 +8686,9 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     ProducerStatus:
-      description: ProducerStatus defines types of Producer Status
+      description: RotationStatus defines types of rotation Status
       type: string
+      x-go-name: RotationStatus
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ProducersConfigPart:
       example:
@@ -8016,6 +8937,105 @@ components:
           x-go-name: NextRotationDate
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RotatedSecretDetailsInfo:
+      description: RotatedSecretDetailsInfo The rotated secret rotator info
+      example:
+        rotator_creds_type: rotator_creds_type
+        gw_cluster_id: 3
+        rotation_hour: 4
+        rotation_statement: rotation_statement
+        rotator_status: rotator_status
+        rotator_type: rotator_type
+        delete_previous_version_in_days: 9
+        last_rotation_error: last_rotation_error
+        number_of_versions_to_save: 2
+      properties:
+        delete_previous_version_in_days:
+          format: int32
+          type: integer
+          x-go-name: DeletePreviousVersionInDays
+        gw_cluster_id:
+          format: int64
+          type: integer
+          x-go-name: GWClusterID
+        last_rotation_error:
+          type: string
+          x-go-name: LastRotatorError
+        number_of_versions_to_save:
+          format: int32
+          type: integer
+          x-go-name: NumberOfVersionsToSave
+        rotation_hour:
+          format: int32
+          type: integer
+          x-go-name: RotationHour
+        rotation_statement:
+          type: string
+          x-go-name: RotationStatement
+        rotator_creds_type:
+          title: RotatorCredsType defines types supported by AKEYLESS.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        rotator_status:
+          description: RotationStatus defines types of rotation Status
+          type: string
+          x-go-name: RotationStatus
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        rotator_type:
+          title: RotatorType defines types supported by AKEYLESS.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    Rotator:
+      example:
+        name: name
+        id: 2
+        last_error: last_error
+        type: type
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: Id
+        last_error:
+          type: string
+          x-go-name: LastError
+        name:
+          type: string
+          x-go-name: Name
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    RotatorCredsType:
+      title: RotatorCredsType defines types supported by AKEYLESS.
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RotatorType:
+      title: RotatorType defines types supported by AKEYLESS.
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RotatorsConfigPart:
+      example:
+        rotators:
+        - name: name
+          id: 2
+          last_error: last_error
+          type: type
+        - name: name
+          id: 2
+          last_error: last_error
+          type: type
+      properties:
+        rotators:
+          items:
+            $ref: '#/components/schemas/Rotator'
+          type: array
+          x-go-name: Rotators
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     Rules:
       example:
         path_rules:
@@ -8242,21 +9262,47 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/auth
     Target:
       example:
+        last_version: 0
         target_items_assoc:
         - assoc_id: assoc_id
           item_name: item_name
         - assoc_id: assoc_id
           item_name: item_name
+        client_permissions:
+        - client_permissions
+        - client_permissions
         with_customer_fragment: true
         target_name: target_name
+        target_versions:
+        - item_version_state: item_version_state
+          with_customer_fragment: true
+          deletion_date: 2000-01-23T04:56:07.000+00:00
+          protection_key_name: protection_key_name
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          version: 1
+        - item_version_state: item_version_state
+          with_customer_fragment: true
+          deletion_date: 2000-01-23T04:56:07.000+00:00
+          protection_key_name: protection_key_name
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          version: 1
         target_type: target_type
         comment: comment
         protection_key_name: protection_key_name
-        target_id: 0
+        target_id: 6
       properties:
+        client_permissions:
+          items:
+            type: string
+          type: array
+          x-go-name: ClientPermissions
         comment:
           type: string
           x-go-name: Comment
+        last_version:
+          format: int32
+          type: integer
+          x-go-name: LastVersion
         protection_key_name:
           type: string
           x-go-name: ProtectionKeyName
@@ -8273,8 +9319,14 @@ components:
           type: string
           x-go-name: TargetName
         target_type:
+          title: TargetType ..
           type: string
-          x-go-name: TargetType
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        target_versions:
+          items:
+            $ref: '#/components/schemas/ItemVersion'
+          type: array
+          x-go-name: TargetVersions
         with_customer_fragment:
           type: boolean
           x-go-name: WithCustomerFragment
@@ -8297,40 +9349,36 @@ components:
           x-go-name: ItemName
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    TargetType:
+      title: TargetType ..
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     TargetTypeDetailesInput:
       example:
         rabbitmq_server_password: rabbitmq_server_password
         aws_session_token: aws_session_token
-        host_port: host_port
         aws_secret_access_key: aws_secret_access_key
-        ip:
-        - ip
-        - ip
         db_pwd: db_pwd
+        private_key: private_key
         mongodb_db_name: mongodb_db_name
         url: url
         db_host_name: db_host_name
         mongodb_uri_connection: mongodb_uri_connection
+        password: password
         rabbitmq_server_uri: rabbitmq_server_uri
         aws_access_key_id: aws_access_key_id
         aws_region: aws_region
         db_name: db_name
         db_user_name: db_user_name
         port: port
+        private_key_password: private_key_password
         db_server_certificates: db_server_certificates
-        admin_name: admin_name
+        host: host
         db_port: db_port
         db_server_name: db_server_name
         rabbitmq_server_user: rabbitmq_server_user
-        host_name: host_name
-        admin_pwd: admin_pwd
+        username: username
       properties:
-        admin_name:
-          type: string
-          x-go-name: AdminName
-        admin_pwd:
-          type: string
-          x-go-name: AdminPwd
         aws_access_key_id:
           type: string
           x-go-name: AWSAccessKeyID
@@ -8373,26 +9421,27 @@ components:
         db_user_name:
           type: string
           x-go-name: DbUserName
-        host_name:
+        host:
           type: string
           x-go-name: HostName
-        host_port:
-          type: string
-          x-go-name: HostPort
-        ip:
-          items:
-            type: string
-          type: array
-          x-go-name: IP
         mongodb_db_name:
           type: string
           x-go-name: MongoDBName
         mongodb_uri_connection:
           type: string
           x-go-name: MongoDBURIConnection
+        password:
+          type: string
+          x-go-name: AdminPwd
         port:
           type: string
-          x-go-name: Port
+          x-go-name: HostPort
+        private_key:
+          type: string
+          x-go-name: PrivateKey
+        private_key_password:
+          type: string
+          x-go-name: PrivateKeyPassword
         rabbitmq_server_password:
           type: string
           x-go-name: RabbitmqServerPassword
@@ -8405,6 +9454,9 @@ components:
         url:
           type: string
           x-go-name: URL
+        username:
+          type: string
+          x-go-name: AdminName
       title: TargetTypeDetailesInput ...
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -8613,7 +9665,7 @@ components:
         assocTargetItem is a command that creates an association between target
         and item.
       properties:
-        item-name:
+        name:
           description: The item to associate
           type: string
           x-go-name: ItemName
@@ -8632,7 +9684,7 @@ components:
           type: string
           x-go-name: UIDToken
       required:
-      - item-name
+      - name
       - target-name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -8700,6 +9752,9 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     clientData:
+      example:
+        clientKeyData: clientKeyData
+        clientCertificateData: clientCertificateData
       properties:
         clientCertificateData:
           type: string
@@ -9472,7 +10527,10 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createAwsTarget:
       properties:
-        access_key_id:
+        access-key:
+          type: string
+          x-go-name: AWSSecretAccessKey
+        access-key-id:
           type: string
           x-go-name: AWSAccessKeyID
         comment:
@@ -9492,10 +10550,7 @@ components:
         region:
           type: string
           x-go-name: AWSRegion
-        secret_access_key:
-          type: string
-          x-go-name: AWSSecretAccessKey
-        session_token:
+        session-token:
           type: string
           x-go-name: AWSSessionToken
         token:
@@ -9520,8 +10575,9 @@ components:
           type: string
           x-go-name: Comment
         db_type:
+          title: TargetType ..
           type: string
-          x-go-name: DbType
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         host_name:
           type: string
           x-go-name: DbHostName
@@ -9611,7 +10667,7 @@ components:
         alg:
           description: |-
             Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024,
-            RSA2048]
+            RSA2048, RSA3072, RSA4096]
           type: string
           x-go-name: Alg
         customer-frg-id:
@@ -9851,26 +10907,23 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createRdpTarget:
       properties:
-        admin_name:
-          type: string
-          x-go-name: AdminName
-        admin_pwd:
-          type: string
-          x-go-name: AdminPwd
         comment:
           description: Comment about the target
           type: string
           x-go-name: Comment
-        host_name:
+        host:
           type: string
           x-go-name: HostName
-        host_port:
-          type: string
-          x-go-name: HostPort
         name:
           description: Target name
           type: string
           x-go-name: TargetName
+        pass:
+          type: string
+          x-go-name: AdminPwd
+        port:
+          type: string
+          x-go-name: HostPort
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
@@ -9887,6 +10940,9 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        user:
+          type: string
+          x-go-name: AdminName
       required:
       - name
       title: createRdpTarget is a command that creates a new target.
@@ -9918,6 +10974,87 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createRoleOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createRotatedSecret:
+      properties:
+        auto-rotate:
+          description: |-
+            Whether to automatically rotate every --rotation-interval days, or
+            disable existing automatic rotation
+          type: string
+          x-go-name: AutoRotate
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        metadata:
+          description: Metadata about the secret
+          type: string
+          x-go-name: Metadata
+        name:
+          description: Secret name
+          type: string
+          x-go-name: SecretName
+        protection_key:
+          description: |-
+            The name of a key that used to encrypt the secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        rotation-interval:
+          description: The number of days to wait between every automatic key rotation
+            (7-365)
+          type: string
+          x-go-name: RotationInterval
+        rotation_hour:
+          format: int32
+          type: integer
+          x-go-name: RotationHour
+        rotator_creds_type:
+          type: string
+          x-go-name: RotatorCredsType
+        rotator_type:
+          type: string
+          x-go-name: RotatorType
+        ssh-password:
+          type: string
+          x-go-name: SshPassword
+        ssh-username:
+          type: string
+          x-go-name: SshUser
+        tags:
+          description: List of the tags attached to this secret
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-name:
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: createRotatedSecret is a command that creates a rotated secret.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createRotatedSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createSSHCertIssuer:
@@ -9987,24 +11124,34 @@ components:
           description: Comment about the target
           type: string
           x-go-name: Comment
-        ip:
-          items:
-            type: string
-          type: array
-          x-go-name: IP
+        host:
+          type: string
+          x-go-name: HostName
         name:
           description: Target name
           type: string
           x-go-name: TargetName
         port:
           type: string
-          x-go-name: Port
+          x-go-name: HostPort
+        private-key:
+          type: string
+          x-go-name: PrivateKey
+        private-key-password:
+          type: string
+          x-go-name: PrivateKeyPassword
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
             account default protectionKey key will be used)
           type: string
           x-go-name: ProtectionKey
+        ssh-password:
+          type: string
+          x-go-name: SshPassword
+        ssh-username:
+          type: string
+          x-go-name: SshUser
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -10080,6 +11227,13 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createTargetOutput:
+      example:
+        target_id: 0
+      properties:
+        target_id:
+          format: int64
+          type: integer
+          x-go-name: TargetID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createWebTarget:
@@ -10419,7 +11573,7 @@ components:
           x-go-name: RoleName
         rule-type:
           default: item-rule
-          description: item-rule, role-rule or auth-method-rule
+          description: item-rule, role-rule, auth-method-rule, search-rule or reports-rule
           type: string
           x-go-name: RuleType
         token:
@@ -10473,10 +11627,20 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteTarget:
       properties:
+        enforce-deletion:
+          default: false
+          description: Enforce deletion
+          type: boolean
+          x-go-name: EnforceDeletion
         name:
           description: Target name
           type: string
           x-go-name: TargetName
+        target-version:
+          description: Target version
+          format: int32
+          type: integer
+          x-go-name: TargetVersion
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -10501,6 +11665,14 @@ components:
           description: The association id to be deleted
           type: string
           x-go-name: AssocID
+        name:
+          description: Item name
+          type: string
+          x-go-name: ItemName
+        target-name:
+          description: The target to associate
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -10512,7 +11684,7 @@ components:
           type: string
           x-go-name: UIDToken
       required:
-      - assoc-id
+      - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteTargetAssociationOutput:
@@ -10524,7 +11696,7 @@ components:
     deleteTargets:
       properties:
         path:
-          description: Path to delete the auth methods from
+          description: Path to delete the targets from
           type: string
           x-go-name: Path
         token:
@@ -10570,6 +11742,34 @@ components:
       required:
       - name
       title: describeItem is a command that returns a single item.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    describePermissions:
+      description: |-
+        describePermissions is a command that shows which permissions your have to a
+        particular path.
+      properties:
+        path:
+          description: Path to an object
+          type: string
+          x-go-name: Path
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        type:
+          description: Type of object (item, am, role, target)
+          type: string
+          x-go-name: Type
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - path
+      - type
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     encrypt:
@@ -10808,12 +12008,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -10833,7 +12034,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -10846,6 +12050,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -10860,6 +12065,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -10871,14 +12077,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -10890,6 +12101,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -10908,6 +12120,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -11015,12 +12228,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -11040,7 +12254,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -11053,6 +12270,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -11067,6 +12285,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -11078,14 +12297,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -11097,6 +12321,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -11115,6 +12340,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -11211,12 +12437,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -11236,7 +12463,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -11249,6 +12479,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -11263,6 +12494,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -11274,14 +12506,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -11293,6 +12530,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -11311,6 +12549,512 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          chef_server_url: chef_server_url
+          gke_cluster_name: gke_cluster_name
+          aws_user_groups: aws_user_groups
+          host_name: host_name
+          azure_tenant_id: azure_tenant_id
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerCertificateAutomation:
+      description: |-
+        gatewayCreateProducerCertificateAutomation is a command that creates a Certificate Automation
+        dynamic secret producer to dynamically create certificates generated by Venafi or have
+        Akeyless generated certificates using PKI be monitored by Venafi
+      properties:
+        admin-rotation-interval-days:
+          default: 0
+          description: Admin credentials rotation interval (days)
+          format: int64
+          type: integer
+          x-go-name: AdminCredsRotationInterval
+        allow-subdomains:
+          description: Allow subdomains
+          type: boolean
+          x-go-name: AllowSubdomains
+        allowed-domains:
+          description: Allowed domains
+          items:
+            type: string
+          type: array
+          x-go-name: AllowedDomains
+        auto-generated-folder:
+          description: Auto generated folder
+          type: string
+          x-go-name: AutoGeneratedFolder
+        enable-admin-rotation:
+          default: false
+          description: Automatic admin credentials rotation
+          type: boolean
+          x-go-name: AutomaticAdminCredsRotation
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        producer-encryption-key-name:
+          description: Dynamic producer encryption key
+          type: string
+          x-go-name: ProducerEncryptionKey
+        root-first-in-chain:
+          description: Root first in chain
+          type: boolean
+          x-go-name: RootFirstInChain
+        sign-using-akeyless-pki:
+          description: Use Akeyless PKI issuer or Venafi issuer
+          type: boolean
+          x-go-name: SignUsingAkeylessPKI
+        signer-key-name:
+          description: Signer key name
+          type: string
+          x-go-name: SignerKeyName
+        store-private-key:
+          description: Store private key
+          type: boolean
+          x-go-name: StorePrivateKey
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-ttl:
+          description: User TTL in time.Duration format (2160h / 129600m / etc...).
+            When using sign-using-akeyless-pki certificates created will have this
+            validity period, otherwise the user-ttl is taken from the Validity Period
+            field of the Zone's' Issuing Template. When using cert-manager it is advised
+            to have a TTL of above 60 days (1440h). For more information - https://cert-manager.io/docs/usage/certificate/
+          type: string
+          x-go-name: UserTtl
+        venafi-api-key:
+          description: Venafi API key
+          type: string
+          x-go-name: VenafiApiKey
+        venafi-baseurl:
+          description: Venafi Baseurl
+          type: string
+          x-go-name: VenafiBaseURL
+        venafi-password:
+          description: Venafi Password
+          type: string
+          x-go-name: VenafiPassword
+        venafi-use-tpp:
+          description: Venafi using TPP
+          type: boolean
+          x-go-name: VenafiUseTPP
+        venafi-username:
+          description: Venafi Username
+          type: string
+          x-go-name: VenafiUsername
+        venafi-zone:
+          description: Venafi Zone
+          type: string
+          x-go-name: VenafiZone
+      required:
+      - name
+      - venafi-zone
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerCertificateAutomationOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          last_admin_rotation: 5
+          chef_server_key: chef_server_key
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          mssql_creation_statements: mssql_creation_statements
+          admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          azure_user_roles_template_id: azure_user_roles_template_id
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_access_mode: aws_access_mode
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          active: true
+          gke_cluster_compute_zone: gke_cluster_compute_zone
+          chef_server_username: chef_server_username
+          db_host_name: db_host_name
+          db_name: db_name
+          chef_skip_ssl: true
+          db_port: db_port
+          artifactory_base_url: artifactory_base_url
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
+          db_isolation_level: db_isolation_level
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          user_ttl: user_ttl
+          timeout_seconds: 5
+          eks_assume_role: eks_assume_role
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          db_max_idle_conns: db_max_idle_conns
+          gke_project_id: gke_project_id
+          artifactory_admin_username: artifactory_admin_username
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          host_port: host_port
+          enable_admin_rotation: true
+          failure_message: failure_message
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_uri_connection: mongodb_uri_connection
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          db_user_name: db_user_name
+          eks_region: eks_region
+          payload: payload
+          artifactory_admin_apikey: artifactory_admin_apikey
+          azure_app_object_id: azure_app_object_id
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          user_principal_name: user_principal_name
+          db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
+          db_server_name: db_server_name
+          venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
+          venafi_store_private_key: true
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          mongodb_uri_options: mongodb_uri_options
+          db_pwd: db_pwd
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
+          dynamic_secret_name: dynamic_secret_name
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          aws_user_programmatic_access: true
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          azure_user_programmatic_access: true
+          eks_secret_access_key: eks_secret_access_key
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          chef_server_host_name: chef_server_host_name
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          chef_server_url: chef_server_url
+          gke_cluster_name: gke_cluster_name
+          aws_user_groups: aws_user_groups
+          host_name: host_name
+          azure_tenant_id: azure_tenant_id
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerChef:
+      description: gatewayCreateProducerChef is a command that creates chef producer
+      properties:
+        chef-orgs:
+          description: Organizations
+          type: string
+          x-go-name: Organizations
+        chef-server-key:
+          description: Server key
+          type: string
+          x-go-name: ServerKey
+        chef-server-url:
+          description: Server URL
+          type: string
+          x-go-name: ServerURL
+        chef-server-username:
+          description: Server username
+          type: string
+          x-go-name: ServerUsername
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        producer-encryption-key-name:
+          description: Dynamic producer encryption key
+          type: string
+          x-go-name: ProducerEncryptionKey
+        skip-ssl:
+          default: true
+          description: Skip SSL
+          type: boolean
+          x-go-name: SkipSSL
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-ttl:
+          default: 60m
+          description: User TTL
+          type: string
+          x-go-name: UserTtl
+      required:
+      - chef-orgs
+      - chef-server-key
+      - chef-server-url
+      - chef-server-username
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerChefOutput:
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerCustom:
+      properties:
+        create-sync-url:
+          description: |-
+            URL of an endpoint that implements /sync/create method, for example
+            https://webhook.example.com/sync/create
+          type: string
+          x-go-name: CreateSyncURL
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayURL
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        payload:
+          description: Secret payload to be sent with each create/revoke webhook request
+          type: string
+          x-go-name: Payload
+        producer-encryption-key-name:
+          description: Dynamic producer encryption key
+          type: string
+          x-go-name: ProducerEncryptionKey
+        revoke-sync-url:
+          description: |-
+            URL of an endpoint that implements /sync/revoke method, for example
+            https://webhook.example.com/sync/revoke
+          type: string
+          x-go-name: RevokeSyncURL
+        rotate-sync-url:
+          description: |-
+            URL of an endpoint that implements /sync/rotate method, for example
+            https://webhook.example.com/sync/rotate
+          type: string
+          x-go-name: RotateSyncURL
+        timeout-sec:
+          default: 60
+          description: Maximum allowed time in seconds for the webhook to return the
+            results
+          format: int64
+          type: integer
+          x-go-name: TimeoutSeconds
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-ttl:
+          default: 60m
+          description: User TTL
+          type: string
+          x-go-name: UserTTL
+      required:
+      - create-sync-url
+      - name
+      - revoke-sync-url
+      title: gatewayCreateProducerCustom is a command that creates a custom producer.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerCustomOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          last_admin_rotation: 5
+          chef_server_key: chef_server_key
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          mssql_creation_statements: mssql_creation_statements
+          admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          azure_user_roles_template_id: azure_user_roles_template_id
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_access_mode: aws_access_mode
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          active: true
+          gke_cluster_compute_zone: gke_cluster_compute_zone
+          chef_server_username: chef_server_username
+          db_host_name: db_host_name
+          db_name: db_name
+          chef_skip_ssl: true
+          db_port: db_port
+          artifactory_base_url: artifactory_base_url
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
+          db_isolation_level: db_isolation_level
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          user_ttl: user_ttl
+          timeout_seconds: 5
+          eks_assume_role: eks_assume_role
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          db_max_idle_conns: db_max_idle_conns
+          gke_project_id: gke_project_id
+          artifactory_admin_username: artifactory_admin_username
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          host_port: host_port
+          enable_admin_rotation: true
+          failure_message: failure_message
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_uri_connection: mongodb_uri_connection
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          db_user_name: db_user_name
+          eks_region: eks_region
+          payload: payload
+          artifactory_admin_apikey: artifactory_admin_apikey
+          azure_app_object_id: azure_app_object_id
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          user_principal_name: user_principal_name
+          db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
+          db_server_name: db_server_name
+          venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
+          venafi_store_private_key: true
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          mongodb_uri_options: mongodb_uri_options
+          db_pwd: db_pwd
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
+          dynamic_secret_name: dynamic_secret_name
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          aws_user_programmatic_access: true
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          azure_user_programmatic_access: true
+          eks_secret_access_key: eks_secret_access_key
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          chef_server_host_name: chef_server_host_name
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -11400,12 +13144,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -11425,7 +13170,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -11438,6 +13186,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -11452,6 +13201,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -11463,14 +13213,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -11482,6 +13237,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -11500,6 +13256,196 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          chef_server_url: chef_server_url
+          gke_cluster_name: gke_cluster_name
+          aws_user_groups: aws_user_groups
+          host_name: host_name
+          azure_tenant_id: azure_tenant_id
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerGcp:
+      description: gatewayCreateProducerGcp is a command that creates a GCP producer
+      properties:
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        gcp-cred-type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+        gcp-key:
+          description: Base64-encoded service account private key text
+          type: string
+          x-go-name: ServiceAccountKey
+        gcp-key-algo:
+          description: Service account key algorithm, e.g. KEY_ALG_RSA_1024
+          type: string
+          x-go-name: KeyAlgorithm
+        gcp-sa-email:
+          description: GCP service account email
+          type: string
+          x-go-name: ServiceAccountEmail
+        gcp-token-scopes:
+          description: Access token scopes list, e.g. scope1,scope2
+          type: string
+          x-go-name: TokenScopes
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        producer-encryption-key-name:
+          description: Dynamic producer encryption key
+          type: string
+          x-go-name: ProducerEncryptionKey
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-ttl:
+          default: 60m
+          description: User TTL
+          type: string
+          x-go-name: UserTtl
+      required:
+      - gcp-cred-type
+      - gcp-sa-email
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerGcpOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          last_admin_rotation: 5
+          chef_server_key: chef_server_key
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          mssql_creation_statements: mssql_creation_statements
+          admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          azure_user_roles_template_id: azure_user_roles_template_id
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_access_mode: aws_access_mode
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          active: true
+          gke_cluster_compute_zone: gke_cluster_compute_zone
+          chef_server_username: chef_server_username
+          db_host_name: db_host_name
+          db_name: db_name
+          chef_skip_ssl: true
+          db_port: db_port
+          artifactory_base_url: artifactory_base_url
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
+          db_isolation_level: db_isolation_level
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          user_ttl: user_ttl
+          timeout_seconds: 5
+          eks_assume_role: eks_assume_role
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          db_max_idle_conns: db_max_idle_conns
+          gke_project_id: gke_project_id
+          artifactory_admin_username: artifactory_admin_username
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          host_port: host_port
+          enable_admin_rotation: true
+          failure_message: failure_message
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_uri_connection: mongodb_uri_connection
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          db_user_name: db_user_name
+          eks_region: eks_region
+          payload: payload
+          artifactory_admin_apikey: artifactory_admin_apikey
+          azure_app_object_id: azure_app_object_id
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          user_principal_name: user_principal_name
+          db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
+          db_server_name: db_server_name
+          venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
+          venafi_store_private_key: true
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          mongodb_uri_options: mongodb_uri_options
+          db_pwd: db_pwd
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
+          dynamic_secret_name: dynamic_secret_name
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          aws_user_programmatic_access: true
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          azure_user_programmatic_access: true
+          eks_secret_access_key: eks_secret_access_key
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          chef_server_host_name: chef_server_host_name
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -11580,12 +13526,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -11605,7 +13552,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -11618,6 +13568,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -11632,6 +13583,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -11643,14 +13595,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -11662,6 +13619,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -11680,6 +13638,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -11768,12 +13727,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -11793,7 +13753,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -11806,6 +13769,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -11820,6 +13784,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -11831,14 +13796,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -11850,6 +13820,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -11868,6 +13839,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -11971,12 +13943,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -11996,7 +13969,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -12009,6 +13985,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -12023,6 +14000,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -12034,14 +14012,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -12053,6 +14036,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -12071,6 +14055,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -12163,12 +14148,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -12188,7 +14174,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -12201,6 +14190,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -12215,6 +14205,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -12226,14 +14217,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -12245,6 +14241,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -12263,6 +14260,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -12348,12 +14346,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -12373,7 +14372,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -12386,6 +14388,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -12400,6 +14403,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -12411,14 +14415,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -12430,6 +14439,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -12448,6 +14458,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -12542,12 +14553,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -12567,7 +14579,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -12580,6 +14595,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -12594,6 +14610,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -12605,14 +14622,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -12624,6 +14646,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -12642,6 +14665,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -12727,12 +14751,13 @@ components:
           dynamic_secret_type: dynamic_secret_type
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 5
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           mssql_creation_statements: mssql_creation_statements
           admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
@@ -12752,7 +14777,10 @@ components:
           artifactory_base_url: artifactory_base_url
           azure_client_secret: azure_client_secret
           azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
           aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
           db_isolation_level: db_isolation_level
           rabbitmq_user_vhost: rabbitmq_user_vhost
           mongodb_username: mongodb_username
@@ -12765,6 +14793,7 @@ components:
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
           user_ttl: user_ttl
+          timeout_seconds: 5
           eks_assume_role: eks_assume_role
           venafi_use_tpp: true
           mongodb_password: mongodb_password
@@ -12779,6 +14808,7 @@ components:
           venafi_api_key: venafi_api_key
           mongodb_host_port: mongodb_host_port
           artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           enable_admin_rotation: true
@@ -12790,14 +14820,19 @@ components:
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
           eks_region: eks_region
+          payload: payload
           artifactory_admin_apikey: artifactory_admin_apikey
           azure_app_object_id: azure_app_object_id
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
           db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          gcp_service_account_key:
+          - 1
+          - 1
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -12809,6 +14844,7 @@ components:
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -12827,6 +14863,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -13235,7 +15272,11 @@ components:
     getDynamicSecretValue:
       properties:
         args:
-          description: Optional input as `key-value` pairs
+          description: |-
+            Optional arguments as key=value pairs or JSON strings, e.g -
+            \"--args=csr=base64_encoded_csr --args=common_name=bar\" or
+            args='{\"csr\":\"base64_encoded_csr\"}. It is possible to combine both
+            formats.'
           items:
             type: string
           type: array
@@ -13252,6 +15293,12 @@ components:
           description: Target Name
           type: string
           x-go-name: TargetName
+        timeout:
+          default: 15
+          description: Timeout in seconds
+          format: int64
+          type: integer
+          x-go-name: TimeoutSec
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -13286,19 +15333,12 @@ components:
           description: The common name to be included in the PKI certificate
           type: string
           x-go-name: CommonName
-        key-file-path:
+        key-data-base64:
           description: |-
-            The client public or private key file path (in case of a private key, it
-            will be use to extract the public key)
+            PKI key file contents. If this option is used, the certificate
+            will be printed to stdout
           type: string
-          x-go-name: KeyFilePath
-        outfile:
-          description: |-
-            Output file path with the certificate. If not provided, the file with
-            the certificate will be created in the same location of the provided
-            public key with the -cert extension
-          type: string
-          x-go-name: OutFilePath
+          x-go-name: KeyData
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -13317,10 +15357,15 @@ components:
           x-go-name: URISANs
       required:
       - cert-issuer-name
-      - key-file-path
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getKubeExecCredsOutput:
+      example:
+        apiVersion: apiVersion
+        kind: kind
+        status:
+          clientKeyData: clientKeyData
+          clientCertificateData: clientCertificateData
       properties:
         apiVersion:
           type: string
@@ -13333,7 +15378,13 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getPKICertificateOutput:
+      example:
+        path: path
+        data: data
       properties:
+        data:
+          type: string
+          x-go-name: Data
         path:
           type: string
           x-go-name: Path
@@ -13399,6 +15450,32 @@ components:
       required:
       - name
       title: getRole is a command that returns role details.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    getRotatedSecretValue:
+      properties:
+        names:
+          description: Secret name
+          type: string
+          x-go-name: Names
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        version:
+          description: Secret version
+          format: int32
+          type: integer
+          x-go-name: Version
+      required:
+      - names
+      title: getRotatedSecretValue is a command that creates a new Akeyless profile.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getSSHCertificate:
@@ -13471,7 +15548,7 @@ components:
           x-go-name: Version
       required:
       - names
-      title: getSecretValue is a command that creates a new Akeyless profile.
+      title: getSecretValue is a command that gets a static secret value.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getTarget:
@@ -13480,6 +15557,11 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        show-versions:
+          default: false
+          description: Include all target versions in reply
+          type: boolean
+          x-go-name: ShowVersions
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -13501,6 +15583,16 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        show-versions:
+          default: false
+          description: Include all target versions in reply
+          type: boolean
+          x-go-name: ShowVersions
+        target-version:
+          description: Target version
+          format: int32
+          type: integer
+          x-go-name: TargetVersion
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -13849,7 +15941,8 @@ components:
           x-go-name: RoleName
         rule-type:
           default: item-rule
-          description: item-rule, role-rule or auth-method-rule
+          description: item-rule, target-rule, role-rule, auth-method-rule, search-rule
+            or reports-rule
           type: string
           x-go-name: RuleType
         token:
@@ -14137,13 +16230,21 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateAWSTargetDetails:
       properties:
-        access_key_id:
+        access-key:
+          type: string
+          x-go-name: AWSSecretAccessKey
+        access-key-id:
           type: string
           x-go-name: AWSAccessKeyID
         name:
           description: Target name
           type: string
           x-go-name: TargetName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
@@ -14153,10 +16254,7 @@ components:
         region:
           type: string
           x-go-name: AWSRegion
-        secret_access_key:
-          type: string
-          x-go-name: AWSSecretAccessKey
-        session_token:
+        session-token:
           type: string
           x-go-name: AWSSessionToken
         token:
@@ -14192,6 +16290,11 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
         port:
           type: string
           x-go-name: DbPort
@@ -14273,6 +16376,65 @@ components:
           x-go-name: Updated
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateManagedKey:
+      properties:
+        add-tag:
+          description: List of the new tags that will be attached to this item
+          items:
+            type: string
+          type: array
+          x-go-name: AddTags
+        auto-rotate:
+          description: Whether to automatically rotate every --rotation-interval days,
+            or disable existing automatic rotation
+          type: string
+          x-go-name: AutoRotate
+        name:
+          description: ManagedKey name
+          type: string
+          x-go-name: ManagedKeyName
+        new-metadata:
+          default: default_metadata
+          description: New item metadata
+          type: string
+          x-go-name: NewMetadata
+        new-name:
+          description: New managed key name
+          type: string
+          x-go-name: NewManagedKeyName
+        rm-tag:
+          description: List of the existent tags that will be removed from this item
+          items:
+            type: string
+          type: array
+          x-go-name: RemoveTags
+        rotation-interval:
+          description: The number of days to wait between every automatic key rotation
+            (7-365)
+          type: string
+          x-go-name: RotationInterval
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        update-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateManagedKeyOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateOutput:
       properties:
         latest:
@@ -14301,6 +16463,11 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
@@ -14328,6 +16495,11 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
@@ -14411,26 +16583,255 @@ components:
           x-go-name: Updated
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    updateSSHTargetDetails:
+    updateRotatedSecret:
       properties:
-        ip:
+        add-tag:
+          description: List of the new tags that will be attached to this item
           items:
             type: string
           type: array
-          x-go-name: IP
+          x-go-name: AddTags
+        auto-rotate:
+          description: |-
+            Whether to automatically rotate every --rotation-interval days, or
+            disable existing automatic rotation
+          type: string
+          x-go-name: AutoRotate
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        key:
+          description: |-
+            The name of a key that used to encrypt the secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        name:
+          description: Secret name
+          type: string
+          x-go-name: SecretName
+        new-metadata:
+          default: default_metadata
+          description: New item metadata
+          type: string
+          x-go-name: NewMetadata
+        new-name:
+          description: New item name
+          type: string
+          x-go-name: NewName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
+        rm-tag:
+          description: List of the existent tags that will be removed from this item
+          items:
+            type: string
+          type: array
+          x-go-name: RemoveTags
+        rotation-interval:
+          description: The number of days to wait between every automatic key rotation
+            (7-365)
+          type: string
+          x-go-name: RotationInterval
+        rotation_hour:
+          format: int32
+          type: integer
+          x-go-name: RotationHour
+        rotator_creds_type:
+          type: string
+          x-go-name: RotatorCredsType
+        ssh-password:
+          type: string
+          x-go-name: SshPassword
+        ssh-username:
+          type: string
+          x-go-name: SshUser
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: updateRotatedSecret is a command that updates rotated secret .
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateRotatedSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateRotatedSecretSC:
+      properties:
+        add-tag:
+          description: List of the new tags that will be attached to this item
+          items:
+            type: string
+          type: array
+          x-go-name: AddTags
+        auto-rotate:
+          description: |-
+            Whether to automatically rotate every --rotation-interval days, or
+            disable existing automatic rotation
+          type: string
+          x-go-name: AutoRotate
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        key:
+          description: |-
+            The name of a key that used to encrypt the secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        name:
+          description: Secret name
+          type: string
+          x-go-name: SecretName
+        new-metadata:
+          default: default_metadata
+          description: New item metadata
+          type: string
+          x-go-name: NewMetadata
+        new-name:
+          description: New item name
+          type: string
+          x-go-name: NewName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
+        rm-tag:
+          description: List of the existent tags that will be removed from this item
+          items:
+            type: string
+          type: array
+          x-go-name: RemoveTags
+        rotation-interval:
+          description: The number of days to wait between every automatic key rotation
+            (7-365)
+          type: string
+          x-go-name: RotationInterval
+        rotation_hour:
+          format: int32
+          type: integer
+          x-go-name: RotationHour
+        rotator_creds_type:
+          type: string
+          x-go-name: RotatorCredsType
+        ssh-password:
+          type: string
+          x-go-name: SshPassword
+        ssh-username:
+          type: string
+          x-go-name: SshUser
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: updateRotatedSecretSC is a subcommand that updates rotated secret .
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateRotatedSecretSCOutput:
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateRotationSettings:
+      description: updateRotationSettings is a command that updates rotations settings
+        of an existing key
+      properties:
+        auto-rotate:
+          description: Whether to automatically rotate every --rotation-interval days,
+            or disable existing automatic rotation
+          type: boolean
+          x-go-name: AutoRotate
+        name:
+          description: Key name
+          type: string
+          x-go-name: KeyName
+        rotation-interval:
+          description: The number of days to wait between every automatic key rotation
+            (7-365)
+          format: int64
+          type: integer
+          x-go-name: RotationInterval
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - auto-rotate
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateSSHTargetDetails:
+      properties:
+        host:
+          type: string
+          x-go-name: HostName
         name:
           description: Target name
           type: string
           x-go-name: TargetName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
         port:
           type: string
-          x-go-name: Port
+          x-go-name: HostPort
+        private-key:
+          type: string
+          x-go-name: PrivateKey
+        private-key-password:
+          type: string
+          x-go-name: PrivateKeyPassword
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
             account default protectionKey key will be used)
           type: string
           x-go-name: ProtectionKey
+        ssh-password:
+          type: string
+          x-go-name: SshPassword
+        ssh-username:
+          type: string
+          x-go-name: SshUser
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -14552,6 +16953,11 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        new-version:
+          default: false
+          description: Whether to create a new version of not
+          type: boolean
+          x-go-name: NewVersion
         protection_key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
@@ -14642,7 +17048,7 @@ components:
     uploadRSA:
       properties:
         alg:
-          description: 'Key type. options: [RSA1024, RSA2048]'
+          description: 'Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]'
           type: string
           x-go-name: Alg
         cert:

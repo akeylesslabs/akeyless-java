@@ -30,6 +30,7 @@ import io.akeyless.client.model.LeadershipConfigPart;
 import io.akeyless.client.model.LogForwardingConfigPart;
 import io.akeyless.client.model.MigrationsConfigPart;
 import io.akeyless.client.model.ProducersConfigPart;
+import io.akeyless.client.model.RotatorsConfigPart;
 import io.akeyless.client.model.UIdentityConfigPart;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -79,6 +80,10 @@ public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_PRODUCERS = "producers";
   @SerializedName(SERIALIZED_NAME_PRODUCERS)
   private ProducersConfigPart producers;
+
+  public static final String SERIALIZED_NAME_ROTATORS = "rotators";
+  @SerializedName(SERIALIZED_NAME_ROTATORS)
+  private RotatorsConfigPart rotators;
 
   public static final String SERIALIZED_NAME_SAML = "saml";
   @SerializedName(SERIALIZED_NAME_SAML)
@@ -323,6 +328,29 @@ public class AkeylessGatewayConfig {
   }
 
 
+  public AkeylessGatewayConfig rotators(RotatorsConfigPart rotators) {
+    
+    this.rotators = rotators;
+    return this;
+  }
+
+   /**
+   * Get rotators
+   * @return rotators
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public RotatorsConfigPart getRotators() {
+    return rotators;
+  }
+
+
+  public void setRotators(RotatorsConfigPart rotators) {
+    this.rotators = rotators;
+  }
+
+
   public AkeylessGatewayConfig saml(DefaultConfigPart saml) {
     
     this.saml = saml;
@@ -411,6 +439,7 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.logForwarding, akeylessGatewayConfig.logForwarding) &&
         Objects.equals(this.migrations, akeylessGatewayConfig.migrations) &&
         Objects.equals(this.producers, akeylessGatewayConfig.producers) &&
+        Objects.equals(this.rotators, akeylessGatewayConfig.rotators) &&
         Objects.equals(this.saml, akeylessGatewayConfig.saml) &&
         Objects.equals(this.uidentity, akeylessGatewayConfig.uidentity) &&
         Objects.equals(this.version, akeylessGatewayConfig.version);
@@ -418,7 +447,7 @@ public class AkeylessGatewayConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, ldap, leadership, logForwarding, migrations, producers, saml, uidentity, version);
+    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, ldap, leadership, logForwarding, migrations, producers, rotators, saml, uidentity, version);
   }
 
 
@@ -436,6 +465,7 @@ public class AkeylessGatewayConfig {
     sb.append("    logForwarding: ").append(toIndentedString(logForwarding)).append("\n");
     sb.append("    migrations: ").append(toIndentedString(migrations)).append("\n");
     sb.append("    producers: ").append(toIndentedString(producers)).append("\n");
+    sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");
     sb.append("    saml: ").append(toIndentedString(saml)).append("\n");
     sb.append("    uidentity: ").append(toIndentedString(uidentity)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

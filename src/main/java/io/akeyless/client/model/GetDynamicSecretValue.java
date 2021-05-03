@@ -47,6 +47,10 @@ public class GetDynamicSecretValue {
   @SerializedName(SERIALIZED_NAME_TARGET)
   private String target;
 
+  public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
+  @SerializedName(SERIALIZED_NAME_TIMEOUT)
+  private Long timeout = 15l;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -71,11 +75,11 @@ public class GetDynamicSecretValue {
   }
 
    /**
-   * Optional input as &#x60;key-value&#x60; pairs
+   * Optional arguments as key&#x3D;value pairs or JSON strings, e.g - \\\&quot;--args&#x3D;csr&#x3D;base64_encoded_csr --args&#x3D;common_name&#x3D;bar\\\&quot; or args&#x3D;&#39;{\\\&quot;csr\\\&quot;:\\\&quot;base64_encoded_csr\\\&quot;}. It is possible to combine both formats.&#39;
    * @return args
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional input as `key-value` pairs")
+  @ApiModelProperty(value = "Optional arguments as key=value pairs or JSON strings, e.g - \\\"--args=csr=base64_encoded_csr --args=common_name=bar\\\" or args='{\\\"csr\\\":\\\"base64_encoded_csr\\\"}. It is possible to combine both formats.'")
 
   public List<String> getArgs() {
     return args;
@@ -155,6 +159,29 @@ public class GetDynamicSecretValue {
   }
 
 
+  public GetDynamicSecretValue timeout(Long timeout) {
+    
+    this.timeout = timeout;
+    return this;
+  }
+
+   /**
+   * Timeout in seconds
+   * @return timeout
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timeout in seconds")
+
+  public Long getTimeout() {
+    return timeout;
+  }
+
+
+  public void setTimeout(Long timeout) {
+    this.timeout = timeout;
+  }
+
+
   public GetDynamicSecretValue token(String token) {
     
     this.token = token;
@@ -214,13 +241,14 @@ public class GetDynamicSecretValue {
         Objects.equals(this.host, getDynamicSecretValue.host) &&
         Objects.equals(this.name, getDynamicSecretValue.name) &&
         Objects.equals(this.target, getDynamicSecretValue.target) &&
+        Objects.equals(this.timeout, getDynamicSecretValue.timeout) &&
         Objects.equals(this.token, getDynamicSecretValue.token) &&
         Objects.equals(this.uidToken, getDynamicSecretValue.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, host, name, target, token, uidToken);
+    return Objects.hash(args, host, name, target, timeout, token, uidToken);
   }
 
 
@@ -232,6 +260,7 @@ public class GetDynamicSecretValue {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

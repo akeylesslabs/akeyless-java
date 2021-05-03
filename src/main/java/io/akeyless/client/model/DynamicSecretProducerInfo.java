@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "DynamicSecretProducerInfo The dynamic secret producer info This parameter relevant and required only in case of create update dynamic secret.")
 
 public class DynamicSecretProducerInfo {
+  public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
+  @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
+  private Long gwClusterId;
+
   public static final String SERIALIZED_NAME_PRODUCER_METADATA = "producer_metadata";
   @SerializedName(SERIALIZED_NAME_PRODUCER_METADATA)
   private String producerMetadata;
@@ -41,6 +45,29 @@ public class DynamicSecretProducerInfo {
   public static final String SERIALIZED_NAME_PRODUCER_TYPE = "producer_type";
   @SerializedName(SERIALIZED_NAME_PRODUCER_TYPE)
   private String producerType;
+
+
+  public DynamicSecretProducerInfo gwClusterId(Long gwClusterId) {
+    
+    this.gwClusterId = gwClusterId;
+    return this;
+  }
+
+   /**
+   * Get gwClusterId
+   * @return gwClusterId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getGwClusterId() {
+    return gwClusterId;
+  }
+
+
+  public void setGwClusterId(Long gwClusterId) {
+    this.gwClusterId = gwClusterId;
+  }
 
 
   public DynamicSecretProducerInfo producerMetadata(String producerMetadata) {
@@ -73,11 +100,11 @@ public class DynamicSecretProducerInfo {
   }
 
    /**
-   * ProducerStatus defines types of Producer Status
+   * RotationStatus defines types of rotation Status
    * @return producerStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ProducerStatus defines types of Producer Status")
+  @ApiModelProperty(value = "RotationStatus defines types of rotation Status")
 
   public String getProducerStatus() {
     return producerStatus;
@@ -121,14 +148,15 @@ public class DynamicSecretProducerInfo {
       return false;
     }
     DynamicSecretProducerInfo dynamicSecretProducerInfo = (DynamicSecretProducerInfo) o;
-    return Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
+    return Objects.equals(this.gwClusterId, dynamicSecretProducerInfo.gwClusterId) &&
+        Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
         Objects.equals(this.producerStatus, dynamicSecretProducerInfo.producerStatus) &&
         Objects.equals(this.producerType, dynamicSecretProducerInfo.producerType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(producerMetadata, producerStatus, producerType);
+    return Objects.hash(gwClusterId, producerMetadata, producerStatus, producerType);
   }
 
 
@@ -136,6 +164,7 @@ public class DynamicSecretProducerInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretProducerInfo {\n");
+    sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    producerMetadata: ").append(toIndentedString(producerMetadata)).append("\n");
     sb.append("    producerStatus: ").append(toIndentedString(producerStatus)).append("\n");
     sb.append("    producerType: ").append(toIndentedString(producerType)).append("\n");

@@ -33,6 +33,10 @@ public class UpdateRabbitMQTargetDetails {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
+  @SerializedName(SERIALIZED_NAME_NEW_VERSION)
+  private Boolean newVersion = false;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
@@ -77,6 +81,29 @@ public class UpdateRabbitMQTargetDetails {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateRabbitMQTargetDetails newVersion(Boolean newVersion) {
+    
+    this.newVersion = newVersion;
+    return this;
+  }
+
+   /**
+   * Whether to create a new version of not
+   * @return newVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to create a new version of not")
+
+  public Boolean getNewVersion() {
+    return newVersion;
+  }
+
+
+  public void setNewVersion(Boolean newVersion) {
+    this.newVersion = newVersion;
   }
 
 
@@ -228,6 +255,7 @@ public class UpdateRabbitMQTargetDetails {
     }
     UpdateRabbitMQTargetDetails updateRabbitMQTargetDetails = (UpdateRabbitMQTargetDetails) o;
     return Objects.equals(this.name, updateRabbitMQTargetDetails.name) &&
+        Objects.equals(this.newVersion, updateRabbitMQTargetDetails.newVersion) &&
         Objects.equals(this.protectionKey, updateRabbitMQTargetDetails.protectionKey) &&
         Objects.equals(this.rabbitmqServerPassword, updateRabbitMQTargetDetails.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, updateRabbitMQTargetDetails.rabbitmqServerUri) &&
@@ -238,7 +266,7 @@ public class UpdateRabbitMQTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, protectionKey, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken);
+    return Objects.hash(name, newVersion, protectionKey, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken);
   }
 
 
@@ -247,6 +275,7 @@ public class UpdateRabbitMQTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateRabbitMQTargetDetails {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");

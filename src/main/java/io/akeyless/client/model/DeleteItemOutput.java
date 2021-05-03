@@ -34,6 +34,10 @@ public class DeleteItemOutput {
   @SerializedName(SERIALIZED_NAME_DELETION_DATE)
   private OffsetDateTime deletionDate;
 
+  public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_ITEM_NAME = "item_name";
   @SerializedName(SERIALIZED_NAME_ITEM_NAME)
   private String itemName;
@@ -63,6 +67,29 @@ public class DeleteItemOutput {
 
   public void setDeletionDate(OffsetDateTime deletionDate) {
     this.deletionDate = deletionDate;
+  }
+
+
+  public DeleteItemOutput itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * Get itemId
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
   }
 
 
@@ -122,13 +149,14 @@ public class DeleteItemOutput {
     }
     DeleteItemOutput deleteItemOutput = (DeleteItemOutput) o;
     return Objects.equals(this.deletionDate, deleteItemOutput.deletionDate) &&
+        Objects.equals(this.itemId, deleteItemOutput.itemId) &&
         Objects.equals(this.itemName, deleteItemOutput.itemName) &&
         Objects.equals(this.versionDeleted, deleteItemOutput.versionDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletionDate, itemName, versionDeleted);
+    return Objects.hash(deletionDate, itemId, itemName, versionDeleted);
   }
 
 
@@ -137,6 +165,7 @@ public class DeleteItemOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteItemOutput {\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
     sb.append("    versionDeleted: ").append(toIndentedString(versionDeleted)).append("\n");
     sb.append("}");

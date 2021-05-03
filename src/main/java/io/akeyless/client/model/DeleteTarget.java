@@ -29,9 +29,17 @@ import java.io.IOException;
  */
 
 public class DeleteTarget {
+  public static final String SERIALIZED_NAME_ENFORCE_DELETION = "enforce-deletion";
+  @SerializedName(SERIALIZED_NAME_ENFORCE_DELETION)
+  private Boolean enforceDeletion = false;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_TARGET_VERSION = "target-version";
+  @SerializedName(SERIALIZED_NAME_TARGET_VERSION)
+  private Integer targetVersion;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -40,6 +48,29 @@ public class DeleteTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DeleteTarget enforceDeletion(Boolean enforceDeletion) {
+    
+    this.enforceDeletion = enforceDeletion;
+    return this;
+  }
+
+   /**
+   * Enforce deletion
+   * @return enforceDeletion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enforce deletion")
+
+  public Boolean getEnforceDeletion() {
+    return enforceDeletion;
+  }
+
+
+  public void setEnforceDeletion(Boolean enforceDeletion) {
+    this.enforceDeletion = enforceDeletion;
+  }
 
 
   public DeleteTarget name(String name) {
@@ -61,6 +92,29 @@ public class DeleteTarget {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public DeleteTarget targetVersion(Integer targetVersion) {
+    
+    this.targetVersion = targetVersion;
+    return this;
+  }
+
+   /**
+   * Target version
+   * @return targetVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target version")
+
+  public Integer getTargetVersion() {
+    return targetVersion;
+  }
+
+
+  public void setTargetVersion(Integer targetVersion) {
+    this.targetVersion = targetVersion;
   }
 
 
@@ -119,14 +173,16 @@ public class DeleteTarget {
       return false;
     }
     DeleteTarget deleteTarget = (DeleteTarget) o;
-    return Objects.equals(this.name, deleteTarget.name) &&
+    return Objects.equals(this.enforceDeletion, deleteTarget.enforceDeletion) &&
+        Objects.equals(this.name, deleteTarget.name) &&
+        Objects.equals(this.targetVersion, deleteTarget.targetVersion) &&
         Objects.equals(this.token, deleteTarget.token) &&
         Objects.equals(this.uidToken, deleteTarget.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(enforceDeletion, name, targetVersion, token, uidToken);
   }
 
 
@@ -134,7 +190,9 @@ public class DeleteTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTarget {\n");
+    sb.append("    enforceDeletion: ").append(toIndentedString(enforceDeletion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    targetVersion: ").append(toIndentedString(targetVersion)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

@@ -29,9 +29,36 @@ import java.io.IOException;
  */
 
 public class GetPKICertificateOutput {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private String data;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+
+  public GetPKICertificateOutput data(String data) {
+    
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getData() {
+    return data;
+  }
+
+
+  public void setData(String data) {
+    this.data = data;
+  }
 
 
   public GetPKICertificateOutput path(String path) {
@@ -66,12 +93,13 @@ public class GetPKICertificateOutput {
       return false;
     }
     GetPKICertificateOutput getPKICertificateOutput = (GetPKICertificateOutput) o;
-    return Objects.equals(this.path, getPKICertificateOutput.path);
+    return Objects.equals(this.data, getPKICertificateOutput.data) &&
+        Objects.equals(this.path, getPKICertificateOutput.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path);
+    return Objects.hash(data, path);
   }
 
 
@@ -79,6 +107,7 @@ public class GetPKICertificateOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPKICertificateOutput {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();

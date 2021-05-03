@@ -30,9 +30,9 @@ import java.io.IOException;
 @ApiModel(description = "assocTargetItem is a command that creates an association between target and item.")
 
 public class AssocTargetItem {
-  public static final String SERIALIZED_NAME_ITEM_NAME = "item-name";
-  @SerializedName(SERIALIZED_NAME_ITEM_NAME)
-  private String itemName;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -47,25 +47,25 @@ public class AssocTargetItem {
   private String uidToken;
 
 
-  public AssocTargetItem itemName(String itemName) {
+  public AssocTargetItem name(String name) {
     
-    this.itemName = itemName;
+    this.name = name;
     return this;
   }
 
    /**
    * The item to associate
-   * @return itemName
+   * @return name
   **/
   @ApiModelProperty(required = true, value = "The item to associate")
 
-  public String getItemName() {
-    return itemName;
+  public String getName() {
+    return name;
   }
 
 
-  public void setItemName(String itemName) {
-    this.itemName = itemName;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -146,7 +146,7 @@ public class AssocTargetItem {
       return false;
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
-    return Objects.equals(this.itemName, assocTargetItem.itemName) &&
+    return Objects.equals(this.name, assocTargetItem.name) &&
         Objects.equals(this.targetName, assocTargetItem.targetName) &&
         Objects.equals(this.token, assocTargetItem.token) &&
         Objects.equals(this.uidToken, assocTargetItem.uidToken);
@@ -154,7 +154,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemName, targetName, token, uidToken);
+    return Objects.hash(name, targetName, token, uidToken);
   }
 
 
@@ -162,7 +162,7 @@ public class AssocTargetItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
-    sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

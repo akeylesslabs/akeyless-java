@@ -87,10 +87,10 @@ public class UploadRSA {
   }
 
    /**
-   * Key type. options: [RSA1024, RSA2048]
+   * Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]
    * @return alg
   **/
-  @ApiModelProperty(required = true, value = "Key type. options: [RSA1024, RSA2048]")
+  @ApiModelProperty(required = true, value = "Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]")
 
   public String getAlg() {
     return alg;

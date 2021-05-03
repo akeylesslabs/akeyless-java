@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**alg** | **String** | Key type. options: [RSA1024, RSA2048] | 
+**alg** | **String** | Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096] | 
 **cert** | **String** | Path to a file that contain the certificate in a PEM format. |  [optional]
 **certFileData** | **String** | Certificate in a PEM format. |  [optional]
 **customerFrgId** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) |  [optional]

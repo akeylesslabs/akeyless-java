@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * CreateSSHTarget
@@ -35,9 +33,9 @@ public class CreateSSHTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
-  public static final String SERIALIZED_NAME_IP = "ip";
-  @SerializedName(SERIALIZED_NAME_IP)
-  private List<String> ip = null;
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
+  private String host;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -47,9 +45,25 @@ public class CreateSSHTarget {
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
 
+  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+  private String privateKey;
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSWORD = "private-key-password";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSWORD)
+  private String privateKeyPassword;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
+
+  public static final String SERIALIZED_NAME_SSH_PASSWORD = "ssh-password";
+  @SerializedName(SERIALIZED_NAME_SSH_PASSWORD)
+  private String sshPassword;
+
+  public static final String SERIALIZED_NAME_SSH_USERNAME = "ssh-username";
+  @SerializedName(SERIALIZED_NAME_SSH_USERNAME)
+  private String sshUsername;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -83,34 +97,26 @@ public class CreateSSHTarget {
   }
 
 
-  public CreateSSHTarget ip(List<String> ip) {
+  public CreateSSHTarget host(String host) {
     
-    this.ip = ip;
-    return this;
-  }
-
-  public CreateSSHTarget addIpItem(String ipItem) {
-    if (this.ip == null) {
-      this.ip = new ArrayList<String>();
-    }
-    this.ip.add(ipItem);
+    this.host = host;
     return this;
   }
 
    /**
-   * Get ip
-   * @return ip
+   * Get host
+   * @return host
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getIp() {
-    return ip;
+  public String getHost() {
+    return host;
   }
 
 
-  public void setIp(List<String> ip) {
-    this.ip = ip;
+  public void setHost(String host) {
+    this.host = host;
   }
 
 
@@ -159,6 +165,52 @@ public class CreateSSHTarget {
   }
 
 
+  public CreateSSHTarget privateKey(String privateKey) {
+    
+    this.privateKey = privateKey;
+    return this;
+  }
+
+   /**
+   * Get privateKey
+   * @return privateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivateKey() {
+    return privateKey;
+  }
+
+
+  public void setPrivateKey(String privateKey) {
+    this.privateKey = privateKey;
+  }
+
+
+  public CreateSSHTarget privateKeyPassword(String privateKeyPassword) {
+    
+    this.privateKeyPassword = privateKeyPassword;
+    return this;
+  }
+
+   /**
+   * Get privateKeyPassword
+   * @return privateKeyPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivateKeyPassword() {
+    return privateKeyPassword;
+  }
+
+
+  public void setPrivateKeyPassword(String privateKeyPassword) {
+    this.privateKeyPassword = privateKeyPassword;
+  }
+
+
   public CreateSSHTarget protectionKey(String protectionKey) {
     
     this.protectionKey = protectionKey;
@@ -179,6 +231,52 @@ public class CreateSSHTarget {
 
   public void setProtectionKey(String protectionKey) {
     this.protectionKey = protectionKey;
+  }
+
+
+  public CreateSSHTarget sshPassword(String sshPassword) {
+    
+    this.sshPassword = sshPassword;
+    return this;
+  }
+
+   /**
+   * Get sshPassword
+   * @return sshPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshPassword() {
+    return sshPassword;
+  }
+
+
+  public void setSshPassword(String sshPassword) {
+    this.sshPassword = sshPassword;
+  }
+
+
+  public CreateSSHTarget sshUsername(String sshUsername) {
+    
+    this.sshUsername = sshUsername;
+    return this;
+  }
+
+   /**
+   * Get sshUsername
+   * @return sshUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshUsername() {
+    return sshUsername;
+  }
+
+
+  public void setSshUsername(String sshUsername) {
+    this.sshUsername = sshUsername;
   }
 
 
@@ -238,17 +336,21 @@ public class CreateSSHTarget {
     }
     CreateSSHTarget createSSHTarget = (CreateSSHTarget) o;
     return Objects.equals(this.comment, createSSHTarget.comment) &&
-        Objects.equals(this.ip, createSSHTarget.ip) &&
+        Objects.equals(this.host, createSSHTarget.host) &&
         Objects.equals(this.name, createSSHTarget.name) &&
         Objects.equals(this.port, createSSHTarget.port) &&
+        Objects.equals(this.privateKey, createSSHTarget.privateKey) &&
+        Objects.equals(this.privateKeyPassword, createSSHTarget.privateKeyPassword) &&
         Objects.equals(this.protectionKey, createSSHTarget.protectionKey) &&
+        Objects.equals(this.sshPassword, createSSHTarget.sshPassword) &&
+        Objects.equals(this.sshUsername, createSSHTarget.sshUsername) &&
         Objects.equals(this.token, createSSHTarget.token) &&
         Objects.equals(this.uidToken, createSSHTarget.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, ip, name, port, protectionKey, token, uidToken);
+    return Objects.hash(comment, host, name, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken);
   }
 
 
@@ -257,10 +359,14 @@ public class CreateSSHTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSSHTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
+    sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

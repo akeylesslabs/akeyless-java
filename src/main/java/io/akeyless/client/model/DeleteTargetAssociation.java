@@ -34,6 +34,14 @@ public class DeleteTargetAssociation {
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -53,7 +61,8 @@ public class DeleteTargetAssociation {
    * The association id to be deleted
    * @return assocId
   **/
-  @ApiModelProperty(required = true, value = "The association id to be deleted")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The association id to be deleted")
 
   public String getAssocId() {
     return assocId;
@@ -62,6 +71,51 @@ public class DeleteTargetAssociation {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public DeleteTargetAssociation name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Item name
+   * @return name
+  **/
+  @ApiModelProperty(required = true, value = "Item name")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public DeleteTargetAssociation targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * The target to associate
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The target to associate")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -121,13 +175,15 @@ public class DeleteTargetAssociation {
     }
     DeleteTargetAssociation deleteTargetAssociation = (DeleteTargetAssociation) o;
     return Objects.equals(this.assocId, deleteTargetAssociation.assocId) &&
+        Objects.equals(this.name, deleteTargetAssociation.name) &&
+        Objects.equals(this.targetName, deleteTargetAssociation.targetName) &&
         Objects.equals(this.token, deleteTargetAssociation.token) &&
         Objects.equals(this.uidToken, deleteTargetAssociation.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, token, uidToken);
+    return Objects.hash(assocId, name, targetName, token, uidToken);
   }
 
 
@@ -136,6 +192,8 @@ public class DeleteTargetAssociation {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTargetAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

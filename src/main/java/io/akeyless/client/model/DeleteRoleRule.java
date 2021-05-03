@@ -101,11 +101,11 @@ public class DeleteRoleRule {
   }
 
    /**
-   * item-rule, role-rule or auth-method-rule
+   * item-rule, role-rule, auth-method-rule, search-rule or reports-rule
    * @return ruleType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "item-rule, role-rule or auth-method-rule")
+  @ApiModelProperty(value = "item-rule, role-rule, auth-method-rule, search-rule or reports-rule")
 
   public String getRuleType() {
     return ruleType;

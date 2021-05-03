@@ -33,6 +33,10 @@ public class UpdateWebTargetDetails {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
+  @SerializedName(SERIALIZED_NAME_NEW_VERSION)
+  private Boolean newVersion = false;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
@@ -69,6 +73,29 @@ public class UpdateWebTargetDetails {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateWebTargetDetails newVersion(Boolean newVersion) {
+    
+    this.newVersion = newVersion;
+    return this;
+  }
+
+   /**
+   * Whether to create a new version of not
+   * @return newVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to create a new version of not")
+
+  public Boolean getNewVersion() {
+    return newVersion;
+  }
+
+
+  public void setNewVersion(Boolean newVersion) {
+    this.newVersion = newVersion;
   }
 
 
@@ -174,6 +201,7 @@ public class UpdateWebTargetDetails {
     }
     UpdateWebTargetDetails updateWebTargetDetails = (UpdateWebTargetDetails) o;
     return Objects.equals(this.name, updateWebTargetDetails.name) &&
+        Objects.equals(this.newVersion, updateWebTargetDetails.newVersion) &&
         Objects.equals(this.protectionKey, updateWebTargetDetails.protectionKey) &&
         Objects.equals(this.token, updateWebTargetDetails.token) &&
         Objects.equals(this.uidToken, updateWebTargetDetails.uidToken) &&
@@ -182,7 +210,7 @@ public class UpdateWebTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, protectionKey, token, uidToken, url);
+    return Objects.hash(name, newVersion, protectionKey, token, uidToken, url);
   }
 
 
@@ -191,6 +219,7 @@ public class UpdateWebTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWebTargetDetails {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

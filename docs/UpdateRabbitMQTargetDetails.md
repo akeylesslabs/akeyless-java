@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Target name | 
+**newVersion** | **Boolean** | Whether to create a new version of not |  [optional]
 **protectionKey** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **rabbitmqServerPassword** | **String** |  |  [optional]
 **rabbitmqServerUri** | **String** |  |  [optional]

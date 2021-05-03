@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
+import io.akeyless.client.model.ManagedKeyDetailsInfo;
+import io.akeyless.client.model.RotatedSecretDetailsInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,6 +40,14 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS = "dynamic_secret_producer_details";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS)
   private DynamicSecretProducerInfo dynamicSecretProducerDetails;
+
+  public static final String SERIALIZED_NAME_MANAGED_KEY_DETAILS = "managed_key_details";
+  @SerializedName(SERIALIZED_NAME_MANAGED_KEY_DETAILS)
+  private ManagedKeyDetailsInfo managedKeyDetails;
+
+  public static final String SERIALIZED_NAME_ROTATED_SECRET_DETAILS = "rotated_secret_details";
+  @SerializedName(SERIALIZED_NAME_ROTATED_SECRET_DETAILS)
+  private RotatedSecretDetailsInfo rotatedSecretDetails;
 
 
   public ItemGeneralInfo certIssueDetails(CertificateIssueInfo certIssueDetails) {
@@ -86,6 +96,52 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo managedKeyDetails(ManagedKeyDetailsInfo managedKeyDetails) {
+    
+    this.managedKeyDetails = managedKeyDetails;
+    return this;
+  }
+
+   /**
+   * Get managedKeyDetails
+   * @return managedKeyDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ManagedKeyDetailsInfo getManagedKeyDetails() {
+    return managedKeyDetails;
+  }
+
+
+  public void setManagedKeyDetails(ManagedKeyDetailsInfo managedKeyDetails) {
+    this.managedKeyDetails = managedKeyDetails;
+  }
+
+
+  public ItemGeneralInfo rotatedSecretDetails(RotatedSecretDetailsInfo rotatedSecretDetails) {
+    
+    this.rotatedSecretDetails = rotatedSecretDetails;
+    return this;
+  }
+
+   /**
+   * Get rotatedSecretDetails
+   * @return rotatedSecretDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public RotatedSecretDetailsInfo getRotatedSecretDetails() {
+    return rotatedSecretDetails;
+  }
+
+
+  public void setRotatedSecretDetails(RotatedSecretDetailsInfo rotatedSecretDetails) {
+    this.rotatedSecretDetails = rotatedSecretDetails;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -96,12 +152,14 @@ public class ItemGeneralInfo {
     }
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
-        Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails);
+        Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
+        Objects.equals(this.managedKeyDetails, itemGeneralInfo.managedKeyDetails) &&
+        Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, dynamicSecretProducerDetails);
+    return Objects.hash(certIssueDetails, dynamicSecretProducerDetails, managedKeyDetails, rotatedSecretDetails);
   }
 
 
@@ -111,6 +169,8 @@ public class ItemGeneralInfo {
     sb.append("class ItemGeneralInfo {\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
+    sb.append("    managedKeyDetails: ").append(toIndentedString(managedKeyDetails)).append("\n");
+    sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

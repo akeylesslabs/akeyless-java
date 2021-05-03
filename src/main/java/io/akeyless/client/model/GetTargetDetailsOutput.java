@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.Target;
 import io.akeyless.client.model.TargetTypeDetailesInput;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,9 +31,36 @@ import java.io.IOException;
  */
 
 public class GetTargetDetailsOutput {
-  public static final String SERIALIZED_NAME_VALUE = "Value";
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  private Target target;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private TargetTypeDetailesInput value;
+
+
+  public GetTargetDetailsOutput target(Target target) {
+    
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Get target
+   * @return target
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Target getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(Target target) {
+    this.target = target;
+  }
 
 
   public GetTargetDetailsOutput value(TargetTypeDetailesInput value) {
@@ -67,12 +95,13 @@ public class GetTargetDetailsOutput {
       return false;
     }
     GetTargetDetailsOutput getTargetDetailsOutput = (GetTargetDetailsOutput) o;
-    return Objects.equals(this.value, getTargetDetailsOutput.value);
+    return Objects.equals(this.target, getTargetDetailsOutput.target) &&
+        Objects.equals(this.value, getTargetDetailsOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(target, value);
   }
 
 
@@ -80,6 +109,7 @@ public class GetTargetDetailsOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTargetDetailsOutput {\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
