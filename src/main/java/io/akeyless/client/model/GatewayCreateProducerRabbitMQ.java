@@ -38,6 +38,10 @@ public class GatewayCreateProducerRabbitMQ {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -86,6 +90,10 @@ public class GatewayCreateProducerRabbitMQ {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
 
   public GatewayCreateProducerRabbitMQ gatewayUrl(String gatewayUrl) {
     
@@ -129,6 +137,29 @@ public class GatewayCreateProducerRabbitMQ {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerRabbitMQ password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -402,6 +433,29 @@ public class GatewayCreateProducerRabbitMQ {
   }
 
 
+  public GatewayCreateProducerRabbitMQ username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -413,6 +467,7 @@ public class GatewayCreateProducerRabbitMQ {
     GatewayCreateProducerRabbitMQ gatewayCreateProducerRabbitMQ = (GatewayCreateProducerRabbitMQ) o;
     return Objects.equals(this.gatewayUrl, gatewayCreateProducerRabbitMQ.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerRabbitMQ.name) &&
+        Objects.equals(this.password, gatewayCreateProducerRabbitMQ.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRabbitMQ.producerEncryptionKeyName) &&
         Objects.equals(this.rabbitmqAdminPwd, gatewayCreateProducerRabbitMQ.rabbitmqAdminPwd) &&
         Objects.equals(this.rabbitmqAdminUser, gatewayCreateProducerRabbitMQ.rabbitmqAdminUser) &&
@@ -424,12 +479,13 @@ public class GatewayCreateProducerRabbitMQ {
         Objects.equals(this.rabbitmqUserWritePermission, gatewayCreateProducerRabbitMQ.rabbitmqUserWritePermission) &&
         Objects.equals(this.token, gatewayCreateProducerRabbitMQ.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRabbitMQ.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerRabbitMQ.userTtl);
+        Objects.equals(this.userTtl, gatewayCreateProducerRabbitMQ.userTtl) &&
+        Objects.equals(this.username, gatewayCreateProducerRabbitMQ.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, token, uidToken, userTtl);
+    return Objects.hash(gatewayUrl, name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, token, uidToken, userTtl, username);
   }
 
 
@@ -439,6 +495,7 @@ public class GatewayCreateProducerRabbitMQ {
     sb.append("class GatewayCreateProducerRabbitMQ {\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rabbitmqAdminPwd: ").append(toIndentedString(rabbitmqAdminPwd)).append("\n");
     sb.append("    rabbitmqAdminUser: ").append(toIndentedString(rabbitmqAdminUser)).append("\n");
@@ -451,6 +508,7 @@ public class GatewayCreateProducerRabbitMQ {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

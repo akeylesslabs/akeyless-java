@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "reverseRBAC is a command that shows which auth methods have access to a particular object.")
 
 public class ReverseRBAC {
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -45,6 +49,33 @@ public class ReverseRBAC {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
+
+  public ReverseRBAC password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
 
   public ReverseRBAC path(String path) {
@@ -137,6 +168,29 @@ public class ReverseRBAC {
   }
 
 
+  public ReverseRBAC username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -146,15 +200,17 @@ public class ReverseRBAC {
       return false;
     }
     ReverseRBAC reverseRBAC = (ReverseRBAC) o;
-    return Objects.equals(this.path, reverseRBAC.path) &&
+    return Objects.equals(this.password, reverseRBAC.password) &&
+        Objects.equals(this.path, reverseRBAC.path) &&
         Objects.equals(this.token, reverseRBAC.token) &&
         Objects.equals(this.type, reverseRBAC.type) &&
-        Objects.equals(this.uidToken, reverseRBAC.uidToken);
+        Objects.equals(this.uidToken, reverseRBAC.uidToken) &&
+        Objects.equals(this.username, reverseRBAC.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, token, type, uidToken);
+    return Objects.hash(password, path, token, type, uidToken, username);
   }
 
 
@@ -162,10 +218,12 @@ public class ReverseRBAC {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReverseRBAC {\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

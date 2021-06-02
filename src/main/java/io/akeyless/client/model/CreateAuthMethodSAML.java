@@ -40,6 +40,10 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_IDP_METADATA_URL = "idp-metadata-url";
   @SerializedName(SERIALIZED_NAME_IDP_METADATA_URL)
   private String idpMetadataUrl;
@@ -47,6 +51,10 @@ public class CreateAuthMethodSAML {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -59,6 +67,10 @@ public class CreateAuthMethodSAML {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateAuthMethodSAML accessExpires(Long accessExpires) {
@@ -115,6 +127,29 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true: enforce role-association must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true: enforce role-association must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public CreateAuthMethodSAML idpMetadataUrl(String idpMetadataUrl) {
     
     this.idpMetadataUrl = idpMetadataUrl;
@@ -157,6 +192,29 @@ public class CreateAuthMethodSAML {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateAuthMethodSAML password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -228,6 +286,29 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -239,16 +320,19 @@ public class CreateAuthMethodSAML {
     CreateAuthMethodSAML createAuthMethodSAML = (CreateAuthMethodSAML) o;
     return Objects.equals(this.accessExpires, createAuthMethodSAML.accessExpires) &&
         Objects.equals(this.boundIps, createAuthMethodSAML.boundIps) &&
+        Objects.equals(this.forceSubClaims, createAuthMethodSAML.forceSubClaims) &&
         Objects.equals(this.idpMetadataUrl, createAuthMethodSAML.idpMetadataUrl) &&
         Objects.equals(this.name, createAuthMethodSAML.name) &&
+        Objects.equals(this.password, createAuthMethodSAML.password) &&
         Objects.equals(this.token, createAuthMethodSAML.token) &&
         Objects.equals(this.uidToken, createAuthMethodSAML.uidToken) &&
-        Objects.equals(this.uniqueIdentifier, createAuthMethodSAML.uniqueIdentifier);
+        Objects.equals(this.uniqueIdentifier, createAuthMethodSAML.uniqueIdentifier) &&
+        Objects.equals(this.username, createAuthMethodSAML.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, idpMetadataUrl, name, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, idpMetadataUrl, name, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -258,11 +342,14 @@ public class CreateAuthMethodSAML {
     sb.append("class CreateAuthMethodSAML {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

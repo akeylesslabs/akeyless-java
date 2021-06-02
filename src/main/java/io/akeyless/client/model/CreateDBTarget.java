@@ -33,37 +33,89 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
-  public static final String SERIALIZED_NAME_DB_TYPE = "db_type";
+  public static final String SERIALIZED_NAME_DB_NAME = "db-name";
+  @SerializedName(SERIALIZED_NAME_DB_NAME)
+  private String dbName;
+
+  public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
+  @SerializedName(SERIALIZED_NAME_DB_SERVER_CERTIFICATES)
+  private String dbServerCertificates;
+
+  public static final String SERIALIZED_NAME_DB_SERVER_NAME = "db-server-name";
+  @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
+  private String dbServerName;
+
+  public static final String SERIALIZED_NAME_DB_TYPE = "db-type";
   @SerializedName(SERIALIZED_NAME_DB_TYPE)
   private String dbType;
 
-  public static final String SERIALIZED_NAME_HOST_NAME = "host_name";
-  @SerializedName(SERIALIZED_NAME_HOST_NAME)
-  private String hostName;
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
+  private String host;
 
-  public static final String SERIALIZED_NAME_MONGO_DB_NAME = "mongo_db_name";
-  @SerializedName(SERIALIZED_NAME_MONGO_DB_NAME)
-  private String mongoDbName;
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
 
-  public static final String SERIALIZED_NAME_MONGO_URI = "mongo_uri";
-  @SerializedName(SERIALIZED_NAME_MONGO_URI)
-  private String mongoUri;
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS = "mongodb-atlas";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS)
+  private Boolean mongodbAtlas;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb-atlas-api-private-key";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
+  private String mongodbAtlasApiPrivateKey;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY = "mongodb-atlas-api-public-key";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY)
+  private String mongodbAtlasApiPublicKey;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID = "mongodb-atlas-project-id";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID)
+  private String mongodbAtlasProjectId;
+
+  public static final String SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB = "mongodb-default-auth-db";
+  @SerializedName(SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB)
+  private String mongodbDefaultAuthDb;
+
+  public static final String SERIALIZED_NAME_MONGODB_HOST_PORT = "mongodb-host-port";
+  @SerializedName(SERIALIZED_NAME_MONGODB_HOST_PORT)
+  private String mongodbHostPort;
+
+  public static final String SERIALIZED_NAME_MONGODB_PASSWORD = "mongodb-password";
+  @SerializedName(SERIALIZED_NAME_MONGODB_PASSWORD)
+  private String mongodbPassword;
+
+  public static final String SERIALIZED_NAME_MONGODB_SERVER_URI = "mongodb-server-uri";
+  @SerializedName(SERIALIZED_NAME_MONGODB_SERVER_URI)
+  private String mongodbServerUri;
+
+  public static final String SERIALIZED_NAME_MONGODB_URI_OPTIONS = "mongodb-uri-options";
+  @SerializedName(SERIALIZED_NAME_MONGODB_URI_OPTIONS)
+  private String mongodbUriOptions;
+
+  public static final String SERIALIZED_NAME_MONGODB_USERNAME = "mongodb-username";
+  @SerializedName(SERIALIZED_NAME_MONGODB_USERNAME)
+  private String mongodbUsername;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
 
-  public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
-  @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
-  private String protectionKey;
-
   public static final String SERIALIZED_NAME_PWD = "pwd";
   @SerializedName(SERIALIZED_NAME_PWD)
   private String pwd;
+
+  public static final String SERIALIZED_NAME_SNOWFLAKE_ACCOUNT = "snowflake-account";
+  @SerializedName(SERIALIZED_NAME_SNOWFLAKE_ACCOUNT)
+  private String snowflakeAccount;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -73,9 +125,13 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USER_NAME = "user_name";
+  public static final String SERIALIZED_NAME_USER_NAME = "user-name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateDBTarget comment(String comment) {
@@ -98,6 +154,75 @@ public class CreateDBTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateDBTarget dbName(String dbName) {
+    
+    this.dbName = dbName;
+    return this;
+  }
+
+   /**
+   * Get dbName
+   * @return dbName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbName() {
+    return dbName;
+  }
+
+
+  public void setDbName(String dbName) {
+    this.dbName = dbName;
+  }
+
+
+  public CreateDBTarget dbServerCertificates(String dbServerCertificates) {
+    
+    this.dbServerCertificates = dbServerCertificates;
+    return this;
+  }
+
+   /**
+   * (Optional) DB server certificates
+   * @return dbServerCertificates
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) DB server certificates")
+
+  public String getDbServerCertificates() {
+    return dbServerCertificates;
+  }
+
+
+  public void setDbServerCertificates(String dbServerCertificates) {
+    this.dbServerCertificates = dbServerCertificates;
+  }
+
+
+  public CreateDBTarget dbServerName(String dbServerName) {
+    
+    this.dbServerName = dbServerName;
+    return this;
+  }
+
+   /**
+   * (Optional) Server name for certificate verification
+   * @return dbServerName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Server name for certificate verification")
+
+  public String getDbServerName() {
+    return dbServerName;
+  }
+
+
+  public void setDbServerName(String dbServerName) {
+    this.dbServerName = dbServerName;
   }
 
 
@@ -124,72 +249,279 @@ public class CreateDBTarget {
   }
 
 
-  public CreateDBTarget hostName(String hostName) {
+  public CreateDBTarget host(String host) {
     
-    this.hostName = hostName;
+    this.host = host;
     return this;
   }
 
    /**
-   * Get hostName
-   * @return hostName
+   * Get host
+   * @return host
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getHostName() {
-    return hostName;
+  public String getHost() {
+    return host;
   }
 
 
-  public void setHostName(String hostName) {
-    this.hostName = hostName;
+  public void setHost(String host) {
+    this.host = host;
   }
 
 
-  public CreateDBTarget mongoDbName(String mongoDbName) {
+  public CreateDBTarget key(String key) {
     
-    this.mongoDbName = mongoDbName;
+    this.key = key;
     return this;
   }
 
    /**
-   * Get mongoDbName
-   * @return mongoDbName
+   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+   * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
 
-  public String getMongoDbName() {
-    return mongoDbName;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setMongoDbName(String mongoDbName) {
-    this.mongoDbName = mongoDbName;
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
-  public CreateDBTarget mongoUri(String mongoUri) {
+  public CreateDBTarget mongodbAtlas(Boolean mongodbAtlas) {
     
-    this.mongoUri = mongoUri;
+    this.mongodbAtlas = mongodbAtlas;
     return this;
   }
 
    /**
-   * Get mongoUri
-   * @return mongoUri
+   * Get mongodbAtlas
+   * @return mongodbAtlas
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getMongoUri() {
-    return mongoUri;
+  public Boolean getMongodbAtlas() {
+    return mongodbAtlas;
   }
 
 
-  public void setMongoUri(String mongoUri) {
-    this.mongoUri = mongoUri;
+  public void setMongodbAtlas(Boolean mongodbAtlas) {
+    this.mongodbAtlas = mongodbAtlas;
+  }
+
+
+  public CreateDBTarget mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
+    
+    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
+    return this;
+  }
+
+   /**
+   * MongoDB Atlas private key
+   * @return mongodbAtlasApiPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Atlas private key")
+
+  public String getMongodbAtlasApiPrivateKey() {
+    return mongodbAtlasApiPrivateKey;
+  }
+
+
+  public void setMongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
+    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
+  }
+
+
+  public CreateDBTarget mongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
+    
+    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
+    return this;
+  }
+
+   /**
+   * MongoDB Atlas public key
+   * @return mongodbAtlasApiPublicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Atlas public key")
+
+  public String getMongodbAtlasApiPublicKey() {
+    return mongodbAtlasApiPublicKey;
+  }
+
+
+  public void setMongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
+    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
+  }
+
+
+  public CreateDBTarget mongodbAtlasProjectId(String mongodbAtlasProjectId) {
+    
+    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+    return this;
+  }
+
+   /**
+   * MongoDB Atlas project ID
+   * @return mongodbAtlasProjectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Atlas project ID")
+
+  public String getMongodbAtlasProjectId() {
+    return mongodbAtlasProjectId;
+  }
+
+
+  public void setMongodbAtlasProjectId(String mongodbAtlasProjectId) {
+    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+  }
+
+
+  public CreateDBTarget mongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
+    
+    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
+    return this;
+  }
+
+   /**
+   * MongoDB server default authentication database
+   * @return mongodbDefaultAuthDb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server default authentication database")
+
+  public String getMongodbDefaultAuthDb() {
+    return mongodbDefaultAuthDb;
+  }
+
+
+  public void setMongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
+    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
+  }
+
+
+  public CreateDBTarget mongodbHostPort(String mongodbHostPort) {
+    
+    this.mongodbHostPort = mongodbHostPort;
+    return this;
+  }
+
+   /**
+   * MongoDB server host and port
+   * @return mongodbHostPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server host and port")
+
+  public String getMongodbHostPort() {
+    return mongodbHostPort;
+  }
+
+
+  public void setMongodbHostPort(String mongodbHostPort) {
+    this.mongodbHostPort = mongodbHostPort;
+  }
+
+
+  public CreateDBTarget mongodbPassword(String mongodbPassword) {
+    
+    this.mongodbPassword = mongodbPassword;
+    return this;
+  }
+
+   /**
+   * MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters
+   * @return mongodbPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters")
+
+  public String getMongodbPassword() {
+    return mongodbPassword;
+  }
+
+
+  public void setMongodbPassword(String mongodbPassword) {
+    this.mongodbPassword = mongodbPassword;
+  }
+
+
+  public CreateDBTarget mongodbServerUri(String mongodbServerUri) {
+    
+    this.mongodbServerUri = mongodbServerUri;
+    return this;
+  }
+
+   /**
+   * MongoDB server URI
+   * @return mongodbServerUri
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server URI")
+
+  public String getMongodbServerUri() {
+    return mongodbServerUri;
+  }
+
+
+  public void setMongodbServerUri(String mongodbServerUri) {
+    this.mongodbServerUri = mongodbServerUri;
+  }
+
+
+  public CreateDBTarget mongodbUriOptions(String mongodbUriOptions) {
+    
+    this.mongodbUriOptions = mongodbUriOptions;
+    return this;
+  }
+
+   /**
+   * MongoDB server URI options
+   * @return mongodbUriOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server URI options")
+
+  public String getMongodbUriOptions() {
+    return mongodbUriOptions;
+  }
+
+
+  public void setMongodbUriOptions(String mongodbUriOptions) {
+    this.mongodbUriOptions = mongodbUriOptions;
+  }
+
+
+  public CreateDBTarget mongodbUsername(String mongodbUsername) {
+    
+    this.mongodbUsername = mongodbUsername;
+    return this;
+  }
+
+   /**
+   * MongoDB server username
+   * @return mongodbUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB server username")
+
+  public String getMongodbUsername() {
+    return mongodbUsername;
+  }
+
+
+  public void setMongodbUsername(String mongodbUsername) {
+    this.mongodbUsername = mongodbUsername;
   }
 
 
@@ -212,6 +544,29 @@ public class CreateDBTarget {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateDBTarget password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -238,29 +593,6 @@ public class CreateDBTarget {
   }
 
 
-  public CreateDBTarget protectionKey(String protectionKey) {
-    
-    this.protectionKey = protectionKey;
-    return this;
-  }
-
-   /**
-   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
-   * @return protectionKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
-
-  public String getProtectionKey() {
-    return protectionKey;
-  }
-
-
-  public void setProtectionKey(String protectionKey) {
-    this.protectionKey = protectionKey;
-  }
-
-
   public CreateDBTarget pwd(String pwd) {
     
     this.pwd = pwd;
@@ -281,6 +613,29 @@ public class CreateDBTarget {
 
   public void setPwd(String pwd) {
     this.pwd = pwd;
+  }
+
+
+  public CreateDBTarget snowflakeAccount(String snowflakeAccount) {
+    
+    this.snowflakeAccount = snowflakeAccount;
+    return this;
+  }
+
+   /**
+   * Get snowflakeAccount
+   * @return snowflakeAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSnowflakeAccount() {
+    return snowflakeAccount;
+  }
+
+
+  public void setSnowflakeAccount(String snowflakeAccount) {
+    this.snowflakeAccount = snowflakeAccount;
   }
 
 
@@ -353,6 +708,29 @@ public class CreateDBTarget {
   }
 
 
+  public CreateDBTarget username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -363,22 +741,36 @@ public class CreateDBTarget {
     }
     CreateDBTarget createDBTarget = (CreateDBTarget) o;
     return Objects.equals(this.comment, createDBTarget.comment) &&
+        Objects.equals(this.dbName, createDBTarget.dbName) &&
+        Objects.equals(this.dbServerCertificates, createDBTarget.dbServerCertificates) &&
+        Objects.equals(this.dbServerName, createDBTarget.dbServerName) &&
         Objects.equals(this.dbType, createDBTarget.dbType) &&
-        Objects.equals(this.hostName, createDBTarget.hostName) &&
-        Objects.equals(this.mongoDbName, createDBTarget.mongoDbName) &&
-        Objects.equals(this.mongoUri, createDBTarget.mongoUri) &&
+        Objects.equals(this.host, createDBTarget.host) &&
+        Objects.equals(this.key, createDBTarget.key) &&
+        Objects.equals(this.mongodbAtlas, createDBTarget.mongodbAtlas) &&
+        Objects.equals(this.mongodbAtlasApiPrivateKey, createDBTarget.mongodbAtlasApiPrivateKey) &&
+        Objects.equals(this.mongodbAtlasApiPublicKey, createDBTarget.mongodbAtlasApiPublicKey) &&
+        Objects.equals(this.mongodbAtlasProjectId, createDBTarget.mongodbAtlasProjectId) &&
+        Objects.equals(this.mongodbDefaultAuthDb, createDBTarget.mongodbDefaultAuthDb) &&
+        Objects.equals(this.mongodbHostPort, createDBTarget.mongodbHostPort) &&
+        Objects.equals(this.mongodbPassword, createDBTarget.mongodbPassword) &&
+        Objects.equals(this.mongodbServerUri, createDBTarget.mongodbServerUri) &&
+        Objects.equals(this.mongodbUriOptions, createDBTarget.mongodbUriOptions) &&
+        Objects.equals(this.mongodbUsername, createDBTarget.mongodbUsername) &&
         Objects.equals(this.name, createDBTarget.name) &&
+        Objects.equals(this.password, createDBTarget.password) &&
         Objects.equals(this.port, createDBTarget.port) &&
-        Objects.equals(this.protectionKey, createDBTarget.protectionKey) &&
         Objects.equals(this.pwd, createDBTarget.pwd) &&
+        Objects.equals(this.snowflakeAccount, createDBTarget.snowflakeAccount) &&
         Objects.equals(this.token, createDBTarget.token) &&
         Objects.equals(this.uidToken, createDBTarget.uidToken) &&
-        Objects.equals(this.userName, createDBTarget.userName);
+        Objects.equals(this.userName, createDBTarget.userName) &&
+        Objects.equals(this.username, createDBTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbType, hostName, mongoDbName, mongoUri, name, port, protectionKey, pwd, token, uidToken, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, port, pwd, snowflakeAccount, token, uidToken, userName, username);
   }
 
 
@@ -387,17 +779,31 @@ public class CreateDBTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
+    sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
-    sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
-    sb.append("    mongoDbName: ").append(toIndentedString(mongoDbName)).append("\n");
-    sb.append("    mongoUri: ").append(toIndentedString(mongoUri)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
+    sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
+    sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
+    sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
+    sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
+    sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
+    sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
+    sb.append("    mongodbServerUri: ").append(toIndentedString(mongodbServerUri)).append("\n");
+    sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
+    sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
-    sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
+    sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

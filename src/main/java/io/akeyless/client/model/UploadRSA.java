@@ -55,13 +55,13 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_RSA_FILE_DATA = "rsa-file-data";
   @SerializedName(SERIALIZED_NAME_RSA_FILE_DATA)
   private String rsaFileData;
-
-  public static final String SERIALIZED_NAME_RSA_KEY_FILE_PATH = "rsa-key-file-path";
-  @SerializedName(SERIALIZED_NAME_RSA_KEY_FILE_PATH)
-  private String rsaKeyFilePath;
 
   public static final String SERIALIZED_NAME_SPLIT_LEVEL = "split-level";
   @SerializedName(SERIALIZED_NAME_SPLIT_LEVEL)
@@ -78,6 +78,10 @@ public class UploadRSA {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public UploadRSA alg(String alg) {
@@ -216,6 +220,29 @@ public class UploadRSA {
   }
 
 
+  public UploadRSA password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public UploadRSA rsaFileData(String rsaFileData) {
     
     this.rsaFileData = rsaFileData;
@@ -236,29 +263,6 @@ public class UploadRSA {
 
   public void setRsaFileData(String rsaFileData) {
     this.rsaFileData = rsaFileData;
-  }
-
-
-  public UploadRSA rsaKeyFilePath(String rsaKeyFilePath) {
-    
-    this.rsaKeyFilePath = rsaKeyFilePath;
-    return this;
-  }
-
-   /**
-   * RSA private key file path
-   * @return rsaKeyFilePath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RSA private key file path")
-
-  public String getRsaKeyFilePath() {
-    return rsaKeyFilePath;
-  }
-
-
-  public void setRsaKeyFilePath(String rsaKeyFilePath) {
-    this.rsaKeyFilePath = rsaKeyFilePath;
   }
 
 
@@ -362,6 +366,29 @@ public class UploadRSA {
   }
 
 
+  public UploadRSA username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -377,17 +404,18 @@ public class UploadRSA {
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
+        Objects.equals(this.password, uploadRSA.password) &&
         Objects.equals(this.rsaFileData, uploadRSA.rsaFileData) &&
-        Objects.equals(this.rsaKeyFilePath, uploadRSA.rsaKeyFilePath) &&
         Objects.equals(this.splitLevel, uploadRSA.splitLevel) &&
         Objects.equals(this.tag, uploadRSA.tag) &&
         Objects.equals(this.token, uploadRSA.token) &&
-        Objects.equals(this.uidToken, uploadRSA.uidToken);
+        Objects.equals(this.uidToken, uploadRSA.uidToken) &&
+        Objects.equals(this.username, uploadRSA.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, cert, certFileData, customerFrgId, metadata, name, rsaFileData, rsaKeyFilePath, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, cert, certFileData, customerFrgId, metadata, name, password, rsaFileData, splitLevel, tag, token, uidToken, username);
   }
 
 
@@ -401,12 +429,13 @@ public class UploadRSA {
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rsaFileData: ").append(toIndentedString(rsaFileData)).append("\n");
-    sb.append("    rsaKeyFilePath: ").append(toIndentedString(rsaKeyFilePath)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

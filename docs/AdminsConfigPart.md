@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**admins** | **List&lt;String&gt;** |  |  [optional]
+**allowedAccess** | [**Map&lt;String, AllowedAccess&gt;**](AllowedAccess.md) |  |  [optional]
 
 
 

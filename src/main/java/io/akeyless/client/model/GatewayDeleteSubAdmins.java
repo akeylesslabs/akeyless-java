@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * gatewayDeleteSubAdmins is a command that deletes sub-admins
@@ -36,9 +34,13 @@ public class GatewayDeleteSubAdmins {
   @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
   private String gatewayUrl = "http://localhost:8000";
 
-  public static final String SERIALIZED_NAME_SUB_ADMIN = "sub-admin";
-  @SerializedName(SERIALIZED_NAME_SUB_ADMIN)
-  private List<String> subAdmin = new ArrayList<String>();
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
+  public static final String SERIALIZED_NAME_SUB_ADMIN_ID = "sub-admin-id";
+  @SerializedName(SERIALIZED_NAME_SUB_ADMIN_ID)
+  private String subAdminId;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -47,6 +49,10 @@ public class GatewayDeleteSubAdmins {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GatewayDeleteSubAdmins gatewayUrl(String gatewayUrl) {
@@ -72,30 +78,48 @@ public class GatewayDeleteSubAdmins {
   }
 
 
-  public GatewayDeleteSubAdmins subAdmin(List<String> subAdmin) {
+  public GatewayDeleteSubAdmins password(String password) {
     
-    this.subAdmin = subAdmin;
-    return this;
-  }
-
-  public GatewayDeleteSubAdmins addSubAdminItem(String subAdminItem) {
-    this.subAdmin.add(subAdminItem);
+    this.password = password;
     return this;
   }
 
    /**
-   * SubAdmins to be removed
-   * @return subAdmin
+   * Required only when the authentication process requires a username and password
+   * @return password
   **/
-  @ApiModelProperty(required = true, value = "SubAdmins to be removed")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
 
-  public List<String> getSubAdmin() {
-    return subAdmin;
+  public String getPassword() {
+    return password;
   }
 
 
-  public void setSubAdmin(List<String> subAdmin) {
-    this.subAdmin = subAdmin;
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
+  public GatewayDeleteSubAdmins subAdminId(String subAdminId) {
+    
+    this.subAdminId = subAdminId;
+    return this;
+  }
+
+   /**
+   * SubAdminID to be removed
+   * @return subAdminId
+  **/
+  @ApiModelProperty(required = true, value = "SubAdminID to be removed")
+
+  public String getSubAdminId() {
+    return subAdminId;
+  }
+
+
+  public void setSubAdminId(String subAdminId) {
+    this.subAdminId = subAdminId;
   }
 
 
@@ -145,6 +169,29 @@ public class GatewayDeleteSubAdmins {
   }
 
 
+  public GatewayDeleteSubAdmins username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -155,14 +202,16 @@ public class GatewayDeleteSubAdmins {
     }
     GatewayDeleteSubAdmins gatewayDeleteSubAdmins = (GatewayDeleteSubAdmins) o;
     return Objects.equals(this.gatewayUrl, gatewayDeleteSubAdmins.gatewayUrl) &&
-        Objects.equals(this.subAdmin, gatewayDeleteSubAdmins.subAdmin) &&
+        Objects.equals(this.password, gatewayDeleteSubAdmins.password) &&
+        Objects.equals(this.subAdminId, gatewayDeleteSubAdmins.subAdminId) &&
         Objects.equals(this.token, gatewayDeleteSubAdmins.token) &&
-        Objects.equals(this.uidToken, gatewayDeleteSubAdmins.uidToken);
+        Objects.equals(this.uidToken, gatewayDeleteSubAdmins.uidToken) &&
+        Objects.equals(this.username, gatewayDeleteSubAdmins.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, subAdmin, token, uidToken);
+    return Objects.hash(gatewayUrl, password, subAdminId, token, uidToken, username);
   }
 
 
@@ -171,9 +220,11 @@ public class GatewayDeleteSubAdmins {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayDeleteSubAdmins {\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
-    sb.append("    subAdmin: ").append(toIndentedString(subAdmin)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    subAdminId: ").append(toIndentedString(subAdminId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,8 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * gatewayAddSubAdmins is a command that adds sub-admins
@@ -32,13 +33,29 @@ import java.util.List;
 @ApiModel(description = "gatewayAddSubAdmins is a command that adds sub-admins")
 
 public class GatewayAddSubAdmins {
+  public static final String SERIALIZED_NAME_ALLOW_GW_API = "allow-gw-api";
+  @SerializedName(SERIALIZED_NAME_ALLOW_GW_API)
+  private Boolean allowGwApi;
+
+  public static final String SERIALIZED_NAME_ALLOW_GW_LOGIN = "allow-gw-login";
+  @SerializedName(SERIALIZED_NAME_ALLOW_GW_LOGIN)
+  private Boolean allowGwLogin;
+
   public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
   @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
   private String gatewayUrl = "http://localhost:8000";
 
-  public static final String SERIALIZED_NAME_SUB_ADMIN = "sub-admin";
-  @SerializedName(SERIALIZED_NAME_SUB_ADMIN)
-  private List<String> subAdmin = new ArrayList<String>();
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
+  public static final String SERIALIZED_NAME_SUB_ADMIN_ACCESS_ID = "sub-admin-access-id";
+  @SerializedName(SERIALIZED_NAME_SUB_ADMIN_ACCESS_ID)
+  private String subAdminAccessId;
+
+  public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub-claims";
+  @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
+  private Map<String, String> subClaims = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -47,6 +64,56 @@ public class GatewayAddSubAdmins {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
+
+  public GatewayAddSubAdmins allowGwApi(Boolean allowGwApi) {
+    
+    this.allowGwApi = allowGwApi;
+    return this;
+  }
+
+   /**
+   * Get allowGwApi
+   * @return allowGwApi
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAllowGwApi() {
+    return allowGwApi;
+  }
+
+
+  public void setAllowGwApi(Boolean allowGwApi) {
+    this.allowGwApi = allowGwApi;
+  }
+
+
+  public GatewayAddSubAdmins allowGwLogin(Boolean allowGwLogin) {
+    
+    this.allowGwLogin = allowGwLogin;
+    return this;
+  }
+
+   /**
+   * Get allowGwLogin
+   * @return allowGwLogin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAllowGwLogin() {
+    return allowGwLogin;
+  }
+
+
+  public void setAllowGwLogin(Boolean allowGwLogin) {
+    this.allowGwLogin = allowGwLogin;
+  }
 
 
   public GatewayAddSubAdmins gatewayUrl(String gatewayUrl) {
@@ -72,30 +139,79 @@ public class GatewayAddSubAdmins {
   }
 
 
-  public GatewayAddSubAdmins subAdmin(List<String> subAdmin) {
+  public GatewayAddSubAdmins password(String password) {
     
-    this.subAdmin = subAdmin;
+    this.password = password;
     return this;
   }
 
-  public GatewayAddSubAdmins addSubAdminItem(String subAdminItem) {
-    this.subAdmin.add(subAdminItem);
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
+  public GatewayAddSubAdmins subAdminAccessId(String subAdminAccessId) {
+    
+    this.subAdminAccessId = subAdminAccessId;
     return this;
   }
 
    /**
    * SubAdmins to add
-   * @return subAdmin
+   * @return subAdminAccessId
   **/
   @ApiModelProperty(required = true, value = "SubAdmins to add")
 
-  public List<String> getSubAdmin() {
-    return subAdmin;
+  public String getSubAdminAccessId() {
+    return subAdminAccessId;
   }
 
 
-  public void setSubAdmin(List<String> subAdmin) {
-    this.subAdmin = subAdmin;
+  public void setSubAdminAccessId(String subAdminAccessId) {
+    this.subAdminAccessId = subAdminAccessId;
+  }
+
+
+  public GatewayAddSubAdmins subClaims(Map<String, String> subClaims) {
+    
+    this.subClaims = subClaims;
+    return this;
+  }
+
+  public GatewayAddSubAdmins putSubClaimsItem(String key, String subClaimsItem) {
+    if (this.subClaims == null) {
+      this.subClaims = new HashMap<String, String>();
+    }
+    this.subClaims.put(key, subClaimsItem);
+    return this;
+  }
+
+   /**
+   * key/val of sub claims, e.g group&#x3D;admins,developers
+   * @return subClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "key/val of sub claims, e.g group=admins,developers")
+
+  public Map<String, String> getSubClaims() {
+    return subClaims;
+  }
+
+
+  public void setSubClaims(Map<String, String> subClaims) {
+    this.subClaims = subClaims;
   }
 
 
@@ -145,6 +261,29 @@ public class GatewayAddSubAdmins {
   }
 
 
+  public GatewayAddSubAdmins username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -154,15 +293,20 @@ public class GatewayAddSubAdmins {
       return false;
     }
     GatewayAddSubAdmins gatewayAddSubAdmins = (GatewayAddSubAdmins) o;
-    return Objects.equals(this.gatewayUrl, gatewayAddSubAdmins.gatewayUrl) &&
-        Objects.equals(this.subAdmin, gatewayAddSubAdmins.subAdmin) &&
+    return Objects.equals(this.allowGwApi, gatewayAddSubAdmins.allowGwApi) &&
+        Objects.equals(this.allowGwLogin, gatewayAddSubAdmins.allowGwLogin) &&
+        Objects.equals(this.gatewayUrl, gatewayAddSubAdmins.gatewayUrl) &&
+        Objects.equals(this.password, gatewayAddSubAdmins.password) &&
+        Objects.equals(this.subAdminAccessId, gatewayAddSubAdmins.subAdminAccessId) &&
+        Objects.equals(this.subClaims, gatewayAddSubAdmins.subClaims) &&
         Objects.equals(this.token, gatewayAddSubAdmins.token) &&
-        Objects.equals(this.uidToken, gatewayAddSubAdmins.uidToken);
+        Objects.equals(this.uidToken, gatewayAddSubAdmins.uidToken) &&
+        Objects.equals(this.username, gatewayAddSubAdmins.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, subAdmin, token, uidToken);
+    return Objects.hash(allowGwApi, allowGwLogin, gatewayUrl, password, subAdminAccessId, subClaims, token, uidToken, username);
   }
 
 
@@ -170,10 +314,15 @@ public class GatewayAddSubAdmins {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayAddSubAdmins {\n");
+    sb.append("    allowGwApi: ").append(toIndentedString(allowGwApi)).append("\n");
+    sb.append("    allowGwLogin: ").append(toIndentedString(allowGwLogin)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
-    sb.append("    subAdmin: ").append(toIndentedString(subAdmin)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    subAdminAccessId: ").append(toIndentedString(subAdminAccessId)).append("\n");
+    sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

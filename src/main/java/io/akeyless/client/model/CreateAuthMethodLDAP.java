@@ -40,13 +40,17 @@ public class CreateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PUBLIC_KEY_FILE_PATH = "public-key-file-path";
-  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_FILE_PATH)
-  private String publicKeyFilePath;
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -55,6 +59,10 @@ public class CreateAuthMethodLDAP {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateAuthMethodLDAP accessExpires(Long accessExpires) {
@@ -111,6 +119,29 @@ public class CreateAuthMethodLDAP {
   }
 
 
+  public CreateAuthMethodLDAP forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true: enforce role-association must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true: enforce role-association must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public CreateAuthMethodLDAP name(String name) {
     
     this.name = name;
@@ -133,25 +164,26 @@ public class CreateAuthMethodLDAP {
   }
 
 
-  public CreateAuthMethodLDAP publicKeyFilePath(String publicKeyFilePath) {
+  public CreateAuthMethodLDAP password(String password) {
     
-    this.publicKeyFilePath = publicKeyFilePath;
+    this.password = password;
     return this;
   }
 
    /**
-   * A public key generated for LDAP authentication method on Akeyless [RSA2048]
-   * @return publicKeyFilePath
+   * Required only when the authentication process requires a username and password
+   * @return password
   **/
-  @ApiModelProperty(required = true, value = "A public key generated for LDAP authentication method on Akeyless [RSA2048]")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
 
-  public String getPublicKeyFilePath() {
-    return publicKeyFilePath;
+  public String getPassword() {
+    return password;
   }
 
 
-  public void setPublicKeyFilePath(String publicKeyFilePath) {
-    this.publicKeyFilePath = publicKeyFilePath;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -201,6 +233,29 @@ public class CreateAuthMethodLDAP {
   }
 
 
+  public CreateAuthMethodLDAP username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -212,15 +267,17 @@ public class CreateAuthMethodLDAP {
     CreateAuthMethodLDAP createAuthMethodLDAP = (CreateAuthMethodLDAP) o;
     return Objects.equals(this.accessExpires, createAuthMethodLDAP.accessExpires) &&
         Objects.equals(this.boundIps, createAuthMethodLDAP.boundIps) &&
+        Objects.equals(this.forceSubClaims, createAuthMethodLDAP.forceSubClaims) &&
         Objects.equals(this.name, createAuthMethodLDAP.name) &&
-        Objects.equals(this.publicKeyFilePath, createAuthMethodLDAP.publicKeyFilePath) &&
+        Objects.equals(this.password, createAuthMethodLDAP.password) &&
         Objects.equals(this.token, createAuthMethodLDAP.token) &&
-        Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken);
+        Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken) &&
+        Objects.equals(this.username, createAuthMethodLDAP.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, name, publicKeyFilePath, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, name, password, token, uidToken, username);
   }
 
 
@@ -230,10 +287,12 @@ public class CreateAuthMethodLDAP {
     sb.append("class CreateAuthMethodLDAP {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    publicKeyFilePath: ").append(toIndentedString(publicKeyFilePath)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

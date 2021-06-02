@@ -33,6 +33,10 @@ public class EncryptPKCS1 {
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PLAINTEXT = "plaintext";
   @SerializedName(SERIALIZED_NAME_PLAINTEXT)
   private String plaintext;
@@ -44,6 +48,10 @@ public class EncryptPKCS1 {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public EncryptPKCS1 keyName(String keyName) {
@@ -65,6 +73,29 @@ public class EncryptPKCS1 {
 
   public void setKeyName(String keyName) {
     this.keyName = keyName;
+  }
+
+
+  public EncryptPKCS1 password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -136,6 +167,29 @@ public class EncryptPKCS1 {
   }
 
 
+  public EncryptPKCS1 username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -146,14 +200,16 @@ public class EncryptPKCS1 {
     }
     EncryptPKCS1 encryptPKCS1 = (EncryptPKCS1) o;
     return Objects.equals(this.keyName, encryptPKCS1.keyName) &&
+        Objects.equals(this.password, encryptPKCS1.password) &&
         Objects.equals(this.plaintext, encryptPKCS1.plaintext) &&
         Objects.equals(this.token, encryptPKCS1.token) &&
-        Objects.equals(this.uidToken, encryptPKCS1.uidToken);
+        Objects.equals(this.uidToken, encryptPKCS1.uidToken) &&
+        Objects.equals(this.username, encryptPKCS1.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, plaintext, token, uidToken);
+    return Objects.hash(keyName, password, plaintext, token, uidToken, username);
   }
 
 
@@ -162,9 +218,11 @@ public class EncryptPKCS1 {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptPKCS1 {\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

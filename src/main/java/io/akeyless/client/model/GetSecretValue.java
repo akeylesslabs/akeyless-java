@@ -35,6 +35,10 @@ public class GetSecretValue {
   @SerializedName(SERIALIZED_NAME_NAMES)
   private List<String> names = new ArrayList<String>();
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -42,6 +46,10 @@ public class GetSecretValue {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -72,6 +80,29 @@ public class GetSecretValue {
 
   public void setNames(List<String> names) {
     this.names = names;
+  }
+
+
+  public GetSecretValue password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -121,6 +152,29 @@ public class GetSecretValue {
   }
 
 
+  public GetSecretValue username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   public GetSecretValue version(Integer version) {
     
     this.version = version;
@@ -154,14 +208,16 @@ public class GetSecretValue {
     }
     GetSecretValue getSecretValue = (GetSecretValue) o;
     return Objects.equals(this.names, getSecretValue.names) &&
+        Objects.equals(this.password, getSecretValue.password) &&
         Objects.equals(this.token, getSecretValue.token) &&
         Objects.equals(this.uidToken, getSecretValue.uidToken) &&
+        Objects.equals(this.username, getSecretValue.username) &&
         Objects.equals(this.version, getSecretValue.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, token, uidToken, version);
+    return Objects.hash(names, password, token, uidToken, username, version);
   }
 
 
@@ -170,8 +226,10 @@ public class GetSecretValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSecretValue {\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

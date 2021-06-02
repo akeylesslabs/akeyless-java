@@ -48,6 +48,10 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
@@ -60,6 +64,10 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -71,6 +79,10 @@ public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateAuthMethodOAuth2 accessExpires(Long accessExpires) {
@@ -181,6 +193,29 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
+  public CreateAuthMethodOAuth2 forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true: enforce role-association must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true: enforce role-association must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public CreateAuthMethodOAuth2 issuer(String issuer) {
     
     this.issuer = issuer;
@@ -245,6 +280,29 @@ public class CreateAuthMethodOAuth2 {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateAuthMethodOAuth2 password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -316,6 +374,29 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
+  public CreateAuthMethodOAuth2 username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -329,17 +410,20 @@ public class CreateAuthMethodOAuth2 {
         Objects.equals(this.audience, createAuthMethodOAuth2.audience) &&
         Objects.equals(this.boundClientIds, createAuthMethodOAuth2.boundClientIds) &&
         Objects.equals(this.boundIps, createAuthMethodOAuth2.boundIps) &&
+        Objects.equals(this.forceSubClaims, createAuthMethodOAuth2.forceSubClaims) &&
         Objects.equals(this.issuer, createAuthMethodOAuth2.issuer) &&
         Objects.equals(this.jwksUri, createAuthMethodOAuth2.jwksUri) &&
         Objects.equals(this.name, createAuthMethodOAuth2.name) &&
+        Objects.equals(this.password, createAuthMethodOAuth2.password) &&
         Objects.equals(this.token, createAuthMethodOAuth2.token) &&
         Objects.equals(this.uidToken, createAuthMethodOAuth2.uidToken) &&
-        Objects.equals(this.uniqueIdentifier, createAuthMethodOAuth2.uniqueIdentifier);
+        Objects.equals(this.uniqueIdentifier, createAuthMethodOAuth2.uniqueIdentifier) &&
+        Objects.equals(this.username, createAuthMethodOAuth2.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, issuer, jwksUri, name, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, issuer, jwksUri, name, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -351,12 +435,15 @@ public class CreateAuthMethodOAuth2 {
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    boundClientIds: ").append(toIndentedString(boundClientIds)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

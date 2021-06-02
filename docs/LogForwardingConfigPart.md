@@ -6,6 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**awsS3Config** | [**AwsS3LogForwardingConfig**](AwsS3LogForwardingConfig.md) |  |  [optional]
+**azureAnalyticsConfig** | [**AzureLogAnalyticsForwardingConfig**](AzureLogAnalyticsForwardingConfig.md) |  |  [optional]
 **elasticsearchConfig** | [**ElasticsearchLogForwardingConfig**](ElasticsearchLogForwardingConfig.md) |  |  [optional]
 **loganEnable** | **Boolean** |  |  [optional]
 **loganUrl** | **String** |  |  [optional]

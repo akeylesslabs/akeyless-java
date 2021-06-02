@@ -37,9 +37,17 @@ public class CreateSSHTarget {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
@@ -52,10 +60,6 @@ public class CreateSSHTarget {
   public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSWORD = "private-key-password";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSWORD)
   private String privateKeyPassword;
-
-  public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
-  @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
-  private String protectionKey;
 
   public static final String SERIALIZED_NAME_SSH_PASSWORD = "ssh-password";
   @SerializedName(SERIALIZED_NAME_SSH_PASSWORD)
@@ -72,6 +76,10 @@ public class CreateSSHTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateSSHTarget comment(String comment) {
@@ -120,6 +128,29 @@ public class CreateSSHTarget {
   }
 
 
+  public CreateSSHTarget key(String key) {
+    
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+   * @return key
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
+
+  public String getKey() {
+    return key;
+  }
+
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+
   public CreateSSHTarget name(String name) {
     
     this.name = name;
@@ -139,6 +170,29 @@ public class CreateSSHTarget {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateSSHTarget password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -208,29 +262,6 @@ public class CreateSSHTarget {
 
   public void setPrivateKeyPassword(String privateKeyPassword) {
     this.privateKeyPassword = privateKeyPassword;
-  }
-
-
-  public CreateSSHTarget protectionKey(String protectionKey) {
-    
-    this.protectionKey = protectionKey;
-    return this;
-  }
-
-   /**
-   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
-   * @return protectionKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
-
-  public String getProtectionKey() {
-    return protectionKey;
-  }
-
-
-  public void setProtectionKey(String protectionKey) {
-    this.protectionKey = protectionKey;
   }
 
 
@@ -326,6 +357,29 @@ public class CreateSSHTarget {
   }
 
 
+  public CreateSSHTarget username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -337,20 +391,22 @@ public class CreateSSHTarget {
     CreateSSHTarget createSSHTarget = (CreateSSHTarget) o;
     return Objects.equals(this.comment, createSSHTarget.comment) &&
         Objects.equals(this.host, createSSHTarget.host) &&
+        Objects.equals(this.key, createSSHTarget.key) &&
         Objects.equals(this.name, createSSHTarget.name) &&
+        Objects.equals(this.password, createSSHTarget.password) &&
         Objects.equals(this.port, createSSHTarget.port) &&
         Objects.equals(this.privateKey, createSSHTarget.privateKey) &&
         Objects.equals(this.privateKeyPassword, createSSHTarget.privateKeyPassword) &&
-        Objects.equals(this.protectionKey, createSSHTarget.protectionKey) &&
         Objects.equals(this.sshPassword, createSSHTarget.sshPassword) &&
         Objects.equals(this.sshUsername, createSSHTarget.sshUsername) &&
         Objects.equals(this.token, createSSHTarget.token) &&
-        Objects.equals(this.uidToken, createSSHTarget.uidToken);
+        Objects.equals(this.uidToken, createSSHTarget.uidToken) &&
+        Objects.equals(this.username, createSSHTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, host, name, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken);
+    return Objects.hash(comment, host, key, name, password, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, username);
   }
 
 
@@ -360,15 +416,17 @@ public class CreateSSHTarget {
     sb.append("class CreateSSHTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
-    sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

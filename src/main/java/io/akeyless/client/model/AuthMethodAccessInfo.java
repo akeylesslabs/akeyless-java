@@ -67,6 +67,10 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_EMAIL_PASS_ACCESS_RULES)
   private EmailPassAccessRules emailPassAccessRules;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force_sub_claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_GCP_ACCESS_RULES = "gcp_access_rules";
   @SerializedName(SERIALIZED_NAME_GCP_ACCESS_RULES)
   private GCPAccessRules gcpAccessRules;
@@ -257,6 +261,29 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true the role associated with this auth method must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true the role associated with this auth method must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public AuthMethodAccessInfo gcpAccessRules(GCPAccessRules gcpAccessRules) {
     
     this.gcpAccessRules = gcpAccessRules;
@@ -434,6 +461,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.azureAdAccessRules, authMethodAccessInfo.azureAdAccessRules) &&
         Objects.equals(this.cidrWhitelist, authMethodAccessInfo.cidrWhitelist) &&
         Objects.equals(this.emailPassAccessRules, authMethodAccessInfo.emailPassAccessRules) &&
+        Objects.equals(this.forceSubClaims, authMethodAccessInfo.forceSubClaims) &&
         Objects.equals(this.gcpAccessRules, authMethodAccessInfo.gcpAccessRules) &&
         Objects.equals(this.huaweiAccessRules, authMethodAccessInfo.huaweiAccessRules) &&
         Objects.equals(this.ldapAccessRules, authMethodAccessInfo.ldapAccessRules) &&
@@ -445,7 +473,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, gcpAccessRules, huaweiAccessRules, ldapAccessRules, oauth2AccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, huaweiAccessRules, ldapAccessRules, oauth2AccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
   }
 
 
@@ -460,6 +488,7 @@ public class AuthMethodAccessInfo {
     sb.append("    azureAdAccessRules: ").append(toIndentedString(azureAdAccessRules)).append("\n");
     sb.append("    cidrWhitelist: ").append(toIndentedString(cidrWhitelist)).append("\n");
     sb.append("    emailPassAccessRules: ").append(toIndentedString(emailPassAccessRules)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gcpAccessRules: ").append(toIndentedString(gcpAccessRules)).append("\n");
     sb.append("    huaweiAccessRules: ").append(toIndentedString(huaweiAccessRules)).append("\n");
     sb.append("    ldapAccessRules: ").append(toIndentedString(ldapAccessRules)).append("\n");

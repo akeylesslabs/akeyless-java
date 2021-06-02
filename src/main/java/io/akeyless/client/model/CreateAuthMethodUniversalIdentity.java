@@ -48,9 +48,17 @@ public class CreateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_DENY_ROTATE)
   private Boolean denyRotate;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -63,6 +71,10 @@ public class CreateAuthMethodUniversalIdentity {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateAuthMethodUniversalIdentity accessExpires(Long accessExpires) {
@@ -165,6 +177,29 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
+  public CreateAuthMethodUniversalIdentity forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true: enforce role-association must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true: enforce role-association must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public CreateAuthMethodUniversalIdentity name(String name) {
     
     this.name = name;
@@ -184,6 +219,29 @@ public class CreateAuthMethodUniversalIdentity {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateAuthMethodUniversalIdentity password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -256,6 +314,29 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
+  public CreateAuthMethodUniversalIdentity username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -269,15 +350,18 @@ public class CreateAuthMethodUniversalIdentity {
         Objects.equals(this.boundIps, createAuthMethodUniversalIdentity.boundIps) &&
         Objects.equals(this.denyInheritance, createAuthMethodUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, createAuthMethodUniversalIdentity.denyRotate) &&
+        Objects.equals(this.forceSubClaims, createAuthMethodUniversalIdentity.forceSubClaims) &&
         Objects.equals(this.name, createAuthMethodUniversalIdentity.name) &&
+        Objects.equals(this.password, createAuthMethodUniversalIdentity.password) &&
         Objects.equals(this.token, createAuthMethodUniversalIdentity.token) &&
         Objects.equals(this.ttl, createAuthMethodUniversalIdentity.ttl) &&
-        Objects.equals(this.uidToken, createAuthMethodUniversalIdentity.uidToken);
+        Objects.equals(this.uidToken, createAuthMethodUniversalIdentity.uidToken) &&
+        Objects.equals(this.username, createAuthMethodUniversalIdentity.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, name, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, name, password, token, ttl, uidToken, username);
   }
 
 
@@ -289,10 +373,13 @@ public class CreateAuthMethodUniversalIdentity {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

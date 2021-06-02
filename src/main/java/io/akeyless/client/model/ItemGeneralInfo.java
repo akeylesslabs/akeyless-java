@@ -21,8 +21,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateIssueInfo;
+import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
-import io.akeyless.client.model.ManagedKeyDetailsInfo;
 import io.akeyless.client.model.RotatedSecretDetailsInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,13 +37,13 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_CERT_ISSUE_DETAILS)
   private CertificateIssueInfo certIssueDetails;
 
+  public static final String SERIALIZED_NAME_CLASSIC_KEY_DETAILS = "classic_key_details";
+  @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_DETAILS)
+  private ClassicKeyDetailsInfo classicKeyDetails;
+
   public static final String SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS = "dynamic_secret_producer_details";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS)
   private DynamicSecretProducerInfo dynamicSecretProducerDetails;
-
-  public static final String SERIALIZED_NAME_MANAGED_KEY_DETAILS = "managed_key_details";
-  @SerializedName(SERIALIZED_NAME_MANAGED_KEY_DETAILS)
-  private ManagedKeyDetailsInfo managedKeyDetails;
 
   public static final String SERIALIZED_NAME_ROTATED_SECRET_DETAILS = "rotated_secret_details";
   @SerializedName(SERIALIZED_NAME_ROTATED_SECRET_DETAILS)
@@ -73,6 +73,29 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo classicKeyDetails(ClassicKeyDetailsInfo classicKeyDetails) {
+    
+    this.classicKeyDetails = classicKeyDetails;
+    return this;
+  }
+
+   /**
+   * Get classicKeyDetails
+   * @return classicKeyDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ClassicKeyDetailsInfo getClassicKeyDetails() {
+    return classicKeyDetails;
+  }
+
+
+  public void setClassicKeyDetails(ClassicKeyDetailsInfo classicKeyDetails) {
+    this.classicKeyDetails = classicKeyDetails;
+  }
+
+
   public ItemGeneralInfo dynamicSecretProducerDetails(DynamicSecretProducerInfo dynamicSecretProducerDetails) {
     
     this.dynamicSecretProducerDetails = dynamicSecretProducerDetails;
@@ -93,29 +116,6 @@ public class ItemGeneralInfo {
 
   public void setDynamicSecretProducerDetails(DynamicSecretProducerInfo dynamicSecretProducerDetails) {
     this.dynamicSecretProducerDetails = dynamicSecretProducerDetails;
-  }
-
-
-  public ItemGeneralInfo managedKeyDetails(ManagedKeyDetailsInfo managedKeyDetails) {
-    
-    this.managedKeyDetails = managedKeyDetails;
-    return this;
-  }
-
-   /**
-   * Get managedKeyDetails
-   * @return managedKeyDetails
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ManagedKeyDetailsInfo getManagedKeyDetails() {
-    return managedKeyDetails;
-  }
-
-
-  public void setManagedKeyDetails(ManagedKeyDetailsInfo managedKeyDetails) {
-    this.managedKeyDetails = managedKeyDetails;
   }
 
 
@@ -152,14 +152,14 @@ public class ItemGeneralInfo {
     }
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
+        Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
-        Objects.equals(this.managedKeyDetails, itemGeneralInfo.managedKeyDetails) &&
         Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, dynamicSecretProducerDetails, managedKeyDetails, rotatedSecretDetails);
+    return Objects.hash(certIssueDetails, classicKeyDetails, dynamicSecretProducerDetails, rotatedSecretDetails);
   }
 
 
@@ -168,8 +168,8 @@ public class ItemGeneralInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemGeneralInfo {\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
+    sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
-    sb.append("    managedKeyDetails: ").append(toIndentedString(managedKeyDetails)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
     sb.append("}");
     return sb.toString();

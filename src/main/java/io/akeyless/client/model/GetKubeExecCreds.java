@@ -46,6 +46,10 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
   private String keyDataBase64;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -57,6 +61,10 @@ public class GetKubeExecCreds {
   public static final String SERIALIZED_NAME_URI_SANS = "uri-sans";
   @SerializedName(SERIALIZED_NAME_URI_SANS)
   private String uriSans;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GetKubeExecCreds altNames(String altNames) {
@@ -150,6 +158,29 @@ public class GetKubeExecCreds {
   }
 
 
+  public GetKubeExecCreds password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public GetKubeExecCreds token(String token) {
     
     this.token = token;
@@ -219,6 +250,29 @@ public class GetKubeExecCreds {
   }
 
 
+  public GetKubeExecCreds username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -232,14 +286,16 @@ public class GetKubeExecCreds {
         Objects.equals(this.certIssuerName, getKubeExecCreds.certIssuerName) &&
         Objects.equals(this.commonName, getKubeExecCreds.commonName) &&
         Objects.equals(this.keyDataBase64, getKubeExecCreds.keyDataBase64) &&
+        Objects.equals(this.password, getKubeExecCreds.password) &&
         Objects.equals(this.token, getKubeExecCreds.token) &&
         Objects.equals(this.uidToken, getKubeExecCreds.uidToken) &&
-        Objects.equals(this.uriSans, getKubeExecCreds.uriSans);
+        Objects.equals(this.uriSans, getKubeExecCreds.uriSans) &&
+        Objects.equals(this.username, getKubeExecCreds.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, token, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, password, token, uidToken, uriSans, username);
   }
 
 
@@ -251,9 +307,11 @@ public class GetKubeExecCreds {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uriSans: ").append(toIndentedString(uriSans)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

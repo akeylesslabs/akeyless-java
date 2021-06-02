@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.ItemTargetAssociation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -299,10 +300,6 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
   private String gkeClusterCaCertificate;
 
-  public static final String SERIALIZED_NAME_GKE_CLUSTER_COMPUTE_ZONE = "gke_cluster_compute_zone";
-  @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_COMPUTE_ZONE)
-  private String gkeClusterComputeZone;
-
   public static final String SERIALIZED_NAME_GKE_CLUSTER_ENDPOINT = "gke_cluster_endpoint";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_ENDPOINT)
   private String gkeClusterEndpoint;
@@ -310,10 +307,6 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_GKE_CLUSTER_NAME = "gke_cluster_name";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_NAME)
   private String gkeClusterName;
-
-  public static final String SERIALIZED_NAME_GKE_PROJECT_ID = "gke_project_id";
-  @SerializedName(SERIALIZED_NAME_GKE_PROJECT_ID)
-  private String gkeProjectId;
 
   public static final String SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_KEY = "gke_service_account_key";
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_KEY)
@@ -335,9 +328,17 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_HOST_PORT)
   private String hostPort;
 
+  public static final String SERIALIZED_NAME_ITEM_TARGETS_ASSOC = "item_targets_assoc";
+  @SerializedName(SERIALIZED_NAME_ITEM_TARGETS_ASSOC)
+  private List<ItemTargetAssociation> itemTargetsAssoc = null;
+
   public static final String SERIALIZED_NAME_LAST_ADMIN_ROTATION = "last_admin_rotation";
   @SerializedName(SERIALIZED_NAME_LAST_ADMIN_ROTATION)
   private Long lastAdminRotation;
+
+  public static final String SERIALIZED_NAME_MONGODB_ATLAS = "mongodb_atlas";
+  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS)
+  private Boolean mongodbAtlas;
 
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -446,6 +447,18 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_ROTATE_SYNC_URL = "rotate_sync_url";
   @SerializedName(SERIALIZED_NAME_ROTATE_SYNC_URL)
   private String rotateSyncUrl;
+
+  public static final String SERIALIZED_NAME_SF_ACCOUNT = "sf_account";
+  @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
+  private String sfAccount;
+
+  public static final String SERIALIZED_NAME_SF_USER_ROLE = "sf_user_role";
+  @SerializedName(SERIALIZED_NAME_SF_USER_ROLE)
+  private String sfUserRole;
+
+  public static final String SERIALIZED_NAME_SF_WAREHOUSE_NAME = "sf_warehouse_name";
+  @SerializedName(SERIALIZED_NAME_SF_WAREHOUSE_NAME)
+  private String sfWarehouseName;
 
   public static final String SERIALIZED_NAME_SHOULD_STOP = "should_stop";
   @SerializedName(SERIALIZED_NAME_SHOULD_STOP)
@@ -2065,29 +2078,6 @@ public class DSProducerDetails {
   }
 
 
-  public DSProducerDetails gkeClusterComputeZone(String gkeClusterComputeZone) {
-    
-    this.gkeClusterComputeZone = gkeClusterComputeZone;
-    return this;
-  }
-
-   /**
-   * Get gkeClusterComputeZone
-   * @return gkeClusterComputeZone
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeClusterComputeZone() {
-    return gkeClusterComputeZone;
-  }
-
-
-  public void setGkeClusterComputeZone(String gkeClusterComputeZone) {
-    this.gkeClusterComputeZone = gkeClusterComputeZone;
-  }
-
-
   public DSProducerDetails gkeClusterEndpoint(String gkeClusterEndpoint) {
     
     this.gkeClusterEndpoint = gkeClusterEndpoint;
@@ -2118,11 +2108,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get gkeClusterName
+   * GKEProjectID            string &#x60;json:\&quot;gke_project_id\&quot;&#x60;
    * @return gkeClusterName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "GKEProjectID            string `json:\"gke_project_id\"`")
 
   public String getGkeClusterName() {
     return gkeClusterName;
@@ -2131,29 +2121,6 @@ public class DSProducerDetails {
 
   public void setGkeClusterName(String gkeClusterName) {
     this.gkeClusterName = gkeClusterName;
-  }
-
-
-  public DSProducerDetails gkeProjectId(String gkeProjectId) {
-    
-    this.gkeProjectId = gkeProjectId;
-    return this;
-  }
-
-   /**
-   * Get gkeProjectId
-   * @return gkeProjectId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeProjectId() {
-    return gkeProjectId;
-  }
-
-
-  public void setGkeProjectId(String gkeProjectId) {
-    this.gkeProjectId = gkeProjectId;
   }
 
 
@@ -2187,11 +2154,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get gkeServiceAccountName
+   * GKEClusterComputeZone   string &#x60;json:\&quot;gke_cluster_compute_zone\&quot;&#x60;
    * @return gkeServiceAccountName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "GKEClusterComputeZone   string `json:\"gke_cluster_compute_zone\"`")
 
   public String getGkeServiceAccountName() {
     return gkeServiceAccountName;
@@ -2272,6 +2239,37 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails itemTargetsAssoc(List<ItemTargetAssociation> itemTargetsAssoc) {
+    
+    this.itemTargetsAssoc = itemTargetsAssoc;
+    return this;
+  }
+
+  public DSProducerDetails addItemTargetsAssocItem(ItemTargetAssociation itemTargetsAssocItem) {
+    if (this.itemTargetsAssoc == null) {
+      this.itemTargetsAssoc = new ArrayList<ItemTargetAssociation>();
+    }
+    this.itemTargetsAssoc.add(itemTargetsAssocItem);
+    return this;
+  }
+
+   /**
+   * Get itemTargetsAssoc
+   * @return itemTargetsAssoc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ItemTargetAssociation> getItemTargetsAssoc() {
+    return itemTargetsAssoc;
+  }
+
+
+  public void setItemTargetsAssoc(List<ItemTargetAssociation> itemTargetsAssoc) {
+    this.itemTargetsAssoc = itemTargetsAssoc;
+  }
+
+
   public DSProducerDetails lastAdminRotation(Long lastAdminRotation) {
     
     this.lastAdminRotation = lastAdminRotation;
@@ -2292,6 +2290,29 @@ public class DSProducerDetails {
 
   public void setLastAdminRotation(Long lastAdminRotation) {
     this.lastAdminRotation = lastAdminRotation;
+  }
+
+
+  public DSProducerDetails mongodbAtlas(Boolean mongodbAtlas) {
+    
+    this.mongodbAtlas = mongodbAtlas;
+    return this;
+  }
+
+   /**
+   * Get mongodbAtlas
+   * @return mongodbAtlas
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getMongodbAtlas() {
+    return mongodbAtlas;
+  }
+
+
+  public void setMongodbAtlas(Boolean mongodbAtlas) {
+    this.mongodbAtlas = mongodbAtlas;
   }
 
 
@@ -2486,11 +2507,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get mongodbRoles
+   * common fields
    * @return mongodbRoles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "common fields")
 
   public String getMongodbRoles() {
     return mongodbRoles;
@@ -2913,6 +2934,75 @@ public class DSProducerDetails {
 
   public void setRotateSyncUrl(String rotateSyncUrl) {
     this.rotateSyncUrl = rotateSyncUrl;
+  }
+
+
+  public DSProducerDetails sfAccount(String sfAccount) {
+    
+    this.sfAccount = sfAccount;
+    return this;
+  }
+
+   /**
+   * Get sfAccount
+   * @return sfAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSfAccount() {
+    return sfAccount;
+  }
+
+
+  public void setSfAccount(String sfAccount) {
+    this.sfAccount = sfAccount;
+  }
+
+
+  public DSProducerDetails sfUserRole(String sfUserRole) {
+    
+    this.sfUserRole = sfUserRole;
+    return this;
+  }
+
+   /**
+   * generated  users info
+   * @return sfUserRole
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "generated  users info")
+
+  public String getSfUserRole() {
+    return sfUserRole;
+  }
+
+
+  public void setSfUserRole(String sfUserRole) {
+    this.sfUserRole = sfUserRole;
+  }
+
+
+  public DSProducerDetails sfWarehouseName(String sfWarehouseName) {
+    
+    this.sfWarehouseName = sfWarehouseName;
+    return this;
+  }
+
+   /**
+   * Get sfWarehouseName
+   * @return sfWarehouseName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSfWarehouseName() {
+    return sfWarehouseName;
+  }
+
+
+  public void setSfWarehouseName(String sfWarehouseName) {
+    this.sfWarehouseName = sfWarehouseName;
   }
 
 
@@ -3391,16 +3481,16 @@ public class DSProducerDetails {
         Objects.equals(this.gcpTokenScope, dsProducerDetails.gcpTokenScope) &&
         Objects.equals(this.gcpTokenType, dsProducerDetails.gcpTokenType) &&
         Objects.equals(this.gkeClusterCaCertificate, dsProducerDetails.gkeClusterCaCertificate) &&
-        Objects.equals(this.gkeClusterComputeZone, dsProducerDetails.gkeClusterComputeZone) &&
         Objects.equals(this.gkeClusterEndpoint, dsProducerDetails.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, dsProducerDetails.gkeClusterName) &&
-        Objects.equals(this.gkeProjectId, dsProducerDetails.gkeProjectId) &&
         Objects.equals(this.gkeServiceAccountKey, dsProducerDetails.gkeServiceAccountKey) &&
         Objects.equals(this.gkeServiceAccountName, dsProducerDetails.gkeServiceAccountName) &&
         Objects.equals(this.groups, dsProducerDetails.groups) &&
         Objects.equals(this.hostName, dsProducerDetails.hostName) &&
         Objects.equals(this.hostPort, dsProducerDetails.hostPort) &&
+        Objects.equals(this.itemTargetsAssoc, dsProducerDetails.itemTargetsAssoc) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
+        Objects.equals(this.mongodbAtlas, dsProducerDetails.mongodbAtlas) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, dsProducerDetails.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, dsProducerDetails.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, dsProducerDetails.mongodbAtlasProjectId) &&
@@ -3428,6 +3518,9 @@ public class DSProducerDetails {
         Objects.equals(this.rabbitmqUserWritePermission, dsProducerDetails.rabbitmqUserWritePermission) &&
         Objects.equals(this.revokeSyncUrl, dsProducerDetails.revokeSyncUrl) &&
         Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
+        Objects.equals(this.sfAccount, dsProducerDetails.sfAccount) &&
+        Objects.equals(this.sfUserRole, dsProducerDetails.sfUserRole) &&
+        Objects.equals(this.sfWarehouseName, dsProducerDetails.sfWarehouseName) &&
         Objects.equals(this.shouldStop, dsProducerDetails.shouldStop) &&
         Objects.equals(this.timeoutSeconds, dsProducerDetails.timeoutSeconds) &&
         Objects.equals(this.userPrincipalName, dsProducerDetails.userPrincipalName) &&
@@ -3449,7 +3542,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterComputeZone, gkeClusterEndpoint, gkeClusterName, gkeProjectId, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, revokeSyncUrl, rotateSyncUrl, shouldStop, timeoutSeconds, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, itemTargetsAssoc, lastAdminRotation, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, revokeSyncUrl, rotateSyncUrl, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -3524,16 +3617,16 @@ public class DSProducerDetails {
     sb.append("    gcpTokenScope: ").append(toIndentedString(gcpTokenScope)).append("\n");
     sb.append("    gcpTokenType: ").append(toIndentedString(gcpTokenType)).append("\n");
     sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
-    sb.append("    gkeClusterComputeZone: ").append(toIndentedString(gkeClusterComputeZone)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
-    sb.append("    gkeProjectId: ").append(toIndentedString(gkeProjectId)).append("\n");
     sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
     sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
+    sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");
+    sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
@@ -3561,6 +3654,9 @@ public class DSProducerDetails {
     sb.append("    rabbitmqUserWritePermission: ").append(toIndentedString(rabbitmqUserWritePermission)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
+    sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
+    sb.append("    sfUserRole: ").append(toIndentedString(sfUserRole)).append("\n");
+    sb.append("    sfWarehouseName: ").append(toIndentedString(sfWarehouseName)).append("\n");
     sb.append("    shouldStop: ").append(toIndentedString(shouldStop)).append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");

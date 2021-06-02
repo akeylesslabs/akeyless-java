@@ -80,6 +80,10 @@ public class CreateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_BOUND_TENANT_ID)
   private String boundTenantId;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer = "https://sts.windows.net/---bound_tenant_id---";
@@ -92,6 +96,10 @@ public class CreateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -99,6 +107,10 @@ public class CreateAuthMethodAzureAD {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateAuthMethodAzureAD accessExpires(Long accessExpires) {
@@ -448,6 +460,29 @@ public class CreateAuthMethodAzureAD {
   }
 
 
+  public CreateAuthMethodAzureAD forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true: enforce role-association must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true: enforce role-association must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public CreateAuthMethodAzureAD issuer(String issuer) {
     
     this.issuer = issuer;
@@ -516,6 +551,29 @@ public class CreateAuthMethodAzureAD {
   }
 
 
+  public CreateAuthMethodAzureAD password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public CreateAuthMethodAzureAD token(String token) {
     
     this.token = token;
@@ -562,6 +620,29 @@ public class CreateAuthMethodAzureAD {
   }
 
 
+  public CreateAuthMethodAzureAD username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -583,16 +664,19 @@ public class CreateAuthMethodAzureAD {
         Objects.equals(this.boundSpid, createAuthMethodAzureAD.boundSpid) &&
         Objects.equals(this.boundSubId, createAuthMethodAzureAD.boundSubId) &&
         Objects.equals(this.boundTenantId, createAuthMethodAzureAD.boundTenantId) &&
+        Objects.equals(this.forceSubClaims, createAuthMethodAzureAD.forceSubClaims) &&
         Objects.equals(this.issuer, createAuthMethodAzureAD.issuer) &&
         Objects.equals(this.jwksUri, createAuthMethodAzureAD.jwksUri) &&
         Objects.equals(this.name, createAuthMethodAzureAD.name) &&
+        Objects.equals(this.password, createAuthMethodAzureAD.password) &&
         Objects.equals(this.token, createAuthMethodAzureAD.token) &&
-        Objects.equals(this.uidToken, createAuthMethodAzureAD.uidToken);
+        Objects.equals(this.uidToken, createAuthMethodAzureAD.uidToken) &&
+        Objects.equals(this.username, createAuthMethodAzureAD.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, issuer, jwksUri, name, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, issuer, jwksUri, name, password, token, uidToken, username);
   }
 
 
@@ -612,11 +696,14 @@ public class CreateAuthMethodAzureAD {
     sb.append("    boundSpid: ").append(toIndentedString(boundSpid)).append("\n");
     sb.append("    boundSubId: ").append(toIndentedString(boundSubId)).append("\n");
     sb.append("    boundTenantId: ").append(toIndentedString(boundTenantId)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

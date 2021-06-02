@@ -20,50 +20,52 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AllowedAccess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * GetSubAdminsListReplyObj
  */
 
 public class GetSubAdminsListReplyObj {
-  public static final String SERIALIZED_NAME_SUB_ADMINS = "sub_admins";
-  @SerializedName(SERIALIZED_NAME_SUB_ADMINS)
-  private List<String> subAdmins = null;
+  public static final String SERIALIZED_NAME_ALLOWED_ACCESS = "allowed_access";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_ACCESS)
+  private Map<String, AllowedAccess> allowedAccess = null;
 
 
-  public GetSubAdminsListReplyObj subAdmins(List<String> subAdmins) {
+  public GetSubAdminsListReplyObj allowedAccess(Map<String, AllowedAccess> allowedAccess) {
     
-    this.subAdmins = subAdmins;
+    this.allowedAccess = allowedAccess;
     return this;
   }
 
-  public GetSubAdminsListReplyObj addSubAdminsItem(String subAdminsItem) {
-    if (this.subAdmins == null) {
-      this.subAdmins = new ArrayList<String>();
+  public GetSubAdminsListReplyObj putAllowedAccessItem(String key, AllowedAccess allowedAccessItem) {
+    if (this.allowedAccess == null) {
+      this.allowedAccess = new HashMap<String, AllowedAccess>();
     }
-    this.subAdmins.add(subAdminsItem);
+    this.allowedAccess.put(key, allowedAccessItem);
     return this;
   }
 
    /**
-   * Get subAdmins
-   * @return subAdmins
+   * Get allowedAccess
+   * @return allowedAccess
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getSubAdmins() {
-    return subAdmins;
+  public Map<String, AllowedAccess> getAllowedAccess() {
+    return allowedAccess;
   }
 
 
-  public void setSubAdmins(List<String> subAdmins) {
-    this.subAdmins = subAdmins;
+  public void setAllowedAccess(Map<String, AllowedAccess> allowedAccess) {
+    this.allowedAccess = allowedAccess;
   }
 
 
@@ -76,12 +78,12 @@ public class GetSubAdminsListReplyObj {
       return false;
     }
     GetSubAdminsListReplyObj getSubAdminsListReplyObj = (GetSubAdminsListReplyObj) o;
-    return Objects.equals(this.subAdmins, getSubAdminsListReplyObj.subAdmins);
+    return Objects.equals(this.allowedAccess, getSubAdminsListReplyObj.allowedAccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subAdmins);
+    return Objects.hash(allowedAccess);
   }
 
 
@@ -89,7 +91,7 @@ public class GetSubAdminsListReplyObj {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSubAdminsListReplyObj {\n");
-    sb.append("    subAdmins: ").append(toIndentedString(subAdmins)).append("\n");
+    sb.append("    allowedAccess: ").append(toIndentedString(allowedAccess)).append("\n");
     sb.append("}");
     return sb.toString();
   }

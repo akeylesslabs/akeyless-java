@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UpdateRotatedSecret
+ * updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use gateway-update-item command]
  */
+@ApiModel(description = "updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use gateway-update-item command]")
 
 public class UpdateRotatedSecret {
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
@@ -63,19 +64,23 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
   private Boolean newVersion = false;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   private List<String> rmTag = null;
+
+  public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
+  @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
+  private Integer rotationHour;
 
   public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation-interval";
   @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
   private String rotationInterval;
 
-  public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation_hour";
-  @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
-  private Integer rotationHour;
-
-  public static final String SERIALIZED_NAME_ROTATOR_CREDS_TYPE = "rotator_creds_type";
+  public static final String SERIALIZED_NAME_ROTATOR_CREDS_TYPE = "rotator-creds-type";
   @SerializedName(SERIALIZED_NAME_ROTATOR_CREDS_TYPE)
   private String rotatorCredsType;
 
@@ -94,6 +99,10 @@ public class UpdateRotatedSecret {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public UpdateRotatedSecret addTag(List<String> addTag) {
@@ -287,6 +296,29 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public UpdateRotatedSecret rmTag(List<String> rmTag) {
     
     this.rmTag = rmTag;
@@ -318,29 +350,6 @@ public class UpdateRotatedSecret {
   }
 
 
-  public UpdateRotatedSecret rotationInterval(String rotationInterval) {
-    
-    this.rotationInterval = rotationInterval;
-    return this;
-  }
-
-   /**
-   * The number of days to wait between every automatic key rotation (7-365)
-   * @return rotationInterval
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days to wait between every automatic key rotation (7-365)")
-
-  public String getRotationInterval() {
-    return rotationInterval;
-  }
-
-
-  public void setRotationInterval(String rotationInterval) {
-    this.rotationInterval = rotationInterval;
-  }
-
-
   public UpdateRotatedSecret rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -361,6 +370,29 @@ public class UpdateRotatedSecret {
 
   public void setRotationHour(Integer rotationHour) {
     this.rotationHour = rotationHour;
+  }
+
+
+  public UpdateRotatedSecret rotationInterval(String rotationInterval) {
+    
+    this.rotationInterval = rotationInterval;
+    return this;
+  }
+
+   /**
+   * The number of days to wait between every automatic key rotation (7-365)
+   * @return rotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of days to wait between every automatic key rotation (7-365)")
+
+  public String getRotationInterval() {
+    return rotationInterval;
+  }
+
+
+  public void setRotationInterval(String rotationInterval) {
+    this.rotationInterval = rotationInterval;
   }
 
 
@@ -479,6 +511,29 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -496,19 +551,21 @@ public class UpdateRotatedSecret {
         Objects.equals(this.newMetadata, updateRotatedSecret.newMetadata) &&
         Objects.equals(this.newName, updateRotatedSecret.newName) &&
         Objects.equals(this.newVersion, updateRotatedSecret.newVersion) &&
+        Objects.equals(this.password, updateRotatedSecret.password) &&
         Objects.equals(this.rmTag, updateRotatedSecret.rmTag) &&
-        Objects.equals(this.rotationInterval, updateRotatedSecret.rotationInterval) &&
         Objects.equals(this.rotationHour, updateRotatedSecret.rotationHour) &&
+        Objects.equals(this.rotationInterval, updateRotatedSecret.rotationInterval) &&
         Objects.equals(this.rotatorCredsType, updateRotatedSecret.rotatorCredsType) &&
         Objects.equals(this.sshPassword, updateRotatedSecret.sshPassword) &&
         Objects.equals(this.sshUsername, updateRotatedSecret.sshUsername) &&
         Objects.equals(this.token, updateRotatedSecret.token) &&
-        Objects.equals(this.uidToken, updateRotatedSecret.uidToken);
+        Objects.equals(this.uidToken, updateRotatedSecret.uidToken) &&
+        Objects.equals(this.username, updateRotatedSecret.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, autoRotate, gatewayUrl, key, name, newMetadata, newName, newVersion, rmTag, rotationInterval, rotationHour, rotatorCredsType, sshPassword, sshUsername, token, uidToken);
+    return Objects.hash(addTag, autoRotate, gatewayUrl, key, name, newMetadata, newName, newVersion, password, rmTag, rotationHour, rotationInterval, rotatorCredsType, sshPassword, sshUsername, token, uidToken, username);
   }
 
 
@@ -524,14 +581,16 @@ public class UpdateRotatedSecret {
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
-    sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
+    sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -50,6 +50,10 @@ public class GatewayCreateProducerAzure {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -89,6 +93,10 @@ public class GatewayCreateProducerAzure {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GatewayCreateProducerAzure appObjId(String appObjId) {
@@ -200,6 +208,29 @@ public class GatewayCreateProducerAzure {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerAzure password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -432,6 +463,29 @@ public class GatewayCreateProducerAzure {
   }
 
 
+  public GatewayCreateProducerAzure username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -446,6 +500,7 @@ public class GatewayCreateProducerAzure {
         Objects.equals(this.clientSecret, gatewayCreateProducerAzure.clientSecret) &&
         Objects.equals(this.gatewayUrl, gatewayCreateProducerAzure.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerAzure.name) &&
+        Objects.equals(this.password, gatewayCreateProducerAzure.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.tenantId, gatewayCreateProducerAzure.tenantId) &&
         Objects.equals(this.token, gatewayCreateProducerAzure.token) &&
@@ -455,12 +510,13 @@ public class GatewayCreateProducerAzure {
         Objects.equals(this.userPrincipalName, gatewayCreateProducerAzure.userPrincipalName) &&
         Objects.equals(this.userProgrammaticAccess, gatewayCreateProducerAzure.userProgrammaticAccess) &&
         Objects.equals(this.userRoleTemplateId, gatewayCreateProducerAzure.userRoleTemplateId) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerAzure.userTtl);
+        Objects.equals(this.userTtl, gatewayCreateProducerAzure.userTtl) &&
+        Objects.equals(this.username, gatewayCreateProducerAzure.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, clientId, clientSecret, gatewayUrl, name, producerEncryptionKeyName, tenantId, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, clientId, clientSecret, gatewayUrl, name, password, producerEncryptionKeyName, tenantId, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
   }
 
 
@@ -473,6 +529,7 @@ public class GatewayCreateProducerAzure {
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -483,6 +540,7 @@ public class GatewayCreateProducerAzure {
     sb.append("    userProgrammaticAccess: ").append(toIndentedString(userProgrammaticAccess)).append("\n");
     sb.append("    userRoleTemplateId: ").append(toIndentedString(userRoleTemplateId)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

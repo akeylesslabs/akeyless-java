@@ -33,6 +33,10 @@ public class MoveObjects {
   @SerializedName(SERIALIZED_NAME_OBJECTS_TYPE)
   private String objectsType = "item";
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
@@ -48,6 +52,10 @@ public class MoveObjects {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public MoveObjects objectsType(String objectsType) {
@@ -70,6 +78,29 @@ public class MoveObjects {
 
   public void setObjectsType(String objectsType) {
     this.objectsType = objectsType;
+  }
+
+
+  public MoveObjects password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -163,6 +194,29 @@ public class MoveObjects {
   }
 
 
+  public MoveObjects username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -173,15 +227,17 @@ public class MoveObjects {
     }
     MoveObjects moveObjects = (MoveObjects) o;
     return Objects.equals(this.objectsType, moveObjects.objectsType) &&
+        Objects.equals(this.password, moveObjects.password) &&
         Objects.equals(this.source, moveObjects.source) &&
         Objects.equals(this.target, moveObjects.target) &&
         Objects.equals(this.token, moveObjects.token) &&
-        Objects.equals(this.uidToken, moveObjects.uidToken);
+        Objects.equals(this.uidToken, moveObjects.uidToken) &&
+        Objects.equals(this.username, moveObjects.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(objectsType, source, target, token, uidToken);
+    return Objects.hash(objectsType, password, source, target, token, uidToken, username);
   }
 
 
@@ -190,10 +246,12 @@ public class MoveObjects {
     StringBuilder sb = new StringBuilder();
     sb.append("class MoveObjects {\n");
     sb.append("    objectsType: ").append(toIndentedString(objectsType)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

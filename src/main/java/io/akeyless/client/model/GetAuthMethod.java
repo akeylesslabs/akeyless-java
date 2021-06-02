@@ -33,6 +33,10 @@ public class GetAuthMethod {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -40,6 +44,10 @@ public class GetAuthMethod {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GetAuthMethod name(String name) {
@@ -61,6 +69,29 @@ public class GetAuthMethod {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GetAuthMethod password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -110,6 +141,29 @@ public class GetAuthMethod {
   }
 
 
+  public GetAuthMethod username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -120,13 +174,15 @@ public class GetAuthMethod {
     }
     GetAuthMethod getAuthMethod = (GetAuthMethod) o;
     return Objects.equals(this.name, getAuthMethod.name) &&
+        Objects.equals(this.password, getAuthMethod.password) &&
         Objects.equals(this.token, getAuthMethod.token) &&
-        Objects.equals(this.uidToken, getAuthMethod.uidToken);
+        Objects.equals(this.uidToken, getAuthMethod.uidToken) &&
+        Objects.equals(this.username, getAuthMethod.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(name, password, token, uidToken, username);
   }
 
 
@@ -135,8 +191,10 @@ public class GetAuthMethod {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAuthMethod {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

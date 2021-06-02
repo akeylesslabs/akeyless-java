@@ -33,6 +33,10 @@ public class ListRoles {
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -40,6 +44,10 @@ public class ListRoles {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public ListRoles paginationToken(String paginationToken) {
@@ -62,6 +70,29 @@ public class ListRoles {
 
   public void setPaginationToken(String paginationToken) {
     this.paginationToken = paginationToken;
+  }
+
+
+  public ListRoles password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -111,6 +142,29 @@ public class ListRoles {
   }
 
 
+  public ListRoles username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -121,13 +175,15 @@ public class ListRoles {
     }
     ListRoles listRoles = (ListRoles) o;
     return Objects.equals(this.paginationToken, listRoles.paginationToken) &&
+        Objects.equals(this.password, listRoles.password) &&
         Objects.equals(this.token, listRoles.token) &&
-        Objects.equals(this.uidToken, listRoles.uidToken);
+        Objects.equals(this.uidToken, listRoles.uidToken) &&
+        Objects.equals(this.username, listRoles.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paginationToken, token, uidToken);
+    return Objects.hash(paginationToken, password, token, uidToken, username);
   }
 
 
@@ -136,8 +192,10 @@ public class ListRoles {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListRoles {\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

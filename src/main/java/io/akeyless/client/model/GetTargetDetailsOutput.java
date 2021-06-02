@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.Target;
-import io.akeyless.client.model.TargetTypeDetailesInput;
+import io.akeyless.client.model.TargetTypeDetailsInput;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,7 +37,7 @@ public class GetTargetDetailsOutput {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private TargetTypeDetailesInput value;
+  private TargetTypeDetailsInput value;
 
 
   public GetTargetDetailsOutput target(Target target) {
@@ -63,7 +63,7 @@ public class GetTargetDetailsOutput {
   }
 
 
-  public GetTargetDetailsOutput value(TargetTypeDetailesInput value) {
+  public GetTargetDetailsOutput value(TargetTypeDetailsInput value) {
     
     this.value = value;
     return this;
@@ -76,12 +76,12 @@ public class GetTargetDetailsOutput {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public TargetTypeDetailesInput getValue() {
+  public TargetTypeDetailsInput getValue() {
     return value;
   }
 
 
-  public void setValue(TargetTypeDetailesInput value) {
+  public void setValue(TargetTypeDetailsInput value) {
     this.value = value;
   }
 

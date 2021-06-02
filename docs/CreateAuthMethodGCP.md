@@ -15,11 +15,14 @@ Name | Type | Description | Notes
 **boundRegions** | **List&lt;String&gt;** | List of regions that a GCE instance must belong to in order to be authenticated. TODO: If bound_instance_groups is provided, it is assumed to be a regional group and the group must belong to this region. If bound_zones are provided, this attribute is ignored. |  [optional]
 **boundServiceAccounts** | **List&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Human authentication section &#x3D;&#x3D;&#x3D; List of service accounts the service account must be part of in order to be authenticated. |  [optional]
 **boundZones** | **List&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Machine authentication section &#x3D;&#x3D;&#x3D; List of zones that a GCE instance must belong to in order to be authenticated. TODO: If bound_instance_groups is provided, it is assumed to be a zonal group and the group must belong to this zone. |  [optional]
+**forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **name** | **String** | Auth Method name | 
+**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **serviceAccountCredsData** | **String** | ServiceAccount credentials data instead of giving a file path, base64 encoded |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **type** | **String** | Type of the GCP Access Rules |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
+**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

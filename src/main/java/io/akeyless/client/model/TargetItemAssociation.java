@@ -38,6 +38,10 @@ public class TargetItemAssociation {
   @SerializedName(SERIALIZED_NAME_ITEM_NAME)
   private String itemName;
 
+  public static final String SERIALIZED_NAME_ITEM_TYPE = "item_type";
+  @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
+  private String itemType;
+
 
   public TargetItemAssociation assocId(String assocId) {
     
@@ -85,6 +89,29 @@ public class TargetItemAssociation {
   }
 
 
+  public TargetItemAssociation itemType(String itemType) {
+    
+    this.itemType = itemType;
+    return this;
+  }
+
+   /**
+   * Get itemType
+   * @return itemType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getItemType() {
+    return itemType;
+  }
+
+
+  public void setItemType(String itemType) {
+    this.itemType = itemType;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -95,12 +122,13 @@ public class TargetItemAssociation {
     }
     TargetItemAssociation targetItemAssociation = (TargetItemAssociation) o;
     return Objects.equals(this.assocId, targetItemAssociation.assocId) &&
-        Objects.equals(this.itemName, targetItemAssociation.itemName);
+        Objects.equals(this.itemName, targetItemAssociation.itemName) &&
+        Objects.equals(this.itemType, targetItemAssociation.itemType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, itemName);
+    return Objects.hash(assocId, itemName, itemType);
   }
 
 
@@ -110,6 +138,7 @@ public class TargetItemAssociation {
     sb.append("class TargetItemAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
+    sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AwsS3LogForwardingConfig;
+import io.akeyless.client.model.AzureLogAnalyticsForwardingConfig;
 import io.akeyless.client.model.ElasticsearchLogForwardingConfig;
 import io.akeyless.client.model.LogstashLogForwardingConfig;
 import io.akeyless.client.model.LogzIoLogForwardingConfig;
@@ -34,6 +36,14 @@ import java.io.IOException;
  */
 
 public class LogForwardingConfigPart {
+  public static final String SERIALIZED_NAME_AWS_S3_CONFIG = "aws_s3_config";
+  @SerializedName(SERIALIZED_NAME_AWS_S3_CONFIG)
+  private AwsS3LogForwardingConfig awsS3Config;
+
+  public static final String SERIALIZED_NAME_AZURE_ANALYTICS_CONFIG = "azure_analytics_config";
+  @SerializedName(SERIALIZED_NAME_AZURE_ANALYTICS_CONFIG)
+  private AzureLogAnalyticsForwardingConfig azureAnalyticsConfig;
+
   public static final String SERIALIZED_NAME_ELASTICSEARCH_CONFIG = "elasticsearch_config";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_CONFIG)
   private ElasticsearchLogForwardingConfig elasticsearchConfig;
@@ -69,6 +79,52 @@ public class LogForwardingConfigPart {
   public static final String SERIALIZED_NAME_TARGET_LOG_TYPE = "target_log_type";
   @SerializedName(SERIALIZED_NAME_TARGET_LOG_TYPE)
   private String targetLogType;
+
+
+  public LogForwardingConfigPart awsS3Config(AwsS3LogForwardingConfig awsS3Config) {
+    
+    this.awsS3Config = awsS3Config;
+    return this;
+  }
+
+   /**
+   * Get awsS3Config
+   * @return awsS3Config
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AwsS3LogForwardingConfig getAwsS3Config() {
+    return awsS3Config;
+  }
+
+
+  public void setAwsS3Config(AwsS3LogForwardingConfig awsS3Config) {
+    this.awsS3Config = awsS3Config;
+  }
+
+
+  public LogForwardingConfigPart azureAnalyticsConfig(AzureLogAnalyticsForwardingConfig azureAnalyticsConfig) {
+    
+    this.azureAnalyticsConfig = azureAnalyticsConfig;
+    return this;
+  }
+
+   /**
+   * Get azureAnalyticsConfig
+   * @return azureAnalyticsConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AzureLogAnalyticsForwardingConfig getAzureAnalyticsConfig() {
+    return azureAnalyticsConfig;
+  }
+
+
+  public void setAzureAnalyticsConfig(AzureLogAnalyticsForwardingConfig azureAnalyticsConfig) {
+    this.azureAnalyticsConfig = azureAnalyticsConfig;
+  }
 
 
   public LogForwardingConfigPart elasticsearchConfig(ElasticsearchLogForwardingConfig elasticsearchConfig) {
@@ -287,7 +343,9 @@ public class LogForwardingConfigPart {
       return false;
     }
     LogForwardingConfigPart logForwardingConfigPart = (LogForwardingConfigPart) o;
-    return Objects.equals(this.elasticsearchConfig, logForwardingConfigPart.elasticsearchConfig) &&
+    return Objects.equals(this.awsS3Config, logForwardingConfigPart.awsS3Config) &&
+        Objects.equals(this.azureAnalyticsConfig, logForwardingConfigPart.azureAnalyticsConfig) &&
+        Objects.equals(this.elasticsearchConfig, logForwardingConfigPart.elasticsearchConfig) &&
         Objects.equals(this.loganEnable, logForwardingConfigPart.loganEnable) &&
         Objects.equals(this.loganUrl, logForwardingConfigPart.loganUrl) &&
         Objects.equals(this.logstashConfig, logForwardingConfigPart.logstashConfig) &&
@@ -300,7 +358,7 @@ public class LogForwardingConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
+    return Objects.hash(awsS3Config, azureAnalyticsConfig, elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
   }
 
 
@@ -308,6 +366,8 @@ public class LogForwardingConfigPart {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogForwardingConfigPart {\n");
+    sb.append("    awsS3Config: ").append(toIndentedString(awsS3Config)).append("\n");
+    sb.append("    azureAnalyticsConfig: ").append(toIndentedString(azureAnalyticsConfig)).append("\n");
     sb.append("    elasticsearchConfig: ").append(toIndentedString(elasticsearchConfig)).append("\n");
     sb.append("    loganEnable: ").append(toIndentedString(loganEnable)).append("\n");
     sb.append("    loganUrl: ").append(toIndentedString(loganUrl)).append("\n");

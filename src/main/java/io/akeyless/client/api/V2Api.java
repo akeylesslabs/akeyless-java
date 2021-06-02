@@ -35,6 +35,10 @@ import io.akeyless.client.model.AuthMethod;
 import io.akeyless.client.model.AuthOutput;
 import io.akeyless.client.model.Configure;
 import io.akeyless.client.model.ConfigureOutput;
+import io.akeyless.client.model.CreateAWSTarget;
+import io.akeyless.client.model.CreateAWSTargetOutput;
+import io.akeyless.client.model.CreateArtifactoryTarget;
+import io.akeyless.client.model.CreateArtifactoryTargetOutput;
 import io.akeyless.client.model.CreateAuthMethod;
 import io.akeyless.client.model.CreateAuthMethodAWSIAM;
 import io.akeyless.client.model.CreateAuthMethodAWSIAMOutput;
@@ -51,17 +55,27 @@ import io.akeyless.client.model.CreateAuthMethodSAML;
 import io.akeyless.client.model.CreateAuthMethodSAMLOutput;
 import io.akeyless.client.model.CreateAuthMethodUniversalIdentity;
 import io.akeyless.client.model.CreateAuthMethodUniversalIdentityOutput;
-import io.akeyless.client.model.CreateAwsTarget;
+import io.akeyless.client.model.CreateAzureTarget;
+import io.akeyless.client.model.CreateAzureTargetOutput;
+import io.akeyless.client.model.CreateClassicKey;
+import io.akeyless.client.model.CreateClassicKeyOutput;
 import io.akeyless.client.model.CreateDBTarget;
+import io.akeyless.client.model.CreateDBTargetOutput;
+import io.akeyless.client.model.CreateDFCKey;
+import io.akeyless.client.model.CreateDFCKeyOutput;
 import io.akeyless.client.model.CreateDynamicSecret;
+import io.akeyless.client.model.CreateEKSTarget;
+import io.akeyless.client.model.CreateEKSTargetOutput;
+import io.akeyless.client.model.CreateGKETarget;
+import io.akeyless.client.model.CreateGKETargetOutput;
+import io.akeyless.client.model.CreateGcpTarget;
+import io.akeyless.client.model.CreateGcpTargetOutput;
 import io.akeyless.client.model.CreateKey;
 import io.akeyless.client.model.CreateKeyOutput;
-import io.akeyless.client.model.CreateManagedKey;
-import io.akeyless.client.model.CreateManagedKeyOutput;
 import io.akeyless.client.model.CreatePKICertIssuer;
 import io.akeyless.client.model.CreatePKICertIssuerOutput;
 import io.akeyless.client.model.CreateRabbitMQTarget;
-import io.akeyless.client.model.CreateRdpTarget;
+import io.akeyless.client.model.CreateRabbitMQTargetOutput;
 import io.akeyless.client.model.CreateRole;
 import io.akeyless.client.model.CreateRoleAuthMethodAssocOutput;
 import io.akeyless.client.model.CreateRotatedSecret;
@@ -69,11 +83,12 @@ import io.akeyless.client.model.CreateRotatedSecretOutput;
 import io.akeyless.client.model.CreateSSHCertIssuer;
 import io.akeyless.client.model.CreateSSHCertIssuerOutput;
 import io.akeyless.client.model.CreateSSHTarget;
+import io.akeyless.client.model.CreateSSHTargetOutput;
 import io.akeyless.client.model.CreateSecret;
 import io.akeyless.client.model.CreateSecretOutput;
 import io.akeyless.client.model.CreateTargetItemAssocOutput;
-import io.akeyless.client.model.CreateTargetOutput;
 import io.akeyless.client.model.CreateWebTarget;
+import io.akeyless.client.model.CreateWebTargetOutput;
 import io.akeyless.client.model.DSProducerDetails;
 import io.akeyless.client.model.Decrypt;
 import io.akeyless.client.model.DecryptOutput;
@@ -103,7 +118,6 @@ import io.akeyless.client.model.EncryptOutput;
 import io.akeyless.client.model.EncryptPKCS1;
 import io.akeyless.client.model.EncryptPKCS1Output;
 import io.akeyless.client.model.GatewayAddSubAdmins;
-import io.akeyless.client.model.GatewayAddSubAdminsOutput;
 import io.akeyless.client.model.GatewayCreateProducerArtifactory;
 import io.akeyless.client.model.GatewayCreateProducerArtifactoryOutput;
 import io.akeyless.client.model.GatewayCreateProducerAws;
@@ -132,10 +146,11 @@ import io.akeyless.client.model.GatewayCreateProducerRabbitMQ;
 import io.akeyless.client.model.GatewayCreateProducerRabbitMQOutput;
 import io.akeyless.client.model.GatewayCreateProducerRdp;
 import io.akeyless.client.model.GatewayCreateProducerRdpOutput;
+import io.akeyless.client.model.GatewayCreateProducerSnowflake;
+import io.akeyless.client.model.GatewayCreateProducerSnowflakeOutput;
 import io.akeyless.client.model.GatewayDeleteProducer;
 import io.akeyless.client.model.GatewayDeleteProducerOutput;
 import io.akeyless.client.model.GatewayDeleteSubAdmins;
-import io.akeyless.client.model.GatewayDeleteSubAdminsOutput;
 import io.akeyless.client.model.GatewayGetConfig;
 import io.akeyless.client.model.GatewayGetProducer;
 import io.akeyless.client.model.GatewayGetTmpUsers;
@@ -151,6 +166,7 @@ import io.akeyless.client.model.GetAuthMethod;
 import io.akeyless.client.model.GetDynamicSecretValue;
 import io.akeyless.client.model.GetKubeExecCreds;
 import io.akeyless.client.model.GetKubeExecCredsOutput;
+import io.akeyless.client.model.GetPKICertificate;
 import io.akeyless.client.model.GetPKICertificateOutput;
 import io.akeyless.client.model.GetProducersListReplyObj;
 import io.akeyless.client.model.GetRSAPublic;
@@ -203,6 +219,7 @@ import io.akeyless.client.model.UidRotateToken;
 import io.akeyless.client.model.UidRotateTokenOutput;
 import io.akeyless.client.model.UniversalIdentityDetails;
 import io.akeyless.client.model.UpdateAWSTargetDetails;
+import io.akeyless.client.model.UpdateAssoc;
 import io.akeyless.client.model.UpdateDBTargetDetails;
 import io.akeyless.client.model.UpdateItem;
 import io.akeyless.client.model.UpdateItemOutput;
@@ -704,6 +721,234 @@ public class V2Api {
 
         okhttp3.Call localVarCall = configureValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ConfigureOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createAWSTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAWSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAWSTargetCall(CreateAWSTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-aws-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAWSTargetValidateBeforeCall(CreateAWSTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createAWSTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createAWSTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateAWSTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAWSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateAWSTargetOutput createAWSTarget(CreateAWSTarget body) throws ApiException {
+        ApiResponse<CreateAWSTargetOutput> localVarResp = createAWSTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateAWSTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAWSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateAWSTargetOutput> createAWSTargetWithHttpInfo(CreateAWSTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createAWSTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateAWSTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAWSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAWSTargetAsync(CreateAWSTarget body, final ApiCallback<CreateAWSTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAWSTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateAWSTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createArtifactoryTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createArtifactoryTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createArtifactoryTargetCall(CreateArtifactoryTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-artifactory-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createArtifactoryTargetValidateBeforeCall(CreateArtifactoryTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createArtifactoryTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createArtifactoryTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateArtifactoryTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createArtifactoryTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateArtifactoryTargetOutput createArtifactoryTarget(CreateArtifactoryTarget body) throws ApiException {
+        ApiResponse<CreateArtifactoryTargetOutput> localVarResp = createArtifactoryTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateArtifactoryTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createArtifactoryTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateArtifactoryTargetOutput> createArtifactoryTargetWithHttpInfo(CreateArtifactoryTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createArtifactoryTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateArtifactoryTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createArtifactoryTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createArtifactoryTargetAsync(CreateArtifactoryTarget body, final ApiCallback<CreateArtifactoryTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createArtifactoryTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateArtifactoryTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1620,7 +1865,7 @@ public class V2Api {
         return localVarCall;
     }
     /**
-     * Build call for createAwsTarget
+     * Build call for createAzureTarget
      * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1628,15 +1873,15 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createAzureTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAwsTargetCall(CreateAwsTarget body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAzureTargetCall(CreateAzureTarget body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/create-aws-target";
+        String localVarPath = "/create-azure-target";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1662,15 +1907,15 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAwsTargetValidateBeforeCall(CreateAwsTarget body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAzureTargetValidateBeforeCall(CreateAzureTarget body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createAwsTarget(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling createAzureTarget(Async)");
         }
         
 
-        okhttp3.Call localVarCall = createAwsTargetCall(body, _callback);
+        okhttp3.Call localVarCall = createAzureTargetCall(body, _callback);
         return localVarCall;
 
     }
@@ -1679,17 +1924,17 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return CreateTargetOutput
+     * @return CreateAzureTargetOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createAzureTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTargetOutput createAwsTarget(CreateAwsTarget body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createAwsTargetWithHttpInfo(body);
+    public CreateAzureTargetOutput createAzureTarget(CreateAzureTarget body) throws ApiException {
+        ApiResponse<CreateAzureTargetOutput> localVarResp = createAzureTargetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -1697,18 +1942,18 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
+     * @return ApiResponse&lt;CreateAzureTargetOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createAzureTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTargetOutput> createAwsTargetWithHttpInfo(CreateAwsTarget body) throws ApiException {
-        okhttp3.Call localVarCall = createAwsTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+    public ApiResponse<CreateAzureTargetOutput> createAzureTargetWithHttpInfo(CreateAzureTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createAzureTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateAzureTargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1722,14 +1967,128 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createAzureTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAwsTargetAsync(CreateAwsTarget body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
+    public okhttp3.Call createAzureTargetAsync(CreateAzureTarget body, final ApiCallback<CreateAzureTargetOutput> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAwsTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        okhttp3.Call localVarCall = createAzureTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateAzureTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createClassicKey
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> CreateClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createClassicKeyCall(CreateClassicKey body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-classic-key";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createClassicKeyValidateBeforeCall(CreateClassicKey body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createClassicKey(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createClassicKeyCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateClassicKeyOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> CreateClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateClassicKeyOutput createClassicKey(CreateClassicKey body) throws ApiException {
+        ApiResponse<CreateClassicKeyOutput> localVarResp = createClassicKeyWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateClassicKeyOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> CreateClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateClassicKeyOutput> createClassicKeyWithHttpInfo(CreateClassicKey body) throws ApiException {
+        okhttp3.Call localVarCall = createClassicKeyValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateClassicKeyOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> CreateClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createClassicKeyAsync(CreateClassicKey body, final ApiCallback<CreateClassicKeyOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createClassicKeyValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateClassicKeyOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1742,7 +2101,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createDBTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -1793,17 +2152,17 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return CreateTargetOutput
+     * @return CreateDBTargetOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createDBTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTargetOutput createDBTarget(CreateDBTarget body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createDBTargetWithHttpInfo(body);
+    public CreateDBTargetOutput createDBTarget(CreateDBTarget body) throws ApiException {
+        ApiResponse<CreateDBTargetOutput> localVarResp = createDBTargetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -1811,18 +2170,18 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
+     * @return ApiResponse&lt;CreateDBTargetOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createDBTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTargetOutput> createDBTargetWithHttpInfo(CreateDBTarget body) throws ApiException {
+    public ApiResponse<CreateDBTargetOutput> createDBTargetWithHttpInfo(CreateDBTarget body) throws ApiException {
         okhttp3.Call localVarCall = createDBTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDBTargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1836,14 +2195,128 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createDBTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDBTargetAsync(CreateDBTarget body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
+    public okhttp3.Call createDBTargetAsync(CreateDBTarget body, final ApiCallback<CreateDBTargetOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDBTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDBTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createDFCKey
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createDFCKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDFCKeyCall(CreateDFCKey body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-dfc-key";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createDFCKeyValidateBeforeCall(CreateDFCKey body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createDFCKey(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createDFCKeyCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateDFCKeyOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createDFCKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateDFCKeyOutput createDFCKey(CreateDFCKey body) throws ApiException {
+        ApiResponse<CreateDFCKeyOutput> localVarResp = createDFCKeyWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateDFCKeyOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createDFCKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateDFCKeyOutput> createDFCKeyWithHttpInfo(CreateDFCKey body) throws ApiException {
+        okhttp3.Call localVarCall = createDFCKeyValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateDFCKeyOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createDFCKeyResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDFCKeyAsync(CreateDFCKey body, final ApiCallback<CreateDFCKeyOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createDFCKeyValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateDFCKeyOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1962,6 +2435,348 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for createEKSTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createEKSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEKSTargetCall(CreateEKSTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-eks-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEKSTargetValidateBeforeCall(CreateEKSTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createEKSTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createEKSTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateEKSTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createEKSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateEKSTargetOutput createEKSTarget(CreateEKSTarget body) throws ApiException {
+        ApiResponse<CreateEKSTargetOutput> localVarResp = createEKSTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateEKSTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createEKSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateEKSTargetOutput> createEKSTargetWithHttpInfo(CreateEKSTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createEKSTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateEKSTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createEKSTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEKSTargetAsync(CreateEKSTarget body, final ApiCallback<CreateEKSTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEKSTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateEKSTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createGKETarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGKETargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createGKETargetCall(CreateGKETarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-gke-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createGKETargetValidateBeforeCall(CreateGKETarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createGKETarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createGKETargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateGKETargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGKETargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateGKETargetOutput createGKETarget(CreateGKETarget body) throws ApiException {
+        ApiResponse<CreateGKETargetOutput> localVarResp = createGKETargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateGKETargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGKETargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateGKETargetOutput> createGKETargetWithHttpInfo(CreateGKETarget body) throws ApiException {
+        okhttp3.Call localVarCall = createGKETargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateGKETargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGKETargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createGKETargetAsync(CreateGKETarget body, final ApiCallback<CreateGKETargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createGKETargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateGKETargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createGcpTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGcpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createGcpTargetCall(CreateGcpTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-gcp-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createGcpTargetValidateBeforeCall(CreateGcpTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createGcpTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createGcpTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateGcpTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGcpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateGcpTargetOutput createGcpTarget(CreateGcpTarget body) throws ApiException {
+        ApiResponse<CreateGcpTargetOutput> localVarResp = createGcpTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateGcpTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGcpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateGcpTargetOutput> createGcpTargetWithHttpInfo(CreateGcpTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createGcpTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateGcpTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGcpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createGcpTargetAsync(CreateGcpTarget body, final ApiCallback<CreateGcpTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createGcpTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateGcpTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createKey
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -2072,120 +2887,6 @@ public class V2Api {
 
         okhttp3.Call localVarCall = createKeyValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<CreateKeyOutput>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createManagedKey
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> CreateManagedKeyResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createManagedKeyCall(CreateManagedKey body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/create-managed-key";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createManagedKeyValidateBeforeCall(CreateManagedKey body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createManagedKey(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = createManagedKeyCall(body, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return CreateManagedKeyOutput
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> CreateManagedKeyResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateManagedKeyOutput createManagedKey(CreateManagedKey body) throws ApiException {
-        ApiResponse<CreateManagedKeyOutput> localVarResp = createManagedKeyWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;CreateManagedKeyOutput&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> CreateManagedKeyResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateManagedKeyOutput> createManagedKeyWithHttpInfo(CreateManagedKey body) throws ApiException {
-        okhttp3.Call localVarCall = createManagedKeyValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateManagedKeyOutput>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> CreateManagedKeyResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createManagedKeyAsync(CreateManagedKey body, final ApiCallback<CreateManagedKeyOutput> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createManagedKeyValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateManagedKeyOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2312,7 +3013,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createRabbitMQTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -2320,7 +3021,7 @@ public class V2Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/create-rabbitMQ-target";
+        String localVarPath = "/create-rabbitmq-target";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2363,17 +3064,17 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return CreateTargetOutput
+     * @return CreateRabbitMQTargetOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createRabbitMQTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTargetOutput createRabbitMQTarget(CreateRabbitMQTarget body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createRabbitMQTargetWithHttpInfo(body);
+    public CreateRabbitMQTargetOutput createRabbitMQTarget(CreateRabbitMQTarget body) throws ApiException {
+        ApiResponse<CreateRabbitMQTargetOutput> localVarResp = createRabbitMQTargetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -2381,18 +3082,18 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
+     * @return ApiResponse&lt;CreateRabbitMQTargetOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createRabbitMQTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTargetOutput> createRabbitMQTargetWithHttpInfo(CreateRabbitMQTarget body) throws ApiException {
+    public ApiResponse<CreateRabbitMQTargetOutput> createRabbitMQTargetWithHttpInfo(CreateRabbitMQTarget body) throws ApiException {
         okhttp3.Call localVarCall = createRabbitMQTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateRabbitMQTargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2406,128 +3107,14 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createRabbitMQTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRabbitMQTargetAsync(CreateRabbitMQTarget body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
+    public okhttp3.Call createRabbitMQTargetAsync(CreateRabbitMQTarget body, final ApiCallback<CreateRabbitMQTargetOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createRabbitMQTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createRdpTarget
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createRdpTargetCall(CreateRdpTarget body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/create-rdp-target";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRdpTargetValidateBeforeCall(CreateRdpTarget body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createRdpTarget(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = createRdpTargetCall(body, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return CreateTargetOutput
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateTargetOutput createRdpTarget(CreateRdpTarget body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createRdpTargetWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateTargetOutput> createRdpTargetWithHttpInfo(CreateRdpTarget body) throws ApiException {
-        okhttp3.Call localVarCall = createRdpTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createRdpTargetAsync(CreateRdpTarget body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createRdpTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateRabbitMQTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2882,7 +3469,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createSSHTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -2933,17 +3520,17 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return CreateTargetOutput
+     * @return CreateSSHTargetOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createSSHTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTargetOutput createSSHTarget(CreateSSHTarget body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createSSHTargetWithHttpInfo(body);
+    public CreateSSHTargetOutput createSSHTarget(CreateSSHTarget body) throws ApiException {
+        ApiResponse<CreateSSHTargetOutput> localVarResp = createSSHTargetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -2951,18 +3538,18 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
+     * @return ApiResponse&lt;CreateSSHTargetOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createSSHTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTargetOutput> createSSHTargetWithHttpInfo(CreateSSHTarget body) throws ApiException {
+    public ApiResponse<CreateSSHTargetOutput> createSSHTargetWithHttpInfo(CreateSSHTarget body) throws ApiException {
         okhttp3.Call localVarCall = createSSHTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateSSHTargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2976,14 +3563,14 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createSSHTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSSHTargetAsync(CreateSSHTarget body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
+    public okhttp3.Call createSSHTargetAsync(CreateSSHTarget body, final ApiCallback<CreateSSHTargetOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSSHTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateSSHTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3102,120 +3689,6 @@ public class V2Api {
         return localVarCall;
     }
     /**
-     * Build call for createTarget
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createTargetCall(Object body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/create-target";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTargetValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createTarget(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = createTargetCall(body, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return CreateTargetOutput
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateTargetOutput createTarget(Object body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createTargetWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateTargetOutput> createTargetWithHttpInfo(Object body) throws ApiException {
-        okhttp3.Call localVarCall = createTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createTargetAsync(Object body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for createWebTarget
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -3224,7 +3697,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createWebTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -3275,17 +3748,17 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return CreateTargetOutput
+     * @return CreateWebTargetOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createWebTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTargetOutput createWebTarget(CreateWebTarget body) throws ApiException {
-        ApiResponse<CreateTargetOutput> localVarResp = createWebTargetWithHttpInfo(body);
+    public CreateWebTargetOutput createWebTarget(CreateWebTarget body) throws ApiException {
+        ApiResponse<CreateWebTargetOutput> localVarResp = createWebTargetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -3293,18 +3766,18 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateTargetOutput&gt;
+     * @return ApiResponse&lt;CreateWebTargetOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createWebTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTargetOutput> createWebTargetWithHttpInfo(CreateWebTarget body) throws ApiException {
+    public ApiResponse<CreateWebTargetOutput> createWebTargetWithHttpInfo(CreateWebTarget body) throws ApiException {
         okhttp3.Call localVarCall = createWebTargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateWebTargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3318,14 +3791,14 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> createTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> createWebTargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWebTargetAsync(CreateWebTarget body, final ApiCallback<CreateTargetOutput> _callback) throws ApiException {
+    public okhttp3.Call createWebTargetAsync(CreateWebTarget body, final ApiCallback<CreateWebTargetOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createWebTargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<CreateTargetOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateWebTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5327,7 +5800,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return GatewayAddSubAdminsOutput
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5336,8 +5809,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public GatewayAddSubAdminsOutput gatewayAddSubAdmins(GatewayAddSubAdmins body) throws ApiException {
-        ApiResponse<GatewayAddSubAdminsOutput> localVarResp = gatewayAddSubAdminsWithHttpInfo(body);
+    public Object gatewayAddSubAdmins(GatewayAddSubAdmins body) throws ApiException {
+        ApiResponse<Object> localVarResp = gatewayAddSubAdminsWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -5345,7 +5818,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;GatewayAddSubAdminsOutput&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5354,9 +5827,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GatewayAddSubAdminsOutput> gatewayAddSubAdminsWithHttpInfo(GatewayAddSubAdmins body) throws ApiException {
+    public ApiResponse<Object> gatewayAddSubAdminsWithHttpInfo(GatewayAddSubAdmins body) throws ApiException {
         okhttp3.Call localVarCall = gatewayAddSubAdminsValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<GatewayAddSubAdminsOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -5374,10 +5847,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayAddSubAdminsAsync(GatewayAddSubAdmins body, final ApiCallback<GatewayAddSubAdminsOutput> _callback) throws ApiException {
+    public okhttp3.Call gatewayAddSubAdminsAsync(GatewayAddSubAdmins body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayAddSubAdminsValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<GatewayAddSubAdminsOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6973,6 +7446,120 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for gatewayCreateProducerSnowflake
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerSnowflakeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayCreateProducerSnowflakeCall(GatewayCreateProducerSnowflake body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-create-producer-snowflake";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayCreateProducerSnowflakeValidateBeforeCall(GatewayCreateProducerSnowflake body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayCreateProducerSnowflake(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayCreateProducerSnowflakeCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewayCreateProducerSnowflakeOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerSnowflakeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewayCreateProducerSnowflakeOutput gatewayCreateProducerSnowflake(GatewayCreateProducerSnowflake body) throws ApiException {
+        ApiResponse<GatewayCreateProducerSnowflakeOutput> localVarResp = gatewayCreateProducerSnowflakeWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewayCreateProducerSnowflakeOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerSnowflakeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewayCreateProducerSnowflakeOutput> gatewayCreateProducerSnowflakeWithHttpInfo(GatewayCreateProducerSnowflake body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayCreateProducerSnowflakeValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewayCreateProducerSnowflakeOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerSnowflakeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayCreateProducerSnowflakeAsync(GatewayCreateProducerSnowflake body, final ApiCallback<GatewayCreateProducerSnowflakeOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayCreateProducerSnowflakeValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewayCreateProducerSnowflakeOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for gatewayDeleteProducer
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -7146,7 +7733,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return GatewayDeleteSubAdminsOutput
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7155,8 +7742,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public GatewayDeleteSubAdminsOutput gatewayDeleteSubAdmins(GatewayDeleteSubAdmins body) throws ApiException {
-        ApiResponse<GatewayDeleteSubAdminsOutput> localVarResp = gatewayDeleteSubAdminsWithHttpInfo(body);
+    public Object gatewayDeleteSubAdmins(GatewayDeleteSubAdmins body) throws ApiException {
+        ApiResponse<Object> localVarResp = gatewayDeleteSubAdminsWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -7164,7 +7751,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;GatewayDeleteSubAdminsOutput&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7173,9 +7760,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GatewayDeleteSubAdminsOutput> gatewayDeleteSubAdminsWithHttpInfo(GatewayDeleteSubAdmins body) throws ApiException {
+    public ApiResponse<Object> gatewayDeleteSubAdminsWithHttpInfo(GatewayDeleteSubAdmins body) throws ApiException {
         okhttp3.Call localVarCall = gatewayDeleteSubAdminsValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<GatewayDeleteSubAdminsOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -7193,10 +7780,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayDeleteSubAdminsAsync(GatewayDeleteSubAdmins body, final ApiCallback<GatewayDeleteSubAdminsOutput> _callback) throws ApiException {
+    public okhttp3.Call gatewayDeleteSubAdminsAsync(GatewayDeleteSubAdmins body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayDeleteSubAdminsValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<GatewayDeleteSubAdminsOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8109,107 +8696,6 @@ public class V2Api {
         return localVarCall;
     }
     /**
-     * Build call for gatewayUpdateItem
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayUpdateItemCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/update-managed-key";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayUpdateItemValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = gatewayUpdateItemCall(_callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void gatewayUpdateItem() throws ApiException {
-        gatewayUpdateItemWithHttpInfo();
-    }
-
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> gatewayUpdateItemWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = gatewayUpdateItemValidateBeforeCall(null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayUpdateItemAsync(final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = gatewayUpdateItemValidateBeforeCall(_callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for gatewayUpdateTmpUsers
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -8768,6 +9254,7 @@ public class V2Api {
     }
     /**
      * Build call for getPKICertificate
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8778,8 +9265,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPKICertificateCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
+    public okhttp3.Call getPKICertificateCall(GetPKICertificate body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/get-pki-certificate";
@@ -8798,7 +9285,7 @@ public class V2Api {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8808,10 +9295,15 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPKICertificateValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPKICertificateValidateBeforeCall(GetPKICertificate body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getPKICertificate(Async)");
+        }
         
 
-        okhttp3.Call localVarCall = getPKICertificateCall(_callback);
+        okhttp3.Call localVarCall = getPKICertificateCall(body, _callback);
         return localVarCall;
 
     }
@@ -8819,6 +9311,7 @@ public class V2Api {
     /**
      * 
      * 
+     * @param body  (required)
      * @return GetPKICertificateOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8828,14 +9321,15 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public GetPKICertificateOutput getPKICertificate() throws ApiException {
-        ApiResponse<GetPKICertificateOutput> localVarResp = getPKICertificateWithHttpInfo();
+    public GetPKICertificateOutput getPKICertificate(GetPKICertificate body) throws ApiException {
+        ApiResponse<GetPKICertificateOutput> localVarResp = getPKICertificateWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
+     * @param body  (required)
      * @return ApiResponse&lt;GetPKICertificateOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8845,8 +9339,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetPKICertificateOutput> getPKICertificateWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getPKICertificateValidateBeforeCall(null);
+    public ApiResponse<GetPKICertificateOutput> getPKICertificateWithHttpInfo(GetPKICertificate body) throws ApiException {
+        okhttp3.Call localVarCall = getPKICertificateValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<GetPKICertificateOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8854,6 +9348,7 @@ public class V2Api {
     /**
      *  (asynchronously)
      * 
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8864,9 +9359,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPKICertificateAsync(final ApiCallback<GetPKICertificateOutput> _callback) throws ApiException {
+    public okhttp3.Call getPKICertificateAsync(GetPKICertificate body, final ApiCallback<GetPKICertificateOutput> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPKICertificateValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getPKICertificateValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GetPKICertificateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -11941,6 +12436,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = updateAWSTargetDetailsValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<UpdateTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateAssoc
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateAssocResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAssocCall(UpdateAssoc body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/update-assoc";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAssocValidateBeforeCall(UpdateAssoc body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateAssoc(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateAssocCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateAssocResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object updateAssoc(UpdateAssoc body) throws ApiException {
+        ApiResponse<Object> localVarResp = updateAssocWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateAssocResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> updateAssocWithHttpInfo(UpdateAssoc body) throws ApiException {
+        okhttp3.Call localVarCall = updateAssocValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateAssocResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAssocAsync(UpdateAssoc body, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateAssocValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

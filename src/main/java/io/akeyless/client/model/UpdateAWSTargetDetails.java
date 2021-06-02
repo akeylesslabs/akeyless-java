@@ -45,6 +45,10 @@ public class UpdateAWSTargetDetails {
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
   private Boolean newVersion = false;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
@@ -64,6 +68,10 @@ public class UpdateAWSTargetDetails {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public UpdateAWSTargetDetails accessKey(String accessKey) {
@@ -154,6 +162,29 @@ public class UpdateAWSTargetDetails {
 
   public void setNewVersion(Boolean newVersion) {
     this.newVersion = newVersion;
+  }
+
+
+  public UpdateAWSTargetDetails password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -272,6 +303,29 @@ public class UpdateAWSTargetDetails {
   }
 
 
+  public UpdateAWSTargetDetails username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -285,16 +339,18 @@ public class UpdateAWSTargetDetails {
         Objects.equals(this.accessKeyId, updateAWSTargetDetails.accessKeyId) &&
         Objects.equals(this.name, updateAWSTargetDetails.name) &&
         Objects.equals(this.newVersion, updateAWSTargetDetails.newVersion) &&
+        Objects.equals(this.password, updateAWSTargetDetails.password) &&
         Objects.equals(this.protectionKey, updateAWSTargetDetails.protectionKey) &&
         Objects.equals(this.region, updateAWSTargetDetails.region) &&
         Objects.equals(this.sessionToken, updateAWSTargetDetails.sessionToken) &&
         Objects.equals(this.token, updateAWSTargetDetails.token) &&
-        Objects.equals(this.uidToken, updateAWSTargetDetails.uidToken);
+        Objects.equals(this.uidToken, updateAWSTargetDetails.uidToken) &&
+        Objects.equals(this.username, updateAWSTargetDetails.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, name, newVersion, protectionKey, region, sessionToken, token, uidToken);
+    return Objects.hash(accessKey, accessKeyId, name, newVersion, password, protectionKey, region, sessionToken, token, uidToken, username);
   }
 
 
@@ -306,11 +362,13 @@ public class UpdateAWSTargetDetails {
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    sessionToken: ").append(toIndentedString(sessionToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

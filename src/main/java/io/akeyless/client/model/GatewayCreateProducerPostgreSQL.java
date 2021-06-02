@@ -42,6 +42,10 @@ public class GatewayCreateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_POSTGRESQL_DB_NAME = "postgresql-db-name";
   @SerializedName(SERIALIZED_NAME_POSTGRESQL_DB_NAME)
   private String postgresqlDbName;
@@ -77,6 +81,10 @@ public class GatewayCreateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GatewayCreateProducerPostgreSQL creationStatements(String creationStatements) {
@@ -144,6 +152,29 @@ public class GatewayCreateProducerPostgreSQL {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerPostgreSQL password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -351,6 +382,29 @@ public class GatewayCreateProducerPostgreSQL {
   }
 
 
+  public GatewayCreateProducerPostgreSQL username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -363,6 +417,7 @@ public class GatewayCreateProducerPostgreSQL {
     return Objects.equals(this.creationStatements, gatewayCreateProducerPostgreSQL.creationStatements) &&
         Objects.equals(this.gatewayUrl, gatewayCreateProducerPostgreSQL.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerPostgreSQL.name) &&
+        Objects.equals(this.password, gatewayCreateProducerPostgreSQL.password) &&
         Objects.equals(this.postgresqlDbName, gatewayCreateProducerPostgreSQL.postgresqlDbName) &&
         Objects.equals(this.postgresqlHost, gatewayCreateProducerPostgreSQL.postgresqlHost) &&
         Objects.equals(this.postgresqlPassword, gatewayCreateProducerPostgreSQL.postgresqlPassword) &&
@@ -371,12 +426,13 @@ public class GatewayCreateProducerPostgreSQL {
         Objects.equals(this.producerEncryptionKey, gatewayCreateProducerPostgreSQL.producerEncryptionKey) &&
         Objects.equals(this.token, gatewayCreateProducerPostgreSQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerPostgreSQL.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerPostgreSQL.userTtl);
+        Objects.equals(this.userTtl, gatewayCreateProducerPostgreSQL.userTtl) &&
+        Objects.equals(this.username, gatewayCreateProducerPostgreSQL.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, gatewayUrl, name, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, gatewayUrl, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, token, uidToken, userTtl, username);
   }
 
 
@@ -387,6 +443,7 @@ public class GatewayCreateProducerPostgreSQL {
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    postgresqlDbName: ").append(toIndentedString(postgresqlDbName)).append("\n");
     sb.append("    postgresqlHost: ").append(toIndentedString(postgresqlHost)).append("\n");
     sb.append("    postgresqlPassword: ").append(toIndentedString(postgresqlPassword)).append("\n");
@@ -396,6 +453,7 @@ public class GatewayCreateProducerPostgreSQL {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

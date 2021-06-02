@@ -33,6 +33,10 @@ public class GetRotatedSecretValue {
   @SerializedName(SERIALIZED_NAME_NAMES)
   private String names;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -40,6 +44,10 @@ public class GetRotatedSecretValue {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -65,6 +73,29 @@ public class GetRotatedSecretValue {
 
   public void setNames(String names) {
     this.names = names;
+  }
+
+
+  public GetRotatedSecretValue password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -114,6 +145,29 @@ public class GetRotatedSecretValue {
   }
 
 
+  public GetRotatedSecretValue username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   public GetRotatedSecretValue version(Integer version) {
     
     this.version = version;
@@ -147,14 +201,16 @@ public class GetRotatedSecretValue {
     }
     GetRotatedSecretValue getRotatedSecretValue = (GetRotatedSecretValue) o;
     return Objects.equals(this.names, getRotatedSecretValue.names) &&
+        Objects.equals(this.password, getRotatedSecretValue.password) &&
         Objects.equals(this.token, getRotatedSecretValue.token) &&
         Objects.equals(this.uidToken, getRotatedSecretValue.uidToken) &&
+        Objects.equals(this.username, getRotatedSecretValue.username) &&
         Objects.equals(this.version, getRotatedSecretValue.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, token, uidToken, version);
+    return Objects.hash(names, password, token, uidToken, username, version);
   }
 
 
@@ -163,8 +219,10 @@ public class GetRotatedSecretValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRotatedSecretValue {\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

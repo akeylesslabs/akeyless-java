@@ -34,6 +34,10 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -45,6 +49,10 @@ public class AssocTargetItem {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public AssocTargetItem name(String name) {
@@ -66,6 +74,29 @@ public class AssocTargetItem {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public AssocTargetItem password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -137,6 +168,29 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -147,14 +201,16 @@ public class AssocTargetItem {
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
     return Objects.equals(this.name, assocTargetItem.name) &&
+        Objects.equals(this.password, assocTargetItem.password) &&
         Objects.equals(this.targetName, assocTargetItem.targetName) &&
         Objects.equals(this.token, assocTargetItem.token) &&
-        Objects.equals(this.uidToken, assocTargetItem.uidToken);
+        Objects.equals(this.uidToken, assocTargetItem.uidToken) &&
+        Objects.equals(this.username, assocTargetItem.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, targetName, token, uidToken);
+    return Objects.hash(name, password, targetName, token, uidToken, username);
   }
 
 
@@ -163,9 +219,11 @@ public class AssocTargetItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

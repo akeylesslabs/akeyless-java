@@ -53,6 +53,10 @@ public class UpdateDBTargetDetails {
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
   private Boolean newVersion = false;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
@@ -76,6 +80,10 @@ public class UpdateDBTargetDetails {
   public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public UpdateDBTargetDetails dbType(String dbType) {
@@ -212,6 +220,29 @@ public class UpdateDBTargetDetails {
 
   public void setNewVersion(Boolean newVersion) {
     this.newVersion = newVersion;
+  }
+
+
+  public UpdateDBTargetDetails password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -353,6 +384,29 @@ public class UpdateDBTargetDetails {
   }
 
 
+  public UpdateDBTargetDetails username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -368,17 +422,19 @@ public class UpdateDBTargetDetails {
         Objects.equals(this.mongoUri, updateDBTargetDetails.mongoUri) &&
         Objects.equals(this.name, updateDBTargetDetails.name) &&
         Objects.equals(this.newVersion, updateDBTargetDetails.newVersion) &&
+        Objects.equals(this.password, updateDBTargetDetails.password) &&
         Objects.equals(this.port, updateDBTargetDetails.port) &&
         Objects.equals(this.protectionKey, updateDBTargetDetails.protectionKey) &&
         Objects.equals(this.pwd, updateDBTargetDetails.pwd) &&
         Objects.equals(this.token, updateDBTargetDetails.token) &&
         Objects.equals(this.uidToken, updateDBTargetDetails.uidToken) &&
-        Objects.equals(this.userName, updateDBTargetDetails.userName);
+        Objects.equals(this.userName, updateDBTargetDetails.userName) &&
+        Objects.equals(this.username, updateDBTargetDetails.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbType, hostName, mongoDbName, mongoUri, name, newVersion, port, protectionKey, pwd, token, uidToken, userName);
+    return Objects.hash(dbType, hostName, mongoDbName, mongoUri, name, newVersion, password, port, protectionKey, pwd, token, uidToken, userName, username);
   }
 
 
@@ -392,12 +448,14 @@ public class UpdateDBTargetDetails {
     sb.append("    mongoUri: ").append(toIndentedString(mongoUri)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

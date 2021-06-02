@@ -82,6 +82,10 @@ public class GatewayCreateProducerMongo {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -97,6 +101,10 @@ public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GatewayCreateProducerMongo gatewayUrl(String gatewayUrl) {
@@ -396,6 +404,29 @@ public class GatewayCreateProducerMongo {
   }
 
 
+  public GatewayCreateProducerMongo password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public GatewayCreateProducerMongo producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -488,6 +519,29 @@ public class GatewayCreateProducerMongo {
   }
 
 
+  public GatewayCreateProducerMongo username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -510,15 +564,17 @@ public class GatewayCreateProducerMongo {
         Objects.equals(this.mongodbUriOptions, gatewayCreateProducerMongo.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, gatewayCreateProducerMongo.mongodbUsername) &&
         Objects.equals(this.name, gatewayCreateProducerMongo.name) &&
+        Objects.equals(this.password, gatewayCreateProducerMongo.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMongo.producerEncryptionKeyName) &&
         Objects.equals(this.token, gatewayCreateProducerMongo.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMongo.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerMongo.userTtl);
+        Objects.equals(this.userTtl, gatewayCreateProducerMongo.userTtl) &&
+        Objects.equals(this.username, gatewayCreateProducerMongo.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, token, uidToken, userTtl);
+    return Objects.hash(gatewayUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -539,10 +595,12 @@ public class GatewayCreateProducerMongo {
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

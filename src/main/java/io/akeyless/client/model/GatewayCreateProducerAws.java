@@ -78,6 +78,10 @@ public class GatewayCreateProducerAws {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -97,6 +101,10 @@ public class GatewayCreateProducerAws {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public GatewayCreateProducerAws accessKeyId(String accessKeyId) {
@@ -372,6 +380,29 @@ public class GatewayCreateProducerAws {
   }
 
 
+  public GatewayCreateProducerAws password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public GatewayCreateProducerAws producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -487,6 +518,29 @@ public class GatewayCreateProducerAws {
   }
 
 
+  public GatewayCreateProducerAws username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -508,16 +562,18 @@ public class GatewayCreateProducerAws {
         Objects.equals(this.enableAdminRotation, gatewayCreateProducerAws.enableAdminRotation) &&
         Objects.equals(this.gatewayUrl, gatewayCreateProducerAws.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerAws.name) &&
+        Objects.equals(this.password, gatewayCreateProducerAws.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAws.producerEncryptionKeyName) &&
         Objects.equals(this.region, gatewayCreateProducerAws.region) &&
         Objects.equals(this.token, gatewayCreateProducerAws.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerAws.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerAws.userTtl);
+        Objects.equals(this.userTtl, gatewayCreateProducerAws.userTtl) &&
+        Objects.equals(this.username, gatewayCreateProducerAws.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, accessMode, accessSecretKey, adminRotationIntervalDays, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, gatewayUrl, name, producerEncryptionKeyName, region, token, uidToken, userTtl);
+    return Objects.hash(accessKeyId, accessMode, accessSecretKey, adminRotationIntervalDays, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, gatewayUrl, name, password, producerEncryptionKeyName, region, token, uidToken, userTtl, username);
   }
 
 
@@ -537,11 +593,13 @@ public class GatewayCreateProducerAws {
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

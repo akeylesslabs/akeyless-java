@@ -12,9 +12,11 @@ Name | Type | Description | Notes
 **childDenyRotate** | **Boolean** | Deny from new child to rotate |  [optional]
 **childTtl** | **Integer** | New child token ttl |  [optional]
 **comment** | **String** | New Token comment |  [optional]
+**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **uidTokenId** | **String** | The ID of the uid-token, required only when uid-token is not provided |  [optional]
+**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

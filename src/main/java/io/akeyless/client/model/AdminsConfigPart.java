@@ -20,50 +20,52 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AllowedAccess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * AdminsConfigPart
  */
 
 public class AdminsConfigPart {
-  public static final String SERIALIZED_NAME_ADMINS = "admins";
-  @SerializedName(SERIALIZED_NAME_ADMINS)
-  private List<String> admins = null;
+  public static final String SERIALIZED_NAME_ALLOWED_ACCESS = "allowed_access";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_ACCESS)
+  private Map<String, AllowedAccess> allowedAccess = null;
 
 
-  public AdminsConfigPart admins(List<String> admins) {
+  public AdminsConfigPart allowedAccess(Map<String, AllowedAccess> allowedAccess) {
     
-    this.admins = admins;
+    this.allowedAccess = allowedAccess;
     return this;
   }
 
-  public AdminsConfigPart addAdminsItem(String adminsItem) {
-    if (this.admins == null) {
-      this.admins = new ArrayList<String>();
+  public AdminsConfigPart putAllowedAccessItem(String key, AllowedAccess allowedAccessItem) {
+    if (this.allowedAccess == null) {
+      this.allowedAccess = new HashMap<String, AllowedAccess>();
     }
-    this.admins.add(adminsItem);
+    this.allowedAccess.put(key, allowedAccessItem);
     return this;
   }
 
    /**
-   * Get admins
-   * @return admins
+   * Get allowedAccess
+   * @return allowedAccess
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getAdmins() {
-    return admins;
+  public Map<String, AllowedAccess> getAllowedAccess() {
+    return allowedAccess;
   }
 
 
-  public void setAdmins(List<String> admins) {
-    this.admins = admins;
+  public void setAllowedAccess(Map<String, AllowedAccess> allowedAccess) {
+    this.allowedAccess = allowedAccess;
   }
 
 
@@ -76,12 +78,12 @@ public class AdminsConfigPart {
       return false;
     }
     AdminsConfigPart adminsConfigPart = (AdminsConfigPart) o;
-    return Objects.equals(this.admins, adminsConfigPart.admins);
+    return Objects.equals(this.allowedAccess, adminsConfigPart.allowedAccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins);
+    return Objects.hash(allowedAccess);
   }
 
 
@@ -89,7 +91,7 @@ public class AdminsConfigPart {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdminsConfigPart {\n");
-    sb.append("    admins: ").append(toIndentedString(admins)).append("\n");
+    sb.append("    allowedAccess: ").append(toIndentedString(allowedAccess)).append("\n");
     sb.append("}");
     return sb.toString();
   }

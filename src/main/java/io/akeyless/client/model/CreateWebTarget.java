@@ -33,13 +33,17 @@ public class CreateWebTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
-  @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
-  private String protectionKey;
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -52,6 +56,10 @@ public class CreateWebTarget {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateWebTarget comment(String comment) {
@@ -77,6 +85,29 @@ public class CreateWebTarget {
   }
 
 
+  public CreateWebTarget key(String key) {
+    
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+   * @return key
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
+
+  public String getKey() {
+    return key;
+  }
+
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+
   public CreateWebTarget name(String name) {
     
     this.name = name;
@@ -99,26 +130,26 @@ public class CreateWebTarget {
   }
 
 
-  public CreateWebTarget protectionKey(String protectionKey) {
+  public CreateWebTarget password(String password) {
     
-    this.protectionKey = protectionKey;
+    this.password = password;
     return this;
   }
 
    /**
-   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
-   * @return protectionKey
+   * Required only when the authentication process requires a username and password
+   * @return password
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
 
-  public String getProtectionKey() {
-    return protectionKey;
+  public String getPassword() {
+    return password;
   }
 
 
-  public void setProtectionKey(String protectionKey) {
-    this.protectionKey = protectionKey;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -191,6 +222,29 @@ public class CreateWebTarget {
   }
 
 
+  public CreateWebTarget username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -201,16 +255,18 @@ public class CreateWebTarget {
     }
     CreateWebTarget createWebTarget = (CreateWebTarget) o;
     return Objects.equals(this.comment, createWebTarget.comment) &&
+        Objects.equals(this.key, createWebTarget.key) &&
         Objects.equals(this.name, createWebTarget.name) &&
-        Objects.equals(this.protectionKey, createWebTarget.protectionKey) &&
+        Objects.equals(this.password, createWebTarget.password) &&
         Objects.equals(this.token, createWebTarget.token) &&
         Objects.equals(this.uidToken, createWebTarget.uidToken) &&
-        Objects.equals(this.url, createWebTarget.url);
+        Objects.equals(this.url, createWebTarget.url) &&
+        Objects.equals(this.username, createWebTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, name, protectionKey, token, uidToken, url);
+    return Objects.hash(comment, key, name, password, token, uidToken, url, username);
   }
 
 
@@ -219,11 +275,13 @@ public class CreateWebTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWebTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

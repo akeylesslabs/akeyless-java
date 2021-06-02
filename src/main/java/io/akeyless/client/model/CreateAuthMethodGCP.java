@@ -64,9 +64,17 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_BOUND_ZONES)
   private List<String> boundZones = null;
 
+  public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
+  @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
+  private Boolean forceSubClaims;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA = "service-account-creds-data";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA)
@@ -83,6 +91,10 @@ public class CreateAuthMethodGCP {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
 
   public CreateAuthMethodGCP accessExpires(Long accessExpires) {
@@ -317,6 +329,29 @@ public class CreateAuthMethodGCP {
   }
 
 
+  public CreateAuthMethodGCP forceSubClaims(Boolean forceSubClaims) {
+    
+    this.forceSubClaims = forceSubClaims;
+    return this;
+  }
+
+   /**
+   * if true: enforce role-association must include sub claims
+   * @return forceSubClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if true: enforce role-association must include sub claims")
+
+  public Boolean getForceSubClaims() {
+    return forceSubClaims;
+  }
+
+
+  public void setForceSubClaims(Boolean forceSubClaims) {
+    this.forceSubClaims = forceSubClaims;
+  }
+
+
   public CreateAuthMethodGCP name(String name) {
     
     this.name = name;
@@ -336,6 +371,29 @@ public class CreateAuthMethodGCP {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateAuthMethodGCP password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -431,6 +489,29 @@ public class CreateAuthMethodGCP {
   }
 
 
+  public CreateAuthMethodGCP username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Required only when the authentication process requires a username and password
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -448,16 +529,19 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.boundRegions, createAuthMethodGCP.boundRegions) &&
         Objects.equals(this.boundServiceAccounts, createAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, createAuthMethodGCP.boundZones) &&
+        Objects.equals(this.forceSubClaims, createAuthMethodGCP.forceSubClaims) &&
         Objects.equals(this.name, createAuthMethodGCP.name) &&
+        Objects.equals(this.password, createAuthMethodGCP.password) &&
         Objects.equals(this.serviceAccountCredsData, createAuthMethodGCP.serviceAccountCredsData) &&
         Objects.equals(this.token, createAuthMethodGCP.token) &&
         Objects.equals(this.type, createAuthMethodGCP.type) &&
-        Objects.equals(this.uidToken, createAuthMethodGCP.uidToken);
+        Objects.equals(this.uidToken, createAuthMethodGCP.uidToken) &&
+        Objects.equals(this.username, createAuthMethodGCP.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, name, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, name, password, serviceAccountCredsData, token, type, uidToken, username);
   }
 
 
@@ -473,11 +557,14 @@ public class CreateAuthMethodGCP {
     sb.append("    boundRegions: ").append(toIndentedString(boundRegions)).append("\n");
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
+    sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    serviceAccountCredsData: ").append(toIndentedString(serviceAccountCredsData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }
