@@ -73,11 +73,11 @@ public class UpdateRole {
   }
 
    /**
-   * Allow this role to view analytics. Currently only &#39;none&#39; and &#39;self&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
+   * Allow this role to view analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
    * @return analyticsAccess
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allow this role to view analytics. Currently only 'none' and 'self' values are supported, allowing associated auth methods to view reports produced by the same auth methods.")
+  @ApiModelProperty(value = "Allow this role to view analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.")
 
   public String getAnalyticsAccess() {
     return analyticsAccess;
@@ -96,11 +96,11 @@ public class UpdateRole {
   }
 
    /**
-   * Allow this role to view audit logs. Currently only &#39;none&#39; and &#39;self&#39; values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
+   * Allow this role to view audit logs. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
    * @return auditAccess
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allow this role to view audit logs. Currently only 'none' and 'self' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.")
+  @ApiModelProperty(value = "Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.")
 
   public String getAuditAccess() {
     return auditAccess;

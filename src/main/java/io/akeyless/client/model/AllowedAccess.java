@@ -52,6 +52,10 @@ public class AllowedAccess {
   @SerializedName(SERIALIZED_NAME_ERR_MSG)
   private String errMsg;
 
+  public static final String SERIALIZED_NAME_HASH = "hash";
+  @SerializedName(SERIALIZED_NAME_HASH)
+  private String hash;
+
   public static final String SERIALIZED_NAME_IS_VALID = "is_valid";
   @SerializedName(SERIALIZED_NAME_IS_VALID)
   private Boolean isValid;
@@ -180,6 +184,29 @@ public class AllowedAccess {
   }
 
 
+  public AllowedAccess hash(String hash) {
+    
+    this.hash = hash;
+    return this;
+  }
+
+   /**
+   * Get hash
+   * @return hash
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getHash() {
+    return hash;
+  }
+
+
+  public void setHash(String hash) {
+    this.hash = hash;
+  }
+
+
   public AllowedAccess isValid(Boolean isValid) {
     
     this.isValid = isValid;
@@ -271,6 +298,7 @@ public class AllowedAccess {
         Objects.equals(this.allowedApi, allowedAccess.allowedApi) &&
         Objects.equals(this.allowedsLogin, allowedAccess.allowedsLogin) &&
         Objects.equals(this.errMsg, allowedAccess.errMsg) &&
+        Objects.equals(this.hash, allowedAccess.hash) &&
         Objects.equals(this.isValid, allowedAccess.isValid) &&
         Objects.equals(this.name, allowedAccess.name) &&
         Objects.equals(this.subClaims, allowedAccess.subClaims);
@@ -278,7 +306,7 @@ public class AllowedAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accId, accessRulesType, allowedApi, allowedsLogin, errMsg, isValid, name, subClaims);
+    return Objects.hash(accId, accessRulesType, allowedApi, allowedsLogin, errMsg, hash, isValid, name, subClaims);
   }
 
 
@@ -291,6 +319,7 @@ public class AllowedAccess {
     sb.append("    allowedApi: ").append(toIndentedString(allowedApi)).append("\n");
     sb.append("    allowedsLogin: ").append(toIndentedString(allowedsLogin)).append("\n");
     sb.append("    errMsg: ").append(toIndentedString(errMsg)).append("\n");
+    sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");

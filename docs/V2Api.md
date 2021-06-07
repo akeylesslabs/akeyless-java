@@ -52,7 +52,6 @@ Method | HTTP request | Description
 [**describePermissions**](V2Api.md#describePermissions) | **POST** /describe-permissions | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptPKCS1**](V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
-[**gatewayAddSubAdmins**](V2Api.md#gatewayAddSubAdmins) | **POST** /gateway-add-sub-admins | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
 [**gatewayCreateProducerAws**](V2Api.md#gatewayCreateProducerAws) | **POST** /gateway-create-producer-aws | 
 [**gatewayCreateProducerAzure**](V2Api.md#gatewayCreateProducerAzure) | **POST** /gateway-create-producer-azure | 
@@ -68,13 +67,13 @@ Method | HTTP request | Description
 [**gatewayCreateProducerRabbitMQ**](V2Api.md#gatewayCreateProducerRabbitMQ) | **POST** /gateway-create-producer-rabbitmq | 
 [**gatewayCreateProducerRdp**](V2Api.md#gatewayCreateProducerRdp) | **POST** /gateway-create-producer-rdp | 
 [**gatewayCreateProducerSnowflake**](V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
+[**gatewayDeleteAllowedManagementAccess**](V2Api.md#gatewayDeleteAllowedManagementAccess) | **POST** /gateway-delete-allowed-management-access | 
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
-[**gatewayDeleteSubAdmins**](V2Api.md#gatewayDeleteSubAdmins) | **POST** /gateway-delete-sub-admins | 
 [**gatewayGetConfig**](V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
 [**gatewayGetProducer**](V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
 [**gatewayGetTmpUsers**](V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
+[**gatewayListAllowedManagementAccess**](V2Api.md#gatewayListAllowedManagementAccess) | **POST** /gateway-list-allowed-management-access | 
 [**gatewayListProducers**](V2Api.md#gatewayListProducers) | **POST** /gateway-list-producers | 
-[**gatewayListSubAdmins**](V2Api.md#gatewayListSubAdmins) | **POST** /gateway-list-SubAdmins | 
 [**gatewayRevokeTmpUsers**](V2Api.md#gatewayRevokeTmpUsers) | **POST** /gateway-revoke-producer-tmp-creds | 
 [**gatewayStartProducer**](V2Api.md#gatewayStartProducer) | **POST** /gateway-start-producer | 
 [**gatewayStopProducer**](V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
@@ -3057,67 +3056,6 @@ No authorization required
 **200** | encryptPKCS1Response wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
-<a name="gatewayAddSubAdmins"></a>
-# **gatewayAddSubAdmins**
-> Object gatewayAddSubAdmins(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    GatewayAddSubAdmins body = new GatewayAddSubAdmins(); // GatewayAddSubAdmins | 
-    try {
-      Object result = apiInstance.gatewayAddSubAdmins(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#gatewayAddSubAdmins");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GatewayAddSubAdmins**](GatewayAddSubAdmins.md)|  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | gatewayAddSubAdminsResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
 <a name="gatewayCreateProducerArtifactory"></a>
 # **gatewayCreateProducerArtifactory**
 > GatewayCreateProducerArtifactoryOutput gatewayCreateProducerArtifactory(body)
@@ -4033,6 +3971,67 @@ No authorization required
 **201** | gatewayCreateProducerSnowflakeResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayDeleteAllowedManagementAccess"></a>
+# **gatewayDeleteAllowedManagementAccess**
+> Object gatewayDeleteAllowedManagementAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayDeleteAllowedManagementAccess body = new GatewayDeleteAllowedManagementAccess(); // GatewayDeleteAllowedManagementAccess | 
+    try {
+      Object result = apiInstance.gatewayDeleteAllowedManagementAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayDeleteAllowedManagementAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayDeleteAllowedManagementAccess**](GatewayDeleteAllowedManagementAccess.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayDeleteSubAdminsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayDeleteProducer"></a>
 # **gatewayDeleteProducer**
 > GatewayDeleteProducerOutput gatewayDeleteProducer(body)
@@ -4092,67 +4091,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayDeleteProducerResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="gatewayDeleteSubAdmins"></a>
-# **gatewayDeleteSubAdmins**
-> Object gatewayDeleteSubAdmins(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    GatewayDeleteSubAdmins body = new GatewayDeleteSubAdmins(); // GatewayDeleteSubAdmins | 
-    try {
-      Object result = apiInstance.gatewayDeleteSubAdmins(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#gatewayDeleteSubAdmins");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GatewayDeleteSubAdmins**](GatewayDeleteSubAdmins.md)|  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | gatewayDeleteSubAdminsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayGetConfig"></a>
@@ -4338,6 +4276,67 @@ No authorization required
 **200** | gatewayGetTmpUsersResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayListAllowedManagementAccess"></a>
+# **gatewayListAllowedManagementAccess**
+> GetSubAdminsListReplyObj gatewayListAllowedManagementAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayListAllowedManagementAccess body = new GatewayListAllowedManagementAccess(); // GatewayListAllowedManagementAccess | 
+    try {
+      GetSubAdminsListReplyObj result = apiInstance.gatewayListAllowedManagementAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayListAllowedManagementAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayListAllowedManagementAccess**](GatewayListAllowedManagementAccess.md)|  |
+
+### Return type
+
+[**GetSubAdminsListReplyObj**](GetSubAdminsListReplyObj.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayListSubAdminsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayListProducers"></a>
 # **gatewayListProducers**
 > GetProducersListReplyObj gatewayListProducers(body)
@@ -4397,67 +4396,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayListProducersResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="gatewayListSubAdmins"></a>
-# **gatewayListSubAdmins**
-> GetSubAdminsListReplyObj gatewayListSubAdmins(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    GatewayListSubAdmins body = new GatewayListSubAdmins(); // GatewayListSubAdmins | 
-    try {
-      GetSubAdminsListReplyObj result = apiInstance.gatewayListSubAdmins(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#gatewayListSubAdmins");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GatewayListSubAdmins**](GatewayListSubAdmins.md)|  |
-
-### Return type
-
-[**GetSubAdminsListReplyObj**](GetSubAdminsListReplyObj.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | gatewayListSubAdminsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayRevokeTmpUsers"></a>

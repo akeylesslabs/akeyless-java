@@ -29,9 +29,36 @@ import java.io.IOException;
  */
 
 public class DeleteRoleRuleOutput {
+  public static final String SERIALIZED_NAME_DELETED = "deleted";
+  @SerializedName(SERIALIZED_NAME_DELETED)
+  private Boolean deleted;
+
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private String result;
+
+
+  public DeleteRoleRuleOutput deleted(Boolean deleted) {
+    
+    this.deleted = deleted;
+    return this;
+  }
+
+   /**
+   * Get deleted
+   * @return deleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getDeleted() {
+    return deleted;
+  }
+
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
+  }
 
 
   public DeleteRoleRuleOutput result(String result) {
@@ -66,12 +93,13 @@ public class DeleteRoleRuleOutput {
       return false;
     }
     DeleteRoleRuleOutput deleteRoleRuleOutput = (DeleteRoleRuleOutput) o;
-    return Objects.equals(this.result, deleteRoleRuleOutput.result);
+    return Objects.equals(this.deleted, deleteRoleRuleOutput.deleted) &&
+        Objects.equals(this.result, deleteRoleRuleOutput.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result);
+    return Objects.hash(deleted, result);
   }
 
 
@@ -79,6 +107,7 @@ public class DeleteRoleRuleOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRoleRuleOutput {\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();

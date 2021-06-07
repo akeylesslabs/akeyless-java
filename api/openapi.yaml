@@ -1410,35 +1410,6 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /gateway-add-sub-admins:
-    post:
-      operationId: gatewayAddSubAdmins
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/gatewayAddSubAdmins'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/gatewayAddSubAdminsOutput'
-          description: gatewayAddSubAdminsResponse wraps response body.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JSONError'
-          description: |-
-            errorResponse wraps any error to return it as a JSON object with one "error"
-            field.
-      tags:
-      - v2
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
   /gateway-create-producer-artifactory:
     post:
       operationId: gatewayCreateProducerArtifactory
@@ -1875,6 +1846,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-delete-allowed-management-access:
+    post:
+      operationId: gatewayDeleteAllowedManagementAccess
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayDeleteAllowedManagementAccess'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayDeleteSubAdminsOutput'
+          description: gatewayDeleteSubAdminsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-delete-producer:
     post:
       operationId: gatewayDeleteProducer
@@ -1891,35 +1891,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayDeleteProducerOutput'
           description: gatewayDeleteProducerResponse wraps response body.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JSONError'
-          description: |-
-            errorResponse wraps any error to return it as a JSON object with one "error"
-            field.
-      tags:
-      - v2
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /gateway-delete-sub-admins:
-    post:
-      operationId: gatewayDeleteSubAdmins
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/gatewayDeleteSubAdmins'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/gatewayDeleteSubAdminsOutput'
-          description: gatewayDeleteSubAdminsResponse wraps response body.
         default:
           content:
             application/json:
@@ -2022,14 +1993,14 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /gateway-list-SubAdmins:
+  /gateway-list-allowed-management-access:
     post:
-      operationId: gatewayListSubAdmins
+      operationId: gatewayListAllowedManagementAccess
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/gatewayListSubAdmins'
+              $ref: '#/components/schemas/gatewayListAllowedManagementAccess'
         required: true
       responses:
         "200":
@@ -4454,6 +4425,7 @@ components:
             name: name
             access_rules_type: access_rules_type
             acc_id: acc_id
+            hash: hash
       properties:
         allowed_access:
           additionalProperties:
@@ -4680,6 +4652,7 @@ components:
               name: name
               access_rules_type: access_rules_type
               acc_id: acc_id
+              hash: hash
         rotators:
           rotators:
           - name: name
@@ -4741,6 +4714,7 @@ components:
         name: name
         access_rules_type: access_rules_type
         acc_id: acc_id
+        hash: hash
       properties:
         acc_id:
           type: string
@@ -4757,6 +4731,9 @@ components:
         err_msg:
           type: string
           x-go-name: ErrMsg
+        hash:
+          type: string
+          x-go-name: Hash
         is_valid:
           type: boolean
           x-go-name: IsValid
@@ -6745,6 +6722,7 @@ components:
             name: name
             access_rules_type: access_rules_type
             acc_id: acc_id
+            hash: hash
       properties:
         allowed_access:
           additionalProperties:
@@ -13099,7 +13077,11 @@ components:
     deleteRoleRuleOutput:
       example:
         result: result
+        deleted: true
       properties:
+        deleted:
+          type: boolean
+          x-go-name: Deleted
         result:
           type: string
           x-go-name: Result
@@ -13498,8 +13480,8 @@ components:
           x-go-name: Result
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    gatewayAddSubAdmins:
-      description: gatewayAddSubAdmins is a command that adds sub-admins
+    gatewayAddAllowedManagementAccess:
+      description: gatewayAddAllowedManagementAccess is a command that adds sub-admins
       properties:
         allow-gw-api:
           type: boolean
@@ -16929,6 +16911,43 @@ components:
           $ref: '#/components/schemas/DSProducerDetails'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayDeleteAllowedManagementAccess:
+      description: gatewayDeleteAllowedManagementAccess is a command that deletes
+        sub-admins
+      properties:
+        gateway-url:
+          default: http://localhost:8000
+          description: Gateway url
+          type: string
+          x-go-name: GatewayUrl
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        sub-admin-id:
+          description: SubAdminID to be removed
+          type: string
+          x-go-name: SubAdminID
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      required:
+      - sub-admin-id
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayDeleteProducer:
       description: gatewayDeleteProducer is a command that deletes producer
       properties:
@@ -16972,42 +16991,6 @@ components:
         producer_name:
           type: string
           x-go-name: ProducerName
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    gatewayDeleteSubAdmins:
-      description: gatewayDeleteSubAdmins is a command that deletes sub-admins
-      properties:
-        gateway-url:
-          default: http://localhost:8000
-          description: Gateway url
-          type: string
-          x-go-name: GatewayUrl
-        password:
-          description: Required only when the authentication process requires a username
-            and password
-          type: string
-          x-go-name: Password
-        sub-admin-id:
-          description: SubAdminID to be removed
-          type: string
-          x-go-name: SubAdminID
-        token:
-          description: Authentication token (see `/auth` and `/configure`)
-          type: string
-          x-go-name: Profile
-        uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
-            authentication
-          type: string
-          x-go-name: UIDToken
-        username:
-          description: Required only when the authentication process requires a username
-            and password
-          type: string
-          x-go-name: Username
-      required:
-      - sub-admin-id
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayDeleteSubAdminsOutput:
@@ -17115,8 +17098,9 @@ components:
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    gatewayListProducers:
-      description: gatewayListProducers is a command that returns producer
+    gatewayListAllowedManagementAccess:
+      description: gatewayListAllowedManagementAccess is a command that returns list
+        sub admins
       properties:
         gateway-url:
           default: http://localhost:8000
@@ -17145,8 +17129,8 @@ components:
           x-go-name: Username
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    gatewayListSubAdmins:
-      description: gatewayListSubAdmins is a command that returns list sub admins
+    gatewayListProducers:
+      description: gatewayListProducers is a command that returns producer
       properties:
         gateway-url:
           default: http://localhost:8000
@@ -18984,14 +18968,14 @@ components:
       properties:
         analytics-access:
           description: |-
-            Allow this role to view analytics. Currently only 'none' and 'self'
+            Allow this role to view analytics. Currently only 'none', 'own', 'all'
             values are supported, allowing associated auth methods to view reports
             produced by the same auth methods.
           type: string
           x-go-name: AnalyticsAccess
         audit-access:
           description: |-
-            Allow this role to view audit logs. Currently only 'none' and 'self'
+            Allow this role to view audit logs. Currently only 'none', 'own' and 'all'
             values are supported, allowing associated auth methods to view audit
             logs produced by the same auth methods.
           type: string

@@ -117,7 +117,6 @@ import io.akeyless.client.model.Encrypt;
 import io.akeyless.client.model.EncryptOutput;
 import io.akeyless.client.model.EncryptPKCS1;
 import io.akeyless.client.model.EncryptPKCS1Output;
-import io.akeyless.client.model.GatewayAddSubAdmins;
 import io.akeyless.client.model.GatewayCreateProducerArtifactory;
 import io.akeyless.client.model.GatewayCreateProducerArtifactoryOutput;
 import io.akeyless.client.model.GatewayCreateProducerAws;
@@ -148,14 +147,14 @@ import io.akeyless.client.model.GatewayCreateProducerRdp;
 import io.akeyless.client.model.GatewayCreateProducerRdpOutput;
 import io.akeyless.client.model.GatewayCreateProducerSnowflake;
 import io.akeyless.client.model.GatewayCreateProducerSnowflakeOutput;
+import io.akeyless.client.model.GatewayDeleteAllowedManagementAccess;
 import io.akeyless.client.model.GatewayDeleteProducer;
 import io.akeyless.client.model.GatewayDeleteProducerOutput;
-import io.akeyless.client.model.GatewayDeleteSubAdmins;
 import io.akeyless.client.model.GatewayGetConfig;
 import io.akeyless.client.model.GatewayGetProducer;
 import io.akeyless.client.model.GatewayGetTmpUsers;
+import io.akeyless.client.model.GatewayListAllowedManagementAccess;
 import io.akeyless.client.model.GatewayListProducers;
-import io.akeyless.client.model.GatewayListSubAdmins;
 import io.akeyless.client.model.GatewayRevokeTmpUsers;
 import io.akeyless.client.model.GatewayStartProducer;
 import io.akeyless.client.model.GatewayStartProducerOutput;
@@ -5741,120 +5740,6 @@ public class V2Api {
         return localVarCall;
     }
     /**
-     * Build call for gatewayAddSubAdmins
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayAddSubAdminsCall(GatewayAddSubAdmins body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/gateway-add-sub-admins";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayAddSubAdminsValidateBeforeCall(GatewayAddSubAdmins body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling gatewayAddSubAdmins(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = gatewayAddSubAdminsCall(body, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public Object gatewayAddSubAdmins(GatewayAddSubAdmins body) throws ApiException {
-        ApiResponse<Object> localVarResp = gatewayAddSubAdminsWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Object> gatewayAddSubAdminsWithHttpInfo(GatewayAddSubAdmins body) throws ApiException {
-        okhttp3.Call localVarCall = gatewayAddSubAdminsValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayAddSubAdminsAsync(GatewayAddSubAdmins body, final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = gatewayAddSubAdminsValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for gatewayCreateProducerArtifactory
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -7560,6 +7445,120 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for gatewayDeleteAllowedManagementAccess
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayDeleteAllowedManagementAccessCall(GatewayDeleteAllowedManagementAccess body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-delete-allowed-management-access";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayDeleteAllowedManagementAccessValidateBeforeCall(GatewayDeleteAllowedManagementAccess body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayDeleteAllowedManagementAccess(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayDeleteAllowedManagementAccessCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object gatewayDeleteAllowedManagementAccess(GatewayDeleteAllowedManagementAccess body) throws ApiException {
+        ApiResponse<Object> localVarResp = gatewayDeleteAllowedManagementAccessWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> gatewayDeleteAllowedManagementAccessWithHttpInfo(GatewayDeleteAllowedManagementAccess body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayDeleteAllowedManagementAccessValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayDeleteAllowedManagementAccessAsync(GatewayDeleteAllowedManagementAccess body, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayDeleteAllowedManagementAccessValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for gatewayDeleteProducer
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -7670,120 +7669,6 @@ public class V2Api {
 
         okhttp3.Call localVarCall = gatewayDeleteProducerValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GatewayDeleteProducerOutput>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for gatewayDeleteSubAdmins
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayDeleteSubAdminsCall(GatewayDeleteSubAdmins body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/gateway-delete-sub-admins";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayDeleteSubAdminsValidateBeforeCall(GatewayDeleteSubAdmins body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling gatewayDeleteSubAdmins(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = gatewayDeleteSubAdminsCall(body, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public Object gatewayDeleteSubAdmins(GatewayDeleteSubAdmins body) throws ApiException {
-        ApiResponse<Object> localVarResp = gatewayDeleteSubAdminsWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Object> gatewayDeleteSubAdminsWithHttpInfo(GatewayDeleteSubAdmins body) throws ApiException {
-        okhttp3.Call localVarCall = gatewayDeleteSubAdminsValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayDeleteSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayDeleteSubAdminsAsync(GatewayDeleteSubAdmins body, final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = gatewayDeleteSubAdminsValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8130,6 +8015,120 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for gatewayListAllowedManagementAccess
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayListAllowedManagementAccessCall(GatewayListAllowedManagementAccess body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-list-allowed-management-access";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayListAllowedManagementAccessValidateBeforeCall(GatewayListAllowedManagementAccess body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayListAllowedManagementAccess(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayListAllowedManagementAccessCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetSubAdminsListReplyObj
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetSubAdminsListReplyObj gatewayListAllowedManagementAccess(GatewayListAllowedManagementAccess body) throws ApiException {
+        ApiResponse<GetSubAdminsListReplyObj> localVarResp = gatewayListAllowedManagementAccessWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetSubAdminsListReplyObj&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetSubAdminsListReplyObj> gatewayListAllowedManagementAccessWithHttpInfo(GatewayListAllowedManagementAccess body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayListAllowedManagementAccessValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GetSubAdminsListReplyObj>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayListAllowedManagementAccessAsync(GatewayListAllowedManagementAccess body, final ApiCallback<GetSubAdminsListReplyObj> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayListAllowedManagementAccessValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GetSubAdminsListReplyObj>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for gatewayListProducers
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -8240,120 +8239,6 @@ public class V2Api {
 
         okhttp3.Call localVarCall = gatewayListProducersValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GetProducersListReplyObj>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for gatewayListSubAdmins
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayListSubAdminsCall(GatewayListSubAdmins body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/gateway-list-SubAdmins";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayListSubAdminsValidateBeforeCall(GatewayListSubAdmins body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling gatewayListSubAdmins(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = gatewayListSubAdminsCall(body, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return GetSubAdminsListReplyObj
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetSubAdminsListReplyObj gatewayListSubAdmins(GatewayListSubAdmins body) throws ApiException {
-        ApiResponse<GetSubAdminsListReplyObj> localVarResp = gatewayListSubAdminsWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;GetSubAdminsListReplyObj&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetSubAdminsListReplyObj> gatewayListSubAdminsWithHttpInfo(GatewayListSubAdmins body) throws ApiException {
-        okhttp3.Call localVarCall = gatewayListSubAdminsValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<GetSubAdminsListReplyObj>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> gatewayListSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call gatewayListSubAdminsAsync(GatewayListSubAdmins body, final ApiCallback<GetSubAdminsListReplyObj> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = gatewayListSubAdminsValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<GetSubAdminsListReplyObj>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
