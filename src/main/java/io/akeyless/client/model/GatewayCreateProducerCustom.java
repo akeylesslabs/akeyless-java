@@ -33,10 +33,6 @@ public class GatewayCreateProducerCustom {
   @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
   private String createSyncUrl;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -101,29 +97,6 @@ public class GatewayCreateProducerCustom {
 
   public void setCreateSyncUrl(String createSyncUrl) {
     this.createSyncUrl = createSyncUrl;
-  }
-
-
-  public GatewayCreateProducerCustom gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -388,7 +361,6 @@ public class GatewayCreateProducerCustom {
     }
     GatewayCreateProducerCustom gatewayCreateProducerCustom = (GatewayCreateProducerCustom) o;
     return Objects.equals(this.createSyncUrl, gatewayCreateProducerCustom.createSyncUrl) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerCustom.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerCustom.name) &&
         Objects.equals(this.password, gatewayCreateProducerCustom.password) &&
         Objects.equals(this.payload, gatewayCreateProducerCustom.payload) &&
@@ -404,7 +376,7 @@ public class GatewayCreateProducerCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createSyncUrl, gatewayUrl, name, password, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, timeoutSec, token, uidToken, userTtl, username);
+    return Objects.hash(createSyncUrl, name, password, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, timeoutSec, token, uidToken, userTtl, username);
   }
 
 
@@ -413,7 +385,6 @@ public class GatewayCreateProducerCustom {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerCustom {\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");

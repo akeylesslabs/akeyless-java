@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerRabbitMQ is a command that creates rabbitmq producer")
 
 public class GatewayCreateProducerRabbitMQ {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -93,29 +89,6 @@ public class GatewayCreateProducerRabbitMQ {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayCreateProducerRabbitMQ gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayCreateProducerRabbitMQ name(String name) {
@@ -465,8 +438,7 @@ public class GatewayCreateProducerRabbitMQ {
       return false;
     }
     GatewayCreateProducerRabbitMQ gatewayCreateProducerRabbitMQ = (GatewayCreateProducerRabbitMQ) o;
-    return Objects.equals(this.gatewayUrl, gatewayCreateProducerRabbitMQ.gatewayUrl) &&
-        Objects.equals(this.name, gatewayCreateProducerRabbitMQ.name) &&
+    return Objects.equals(this.name, gatewayCreateProducerRabbitMQ.name) &&
         Objects.equals(this.password, gatewayCreateProducerRabbitMQ.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRabbitMQ.producerEncryptionKeyName) &&
         Objects.equals(this.rabbitmqAdminPwd, gatewayCreateProducerRabbitMQ.rabbitmqAdminPwd) &&
@@ -485,7 +457,7 @@ public class GatewayCreateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, token, uidToken, userTtl, username);
+    return Objects.hash(name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, token, uidToken, userTtl, username);
   }
 
 
@@ -493,7 +465,6 @@ public class GatewayCreateProducerRabbitMQ {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerRabbitMQ {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

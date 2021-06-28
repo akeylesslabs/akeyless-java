@@ -34,10 +34,6 @@ public class GatewayCreateProducerRdp {
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private String fixedUserOnly = "false";
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -107,29 +103,6 @@ public class GatewayCreateProducerRdp {
 
   public void setFixedUserOnly(String fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
-  }
-
-
-  public GatewayCreateProducerRdp gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -414,7 +387,6 @@ public class GatewayCreateProducerRdp {
     }
     GatewayCreateProducerRdp gatewayCreateProducerRdp = (GatewayCreateProducerRdp) o;
     return Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerRdp.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerRdp.name) &&
         Objects.equals(this.password, gatewayCreateProducerRdp.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRdp.producerEncryptionKeyName) &&
@@ -431,7 +403,7 @@ public class GatewayCreateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedUserOnly, gatewayUrl, name, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, token, uidToken, userTtl, username);
+    return Objects.hash(fixedUserOnly, name, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, token, uidToken, userTtl, username);
   }
 
 
@@ -440,7 +412,6 @@ public class GatewayCreateProducerRdp {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerRdp {\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

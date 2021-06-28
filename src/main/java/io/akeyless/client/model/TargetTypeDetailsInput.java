@@ -127,10 +127,6 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
 
-  public static final String SERIALIZED_NAME_EKS_ASSUME_ROLE = "eks_assume_role";
-  @SerializedName(SERIALIZED_NAME_EKS_ASSUME_ROLE)
-  private String eksAssumeRole;
-
   public static final String SERIALIZED_NAME_EKS_CLUSTER_CA_CERTIFICATE = "eks_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CA_CERTIFICATE)
   private String eksClusterCaCertificate;
@@ -183,9 +179,17 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
-  public static final String SERIALIZED_NAME_MONGODB_ATLAS = "mongodb_atlas";
-  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS)
-  private Boolean mongodbAtlas;
+  public static final String SERIALIZED_NAME_K8S_BEARER_TOKEN = "k8s_bearer_token";
+  @SerializedName(SERIALIZED_NAME_K8S_BEARER_TOKEN)
+  private String k8sBearerToken;
+
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE = "k8s_cluster_ca_certificate";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE)
+  private String k8sClusterCaCertificate;
+
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s_cluster_endpoint";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
+  private String k8sClusterEndpoint;
 
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -210,6 +214,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_MONGODB_HOST_PORT = "mongodb_host_port";
   @SerializedName(SERIALIZED_NAME_MONGODB_HOST_PORT)
   private String mongodbHostPort;
+
+  public static final String SERIALIZED_NAME_MONGODB_IS_ATLAS = "mongodb_is_atlas";
+  @SerializedName(SERIALIZED_NAME_MONGODB_IS_ATLAS)
+  private Boolean mongodbIsAtlas;
 
   public static final String SERIALIZED_NAME_MONGODB_PASSWORD = "mongodb_password";
   @SerializedName(SERIALIZED_NAME_MONGODB_PASSWORD)
@@ -844,29 +852,6 @@ public class TargetTypeDetailsInput {
   }
 
 
-  public TargetTypeDetailsInput eksAssumeRole(String eksAssumeRole) {
-    
-    this.eksAssumeRole = eksAssumeRole;
-    return this;
-  }
-
-   /**
-   * Get eksAssumeRole
-   * @return eksAssumeRole
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksAssumeRole() {
-    return eksAssumeRole;
-  }
-
-
-  public void setEksAssumeRole(String eksAssumeRole) {
-    this.eksAssumeRole = eksAssumeRole;
-  }
-
-
   public TargetTypeDetailsInput eksClusterCaCertificate(String eksClusterCaCertificate) {
     
     this.eksClusterCaCertificate = eksClusterCaCertificate;
@@ -1089,11 +1074,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * GKEProjectID            string &#x60;json:\&quot;gke_project_id\&quot;&#x60;
+   * Get gkeClusterName
    * @return gkeClusterName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "GKEProjectID            string `json:\"gke_project_id\"`")
+  @ApiModelProperty(value = "")
 
   public String getGkeClusterName() {
     return gkeClusterName;
@@ -1135,11 +1120,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * GKEClusterComputeZone   string &#x60;json:\&quot;gke_cluster_compute_zone\&quot;&#x60;
+   * Get gkeServiceAccountName
    * @return gkeServiceAccountName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "GKEClusterComputeZone   string `json:\"gke_cluster_compute_zone\"`")
+  @ApiModelProperty(value = "")
 
   public String getGkeServiceAccountName() {
     return gkeServiceAccountName;
@@ -1174,26 +1159,72 @@ public class TargetTypeDetailsInput {
   }
 
 
-  public TargetTypeDetailsInput mongodbAtlas(Boolean mongodbAtlas) {
+  public TargetTypeDetailsInput k8sBearerToken(String k8sBearerToken) {
     
-    this.mongodbAtlas = mongodbAtlas;
+    this.k8sBearerToken = k8sBearerToken;
     return this;
   }
 
    /**
-   * Get mongodbAtlas
-   * @return mongodbAtlas
+   * Get k8sBearerToken
+   * @return k8sBearerToken
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getMongodbAtlas() {
-    return mongodbAtlas;
+  public String getK8sBearerToken() {
+    return k8sBearerToken;
   }
 
 
-  public void setMongodbAtlas(Boolean mongodbAtlas) {
-    this.mongodbAtlas = mongodbAtlas;
+  public void setK8sBearerToken(String k8sBearerToken) {
+    this.k8sBearerToken = k8sBearerToken;
+  }
+
+
+  public TargetTypeDetailsInput k8sClusterCaCertificate(String k8sClusterCaCertificate) {
+    
+    this.k8sClusterCaCertificate = k8sClusterCaCertificate;
+    return this;
+  }
+
+   /**
+   * Get k8sClusterCaCertificate
+   * @return k8sClusterCaCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClusterCaCertificate() {
+    return k8sClusterCaCertificate;
+  }
+
+
+  public void setK8sClusterCaCertificate(String k8sClusterCaCertificate) {
+    this.k8sClusterCaCertificate = k8sClusterCaCertificate;
+  }
+
+
+  public TargetTypeDetailsInput k8sClusterEndpoint(String k8sClusterEndpoint) {
+    
+    this.k8sClusterEndpoint = k8sClusterEndpoint;
+    return this;
+  }
+
+   /**
+   * Get k8sClusterEndpoint
+   * @return k8sClusterEndpoint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClusterEndpoint() {
+    return k8sClusterEndpoint;
+  }
+
+
+  public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
+    this.k8sClusterEndpoint = k8sClusterEndpoint;
   }
 
 
@@ -1332,6 +1363,29 @@ public class TargetTypeDetailsInput {
 
   public void setMongodbHostPort(String mongodbHostPort) {
     this.mongodbHostPort = mongodbHostPort;
+  }
+
+
+  public TargetTypeDetailsInput mongodbIsAtlas(Boolean mongodbIsAtlas) {
+    
+    this.mongodbIsAtlas = mongodbIsAtlas;
+    return this;
+  }
+
+   /**
+   * Get mongodbIsAtlas
+   * @return mongodbIsAtlas
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getMongodbIsAtlas() {
+    return mongodbIsAtlas;
+  }
+
+
+  public void setMongodbIsAtlas(Boolean mongodbIsAtlas) {
+    this.mongodbIsAtlas = mongodbIsAtlas;
   }
 
 
@@ -1828,7 +1882,6 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.dbServerName, targetTypeDetailsInput.dbServerName) &&
         Objects.equals(this.dbUserName, targetTypeDetailsInput.dbUserName) &&
         Objects.equals(this.eksAccessKeyId, targetTypeDetailsInput.eksAccessKeyId) &&
-        Objects.equals(this.eksAssumeRole, targetTypeDetailsInput.eksAssumeRole) &&
         Objects.equals(this.eksClusterCaCertificate, targetTypeDetailsInput.eksClusterCaCertificate) &&
         Objects.equals(this.eksClusterEndpoint, targetTypeDetailsInput.eksClusterEndpoint) &&
         Objects.equals(this.eksClusterName, targetTypeDetailsInput.eksClusterName) &&
@@ -1842,13 +1895,16 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.gkeServiceAccountKey, targetTypeDetailsInput.gkeServiceAccountKey) &&
         Objects.equals(this.gkeServiceAccountName, targetTypeDetailsInput.gkeServiceAccountName) &&
         Objects.equals(this.host, targetTypeDetailsInput.host) &&
-        Objects.equals(this.mongodbAtlas, targetTypeDetailsInput.mongodbAtlas) &&
+        Objects.equals(this.k8sBearerToken, targetTypeDetailsInput.k8sBearerToken) &&
+        Objects.equals(this.k8sClusterCaCertificate, targetTypeDetailsInput.k8sClusterCaCertificate) &&
+        Objects.equals(this.k8sClusterEndpoint, targetTypeDetailsInput.k8sClusterEndpoint) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, targetTypeDetailsInput.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, targetTypeDetailsInput.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, targetTypeDetailsInput.mongodbAtlasProjectId) &&
         Objects.equals(this.mongodbDbName, targetTypeDetailsInput.mongodbDbName) &&
         Objects.equals(this.mongodbDefaultAuthDb, targetTypeDetailsInput.mongodbDefaultAuthDb) &&
         Objects.equals(this.mongodbHostPort, targetTypeDetailsInput.mongodbHostPort) &&
+        Objects.equals(this.mongodbIsAtlas, targetTypeDetailsInput.mongodbIsAtlas) &&
         Objects.equals(this.mongodbPassword, targetTypeDetailsInput.mongodbPassword) &&
         Objects.equals(this.mongodbUriConnection, targetTypeDetailsInput.mongodbUriConnection) &&
         Objects.equals(this.mongodbUriOptions, targetTypeDetailsInput.mongodbUriOptions) &&
@@ -1873,7 +1929,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -1905,7 +1961,6 @@ public class TargetTypeDetailsInput {
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
-    sb.append("    eksAssumeRole: ").append(toIndentedString(eksAssumeRole)).append("\n");
     sb.append("    eksClusterCaCertificate: ").append(toIndentedString(eksClusterCaCertificate)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
@@ -1919,13 +1974,16 @@ public class TargetTypeDetailsInput {
     sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
     sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
+    sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
+    sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
+    sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
     sb.append("    mongodbDbName: ").append(toIndentedString(mongodbDbName)).append("\n");
     sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
     sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
+    sb.append("    mongodbIsAtlas: ").append(toIndentedString(mongodbIsAtlas)).append("\n");
     sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
     sb.append("    mongodbUriConnection: ").append(toIndentedString(mongodbUriConnection)).append("\n");
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");

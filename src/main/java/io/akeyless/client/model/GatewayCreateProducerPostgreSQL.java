@@ -34,10 +34,6 @@ public class GatewayCreateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
   private String creationStatements;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -107,29 +103,6 @@ public class GatewayCreateProducerPostgreSQL {
 
   public void setCreationStatements(String creationStatements) {
     this.creationStatements = creationStatements;
-  }
-
-
-  public GatewayCreateProducerPostgreSQL gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -415,7 +388,6 @@ public class GatewayCreateProducerPostgreSQL {
     }
     GatewayCreateProducerPostgreSQL gatewayCreateProducerPostgreSQL = (GatewayCreateProducerPostgreSQL) o;
     return Objects.equals(this.creationStatements, gatewayCreateProducerPostgreSQL.creationStatements) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerPostgreSQL.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerPostgreSQL.name) &&
         Objects.equals(this.password, gatewayCreateProducerPostgreSQL.password) &&
         Objects.equals(this.postgresqlDbName, gatewayCreateProducerPostgreSQL.postgresqlDbName) &&
@@ -432,7 +404,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, gatewayUrl, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, token, uidToken, userTtl, username);
   }
 
 
@@ -441,7 +413,6 @@ public class GatewayCreateProducerPostgreSQL {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerPostgreSQL {\n");
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    postgresqlDbName: ").append(toIndentedString(postgresqlDbName)).append("\n");

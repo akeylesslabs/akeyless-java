@@ -7,7 +7,6 @@ gatewayCreateProducerGcp is a command that creates a GCP producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **gcpCredType** | **String** |  | 
 **gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
 **gcpKeyAlgo** | **String** | Service account key algorithm, e.g. KEY_ALG_RSA_1024 |  [optional]

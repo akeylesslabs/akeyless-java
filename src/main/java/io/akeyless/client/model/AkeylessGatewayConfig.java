@@ -25,6 +25,7 @@ import io.akeyless.client.model.CFConfigPart;
 import io.akeyless.client.model.CacheConfigPart;
 import io.akeyless.client.model.DefaultConfigPart;
 import io.akeyless.client.model.GeneralConfigPart;
+import io.akeyless.client.model.KMIPClientsConfigPart;
 import io.akeyless.client.model.LdapConfigPart;
 import io.akeyless.client.model.LeadershipConfigPart;
 import io.akeyless.client.model.LogForwardingConfigPart;
@@ -60,6 +61,10 @@ public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_GENERAL = "general";
   @SerializedName(SERIALIZED_NAME_GENERAL)
   private GeneralConfigPart general;
+
+  public static final String SERIALIZED_NAME_KMIP_CLIENTS = "kmip_clients";
+  @SerializedName(SERIALIZED_NAME_KMIP_CLIENTS)
+  private KMIPClientsConfigPart kmipClients;
 
   public static final String SERIALIZED_NAME_LDAP = "ldap";
   @SerializedName(SERIALIZED_NAME_LDAP)
@@ -210,6 +215,29 @@ public class AkeylessGatewayConfig {
 
   public void setGeneral(GeneralConfigPart general) {
     this.general = general;
+  }
+
+
+  public AkeylessGatewayConfig kmipClients(KMIPClientsConfigPart kmipClients) {
+    
+    this.kmipClients = kmipClients;
+    return this;
+  }
+
+   /**
+   * Get kmipClients
+   * @return kmipClients
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public KMIPClientsConfigPart getKmipClients() {
+    return kmipClients;
+  }
+
+
+  public void setKmipClients(KMIPClientsConfigPart kmipClients) {
+    this.kmipClients = kmipClients;
   }
 
 
@@ -434,6 +462,7 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.cf, akeylessGatewayConfig.cf) &&
         Objects.equals(this.configProtectionKeyName, akeylessGatewayConfig.configProtectionKeyName) &&
         Objects.equals(this.general, akeylessGatewayConfig.general) &&
+        Objects.equals(this.kmipClients, akeylessGatewayConfig.kmipClients) &&
         Objects.equals(this.ldap, akeylessGatewayConfig.ldap) &&
         Objects.equals(this.leadership, akeylessGatewayConfig.leadership) &&
         Objects.equals(this.logForwarding, akeylessGatewayConfig.logForwarding) &&
@@ -447,7 +476,7 @@ public class AkeylessGatewayConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, ldap, leadership, logForwarding, migrations, producers, rotators, saml, uidentity, version);
+    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, kmipClients, ldap, leadership, logForwarding, migrations, producers, rotators, saml, uidentity, version);
   }
 
 
@@ -460,6 +489,7 @@ public class AkeylessGatewayConfig {
     sb.append("    cf: ").append(toIndentedString(cf)).append("\n");
     sb.append("    configProtectionKeyName: ").append(toIndentedString(configProtectionKeyName)).append("\n");
     sb.append("    general: ").append(toIndentedString(general)).append("\n");
+    sb.append("    kmipClients: ").append(toIndentedString(kmipClients)).append("\n");
     sb.append("    ldap: ").append(toIndentedString(ldap)).append("\n");
     sb.append("    leadership: ").append(toIndentedString(leadership)).append("\n");
     sb.append("    logForwarding: ").append(toIndentedString(logForwarding)).append("\n");

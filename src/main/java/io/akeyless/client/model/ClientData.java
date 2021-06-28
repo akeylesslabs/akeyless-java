@@ -37,6 +37,10 @@ public class ClientData {
   @SerializedName(SERIALIZED_NAME_CLIENT_KEY_DATA)
   private String clientKeyData;
 
+  public static final String SERIALIZED_NAME_PARENT_CERTIFICATE_DATA = "parentCertificateData";
+  @SerializedName(SERIALIZED_NAME_PARENT_CERTIFICATE_DATA)
+  private String parentCertificateData;
+
 
   public ClientData clientCertificateData(String clientCertificateData) {
     
@@ -84,6 +88,29 @@ public class ClientData {
   }
 
 
+  public ClientData parentCertificateData(String parentCertificateData) {
+    
+    this.parentCertificateData = parentCertificateData;
+    return this;
+  }
+
+   /**
+   * Get parentCertificateData
+   * @return parentCertificateData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getParentCertificateData() {
+    return parentCertificateData;
+  }
+
+
+  public void setParentCertificateData(String parentCertificateData) {
+    this.parentCertificateData = parentCertificateData;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -94,12 +121,13 @@ public class ClientData {
     }
     ClientData clientData = (ClientData) o;
     return Objects.equals(this.clientCertificateData, clientData.clientCertificateData) &&
-        Objects.equals(this.clientKeyData, clientData.clientKeyData);
+        Objects.equals(this.clientKeyData, clientData.clientKeyData) &&
+        Objects.equals(this.parentCertificateData, clientData.parentCertificateData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientCertificateData, clientKeyData);
+    return Objects.hash(clientCertificateData, clientKeyData, parentCertificateData);
   }
 
 
@@ -109,6 +137,7 @@ public class ClientData {
     sb.append("class ClientData {\n");
     sb.append("    clientCertificateData: ").append(toIndentedString(clientCertificateData)).append("\n");
     sb.append("    clientKeyData: ").append(toIndentedString(clientKeyData)).append("\n");
+    sb.append("    parentCertificateData: ").append(toIndentedString(parentCertificateData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

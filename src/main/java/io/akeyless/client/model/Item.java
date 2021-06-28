@@ -60,6 +60,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_DELETION_DATE)
   private OffsetDateTime deletionDate;
 
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display_id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
   public static final String SERIALIZED_NAME_IS_ENABLED = "is_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
   private Boolean isEnabled;
@@ -272,6 +276,29 @@ public class Item {
 
   public void setDeletionDate(OffsetDateTime deletionDate) {
     this.deletionDate = deletionDate;
+  }
+
+
+  public Item displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * Get displayId
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
   }
 
 
@@ -705,6 +732,7 @@ public class Item {
         Objects.equals(this.certificates, item.certificates) &&
         Objects.equals(this.clientPermissions, item.clientPermissions) &&
         Objects.equals(this.deletionDate, item.deletionDate) &&
+        Objects.equals(this.displayId, item.displayId) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
         Objects.equals(this.itemGeneralInfo, item.itemGeneralInfo) &&
         Objects.equals(this.itemId, item.itemId) &&
@@ -726,7 +754,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, deletionDate, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, deletionDate, displayId, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, withCustomerFragment);
   }
 
 
@@ -740,6 +768,7 @@ public class Item {
     sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    itemGeneralInfo: ").append(toIndentedString(itemGeneralInfo)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");

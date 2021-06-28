@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerMSSQL is a command that creates mssql producer")
 
 public class GatewayCreateProducerMSSQL {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS = "mssql-create-statements";
   @SerializedName(SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS)
   private String mssqlCreateStatements;
@@ -89,29 +85,6 @@ public class GatewayCreateProducerMSSQL {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayCreateProducerMSSQL gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayCreateProducerMSSQL mssqlCreateStatements(String mssqlCreateStatements) {
@@ -441,8 +414,7 @@ public class GatewayCreateProducerMSSQL {
       return false;
     }
     GatewayCreateProducerMSSQL gatewayCreateProducerMSSQL = (GatewayCreateProducerMSSQL) o;
-    return Objects.equals(this.gatewayUrl, gatewayCreateProducerMSSQL.gatewayUrl) &&
-        Objects.equals(this.mssqlCreateStatements, gatewayCreateProducerMSSQL.mssqlCreateStatements) &&
+    return Objects.equals(this.mssqlCreateStatements, gatewayCreateProducerMSSQL.mssqlCreateStatements) &&
         Objects.equals(this.mssqlDbname, gatewayCreateProducerMSSQL.mssqlDbname) &&
         Objects.equals(this.mssqlHost, gatewayCreateProducerMSSQL.mssqlHost) &&
         Objects.equals(this.mssqlPassword, gatewayCreateProducerMSSQL.mssqlPassword) &&
@@ -460,7 +432,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -468,7 +440,6 @@ public class GatewayCreateProducerMSSQL {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMSSQL {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    mssqlCreateStatements: ").append(toIndentedString(mssqlCreateStatements)).append("\n");
     sb.append("    mssqlDbname: ").append(toIndentedString(mssqlDbname)).append("\n");
     sb.append("    mssqlHost: ").append(toIndentedString(mssqlHost)).append("\n");

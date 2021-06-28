@@ -31,13 +31,17 @@ import java.util.List;
  */
 
 public class CreateRotatedSecret {
+  public static final String SERIALIZED_NAME_API_ID = "api-id";
+  @SerializedName(SERIALIZED_NAME_API_ID)
+  private String apiId;
+
+  public static final String SERIALIZED_NAME_API_KEY = "api-key";
+  @SerializedName(SERIALIZED_NAME_API_KEY)
+  private String apiKey;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private String autoRotate;
-
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -100,6 +104,52 @@ public class CreateRotatedSecret {
   private String username;
 
 
+  public CreateRotatedSecret apiId(String apiId) {
+    
+    this.apiId = apiId;
+    return this;
+  }
+
+   /**
+   * Get apiId
+   * @return apiId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getApiId() {
+    return apiId;
+  }
+
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+
+  public CreateRotatedSecret apiKey(String apiKey) {
+    
+    this.apiKey = apiKey;
+    return this;
+  }
+
+   /**
+   * Get apiKey
+   * @return apiKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getApiKey() {
+    return apiKey;
+  }
+
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
+  }
+
+
   public CreateRotatedSecret autoRotate(String autoRotate) {
     
     this.autoRotate = autoRotate;
@@ -120,29 +170,6 @@ public class CreateRotatedSecret {
 
   public void setAutoRotate(String autoRotate) {
     this.autoRotate = autoRotate;
-  }
-
-
-  public CreateRotatedSecret gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -507,8 +534,9 @@ public class CreateRotatedSecret {
       return false;
     }
     CreateRotatedSecret createRotatedSecret = (CreateRotatedSecret) o;
-    return Objects.equals(this.autoRotate, createRotatedSecret.autoRotate) &&
-        Objects.equals(this.gatewayUrl, createRotatedSecret.gatewayUrl) &&
+    return Objects.equals(this.apiId, createRotatedSecret.apiId) &&
+        Objects.equals(this.apiKey, createRotatedSecret.apiKey) &&
+        Objects.equals(this.autoRotate, createRotatedSecret.autoRotate) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
@@ -528,7 +556,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, gatewayUrl, key, metadata, name, password, rotationHour, rotationInterval, rotatorCredsType, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, username);
+    return Objects.hash(apiId, apiKey, autoRotate, key, metadata, name, password, rotationHour, rotationInterval, rotatorCredsType, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, username);
   }
 
 
@@ -536,8 +564,9 @@ public class CreateRotatedSecret {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRotatedSecret {\n");
+    sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account** | **String** | Account name | 
 **dbName** | **String** | Database name | 
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **role** | **String** | User role |  [optional]

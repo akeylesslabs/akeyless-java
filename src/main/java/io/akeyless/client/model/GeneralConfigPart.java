@@ -53,6 +53,10 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_ENABLE_TLS_HVP)
   private Boolean enableTlsHvp;
 
+  public static final String SERIALIZED_NAME_GW_CLUSTER_URL = "gw_cluster_url";
+  @SerializedName(SERIALIZED_NAME_GW_CLUSTER_URL)
+  private String gwClusterUrl;
+
   public static final String SERIALIZED_NAME_TCP_PORT = "tcp_port";
   @SerializedName(SERIALIZED_NAME_TCP_PORT)
   private String tcpPort;
@@ -204,6 +208,29 @@ public class GeneralConfigPart {
   }
 
 
+  public GeneralConfigPart gwClusterUrl(String gwClusterUrl) {
+    
+    this.gwClusterUrl = gwClusterUrl;
+    return this;
+  }
+
+   /**
+   * Get gwClusterUrl
+   * @return gwClusterUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGwClusterUrl() {
+    return gwClusterUrl;
+  }
+
+
+  public void setGwClusterUrl(String gwClusterUrl) {
+    this.gwClusterUrl = gwClusterUrl;
+  }
+
+
   public GeneralConfigPart tcpPort(String tcpPort) {
     
     this.tcpPort = tcpPort;
@@ -288,6 +315,7 @@ public class GeneralConfigPart {
         Objects.equals(this.enableTlsConfigure, generalConfigPart.enableTlsConfigure) &&
         Objects.equals(this.enableTlsCurl, generalConfigPart.enableTlsCurl) &&
         Objects.equals(this.enableTlsHvp, generalConfigPart.enableTlsHvp) &&
+        Objects.equals(this.gwClusterUrl, generalConfigPart.gwClusterUrl) &&
         Objects.equals(this.tcpPort, generalConfigPart.tcpPort) &&
         Objects.equals(this.tlsCert, generalConfigPart.tlsCert) &&
         Objects.equals(this.tlsKey, generalConfigPart.tlsKey);
@@ -295,7 +323,7 @@ public class GeneralConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(akeylessUrl, apiTokenTtl, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, tcpPort, tlsCert, tlsKey);
+    return Objects.hash(akeylessUrl, apiTokenTtl, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
   }
 
 
@@ -309,6 +337,7 @@ public class GeneralConfigPart {
     sb.append("    enableTlsConfigure: ").append(toIndentedString(enableTlsConfigure)).append("\n");
     sb.append("    enableTlsCurl: ").append(toIndentedString(enableTlsCurl)).append("\n");
     sb.append("    enableTlsHvp: ").append(toIndentedString(enableTlsHvp)).append("\n");
+    sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    tcpPort: ").append(toIndentedString(tcpPort)).append("\n");
     sb.append("    tlsCert: ").append(toIndentedString(tlsCert)).append("\n");
     sb.append("    tlsKey: ").append(toIndentedString(tlsKey)).append("\n");

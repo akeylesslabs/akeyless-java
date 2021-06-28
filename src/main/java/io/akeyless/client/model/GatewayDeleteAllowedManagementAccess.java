@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayDeleteAllowedManagementAccess is a command that deletes sub-admins")
 
 public class GatewayDeleteAllowedManagementAccess {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -53,29 +49,6 @@ public class GatewayDeleteAllowedManagementAccess {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayDeleteAllowedManagementAccess gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayDeleteAllowedManagementAccess password(String password) {
@@ -201,8 +174,7 @@ public class GatewayDeleteAllowedManagementAccess {
       return false;
     }
     GatewayDeleteAllowedManagementAccess gatewayDeleteAllowedManagementAccess = (GatewayDeleteAllowedManagementAccess) o;
-    return Objects.equals(this.gatewayUrl, gatewayDeleteAllowedManagementAccess.gatewayUrl) &&
-        Objects.equals(this.password, gatewayDeleteAllowedManagementAccess.password) &&
+    return Objects.equals(this.password, gatewayDeleteAllowedManagementAccess.password) &&
         Objects.equals(this.subAdminId, gatewayDeleteAllowedManagementAccess.subAdminId) &&
         Objects.equals(this.token, gatewayDeleteAllowedManagementAccess.token) &&
         Objects.equals(this.uidToken, gatewayDeleteAllowedManagementAccess.uidToken) &&
@@ -211,7 +183,7 @@ public class GatewayDeleteAllowedManagementAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, password, subAdminId, token, uidToken, username);
+    return Objects.hash(password, subAdminId, token, uidToken, username);
   }
 
 
@@ -219,7 +191,6 @@ public class GatewayDeleteAllowedManagementAccess {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayDeleteAllowedManagementAccess {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    subAdminId: ").append(toIndentedString(subAdminId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

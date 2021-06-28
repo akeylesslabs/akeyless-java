@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowGwApi** | **Boolean** |  |  [optional]
 **allowGwLogin** | **Boolean** |  |  [optional]
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **subAdminAccessId** | **String** | SubAdmins to add | 
 **subClaims** | **Map&lt;String, String&gt;** | key/val of sub claims, e.g group&#x3D;admins,developers |  [optional]

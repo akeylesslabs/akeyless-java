@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **chefServerKey** | **String** | Server key | 
 **chefServerUrl** | **String** | Server URL | 
 **chefServerUsername** | **String** | Server username | 
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayUpdateTmpUsers is a command that returns gateway configuration")
 
 public class GatewayUpdateTmpUsers {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -61,29 +57,6 @@ public class GatewayUpdateTmpUsers {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayUpdateTmpUsers gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayUpdateTmpUsers name(String name) {
@@ -253,8 +226,7 @@ public class GatewayUpdateTmpUsers {
       return false;
     }
     GatewayUpdateTmpUsers gatewayUpdateTmpUsers = (GatewayUpdateTmpUsers) o;
-    return Objects.equals(this.gatewayUrl, gatewayUpdateTmpUsers.gatewayUrl) &&
-        Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
+    return Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
         Objects.equals(this.newTtlMin, gatewayUpdateTmpUsers.newTtlMin) &&
         Objects.equals(this.password, gatewayUpdateTmpUsers.password) &&
         Objects.equals(this.tmpCredsId, gatewayUpdateTmpUsers.tmpCredsId) &&
@@ -265,7 +237,7 @@ public class GatewayUpdateTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, name, newTtlMin, password, tmpCredsId, token, uidToken, username);
+    return Objects.hash(name, newTtlMin, password, tmpCredsId, token, uidToken, username);
   }
 
 
@@ -273,7 +245,6 @@ public class GatewayUpdateTmpUsers {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateTmpUsers {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newTtlMin: ").append(toIndentedString(newTtlMin)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

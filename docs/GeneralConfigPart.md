@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **enableTlsConfigure** | **Boolean** |  |  [optional]
 **enableTlsCurl** | **Boolean** |  |  [optional]
 **enableTlsHvp** | **Boolean** |  |  [optional]
+**gwClusterUrl** | **String** |  |  [optional]
 **tcpPort** | **String** |  |  [optional]
 **tlsCert** | **String** |  |  [optional]
 **tlsKey** | **String** |  |  [optional]

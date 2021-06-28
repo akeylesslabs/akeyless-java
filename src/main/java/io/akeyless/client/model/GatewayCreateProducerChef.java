@@ -46,10 +46,6 @@ public class GatewayCreateProducerChef {
   @SerializedName(SERIALIZED_NAME_CHEF_SERVER_USERNAME)
   private String chefServerUsername;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -168,29 +164,6 @@ public class GatewayCreateProducerChef {
 
   public void setChefServerUsername(String chefServerUsername) {
     this.chefServerUsername = chefServerUsername;
-  }
-
-
-  public GatewayCreateProducerChef gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -390,7 +363,6 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.chefServerKey, gatewayCreateProducerChef.chefServerKey) &&
         Objects.equals(this.chefServerUrl, gatewayCreateProducerChef.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, gatewayCreateProducerChef.chefServerUsername) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerChef.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerChef.name) &&
         Objects.equals(this.password, gatewayCreateProducerChef.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerChef.producerEncryptionKeyName) &&
@@ -403,7 +375,7 @@ public class GatewayCreateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, gatewayUrl, name, password, producerEncryptionKeyName, skipSsl, token, uidToken, userTtl, username);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, password, producerEncryptionKeyName, skipSsl, token, uidToken, userTtl, username);
   }
 
 
@@ -415,7 +387,6 @@ public class GatewayCreateProducerChef {
     sb.append("    chefServerKey: ").append(toIndentedString(chefServerKey)).append("\n");
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

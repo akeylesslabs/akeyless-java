@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional]
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **mysqlDbname** | **String** | MySQL DB Name | 
 **mysqlHost** | **String** | MySQL Host |  [optional]
 **mysqlPassword** | **String** | MySQL Password | 

@@ -37,6 +37,10 @@ public class UpdateRole {
   @SerializedName(SERIALIZED_NAME_AUDIT_ACCESS)
   private String auditAccess;
 
+  public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
+  @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
+  private String gwAnalyticsAccess;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -109,6 +113,29 @@ public class UpdateRole {
 
   public void setAuditAccess(String auditAccess) {
     this.auditAccess = auditAccess;
+  }
+
+
+  public UpdateRole gwAnalyticsAccess(String gwAnalyticsAccess) {
+    
+    this.gwAnalyticsAccess = gwAnalyticsAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view gw analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
+   * @return gwAnalyticsAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view gw analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.")
+
+  public String getGwAnalyticsAccess() {
+    return gwAnalyticsAccess;
+  }
+
+
+  public void setGwAnalyticsAccess(String gwAnalyticsAccess) {
+    this.gwAnalyticsAccess = gwAnalyticsAccess;
   }
 
 
@@ -283,6 +310,7 @@ public class UpdateRole {
     UpdateRole updateRole = (UpdateRole) o;
     return Objects.equals(this.analyticsAccess, updateRole.analyticsAccess) &&
         Objects.equals(this.auditAccess, updateRole.auditAccess) &&
+        Objects.equals(this.gwAnalyticsAccess, updateRole.gwAnalyticsAccess) &&
         Objects.equals(this.name, updateRole.name) &&
         Objects.equals(this.newComment, updateRole.newComment) &&
         Objects.equals(this.newName, updateRole.newName) &&
@@ -294,7 +322,7 @@ public class UpdateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, name, newComment, newName, password, token, uidToken, username);
+    return Objects.hash(analyticsAccess, auditAccess, gwAnalyticsAccess, name, newComment, newName, password, token, uidToken, username);
   }
 
 
@@ -304,6 +332,7 @@ public class UpdateRole {
     sb.append("class UpdateRole {\n");
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
+    sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

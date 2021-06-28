@@ -38,10 +38,6 @@ public class GatewayCreateProducerSnowflake {
   @SerializedName(SERIALIZED_NAME_DB_NAME)
   private String dbName;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -116,29 +112,6 @@ public class GatewayCreateProducerSnowflake {
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
-  }
-
-
-  public GatewayCreateProducerSnowflake gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -336,7 +309,6 @@ public class GatewayCreateProducerSnowflake {
     GatewayCreateProducerSnowflake gatewayCreateProducerSnowflake = (GatewayCreateProducerSnowflake) o;
     return Objects.equals(this.account, gatewayCreateProducerSnowflake.account) &&
         Objects.equals(this.dbName, gatewayCreateProducerSnowflake.dbName) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerSnowflake.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerSnowflake.name) &&
         Objects.equals(this.password, gatewayCreateProducerSnowflake.password) &&
         Objects.equals(this.role, gatewayCreateProducerSnowflake.role) &&
@@ -349,7 +321,7 @@ public class GatewayCreateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, dbName, gatewayUrl, name, password, role, token, uidToken, userTtl, username, warehouse);
+    return Objects.hash(account, dbName, name, password, role, token, uidToken, userTtl, username, warehouse);
   }
 
 
@@ -359,7 +331,6 @@ public class GatewayCreateProducerSnowflake {
     sb.append("class GatewayCreateProducerSnowflake {\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

@@ -58,10 +58,6 @@ public class GatewayCreateProducerEks {
   @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
   private String eksSecretAccessKey;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -247,29 +243,6 @@ public class GatewayCreateProducerEks {
   }
 
 
-  public GatewayCreateProducerEks gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
-
-
   public GatewayCreateProducerEks name(String name) {
     
     this.name = name;
@@ -446,7 +419,6 @@ public class GatewayCreateProducerEks {
         Objects.equals(this.eksClusterName, gatewayCreateProducerEks.eksClusterName) &&
         Objects.equals(this.eksRegion, gatewayCreateProducerEks.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, gatewayCreateProducerEks.eksSecretAccessKey) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerEks.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerEks.name) &&
         Objects.equals(this.password, gatewayCreateProducerEks.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerEks.producerEncryptionKeyName) &&
@@ -458,7 +430,7 @@ public class GatewayCreateProducerEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gatewayUrl, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -473,7 +445,6 @@ public class GatewayCreateProducerEks {
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

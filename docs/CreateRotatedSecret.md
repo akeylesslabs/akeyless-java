@@ -6,8 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**apiId** | **String** |  |  [optional]
+**apiKey** | **String** |  |  [optional]
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation |  [optional]
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **metadata** | **String** | Metadata about the secret |  [optional]
 **name** | **String** | Secret name | 

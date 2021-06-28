@@ -42,10 +42,6 @@ public class GatewayCreateProducerAzure {
   @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
   private String clientSecret;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -163,29 +159,6 @@ public class GatewayCreateProducerAzure {
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
-  }
-
-
-  public GatewayCreateProducerAzure gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -498,7 +471,6 @@ public class GatewayCreateProducerAzure {
     return Objects.equals(this.appObjId, gatewayCreateProducerAzure.appObjId) &&
         Objects.equals(this.clientId, gatewayCreateProducerAzure.clientId) &&
         Objects.equals(this.clientSecret, gatewayCreateProducerAzure.clientSecret) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerAzure.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerAzure.name) &&
         Objects.equals(this.password, gatewayCreateProducerAzure.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAzure.producerEncryptionKeyName) &&
@@ -516,7 +488,7 @@ public class GatewayCreateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, clientId, clientSecret, gatewayUrl, name, password, producerEncryptionKeyName, tenantId, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
+    return Objects.hash(appObjId, clientId, clientSecret, name, password, producerEncryptionKeyName, tenantId, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
   }
 
 
@@ -527,7 +499,6 @@ public class GatewayCreateProducerAzure {
     sb.append("    appObjId: ").append(toIndentedString(appObjId)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

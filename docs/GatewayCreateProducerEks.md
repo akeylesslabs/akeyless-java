@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **eksClusterName** | **String** | EKS cluster name | 
 **eksRegion** | **String** | Region |  [optional]
 **eksSecretAccessKey** | **String** | Secret Access Key | 
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

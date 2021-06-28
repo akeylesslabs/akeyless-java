@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **appObjId** | **String** | Azure App Object Id |  [optional]
 **clientId** | **String** | Azure Client ID | 
 **clientSecret** | **String** | Azure Client Secret | 
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

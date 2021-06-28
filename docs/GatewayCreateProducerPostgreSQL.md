@@ -8,7 +8,6 @@ gatewayCreateProducerPostgreSQL is a command that creates postgresql producer
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **creationStatements** | **String** | PostgreSQL Creation statements |  [optional]
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **postgresqlDbName** | **String** | PostgreSQL DB Name | 

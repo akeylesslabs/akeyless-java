@@ -70,10 +70,6 @@ public class GatewayCreateProducerAws {
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation = false;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -335,29 +331,6 @@ public class GatewayCreateProducerAws {
   }
 
 
-  public GatewayCreateProducerAws gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
-
-
   public GatewayCreateProducerAws name(String name) {
     
     this.name = name;
@@ -560,7 +533,6 @@ public class GatewayCreateProducerAws {
         Objects.equals(this.awsUserPolicies, gatewayCreateProducerAws.awsUserPolicies) &&
         Objects.equals(this.awsUserProgrammaticAccess, gatewayCreateProducerAws.awsUserProgrammaticAccess) &&
         Objects.equals(this.enableAdminRotation, gatewayCreateProducerAws.enableAdminRotation) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerAws.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerAws.name) &&
         Objects.equals(this.password, gatewayCreateProducerAws.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAws.producerEncryptionKeyName) &&
@@ -573,7 +545,7 @@ public class GatewayCreateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, accessMode, accessSecretKey, adminRotationIntervalDays, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, gatewayUrl, name, password, producerEncryptionKeyName, region, token, uidToken, userTtl, username);
+    return Objects.hash(accessKeyId, accessMode, accessSecretKey, adminRotationIntervalDays, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, token, uidToken, userTtl, username);
   }
 
 
@@ -591,7 +563,6 @@ public class GatewayCreateProducerAws {
     sb.append("    awsUserPolicies: ").append(toIndentedString(awsUserPolicies)).append("\n");
     sb.append("    awsUserProgrammaticAccess: ").append(toIndentedString(awsUserProgrammaticAccess)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

@@ -37,10 +37,6 @@ public class CreateEKSTarget {
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
 
-  public static final String SERIALIZED_NAME_EKS_ASSUME_ROLE = "eks-assume-role";
-  @SerializedName(SERIALIZED_NAME_EKS_ASSUME_ROLE)
-  private String eksAssumeRole;
-
   public static final String SERIALIZED_NAME_EKS_CLUSTER_CERT = "eks-cluster-cert";
   @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CERT)
   private String eksClusterCert;
@@ -128,29 +124,6 @@ public class CreateEKSTarget {
 
   public void setEksAccessKeyId(String eksAccessKeyId) {
     this.eksAccessKeyId = eksAccessKeyId;
-  }
-
-
-  public CreateEKSTarget eksAssumeRole(String eksAssumeRole) {
-    
-    this.eksAssumeRole = eksAssumeRole;
-    return this;
-  }
-
-   /**
-   * IAM assume role
-   * @return eksAssumeRole
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IAM assume role")
-
-  public String getEksAssumeRole() {
-    return eksAssumeRole;
-  }
-
-
-  public void setEksAssumeRole(String eksAssumeRole) {
-    this.eksAssumeRole = eksAssumeRole;
   }
 
 
@@ -413,7 +386,6 @@ public class CreateEKSTarget {
     CreateEKSTarget createEKSTarget = (CreateEKSTarget) o;
     return Objects.equals(this.comment, createEKSTarget.comment) &&
         Objects.equals(this.eksAccessKeyId, createEKSTarget.eksAccessKeyId) &&
-        Objects.equals(this.eksAssumeRole, createEKSTarget.eksAssumeRole) &&
         Objects.equals(this.eksClusterCert, createEKSTarget.eksClusterCert) &&
         Objects.equals(this.eksClusterEndpoint, createEKSTarget.eksClusterEndpoint) &&
         Objects.equals(this.eksClusterName, createEKSTarget.eksClusterName) &&
@@ -429,7 +401,7 @@ public class CreateEKSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksAssumeRole, eksClusterCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, password, token, uidToken, username);
+    return Objects.hash(comment, eksAccessKeyId, eksClusterCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, password, token, uidToken, username);
   }
 
 
@@ -439,7 +411,6 @@ public class CreateEKSTarget {
     sb.append("class CreateEKSTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
-    sb.append("    eksAssumeRole: ").append(toIndentedString(eksAssumeRole)).append("\n");
     sb.append("    eksClusterCert: ").append(toIndentedString(eksClusterCert)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");

@@ -33,6 +33,10 @@ public class CreateGKETarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_GKE_ACCOUNT_KEY = "gke-account-key";
+  @SerializedName(SERIALIZED_NAME_GKE_ACCOUNT_KEY)
+  private String gkeAccountKey;
+
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CERT = "gke-cluster-cert";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CERT)
   private String gkeClusterCert;
@@ -94,6 +98,29 @@ public class CreateGKETarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateGKETarget gkeAccountKey(String gkeAccountKey) {
+    
+    this.gkeAccountKey = gkeAccountKey;
+    return this;
+  }
+
+   /**
+   * GKE Service Account key file path
+   * @return gkeAccountKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE Service Account key file path")
+
+  public String getGkeAccountKey() {
+    return gkeAccountKey;
+  }
+
+
+  public void setGkeAccountKey(String gkeAccountKey) {
+    this.gkeAccountKey = gkeAccountKey;
   }
 
 
@@ -332,6 +359,7 @@ public class CreateGKETarget {
     }
     CreateGKETarget createGKETarget = (CreateGKETarget) o;
     return Objects.equals(this.comment, createGKETarget.comment) &&
+        Objects.equals(this.gkeAccountKey, createGKETarget.gkeAccountKey) &&
         Objects.equals(this.gkeClusterCert, createGKETarget.gkeClusterCert) &&
         Objects.equals(this.gkeClusterEndpoint, createGKETarget.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, createGKETarget.gkeClusterName) &&
@@ -346,7 +374,7 @@ public class CreateGKETarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, key, name, password, token, uidToken, username);
+    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, key, name, password, token, uidToken, username);
   }
 
 
@@ -355,6 +383,7 @@ public class CreateGKETarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGKETarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    gkeAccountKey: ").append(toIndentedString(gkeAccountKey)).append("\n");
     sb.append("    gkeClusterCert: ").append(toIndentedString(gkeClusterCert)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");

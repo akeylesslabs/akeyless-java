@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayDeleteProducer is a command that deletes producer")
 
 public class GatewayDeleteProducer {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -53,29 +49,6 @@ public class GatewayDeleteProducer {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayDeleteProducer gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayDeleteProducer name(String name) {
@@ -201,8 +174,7 @@ public class GatewayDeleteProducer {
       return false;
     }
     GatewayDeleteProducer gatewayDeleteProducer = (GatewayDeleteProducer) o;
-    return Objects.equals(this.gatewayUrl, gatewayDeleteProducer.gatewayUrl) &&
-        Objects.equals(this.name, gatewayDeleteProducer.name) &&
+    return Objects.equals(this.name, gatewayDeleteProducer.name) &&
         Objects.equals(this.password, gatewayDeleteProducer.password) &&
         Objects.equals(this.token, gatewayDeleteProducer.token) &&
         Objects.equals(this.uidToken, gatewayDeleteProducer.uidToken) &&
@@ -211,7 +183,7 @@ public class GatewayDeleteProducer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, name, password, token, uidToken, username);
+    return Objects.hash(name, password, token, uidToken, username);
   }
 
 
@@ -219,7 +191,6 @@ public class GatewayDeleteProducer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayDeleteProducer {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

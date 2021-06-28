@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **String** | Comment about the target |  [optional]
 **eksAccessKeyId** | **String** | Access Key ID | 
-**eksAssumeRole** | **String** | IAM assume role |  [optional]
 **eksClusterCert** | **String** | EKS cluster CA certificate | 
 **eksClusterEndpoint** | **String** | EKS cluster URL endpoint | 
 **eksClusterName** | **String** | EKS cluster name | 

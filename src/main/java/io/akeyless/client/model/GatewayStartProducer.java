@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayStartProducer is a command that starts producer")
 
 public class GatewayStartProducer {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -53,29 +49,6 @@ public class GatewayStartProducer {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayStartProducer gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayStartProducer name(String name) {
@@ -201,8 +174,7 @@ public class GatewayStartProducer {
       return false;
     }
     GatewayStartProducer gatewayStartProducer = (GatewayStartProducer) o;
-    return Objects.equals(this.gatewayUrl, gatewayStartProducer.gatewayUrl) &&
-        Objects.equals(this.name, gatewayStartProducer.name) &&
+    return Objects.equals(this.name, gatewayStartProducer.name) &&
         Objects.equals(this.password, gatewayStartProducer.password) &&
         Objects.equals(this.token, gatewayStartProducer.token) &&
         Objects.equals(this.uidToken, gatewayStartProducer.uidToken) &&
@@ -211,7 +183,7 @@ public class GatewayStartProducer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, name, password, token, uidToken, username);
+    return Objects.hash(name, password, token, uidToken, username);
   }
 
 
@@ -219,7 +191,6 @@ public class GatewayStartProducer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayStartProducer {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

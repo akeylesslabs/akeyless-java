@@ -66,7 +66,7 @@ public class CreateAuthMethodUniversalIdentity {
 
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
-  private Integer ttl;
+  private Integer ttl = 60;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)

@@ -30,9 +30,9 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerGke is a command that creates gke producer")
 
 public class GatewayCreateProducerGke {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
+  public static final String SERIALIZED_NAME_GKE_ACCOUNT_KEY = "gke-account-key";
+  @SerializedName(SERIALIZED_NAME_GKE_ACCOUNT_KEY)
+  private String gkeAccountKey;
 
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CERT = "gke-cluster-cert";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CERT)
@@ -79,26 +79,26 @@ public class GatewayCreateProducerGke {
   private String username;
 
 
-  public GatewayCreateProducerGke gatewayUrl(String gatewayUrl) {
+  public GatewayCreateProducerGke gkeAccountKey(String gkeAccountKey) {
     
-    this.gatewayUrl = gatewayUrl;
+    this.gkeAccountKey = gkeAccountKey;
     return this;
   }
 
    /**
-   * Gateway url
-   * @return gatewayUrl
+   * GKE Service Account key file path
+   * @return gkeAccountKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
+  @ApiModelProperty(value = "GKE Service Account key file path")
 
-  public String getGatewayUrl() {
-    return gatewayUrl;
+  public String getGkeAccountKey() {
+    return gkeAccountKey;
   }
 
 
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
+  public void setGkeAccountKey(String gkeAccountKey) {
+    this.gkeAccountKey = gkeAccountKey;
   }
 
 
@@ -359,7 +359,7 @@ public class GatewayCreateProducerGke {
       return false;
     }
     GatewayCreateProducerGke gatewayCreateProducerGke = (GatewayCreateProducerGke) o;
-    return Objects.equals(this.gatewayUrl, gatewayCreateProducerGke.gatewayUrl) &&
+    return Objects.equals(this.gkeAccountKey, gatewayCreateProducerGke.gkeAccountKey) &&
         Objects.equals(this.gkeClusterCert, gatewayCreateProducerGke.gkeClusterCert) &&
         Objects.equals(this.gkeClusterEndpoint, gatewayCreateProducerGke.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, gatewayCreateProducerGke.gkeClusterName) &&
@@ -375,7 +375,7 @@ public class GatewayCreateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -383,7 +383,7 @@ public class GatewayCreateProducerGke {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerGke {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
+    sb.append("    gkeAccountKey: ").append(toIndentedString(gkeAccountKey)).append("\n");
     sb.append("    gkeClusterCert: ").append(toIndentedString(gkeClusterCert)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");

@@ -7,7 +7,6 @@ gatewayDeleteAllowedManagementAccess is a command that deletes sub-admins
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **subAdminId** | **String** | SubAdminID to be removed | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

@@ -50,10 +50,6 @@ public class GatewayCreateProducerArtifactory {
   @SerializedName(SERIALIZED_NAME_BASE_URL)
   private String baseUrl;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -190,29 +186,6 @@ public class GatewayCreateProducerArtifactory {
 
   public void setBaseUrl(String baseUrl) {
     this.baseUrl = baseUrl;
-  }
-
-
-  public GatewayCreateProducerArtifactory gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -390,7 +363,6 @@ public class GatewayCreateProducerArtifactory {
         Objects.equals(this.artifactoryTokenAudience, gatewayCreateProducerArtifactory.artifactoryTokenAudience) &&
         Objects.equals(this.artifactoryTokenScope, gatewayCreateProducerArtifactory.artifactoryTokenScope) &&
         Objects.equals(this.baseUrl, gatewayCreateProducerArtifactory.baseUrl) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerArtifactory.gatewayUrl) &&
         Objects.equals(this.name, gatewayCreateProducerArtifactory.name) &&
         Objects.equals(this.password, gatewayCreateProducerArtifactory.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerArtifactory.producerEncryptionKeyName) &&
@@ -402,7 +374,7 @@ public class GatewayCreateProducerArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, gatewayUrl, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -415,7 +387,6 @@ public class GatewayCreateProducerArtifactory {
     sb.append("    artifactoryTokenAudience: ").append(toIndentedString(artifactoryTokenAudience)).append("\n");
     sb.append("    artifactoryTokenScope: ").append(toIndentedString(artifactoryTokenScope)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

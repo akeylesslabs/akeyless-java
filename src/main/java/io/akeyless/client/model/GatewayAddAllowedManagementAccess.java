@@ -41,10 +41,6 @@ public class GatewayAddAllowedManagementAccess {
   @SerializedName(SERIALIZED_NAME_ALLOW_GW_LOGIN)
   private Boolean allowGwLogin;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -113,29 +109,6 @@ public class GatewayAddAllowedManagementAccess {
 
   public void setAllowGwLogin(Boolean allowGwLogin) {
     this.allowGwLogin = allowGwLogin;
-  }
-
-
-  public GatewayAddAllowedManagementAccess gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -295,7 +268,6 @@ public class GatewayAddAllowedManagementAccess {
     GatewayAddAllowedManagementAccess gatewayAddAllowedManagementAccess = (GatewayAddAllowedManagementAccess) o;
     return Objects.equals(this.allowGwApi, gatewayAddAllowedManagementAccess.allowGwApi) &&
         Objects.equals(this.allowGwLogin, gatewayAddAllowedManagementAccess.allowGwLogin) &&
-        Objects.equals(this.gatewayUrl, gatewayAddAllowedManagementAccess.gatewayUrl) &&
         Objects.equals(this.password, gatewayAddAllowedManagementAccess.password) &&
         Objects.equals(this.subAdminAccessId, gatewayAddAllowedManagementAccess.subAdminAccessId) &&
         Objects.equals(this.subClaims, gatewayAddAllowedManagementAccess.subClaims) &&
@@ -306,7 +278,7 @@ public class GatewayAddAllowedManagementAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowGwApi, allowGwLogin, gatewayUrl, password, subAdminAccessId, subClaims, token, uidToken, username);
+    return Objects.hash(allowGwApi, allowGwLogin, password, subAdminAccessId, subClaims, token, uidToken, username);
   }
 
 
@@ -316,7 +288,6 @@ public class GatewayAddAllowedManagementAccess {
     sb.append("class GatewayAddAllowedManagementAccess {\n");
     sb.append("    allowGwApi: ").append(toIndentedString(allowGwApi)).append("\n");
     sb.append("    allowGwLogin: ").append(toIndentedString(allowGwLogin)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    subAdminAccessId: ").append(toIndentedString(subAdminAccessId)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");

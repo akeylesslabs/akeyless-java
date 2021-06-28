@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **awsUserPolicies** | **String** | AWS User policies |  [optional]
 **awsUserProgrammaticAccess** | **Boolean** | AWS User programmatic access |  [optional]
 **enableAdminRotation** | **Boolean** | Automatic admin credentials rotation |  [optional]
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

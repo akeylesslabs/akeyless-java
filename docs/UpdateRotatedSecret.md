@@ -8,8 +8,9 @@ updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use g
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
+**apiId** | **String** |  |  [optional]
+**apiKey** | **String** |  |  [optional]
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation |  [optional]
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **name** | **String** | Secret name | 
 **newMetadata** | **String** | New item metadata |  [optional]

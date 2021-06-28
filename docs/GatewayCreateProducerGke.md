@@ -7,7 +7,7 @@ gatewayCreateProducerGke is a command that creates gke producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gatewayUrl** | **String** | Gateway url |  [optional]
+**gkeAccountKey** | **String** | GKE Service Account key file path |  [optional]
 **gkeClusterCert** | **String** | GKE cluster CA certificate | 
 **gkeClusterEndpoint** | **String** | GKE cluster URL endpoint | 
 **gkeClusterName** | **String** | GKE cluster name | 

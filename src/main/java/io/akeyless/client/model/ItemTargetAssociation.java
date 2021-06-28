@@ -34,6 +34,10 @@ public class ItemTargetAssociation {
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
 
+  public static final String SERIALIZED_NAME_TARGET_ID = "target_id";
+  @SerializedName(SERIALIZED_NAME_TARGET_ID)
+  private Long targetId;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target_name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -59,6 +63,29 @@ public class ItemTargetAssociation {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public ItemTargetAssociation targetId(Long targetId) {
+    
+    this.targetId = targetId;
+    return this;
+  }
+
+   /**
+   * Get targetId
+   * @return targetId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getTargetId() {
+    return targetId;
+  }
+
+
+  public void setTargetId(Long targetId) {
+    this.targetId = targetId;
   }
 
 
@@ -95,12 +122,13 @@ public class ItemTargetAssociation {
     }
     ItemTargetAssociation itemTargetAssociation = (ItemTargetAssociation) o;
     return Objects.equals(this.assocId, itemTargetAssociation.assocId) &&
+        Objects.equals(this.targetId, itemTargetAssociation.targetId) &&
         Objects.equals(this.targetName, itemTargetAssociation.targetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, targetName);
+    return Objects.hash(assocId, targetId, targetName);
   }
 
 
@@ -109,6 +137,7 @@ public class ItemTargetAssociation {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemTargetAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("}");
     return sb.toString();

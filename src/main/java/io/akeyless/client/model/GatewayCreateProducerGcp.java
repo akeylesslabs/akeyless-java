@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerGcp is a command that creates a GCP producer")
 
 public class GatewayCreateProducerGcp {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_GCP_CRED_TYPE = "gcp-cred-type";
   @SerializedName(SERIALIZED_NAME_GCP_CRED_TYPE)
   private String gcpCredType;
@@ -81,29 +77,6 @@ public class GatewayCreateProducerGcp {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayCreateProducerGcp gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayCreateProducerGcp gcpCredType(String gcpCredType) {
@@ -388,8 +361,7 @@ public class GatewayCreateProducerGcp {
       return false;
     }
     GatewayCreateProducerGcp gatewayCreateProducerGcp = (GatewayCreateProducerGcp) o;
-    return Objects.equals(this.gatewayUrl, gatewayCreateProducerGcp.gatewayUrl) &&
-        Objects.equals(this.gcpCredType, gatewayCreateProducerGcp.gcpCredType) &&
+    return Objects.equals(this.gcpCredType, gatewayCreateProducerGcp.gcpCredType) &&
         Objects.equals(this.gcpKey, gatewayCreateProducerGcp.gcpKey) &&
         Objects.equals(this.gcpKeyAlgo, gatewayCreateProducerGcp.gcpKeyAlgo) &&
         Objects.equals(this.gcpSaEmail, gatewayCreateProducerGcp.gcpSaEmail) &&
@@ -405,7 +377,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -413,7 +385,6 @@ public class GatewayCreateProducerGcp {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerGcp {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    gcpCredType: ").append(toIndentedString(gcpCredType)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");

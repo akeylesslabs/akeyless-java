@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cf** | [**CFConfigPart**](CFConfigPart.md) |  |  [optional]
 **configProtectionKeyName** | **String** |  |  [optional]
 **general** | [**GeneralConfigPart**](GeneralConfigPart.md) |  |  [optional]
+**kmipClients** | [**KMIPClientsConfigPart**](KMIPClientsConfigPart.md) |  |  [optional]
 **ldap** | [**LdapConfigPart**](LdapConfigPart.md) |  |  [optional]
 **leadership** | [**LeadershipConfigPart**](LeadershipConfigPart.md) |  |  [optional]
 **logForwarding** | [**LogForwardingConfigPart**](LogForwardingConfigPart.md) |  |  [optional]

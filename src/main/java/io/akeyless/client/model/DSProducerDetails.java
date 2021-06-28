@@ -332,13 +332,29 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ITEM_TARGETS_ASSOC)
   private List<ItemTargetAssociation> itemTargetsAssoc = null;
 
+  public static final String SERIALIZED_NAME_K8S_BEARER_TOKEN = "k8s_bearer_token";
+  @SerializedName(SERIALIZED_NAME_K8S_BEARER_TOKEN)
+  private String k8sBearerToken;
+
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE = "k8s_cluster_ca_certificate";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE)
+  private String k8sClusterCaCertificate;
+
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s_cluster_endpoint";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
+  private String k8sClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_K8S_NAMESPACE = "k8s_namespace";
+  @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
+  private String k8sNamespace;
+
+  public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT = "k8s_service_account";
+  @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT)
+  private String k8sServiceAccount;
+
   public static final String SERIALIZED_NAME_LAST_ADMIN_ROTATION = "last_admin_rotation";
   @SerializedName(SERIALIZED_NAME_LAST_ADMIN_ROTATION)
   private Long lastAdminRotation;
-
-  public static final String SERIALIZED_NAME_MONGODB_ATLAS = "mongodb_atlas";
-  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS)
-  private Boolean mongodbAtlas;
 
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -2108,11 +2124,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * GKEProjectID            string &#x60;json:\&quot;gke_project_id\&quot;&#x60;
+   * Get gkeClusterName
    * @return gkeClusterName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "GKEProjectID            string `json:\"gke_project_id\"`")
+  @ApiModelProperty(value = "")
 
   public String getGkeClusterName() {
     return gkeClusterName;
@@ -2154,11 +2170,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * GKEClusterComputeZone   string &#x60;json:\&quot;gke_cluster_compute_zone\&quot;&#x60;
+   * Get gkeServiceAccountName
    * @return gkeServiceAccountName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "GKEClusterComputeZone   string `json:\"gke_cluster_compute_zone\"`")
+  @ApiModelProperty(value = "")
 
   public String getGkeServiceAccountName() {
     return gkeServiceAccountName;
@@ -2270,6 +2286,121 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails k8sBearerToken(String k8sBearerToken) {
+    
+    this.k8sBearerToken = k8sBearerToken;
+    return this;
+  }
+
+   /**
+   * Get k8sBearerToken
+   * @return k8sBearerToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sBearerToken() {
+    return k8sBearerToken;
+  }
+
+
+  public void setK8sBearerToken(String k8sBearerToken) {
+    this.k8sBearerToken = k8sBearerToken;
+  }
+
+
+  public DSProducerDetails k8sClusterCaCertificate(String k8sClusterCaCertificate) {
+    
+    this.k8sClusterCaCertificate = k8sClusterCaCertificate;
+    return this;
+  }
+
+   /**
+   * Get k8sClusterCaCertificate
+   * @return k8sClusterCaCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClusterCaCertificate() {
+    return k8sClusterCaCertificate;
+  }
+
+
+  public void setK8sClusterCaCertificate(String k8sClusterCaCertificate) {
+    this.k8sClusterCaCertificate = k8sClusterCaCertificate;
+  }
+
+
+  public DSProducerDetails k8sClusterEndpoint(String k8sClusterEndpoint) {
+    
+    this.k8sClusterEndpoint = k8sClusterEndpoint;
+    return this;
+  }
+
+   /**
+   * Get k8sClusterEndpoint
+   * @return k8sClusterEndpoint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClusterEndpoint() {
+    return k8sClusterEndpoint;
+  }
+
+
+  public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
+    this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public DSProducerDetails k8sNamespace(String k8sNamespace) {
+    
+    this.k8sNamespace = k8sNamespace;
+    return this;
+  }
+
+   /**
+   * Get k8sNamespace
+   * @return k8sNamespace
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sNamespace() {
+    return k8sNamespace;
+  }
+
+
+  public void setK8sNamespace(String k8sNamespace) {
+    this.k8sNamespace = k8sNamespace;
+  }
+
+
+  public DSProducerDetails k8sServiceAccount(String k8sServiceAccount) {
+    
+    this.k8sServiceAccount = k8sServiceAccount;
+    return this;
+  }
+
+   /**
+   * Get k8sServiceAccount
+   * @return k8sServiceAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sServiceAccount() {
+    return k8sServiceAccount;
+  }
+
+
+  public void setK8sServiceAccount(String k8sServiceAccount) {
+    this.k8sServiceAccount = k8sServiceAccount;
+  }
+
+
   public DSProducerDetails lastAdminRotation(Long lastAdminRotation) {
     
     this.lastAdminRotation = lastAdminRotation;
@@ -2290,29 +2421,6 @@ public class DSProducerDetails {
 
   public void setLastAdminRotation(Long lastAdminRotation) {
     this.lastAdminRotation = lastAdminRotation;
-  }
-
-
-  public DSProducerDetails mongodbAtlas(Boolean mongodbAtlas) {
-    
-    this.mongodbAtlas = mongodbAtlas;
-    return this;
-  }
-
-   /**
-   * Get mongodbAtlas
-   * @return mongodbAtlas
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getMongodbAtlas() {
-    return mongodbAtlas;
-  }
-
-
-  public void setMongodbAtlas(Boolean mongodbAtlas) {
-    this.mongodbAtlas = mongodbAtlas;
   }
 
 
@@ -3489,8 +3597,12 @@ public class DSProducerDetails {
         Objects.equals(this.hostName, dsProducerDetails.hostName) &&
         Objects.equals(this.hostPort, dsProducerDetails.hostPort) &&
         Objects.equals(this.itemTargetsAssoc, dsProducerDetails.itemTargetsAssoc) &&
+        Objects.equals(this.k8sBearerToken, dsProducerDetails.k8sBearerToken) &&
+        Objects.equals(this.k8sClusterCaCertificate, dsProducerDetails.k8sClusterCaCertificate) &&
+        Objects.equals(this.k8sClusterEndpoint, dsProducerDetails.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sNamespace, dsProducerDetails.k8sNamespace) &&
+        Objects.equals(this.k8sServiceAccount, dsProducerDetails.k8sServiceAccount) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
-        Objects.equals(this.mongodbAtlas, dsProducerDetails.mongodbAtlas) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, dsProducerDetails.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, dsProducerDetails.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, dsProducerDetails.mongodbAtlasProjectId) &&
@@ -3542,7 +3654,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, itemTargetsAssoc, lastAdminRotation, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, revokeSyncUrl, rotateSyncUrl, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, revokeSyncUrl, rotateSyncUrl, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -3625,8 +3737,12 @@ public class DSProducerDetails {
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
+    sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
+    sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
+    sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
+    sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");
-    sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");

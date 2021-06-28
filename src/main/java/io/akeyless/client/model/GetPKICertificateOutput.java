@@ -33,6 +33,10 @@ public class GetPKICertificateOutput {
   @SerializedName(SERIALIZED_NAME_DATA)
   private String data;
 
+  public static final String SERIALIZED_NAME_PARENT_CERT = "parent_cert";
+  @SerializedName(SERIALIZED_NAME_PARENT_CERT)
+  private String parentCert;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -58,6 +62,29 @@ public class GetPKICertificateOutput {
 
   public void setData(String data) {
     this.data = data;
+  }
+
+
+  public GetPKICertificateOutput parentCert(String parentCert) {
+    
+    this.parentCert = parentCert;
+    return this;
+  }
+
+   /**
+   * Get parentCert
+   * @return parentCert
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getParentCert() {
+    return parentCert;
+  }
+
+
+  public void setParentCert(String parentCert) {
+    this.parentCert = parentCert;
   }
 
 
@@ -94,12 +121,13 @@ public class GetPKICertificateOutput {
     }
     GetPKICertificateOutput getPKICertificateOutput = (GetPKICertificateOutput) o;
     return Objects.equals(this.data, getPKICertificateOutput.data) &&
+        Objects.equals(this.parentCert, getPKICertificateOutput.parentCert) &&
         Objects.equals(this.path, getPKICertificateOutput.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, path);
+    return Objects.hash(data, parentCert, path);
   }
 
 
@@ -108,6 +136,7 @@ public class GetPKICertificateOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPKICertificateOutput {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    parentCert: ").append(toIndentedString(parentCert)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();

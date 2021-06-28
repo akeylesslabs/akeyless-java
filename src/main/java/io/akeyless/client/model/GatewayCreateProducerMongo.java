@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer")
 
 public class GatewayCreateProducerMongo {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb-atlas-api-private-key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
   private String mongodbAtlasApiPrivateKey;
@@ -105,29 +101,6 @@ public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayCreateProducerMongo gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayCreateProducerMongo mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
@@ -551,8 +524,7 @@ public class GatewayCreateProducerMongo {
       return false;
     }
     GatewayCreateProducerMongo gatewayCreateProducerMongo = (GatewayCreateProducerMongo) o;
-    return Objects.equals(this.gatewayUrl, gatewayCreateProducerMongo.gatewayUrl) &&
-        Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
+    return Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, gatewayCreateProducerMongo.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, gatewayCreateProducerMongo.mongodbAtlasProjectId) &&
         Objects.equals(this.mongodbDefaultAuthDb, gatewayCreateProducerMongo.mongodbDefaultAuthDb) &&
@@ -574,7 +546,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -582,7 +554,6 @@ public class GatewayCreateProducerMongo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMongo {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");

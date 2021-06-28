@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayRevokeTmpUsers is a command that revoke producer tmp user")
 
 public class GatewayRevokeTmpUsers {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl;
-
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
@@ -65,29 +61,6 @@ public class GatewayRevokeTmpUsers {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayRevokeTmpUsers gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayRevokeTmpUsers host(String host) {
@@ -281,8 +254,7 @@ public class GatewayRevokeTmpUsers {
       return false;
     }
     GatewayRevokeTmpUsers gatewayRevokeTmpUsers = (GatewayRevokeTmpUsers) o;
-    return Objects.equals(this.gatewayUrl, gatewayRevokeTmpUsers.gatewayUrl) &&
-        Objects.equals(this.host, gatewayRevokeTmpUsers.host) &&
+    return Objects.equals(this.host, gatewayRevokeTmpUsers.host) &&
         Objects.equals(this.name, gatewayRevokeTmpUsers.name) &&
         Objects.equals(this.password, gatewayRevokeTmpUsers.password) &&
         Objects.equals(this.softDelete, gatewayRevokeTmpUsers.softDelete) &&
@@ -294,7 +266,7 @@ public class GatewayRevokeTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, host, name, password, softDelete, tmpCredsId, token, uidToken, username);
+    return Objects.hash(host, name, password, softDelete, tmpCredsId, token, uidToken, username);
   }
 
 
@@ -302,7 +274,6 @@ public class GatewayRevokeTmpUsers {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayRevokeTmpUsers {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

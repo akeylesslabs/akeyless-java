@@ -38,10 +38,6 @@ public class GatewayCreateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
   private String dbServerName;
 
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_MYSQL_DBNAME = "mysql-dbname";
   @SerializedName(SERIALIZED_NAME_MYSQL_DBNAME)
   private String mysqlDbname;
@@ -138,29 +134,6 @@ public class GatewayCreateProducerMySQL {
 
   public void setDbServerName(String dbServerName) {
     this.dbServerName = dbServerName;
-  }
-
-
-  public GatewayCreateProducerMySQL gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -470,7 +443,6 @@ public class GatewayCreateProducerMySQL {
     GatewayCreateProducerMySQL gatewayCreateProducerMySQL = (GatewayCreateProducerMySQL) o;
     return Objects.equals(this.dbServerCertificates, gatewayCreateProducerMySQL.dbServerCertificates) &&
         Objects.equals(this.dbServerName, gatewayCreateProducerMySQL.dbServerName) &&
-        Objects.equals(this.gatewayUrl, gatewayCreateProducerMySQL.gatewayUrl) &&
         Objects.equals(this.mysqlDbname, gatewayCreateProducerMySQL.mysqlDbname) &&
         Objects.equals(this.mysqlHost, gatewayCreateProducerMySQL.mysqlHost) &&
         Objects.equals(this.mysqlPassword, gatewayCreateProducerMySQL.mysqlPassword) &&
@@ -488,7 +460,7 @@ public class GatewayCreateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, gatewayUrl, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -498,7 +470,6 @@ public class GatewayCreateProducerMySQL {
     sb.append("class GatewayCreateProducerMySQL {\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    mysqlDbname: ").append(toIndentedString(mysqlDbname)).append("\n");
     sb.append("    mysqlHost: ").append(toIndentedString(mysqlHost)).append("\n");
     sb.append("    mysqlPassword: ").append(toIndentedString(mysqlPassword)).append("\n");

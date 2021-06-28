@@ -29,11 +29,11 @@ import java.io.IOException;
  */
 
 public class CreateAzureTarget {
-  public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
+  public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
   private String clientId;
 
-  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
+  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client-secret";
   @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
   private String clientSecret;
 
@@ -53,7 +53,7 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
+  public static final String SERIALIZED_NAME_TENANT_ID = "tenant-id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   private String tenantId;
 

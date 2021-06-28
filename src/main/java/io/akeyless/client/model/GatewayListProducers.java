@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayListProducers is a command that returns producer")
 
 public class GatewayListProducers {
-  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
-  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
-  private String gatewayUrl = "http://localhost:8000";
-
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -49,29 +45,6 @@ public class GatewayListProducers {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayListProducers gatewayUrl(String gatewayUrl) {
-    
-    this.gatewayUrl = gatewayUrl;
-    return this;
-  }
-
-   /**
-   * Gateway url
-   * @return gatewayUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway url")
-
-  public String getGatewayUrl() {
-    return gatewayUrl;
-  }
-
-
-  public void setGatewayUrl(String gatewayUrl) {
-    this.gatewayUrl = gatewayUrl;
-  }
 
 
   public GatewayListProducers password(String password) {
@@ -175,8 +148,7 @@ public class GatewayListProducers {
       return false;
     }
     GatewayListProducers gatewayListProducers = (GatewayListProducers) o;
-    return Objects.equals(this.gatewayUrl, gatewayListProducers.gatewayUrl) &&
-        Objects.equals(this.password, gatewayListProducers.password) &&
+    return Objects.equals(this.password, gatewayListProducers.password) &&
         Objects.equals(this.token, gatewayListProducers.token) &&
         Objects.equals(this.uidToken, gatewayListProducers.uidToken) &&
         Objects.equals(this.username, gatewayListProducers.username);
@@ -184,7 +156,7 @@ public class GatewayListProducers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gatewayUrl, password, token, uidToken, username);
+    return Objects.hash(password, token, uidToken, username);
   }
 
 
@@ -192,7 +164,6 @@ public class GatewayListProducers {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayListProducers {\n");
-    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

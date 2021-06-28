@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **artifactoryTokenAudience** | **String** | Token Audience | 
 **artifactoryTokenScope** | **String** | Token Scope | 
 **baseUrl** | **String** | Base URL | 
-**gatewayUrl** | **String** | Gateway url |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

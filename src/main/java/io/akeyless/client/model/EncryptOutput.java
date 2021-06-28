@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * EncryptOutput
@@ -33,20 +31,12 @@ import java.util.List;
 public class EncryptOutput {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
-  private List<Integer> result = null;
+  private String result;
 
 
-  public EncryptOutput result(List<Integer> result) {
+  public EncryptOutput result(String result) {
     
     this.result = result;
-    return this;
-  }
-
-  public EncryptOutput addResultItem(Integer resultItem) {
-    if (this.result == null) {
-      this.result = new ArrayList<Integer>();
-    }
-    this.result.add(resultItem);
     return this;
   }
 
@@ -57,12 +47,12 @@ public class EncryptOutput {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Integer> getResult() {
+  public String getResult() {
     return result;
   }
 
 
-  public void setResult(List<Integer> result) {
+  public void setResult(String result) {
     this.result = result;
   }
 
