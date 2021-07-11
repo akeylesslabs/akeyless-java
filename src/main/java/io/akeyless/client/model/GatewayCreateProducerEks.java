@@ -38,9 +38,9 @@ public class GatewayCreateProducerEks {
   @SerializedName(SERIALIZED_NAME_EKS_ASSUME_ROLE)
   private String eksAssumeRole;
 
-  public static final String SERIALIZED_NAME_EKS_CLUSTER_CERT = "eks-cluster-cert";
-  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CERT)
-  private String eksClusterCert;
+  public static final String SERIALIZED_NAME_EKS_CLUSTER_CA_CERT = "eks-cluster-ca-cert";
+  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CA_CERT)
+  private String eksClusterCaCert;
 
   public static final String SERIALIZED_NAME_EKS_CLUSTER_ENDPOINT = "eks-cluster-endpoint";
   @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_ENDPOINT)
@@ -132,25 +132,25 @@ public class GatewayCreateProducerEks {
   }
 
 
-  public GatewayCreateProducerEks eksClusterCert(String eksClusterCert) {
+  public GatewayCreateProducerEks eksClusterCaCert(String eksClusterCaCert) {
     
-    this.eksClusterCert = eksClusterCert;
+    this.eksClusterCaCert = eksClusterCaCert;
     return this;
   }
 
    /**
    * EKS cluster CA certificate
-   * @return eksClusterCert
+   * @return eksClusterCaCert
   **/
   @ApiModelProperty(required = true, value = "EKS cluster CA certificate")
 
-  public String getEksClusterCert() {
-    return eksClusterCert;
+  public String getEksClusterCaCert() {
+    return eksClusterCaCert;
   }
 
 
-  public void setEksClusterCert(String eksClusterCert) {
-    this.eksClusterCert = eksClusterCert;
+  public void setEksClusterCaCert(String eksClusterCaCert) {
+    this.eksClusterCaCert = eksClusterCaCert;
   }
 
 
@@ -414,7 +414,7 @@ public class GatewayCreateProducerEks {
     GatewayCreateProducerEks gatewayCreateProducerEks = (GatewayCreateProducerEks) o;
     return Objects.equals(this.eksAccessKeyId, gatewayCreateProducerEks.eksAccessKeyId) &&
         Objects.equals(this.eksAssumeRole, gatewayCreateProducerEks.eksAssumeRole) &&
-        Objects.equals(this.eksClusterCert, gatewayCreateProducerEks.eksClusterCert) &&
+        Objects.equals(this.eksClusterCaCert, gatewayCreateProducerEks.eksClusterCaCert) &&
         Objects.equals(this.eksClusterEndpoint, gatewayCreateProducerEks.eksClusterEndpoint) &&
         Objects.equals(this.eksClusterName, gatewayCreateProducerEks.eksClusterName) &&
         Objects.equals(this.eksRegion, gatewayCreateProducerEks.eksRegion) &&
@@ -430,7 +430,7 @@ public class GatewayCreateProducerEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
   }
 
 
@@ -440,7 +440,7 @@ public class GatewayCreateProducerEks {
     sb.append("class GatewayCreateProducerEks {\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
     sb.append("    eksAssumeRole: ").append(toIndentedString(eksAssumeRole)).append("\n");
-    sb.append("    eksClusterCert: ").append(toIndentedString(eksClusterCert)).append("\n");
+    sb.append("    eksClusterCaCert: ").append(toIndentedString(eksClusterCaCert)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");

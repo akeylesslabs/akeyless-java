@@ -35,10 +35,6 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_ALG)
   private String alg;
 
-  public static final String SERIALIZED_NAME_CERT = "cert";
-  @SerializedName(SERIALIZED_NAME_CERT)
-  private String cert;
-
   public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
@@ -103,29 +99,6 @@ public class UploadRSA {
 
   public void setAlg(String alg) {
     this.alg = alg;
-  }
-
-
-  public UploadRSA cert(String cert) {
-    
-    this.cert = cert;
-    return this;
-  }
-
-   /**
-   * Path to a file that contain the certificate in a PEM format.
-   * @return cert
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path to a file that contain the certificate in a PEM format.")
-
-  public String getCert() {
-    return cert;
-  }
-
-
-  public void setCert(String cert) {
-    this.cert = cert;
   }
 
 
@@ -399,7 +372,6 @@ public class UploadRSA {
     }
     UploadRSA uploadRSA = (UploadRSA) o;
     return Objects.equals(this.alg, uploadRSA.alg) &&
-        Objects.equals(this.cert, uploadRSA.cert) &&
         Objects.equals(this.certFileData, uploadRSA.certFileData) &&
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
@@ -415,7 +387,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, cert, certFileData, customerFrgId, metadata, name, password, rsaFileData, splitLevel, tag, token, uidToken, username);
+    return Objects.hash(alg, certFileData, customerFrgId, metadata, name, password, rsaFileData, splitLevel, tag, token, uidToken, username);
   }
 
 
@@ -424,7 +396,6 @@ public class UploadRSA {
     StringBuilder sb = new StringBuilder();
     sb.append("class UploadRSA {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
-    sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

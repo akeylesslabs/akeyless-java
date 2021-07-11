@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **dbName** | **String** |  |  [optional]
 **dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional]
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
-**dbType** | **String** |  |  [optional]
+**dbType** | **String** |  | 
 **host** | **String** |  |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **mongodbAtlas** | **Boolean** |  |  [optional]

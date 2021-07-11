@@ -36,6 +36,10 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_ALG)
   private String alg;
 
+  public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
+  @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
+  private String certFileData;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -84,10 +88,10 @@ public class CreateClassicKey {
   }
 
    /**
-   * Classic Key type; options: [AES256GCM, RSA2048]
+   * Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384]
    * @return alg
   **/
-  @ApiModelProperty(required = true, value = "Classic Key type; options: [AES256GCM, RSA2048]")
+  @ApiModelProperty(required = true, value = "Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384]")
 
   public String getAlg() {
     return alg;
@@ -96,6 +100,29 @@ public class CreateClassicKey {
 
   public void setAlg(String alg) {
     this.alg = alg;
+  }
+
+
+  public CreateClassicKey certFileData(String certFileData) {
+    
+    this.certFileData = certFileData;
+    return this;
+  }
+
+   /**
+   * Certificate in a PEM format.
+   * @return certFileData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate in a PEM format.")
+
+  public String getCertFileData() {
+    return certFileData;
+  }
+
+
+  public void setCertFileData(String certFileData) {
+    this.certFileData = certFileData;
   }
 
 
@@ -346,6 +373,7 @@ public class CreateClassicKey {
     }
     CreateClassicKey createClassicKey = (CreateClassicKey) o;
     return Objects.equals(this.alg, createClassicKey.alg) &&
+        Objects.equals(this.certFileData, createClassicKey.certFileData) &&
         Objects.equals(this.key, createClassicKey.key) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
@@ -360,7 +388,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, key, keyData, metadata, name, password, tags, targetName, token, uidToken, username);
+    return Objects.hash(alg, certFileData, key, keyData, metadata, name, password, tags, targetName, token, uidToken, username);
   }
 
 
@@ -369,6 +397,7 @@ public class CreateClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateClassicKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
+    sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

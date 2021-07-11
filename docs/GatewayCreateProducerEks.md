@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eksAccessKeyId** | **String** | Access Key ID | 
 **eksAssumeRole** | **String** | IAM assume role |  [optional]
-**eksClusterCert** | **String** | EKS cluster CA certificate | 
+**eksClusterCaCert** | **String** | EKS cluster CA certificate | 
 **eksClusterEndpoint** | **String** | EKS cluster URL endpoint | 
 **eksClusterName** | **String** | EKS cluster name | 
 **eksRegion** | **String** | Region |  [optional]

@@ -30,21 +30,21 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerAws is a command that creates aws producer")
 
 public class GatewayCreateProducerAws {
-  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access-key-id";
-  @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
-  private String accessKeyId;
-
   public static final String SERIALIZED_NAME_ACCESS_MODE = "access-mode";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODE)
   private String accessMode;
 
-  public static final String SERIALIZED_NAME_ACCESS_SECRET_KEY = "access-secret-key";
-  @SerializedName(SERIALIZED_NAME_ACCESS_SECRET_KEY)
-  private String accessSecretKey;
-
   public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin-rotation-interval-days";
   @SerializedName(SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS)
   private Long adminRotationIntervalDays = 0l;
+
+  public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws-access-key-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
+  private String awsAccessKeyId;
+
+  public static final String SERIALIZED_NAME_AWS_ACCESS_SECRET_KEY = "aws-access-secret-key";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCESS_SECRET_KEY)
+  private String awsAccessSecretKey;
 
   public static final String SERIALIZED_NAME_AWS_ROLE_ARNS = "aws-role-arns";
   @SerializedName(SERIALIZED_NAME_AWS_ROLE_ARNS)
@@ -103,28 +103,6 @@ public class GatewayCreateProducerAws {
   private String username;
 
 
-  public GatewayCreateProducerAws accessKeyId(String accessKeyId) {
-    
-    this.accessKeyId = accessKeyId;
-    return this;
-  }
-
-   /**
-   * Access Key ID
-   * @return accessKeyId
-  **/
-  @ApiModelProperty(required = true, value = "Access Key ID")
-
-  public String getAccessKeyId() {
-    return accessKeyId;
-  }
-
-
-  public void setAccessKeyId(String accessKeyId) {
-    this.accessKeyId = accessKeyId;
-  }
-
-
   public GatewayCreateProducerAws accessMode(String accessMode) {
     
     this.accessMode = accessMode;
@@ -148,28 +126,6 @@ public class GatewayCreateProducerAws {
   }
 
 
-  public GatewayCreateProducerAws accessSecretKey(String accessSecretKey) {
-    
-    this.accessSecretKey = accessSecretKey;
-    return this;
-  }
-
-   /**
-   * Secret Access Key
-   * @return accessSecretKey
-  **/
-  @ApiModelProperty(required = true, value = "Secret Access Key")
-
-  public String getAccessSecretKey() {
-    return accessSecretKey;
-  }
-
-
-  public void setAccessSecretKey(String accessSecretKey) {
-    this.accessSecretKey = accessSecretKey;
-  }
-
-
   public GatewayCreateProducerAws adminRotationIntervalDays(Long adminRotationIntervalDays) {
     
     this.adminRotationIntervalDays = adminRotationIntervalDays;
@@ -190,6 +146,50 @@ public class GatewayCreateProducerAws {
 
   public void setAdminRotationIntervalDays(Long adminRotationIntervalDays) {
     this.adminRotationIntervalDays = adminRotationIntervalDays;
+  }
+
+
+  public GatewayCreateProducerAws awsAccessKeyId(String awsAccessKeyId) {
+    
+    this.awsAccessKeyId = awsAccessKeyId;
+    return this;
+  }
+
+   /**
+   * Access Key ID
+   * @return awsAccessKeyId
+  **/
+  @ApiModelProperty(required = true, value = "Access Key ID")
+
+  public String getAwsAccessKeyId() {
+    return awsAccessKeyId;
+  }
+
+
+  public void setAwsAccessKeyId(String awsAccessKeyId) {
+    this.awsAccessKeyId = awsAccessKeyId;
+  }
+
+
+  public GatewayCreateProducerAws awsAccessSecretKey(String awsAccessSecretKey) {
+    
+    this.awsAccessSecretKey = awsAccessSecretKey;
+    return this;
+  }
+
+   /**
+   * Secret Access Key
+   * @return awsAccessSecretKey
+  **/
+  @ApiModelProperty(required = true, value = "Secret Access Key")
+
+  public String getAwsAccessSecretKey() {
+    return awsAccessSecretKey;
+  }
+
+
+  public void setAwsAccessSecretKey(String awsAccessSecretKey) {
+    this.awsAccessSecretKey = awsAccessSecretKey;
   }
 
 
@@ -523,10 +523,10 @@ public class GatewayCreateProducerAws {
       return false;
     }
     GatewayCreateProducerAws gatewayCreateProducerAws = (GatewayCreateProducerAws) o;
-    return Objects.equals(this.accessKeyId, gatewayCreateProducerAws.accessKeyId) &&
-        Objects.equals(this.accessMode, gatewayCreateProducerAws.accessMode) &&
-        Objects.equals(this.accessSecretKey, gatewayCreateProducerAws.accessSecretKey) &&
+    return Objects.equals(this.accessMode, gatewayCreateProducerAws.accessMode) &&
         Objects.equals(this.adminRotationIntervalDays, gatewayCreateProducerAws.adminRotationIntervalDays) &&
+        Objects.equals(this.awsAccessKeyId, gatewayCreateProducerAws.awsAccessKeyId) &&
+        Objects.equals(this.awsAccessSecretKey, gatewayCreateProducerAws.awsAccessSecretKey) &&
         Objects.equals(this.awsRoleArns, gatewayCreateProducerAws.awsRoleArns) &&
         Objects.equals(this.awsUserConsoleAccess, gatewayCreateProducerAws.awsUserConsoleAccess) &&
         Objects.equals(this.awsUserGroups, gatewayCreateProducerAws.awsUserGroups) &&
@@ -545,7 +545,7 @@ public class GatewayCreateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, accessMode, accessSecretKey, adminRotationIntervalDays, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, token, uidToken, userTtl, username);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, token, uidToken, userTtl, username);
   }
 
 
@@ -553,10 +553,10 @@ public class GatewayCreateProducerAws {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerAws {\n");
-    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
-    sb.append("    accessSecretKey: ").append(toIndentedString(accessSecretKey)).append("\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
+    sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
+    sb.append("    awsAccessSecretKey: ").append(toIndentedString(awsAccessSecretKey)).append("\n");
     sb.append("    awsRoleArns: ").append(toIndentedString(awsRoleArns)).append("\n");
     sb.append("    awsUserConsoleAccess: ").append(toIndentedString(awsUserConsoleAccess)).append("\n");
     sb.append("    awsUserGroups: ").append(toIndentedString(awsUserGroups)).append("\n");

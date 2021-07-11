@@ -440,11 +440,10 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get targetName
+   * Target name
    * @return targetName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "Target name")
 
   public String getTargetName() {
     return targetName;

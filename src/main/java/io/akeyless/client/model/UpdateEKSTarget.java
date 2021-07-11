@@ -37,9 +37,9 @@ public class UpdateEKSTarget {
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
 
-  public static final String SERIALIZED_NAME_EKS_CLUSTER_CERT = "eks-cluster-cert";
-  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CERT)
-  private String eksClusterCert;
+  public static final String SERIALIZED_NAME_EKS_CLUSTER_CA_CERT = "eks-cluster-ca-cert";
+  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CA_CERT)
+  private String eksClusterCaCert;
 
   public static final String SERIALIZED_NAME_EKS_CLUSTER_ENDPOINT = "eks-cluster-endpoint";
   @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_ENDPOINT)
@@ -135,25 +135,25 @@ public class UpdateEKSTarget {
   }
 
 
-  public UpdateEKSTarget eksClusterCert(String eksClusterCert) {
+  public UpdateEKSTarget eksClusterCaCert(String eksClusterCaCert) {
     
-    this.eksClusterCert = eksClusterCert;
+    this.eksClusterCaCert = eksClusterCaCert;
     return this;
   }
 
    /**
    * EKS cluster CA certificate
-   * @return eksClusterCert
+   * @return eksClusterCaCert
   **/
   @ApiModelProperty(required = true, value = "EKS cluster CA certificate")
 
-  public String getEksClusterCert() {
-    return eksClusterCert;
+  public String getEksClusterCaCert() {
+    return eksClusterCaCert;
   }
 
 
-  public void setEksClusterCert(String eksClusterCert) {
-    this.eksClusterCert = eksClusterCert;
+  public void setEksClusterCaCert(String eksClusterCaCert) {
+    this.eksClusterCaCert = eksClusterCaCert;
   }
 
 
@@ -301,7 +301,8 @@ public class UpdateEKSTarget {
    * New target name
    * @return newName
   **/
-  @ApiModelProperty(required = true, value = "New target name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "New target name")
 
   public String getNewName() {
     return newName;
@@ -439,7 +440,7 @@ public class UpdateEKSTarget {
     UpdateEKSTarget updateEKSTarget = (UpdateEKSTarget) o;
     return Objects.equals(this.comment, updateEKSTarget.comment) &&
         Objects.equals(this.eksAccessKeyId, updateEKSTarget.eksAccessKeyId) &&
-        Objects.equals(this.eksClusterCert, updateEKSTarget.eksClusterCert) &&
+        Objects.equals(this.eksClusterCaCert, updateEKSTarget.eksClusterCaCert) &&
         Objects.equals(this.eksClusterEndpoint, updateEKSTarget.eksClusterEndpoint) &&
         Objects.equals(this.eksClusterName, updateEKSTarget.eksClusterName) &&
         Objects.equals(this.eksRegion, updateEKSTarget.eksRegion) &&
@@ -456,7 +457,7 @@ public class UpdateEKSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksClusterCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, newName, password, token, uidToken, updateVersion, username);
+    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, newName, password, token, uidToken, updateVersion, username);
   }
 
 
@@ -466,7 +467,7 @@ public class UpdateEKSTarget {
     sb.append("class UpdateEKSTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
-    sb.append("    eksClusterCert: ").append(toIndentedString(eksClusterCert)).append("\n");
+    sb.append("    eksClusterCaCert: ").append(toIndentedString(eksClusterCaCert)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");

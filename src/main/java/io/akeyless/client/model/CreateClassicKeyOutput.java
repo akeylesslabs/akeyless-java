@@ -31,7 +31,7 @@ import java.io.IOException;
 public class CreateClassicKeyOutput {
   public static final String SERIALIZED_NAME_CLASSIC_KEY_ID = "classic_key_id";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ID)
-  private Long classicKeyId;
+  private String classicKeyId;
 
   public static final String SERIALIZED_NAME_CLASSIC_KEY_NAME = "classic_key_name";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_NAME)
@@ -42,7 +42,7 @@ public class CreateClassicKeyOutput {
   private String classicKeyType;
 
 
-  public CreateClassicKeyOutput classicKeyId(Long classicKeyId) {
+  public CreateClassicKeyOutput classicKeyId(String classicKeyId) {
     
     this.classicKeyId = classicKeyId;
     return this;
@@ -55,12 +55,12 @@ public class CreateClassicKeyOutput {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Long getClassicKeyId() {
+  public String getClassicKeyId() {
     return classicKeyId;
   }
 
 
-  public void setClassicKeyId(Long classicKeyId) {
+  public void setClassicKeyId(String classicKeyId) {
     this.classicKeyId = classicKeyId;
   }
 

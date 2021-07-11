@@ -8,7 +8,7 @@ createAuthMethodGCP is a command that creates a new auth method that will be abl
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
-**audience** | **String** | The audience to verify in the JWT received by the client |  [optional]
+**audience** | **String** | The audience to verify in the JWT received by the client | 
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist of the IPs that the access is restricted to |  [optional]
 **boundLabels** | **List&lt;String&gt;** | A comma-separated list of GCP labels formatted as \&quot;key:value\&quot; strings that must be set on authorized GCE instances. TODO: Because GCP labels are not currently ACL&#39;d .... |  [optional]
 **boundProjects** | **List&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Human and Machine authentication section &#x3D;&#x3D;&#x3D; Array of GCP project IDs. Only entities belonging to any of the provided projects can authenticate. |  [optional]
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **serviceAccountCredsData** | **String** | ServiceAccount credentials data instead of giving a file path, base64 encoded |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
-**type** | **String** | Type of the GCP Access Rules |  [optional]
+**type** | **String** | Type of the GCP Access Rules | 
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 

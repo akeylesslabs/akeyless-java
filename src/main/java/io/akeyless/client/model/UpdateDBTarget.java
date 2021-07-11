@@ -244,8 +244,7 @@ public class UpdateDBTarget {
    * Get dbType
    * @return dbType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public String getDbType() {
     return dbType;
@@ -565,7 +564,8 @@ public class UpdateDBTarget {
    * New target name
    * @return newName
   **/
-  @ApiModelProperty(required = true, value = "New target name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "New target name")
 
   public String getNewName() {
     return newName;

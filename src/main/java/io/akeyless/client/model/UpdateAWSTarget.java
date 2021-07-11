@@ -206,7 +206,8 @@ public class UpdateAWSTarget {
    * New target name
    * @return newName
   **/
-  @ApiModelProperty(required = true, value = "New target name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "New target name")
 
   public String getNewName() {
     return newName;

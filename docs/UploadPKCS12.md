@@ -6,7 +6,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cert** | **String** | Path to a file that contain the certificate in a PEM format. If this parameter is not empty, the certificate will be taken from here and not from the PKCS#12 input file |  [optional]
 **customerFrgId** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) |  [optional]
 **in** | **String** | PKCS#12 input file (private key and certificate only) | 
 **metadata** | **String** | A metadata about the key |  [optional]

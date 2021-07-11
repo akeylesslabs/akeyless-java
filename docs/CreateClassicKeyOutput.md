@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**classicKeyId** | **Long** |  |  [optional]
+**classicKeyId** | **String** |  |  [optional]
 **classicKeyName** | **String** |  |  [optional]
 **classicKeyType** | **String** |  |  [optional]
 

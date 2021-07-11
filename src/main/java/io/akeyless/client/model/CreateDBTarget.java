@@ -236,8 +236,7 @@ public class CreateDBTarget {
    * Get dbType
    * @return dbType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public String getDbType() {
     return dbType;

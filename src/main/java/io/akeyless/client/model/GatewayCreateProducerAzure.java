@@ -34,13 +34,17 @@ public class GatewayCreateProducerAzure {
   @SerializedName(SERIALIZED_NAME_APP_OBJ_ID)
   private String appObjId;
 
-  public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
-  @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-  private String clientId;
+  public static final String SERIALIZED_NAME_AZURE_CLIENT_ID = "azure-client-id";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_ID)
+  private String azureClientId;
 
-  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client-secret";
-  @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
-  private String clientSecret;
+  public static final String SERIALIZED_NAME_AZURE_CLIENT_SECRET = "azure-client-secret";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_SECRET)
+  private String azureClientSecret;
+
+  public static final String SERIALIZED_NAME_AZURE_TENANT_ID = "azure-tenant-id";
+  @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
+  private String azureTenantId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -53,10 +57,6 @@ public class GatewayCreateProducerAzure {
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenant-id";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -118,47 +118,69 @@ public class GatewayCreateProducerAzure {
   }
 
 
-  public GatewayCreateProducerAzure clientId(String clientId) {
+  public GatewayCreateProducerAzure azureClientId(String azureClientId) {
     
-    this.clientId = clientId;
+    this.azureClientId = azureClientId;
     return this;
   }
 
    /**
    * Azure Client ID
-   * @return clientId
+   * @return azureClientId
   **/
   @ApiModelProperty(required = true, value = "Azure Client ID")
 
-  public String getClientId() {
-    return clientId;
+  public String getAzureClientId() {
+    return azureClientId;
   }
 
 
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
+  public void setAzureClientId(String azureClientId) {
+    this.azureClientId = azureClientId;
   }
 
 
-  public GatewayCreateProducerAzure clientSecret(String clientSecret) {
+  public GatewayCreateProducerAzure azureClientSecret(String azureClientSecret) {
     
-    this.clientSecret = clientSecret;
+    this.azureClientSecret = azureClientSecret;
     return this;
   }
 
    /**
    * Azure Client Secret
-   * @return clientSecret
+   * @return azureClientSecret
   **/
   @ApiModelProperty(required = true, value = "Azure Client Secret")
 
-  public String getClientSecret() {
-    return clientSecret;
+  public String getAzureClientSecret() {
+    return azureClientSecret;
   }
 
 
-  public void setClientSecret(String clientSecret) {
-    this.clientSecret = clientSecret;
+  public void setAzureClientSecret(String azureClientSecret) {
+    this.azureClientSecret = azureClientSecret;
+  }
+
+
+  public GatewayCreateProducerAzure azureTenantId(String azureTenantId) {
+    
+    this.azureTenantId = azureTenantId;
+    return this;
+  }
+
+   /**
+   * Azure Tenant ID
+   * @return azureTenantId
+  **/
+  @ApiModelProperty(required = true, value = "Azure Tenant ID")
+
+  public String getAzureTenantId() {
+    return azureTenantId;
+  }
+
+
+  public void setAzureTenantId(String azureTenantId) {
+    this.azureTenantId = azureTenantId;
   }
 
 
@@ -227,28 +249,6 @@ public class GatewayCreateProducerAzure {
 
   public void setProducerEncryptionKeyName(String producerEncryptionKeyName) {
     this.producerEncryptionKeyName = producerEncryptionKeyName;
-  }
-
-
-  public GatewayCreateProducerAzure tenantId(String tenantId) {
-    
-    this.tenantId = tenantId;
-    return this;
-  }
-
-   /**
-   * Azure Tenant ID
-   * @return tenantId
-  **/
-  @ApiModelProperty(required = true, value = "Azure Tenant ID")
-
-  public String getTenantId() {
-    return tenantId;
-  }
-
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
   }
 
 
@@ -469,12 +469,12 @@ public class GatewayCreateProducerAzure {
     }
     GatewayCreateProducerAzure gatewayCreateProducerAzure = (GatewayCreateProducerAzure) o;
     return Objects.equals(this.appObjId, gatewayCreateProducerAzure.appObjId) &&
-        Objects.equals(this.clientId, gatewayCreateProducerAzure.clientId) &&
-        Objects.equals(this.clientSecret, gatewayCreateProducerAzure.clientSecret) &&
+        Objects.equals(this.azureClientId, gatewayCreateProducerAzure.azureClientId) &&
+        Objects.equals(this.azureClientSecret, gatewayCreateProducerAzure.azureClientSecret) &&
+        Objects.equals(this.azureTenantId, gatewayCreateProducerAzure.azureTenantId) &&
         Objects.equals(this.name, gatewayCreateProducerAzure.name) &&
         Objects.equals(this.password, gatewayCreateProducerAzure.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAzure.producerEncryptionKeyName) &&
-        Objects.equals(this.tenantId, gatewayCreateProducerAzure.tenantId) &&
         Objects.equals(this.token, gatewayCreateProducerAzure.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerAzure.uidToken) &&
         Objects.equals(this.userGroupObjId, gatewayCreateProducerAzure.userGroupObjId) &&
@@ -488,7 +488,7 @@ public class GatewayCreateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, clientId, clientSecret, name, password, producerEncryptionKeyName, tenantId, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, name, password, producerEncryptionKeyName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
   }
 
 
@@ -497,12 +497,12 @@ public class GatewayCreateProducerAzure {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerAzure {\n");
     sb.append("    appObjId: ").append(toIndentedString(appObjId)).append("\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
+    sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
+    sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userGroupObjId: ").append(toIndentedString(userGroupObjId)).append("\n");

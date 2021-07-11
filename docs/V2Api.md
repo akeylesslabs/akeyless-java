@@ -38,6 +38,7 @@ Method | HTTP request | Description
 [**createWebTarget**](V2Api.md#createWebTarget) | **POST** /create-web-target | 
 [**decrypt**](V2Api.md#decrypt) | **POST** /decrypt | 
 [**decryptPKCS1**](V2Api.md#decryptPKCS1) | **POST** /decrypt-pkcs1 | 
+[**decryptWithClassicKey**](V2Api.md#decryptWithClassicKey) | **POST** /decrypt-with-classic-key | 
 [**deleteAuthMethod**](V2Api.md#deleteAuthMethod) | **POST** /delete-auth-method | 
 [**deleteAuthMethods**](V2Api.md#deleteAuthMethods) | **POST** /delete-auth-methods | 
 [**deleteItem**](V2Api.md#deleteItem) | **POST** /delete-item | 
@@ -53,6 +54,7 @@ Method | HTTP request | Description
 [**describePermissions**](V2Api.md#describePermissions) | **POST** /describe-permissions | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptPKCS1**](V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
+[**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
 [**gatewayCreateProducerAws**](V2Api.md#gatewayCreateProducerAws) | **POST** /gateway-create-producer-aws | 
 [**gatewayCreateProducerAzure**](V2Api.md#gatewayCreateProducerAzure) | **POST** /gateway-create-producer-azure | 
@@ -104,7 +106,9 @@ Method | HTTP request | Description
 [**rotateKey**](V2Api.md#rotateKey) | **POST** /rotate-key | 
 [**setItemState**](V2Api.md#setItemState) | **POST** /set-item-state | 
 [**setRoleRule**](V2Api.md#setRoleRule) | **POST** /set-role-rule | 
+[**signJWTWithClassicKey**](V2Api.md#signJWTWithClassicKey) | **POST** /sign-jwt-with-classic-key | 
 [**signPKCS1**](V2Api.md#signPKCS1) | **POST** /sign-pkcs1 | 
+[**signPKICertWithClassicKey**](V2Api.md#signPKICertWithClassicKey) | **POST** /sign-pki-cert-with-classic-key | 
 [**staticCredsAuth**](V2Api.md#staticCredsAuth) | **POST** /static-creds-auth | 
 [**uidCreateChildToken**](V2Api.md#uidCreateChildToken) | **POST** /uid-create-child-token | 
 [**uidGenerateToken**](V2Api.md#uidGenerateToken) | **POST** /uid-generate-token | 
@@ -136,7 +140,9 @@ Method | HTTP request | Description
 [**updateWebTarget**](V2Api.md#updateWebTarget) | **POST** /update-web-target | 
 [**updateWebTargetDetails**](V2Api.md#updateWebTargetDetails) | **POST** /update-web-target-details | 
 [**uploadRSA**](V2Api.md#uploadRSA) | **POST** /upload-rsa | 
+[**verifyJWTWithClassicKey**](V2Api.md#verifyJWTWithClassicKey) | **POST** /verify-jwt-with-classic-key | 
 [**verifyPKCS1**](V2Api.md#verifyPKCS1) | **POST** /verify-pkcs1 | 
+[**verifyPKICertWithClassicKey**](V2Api.md#verifyPKICertWithClassicKey) | **POST** /verify-pki-cert-with-classic-key | 
 
 
 <a name="assocRoleAuthMethod"></a>
@@ -2210,6 +2216,67 @@ No authorization required
 **200** | decryptPKCS1Response wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="decryptWithClassicKey"></a>
+# **decryptWithClassicKey**
+> DecryptWithClassicKeyOutput decryptWithClassicKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DecryptWithClassicKey body = new DecryptWithClassicKey(); // DecryptWithClassicKey | 
+    try {
+      DecryptWithClassicKeyOutput result = apiInstance.decryptWithClassicKey(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#decryptWithClassicKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DecryptWithClassicKey**](DecryptWithClassicKey.md)|  |
+
+### Return type
+
+[**DecryptWithClassicKeyOutput**](DecryptWithClassicKeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | decryptWithClassicKeyResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="deleteAuthMethod"></a>
 # **deleteAuthMethod**
 > DeleteAuthMethodOutput deleteAuthMethod(body)
@@ -3123,6 +3190,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | encryptPKCS1Response wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="encryptWithClassicKey"></a>
+# **encryptWithClassicKey**
+> EncryptOutput encryptWithClassicKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EncryptWithClassicKey body = new EncryptWithClassicKey(); // EncryptWithClassicKey | 
+    try {
+      EncryptOutput result = apiInstance.encryptWithClassicKey(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#encryptWithClassicKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EncryptWithClassicKey**](EncryptWithClassicKey.md)|  |
+
+### Return type
+
+[**EncryptOutput**](EncryptOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | encryptResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateProducerArtifactory"></a>
@@ -6226,6 +6354,66 @@ No authorization required
 **200** | setRoleRuleResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="signJWTWithClassicKey"></a>
+# **signJWTWithClassicKey**
+> signJWTWithClassicKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    SignJWTWithClassicKey body = new SignJWTWithClassicKey(); // SignJWTWithClassicKey | 
+    try {
+      apiInstance.signJWTWithClassicKey(body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#signJWTWithClassicKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SignJWTWithClassicKey**](SignJWTWithClassicKey.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="signPKCS1"></a>
 # **signPKCS1**
 > SignPKCS1Output signPKCS1(body)
@@ -6285,6 +6473,66 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | signPKCS1Response wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="signPKICertWithClassicKey"></a>
+# **signPKICertWithClassicKey**
+> signPKICertWithClassicKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    SignPKICertWithClassicKey body = new SignPKICertWithClassicKey(); // SignPKICertWithClassicKey | 
+    try {
+      apiInstance.signPKICertWithClassicKey(body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#signPKICertWithClassicKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SignPKICertWithClassicKey**](SignPKICertWithClassicKey.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="staticCredsAuth"></a>
@@ -8174,6 +8422,66 @@ No authorization required
 **200** | uploadRSAResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="verifyJWTWithClassicKey"></a>
+# **verifyJWTWithClassicKey**
+> verifyJWTWithClassicKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    VerifyJWTWithClassicKey body = new VerifyJWTWithClassicKey(); // VerifyJWTWithClassicKey | 
+    try {
+      apiInstance.verifyJWTWithClassicKey(body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#verifyJWTWithClassicKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**VerifyJWTWithClassicKey**](VerifyJWTWithClassicKey.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="verifyPKCS1"></a>
 # **verifyPKCS1**
 > Object verifyPKCS1(body)
@@ -8233,5 +8541,65 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | verifyPKCS1Response wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="verifyPKICertWithClassicKey"></a>
+# **verifyPKICertWithClassicKey**
+> verifyPKICertWithClassicKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    VerifyPKICertWithClassicKey body = new VerifyPKICertWithClassicKey(); // VerifyPKICertWithClassicKey | 
+    try {
+      apiInstance.verifyPKICertWithClassicKey(body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#verifyPKICertWithClassicKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**VerifyPKICertWithClassicKey**](VerifyPKICertWithClassicKey.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 

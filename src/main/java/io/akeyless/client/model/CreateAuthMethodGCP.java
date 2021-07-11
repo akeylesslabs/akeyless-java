@@ -130,8 +130,7 @@ public class CreateAuthMethodGCP {
    * The audience to verify in the JWT received by the client
    * @return audience
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The audience to verify in the JWT received by the client")
+  @ApiModelProperty(required = true, value = "The audience to verify in the JWT received by the client")
 
   public String getAudience() {
     return audience;
@@ -453,8 +452,7 @@ public class CreateAuthMethodGCP {
    * Type of the GCP Access Rules
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of the GCP Access Rules")
+  @ApiModelProperty(required = true, value = "Type of the GCP Access Rules")
 
   public String getType() {
     return type;

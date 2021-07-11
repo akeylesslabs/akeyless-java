@@ -31,10 +31,6 @@ import java.util.List;
  */
 
 public class UploadPKCS12 {
-  public static final String SERIALIZED_NAME_CERT = "cert";
-  @SerializedName(SERIALIZED_NAME_CERT)
-  private String cert;
-
   public static final String SERIALIZED_NAME_CUSTOMER_FRG_ID = "customer-frg-id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
@@ -78,29 +74,6 @@ public class UploadPKCS12 {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public UploadPKCS12 cert(String cert) {
-    
-    this.cert = cert;
-    return this;
-  }
-
-   /**
-   * Path to a file that contain the certificate in a PEM format. If this parameter is not empty, the certificate will be taken from here and not from the PKCS#12 input file
-   * @return cert
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path to a file that contain the certificate in a PEM format. If this parameter is not empty, the certificate will be taken from here and not from the PKCS#12 input file")
-
-  public String getCert() {
-    return cert;
-  }
-
-
-  public void setCert(String cert) {
-    this.cert = cert;
-  }
 
 
   public UploadPKCS12 customerFrgId(String customerFrgId) {
@@ -370,8 +343,7 @@ public class UploadPKCS12 {
       return false;
     }
     UploadPKCS12 uploadPKCS12 = (UploadPKCS12) o;
-    return Objects.equals(this.cert, uploadPKCS12.cert) &&
-        Objects.equals(this.customerFrgId, uploadPKCS12.customerFrgId) &&
+    return Objects.equals(this.customerFrgId, uploadPKCS12.customerFrgId) &&
         Objects.equals(this.in, uploadPKCS12.in) &&
         Objects.equals(this.metadata, uploadPKCS12.metadata) &&
         Objects.equals(this.name, uploadPKCS12.name) &&
@@ -386,7 +358,7 @@ public class UploadPKCS12 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cert, customerFrgId, in, metadata, name, passphrase, password, splitLevel, tag, token, uidToken, username);
+    return Objects.hash(customerFrgId, in, metadata, name, passphrase, password, splitLevel, tag, token, uidToken, username);
   }
 
 
@@ -394,7 +366,6 @@ public class UploadPKCS12 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UploadPKCS12 {\n");
-    sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
