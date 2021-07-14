@@ -32,6 +32,10 @@ import java.util.Map;
  */
 
 public class Encrypt {
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
   public static final String SERIALIZED_NAME_ENCRYPTION_CONTEXT = "encryption-context";
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_CONTEXT)
   private Map<String, String> encryptionContext = null;
@@ -59,6 +63,29 @@ public class Encrypt {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
+
+
+  public Encrypt displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the key to use in the encryption process
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the key to use in the encryption process")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
 
 
   public Encrypt encryptionContext(Map<String, String> encryptionContext) {
@@ -102,7 +129,8 @@ public class Encrypt {
    * The name of the key to use in the encryption process
    * @return keyName
   **/
-  @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the key to use in the encryption process")
 
   public String getKeyName() {
     return keyName;
@@ -237,7 +265,8 @@ public class Encrypt {
       return false;
     }
     Encrypt encrypt = (Encrypt) o;
-    return Objects.equals(this.encryptionContext, encrypt.encryptionContext) &&
+    return Objects.equals(this.displayId, encrypt.displayId) &&
+        Objects.equals(this.encryptionContext, encrypt.encryptionContext) &&
         Objects.equals(this.keyName, encrypt.keyName) &&
         Objects.equals(this.password, encrypt.password) &&
         Objects.equals(this.plaintext, encrypt.plaintext) &&
@@ -248,7 +277,7 @@ public class Encrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptionContext, keyName, password, plaintext, token, uidToken, username);
+    return Objects.hash(displayId, encryptionContext, keyName, password, plaintext, token, uidToken, username);
   }
 
 
@@ -256,6 +285,7 @@ public class Encrypt {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Encrypt {\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

@@ -37,6 +37,10 @@ public class Decrypt {
   @SerializedName(SERIALIZED_NAME_CIPHERTEXT)
   private String ciphertext;
 
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
   public static final String SERIALIZED_NAME_ENCRYPTION_CONTEXT = "encryption-context";
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_CONTEXT)
   private Map<String, String> encryptionContext = null;
@@ -84,6 +88,29 @@ public class Decrypt {
   }
 
 
+  public Decrypt displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the key to use in the decryption process
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the key to use in the decryption process")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
   public Decrypt encryptionContext(Map<String, String> encryptionContext) {
     
     this.encryptionContext = encryptionContext;
@@ -125,7 +152,8 @@ public class Decrypt {
    * The name of the key to use in the decryption process
    * @return keyName
   **/
-  @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the key to use in the decryption process")
 
   public String getKeyName() {
     return keyName;
@@ -239,6 +267,7 @@ public class Decrypt {
     }
     Decrypt decrypt = (Decrypt) o;
     return Objects.equals(this.ciphertext, decrypt.ciphertext) &&
+        Objects.equals(this.displayId, decrypt.displayId) &&
         Objects.equals(this.encryptionContext, decrypt.encryptionContext) &&
         Objects.equals(this.keyName, decrypt.keyName) &&
         Objects.equals(this.password, decrypt.password) &&
@@ -249,7 +278,7 @@ public class Decrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, encryptionContext, keyName, password, token, uidToken, username);
+    return Objects.hash(ciphertext, displayId, encryptionContext, keyName, password, token, uidToken, username);
   }
 
 
@@ -258,6 +287,7 @@ public class Decrypt {
     StringBuilder sb = new StringBuilder();
     sb.append("class Decrypt {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

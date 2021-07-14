@@ -32,6 +32,14 @@ import java.util.List;
  */
 
 public class KMIPClient {
+  public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
+  @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
+  private String environment;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -39,6 +47,52 @@ public class KMIPClient {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
   private List<PathRule> rules = null;
+
+
+  public KMIPClient environment(String environment) {
+    
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Get environment
+   * @return environment
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getEnvironment() {
+    return environment;
+  }
+
+
+  public void setEnvironment(String environment) {
+    this.environment = environment;
+  }
+
+
+  public KMIPClient id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
 
   public KMIPClient name(String name) {
@@ -104,13 +158,15 @@ public class KMIPClient {
       return false;
     }
     KMIPClient kmIPClient = (KMIPClient) o;
-    return Objects.equals(this.name, kmIPClient.name) &&
+    return Objects.equals(this.environment, kmIPClient.environment) &&
+        Objects.equals(this.id, kmIPClient.id) &&
+        Objects.equals(this.name, kmIPClient.name) &&
         Objects.equals(this.rules, kmIPClient.rules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, rules);
+    return Objects.hash(environment, id, name, rules);
   }
 
 
@@ -118,6 +174,8 @@ public class KMIPClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KMIPClient {\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");

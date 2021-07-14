@@ -24,6 +24,7 @@ import io.akeyless.client.model.KMIPClient;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,10 @@ public class KMIPClientsConfigPart {
   public static final String SERIALIZED_NAME_CLIENTS = "clients";
   @SerializedName(SERIALIZED_NAME_CLIENTS)
   private Map<String, KMIPClient> clients = null;
+
+  public static final String SERIALIZED_NAME_ENVIRONMENTS = "environments";
+  @SerializedName(SERIALIZED_NAME_ENVIRONMENTS)
+  private List<String> environments = null;
 
 
   public KMIPClientsConfigPart clients(Map<String, KMIPClient> clients) {
@@ -69,6 +74,37 @@ public class KMIPClientsConfigPart {
   }
 
 
+  public KMIPClientsConfigPart environments(List<String> environments) {
+    
+    this.environments = environments;
+    return this;
+  }
+
+  public KMIPClientsConfigPart addEnvironmentsItem(String environmentsItem) {
+    if (this.environments == null) {
+      this.environments = new ArrayList<String>();
+    }
+    this.environments.add(environmentsItem);
+    return this;
+  }
+
+   /**
+   * Get environments
+   * @return environments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getEnvironments() {
+    return environments;
+  }
+
+
+  public void setEnvironments(List<String> environments) {
+    this.environments = environments;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -78,12 +114,13 @@ public class KMIPClientsConfigPart {
       return false;
     }
     KMIPClientsConfigPart kmIPClientsConfigPart = (KMIPClientsConfigPart) o;
-    return Objects.equals(this.clients, kmIPClientsConfigPart.clients);
+    return Objects.equals(this.clients, kmIPClientsConfigPart.clients) &&
+        Objects.equals(this.environments, kmIPClientsConfigPart.environments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clients);
+    return Objects.hash(clients, environments);
   }
 
 
@@ -92,6 +129,7 @@ public class KMIPClientsConfigPart {
     StringBuilder sb = new StringBuilder();
     sb.append("class KMIPClientsConfigPart {\n");
     sb.append("    clients: ").append(toIndentedString(clients)).append("\n");
+    sb.append("    environments: ").append(toIndentedString(environments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
