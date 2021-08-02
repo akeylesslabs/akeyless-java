@@ -51,6 +51,30 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS = "secure-access-ssh-creds";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS)
+  private String secureAccessSshCreds;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -183,6 +207,152 @@ public class CreateSecret {
 
   public void setProtectionKey(String protectionKey) {
     this.protectionKey = protectionKey;
+  }
+
+
+  public CreateSecret secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public CreateSecret secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public CreateSecret secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public CreateSecret addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessHost
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
+  public CreateSecret secureAccessSshCreds(String secureAccessSshCreds) {
+    
+    this.secureAccessSshCreds = secureAccessSshCreds;
+    return this;
+  }
+
+   /**
+   * Get secureAccessSshCreds
+   * @return secureAccessSshCreds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessSshCreds() {
+    return secureAccessSshCreds;
+  }
+
+
+  public void setSecureAccessSshCreds(String secureAccessSshCreds) {
+    this.secureAccessSshCreds = secureAccessSshCreds;
+  }
+
+
+  public CreateSecret secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Get secureAccessUrl
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public CreateSecret secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebBrowsing
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
   }
 
 
@@ -322,6 +492,12 @@ public class CreateSecret {
         Objects.equals(this.name, createSecret.name) &&
         Objects.equals(this.password, createSecret.password) &&
         Objects.equals(this.protectionKey, createSecret.protectionKey) &&
+        Objects.equals(this.secureAccessBastionIssuer, createSecret.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessEnable, createSecret.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, createSecret.secureAccessHost) &&
+        Objects.equals(this.secureAccessSshCreds, createSecret.secureAccessSshCreds) &&
+        Objects.equals(this.secureAccessUrl, createSecret.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWebBrowsing, createSecret.secureAccessWebBrowsing) &&
         Objects.equals(this.tags, createSecret.tags) &&
         Objects.equals(this.token, createSecret.token) &&
         Objects.equals(this.uidToken, createSecret.uidToken) &&
@@ -331,7 +507,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, multilineValue, name, password, protectionKey, tags, token, uidToken, username, value);
+    return Objects.hash(metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessUrl, secureAccessWebBrowsing, tags, token, uidToken, username, value);
   }
 
 
@@ -344,6 +520,12 @@ public class CreateSecret {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessSshCreds: ").append(toIndentedString(secureAccessSshCreds)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

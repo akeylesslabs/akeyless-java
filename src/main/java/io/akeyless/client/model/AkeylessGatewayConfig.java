@@ -25,7 +25,7 @@ import io.akeyless.client.model.CFConfigPart;
 import io.akeyless.client.model.CacheConfigPart;
 import io.akeyless.client.model.DefaultConfigPart;
 import io.akeyless.client.model.GeneralConfigPart;
-import io.akeyless.client.model.KMIPClientsConfigPart;
+import io.akeyless.client.model.KMIPConfigPart;
 import io.akeyless.client.model.LdapConfigPart;
 import io.akeyless.client.model.LeadershipConfigPart;
 import io.akeyless.client.model.LogForwardingConfigPart;
@@ -64,7 +64,7 @@ public class AkeylessGatewayConfig {
 
   public static final String SERIALIZED_NAME_KMIP_CLIENTS = "kmip_clients";
   @SerializedName(SERIALIZED_NAME_KMIP_CLIENTS)
-  private KMIPClientsConfigPart kmipClients;
+  private KMIPConfigPart kmipClients;
 
   public static final String SERIALIZED_NAME_LDAP = "ldap";
   @SerializedName(SERIALIZED_NAME_LDAP)
@@ -218,7 +218,7 @@ public class AkeylessGatewayConfig {
   }
 
 
-  public AkeylessGatewayConfig kmipClients(KMIPClientsConfigPart kmipClients) {
+  public AkeylessGatewayConfig kmipClients(KMIPConfigPart kmipClients) {
     
     this.kmipClients = kmipClients;
     return this;
@@ -231,12 +231,12 @@ public class AkeylessGatewayConfig {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public KMIPClientsConfigPart getKmipClients() {
+  public KMIPConfigPart getKmipClients() {
     return kmipClients;
   }
 
 
-  public void setKmipClients(KMIPClientsConfigPart kmipClients) {
+  public void setKmipClients(KMIPConfigPart kmipClients) {
     this.kmipClients = kmipClients;
   }
 

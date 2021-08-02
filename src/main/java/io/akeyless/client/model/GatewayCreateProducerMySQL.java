@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerMySQL is a command that creates mysql producer
@@ -73,6 +75,18 @@ public class GatewayCreateProducerMySQL {
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -340,6 +354,83 @@ public class GatewayCreateProducerMySQL {
   }
 
 
+  public GatewayCreateProducerMySQL secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public GatewayCreateProducerMySQL secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerMySQL secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public GatewayCreateProducerMySQL addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessHost
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
   public GatewayCreateProducerMySQL token(String token) {
     
     this.token = token;
@@ -452,6 +543,9 @@ public class GatewayCreateProducerMySQL {
         Objects.equals(this.name, gatewayCreateProducerMySQL.name) &&
         Objects.equals(this.password, gatewayCreateProducerMySQL.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMySQL.producerEncryptionKeyName) &&
+        Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMySQL.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerMySQL.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, gatewayCreateProducerMySQL.secureAccessHost) &&
         Objects.equals(this.token, gatewayCreateProducerMySQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMySQL.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerMySQL.userTtl) &&
@@ -460,7 +554,7 @@ public class GatewayCreateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, token, uidToken, userTtl, username);
   }
 
 
@@ -479,6 +573,9 @@ public class GatewayCreateProducerMySQL {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

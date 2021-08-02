@@ -12,6 +12,11 @@ Name | Type | Description | Notes
 **name** | **String** | SSH certificate issuer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **principals** | **String** | Signed certificates with principal, e.g example_role1,example_role2 |  [optional]
+**secureAccessBastionApi** | **String** |  |  [optional]
+**secureAccessBastionSsh** | **String** |  |  [optional]
+**secureAccessEnable** | **String** |  |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
+**secureAccessSshCredsUser** | **String** |  |  [optional]
 **signerKeyName** | **String** | A key to sign the certificate with | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **ttl** | **Long** | The requested Time To Live for the certificate, use second units | 

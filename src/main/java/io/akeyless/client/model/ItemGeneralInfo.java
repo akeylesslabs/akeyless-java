@@ -24,6 +24,7 @@ import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
 import io.akeyless.client.model.RotatedSecretDetailsInfo;
+import io.akeyless.client.model.SecureRemoteAccess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -48,6 +49,10 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_ROTATED_SECRET_DETAILS = "rotated_secret_details";
   @SerializedName(SERIALIZED_NAME_ROTATED_SECRET_DETAILS)
   private RotatedSecretDetailsInfo rotatedSecretDetails;
+
+  public static final String SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS = "secure_remote_access_details";
+  @SerializedName(SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS)
+  private SecureRemoteAccess secureRemoteAccessDetails;
 
 
   public ItemGeneralInfo certIssueDetails(CertificateIssueInfo certIssueDetails) {
@@ -142,6 +147,29 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo secureRemoteAccessDetails(SecureRemoteAccess secureRemoteAccessDetails) {
+    
+    this.secureRemoteAccessDetails = secureRemoteAccessDetails;
+    return this;
+  }
+
+   /**
+   * Get secureRemoteAccessDetails
+   * @return secureRemoteAccessDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SecureRemoteAccess getSecureRemoteAccessDetails() {
+    return secureRemoteAccessDetails;
+  }
+
+
+  public void setSecureRemoteAccessDetails(SecureRemoteAccess secureRemoteAccessDetails) {
+    this.secureRemoteAccessDetails = secureRemoteAccessDetails;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -154,12 +182,13 @@ public class ItemGeneralInfo {
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
-        Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails);
+        Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails) &&
+        Objects.equals(this.secureRemoteAccessDetails, itemGeneralInfo.secureRemoteAccessDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, classicKeyDetails, dynamicSecretProducerDetails, rotatedSecretDetails);
+    return Objects.hash(certIssueDetails, classicKeyDetails, dynamicSecretProducerDetails, rotatedSecretDetails, secureRemoteAccessDetails);
   }
 
 
@@ -171,6 +200,7 @@ public class ItemGeneralInfo {
     sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
+    sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

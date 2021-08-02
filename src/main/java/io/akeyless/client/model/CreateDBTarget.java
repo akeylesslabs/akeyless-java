@@ -101,6 +101,10 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_ORACLE_SERVICE_NAME = "oracle-service-name";
+  @SerializedName(SERIALIZED_NAME_ORACLE_SERVICE_NAME)
+  private String oracleServiceName;
+
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -546,6 +550,29 @@ public class CreateDBTarget {
   }
 
 
+  public CreateDBTarget oracleServiceName(String oracleServiceName) {
+    
+    this.oracleServiceName = oracleServiceName;
+    return this;
+  }
+
+   /**
+   * Get oracleServiceName
+   * @return oracleServiceName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getOracleServiceName() {
+    return oracleServiceName;
+  }
+
+
+  public void setOracleServiceName(String oracleServiceName) {
+    this.oracleServiceName = oracleServiceName;
+  }
+
+
   public CreateDBTarget password(String password) {
     
     this.password = password;
@@ -757,6 +784,7 @@ public class CreateDBTarget {
         Objects.equals(this.mongodbUriOptions, createDBTarget.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, createDBTarget.mongodbUsername) &&
         Objects.equals(this.name, createDBTarget.name) &&
+        Objects.equals(this.oracleServiceName, createDBTarget.oracleServiceName) &&
         Objects.equals(this.password, createDBTarget.password) &&
         Objects.equals(this.port, createDBTarget.port) &&
         Objects.equals(this.pwd, createDBTarget.pwd) &&
@@ -769,7 +797,7 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, port, pwd, snowflakeAccount, token, uidToken, userName, username);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, oracleServiceName, password, port, pwd, snowflakeAccount, token, uidToken, userName, username);
   }
 
 
@@ -795,6 +823,7 @@ public class CreateDBTarget {
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");

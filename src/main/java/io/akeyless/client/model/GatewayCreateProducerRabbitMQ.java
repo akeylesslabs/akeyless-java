@@ -74,6 +74,18 @@ public class GatewayCreateProducerRabbitMQ {
   @SerializedName(SERIALIZED_NAME_RABBITMQ_USER_WRITE_PERMISSION)
   private String rabbitmqUserWritePermission;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -337,6 +349,75 @@ public class GatewayCreateProducerRabbitMQ {
   }
 
 
+  public GatewayCreateProducerRabbitMQ secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerRabbitMQ secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Get secureAccessUrl
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public GatewayCreateProducerRabbitMQ secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebBrowsing
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
   public GatewayCreateProducerRabbitMQ token(String token) {
     
     this.token = token;
@@ -449,6 +530,9 @@ public class GatewayCreateProducerRabbitMQ {
         Objects.equals(this.rabbitmqUserTags, gatewayCreateProducerRabbitMQ.rabbitmqUserTags) &&
         Objects.equals(this.rabbitmqUserVhost, gatewayCreateProducerRabbitMQ.rabbitmqUserVhost) &&
         Objects.equals(this.rabbitmqUserWritePermission, gatewayCreateProducerRabbitMQ.rabbitmqUserWritePermission) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerRabbitMQ.secureAccessEnable) &&
+        Objects.equals(this.secureAccessUrl, gatewayCreateProducerRabbitMQ.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerRabbitMQ.secureAccessWebBrowsing) &&
         Objects.equals(this.token, gatewayCreateProducerRabbitMQ.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRabbitMQ.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerRabbitMQ.userTtl) &&
@@ -457,7 +541,7 @@ public class GatewayCreateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, token, uidToken, userTtl, username);
+    return Objects.hash(name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, token, uidToken, userTtl, username);
   }
 
 
@@ -476,6 +560,9 @@ public class GatewayCreateProducerRabbitMQ {
     sb.append("    rabbitmqUserTags: ").append(toIndentedString(rabbitmqUserTags)).append("\n");
     sb.append("    rabbitmqUserVhost: ").append(toIndentedString(rabbitmqUserVhost)).append("\n");
     sb.append("    rabbitmqUserWritePermission: ").append(toIndentedString(rabbitmqUserWritePermission)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

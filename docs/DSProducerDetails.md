@@ -102,6 +102,7 @@ Name | Type | Description | Notes
 **mssqlCreationStatements** | **String** |  |  [optional]
 **mssqlRevocationStatements** | **String** |  |  [optional]
 **mysqlCreationStatements** | **String** |  |  [optional]
+**oracleCreationStatements** | **String** |  |  [optional]
 **payload** | **String** |  |  [optional]
 **postgresCreationStatements** | **String** |  |  [optional]
 **rabbitmqServerPassword** | **String** |  |  [optional]

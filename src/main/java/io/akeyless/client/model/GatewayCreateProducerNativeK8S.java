@@ -62,6 +62,30 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING = "secure-access-allow-port-forwading";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
+  private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_CLUSTER_ENDPOINT = "secure-access-cluster-endpoint";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_CLUSTER_ENDPOINT)
+  private String secureAccessClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DASHBOARD_URL = "secure-access-dashboard-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DASHBOARD_URL)
+  private String secureAccessDashboardUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -258,6 +282,144 @@ public class GatewayCreateProducerNativeK8S {
   }
 
 
+  public GatewayCreateProducerNativeK8S secureAccessAllowPortForwading(Boolean secureAccessAllowPortForwading) {
+    
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAllowPortForwading
+   * @return secureAccessAllowPortForwading
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessAllowPortForwading() {
+    return secureAccessAllowPortForwading;
+  }
+
+
+  public void setSecureAccessAllowPortForwading(Boolean secureAccessAllowPortForwading) {
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public GatewayCreateProducerNativeK8S secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public GatewayCreateProducerNativeK8S secureAccessClusterEndpoint(String secureAccessClusterEndpoint) {
+    
+    this.secureAccessClusterEndpoint = secureAccessClusterEndpoint;
+    return this;
+  }
+
+   /**
+   * Get secureAccessClusterEndpoint
+   * @return secureAccessClusterEndpoint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessClusterEndpoint() {
+    return secureAccessClusterEndpoint;
+  }
+
+
+  public void setSecureAccessClusterEndpoint(String secureAccessClusterEndpoint) {
+    this.secureAccessClusterEndpoint = secureAccessClusterEndpoint;
+  }
+
+
+  public GatewayCreateProducerNativeK8S secureAccessDashboardUrl(String secureAccessDashboardUrl) {
+    
+    this.secureAccessDashboardUrl = secureAccessDashboardUrl;
+    return this;
+  }
+
+   /**
+   * Get secureAccessDashboardUrl
+   * @return secureAccessDashboardUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessDashboardUrl() {
+    return secureAccessDashboardUrl;
+  }
+
+
+  public void setSecureAccessDashboardUrl(String secureAccessDashboardUrl) {
+    this.secureAccessDashboardUrl = secureAccessDashboardUrl;
+  }
+
+
+  public GatewayCreateProducerNativeK8S secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerNativeK8S secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebBrowsing
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
   public GatewayCreateProducerNativeK8S token(String token) {
     
     this.token = token;
@@ -367,6 +529,12 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.name, gatewayCreateProducerNativeK8S.name) &&
         Objects.equals(this.password, gatewayCreateProducerNativeK8S.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerNativeK8S.producerEncryptionKeyName) &&
+        Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerNativeK8S.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerNativeK8S.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerNativeK8S.secureAccessClusterEndpoint) &&
+        Objects.equals(this.secureAccessDashboardUrl, gatewayCreateProducerNativeK8S.secureAccessDashboardUrl) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerNativeK8S.secureAccessEnable) &&
+        Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerNativeK8S.secureAccessWebBrowsing) &&
         Objects.equals(this.token, gatewayCreateProducerNativeK8S.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerNativeK8S.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerNativeK8S.userTtl) &&
@@ -375,7 +543,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWebBrowsing, token, uidToken, userTtl, username);
   }
 
 
@@ -391,6 +559,12 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
+    sb.append("    secureAccessDashboardUrl: ").append(toIndentedString(secureAccessDashboardUrl)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

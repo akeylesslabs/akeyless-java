@@ -37,6 +37,10 @@ public class UpdateGcpTarget {
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
 
+  public static final String SERIALIZED_NAME_GCP_SA_EMAIL = "gcp-sa-email";
+  @SerializedName(SERIALIZED_NAME_GCP_SA_EMAIL)
+  private String gcpSaEmail;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -113,6 +117,28 @@ public class UpdateGcpTarget {
 
   public void setGcpKey(String gcpKey) {
     this.gcpKey = gcpKey;
+  }
+
+
+  public UpdateGcpTarget gcpSaEmail(String gcpSaEmail) {
+    
+    this.gcpSaEmail = gcpSaEmail;
+    return this;
+  }
+
+   /**
+   * GCP service account email
+   * @return gcpSaEmail
+  **/
+  @ApiModelProperty(required = true, value = "GCP service account email")
+
+  public String getGcpSaEmail() {
+    return gcpSaEmail;
+  }
+
+
+  public void setGcpSaEmail(String gcpSaEmail) {
+    this.gcpSaEmail = gcpSaEmail;
   }
 
 
@@ -310,6 +336,7 @@ public class UpdateGcpTarget {
     UpdateGcpTarget updateGcpTarget = (UpdateGcpTarget) o;
     return Objects.equals(this.comment, updateGcpTarget.comment) &&
         Objects.equals(this.gcpKey, updateGcpTarget.gcpKey) &&
+        Objects.equals(this.gcpSaEmail, updateGcpTarget.gcpSaEmail) &&
         Objects.equals(this.key, updateGcpTarget.key) &&
         Objects.equals(this.name, updateGcpTarget.name) &&
         Objects.equals(this.newName, updateGcpTarget.newName) &&
@@ -322,7 +349,7 @@ public class UpdateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gcpKey, key, name, newName, password, token, uidToken, updateVersion, username);
+    return Objects.hash(comment, gcpKey, gcpSaEmail, key, name, newName, password, token, uidToken, updateVersion, username);
   }
 
 
@@ -332,6 +359,7 @@ public class UpdateGcpTarget {
     sb.append("class UpdateGcpTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
+    sb.append("    gcpSaEmail: ").append(toIndentedString(gcpSaEmail)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **String** | Comment about the target |  [optional]
 **gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
+**gcpSaEmail** | **String** | GCP service account email | 
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **name** | **String** | Target name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]

@@ -55,6 +55,78 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   private List<String> rmTag = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING = "secure-access-allow-port-forwading";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
+  private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID = "secure-access-aws-account-id";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID)
+  private String secureAccessAwsAccountId;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_NATIVE_CLI = "secure-access-aws-native-cli";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_NATIVE_CLI)
+  private Boolean secureAccessAwsNativeCli;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_REGION = "secure-access-aws-region";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_REGION)
+  private String secureAccessAwsRegion;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_API = "secure-access-bastion-api";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_API)
+  private String secureAccessBastionApi;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_SSH = "secure-access-bastion-ssh";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_SSH)
+  private String secureAccessBastionSsh;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_CLUSTER_ENDPOINT = "secure-access-cluster-endpoint";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_CLUSTER_ENDPOINT)
+  private String secureAccessClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DASHBOARD_URL = "secure-access-dashboard-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DASHBOARD_URL)
+  private String secureAccessDashboardUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DB_NAME = "secure-access-db-name";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DB_NAME)
+  private String secureAccessDbName;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA = "secure-access-db-schema";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA)
+  private String secureAccessDbSchema;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
+  private String secureAccessRdpDomain;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS = "secure-access-ssh-creds";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS)
+  private String secureAccessSshCreds;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS_USER = "secure-access-ssh-creds-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS_USER)
+  private String secureAccessSshCredsUser;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -221,6 +293,428 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem secureAccessAllowPortForwading(Boolean secureAccessAllowPortForwading) {
+    
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAllowPortForwading
+   * @return secureAccessAllowPortForwading
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessAllowPortForwading() {
+    return secureAccessAllowPortForwading;
+  }
+
+
+  public void setSecureAccessAllowPortForwading(Boolean secureAccessAllowPortForwading) {
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public UpdateItem secureAccessAwsAccountId(String secureAccessAwsAccountId) {
+    
+    this.secureAccessAwsAccountId = secureAccessAwsAccountId;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAwsAccountId
+   * @return secureAccessAwsAccountId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessAwsAccountId() {
+    return secureAccessAwsAccountId;
+  }
+
+
+  public void setSecureAccessAwsAccountId(String secureAccessAwsAccountId) {
+    this.secureAccessAwsAccountId = secureAccessAwsAccountId;
+  }
+
+
+  public UpdateItem secureAccessAwsNativeCli(Boolean secureAccessAwsNativeCli) {
+    
+    this.secureAccessAwsNativeCli = secureAccessAwsNativeCli;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAwsNativeCli
+   * @return secureAccessAwsNativeCli
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessAwsNativeCli() {
+    return secureAccessAwsNativeCli;
+  }
+
+
+  public void setSecureAccessAwsNativeCli(Boolean secureAccessAwsNativeCli) {
+    this.secureAccessAwsNativeCli = secureAccessAwsNativeCli;
+  }
+
+
+  public UpdateItem secureAccessAwsRegion(String secureAccessAwsRegion) {
+    
+    this.secureAccessAwsRegion = secureAccessAwsRegion;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAwsRegion
+   * @return secureAccessAwsRegion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessAwsRegion() {
+    return secureAccessAwsRegion;
+  }
+
+
+  public void setSecureAccessAwsRegion(String secureAccessAwsRegion) {
+    this.secureAccessAwsRegion = secureAccessAwsRegion;
+  }
+
+
+  public UpdateItem secureAccessBastionApi(String secureAccessBastionApi) {
+    
+    this.secureAccessBastionApi = secureAccessBastionApi;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionApi
+   * @return secureAccessBastionApi
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionApi() {
+    return secureAccessBastionApi;
+  }
+
+
+  public void setSecureAccessBastionApi(String secureAccessBastionApi) {
+    this.secureAccessBastionApi = secureAccessBastionApi;
+  }
+
+
+  public UpdateItem secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public UpdateItem secureAccessBastionSsh(String secureAccessBastionSsh) {
+    
+    this.secureAccessBastionSsh = secureAccessBastionSsh;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionSsh
+   * @return secureAccessBastionSsh
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionSsh() {
+    return secureAccessBastionSsh;
+  }
+
+
+  public void setSecureAccessBastionSsh(String secureAccessBastionSsh) {
+    this.secureAccessBastionSsh = secureAccessBastionSsh;
+  }
+
+
+  public UpdateItem secureAccessClusterEndpoint(String secureAccessClusterEndpoint) {
+    
+    this.secureAccessClusterEndpoint = secureAccessClusterEndpoint;
+    return this;
+  }
+
+   /**
+   * Get secureAccessClusterEndpoint
+   * @return secureAccessClusterEndpoint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessClusterEndpoint() {
+    return secureAccessClusterEndpoint;
+  }
+
+
+  public void setSecureAccessClusterEndpoint(String secureAccessClusterEndpoint) {
+    this.secureAccessClusterEndpoint = secureAccessClusterEndpoint;
+  }
+
+
+  public UpdateItem secureAccessDashboardUrl(String secureAccessDashboardUrl) {
+    
+    this.secureAccessDashboardUrl = secureAccessDashboardUrl;
+    return this;
+  }
+
+   /**
+   * Get secureAccessDashboardUrl
+   * @return secureAccessDashboardUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessDashboardUrl() {
+    return secureAccessDashboardUrl;
+  }
+
+
+  public void setSecureAccessDashboardUrl(String secureAccessDashboardUrl) {
+    this.secureAccessDashboardUrl = secureAccessDashboardUrl;
+  }
+
+
+  public UpdateItem secureAccessDbName(String secureAccessDbName) {
+    
+    this.secureAccessDbName = secureAccessDbName;
+    return this;
+  }
+
+   /**
+   * Get secureAccessDbName
+   * @return secureAccessDbName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessDbName() {
+    return secureAccessDbName;
+  }
+
+
+  public void setSecureAccessDbName(String secureAccessDbName) {
+    this.secureAccessDbName = secureAccessDbName;
+  }
+
+
+  public UpdateItem secureAccessDbSchema(String secureAccessDbSchema) {
+    
+    this.secureAccessDbSchema = secureAccessDbSchema;
+    return this;
+  }
+
+   /**
+   * Get secureAccessDbSchema
+   * @return secureAccessDbSchema
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessDbSchema() {
+    return secureAccessDbSchema;
+  }
+
+
+  public void setSecureAccessDbSchema(String secureAccessDbSchema) {
+    this.secureAccessDbSchema = secureAccessDbSchema;
+  }
+
+
+  public UpdateItem secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public UpdateItem secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public UpdateItem addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessHost
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
+  public UpdateItem secureAccessRdpDomain(String secureAccessRdpDomain) {
+    
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+    return this;
+  }
+
+   /**
+   * Get secureAccessRdpDomain
+   * @return secureAccessRdpDomain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessRdpDomain() {
+    return secureAccessRdpDomain;
+  }
+
+
+  public void setSecureAccessRdpDomain(String secureAccessRdpDomain) {
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+  }
+
+
+  public UpdateItem secureAccessSshCreds(String secureAccessSshCreds) {
+    
+    this.secureAccessSshCreds = secureAccessSshCreds;
+    return this;
+  }
+
+   /**
+   * Get secureAccessSshCreds
+   * @return secureAccessSshCreds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessSshCreds() {
+    return secureAccessSshCreds;
+  }
+
+
+  public void setSecureAccessSshCreds(String secureAccessSshCreds) {
+    this.secureAccessSshCreds = secureAccessSshCreds;
+  }
+
+
+  public UpdateItem secureAccessSshCredsUser(String secureAccessSshCredsUser) {
+    
+    this.secureAccessSshCredsUser = secureAccessSshCredsUser;
+    return this;
+  }
+
+   /**
+   * Get secureAccessSshCredsUser
+   * @return secureAccessSshCredsUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessSshCredsUser() {
+    return secureAccessSshCredsUser;
+  }
+
+
+  public void setSecureAccessSshCredsUser(String secureAccessSshCredsUser) {
+    this.secureAccessSshCredsUser = secureAccessSshCredsUser;
+  }
+
+
+  public UpdateItem secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Get secureAccessUrl
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public UpdateItem secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebBrowsing
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
   public UpdateItem token(String token) {
     
     this.token = token;
@@ -305,6 +799,24 @@ public class UpdateItem {
         Objects.equals(this.newName, updateItem.newName) &&
         Objects.equals(this.password, updateItem.password) &&
         Objects.equals(this.rmTag, updateItem.rmTag) &&
+        Objects.equals(this.secureAccessAllowPortForwading, updateItem.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessAwsAccountId, updateItem.secureAccessAwsAccountId) &&
+        Objects.equals(this.secureAccessAwsNativeCli, updateItem.secureAccessAwsNativeCli) &&
+        Objects.equals(this.secureAccessAwsRegion, updateItem.secureAccessAwsRegion) &&
+        Objects.equals(this.secureAccessBastionApi, updateItem.secureAccessBastionApi) &&
+        Objects.equals(this.secureAccessBastionIssuer, updateItem.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessBastionSsh, updateItem.secureAccessBastionSsh) &&
+        Objects.equals(this.secureAccessClusterEndpoint, updateItem.secureAccessClusterEndpoint) &&
+        Objects.equals(this.secureAccessDashboardUrl, updateItem.secureAccessDashboardUrl) &&
+        Objects.equals(this.secureAccessDbName, updateItem.secureAccessDbName) &&
+        Objects.equals(this.secureAccessDbSchema, updateItem.secureAccessDbSchema) &&
+        Objects.equals(this.secureAccessEnable, updateItem.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, updateItem.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdpDomain, updateItem.secureAccessRdpDomain) &&
+        Objects.equals(this.secureAccessSshCreds, updateItem.secureAccessSshCreds) &&
+        Objects.equals(this.secureAccessSshCredsUser, updateItem.secureAccessSshCredsUser) &&
+        Objects.equals(this.secureAccessUrl, updateItem.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWebBrowsing, updateItem.secureAccessWebBrowsing) &&
         Objects.equals(this.token, updateItem.token) &&
         Objects.equals(this.uidToken, updateItem.uidToken) &&
         Objects.equals(this.username, updateItem.username);
@@ -312,7 +824,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, token, uidToken, username);
+    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessWebBrowsing, token, uidToken, username);
   }
 
 
@@ -326,6 +838,24 @@ public class UpdateItem {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
+    sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
+    sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
+    sb.append("    secureAccessAwsRegion: ").append(toIndentedString(secureAccessAwsRegion)).append("\n");
+    sb.append("    secureAccessBastionApi: ").append(toIndentedString(secureAccessBastionApi)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessBastionSsh: ").append(toIndentedString(secureAccessBastionSsh)).append("\n");
+    sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
+    sb.append("    secureAccessDashboardUrl: ").append(toIndentedString(secureAccessDashboardUrl)).append("\n");
+    sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");
+    sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
+    sb.append("    secureAccessSshCreds: ").append(toIndentedString(secureAccessSshCreds)).append("\n");
+    sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

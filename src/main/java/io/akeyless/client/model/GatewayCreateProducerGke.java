@@ -62,6 +62,22 @@ public class GatewayCreateProducerGke {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING = "secure-access-allow-port-forwading";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
+  private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_CLUSTER_ENDPOINT = "secure-access-cluster-endpoint";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_CLUSTER_ENDPOINT)
+  private String secureAccessClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -258,6 +274,98 @@ public class GatewayCreateProducerGke {
   }
 
 
+  public GatewayCreateProducerGke secureAccessAllowPortForwading(Boolean secureAccessAllowPortForwading) {
+    
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAllowPortForwading
+   * @return secureAccessAllowPortForwading
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessAllowPortForwading() {
+    return secureAccessAllowPortForwading;
+  }
+
+
+  public void setSecureAccessAllowPortForwading(Boolean secureAccessAllowPortForwading) {
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public GatewayCreateProducerGke secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public GatewayCreateProducerGke secureAccessClusterEndpoint(String secureAccessClusterEndpoint) {
+    
+    this.secureAccessClusterEndpoint = secureAccessClusterEndpoint;
+    return this;
+  }
+
+   /**
+   * Get secureAccessClusterEndpoint
+   * @return secureAccessClusterEndpoint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessClusterEndpoint() {
+    return secureAccessClusterEndpoint;
+  }
+
+
+  public void setSecureAccessClusterEndpoint(String secureAccessClusterEndpoint) {
+    this.secureAccessClusterEndpoint = secureAccessClusterEndpoint;
+  }
+
+
+  public GatewayCreateProducerGke secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
   public GatewayCreateProducerGke token(String token) {
     
     this.token = token;
@@ -367,6 +475,10 @@ public class GatewayCreateProducerGke {
         Objects.equals(this.name, gatewayCreateProducerGke.name) &&
         Objects.equals(this.password, gatewayCreateProducerGke.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGke.producerEncryptionKeyName) &&
+        Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerGke.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerGke.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerGke.secureAccessClusterEndpoint) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerGke.secureAccessEnable) &&
         Objects.equals(this.token, gatewayCreateProducerGke.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerGke.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerGke.userTtl) &&
@@ -375,7 +487,7 @@ public class GatewayCreateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, token, uidToken, userTtl, username);
   }
 
 
@@ -391,6 +503,10 @@ public class GatewayCreateProducerGke {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

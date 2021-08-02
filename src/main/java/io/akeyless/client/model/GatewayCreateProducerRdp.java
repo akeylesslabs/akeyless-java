@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerRdp is a command that creates rdp producer
@@ -65,6 +67,18 @@ public class GatewayCreateProducerRdp {
   public static final String SERIALIZED_NAME_RDP_USER_GROUPS = "rdp-user-groups";
   @SerializedName(SERIALIZED_NAME_RDP_USER_GROUPS)
   private String rdpUserGroups;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
+  private String secureAccessRdpDomain;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -285,6 +299,83 @@ public class GatewayCreateProducerRdp {
   }
 
 
+  public GatewayCreateProducerRdp secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerRdp secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public GatewayCreateProducerRdp addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessHost
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
+  public GatewayCreateProducerRdp secureAccessRdpDomain(String secureAccessRdpDomain) {
+    
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+    return this;
+  }
+
+   /**
+   * Get secureAccessRdpDomain
+   * @return secureAccessRdpDomain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessRdpDomain() {
+    return secureAccessRdpDomain;
+  }
+
+
+  public void setSecureAccessRdpDomain(String secureAccessRdpDomain) {
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+  }
+
+
   public GatewayCreateProducerRdp token(String token) {
     
     this.token = token;
@@ -395,6 +486,9 @@ public class GatewayCreateProducerRdp {
         Objects.equals(this.rdpHostName, gatewayCreateProducerRdp.rdpHostName) &&
         Objects.equals(this.rdpHostPort, gatewayCreateProducerRdp.rdpHostPort) &&
         Objects.equals(this.rdpUserGroups, gatewayCreateProducerRdp.rdpUserGroups) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerRdp.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, gatewayCreateProducerRdp.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdpDomain, gatewayCreateProducerRdp.secureAccessRdpDomain) &&
         Objects.equals(this.token, gatewayCreateProducerRdp.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRdp.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerRdp.userTtl) &&
@@ -403,7 +497,7 @@ public class GatewayCreateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedUserOnly, name, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, token, uidToken, userTtl, username);
+    return Objects.hash(fixedUserOnly, name, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, token, uidToken, userTtl, username);
   }
 
 
@@ -420,6 +514,9 @@ public class GatewayCreateProducerRdp {
     sb.append("    rdpHostName: ").append(toIndentedString(rdpHostName)).append("\n");
     sb.append("    rdpHostPort: ").append(toIndentedString(rdpHostPort)).append("\n");
     sb.append("    rdpUserGroups: ").append(toIndentedString(rdpUserGroups)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

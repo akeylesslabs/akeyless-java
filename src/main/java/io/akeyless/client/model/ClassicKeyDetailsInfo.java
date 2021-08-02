@@ -25,13 +25,19 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * ClassicKeyDetailsInfo
  */
 
 public class ClassicKeyDetailsInfo {
+  public static final String SERIALIZED_NAME_CLASSIC_KEY_ATTRIBUTES = "classic_key_attributes";
+  @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ATTRIBUTES)
+  private Map<String, List<String>> classicKeyAttributes = null;
+
   public static final String SERIALIZED_NAME_CLASSIC_KEY_ID = "classic_key_id";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ID)
   private String classicKeyId;
@@ -67,6 +73,37 @@ public class ClassicKeyDetailsInfo {
   public static final String SERIALIZED_NAME_TARGETS = "targets";
   @SerializedName(SERIALIZED_NAME_TARGETS)
   private List<ClassicKeyTargetInfo> targets = null;
+
+
+  public ClassicKeyDetailsInfo classicKeyAttributes(Map<String, List<String>> classicKeyAttributes) {
+    
+    this.classicKeyAttributes = classicKeyAttributes;
+    return this;
+  }
+
+  public ClassicKeyDetailsInfo putClassicKeyAttributesItem(String key, List<String> classicKeyAttributesItem) {
+    if (this.classicKeyAttributes == null) {
+      this.classicKeyAttributes = new HashMap<String, List<String>>();
+    }
+    this.classicKeyAttributes.put(key, classicKeyAttributesItem);
+    return this;
+  }
+
+   /**
+   * Get classicKeyAttributes
+   * @return classicKeyAttributes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, List<String>> getClassicKeyAttributes() {
+    return classicKeyAttributes;
+  }
+
+
+  public void setClassicKeyAttributes(Map<String, List<String>> classicKeyAttributes) {
+    this.classicKeyAttributes = classicKeyAttributes;
+  }
 
 
   public ClassicKeyDetailsInfo classicKeyId(String classicKeyId) {
@@ -301,7 +338,8 @@ public class ClassicKeyDetailsInfo {
       return false;
     }
     ClassicKeyDetailsInfo classicKeyDetailsInfo = (ClassicKeyDetailsInfo) o;
-    return Objects.equals(this.classicKeyId, classicKeyDetailsInfo.classicKeyId) &&
+    return Objects.equals(this.classicKeyAttributes, classicKeyDetailsInfo.classicKeyAttributes) &&
+        Objects.equals(this.classicKeyId, classicKeyDetailsInfo.classicKeyId) &&
         Objects.equals(this.isProvidedByUser, classicKeyDetailsInfo.isProvidedByUser) &&
         Objects.equals(this.isUnexportable, classicKeyDetailsInfo.isUnexportable) &&
         Objects.equals(this.keyState, classicKeyDetailsInfo.keyState) &&
@@ -314,7 +352,7 @@ public class ClassicKeyDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(classicKeyId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, targetAliasHelper, targetTypes, targets);
+    return Objects.hash(classicKeyAttributes, classicKeyId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, targetAliasHelper, targetTypes, targets);
   }
 
 
@@ -322,6 +360,7 @@ public class ClassicKeyDetailsInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassicKeyDetailsInfo {\n");
+    sb.append("    classicKeyAttributes: ").append(toIndentedString(classicKeyAttributes)).append("\n");
     sb.append("    classicKeyId: ").append(toIndentedString(classicKeyId)).append("\n");
     sb.append("    isProvidedByUser: ").append(toIndentedString(isProvidedByUser)).append("\n");
     sb.append("    isUnexportable: ").append(toIndentedString(isUnexportable)).append("\n");

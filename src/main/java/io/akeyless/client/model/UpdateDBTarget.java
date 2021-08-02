@@ -105,6 +105,10 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_ORACLE_SERVICE_NAME = "oracle-service-name";
+  @SerializedName(SERIALIZED_NAME_ORACLE_SERVICE_NAME)
+  private String oracleServiceName;
+
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -577,6 +581,29 @@ public class UpdateDBTarget {
   }
 
 
+  public UpdateDBTarget oracleServiceName(String oracleServiceName) {
+    
+    this.oracleServiceName = oracleServiceName;
+    return this;
+  }
+
+   /**
+   * Get oracleServiceName
+   * @return oracleServiceName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getOracleServiceName() {
+    return oracleServiceName;
+  }
+
+
+  public void setOracleServiceName(String oracleServiceName) {
+    this.oracleServiceName = oracleServiceName;
+  }
+
+
   public UpdateDBTarget password(String password) {
     
     this.password = password;
@@ -812,6 +839,7 @@ public class UpdateDBTarget {
         Objects.equals(this.mongodbUsername, updateDBTarget.mongodbUsername) &&
         Objects.equals(this.name, updateDBTarget.name) &&
         Objects.equals(this.newName, updateDBTarget.newName) &&
+        Objects.equals(this.oracleServiceName, updateDBTarget.oracleServiceName) &&
         Objects.equals(this.password, updateDBTarget.password) &&
         Objects.equals(this.port, updateDBTarget.port) &&
         Objects.equals(this.pwd, updateDBTarget.pwd) &&
@@ -825,7 +853,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, password, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName, username);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, oracleServiceName, password, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName, username);
   }
 
 
@@ -852,6 +880,7 @@ public class UpdateDBTarget {
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");

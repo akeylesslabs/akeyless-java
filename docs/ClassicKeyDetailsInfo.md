@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**classicKeyAttributes** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) |  |  [optional]
 **classicKeyId** | **String** |  |  [optional]
 **isProvidedByUser** | **Boolean** |  |  [optional]
 **isUnexportable** | **Boolean** |  |  [optional]

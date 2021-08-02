@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,26 @@ public class CreateSSHCertIssuer {
   public static final String SERIALIZED_NAME_PRINCIPALS = "principals";
   @SerializedName(SERIALIZED_NAME_PRINCIPALS)
   private String principals;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_API = "secure-access-bastion-api";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_API)
+  private String secureAccessBastionApi;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_SSH = "secure-access-bastion-ssh";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_SSH)
+  private String secureAccessBastionSsh;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS_USER = "secure-access-ssh-creds-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS_USER)
+  private String secureAccessSshCredsUser;
 
   public static final String SERIALIZED_NAME_SIGNER_KEY_NAME = "signer-key-name";
   @SerializedName(SERIALIZED_NAME_SIGNER_KEY_NAME)
@@ -221,6 +242,129 @@ public class CreateSSHCertIssuer {
   }
 
 
+  public CreateSSHCertIssuer secureAccessBastionApi(String secureAccessBastionApi) {
+    
+    this.secureAccessBastionApi = secureAccessBastionApi;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionApi
+   * @return secureAccessBastionApi
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionApi() {
+    return secureAccessBastionApi;
+  }
+
+
+  public void setSecureAccessBastionApi(String secureAccessBastionApi) {
+    this.secureAccessBastionApi = secureAccessBastionApi;
+  }
+
+
+  public CreateSSHCertIssuer secureAccessBastionSsh(String secureAccessBastionSsh) {
+    
+    this.secureAccessBastionSsh = secureAccessBastionSsh;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionSsh
+   * @return secureAccessBastionSsh
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionSsh() {
+    return secureAccessBastionSsh;
+  }
+
+
+  public void setSecureAccessBastionSsh(String secureAccessBastionSsh) {
+    this.secureAccessBastionSsh = secureAccessBastionSsh;
+  }
+
+
+  public CreateSSHCertIssuer secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public CreateSSHCertIssuer secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public CreateSSHCertIssuer addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessHost
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
+  public CreateSSHCertIssuer secureAccessSshCredsUser(String secureAccessSshCredsUser) {
+    
+    this.secureAccessSshCredsUser = secureAccessSshCredsUser;
+    return this;
+  }
+
+   /**
+   * Get secureAccessSshCredsUser
+   * @return secureAccessSshCredsUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessSshCredsUser() {
+    return secureAccessSshCredsUser;
+  }
+
+
+  public void setSecureAccessSshCredsUser(String secureAccessSshCredsUser) {
+    this.secureAccessSshCredsUser = secureAccessSshCredsUser;
+  }
+
+
   public CreateSSHCertIssuer signerKeyName(String signerKeyName) {
     
     this.signerKeyName = signerKeyName;
@@ -349,6 +493,11 @@ public class CreateSSHCertIssuer {
         Objects.equals(this.name, createSSHCertIssuer.name) &&
         Objects.equals(this.password, createSSHCertIssuer.password) &&
         Objects.equals(this.principals, createSSHCertIssuer.principals) &&
+        Objects.equals(this.secureAccessBastionApi, createSSHCertIssuer.secureAccessBastionApi) &&
+        Objects.equals(this.secureAccessBastionSsh, createSSHCertIssuer.secureAccessBastionSsh) &&
+        Objects.equals(this.secureAccessEnable, createSSHCertIssuer.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, createSSHCertIssuer.secureAccessHost) &&
+        Objects.equals(this.secureAccessSshCredsUser, createSSHCertIssuer.secureAccessSshCredsUser) &&
         Objects.equals(this.signerKeyName, createSSHCertIssuer.signerKeyName) &&
         Objects.equals(this.token, createSSHCertIssuer.token) &&
         Objects.equals(this.ttl, createSSHCertIssuer.ttl) &&
@@ -358,7 +507,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, extensions, metadata, name, password, principals, signerKeyName, token, ttl, uidToken, username);
+    return Objects.hash(allowedUsers, extensions, metadata, name, password, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, signerKeyName, token, ttl, uidToken, username);
   }
 
 
@@ -372,6 +521,11 @@ public class CreateSSHCertIssuer {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
+    sb.append("    secureAccessBastionApi: ").append(toIndentedString(secureAccessBastionApi)).append("\n");
+    sb.append("    secureAccessBastionSsh: ").append(toIndentedString(secureAccessBastionSsh)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");

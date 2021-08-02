@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **classicKeyDetails** | [**ClassicKeyDetailsInfo**](ClassicKeyDetailsInfo.md) |  |  [optional]
 **dynamicSecretProducerDetails** | [**DynamicSecretProducerInfo**](DynamicSecretProducerInfo.md) |  |  [optional]
 **rotatedSecretDetails** | [**RotatedSecretDetailsInfo**](RotatedSecretDetailsInfo.md) |  |  [optional]
+**secureRemoteAccessDetails** | [**SecureRemoteAccess**](SecureRemoteAccess.md) |  |  [optional]
 
 
 

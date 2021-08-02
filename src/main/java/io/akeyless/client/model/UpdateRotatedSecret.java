@@ -76,6 +76,14 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   private List<String> rmTag = null;
 
+  public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
+  @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
+  private String rotatedPassword;
+
+  public static final String SERIALIZED_NAME_ROTATED_USERNAME = "rotated-username";
+  @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
+  private String rotatedUsername;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -377,6 +385,52 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret rotatedPassword(String rotatedPassword) {
+    
+    this.rotatedPassword = rotatedPassword;
+    return this;
+  }
+
+   /**
+   * Get rotatedPassword
+   * @return rotatedPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRotatedPassword() {
+    return rotatedPassword;
+  }
+
+
+  public void setRotatedPassword(String rotatedPassword) {
+    this.rotatedPassword = rotatedPassword;
+  }
+
+
+  public UpdateRotatedSecret rotatedUsername(String rotatedUsername) {
+    
+    this.rotatedUsername = rotatedUsername;
+    return this;
+  }
+
+   /**
+   * Get rotatedUsername
+   * @return rotatedUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRotatedUsername() {
+    return rotatedUsername;
+  }
+
+
+  public void setRotatedUsername(String rotatedUsername) {
+    this.rotatedUsername = rotatedUsername;
+  }
+
+
   public UpdateRotatedSecret rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -453,11 +507,11 @@ public class UpdateRotatedSecret {
   }
 
    /**
-   * Get sshPassword
+   * Deprecated: use RotatedPassword
    * @return sshPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated: use RotatedPassword")
 
   public String getSshPassword() {
     return sshPassword;
@@ -476,11 +530,11 @@ public class UpdateRotatedSecret {
   }
 
    /**
-   * Get sshUsername
+   * Deprecated: use RotatedUser
    * @return sshUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated: use RotatedUser")
 
   public String getSshUsername() {
     return sshUsername;
@@ -581,6 +635,8 @@ public class UpdateRotatedSecret {
         Objects.equals(this.newVersion, updateRotatedSecret.newVersion) &&
         Objects.equals(this.password, updateRotatedSecret.password) &&
         Objects.equals(this.rmTag, updateRotatedSecret.rmTag) &&
+        Objects.equals(this.rotatedPassword, updateRotatedSecret.rotatedPassword) &&
+        Objects.equals(this.rotatedUsername, updateRotatedSecret.rotatedUsername) &&
         Objects.equals(this.rotationHour, updateRotatedSecret.rotationHour) &&
         Objects.equals(this.rotationInterval, updateRotatedSecret.rotationInterval) &&
         Objects.equals(this.rotatorCredsType, updateRotatedSecret.rotatorCredsType) &&
@@ -593,7 +649,7 @@ public class UpdateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, key, name, newMetadata, newName, newVersion, password, rmTag, rotationHour, rotationInterval, rotatorCredsType, sshPassword, sshUsername, token, uidToken, username);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, key, name, newMetadata, newName, newVersion, password, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, sshPassword, sshUsername, token, uidToken, username);
   }
 
 
@@ -612,6 +668,8 @@ public class UpdateRotatedSecret {
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
+    sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
+    sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");

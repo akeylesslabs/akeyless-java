@@ -18,6 +18,9 @@ Name | Type | Description | Notes
 **rabbitmqUserTags** | **String** | User Tags |  [optional]
 **rabbitmqUserVhost** | **String** | User Virtual Host |  [optional]
 **rabbitmqUserWritePermission** | **String** | User write permission | 
+**secureAccessEnable** | **String** |  |  [optional]
+**secureAccessUrl** | **String** |  |  [optional]
+**secureAccessWebBrowsing** | **Boolean** |  |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **userTtl** | **String** | User TTL |  [optional]

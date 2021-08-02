@@ -86,6 +86,26 @@ public class GatewayCreateProducerAws {
   @SerializedName(SERIALIZED_NAME_REGION)
   private String region = "us-east-2";
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID = "secure-access-aws-account-id";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID)
+  private String secureAccessAwsAccountId;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_NATIVE_CLI = "secure-access-aws-native-cli";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_NATIVE_CLI)
+  private Boolean secureAccessAwsNativeCli;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -422,6 +442,121 @@ public class GatewayCreateProducerAws {
   }
 
 
+  public GatewayCreateProducerAws secureAccessAwsAccountId(String secureAccessAwsAccountId) {
+    
+    this.secureAccessAwsAccountId = secureAccessAwsAccountId;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAwsAccountId
+   * @return secureAccessAwsAccountId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessAwsAccountId() {
+    return secureAccessAwsAccountId;
+  }
+
+
+  public void setSecureAccessAwsAccountId(String secureAccessAwsAccountId) {
+    this.secureAccessAwsAccountId = secureAccessAwsAccountId;
+  }
+
+
+  public GatewayCreateProducerAws secureAccessAwsNativeCli(Boolean secureAccessAwsNativeCli) {
+    
+    this.secureAccessAwsNativeCli = secureAccessAwsNativeCli;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAwsNativeCli
+   * @return secureAccessAwsNativeCli
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessAwsNativeCli() {
+    return secureAccessAwsNativeCli;
+  }
+
+
+  public void setSecureAccessAwsNativeCli(Boolean secureAccessAwsNativeCli) {
+    this.secureAccessAwsNativeCli = secureAccessAwsNativeCli;
+  }
+
+
+  public GatewayCreateProducerAws secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public GatewayCreateProducerAws secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerAws secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebBrowsing
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
   public GatewayCreateProducerAws token(String token) {
     
     this.token = token;
@@ -537,6 +672,11 @@ public class GatewayCreateProducerAws {
         Objects.equals(this.password, gatewayCreateProducerAws.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAws.producerEncryptionKeyName) &&
         Objects.equals(this.region, gatewayCreateProducerAws.region) &&
+        Objects.equals(this.secureAccessAwsAccountId, gatewayCreateProducerAws.secureAccessAwsAccountId) &&
+        Objects.equals(this.secureAccessAwsNativeCli, gatewayCreateProducerAws.secureAccessAwsNativeCli) &&
+        Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerAws.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerAws.secureAccessEnable) &&
+        Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerAws.secureAccessWebBrowsing) &&
         Objects.equals(this.token, gatewayCreateProducerAws.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerAws.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerAws.userTtl) &&
@@ -545,7 +685,7 @@ public class GatewayCreateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, token, uidToken, userTtl, username);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWebBrowsing, token, uidToken, userTtl, username);
   }
 
 
@@ -567,6 +707,11 @@ public class GatewayCreateProducerAws {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
+    sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

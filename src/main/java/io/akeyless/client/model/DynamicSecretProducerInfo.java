@@ -34,6 +34,10 @@ public class DynamicSecretProducerInfo {
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   private Long gwClusterId;
 
+  public static final String SERIALIZED_NAME_PRODUCER_LAST_KEEP_ALIVE = "producer_last_keep_alive";
+  @SerializedName(SERIALIZED_NAME_PRODUCER_LAST_KEEP_ALIVE)
+  private String producerLastKeepAlive;
+
   public static final String SERIALIZED_NAME_PRODUCER_METADATA = "producer_metadata";
   @SerializedName(SERIALIZED_NAME_PRODUCER_METADATA)
   private String producerMetadata;
@@ -67,6 +71,29 @@ public class DynamicSecretProducerInfo {
 
   public void setGwClusterId(Long gwClusterId) {
     this.gwClusterId = gwClusterId;
+  }
+
+
+  public DynamicSecretProducerInfo producerLastKeepAlive(String producerLastKeepAlive) {
+    
+    this.producerLastKeepAlive = producerLastKeepAlive;
+    return this;
+  }
+
+   /**
+   * Get producerLastKeepAlive
+   * @return producerLastKeepAlive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProducerLastKeepAlive() {
+    return producerLastKeepAlive;
+  }
+
+
+  public void setProducerLastKeepAlive(String producerLastKeepAlive) {
+    this.producerLastKeepAlive = producerLastKeepAlive;
   }
 
 
@@ -149,6 +176,7 @@ public class DynamicSecretProducerInfo {
     }
     DynamicSecretProducerInfo dynamicSecretProducerInfo = (DynamicSecretProducerInfo) o;
     return Objects.equals(this.gwClusterId, dynamicSecretProducerInfo.gwClusterId) &&
+        Objects.equals(this.producerLastKeepAlive, dynamicSecretProducerInfo.producerLastKeepAlive) &&
         Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
         Objects.equals(this.producerStatus, dynamicSecretProducerInfo.producerStatus) &&
         Objects.equals(this.producerType, dynamicSecretProducerInfo.producerType);
@@ -156,7 +184,7 @@ public class DynamicSecretProducerInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gwClusterId, producerMetadata, producerStatus, producerType);
+    return Objects.hash(gwClusterId, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
   }
 
 
@@ -165,6 +193,7 @@ public class DynamicSecretProducerInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretProducerInfo {\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
+    sb.append("    producerLastKeepAlive: ").append(toIndentedString(producerLastKeepAlive)).append("\n");
     sb.append("    producerMetadata: ").append(toIndentedString(producerMetadata)).append("\n");
     sb.append("    producerStatus: ").append(toIndentedString(producerStatus)).append("\n");
     sb.append("    producerType: ").append(toIndentedString(producerType)).append("\n");

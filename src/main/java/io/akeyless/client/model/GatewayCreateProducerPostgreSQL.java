@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerPostgreSQL is a command that creates postgresql producer
@@ -65,6 +67,22 @@ public class GatewayCreateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY = "producer-encryption-key";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY)
   private String producerEncryptionKey;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA = "secure-access-db-schema";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA)
+  private String secureAccessDbSchema;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -286,6 +304,106 @@ public class GatewayCreateProducerPostgreSQL {
   }
 
 
+  public GatewayCreateProducerPostgreSQL secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Get secureAccessBastionIssuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public GatewayCreateProducerPostgreSQL secureAccessDbSchema(String secureAccessDbSchema) {
+    
+    this.secureAccessDbSchema = secureAccessDbSchema;
+    return this;
+  }
+
+   /**
+   * Get secureAccessDbSchema
+   * @return secureAccessDbSchema
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessDbSchema() {
+    return secureAccessDbSchema;
+  }
+
+
+  public void setSecureAccessDbSchema(String secureAccessDbSchema) {
+    this.secureAccessDbSchema = secureAccessDbSchema;
+  }
+
+
+  public GatewayCreateProducerPostgreSQL secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Get secureAccessEnable
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerPostgreSQL secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public GatewayCreateProducerPostgreSQL addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessHost
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
   public GatewayCreateProducerPostgreSQL token(String token) {
     
     this.token = token;
@@ -396,6 +514,10 @@ public class GatewayCreateProducerPostgreSQL {
         Objects.equals(this.postgresqlPort, gatewayCreateProducerPostgreSQL.postgresqlPort) &&
         Objects.equals(this.postgresqlUsername, gatewayCreateProducerPostgreSQL.postgresqlUsername) &&
         Objects.equals(this.producerEncryptionKey, gatewayCreateProducerPostgreSQL.producerEncryptionKey) &&
+        Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerPostgreSQL.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessDbSchema, gatewayCreateProducerPostgreSQL.secureAccessDbSchema) &&
+        Objects.equals(this.secureAccessEnable, gatewayCreateProducerPostgreSQL.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, gatewayCreateProducerPostgreSQL.secureAccessHost) &&
         Objects.equals(this.token, gatewayCreateProducerPostgreSQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerPostgreSQL.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerPostgreSQL.userTtl) &&
@@ -404,7 +526,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, token, uidToken, userTtl, username);
   }
 
 
@@ -421,6 +543,10 @@ public class GatewayCreateProducerPostgreSQL {
     sb.append("    postgresqlPort: ").append(toIndentedString(postgresqlPort)).append("\n");
     sb.append("    postgresqlUsername: ").append(toIndentedString(postgresqlUsername)).append("\n");
     sb.append("    producerEncryptionKey: ").append(toIndentedString(producerEncryptionKey)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

@@ -100,11 +100,11 @@ public class ClassicKeyStatusInfo {
   }
 
    /**
-   * ClassicKeyTargetStatus defines status of managed key target
+   * ClassicKeyTargetStatus defines status of classic key target
    * @return lastStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ClassicKeyTargetStatus defines status of managed key target")
+  @ApiModelProperty(value = "ClassicKeyTargetStatus defines status of classic key target")
 
   public String getLastStatus() {
     return lastStatus;
