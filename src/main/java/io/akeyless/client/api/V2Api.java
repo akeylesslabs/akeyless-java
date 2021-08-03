@@ -208,9 +208,11 @@ import io.akeyless.client.model.RollbackSecretOutput;
 import io.akeyless.client.model.RotateKeyOutput;
 import io.akeyless.client.model.SetItemState;
 import io.akeyless.client.model.SetRoleRule;
+import io.akeyless.client.model.SignJWTOutput;
 import io.akeyless.client.model.SignJWTWithClassicKey;
 import io.akeyless.client.model.SignPKCS1;
 import io.akeyless.client.model.SignPKCS1Output;
+import io.akeyless.client.model.SignPKICertOutput;
 import io.akeyless.client.model.SignPKICertWithClassicKey;
 import io.akeyless.client.model.StaticCredsAuth;
 import io.akeyless.client.model.StaticCredsAuthOutput;
@@ -263,8 +265,10 @@ import io.akeyless.client.model.UpdateWebTarget;
 import io.akeyless.client.model.UpdateWebTargetDetails;
 import io.akeyless.client.model.UpdateWebTargetOutput;
 import io.akeyless.client.model.UploadRSA;
+import io.akeyless.client.model.VerifyJWTOutput;
 import io.akeyless.client.model.VerifyJWTWithClassicKey;
 import io.akeyless.client.model.VerifyPKCS1;
+import io.akeyless.client.model.VerifyPKICertOutput;
 import io.akeyless.client.model.VerifyPKICertWithClassicKey;
 
 import java.lang.reflect.Type;
@@ -12002,7 +12006,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -12053,34 +12057,37 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
+     * @return SignJWTOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public void signJWTWithClassicKey(SignJWTWithClassicKey body) throws ApiException {
-        signJWTWithClassicKeyWithHttpInfo(body);
+    public SignJWTOutput signJWTWithClassicKey(SignJWTWithClassicKey body) throws ApiException {
+        ApiResponse<SignJWTOutput> localVarResp = signJWTWithClassicKeyWithHttpInfo(body);
+        return localVarResp.getData();
     }
 
     /**
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;SignJWTOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> signJWTWithClassicKeyWithHttpInfo(SignJWTWithClassicKey body) throws ApiException {
+    public ApiResponse<SignJWTOutput> signJWTWithClassicKeyWithHttpInfo(SignJWTWithClassicKey body) throws ApiException {
         okhttp3.Call localVarCall = signJWTWithClassicKeyValidateBeforeCall(body, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<SignJWTOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -12093,14 +12100,15 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call signJWTWithClassicKeyAsync(SignJWTWithClassicKey body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call signJWTWithClassicKeyAsync(SignJWTWithClassicKey body, final ApiCallback<SignJWTOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = signJWTWithClassicKeyValidateBeforeCall(body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<SignJWTOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -12226,7 +12234,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -12277,34 +12285,37 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
+     * @return SignPKICertOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public void signPKICertWithClassicKey(SignPKICertWithClassicKey body) throws ApiException {
-        signPKICertWithClassicKeyWithHttpInfo(body);
+    public SignPKICertOutput signPKICertWithClassicKey(SignPKICertWithClassicKey body) throws ApiException {
+        ApiResponse<SignPKICertOutput> localVarResp = signPKICertWithClassicKeyWithHttpInfo(body);
+        return localVarResp.getData();
     }
 
     /**
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;SignPKICertOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> signPKICertWithClassicKeyWithHttpInfo(SignPKICertWithClassicKey body) throws ApiException {
+    public ApiResponse<SignPKICertOutput> signPKICertWithClassicKeyWithHttpInfo(SignPKICertWithClassicKey body) throws ApiException {
         okhttp3.Call localVarCall = signPKICertWithClassicKeyValidateBeforeCall(body, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<SignPKICertOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -12317,14 +12328,15 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> signPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call signPKICertWithClassicKeyAsync(SignPKICertWithClassicKey body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call signPKICertWithClassicKeyAsync(SignPKICertWithClassicKey body, final ApiCallback<SignPKICertOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = signPKICertWithClassicKeyValidateBeforeCall(body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<SignPKICertOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -15861,7 +15873,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -15912,34 +15924,37 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
+     * @return VerifyJWTOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public void verifyJWTWithClassicKey(VerifyJWTWithClassicKey body) throws ApiException {
-        verifyJWTWithClassicKeyWithHttpInfo(body);
+    public VerifyJWTOutput verifyJWTWithClassicKey(VerifyJWTWithClassicKey body) throws ApiException {
+        ApiResponse<VerifyJWTOutput> localVarResp = verifyJWTWithClassicKeyWithHttpInfo(body);
+        return localVarResp.getData();
     }
 
     /**
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;VerifyJWTOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> verifyJWTWithClassicKeyWithHttpInfo(VerifyJWTWithClassicKey body) throws ApiException {
+    public ApiResponse<VerifyJWTOutput> verifyJWTWithClassicKeyWithHttpInfo(VerifyJWTWithClassicKey body) throws ApiException {
         okhttp3.Call localVarCall = verifyJWTWithClassicKeyValidateBeforeCall(body, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<VerifyJWTOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -15952,14 +15967,15 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyJWTWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call verifyJWTWithClassicKeyAsync(VerifyJWTWithClassicKey body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call verifyJWTWithClassicKeyAsync(VerifyJWTWithClassicKey body, final ApiCallback<VerifyJWTOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = verifyJWTWithClassicKeyValidateBeforeCall(body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<VerifyJWTOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -16085,7 +16101,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -16136,34 +16152,37 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
+     * @return VerifyPKICertOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public void verifyPKICertWithClassicKey(VerifyPKICertWithClassicKey body) throws ApiException {
-        verifyPKICertWithClassicKeyWithHttpInfo(body);
+    public VerifyPKICertOutput verifyPKICertWithClassicKey(VerifyPKICertWithClassicKey body) throws ApiException {
+        ApiResponse<VerifyPKICertOutput> localVarResp = verifyPKICertWithClassicKeyWithHttpInfo(body);
+        return localVarResp.getData();
     }
 
     /**
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;VerifyPKICertOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> verifyPKICertWithClassicKeyWithHttpInfo(VerifyPKICertWithClassicKey body) throws ApiException {
+    public ApiResponse<VerifyPKICertOutput> verifyPKICertWithClassicKeyWithHttpInfo(VerifyPKICertWithClassicKey body) throws ApiException {
         okhttp3.Call localVarCall = verifyPKICertWithClassicKeyValidateBeforeCall(body, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<VerifyPKICertOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -16176,14 +16195,15 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> verifyPKICertWithClassicKeyResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call verifyPKICertWithClassicKeyAsync(VerifyPKICertWithClassicKey body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call verifyPKICertWithClassicKeyAsync(VerifyPKICertWithClassicKey body, final ApiCallback<VerifyPKICertOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = verifyPKICertWithClassicKeyValidateBeforeCall(body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<VerifyPKICertOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 }

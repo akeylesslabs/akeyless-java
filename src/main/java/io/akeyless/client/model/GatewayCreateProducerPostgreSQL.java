@@ -84,6 +84,10 @@ public class GatewayCreateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -179,7 +183,8 @@ public class GatewayCreateProducerPostgreSQL {
    * PostgreSQL DB Name
    * @return postgresqlDbName
   **/
-  @ApiModelProperty(required = true, value = "PostgreSQL DB Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PostgreSQL DB Name")
 
   public String getPostgresqlDbName() {
     return postgresqlDbName;
@@ -224,7 +229,8 @@ public class GatewayCreateProducerPostgreSQL {
    * PostgreSQL Password
    * @return postgresqlPassword
   **/
-  @ApiModelProperty(required = true, value = "PostgreSQL Password")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PostgreSQL Password")
 
   public String getPostgresqlPassword() {
     return postgresqlPassword;
@@ -269,7 +275,8 @@ public class GatewayCreateProducerPostgreSQL {
    * PostgreSQL Username
    * @return postgresqlUsername
   **/
-  @ApiModelProperty(required = true, value = "PostgreSQL Username")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PostgreSQL Username")
 
   public String getPostgresqlUsername() {
     return postgresqlUsername;
@@ -404,6 +411,29 @@ public class GatewayCreateProducerPostgreSQL {
   }
 
 
+  public GatewayCreateProducerPostgreSQL targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerPostgreSQL token(String token) {
     
     this.token = token;
@@ -518,6 +548,7 @@ public class GatewayCreateProducerPostgreSQL {
         Objects.equals(this.secureAccessDbSchema, gatewayCreateProducerPostgreSQL.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerPostgreSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerPostgreSQL.secureAccessHost) &&
+        Objects.equals(this.targetName, gatewayCreateProducerPostgreSQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerPostgreSQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerPostgreSQL.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerPostgreSQL.userTtl) &&
@@ -526,7 +557,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -547,6 +578,7 @@ public class GatewayCreateProducerPostgreSQL {
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

@@ -66,6 +66,10 @@ public class GatewayCreateProducerAzure {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -136,7 +140,8 @@ public class GatewayCreateProducerAzure {
    * Azure Client ID
    * @return azureClientId
   **/
-  @ApiModelProperty(required = true, value = "Azure Client ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Azure Client ID")
 
   public String getAzureClientId() {
     return azureClientId;
@@ -158,7 +163,8 @@ public class GatewayCreateProducerAzure {
    * Azure Client Secret
    * @return azureClientSecret
   **/
-  @ApiModelProperty(required = true, value = "Azure Client Secret")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Azure Client Secret")
 
   public String getAzureClientSecret() {
     return azureClientSecret;
@@ -180,7 +186,8 @@ public class GatewayCreateProducerAzure {
    * Azure Tenant ID
    * @return azureTenantId
   **/
-  @ApiModelProperty(required = true, value = "Azure Tenant ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Azure Tenant ID")
 
   public String getAzureTenantId() {
     return azureTenantId;
@@ -303,6 +310,29 @@ public class GatewayCreateProducerAzure {
 
   public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
     this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public GatewayCreateProducerAzure targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -531,6 +561,7 @@ public class GatewayCreateProducerAzure {
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerAzure.secureAccessEnable) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerAzure.secureAccessWebBrowsing) &&
+        Objects.equals(this.targetName, gatewayCreateProducerAzure.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerAzure.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerAzure.uidToken) &&
         Objects.equals(this.userGroupObjId, gatewayCreateProducerAzure.userGroupObjId) &&
@@ -544,7 +575,7 @@ public class GatewayCreateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, name, password, producerEncryptionKeyName, secureAccessEnable, secureAccessWebBrowsing, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, name, password, producerEncryptionKeyName, secureAccessEnable, secureAccessWebBrowsing, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
   }
 
 
@@ -561,6 +592,7 @@ public class GatewayCreateProducerAzure {
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userGroupObjId: ").append(toIndentedString(userGroupObjId)).append("\n");

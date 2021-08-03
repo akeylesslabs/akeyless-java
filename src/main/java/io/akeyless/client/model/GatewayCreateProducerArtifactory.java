@@ -62,6 +62,10 @@ public class GatewayCreateProducerArtifactory {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -89,7 +93,8 @@ public class GatewayCreateProducerArtifactory {
    * Artifactory Admin Name
    * @return artifactoryAdminName
   **/
-  @ApiModelProperty(required = true, value = "Artifactory Admin Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Artifactory Admin Name")
 
   public String getArtifactoryAdminName() {
     return artifactoryAdminName;
@@ -111,7 +116,8 @@ public class GatewayCreateProducerArtifactory {
    * Artifactory Admin password
    * @return artifactoryAdminPwd
   **/
-  @ApiModelProperty(required = true, value = "Artifactory Admin password")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Artifactory Admin password")
 
   public String getArtifactoryAdminPwd() {
     return artifactoryAdminPwd;
@@ -177,7 +183,8 @@ public class GatewayCreateProducerArtifactory {
    * Base URL
    * @return baseUrl
   **/
-  @ApiModelProperty(required = true, value = "Base URL")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base URL")
 
   public String getBaseUrl() {
     return baseUrl;
@@ -254,6 +261,29 @@ public class GatewayCreateProducerArtifactory {
 
   public void setProducerEncryptionKeyName(String producerEncryptionKeyName) {
     this.producerEncryptionKeyName = producerEncryptionKeyName;
+  }
+
+
+  public GatewayCreateProducerArtifactory targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -366,6 +396,7 @@ public class GatewayCreateProducerArtifactory {
         Objects.equals(this.name, gatewayCreateProducerArtifactory.name) &&
         Objects.equals(this.password, gatewayCreateProducerArtifactory.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerArtifactory.producerEncryptionKeyName) &&
+        Objects.equals(this.targetName, gatewayCreateProducerArtifactory.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerArtifactory.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerArtifactory.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerArtifactory.userTtl) &&
@@ -374,7 +405,7 @@ public class GatewayCreateProducerArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, name, password, producerEncryptionKeyName, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -390,6 +421,7 @@ public class GatewayCreateProducerArtifactory {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

@@ -2997,7 +2997,11 @@ paths:
         required: true
       responses:
         "200":
-          $ref: '#/components/responses/signJWTResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signJWTOutput'
+          description: signJWTWithClassicKeyResponse wraps response body.
         default:
           content:
             application/json:
@@ -3051,7 +3055,11 @@ paths:
         required: true
       responses:
         "200":
-          $ref: '#/components/responses/signPKICertResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signPKICertOutput'
+          description: signPKICertWithClassicKeyResponse wraps response body.
         default:
           content:
             application/json:
@@ -3967,7 +3975,11 @@ paths:
         required: true
       responses:
         "200":
-          $ref: '#/components/responses/verifyJWTResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verifyJWTOutput'
+          description: verifyJWTWithClassicKeyResponse wraps response body.
         default:
           content:
             application/json:
@@ -4021,7 +4033,11 @@ paths:
         required: true
       responses:
         "200":
-          $ref: '#/components/responses/verifyPKICertResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verifyPKICertOutput'
+          description: verifyPKICertWithClassicKeyResponse wraps response body.
         default:
           content:
             application/json:
@@ -13091,10 +13107,7 @@ components:
           type: string
           x-go-name: Username
       required:
-      - gke-cluster-cert
-      - gke-cluster-endpoint
       - gke-cluster-name
-      - gke-service-account-email
       - name
       title: createGKETarget is a command that creates a new target.
       type: object
@@ -14853,6 +14866,10 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -14874,11 +14891,8 @@ components:
           type: string
           x-go-name: Username
       required:
-      - artifactory-admin-name
-      - artifactory-admin-pwd
       - artifactory-token-audience
       - artifactory-token-scope
-      - base-url
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -15110,6 +15124,10 @@ components:
         secure-access-web-browsing:
           type: boolean
           x-go-name: SecureAccessIsolated
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -15131,8 +15149,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - aws-access-key-id
-      - aws-access-secret-key
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -15321,6 +15337,10 @@ components:
         secure-access-web-browsing:
           type: boolean
           x-go-name: SecureAccessIsolated
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -15364,9 +15384,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - azure-client-id
-      - azure-client-secret
-      - azure-tenant-id
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -15577,6 +15594,10 @@ components:
           description: Store private key
           type: boolean
           x-go-name: StorePrivateKey
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -15626,7 +15647,6 @@ components:
           x-go-name: VenafiZone
       required:
       - name
-      - venafi-zone
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateProducerCertificateAutomationOutput:
@@ -15813,6 +15833,10 @@ components:
           description: Skip SSL
           type: boolean
           x-go-name: SkipSSL
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -15834,10 +15858,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - chef-orgs
-      - chef-server-key
-      - chef-server-url
-      - chef-server-username
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -16122,6 +16142,10 @@ components:
         secure-access-enable:
           type: string
           x-go-name: SecureAccessEnabled
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -16143,11 +16167,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - eks-access-key-id
-      - eks-cluster-ca-cert
-      - eks-cluster-endpoint
-      - eks-cluster-name
-      - eks-secret-access-key
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -16333,6 +16352,10 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -16354,8 +16377,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - gcp-cred-type
-      - gcp-sa-email
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -16554,6 +16575,10 @@ components:
         secure-access-enable:
           type: string
           x-go-name: SecureAccessEnabled
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -16575,10 +16600,7 @@ components:
           type: string
           x-go-name: Username
       required:
-      - gke-cluster-cert
-      - gke-cluster-endpoint
       - gke-cluster-name
-      - gke-service-account-email
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -16789,6 +16811,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -16810,9 +16836,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - mssql-dbname
-      - mssql-password
-      - mssql-username
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -17037,6 +17060,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -17270,6 +17297,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -17291,9 +17322,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - mysql-dbname
-      - mysql-password
-      - mysql-username
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -17498,6 +17526,10 @@ components:
         secure-access-web-browsing:
           type: boolean
           x-go-name: SecureAccessIsolated
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -17519,10 +17551,7 @@ components:
           type: string
           x-go-name: Username
       required:
-      - k8s-cluster-ca-cert
-      - k8s-cluster-endpoint
       - k8s-cluster-token
-      - k8s-service-account
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -17724,6 +17753,10 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -17746,9 +17779,6 @@ components:
           x-go-name: Username
       required:
       - name
-      - oracle-password
-      - oracle-service-name
-      - oracle-username
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateProducerOracleDbOutput:
@@ -17955,6 +17985,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -17977,9 +18011,6 @@ components:
           x-go-name: Username
       required:
       - name
-      - postgresql-db-name
-      - postgresql-password
-      - postgresql-username
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateProducerPostgreSQLOutput:
@@ -18187,6 +18218,10 @@ components:
         secure-access-web-browsing:
           type: boolean
           x-go-name: SecureAccessIsolated
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -18209,12 +18244,6 @@ components:
           x-go-name: Username
       required:
       - name
-      - rabbitmq-admin-pwd
-      - rabbitmq-admin-user
-      - rabbitmq-server-uri
-      - rabbitmq-user-conf-permission
-      - rabbitmq-user-read-permission
-      - rabbitmq-user-write-permission
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateProducerRabbitMQOutput:
@@ -18417,6 +18446,10 @@ components:
         secure-access-rdp-domain:
           type: string
           x-go-name: SecureAccessDomain
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -18441,8 +18474,6 @@ components:
       - name
       - rdp-admin-name
       - rdp-admin-pwd
-      - rdp-host-name
-      - rdp-user-groups
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateProducerRdpOutput:
@@ -18617,6 +18648,10 @@ components:
           description: User role
           type: string
           x-go-name: Role
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -18642,8 +18677,6 @@ components:
           type: string
           x-go-name: Warehouse
       required:
-      - account
-      - db-name
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -20154,6 +20187,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     signJWTOutput:
+      example:
+        result: result
       properties:
         result:
           type: string
@@ -20261,6 +20296,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     signPKICertOutput:
+      example:
+        result: result
       properties:
         result:
           type: string
@@ -21226,10 +21263,7 @@ components:
           type: string
           x-go-name: Username
       required:
-      - gke-cluster-cert
-      - gke-cluster-endpoint
       - gke-cluster-name
-      - gke-service-account-email
       - name
       title: updateGKETarget is a command that updates an existing target.
       type: object
@@ -22428,6 +22462,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     verifyJWTOutput:
+      example:
+        result: result
       properties:
         result:
           type: string
@@ -22478,7 +22514,7 @@ components:
       - jwt-claims
       - signature
       - version
-      title: verifyJWTWithClassicKey is a command that verifys JWT by using an Classic
+      title: verifyJWTWithClassicKey is a command that verifies JWT by using an Classic
         key.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -22527,6 +22563,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     verifyPKICertOutput:
+      example:
+        result: result
       properties:
         result:
           type: string

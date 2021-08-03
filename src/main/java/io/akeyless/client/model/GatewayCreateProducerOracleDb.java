@@ -74,6 +74,10 @@ public class GatewayCreateProducerOracleDb {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -192,7 +196,8 @@ public class GatewayCreateProducerOracleDb {
    * Oracle Password
    * @return oraclePassword
   **/
-  @ApiModelProperty(required = true, value = "Oracle Password")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Oracle Password")
 
   public String getOraclePassword() {
     return oraclePassword;
@@ -260,7 +265,8 @@ public class GatewayCreateProducerOracleDb {
    * Oracle DB Name
    * @return oracleServiceName
   **/
-  @ApiModelProperty(required = true, value = "Oracle DB Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Oracle DB Name")
 
   public String getOracleServiceName() {
     return oracleServiceName;
@@ -282,7 +288,8 @@ public class GatewayCreateProducerOracleDb {
    * Oracle Username
    * @return oracleUsername
   **/
-  @ApiModelProperty(required = true, value = "Oracle Username")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Oracle Username")
 
   public String getOracleUsername() {
     return oracleUsername;
@@ -337,6 +344,29 @@ public class GatewayCreateProducerOracleDb {
 
   public void setProducerEncryptionKeyName(String producerEncryptionKeyName) {
     this.producerEncryptionKeyName = producerEncryptionKeyName;
+  }
+
+
+  public GatewayCreateProducerOracleDb targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -452,6 +482,7 @@ public class GatewayCreateProducerOracleDb {
         Objects.equals(this.oracleUsername, gatewayCreateProducerOracleDb.oracleUsername) &&
         Objects.equals(this.password, gatewayCreateProducerOracleDb.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerOracleDb.producerEncryptionKeyName) &&
+        Objects.equals(this.targetName, gatewayCreateProducerOracleDb.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerOracleDb.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerOracleDb.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerOracleDb.userTtl) &&
@@ -460,7 +491,7 @@ public class GatewayCreateProducerOracleDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, password, producerEncryptionKeyName, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -479,6 +510,7 @@ public class GatewayCreateProducerOracleDb {
     sb.append("    oracleUsername: ").append(toIndentedString(oracleUsername)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

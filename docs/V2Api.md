@@ -6418,7 +6418,7 @@ No authorization required
 
 <a name="signJWTWithClassicKey"></a>
 # **signJWTWithClassicKey**
-> signJWTWithClassicKey(body)
+> SignJWTOutput signJWTWithClassicKey(body)
 
 
 
@@ -6439,7 +6439,8 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     SignJWTWithClassicKey body = new SignJWTWithClassicKey(); // SignJWTWithClassicKey | 
     try {
-      apiInstance.signJWTWithClassicKey(body);
+      SignJWTOutput result = apiInstance.signJWTWithClassicKey(body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#signJWTWithClassicKey");
       System.err.println("Status code: " + e.getCode());
@@ -6459,7 +6460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**SignJWTOutput**](SignJWTOutput.md)
 
 ### Authorization
 
@@ -6473,7 +6474,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | signJWTWithClassicKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="signPKCS1"></a>
@@ -6539,7 +6540,7 @@ No authorization required
 
 <a name="signPKICertWithClassicKey"></a>
 # **signPKICertWithClassicKey**
-> signPKICertWithClassicKey(body)
+> SignPKICertOutput signPKICertWithClassicKey(body)
 
 
 
@@ -6560,7 +6561,8 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     SignPKICertWithClassicKey body = new SignPKICertWithClassicKey(); // SignPKICertWithClassicKey | 
     try {
-      apiInstance.signPKICertWithClassicKey(body);
+      SignPKICertOutput result = apiInstance.signPKICertWithClassicKey(body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#signPKICertWithClassicKey");
       System.err.println("Status code: " + e.getCode());
@@ -6580,7 +6582,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**SignPKICertOutput**](SignPKICertOutput.md)
 
 ### Authorization
 
@@ -6594,7 +6596,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | signPKICertWithClassicKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="staticCredsAuth"></a>
@@ -8486,7 +8488,7 @@ No authorization required
 
 <a name="verifyJWTWithClassicKey"></a>
 # **verifyJWTWithClassicKey**
-> verifyJWTWithClassicKey(body)
+> VerifyJWTOutput verifyJWTWithClassicKey(body)
 
 
 
@@ -8507,7 +8509,8 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     VerifyJWTWithClassicKey body = new VerifyJWTWithClassicKey(); // VerifyJWTWithClassicKey | 
     try {
-      apiInstance.verifyJWTWithClassicKey(body);
+      VerifyJWTOutput result = apiInstance.verifyJWTWithClassicKey(body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#verifyJWTWithClassicKey");
       System.err.println("Status code: " + e.getCode());
@@ -8527,7 +8530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**VerifyJWTOutput**](VerifyJWTOutput.md)
 
 ### Authorization
 
@@ -8541,7 +8544,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | verifyJWTWithClassicKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="verifyPKCS1"></a>
@@ -8607,7 +8610,7 @@ No authorization required
 
 <a name="verifyPKICertWithClassicKey"></a>
 # **verifyPKICertWithClassicKey**
-> verifyPKICertWithClassicKey(body)
+> VerifyPKICertOutput verifyPKICertWithClassicKey(body)
 
 
 
@@ -8628,7 +8631,8 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     VerifyPKICertWithClassicKey body = new VerifyPKICertWithClassicKey(); // VerifyPKICertWithClassicKey | 
     try {
-      apiInstance.verifyPKICertWithClassicKey(body);
+      VerifyPKICertOutput result = apiInstance.verifyPKICertWithClassicKey(body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#verifyPKICertWithClassicKey");
       System.err.println("Status code: " + e.getCode());
@@ -8648,7 +8652,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**VerifyPKICertOutput**](VerifyPKICertOutput.md)
 
 ### Authorization
 
@@ -8662,6 +8666,6 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | verifyPKICertWithClassicKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 

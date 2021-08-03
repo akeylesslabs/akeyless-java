@@ -88,6 +88,10 @@ public class GatewayCreateProducerMSSQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -138,7 +142,8 @@ public class GatewayCreateProducerMSSQL {
    * MSSQL Name
    * @return mssqlDbname
   **/
-  @ApiModelProperty(required = true, value = "MSSQL Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MSSQL Name")
 
   public String getMssqlDbname() {
     return mssqlDbname;
@@ -183,7 +188,8 @@ public class GatewayCreateProducerMSSQL {
    * MSSQL Password
    * @return mssqlPassword
   **/
-  @ApiModelProperty(required = true, value = "MSSQL Password")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MSSQL Password")
 
   public String getMssqlPassword() {
     return mssqlPassword;
@@ -251,7 +257,8 @@ public class GatewayCreateProducerMSSQL {
    * MSSQL Username
    * @return mssqlUsername
   **/
-  @ApiModelProperty(required = true, value = "MSSQL Username")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MSSQL Username")
 
   public String getMssqlUsername() {
     return mssqlUsername;
@@ -431,6 +438,29 @@ public class GatewayCreateProducerMSSQL {
   }
 
 
+  public GatewayCreateProducerMSSQL targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerMSSQL token(String token) {
     
     this.token = token;
@@ -546,6 +576,7 @@ public class GatewayCreateProducerMSSQL {
         Objects.equals(this.secureAccessDbSchema, gatewayCreateProducerMSSQL.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMSSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerMSSQL.secureAccessHost) &&
+        Objects.equals(this.targetName, gatewayCreateProducerMSSQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerMSSQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMSSQL.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerMSSQL.userTtl) &&
@@ -554,7 +585,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, token, uidToken, userTtl, username);
+    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -576,6 +607,7 @@ public class GatewayCreateProducerMSSQL {
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

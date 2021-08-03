@@ -88,6 +88,10 @@ public class GatewayCreateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -161,7 +165,8 @@ public class GatewayCreateProducerMySQL {
    * MySQL DB Name
    * @return mysqlDbname
   **/
-  @ApiModelProperty(required = true, value = "MySQL DB Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MySQL DB Name")
 
   public String getMysqlDbname() {
     return mysqlDbname;
@@ -206,7 +211,8 @@ public class GatewayCreateProducerMySQL {
    * MySQL Password
    * @return mysqlPassword
   **/
-  @ApiModelProperty(required = true, value = "MySQL Password")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MySQL Password")
 
   public String getMysqlPassword() {
     return mysqlPassword;
@@ -274,7 +280,8 @@ public class GatewayCreateProducerMySQL {
    * MySQL Username
    * @return mysqlUsername
   **/
-  @ApiModelProperty(required = true, value = "MySQL Username")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MySQL Username")
 
   public String getMysqlUsername() {
     return mysqlUsername;
@@ -431,6 +438,29 @@ public class GatewayCreateProducerMySQL {
   }
 
 
+  public GatewayCreateProducerMySQL targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerMySQL token(String token) {
     
     this.token = token;
@@ -546,6 +576,7 @@ public class GatewayCreateProducerMySQL {
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMySQL.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMySQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerMySQL.secureAccessHost) &&
+        Objects.equals(this.targetName, gatewayCreateProducerMySQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerMySQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMySQL.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerMySQL.userTtl) &&
@@ -554,7 +585,7 @@ public class GatewayCreateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -576,6 +607,7 @@ public class GatewayCreateProducerMySQL {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

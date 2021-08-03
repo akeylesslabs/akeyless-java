@@ -62,6 +62,10 @@ public class GatewayCreateProducerChef {
   @SerializedName(SERIALIZED_NAME_SKIP_SSL)
   private Boolean skipSsl = true;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -89,7 +93,8 @@ public class GatewayCreateProducerChef {
    * Organizations
    * @return chefOrgs
   **/
-  @ApiModelProperty(required = true, value = "Organizations")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Organizations")
 
   public String getChefOrgs() {
     return chefOrgs;
@@ -111,7 +116,8 @@ public class GatewayCreateProducerChef {
    * Server key
    * @return chefServerKey
   **/
-  @ApiModelProperty(required = true, value = "Server key")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Server key")
 
   public String getChefServerKey() {
     return chefServerKey;
@@ -133,7 +139,8 @@ public class GatewayCreateProducerChef {
    * Server URL
    * @return chefServerUrl
   **/
-  @ApiModelProperty(required = true, value = "Server URL")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Server URL")
 
   public String getChefServerUrl() {
     return chefServerUrl;
@@ -155,7 +162,8 @@ public class GatewayCreateProducerChef {
    * Server username
    * @return chefServerUsername
   **/
-  @ApiModelProperty(required = true, value = "Server username")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Server username")
 
   public String getChefServerUsername() {
     return chefServerUsername;
@@ -255,6 +263,29 @@ public class GatewayCreateProducerChef {
 
   public void setSkipSsl(Boolean skipSsl) {
     this.skipSsl = skipSsl;
+  }
+
+
+  public GatewayCreateProducerChef targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -367,6 +398,7 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.password, gatewayCreateProducerChef.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerChef.producerEncryptionKeyName) &&
         Objects.equals(this.skipSsl, gatewayCreateProducerChef.skipSsl) &&
+        Objects.equals(this.targetName, gatewayCreateProducerChef.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerChef.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerChef.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerChef.userTtl) &&
@@ -375,7 +407,7 @@ public class GatewayCreateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, password, producerEncryptionKeyName, skipSsl, token, uidToken, userTtl, username);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, password, producerEncryptionKeyName, skipSsl, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -391,6 +423,7 @@ public class GatewayCreateProducerChef {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

@@ -50,6 +50,10 @@ public class GatewayCreateProducerSnowflake {
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -81,7 +85,8 @@ public class GatewayCreateProducerSnowflake {
    * Account name
    * @return account
   **/
-  @ApiModelProperty(required = true, value = "Account name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Account name")
 
   public String getAccount() {
     return account;
@@ -103,7 +108,8 @@ public class GatewayCreateProducerSnowflake {
    * Database name
    * @return dbName
   **/
-  @ApiModelProperty(required = true, value = "Database name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Database name")
 
   public String getDbName() {
     return dbName;
@@ -180,6 +186,29 @@ public class GatewayCreateProducerSnowflake {
 
   public void setRole(String role) {
     this.role = role;
+  }
+
+
+  public GatewayCreateProducerSnowflake targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -312,6 +341,7 @@ public class GatewayCreateProducerSnowflake {
         Objects.equals(this.name, gatewayCreateProducerSnowflake.name) &&
         Objects.equals(this.password, gatewayCreateProducerSnowflake.password) &&
         Objects.equals(this.role, gatewayCreateProducerSnowflake.role) &&
+        Objects.equals(this.targetName, gatewayCreateProducerSnowflake.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerSnowflake.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerSnowflake.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerSnowflake.userTtl) &&
@@ -321,7 +351,7 @@ public class GatewayCreateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, dbName, name, password, role, token, uidToken, userTtl, username, warehouse);
+    return Objects.hash(account, dbName, name, password, role, targetName, token, uidToken, userTtl, username, warehouse);
   }
 
 
@@ -334,6 +364,7 @@ public class GatewayCreateProducerSnowflake {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

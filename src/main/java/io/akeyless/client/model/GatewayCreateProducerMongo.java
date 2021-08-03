@@ -100,6 +100,10 @@ public class GatewayCreateProducerMongo {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -514,6 +518,29 @@ public class GatewayCreateProducerMongo {
   }
 
 
+  public GatewayCreateProducerMongo targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerMongo token(String token) {
     
     this.token = token;
@@ -632,6 +659,7 @@ public class GatewayCreateProducerMongo {
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMongo.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMongo.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerMongo.secureAccessHost) &&
+        Objects.equals(this.targetName, gatewayCreateProducerMongo.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerMongo.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMongo.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerMongo.userTtl) &&
@@ -640,7 +668,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, token, uidToken, userTtl, username);
+    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -665,6 +693,7 @@ public class GatewayCreateProducerMongo {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

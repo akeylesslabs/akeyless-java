@@ -134,7 +134,8 @@ public class CreateGKETarget {
    * GKE cluster CA certificate
    * @return gkeClusterCert
   **/
-  @ApiModelProperty(required = true, value = "GKE cluster CA certificate")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE cluster CA certificate")
 
   public String getGkeClusterCert() {
     return gkeClusterCert;
@@ -156,7 +157,8 @@ public class CreateGKETarget {
    * GKE cluster URL endpoint
    * @return gkeClusterEndpoint
   **/
-  @ApiModelProperty(required = true, value = "GKE cluster URL endpoint")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE cluster URL endpoint")
 
   public String getGkeClusterEndpoint() {
     return gkeClusterEndpoint;
@@ -200,7 +202,8 @@ public class CreateGKETarget {
    * GKE service account email
    * @return gkeServiceAccountEmail
   **/
-  @ApiModelProperty(required = true, value = "GKE service account email")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE service account email")
 
   public String getGkeServiceAccountEmail() {
     return gkeServiceAccountEmail;

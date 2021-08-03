@@ -78,6 +78,10 @@ public class GatewayCreateProducerGke {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -128,7 +132,8 @@ public class GatewayCreateProducerGke {
    * GKE cluster CA certificate
    * @return gkeClusterCert
   **/
-  @ApiModelProperty(required = true, value = "GKE cluster CA certificate")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE cluster CA certificate")
 
   public String getGkeClusterCert() {
     return gkeClusterCert;
@@ -150,7 +155,8 @@ public class GatewayCreateProducerGke {
    * GKE cluster URL endpoint
    * @return gkeClusterEndpoint
   **/
-  @ApiModelProperty(required = true, value = "GKE cluster URL endpoint")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE cluster URL endpoint")
 
   public String getGkeClusterEndpoint() {
     return gkeClusterEndpoint;
@@ -194,7 +200,8 @@ public class GatewayCreateProducerGke {
    * GKE service account email
    * @return gkeServiceAccountEmail
   **/
-  @ApiModelProperty(required = true, value = "GKE service account email")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE service account email")
 
   public String getGkeServiceAccountEmail() {
     return gkeServiceAccountEmail;
@@ -366,6 +373,29 @@ public class GatewayCreateProducerGke {
   }
 
 
+  public GatewayCreateProducerGke targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerGke token(String token) {
     
     this.token = token;
@@ -479,6 +509,7 @@ public class GatewayCreateProducerGke {
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerGke.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerGke.secureAccessClusterEndpoint) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerGke.secureAccessEnable) &&
+        Objects.equals(this.targetName, gatewayCreateProducerGke.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGke.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerGke.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerGke.userTtl) &&
@@ -487,7 +518,7 @@ public class GatewayCreateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, token, uidToken, userTtl, username);
+    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -507,6 +538,7 @@ public class GatewayCreateProducerGke {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

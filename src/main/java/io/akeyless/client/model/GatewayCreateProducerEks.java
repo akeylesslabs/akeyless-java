@@ -86,6 +86,10 @@ public class GatewayCreateProducerEks {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -113,7 +117,8 @@ public class GatewayCreateProducerEks {
    * Access Key ID
    * @return eksAccessKeyId
   **/
-  @ApiModelProperty(required = true, value = "Access Key ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Access Key ID")
 
   public String getEksAccessKeyId() {
     return eksAccessKeyId;
@@ -158,7 +163,8 @@ public class GatewayCreateProducerEks {
    * EKS cluster CA certificate
    * @return eksClusterCaCert
   **/
-  @ApiModelProperty(required = true, value = "EKS cluster CA certificate")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "EKS cluster CA certificate")
 
   public String getEksClusterCaCert() {
     return eksClusterCaCert;
@@ -180,7 +186,8 @@ public class GatewayCreateProducerEks {
    * EKS cluster URL endpoint
    * @return eksClusterEndpoint
   **/
-  @ApiModelProperty(required = true, value = "EKS cluster URL endpoint")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "EKS cluster URL endpoint")
 
   public String getEksClusterEndpoint() {
     return eksClusterEndpoint;
@@ -202,7 +209,8 @@ public class GatewayCreateProducerEks {
    * EKS cluster name
    * @return eksClusterName
   **/
-  @ApiModelProperty(required = true, value = "EKS cluster name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "EKS cluster name")
 
   public String getEksClusterName() {
     return eksClusterName;
@@ -247,7 +255,8 @@ public class GatewayCreateProducerEks {
    * Secret Access Key
    * @return eksSecretAccessKey
   **/
-  @ApiModelProperty(required = true, value = "Secret Access Key")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secret Access Key")
 
   public String getEksSecretAccessKey() {
     return eksSecretAccessKey;
@@ -419,6 +428,29 @@ public class GatewayCreateProducerEks {
   }
 
 
+  public GatewayCreateProducerEks targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerEks token(String token) {
     
     this.token = token;
@@ -534,6 +566,7 @@ public class GatewayCreateProducerEks {
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerEks.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerEks.secureAccessClusterEndpoint) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerEks.secureAccessEnable) &&
+        Objects.equals(this.targetName, gatewayCreateProducerEks.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerEks.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerEks.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerEks.userTtl) &&
@@ -542,7 +575,7 @@ public class GatewayCreateProducerEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, token, uidToken, userTtl, username);
+    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -564,6 +597,7 @@ public class GatewayCreateProducerEks {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

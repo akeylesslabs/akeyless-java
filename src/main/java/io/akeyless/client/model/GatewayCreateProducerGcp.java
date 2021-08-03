@@ -62,6 +62,10 @@ public class GatewayCreateProducerGcp {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -89,7 +93,8 @@ public class GatewayCreateProducerGcp {
    * Get gcpCredType
    * @return gcpCredType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getGcpCredType() {
     return gcpCredType;
@@ -157,7 +162,8 @@ public class GatewayCreateProducerGcp {
    * GCP service account email
    * @return gcpSaEmail
   **/
-  @ApiModelProperty(required = true, value = "GCP service account email")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GCP service account email")
 
   public String getGcpSaEmail() {
     return gcpSaEmail;
@@ -257,6 +263,29 @@ public class GatewayCreateProducerGcp {
 
   public void setProducerEncryptionKeyName(String producerEncryptionKeyName) {
     this.producerEncryptionKeyName = producerEncryptionKeyName;
+  }
+
+
+  public GatewayCreateProducerGcp targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
   }
 
 
@@ -369,6 +398,7 @@ public class GatewayCreateProducerGcp {
         Objects.equals(this.name, gatewayCreateProducerGcp.name) &&
         Objects.equals(this.password, gatewayCreateProducerGcp.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGcp.producerEncryptionKeyName) &&
+        Objects.equals(this.targetName, gatewayCreateProducerGcp.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGcp.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerGcp.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerGcp.userTtl) &&
@@ -377,7 +407,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, password, producerEncryptionKeyName, token, uidToken, userTtl, username);
+    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, password, producerEncryptionKeyName, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -393,6 +423,7 @@ public class GatewayCreateProducerGcp {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

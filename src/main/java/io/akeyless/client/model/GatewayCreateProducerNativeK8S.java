@@ -86,6 +86,10 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -113,7 +117,8 @@ public class GatewayCreateProducerNativeK8S {
    * K8S cluster CA certificate
    * @return k8sClusterCaCert
   **/
-  @ApiModelProperty(required = true, value = "K8S cluster CA certificate")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S cluster CA certificate")
 
   public String getK8sClusterCaCert() {
     return k8sClusterCaCert;
@@ -135,7 +140,8 @@ public class GatewayCreateProducerNativeK8S {
    * K8S cluster URL endpoint
    * @return k8sClusterEndpoint
   **/
-  @ApiModelProperty(required = true, value = "K8S cluster URL endpoint")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S cluster URL endpoint")
 
   public String getK8sClusterEndpoint() {
     return k8sClusterEndpoint;
@@ -202,7 +208,8 @@ public class GatewayCreateProducerNativeK8S {
    * K8S service account
    * @return k8sServiceAccount
   **/
-  @ApiModelProperty(required = true, value = "K8S service account")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S service account")
 
   public String getK8sServiceAccount() {
     return k8sServiceAccount;
@@ -420,6 +427,29 @@ public class GatewayCreateProducerNativeK8S {
   }
 
 
+  public GatewayCreateProducerNativeK8S targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerNativeK8S token(String token) {
     
     this.token = token;
@@ -535,6 +565,7 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.secureAccessDashboardUrl, gatewayCreateProducerNativeK8S.secureAccessDashboardUrl) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerNativeK8S.secureAccessEnable) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerNativeK8S.secureAccessWebBrowsing) &&
+        Objects.equals(this.targetName, gatewayCreateProducerNativeK8S.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerNativeK8S.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerNativeK8S.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerNativeK8S.userTtl) &&
@@ -543,7 +574,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWebBrowsing, token, uidToken, userTtl, username);
+    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWebBrowsing, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -565,6 +596,7 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    secureAccessDashboardUrl: ").append(toIndentedString(secureAccessDashboardUrl)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");

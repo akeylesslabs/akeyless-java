@@ -106,6 +106,10 @@ public class GatewayCreateProducerAws {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -179,7 +183,8 @@ public class GatewayCreateProducerAws {
    * Access Key ID
    * @return awsAccessKeyId
   **/
-  @ApiModelProperty(required = true, value = "Access Key ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Access Key ID")
 
   public String getAwsAccessKeyId() {
     return awsAccessKeyId;
@@ -201,7 +206,8 @@ public class GatewayCreateProducerAws {
    * Secret Access Key
    * @return awsAccessSecretKey
   **/
-  @ApiModelProperty(required = true, value = "Secret Access Key")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secret Access Key")
 
   public String getAwsAccessSecretKey() {
     return awsAccessSecretKey;
@@ -557,6 +563,29 @@ public class GatewayCreateProducerAws {
   }
 
 
+  public GatewayCreateProducerAws targetName(String targetName) {
+    
+    this.targetName = targetName;
+    return this;
+  }
+
+   /**
+   * Target name
+   * @return targetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target name")
+
+  public String getTargetName() {
+    return targetName;
+  }
+
+
+  public void setTargetName(String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayCreateProducerAws token(String token) {
     
     this.token = token;
@@ -677,6 +706,7 @@ public class GatewayCreateProducerAws {
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerAws.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerAws.secureAccessEnable) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerAws.secureAccessWebBrowsing) &&
+        Objects.equals(this.targetName, gatewayCreateProducerAws.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerAws.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerAws.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerAws.userTtl) &&
@@ -685,7 +715,7 @@ public class GatewayCreateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWebBrowsing, token, uidToken, userTtl, username);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, password, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWebBrowsing, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -712,6 +742,7 @@ public class GatewayCreateProducerAws {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
