@@ -202,7 +202,8 @@ public class GatewayCreateProducerRdp {
    * RDP Admin Name
    * @return rdpAdminName
   **/
-  @ApiModelProperty(required = true, value = "RDP Admin Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RDP Admin Name")
 
   public String getRdpAdminName() {
     return rdpAdminName;
@@ -224,7 +225,8 @@ public class GatewayCreateProducerRdp {
    * RDP Admin password
    * @return rdpAdminPwd
   **/
-  @ApiModelProperty(required = true, value = "RDP Admin password")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RDP Admin password")
 
   public String getRdpAdminPwd() {
     return rdpAdminPwd;

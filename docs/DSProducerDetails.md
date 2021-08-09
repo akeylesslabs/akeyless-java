@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **azureUserPortalAccess** | **Boolean** |  |  [optional]
 **azureUserProgrammaticAccess** | **Boolean** |  |  [optional]
 **azureUserRolesTemplateId** | **String** |  |  [optional]
+**cassandraCreationStatements** | **String** |  |  [optional]
 **chefOrganizations** | **String** |  |  [optional]
 **chefServerAccessMode** | **String** |  |  [optional]
 **chefServerHostName** | **String** |  |  [optional]

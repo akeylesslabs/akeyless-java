@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
-**rdpAdminName** | **String** | RDP Admin Name | 
-**rdpAdminPwd** | **String** | RDP Admin password | 
+**rdpAdminName** | **String** | RDP Admin Name |  [optional]
+**rdpAdminPwd** | **String** | RDP Admin password |  [optional]
 **rdpHostName** | **String** | Hostname |  [optional]
 **rdpHostPort** | **String** | Port |  [optional]
 **rdpUserGroups** | **String** | Groups |  [optional]

@@ -246,7 +246,8 @@ public class GatewayCreateProducerMongo {
    * MongoDB Name
    * @return mongodbName
   **/
-  @ApiModelProperty(required = true, value = "MongoDB Name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB Name")
 
   public String getMongodbName() {
     return mongodbName;

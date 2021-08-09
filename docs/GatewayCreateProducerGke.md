@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **gkeAccountKey** | **String** | GKE Service Account key file path |  [optional]
 **gkeClusterCert** | **String** | GKE cluster CA certificate |  [optional]
 **gkeClusterEndpoint** | **String** | GKE cluster URL endpoint |  [optional]
-**gkeClusterName** | **String** | GKE cluster name | 
+**gkeClusterName** | **String** | GKE cluster name |  [optional]
 **gkeServiceAccountEmail** | **String** | GKE service account email |  [optional]
 **name** | **String** | Producer name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]

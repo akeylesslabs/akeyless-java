@@ -180,7 +180,8 @@ public class CreateGKETarget {
    * GKE cluster name
    * @return gkeClusterName
   **/
-  @ApiModelProperty(required = true, value = "GKE cluster name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GKE cluster name")
 
   public String getGkeClusterName() {
     return gkeClusterName;

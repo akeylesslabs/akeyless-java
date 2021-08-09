@@ -26,12 +26,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * KMIPClient
  */
 
 public class KMIPClient {
+  public static final String SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE = "certificate_issue_date";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE)
+  private OffsetDateTime certificateIssueDate;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -43,6 +48,29 @@ public class KMIPClient {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
   private List<PathRule> rules = null;
+
+
+  public KMIPClient certificateIssueDate(OffsetDateTime certificateIssueDate) {
+    
+    this.certificateIssueDate = certificateIssueDate;
+    return this;
+  }
+
+   /**
+   * Get certificateIssueDate
+   * @return certificateIssueDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getCertificateIssueDate() {
+    return certificateIssueDate;
+  }
+
+
+  public void setCertificateIssueDate(OffsetDateTime certificateIssueDate) {
+    this.certificateIssueDate = certificateIssueDate;
+  }
 
 
   public KMIPClient id(String id) {
@@ -131,14 +159,15 @@ public class KMIPClient {
       return false;
     }
     KMIPClient kmIPClient = (KMIPClient) o;
-    return Objects.equals(this.id, kmIPClient.id) &&
+    return Objects.equals(this.certificateIssueDate, kmIPClient.certificateIssueDate) &&
+        Objects.equals(this.id, kmIPClient.id) &&
         Objects.equals(this.name, kmIPClient.name) &&
         Objects.equals(this.rules, kmIPClient.rules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, rules);
+    return Objects.hash(certificateIssueDate, id, name, rules);
   }
 
 
@@ -146,6 +175,7 @@ public class KMIPClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KMIPClient {\n");
+    sb.append("    certificateIssueDate: ").append(toIndentedString(certificateIssueDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");

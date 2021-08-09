@@ -163,7 +163,8 @@ public class GatewayCreateProducerNativeK8S {
    * K8S cluster Bearer token
    * @return k8sClusterToken
   **/
-  @ApiModelProperty(required = true, value = "K8S cluster Bearer token")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S cluster Bearer token")
 
   public String getK8sClusterToken() {
     return k8sClusterToken;

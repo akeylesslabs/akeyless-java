@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **gkeAccountKey** | **String** | GKE Service Account key file path |  [optional]
 **gkeClusterCert** | **String** | GKE cluster CA certificate |  [optional]
 **gkeClusterEndpoint** | **String** | GKE cluster URL endpoint |  [optional]
-**gkeClusterName** | **String** | GKE cluster name | 
+**gkeClusterName** | **String** | GKE cluster name |  [optional]
 **gkeServiceAccountEmail** | **String** | GKE service account email |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **name** | **String** | Target name | 

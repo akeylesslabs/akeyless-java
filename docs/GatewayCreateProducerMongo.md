@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **mongodbAtlasProjectId** | **String** | MongoDB Atlas project ID |  [optional]
 **mongodbDefaultAuthDb** | **String** | MongoDB server default authentication database |  [optional]
 **mongodbHostPort** | **String** | MongoDB server host and port |  [optional]
-**mongodbName** | **String** | MongoDB Name | 
+**mongodbName** | **String** | MongoDB Name |  [optional]
 **mongodbPassword** | **String** | MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters |  [optional]
 **mongodbRoles** | **String** | MongoDB Roles |  [optional]
 **mongodbServerUri** | **String** | MongoDB server URI |  [optional]
