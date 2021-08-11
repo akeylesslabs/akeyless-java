@@ -40,10 +40,6 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
 
-  public static final String SERIALIZED_NAME_KEY = "key";
-  @SerializedName(SERIALIZED_NAME_KEY)
-  private String key;
-
   public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
@@ -59,6 +55,10 @@ public class CreateClassicKey {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
+
+  public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection-key-name";
+  @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
+  private String protectionKeyName;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -123,29 +123,6 @@ public class CreateClassicKey {
 
   public void setCertFileData(String certFileData) {
     this.certFileData = certFileData;
-  }
-
-
-  public CreateClassicKey key(String key) {
-    
-    this.key = key;
-    return this;
-  }
-
-   /**
-   * The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
-   * @return key
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)")
-
-  public String getKey() {
-    return key;
-  }
-
-
-  public void setKey(String key) {
-    this.key = key;
   }
 
 
@@ -237,6 +214,29 @@ public class CreateClassicKey {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+
+  public CreateClassicKey protectionKeyName(String protectionKeyName) {
+    
+    this.protectionKeyName = protectionKeyName;
+    return this;
+  }
+
+   /**
+   * The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
+   * @return protectionKeyName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)")
+
+  public String getProtectionKeyName() {
+    return protectionKeyName;
+  }
+
+
+  public void setProtectionKeyName(String protectionKeyName) {
+    this.protectionKeyName = protectionKeyName;
   }
 
 
@@ -374,11 +374,11 @@ public class CreateClassicKey {
     CreateClassicKey createClassicKey = (CreateClassicKey) o;
     return Objects.equals(this.alg, createClassicKey.alg) &&
         Objects.equals(this.certFileData, createClassicKey.certFileData) &&
-        Objects.equals(this.key, createClassicKey.key) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
         Objects.equals(this.name, createClassicKey.name) &&
         Objects.equals(this.password, createClassicKey.password) &&
+        Objects.equals(this.protectionKeyName, createClassicKey.protectionKeyName) &&
         Objects.equals(this.tags, createClassicKey.tags) &&
         Objects.equals(this.targetName, createClassicKey.targetName) &&
         Objects.equals(this.token, createClassicKey.token) &&
@@ -388,7 +388,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, key, keyData, metadata, name, password, tags, targetName, token, uidToken, username);
+    return Objects.hash(alg, certFileData, keyData, metadata, name, password, protectionKeyName, tags, targetName, token, uidToken, username);
   }
 
 
@@ -398,11 +398,11 @@ public class CreateClassicKey {
     sb.append("class CreateClassicKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

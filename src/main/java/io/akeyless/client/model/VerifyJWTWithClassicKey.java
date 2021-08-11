@@ -33,17 +33,17 @@ public class VerifyJWTWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
-  public static final String SERIALIZED_NAME_JWT_CLAIMS = "jwt-claims";
-  @SerializedName(SERIALIZED_NAME_JWT_CLAIMS)
-  private String jwtClaims;
+  public static final String SERIALIZED_NAME_JWT = "jwt";
+  @SerializedName(SERIALIZED_NAME_JWT)
+  private String jwt;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
+  public static final String SERIALIZED_NAME_REQUIRED_CLAIMS = "required-claims";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_CLAIMS)
+  private String requiredClaims;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -84,25 +84,25 @@ public class VerifyJWTWithClassicKey {
   }
 
 
-  public VerifyJWTWithClassicKey jwtClaims(String jwtClaims) {
+  public VerifyJWTWithClassicKey jwt(String jwt) {
     
-    this.jwtClaims = jwtClaims;
+    this.jwt = jwt;
     return this;
   }
 
    /**
-   * JWTClaims
-   * @return jwtClaims
+   * JWT
+   * @return jwt
   **/
-  @ApiModelProperty(required = true, value = "JWTClaims")
+  @ApiModelProperty(required = true, value = "JWT")
 
-  public String getJwtClaims() {
-    return jwtClaims;
+  public String getJwt() {
+    return jwt;
   }
 
 
-  public void setJwtClaims(String jwtClaims) {
-    this.jwtClaims = jwtClaims;
+  public void setJwt(String jwt) {
+    this.jwt = jwt;
   }
 
 
@@ -129,25 +129,25 @@ public class VerifyJWTWithClassicKey {
   }
 
 
-  public VerifyJWTWithClassicKey signature(String signature) {
+  public VerifyJWTWithClassicKey requiredClaims(String requiredClaims) {
     
-    this.signature = signature;
+    this.requiredClaims = requiredClaims;
     return this;
   }
 
    /**
-   * Signature
-   * @return signature
+   * RequiredClaims
+   * @return requiredClaims
   **/
-  @ApiModelProperty(required = true, value = "Signature")
+  @ApiModelProperty(required = true, value = "RequiredClaims")
 
-  public String getSignature() {
-    return signature;
+  public String getRequiredClaims() {
+    return requiredClaims;
   }
 
 
-  public void setSignature(String signature) {
-    this.signature = signature;
+  public void setRequiredClaims(String requiredClaims) {
+    this.requiredClaims = requiredClaims;
   }
 
 
@@ -252,9 +252,9 @@ public class VerifyJWTWithClassicKey {
     }
     VerifyJWTWithClassicKey verifyJWTWithClassicKey = (VerifyJWTWithClassicKey) o;
     return Objects.equals(this.displayId, verifyJWTWithClassicKey.displayId) &&
-        Objects.equals(this.jwtClaims, verifyJWTWithClassicKey.jwtClaims) &&
+        Objects.equals(this.jwt, verifyJWTWithClassicKey.jwt) &&
         Objects.equals(this.password, verifyJWTWithClassicKey.password) &&
-        Objects.equals(this.signature, verifyJWTWithClassicKey.signature) &&
+        Objects.equals(this.requiredClaims, verifyJWTWithClassicKey.requiredClaims) &&
         Objects.equals(this.token, verifyJWTWithClassicKey.token) &&
         Objects.equals(this.uidToken, verifyJWTWithClassicKey.uidToken) &&
         Objects.equals(this.username, verifyJWTWithClassicKey.username) &&
@@ -263,7 +263,7 @@ public class VerifyJWTWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, jwtClaims, password, signature, token, uidToken, username, version);
+    return Objects.hash(displayId, jwt, password, requiredClaims, token, uidToken, username, version);
   }
 
 
@@ -272,9 +272,9 @@ public class VerifyJWTWithClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerifyJWTWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
-    sb.append("    jwtClaims: ").append(toIndentedString(jwtClaims)).append("\n");
+    sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    requiredClaims: ").append(toIndentedString(requiredClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
