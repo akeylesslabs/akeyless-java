@@ -14137,6 +14137,9 @@ components:
         rotator-creds-type:
           type: string
           x-go-name: RotatorCredsType
+        rotator-custom-cmd:
+          type: string
+          x-go-name: RotatorCustomCmd
         rotator-type:
           type: string
           x-go-name: RotatorType
@@ -23185,6 +23188,9 @@ components:
         rotator-creds-type:
           type: string
           x-go-name: RotatorCredsType
+        rotator-custom-cmd:
+          type: string
+          x-go-name: RotatorCustomCmd
         ssh-password:
           description: 'Deprecated: use RotatedPassword'
           type: string

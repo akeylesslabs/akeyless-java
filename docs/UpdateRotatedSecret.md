@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **rotationHour** | **Integer** |  |  [optional]
 **rotationInterval** | **String** | The number of days to wait between every automatic key rotation (7-365) |  [optional]
 **rotatorCredsType** | **String** |  |  [optional]
+**rotatorCustomCmd** | **String** |  |  [optional]
 **sshPassword** | **String** | Deprecated: use RotatedPassword |  [optional]
 **sshUsername** | **String** | Deprecated: use RotatedUser |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
