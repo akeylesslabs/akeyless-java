@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**createAuthMethodGCP**](V2Api.md#createAuthMethodGCP) | **POST** /create-auth-method-gcp | 
 [**createAuthMethodHuawei**](V2Api.md#createAuthMethodHuawei) | **POST** /create-auth-method-huawei | 
 [**createAuthMethodOAuth2**](V2Api.md#createAuthMethodOAuth2) | **POST** /create-auth-method-oauth2 | 
+[**createAuthMethodOIDC**](V2Api.md#createAuthMethodOIDC) | **POST** /create-auth-method-oidc | 
 [**createAuthMethodSAML**](V2Api.md#createAuthMethodSAML) | **POST** /create-auth-method-saml | 
 [**createAuthMethodUniversalIdentity**](V2Api.md#createAuthMethodUniversalIdentity) | **POST** /create-auth-method-universal-identity | 
 [**createAzureTarget**](V2Api.md#createAzureTarget) | **POST** /create-azure-target | 
@@ -37,6 +38,7 @@ Method | HTTP request | Description
 [**createSSHTarget**](V2Api.md#createSSHTarget) | **POST** /create-ssh-target | 
 [**createSecret**](V2Api.md#createSecret) | **POST** /create-secret | 
 [**createWebTarget**](V2Api.md#createWebTarget) | **POST** /create-web-target | 
+[**createldapTarget**](V2Api.md#createldapTarget) | **POST** /create-ldap-target | 
 [**decrypt**](V2Api.md#decrypt) | **POST** /decrypt | 
 [**decryptPKCS1**](V2Api.md#decryptPKCS1) | **POST** /decrypt-pkcs1 | 
 [**decryptWithClassicKey**](V2Api.md#decryptWithClassicKey) | **POST** /decrypt-with-classic-key | 
@@ -73,6 +75,7 @@ Method | HTTP request | Description
 [**gatewayCreateProducerPostgreSQL**](V2Api.md#gatewayCreateProducerPostgreSQL) | **POST** /gateway-create-producer-postgresql | 
 [**gatewayCreateProducerRabbitMQ**](V2Api.md#gatewayCreateProducerRabbitMQ) | **POST** /gateway-create-producer-rabbitmq | 
 [**gatewayCreateProducerRdp**](V2Api.md#gatewayCreateProducerRdp) | **POST** /gateway-create-producer-rdp | 
+[**gatewayCreateProducerRedshift**](V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
 [**gatewayCreateProducerSnowflake**](V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
 [**gatewayDeleteAllowedManagementAccess**](V2Api.md#gatewayDeleteAllowedManagementAccess) | **POST** /gateway-delete-allowed-management-access | 
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
@@ -951,6 +954,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createAuthMethodOAuth2Response wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createAuthMethodOIDC"></a>
+# **createAuthMethodOIDC**
+> CreateAuthMethodOIDCOutput createAuthMethodOIDC(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateAuthMethodOIDC body = new CreateAuthMethodOIDC(); // CreateAuthMethodOIDC | 
+    try {
+      CreateAuthMethodOIDCOutput result = apiInstance.createAuthMethodOIDC(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createAuthMethodOIDC");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAuthMethodOIDC**](CreateAuthMethodOIDC.md)|  |
+
+### Return type
+
+[**CreateAuthMethodOIDCOutput**](CreateAuthMethodOIDCOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createAuthMethodOIDCResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createAuthMethodSAML"></a>
@@ -2167,6 +2231,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createWebTargetResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createldapTarget"></a>
+# **createldapTarget**
+> CreateLdapTargetOutput createldapTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateLdapTarget body = new CreateLdapTarget(); // CreateLdapTarget | 
+    try {
+      CreateLdapTargetOutput result = apiInstance.createldapTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createldapTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateLdapTarget**](CreateLdapTarget.md)|  |
+
+### Return type
+
+[**CreateLdapTargetOutput**](CreateLdapTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createldapTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="decrypt"></a>
@@ -4363,6 +4488,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayCreateProducerRdpResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayCreateProducerRedshift"></a>
+# **gatewayCreateProducerRedshift**
+> GatewayCreateProducerRedshiftOutput gatewayCreateProducerRedshift(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateProducerRedshift body = new GatewayCreateProducerRedshift(); // GatewayCreateProducerRedshift | 
+    try {
+      GatewayCreateProducerRedshiftOutput result = apiInstance.gatewayCreateProducerRedshift(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateProducerRedshift");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateProducerRedshift**](GatewayCreateProducerRedshift.md)|  |
+
+### Return type
+
+[**GatewayCreateProducerRedshiftOutput**](GatewayCreateProducerRedshiftOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayCreateProducerRedshiftResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateProducerSnowflake"></a>

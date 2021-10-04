@@ -421,11 +421,10 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get rotatorType
+   * Rotator Type
    * @return rotatorType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "Rotator Type")
 
   public String getRotatorType() {
     return rotatorType;

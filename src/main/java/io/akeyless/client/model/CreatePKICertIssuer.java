@@ -641,10 +641,10 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * The requested Time To Live for the certificate, use second units
+   * he requested Time To Live for the certificate, in seconds
    * @return ttl
   **/
-  @ApiModelProperty(required = true, value = "The requested Time To Live for the certificate, use second units")
+  @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
 
   public Long getTtl() {
     return ttl;

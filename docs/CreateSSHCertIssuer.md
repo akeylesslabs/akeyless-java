@@ -17,9 +17,10 @@ Name | Type | Description | Notes
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
 **secureAccessSshCredsUser** | **String** |  |  [optional]
+**secureAccessUseInternalBastion** | **Boolean** |  |  [optional]
 **signerKeyName** | **String** | A key to sign the certificate with | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
-**ttl** | **Long** | The requested Time To Live for the certificate, use second units | 
+**ttl** | **Long** | he requested Time To Live for the certificate, in seconds | 
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 

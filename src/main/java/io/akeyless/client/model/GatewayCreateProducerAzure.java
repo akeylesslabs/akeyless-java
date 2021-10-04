@@ -62,6 +62,10 @@ public class GatewayCreateProducerAzure {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
@@ -287,6 +291,29 @@ public class GatewayCreateProducerAzure {
 
   public void setSecureAccessEnable(String secureAccessEnable) {
     this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayCreateProducerAzure secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWeb
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
   }
 
 
@@ -560,6 +587,7 @@ public class GatewayCreateProducerAzure {
         Objects.equals(this.password, gatewayCreateProducerAzure.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerAzure.secureAccessEnable) &&
+        Objects.equals(this.secureAccessWeb, gatewayCreateProducerAzure.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerAzure.secureAccessWebBrowsing) &&
         Objects.equals(this.targetName, gatewayCreateProducerAzure.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerAzure.token) &&
@@ -575,7 +603,7 @@ public class GatewayCreateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, name, password, producerEncryptionKeyName, secureAccessEnable, secureAccessWebBrowsing, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, name, password, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
   }
 
 
@@ -591,6 +619,7 @@ public class GatewayCreateProducerAzure {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

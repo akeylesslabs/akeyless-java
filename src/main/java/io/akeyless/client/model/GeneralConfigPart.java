@@ -37,6 +37,10 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_API_TOKEN_TTL)
   private String apiTokenTtl;
 
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  private String displayName;
+
   public static final String SERIALIZED_NAME_ENABLE_TLS = "enable_tls";
   @SerializedName(SERIALIZED_NAME_ENABLE_TLS)
   private Boolean enableTls;
@@ -113,6 +117,29 @@ public class GeneralConfigPart {
 
   public void setApiTokenTtl(String apiTokenTtl) {
     this.apiTokenTtl = apiTokenTtl;
+  }
+
+
+  public GeneralConfigPart displayName(String displayName) {
+    
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDisplayName() {
+    return displayName;
+  }
+
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
 
@@ -311,6 +338,7 @@ public class GeneralConfigPart {
     GeneralConfigPart generalConfigPart = (GeneralConfigPart) o;
     return Objects.equals(this.akeylessUrl, generalConfigPart.akeylessUrl) &&
         Objects.equals(this.apiTokenTtl, generalConfigPart.apiTokenTtl) &&
+        Objects.equals(this.displayName, generalConfigPart.displayName) &&
         Objects.equals(this.enableTls, generalConfigPart.enableTls) &&
         Objects.equals(this.enableTlsConfigure, generalConfigPart.enableTlsConfigure) &&
         Objects.equals(this.enableTlsCurl, generalConfigPart.enableTlsCurl) &&
@@ -323,7 +351,7 @@ public class GeneralConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(akeylessUrl, apiTokenTtl, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
+    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
   }
 
 
@@ -333,6 +361,7 @@ public class GeneralConfigPart {
     sb.append("class GeneralConfigPart {\n");
     sb.append("    akeylessUrl: ").append(toIndentedString(akeylessUrl)).append("\n");
     sb.append("    apiTokenTtl: ").append(toIndentedString(apiTokenTtl)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    enableTlsConfigure: ").append(toIndentedString(enableTlsConfigure)).append("\n");
     sb.append("    enableTlsCurl: ").append(toIndentedString(enableTlsCurl)).append("\n");

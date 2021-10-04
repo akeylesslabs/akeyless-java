@@ -191,6 +191,62 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
 
+  public static final String SERIALIZED_NAME_LDAP_ACCESS_ID = "ldap_access_id";
+  @SerializedName(SERIALIZED_NAME_LDAP_ACCESS_ID)
+  private String ldapAccessId;
+
+  public static final String SERIALIZED_NAME_LDAP_ANONYMOUS_SEARCH = "ldap_anonymous_search";
+  @SerializedName(SERIALIZED_NAME_LDAP_ANONYMOUS_SEARCH)
+  private Boolean ldapAnonymousSearch;
+
+  public static final String SERIALIZED_NAME_LDAP_AUDIENCE = "ldap_audience";
+  @SerializedName(SERIALIZED_NAME_LDAP_AUDIENCE)
+  private String ldapAudience;
+
+  public static final String SERIALIZED_NAME_LDAP_BIND_DN = "ldap_bind_dn";
+  @SerializedName(SERIALIZED_NAME_LDAP_BIND_DN)
+  private String ldapBindDn;
+
+  public static final String SERIALIZED_NAME_LDAP_BIND_PASSWORD = "ldap_bind_password";
+  @SerializedName(SERIALIZED_NAME_LDAP_BIND_PASSWORD)
+  private String ldapBindPassword;
+
+  public static final String SERIALIZED_NAME_LDAP_CERTIFICATE = "ldap_certificate";
+  @SerializedName(SERIALIZED_NAME_LDAP_CERTIFICATE)
+  private String ldapCertificate;
+
+  public static final String SERIALIZED_NAME_LDAP_GROUP_ATTR = "ldap_group_attr";
+  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_ATTR)
+  private String ldapGroupAttr;
+
+  public static final String SERIALIZED_NAME_LDAP_GROUP_DN = "ldap_group_dn";
+  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_DN)
+  private String ldapGroupDn;
+
+  public static final String SERIALIZED_NAME_LDAP_GROUP_FILTER = "ldap_group_filter";
+  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_FILTER)
+  private String ldapGroupFilter;
+
+  public static final String SERIALIZED_NAME_LDAP_PRIVATE_KEY = "ldap_private_key";
+  @SerializedName(SERIALIZED_NAME_LDAP_PRIVATE_KEY)
+  private String ldapPrivateKey;
+
+  public static final String SERIALIZED_NAME_LDAP_TOKEN_EXPIRATION = "ldap_token_expiration";
+  @SerializedName(SERIALIZED_NAME_LDAP_TOKEN_EXPIRATION)
+  private String ldapTokenExpiration;
+
+  public static final String SERIALIZED_NAME_LDAP_URL = "ldap_url";
+  @SerializedName(SERIALIZED_NAME_LDAP_URL)
+  private String ldapUrl;
+
+  public static final String SERIALIZED_NAME_LDAP_USER_ATTR = "ldap_user_attr";
+  @SerializedName(SERIALIZED_NAME_LDAP_USER_ATTR)
+  private String ldapUserAttr;
+
+  public static final String SERIALIZED_NAME_LDAP_USER_DN = "ldap_user_dn";
+  @SerializedName(SERIALIZED_NAME_LDAP_USER_DN)
+  private String ldapUserDn;
+
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
   private String mongodbAtlasApiPrivateKey;
@@ -270,6 +326,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+
+  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
+  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
+  private Boolean useGwCloudIdentity;
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
@@ -1228,6 +1288,328 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput ldapAccessId(String ldapAccessId) {
+    
+    this.ldapAccessId = ldapAccessId;
+    return this;
+  }
+
+   /**
+   * Get ldapAccessId
+   * @return ldapAccessId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapAccessId() {
+    return ldapAccessId;
+  }
+
+
+  public void setLdapAccessId(String ldapAccessId) {
+    this.ldapAccessId = ldapAccessId;
+  }
+
+
+  public TargetTypeDetailsInput ldapAnonymousSearch(Boolean ldapAnonymousSearch) {
+    
+    this.ldapAnonymousSearch = ldapAnonymousSearch;
+    return this;
+  }
+
+   /**
+   * Get ldapAnonymousSearch
+   * @return ldapAnonymousSearch
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getLdapAnonymousSearch() {
+    return ldapAnonymousSearch;
+  }
+
+
+  public void setLdapAnonymousSearch(Boolean ldapAnonymousSearch) {
+    this.ldapAnonymousSearch = ldapAnonymousSearch;
+  }
+
+
+  public TargetTypeDetailsInput ldapAudience(String ldapAudience) {
+    
+    this.ldapAudience = ldapAudience;
+    return this;
+  }
+
+   /**
+   * Get ldapAudience
+   * @return ldapAudience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapAudience() {
+    return ldapAudience;
+  }
+
+
+  public void setLdapAudience(String ldapAudience) {
+    this.ldapAudience = ldapAudience;
+  }
+
+
+  public TargetTypeDetailsInput ldapBindDn(String ldapBindDn) {
+    
+    this.ldapBindDn = ldapBindDn;
+    return this;
+  }
+
+   /**
+   * Get ldapBindDn
+   * @return ldapBindDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapBindDn() {
+    return ldapBindDn;
+  }
+
+
+  public void setLdapBindDn(String ldapBindDn) {
+    this.ldapBindDn = ldapBindDn;
+  }
+
+
+  public TargetTypeDetailsInput ldapBindPassword(String ldapBindPassword) {
+    
+    this.ldapBindPassword = ldapBindPassword;
+    return this;
+  }
+
+   /**
+   * Get ldapBindPassword
+   * @return ldapBindPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapBindPassword() {
+    return ldapBindPassword;
+  }
+
+
+  public void setLdapBindPassword(String ldapBindPassword) {
+    this.ldapBindPassword = ldapBindPassword;
+  }
+
+
+  public TargetTypeDetailsInput ldapCertificate(String ldapCertificate) {
+    
+    this.ldapCertificate = ldapCertificate;
+    return this;
+  }
+
+   /**
+   * Get ldapCertificate
+   * @return ldapCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapCertificate() {
+    return ldapCertificate;
+  }
+
+
+  public void setLdapCertificate(String ldapCertificate) {
+    this.ldapCertificate = ldapCertificate;
+  }
+
+
+  public TargetTypeDetailsInput ldapGroupAttr(String ldapGroupAttr) {
+    
+    this.ldapGroupAttr = ldapGroupAttr;
+    return this;
+  }
+
+   /**
+   * Get ldapGroupAttr
+   * @return ldapGroupAttr
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapGroupAttr() {
+    return ldapGroupAttr;
+  }
+
+
+  public void setLdapGroupAttr(String ldapGroupAttr) {
+    this.ldapGroupAttr = ldapGroupAttr;
+  }
+
+
+  public TargetTypeDetailsInput ldapGroupDn(String ldapGroupDn) {
+    
+    this.ldapGroupDn = ldapGroupDn;
+    return this;
+  }
+
+   /**
+   * Get ldapGroupDn
+   * @return ldapGroupDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapGroupDn() {
+    return ldapGroupDn;
+  }
+
+
+  public void setLdapGroupDn(String ldapGroupDn) {
+    this.ldapGroupDn = ldapGroupDn;
+  }
+
+
+  public TargetTypeDetailsInput ldapGroupFilter(String ldapGroupFilter) {
+    
+    this.ldapGroupFilter = ldapGroupFilter;
+    return this;
+  }
+
+   /**
+   * Get ldapGroupFilter
+   * @return ldapGroupFilter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapGroupFilter() {
+    return ldapGroupFilter;
+  }
+
+
+  public void setLdapGroupFilter(String ldapGroupFilter) {
+    this.ldapGroupFilter = ldapGroupFilter;
+  }
+
+
+  public TargetTypeDetailsInput ldapPrivateKey(String ldapPrivateKey) {
+    
+    this.ldapPrivateKey = ldapPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get ldapPrivateKey
+   * @return ldapPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapPrivateKey() {
+    return ldapPrivateKey;
+  }
+
+
+  public void setLdapPrivateKey(String ldapPrivateKey) {
+    this.ldapPrivateKey = ldapPrivateKey;
+  }
+
+
+  public TargetTypeDetailsInput ldapTokenExpiration(String ldapTokenExpiration) {
+    
+    this.ldapTokenExpiration = ldapTokenExpiration;
+    return this;
+  }
+
+   /**
+   * Get ldapTokenExpiration
+   * @return ldapTokenExpiration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapTokenExpiration() {
+    return ldapTokenExpiration;
+  }
+
+
+  public void setLdapTokenExpiration(String ldapTokenExpiration) {
+    this.ldapTokenExpiration = ldapTokenExpiration;
+  }
+
+
+  public TargetTypeDetailsInput ldapUrl(String ldapUrl) {
+    
+    this.ldapUrl = ldapUrl;
+    return this;
+  }
+
+   /**
+   * Get ldapUrl
+   * @return ldapUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapUrl() {
+    return ldapUrl;
+  }
+
+
+  public void setLdapUrl(String ldapUrl) {
+    this.ldapUrl = ldapUrl;
+  }
+
+
+  public TargetTypeDetailsInput ldapUserAttr(String ldapUserAttr) {
+    
+    this.ldapUserAttr = ldapUserAttr;
+    return this;
+  }
+
+   /**
+   * Get ldapUserAttr
+   * @return ldapUserAttr
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapUserAttr() {
+    return ldapUserAttr;
+  }
+
+
+  public void setLdapUserAttr(String ldapUserAttr) {
+    this.ldapUserAttr = ldapUserAttr;
+  }
+
+
+  public TargetTypeDetailsInput ldapUserDn(String ldapUserDn) {
+    
+    this.ldapUserDn = ldapUserDn;
+    return this;
+  }
+
+   /**
+   * Get ldapUserDn
+   * @return ldapUserDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapUserDn() {
+    return ldapUserDn;
+  }
+
+
+  public void setLdapUserDn(String ldapUserDn) {
+    this.ldapUserDn = ldapUserDn;
+  }
+
+
   public TargetTypeDetailsInput mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
     
     this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
@@ -1688,6 +2070,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput useGwCloudIdentity(Boolean useGwCloudIdentity) {
+    
+    this.useGwCloudIdentity = useGwCloudIdentity;
+    return this;
+  }
+
+   /**
+   * Get useGwCloudIdentity
+   * @return useGwCloudIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseGwCloudIdentity() {
+    return useGwCloudIdentity;
+  }
+
+
+  public void setUseGwCloudIdentity(Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
   public TargetTypeDetailsInput username(String username) {
     
     this.username = username;
@@ -1898,6 +2303,20 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.k8sBearerToken, targetTypeDetailsInput.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, targetTypeDetailsInput.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, targetTypeDetailsInput.k8sClusterEndpoint) &&
+        Objects.equals(this.ldapAccessId, targetTypeDetailsInput.ldapAccessId) &&
+        Objects.equals(this.ldapAnonymousSearch, targetTypeDetailsInput.ldapAnonymousSearch) &&
+        Objects.equals(this.ldapAudience, targetTypeDetailsInput.ldapAudience) &&
+        Objects.equals(this.ldapBindDn, targetTypeDetailsInput.ldapBindDn) &&
+        Objects.equals(this.ldapBindPassword, targetTypeDetailsInput.ldapBindPassword) &&
+        Objects.equals(this.ldapCertificate, targetTypeDetailsInput.ldapCertificate) &&
+        Objects.equals(this.ldapGroupAttr, targetTypeDetailsInput.ldapGroupAttr) &&
+        Objects.equals(this.ldapGroupDn, targetTypeDetailsInput.ldapGroupDn) &&
+        Objects.equals(this.ldapGroupFilter, targetTypeDetailsInput.ldapGroupFilter) &&
+        Objects.equals(this.ldapPrivateKey, targetTypeDetailsInput.ldapPrivateKey) &&
+        Objects.equals(this.ldapTokenExpiration, targetTypeDetailsInput.ldapTokenExpiration) &&
+        Objects.equals(this.ldapUrl, targetTypeDetailsInput.ldapUrl) &&
+        Objects.equals(this.ldapUserAttr, targetTypeDetailsInput.ldapUserAttr) &&
+        Objects.equals(this.ldapUserDn, targetTypeDetailsInput.ldapUserDn) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, targetTypeDetailsInput.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, targetTypeDetailsInput.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, targetTypeDetailsInput.mongodbAtlasProjectId) &&
@@ -1918,6 +2337,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
         Objects.equals(this.sfAccount, targetTypeDetailsInput.sfAccount) &&
         Objects.equals(this.url, targetTypeDetailsInput.url) &&
+        Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
         Objects.equals(this.username, targetTypeDetailsInput.username) &&
         Objects.equals(this.venafiApiKey, targetTypeDetailsInput.venafiApiKey) &&
         Objects.equals(this.venafiBaseUrl, targetTypeDetailsInput.venafiBaseUrl) &&
@@ -1929,7 +2349,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAccessId, ldapAnonymousSearch, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupAttr, ldapGroupDn, ldapGroupFilter, ldapPrivateKey, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -1977,6 +2397,20 @@ public class TargetTypeDetailsInput {
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    ldapAccessId: ").append(toIndentedString(ldapAccessId)).append("\n");
+    sb.append("    ldapAnonymousSearch: ").append(toIndentedString(ldapAnonymousSearch)).append("\n");
+    sb.append("    ldapAudience: ").append(toIndentedString(ldapAudience)).append("\n");
+    sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");
+    sb.append("    ldapBindPassword: ").append(toIndentedString(ldapBindPassword)).append("\n");
+    sb.append("    ldapCertificate: ").append(toIndentedString(ldapCertificate)).append("\n");
+    sb.append("    ldapGroupAttr: ").append(toIndentedString(ldapGroupAttr)).append("\n");
+    sb.append("    ldapGroupDn: ").append(toIndentedString(ldapGroupDn)).append("\n");
+    sb.append("    ldapGroupFilter: ").append(toIndentedString(ldapGroupFilter)).append("\n");
+    sb.append("    ldapPrivateKey: ").append(toIndentedString(ldapPrivateKey)).append("\n");
+    sb.append("    ldapTokenExpiration: ").append(toIndentedString(ldapTokenExpiration)).append("\n");
+    sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
+    sb.append("    ldapUserAttr: ").append(toIndentedString(ldapUserAttr)).append("\n");
+    sb.append("    ldapUserDn: ").append(toIndentedString(ldapUserDn)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
@@ -1997,6 +2431,7 @@ public class TargetTypeDetailsInput {
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
     sb.append("    venafiBaseUrl: ").append(toIndentedString(venafiBaseUrl)).append("\n");

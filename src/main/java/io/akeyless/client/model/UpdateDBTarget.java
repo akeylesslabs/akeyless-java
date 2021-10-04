@@ -77,25 +77,9 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB)
   private String mongodbDefaultAuthDb;
 
-  public static final String SERIALIZED_NAME_MONGODB_HOST_PORT = "mongodb-host-port";
-  @SerializedName(SERIALIZED_NAME_MONGODB_HOST_PORT)
-  private String mongodbHostPort;
-
-  public static final String SERIALIZED_NAME_MONGODB_PASSWORD = "mongodb-password";
-  @SerializedName(SERIALIZED_NAME_MONGODB_PASSWORD)
-  private String mongodbPassword;
-
-  public static final String SERIALIZED_NAME_MONGODB_SERVER_URI = "mongodb-server-uri";
-  @SerializedName(SERIALIZED_NAME_MONGODB_SERVER_URI)
-  private String mongodbServerUri;
-
   public static final String SERIALIZED_NAME_MONGODB_URI_OPTIONS = "mongodb-uri-options";
   @SerializedName(SERIALIZED_NAME_MONGODB_URI_OPTIONS)
   private String mongodbUriOptions;
-
-  public static final String SERIALIZED_NAME_MONGODB_USERNAME = "mongodb-username";
-  @SerializedName(SERIALIZED_NAME_MONGODB_USERNAME)
-  private String mongodbUsername;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -421,75 +405,6 @@ public class UpdateDBTarget {
   }
 
 
-  public UpdateDBTarget mongodbHostPort(String mongodbHostPort) {
-    
-    this.mongodbHostPort = mongodbHostPort;
-    return this;
-  }
-
-   /**
-   * MongoDB server host and port
-   * @return mongodbHostPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MongoDB server host and port")
-
-  public String getMongodbHostPort() {
-    return mongodbHostPort;
-  }
-
-
-  public void setMongodbHostPort(String mongodbHostPort) {
-    this.mongodbHostPort = mongodbHostPort;
-  }
-
-
-  public UpdateDBTarget mongodbPassword(String mongodbPassword) {
-    
-    this.mongodbPassword = mongodbPassword;
-    return this;
-  }
-
-   /**
-   * MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters
-   * @return mongodbPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters")
-
-  public String getMongodbPassword() {
-    return mongodbPassword;
-  }
-
-
-  public void setMongodbPassword(String mongodbPassword) {
-    this.mongodbPassword = mongodbPassword;
-  }
-
-
-  public UpdateDBTarget mongodbServerUri(String mongodbServerUri) {
-    
-    this.mongodbServerUri = mongodbServerUri;
-    return this;
-  }
-
-   /**
-   * MongoDB server URI
-   * @return mongodbServerUri
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MongoDB server URI")
-
-  public String getMongodbServerUri() {
-    return mongodbServerUri;
-  }
-
-
-  public void setMongodbServerUri(String mongodbServerUri) {
-    this.mongodbServerUri = mongodbServerUri;
-  }
-
-
   public UpdateDBTarget mongodbUriOptions(String mongodbUriOptions) {
     
     this.mongodbUriOptions = mongodbUriOptions;
@@ -510,29 +425,6 @@ public class UpdateDBTarget {
 
   public void setMongodbUriOptions(String mongodbUriOptions) {
     this.mongodbUriOptions = mongodbUriOptions;
-  }
-
-
-  public UpdateDBTarget mongodbUsername(String mongodbUsername) {
-    
-    this.mongodbUsername = mongodbUsername;
-    return this;
-  }
-
-   /**
-   * MongoDB server username
-   * @return mongodbUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MongoDB server username")
-
-  public String getMongodbUsername() {
-    return mongodbUsername;
-  }
-
-
-  public void setMongodbUsername(String mongodbUsername) {
-    this.mongodbUsername = mongodbUsername;
   }
 
 
@@ -832,11 +724,7 @@ public class UpdateDBTarget {
         Objects.equals(this.mongodbAtlasApiPublicKey, updateDBTarget.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, updateDBTarget.mongodbAtlasProjectId) &&
         Objects.equals(this.mongodbDefaultAuthDb, updateDBTarget.mongodbDefaultAuthDb) &&
-        Objects.equals(this.mongodbHostPort, updateDBTarget.mongodbHostPort) &&
-        Objects.equals(this.mongodbPassword, updateDBTarget.mongodbPassword) &&
-        Objects.equals(this.mongodbServerUri, updateDBTarget.mongodbServerUri) &&
         Objects.equals(this.mongodbUriOptions, updateDBTarget.mongodbUriOptions) &&
-        Objects.equals(this.mongodbUsername, updateDBTarget.mongodbUsername) &&
         Objects.equals(this.name, updateDBTarget.name) &&
         Objects.equals(this.newName, updateDBTarget.newName) &&
         Objects.equals(this.oracleServiceName, updateDBTarget.oracleServiceName) &&
@@ -853,7 +741,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbPassword, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, oracleServiceName, password, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName, username);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, password, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName, username);
   }
 
 
@@ -873,11 +761,7 @@ public class UpdateDBTarget {
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
     sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
-    sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
-    sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
-    sb.append("    mongodbServerUri: ").append(toIndentedString(mongodbServerUri)).append("\n");
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
-    sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");

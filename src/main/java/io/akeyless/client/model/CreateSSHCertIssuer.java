@@ -77,6 +77,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS_USER)
   private String secureAccessSshCredsUser;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_BASTION = "secure-access-use-internal-bastion";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_BASTION)
+  private Boolean secureAccessUseInternalBastion;
+
   public static final String SERIALIZED_NAME_SIGNER_KEY_NAME = "signer-key-name";
   @SerializedName(SERIALIZED_NAME_SIGNER_KEY_NAME)
   private String signerKeyName;
@@ -365,6 +369,29 @@ public class CreateSSHCertIssuer {
   }
 
 
+  public CreateSSHCertIssuer secureAccessUseInternalBastion(Boolean secureAccessUseInternalBastion) {
+    
+    this.secureAccessUseInternalBastion = secureAccessUseInternalBastion;
+    return this;
+  }
+
+   /**
+   * Get secureAccessUseInternalBastion
+   * @return secureAccessUseInternalBastion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessUseInternalBastion() {
+    return secureAccessUseInternalBastion;
+  }
+
+
+  public void setSecureAccessUseInternalBastion(Boolean secureAccessUseInternalBastion) {
+    this.secureAccessUseInternalBastion = secureAccessUseInternalBastion;
+  }
+
+
   public CreateSSHCertIssuer signerKeyName(String signerKeyName) {
     
     this.signerKeyName = signerKeyName;
@@ -417,10 +444,10 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * The requested Time To Live for the certificate, use second units
+   * he requested Time To Live for the certificate, in seconds
    * @return ttl
   **/
-  @ApiModelProperty(required = true, value = "The requested Time To Live for the certificate, use second units")
+  @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
 
   public Long getTtl() {
     return ttl;
@@ -498,6 +525,7 @@ public class CreateSSHCertIssuer {
         Objects.equals(this.secureAccessEnable, createSSHCertIssuer.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, createSSHCertIssuer.secureAccessHost) &&
         Objects.equals(this.secureAccessSshCredsUser, createSSHCertIssuer.secureAccessSshCredsUser) &&
+        Objects.equals(this.secureAccessUseInternalBastion, createSSHCertIssuer.secureAccessUseInternalBastion) &&
         Objects.equals(this.signerKeyName, createSSHCertIssuer.signerKeyName) &&
         Objects.equals(this.token, createSSHCertIssuer.token) &&
         Objects.equals(this.ttl, createSSHCertIssuer.ttl) &&
@@ -507,7 +535,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, extensions, metadata, name, password, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, signerKeyName, token, ttl, uidToken, username);
+    return Objects.hash(allowedUsers, extensions, metadata, name, password, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken, username);
   }
 
 
@@ -526,6 +554,7 @@ public class CreateSSHCertIssuer {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
+    sb.append("    secureAccessUseInternalBastion: ").append(toIndentedString(secureAccessUseInternalBastion)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");

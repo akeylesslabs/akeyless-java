@@ -123,6 +123,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
+  public static final String SERIALIZED_NAME_USE_INTERNAL_BASTION = "use_internal_bastion";
+  @SerializedName(SERIALIZED_NAME_USE_INTERNAL_BASTION)
+  private Boolean useInternalBastion;
+
 
   public SecureRemoteAccess accountId(String accountId) {
     
@@ -661,6 +665,29 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess useInternalBastion(Boolean useInternalBastion) {
+    
+    this.useInternalBastion = useInternalBastion;
+    return this;
+  }
+
+   /**
+   * Get useInternalBastion
+   * @return useInternalBastion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseInternalBastion() {
+    return useInternalBastion;
+  }
+
+
+  public void setUseInternalBastion(Boolean useInternalBastion) {
+    this.useInternalBastion = useInternalBastion;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -692,12 +719,13 @@ public class SecureRemoteAccess {
         Objects.equals(this.sshPassword, secureRemoteAccess.sshPassword) &&
         Objects.equals(this.sshPrivateKey, secureRemoteAccess.sshPrivateKey) &&
         Objects.equals(this.sshUser, secureRemoteAccess.sshUser) &&
-        Objects.equals(this.url, secureRemoteAccess.url);
+        Objects.equals(this.url, secureRemoteAccess.url) &&
+        Objects.equals(this.useInternalBastion, secureRemoteAccess.useInternalBastion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, region, schema, sshPassword, sshPrivateKey, sshUser, url);
+    return Objects.hash(accountId, allowPortForwarding, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, region, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion);
   }
 
 
@@ -728,6 +756,7 @@ public class SecureRemoteAccess {
     sb.append("    sshPrivateKey: ").append(toIndentedString(sshPrivateKey)).append("\n");
     sb.append("    sshUser: ").append(toIndentedString(sshUser)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    useInternalBastion: ").append(toIndentedString(useInternalBastion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.ItemTargetAssociation;
+import io.akeyless.client.model.SecureRemoteAccess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -464,6 +465,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_RABBITMQ_USER_WRITE_PERMISSION)
   private String rabbitmqUserWritePermission;
 
+  public static final String SERIALIZED_NAME_REDSHIFT_CREATION_STATEMENTS = "redshift_creation_statements";
+  @SerializedName(SERIALIZED_NAME_REDSHIFT_CREATION_STATEMENTS)
+  private String redshiftCreationStatements;
+
   public static final String SERIALIZED_NAME_REVOKE_SYNC_URL = "revoke_sync_url";
   @SerializedName(SERIALIZED_NAME_REVOKE_SYNC_URL)
   private String revokeSyncUrl;
@@ -471,6 +476,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_ROTATE_SYNC_URL = "rotate_sync_url";
   @SerializedName(SERIALIZED_NAME_ROTATE_SYNC_URL)
   private String rotateSyncUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS = "secure_remote_access_details";
+  @SerializedName(SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS)
+  private SecureRemoteAccess secureRemoteAccessDetails;
 
   public static final String SERIALIZED_NAME_SF_ACCOUNT = "sf_account";
   @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
@@ -491,6 +500,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_TIMEOUT_SECONDS = "timeout_seconds";
   @SerializedName(SERIALIZED_NAME_TIMEOUT_SECONDS)
   private Long timeoutSeconds;
+
+  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
+  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
+  private Boolean useGwCloudIdentity;
 
   public static final String SERIALIZED_NAME_USER_PRINCIPAL_NAME = "user_principal_name";
   @SerializedName(SERIALIZED_NAME_USER_PRINCIPAL_NAME)
@@ -3053,6 +3066,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails redshiftCreationStatements(String redshiftCreationStatements) {
+    
+    this.redshiftCreationStatements = redshiftCreationStatements;
+    return this;
+  }
+
+   /**
+   * Get redshiftCreationStatements
+   * @return redshiftCreationStatements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRedshiftCreationStatements() {
+    return redshiftCreationStatements;
+  }
+
+
+  public void setRedshiftCreationStatements(String redshiftCreationStatements) {
+    this.redshiftCreationStatements = redshiftCreationStatements;
+  }
+
+
   public DSProducerDetails revokeSyncUrl(String revokeSyncUrl) {
     
     this.revokeSyncUrl = revokeSyncUrl;
@@ -3096,6 +3132,29 @@ public class DSProducerDetails {
 
   public void setRotateSyncUrl(String rotateSyncUrl) {
     this.rotateSyncUrl = rotateSyncUrl;
+  }
+
+
+  public DSProducerDetails secureRemoteAccessDetails(SecureRemoteAccess secureRemoteAccessDetails) {
+    
+    this.secureRemoteAccessDetails = secureRemoteAccessDetails;
+    return this;
+  }
+
+   /**
+   * Get secureRemoteAccessDetails
+   * @return secureRemoteAccessDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SecureRemoteAccess getSecureRemoteAccessDetails() {
+    return secureRemoteAccessDetails;
+  }
+
+
+  public void setSecureRemoteAccessDetails(SecureRemoteAccess secureRemoteAccessDetails) {
+    this.secureRemoteAccessDetails = secureRemoteAccessDetails;
   }
 
 
@@ -3211,6 +3270,29 @@ public class DSProducerDetails {
 
   public void setTimeoutSeconds(Long timeoutSeconds) {
     this.timeoutSeconds = timeoutSeconds;
+  }
+
+
+  public DSProducerDetails useGwCloudIdentity(Boolean useGwCloudIdentity) {
+    
+    this.useGwCloudIdentity = useGwCloudIdentity;
+    return this;
+  }
+
+   /**
+   * Get useGwCloudIdentity
+   * @return useGwCloudIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseGwCloudIdentity() {
+    return useGwCloudIdentity;
+  }
+
+
+  public void setUseGwCloudIdentity(Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
   }
 
 
@@ -3684,13 +3766,16 @@ public class DSProducerDetails {
         Objects.equals(this.rabbitmqUserTags, dsProducerDetails.rabbitmqUserTags) &&
         Objects.equals(this.rabbitmqUserVhost, dsProducerDetails.rabbitmqUserVhost) &&
         Objects.equals(this.rabbitmqUserWritePermission, dsProducerDetails.rabbitmqUserWritePermission) &&
+        Objects.equals(this.redshiftCreationStatements, dsProducerDetails.redshiftCreationStatements) &&
         Objects.equals(this.revokeSyncUrl, dsProducerDetails.revokeSyncUrl) &&
         Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
+        Objects.equals(this.secureRemoteAccessDetails, dsProducerDetails.secureRemoteAccessDetails) &&
         Objects.equals(this.sfAccount, dsProducerDetails.sfAccount) &&
         Objects.equals(this.sfUserRole, dsProducerDetails.sfUserRole) &&
         Objects.equals(this.sfWarehouseName, dsProducerDetails.sfWarehouseName) &&
         Objects.equals(this.shouldStop, dsProducerDetails.shouldStop) &&
         Objects.equals(this.timeoutSeconds, dsProducerDetails.timeoutSeconds) &&
+        Objects.equals(this.useGwCloudIdentity, dsProducerDetails.useGwCloudIdentity) &&
         Objects.equals(this.userPrincipalName, dsProducerDetails.userPrincipalName) &&
         Objects.equals(this.userTtl, dsProducerDetails.userTtl) &&
         Objects.equals(this.venafiAllowSubdomains, dsProducerDetails.venafiAllowSubdomains) &&
@@ -3710,7 +3795,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, revokeSyncUrl, rotateSyncUrl, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -3826,13 +3911,16 @@ public class DSProducerDetails {
     sb.append("    rabbitmqUserTags: ").append(toIndentedString(rabbitmqUserTags)).append("\n");
     sb.append("    rabbitmqUserVhost: ").append(toIndentedString(rabbitmqUserVhost)).append("\n");
     sb.append("    rabbitmqUserWritePermission: ").append(toIndentedString(rabbitmqUserWritePermission)).append("\n");
+    sb.append("    redshiftCreationStatements: ").append(toIndentedString(redshiftCreationStatements)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
+    sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sfUserRole: ").append(toIndentedString(sfUserRole)).append("\n");
     sb.append("    sfWarehouseName: ").append(toIndentedString(sfWarehouseName)).append("\n");
     sb.append("    shouldStop: ").append(toIndentedString(shouldStop)).append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
+    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("    venafiAllowSubdomains: ").append(toIndentedString(venafiAllowSubdomains)).append("\n");

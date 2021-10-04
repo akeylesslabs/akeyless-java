@@ -82,6 +82,10 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
@@ -405,6 +409,29 @@ public class GatewayCreateProducerNativeK8S {
   }
 
 
+  public GatewayCreateProducerNativeK8S secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWeb
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
   public GatewayCreateProducerNativeK8S secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
     
     this.secureAccessWebBrowsing = secureAccessWebBrowsing;
@@ -565,6 +592,7 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerNativeK8S.secureAccessClusterEndpoint) &&
         Objects.equals(this.secureAccessDashboardUrl, gatewayCreateProducerNativeK8S.secureAccessDashboardUrl) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerNativeK8S.secureAccessEnable) &&
+        Objects.equals(this.secureAccessWeb, gatewayCreateProducerNativeK8S.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerNativeK8S.secureAccessWebBrowsing) &&
         Objects.equals(this.targetName, gatewayCreateProducerNativeK8S.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerNativeK8S.token) &&
@@ -575,7 +603,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWebBrowsing, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -596,6 +624,7 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
     sb.append("    secureAccessDashboardUrl: ").append(toIndentedString(secureAccessDashboardUrl)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

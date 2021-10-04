@@ -37,9 +37,9 @@ public class DefaultConfigPart {
   @SerializedName(SERIALIZED_NAME_DEFAULT_SECRET_LOCATION)
   private String defaultSecretLocation;
 
-  public static final String SERIALIZED_NAME_OPEN_ID_CONNECT_ACCESS_ID = "open_id_connect_access_id";
-  @SerializedName(SERIALIZED_NAME_OPEN_ID_CONNECT_ACCESS_ID)
-  private String openIdConnectAccessId;
+  public static final String SERIALIZED_NAME_OIDC_ACCESS_ID = "oidc_access_id";
+  @SerializedName(SERIALIZED_NAME_OIDC_ACCESS_ID)
+  private String oidcAccessId;
 
   public static final String SERIALIZED_NAME_SAML_ACCESS_ID = "saml_access_id";
   @SerializedName(SERIALIZED_NAME_SAML_ACCESS_ID)
@@ -92,26 +92,26 @@ public class DefaultConfigPart {
   }
 
 
-  public DefaultConfigPart openIdConnectAccessId(String openIdConnectAccessId) {
+  public DefaultConfigPart oidcAccessId(String oidcAccessId) {
     
-    this.openIdConnectAccessId = openIdConnectAccessId;
+    this.oidcAccessId = oidcAccessId;
     return this;
   }
 
    /**
-   * Get openIdConnectAccessId
-   * @return openIdConnectAccessId
+   * Get oidcAccessId
+   * @return oidcAccessId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getOpenIdConnectAccessId() {
-    return openIdConnectAccessId;
+  public String getOidcAccessId() {
+    return oidcAccessId;
   }
 
 
-  public void setOpenIdConnectAccessId(String openIdConnectAccessId) {
-    this.openIdConnectAccessId = openIdConnectAccessId;
+  public void setOidcAccessId(String oidcAccessId) {
+    this.oidcAccessId = oidcAccessId;
   }
 
 
@@ -149,13 +149,13 @@ public class DefaultConfigPart {
     DefaultConfigPart defaultConfigPart = (DefaultConfigPart) o;
     return Objects.equals(this.defaultProtectionKeyId, defaultConfigPart.defaultProtectionKeyId) &&
         Objects.equals(this.defaultSecretLocation, defaultConfigPart.defaultSecretLocation) &&
-        Objects.equals(this.openIdConnectAccessId, defaultConfigPart.openIdConnectAccessId) &&
+        Objects.equals(this.oidcAccessId, defaultConfigPart.oidcAccessId) &&
         Objects.equals(this.samlAccessId, defaultConfigPart.samlAccessId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultProtectionKeyId, defaultSecretLocation, openIdConnectAccessId, samlAccessId);
+    return Objects.hash(defaultProtectionKeyId, defaultSecretLocation, oidcAccessId, samlAccessId);
   }
 
 
@@ -165,7 +165,7 @@ public class DefaultConfigPart {
     sb.append("class DefaultConfigPart {\n");
     sb.append("    defaultProtectionKeyId: ").append(toIndentedString(defaultProtectionKeyId)).append("\n");
     sb.append("    defaultSecretLocation: ").append(toIndentedString(defaultSecretLocation)).append("\n");
-    sb.append("    openIdConnectAccessId: ").append(toIndentedString(openIdConnectAccessId)).append("\n");
+    sb.append("    oidcAccessId: ").append(toIndentedString(oidcAccessId)).append("\n");
     sb.append("    samlAccessId: ").append(toIndentedString(samlAccessId)).append("\n");
     sb.append("}");
     return sb.toString();

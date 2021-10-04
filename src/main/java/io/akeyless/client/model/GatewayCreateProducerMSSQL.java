@@ -88,6 +88,10 @@ public class GatewayCreateProducerMSSQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -438,6 +442,29 @@ public class GatewayCreateProducerMSSQL {
   }
 
 
+  public GatewayCreateProducerMSSQL secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWeb
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
   public GatewayCreateProducerMSSQL targetName(String targetName) {
     
     this.targetName = targetName;
@@ -576,6 +603,7 @@ public class GatewayCreateProducerMSSQL {
         Objects.equals(this.secureAccessDbSchema, gatewayCreateProducerMSSQL.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMSSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerMSSQL.secureAccessHost) &&
+        Objects.equals(this.secureAccessWeb, gatewayCreateProducerMSSQL.secureAccessWeb) &&
         Objects.equals(this.targetName, gatewayCreateProducerMSSQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerMSSQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMSSQL.uidToken) &&
@@ -585,7 +613,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -607,6 +635,7 @@ public class GatewayCreateProducerMSSQL {
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **secureAccessAwsNativeCli** | **Boolean** |  |  [optional]
 **secureAccessBastionIssuer** | **String** |  |  [optional]
 **secureAccessEnable** | **String** |  |  [optional]
+**secureAccessWeb** | **Boolean** |  |  [optional]
 **secureAccessWebBrowsing** | **Boolean** |  |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

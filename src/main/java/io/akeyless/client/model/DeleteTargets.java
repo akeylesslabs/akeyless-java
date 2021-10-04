@@ -29,9 +29,9 @@ import java.io.IOException;
  */
 
 public class DeleteTargets {
-  public static final String SERIALIZED_NAME_ENFORCE_DELETION = "enforce-deletion";
-  @SerializedName(SERIALIZED_NAME_ENFORCE_DELETION)
-  private Boolean enforceDeletion = false;
+  public static final String SERIALIZED_NAME_FORCE_DELETION = "force-deletion";
+  @SerializedName(SERIALIZED_NAME_FORCE_DELETION)
+  private Boolean forceDeletion = false;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -54,26 +54,26 @@ public class DeleteTargets {
   private String username;
 
 
-  public DeleteTargets enforceDeletion(Boolean enforceDeletion) {
+  public DeleteTargets forceDeletion(Boolean forceDeletion) {
     
-    this.enforceDeletion = enforceDeletion;
+    this.forceDeletion = forceDeletion;
     return this;
   }
 
    /**
    * Enforce deletion
-   * @return enforceDeletion
+   * @return forceDeletion
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Enforce deletion")
 
-  public Boolean getEnforceDeletion() {
-    return enforceDeletion;
+  public Boolean getForceDeletion() {
+    return forceDeletion;
   }
 
 
-  public void setEnforceDeletion(Boolean enforceDeletion) {
-    this.enforceDeletion = enforceDeletion;
+  public void setForceDeletion(Boolean forceDeletion) {
+    this.forceDeletion = forceDeletion;
   }
 
 
@@ -200,7 +200,7 @@ public class DeleteTargets {
       return false;
     }
     DeleteTargets deleteTargets = (DeleteTargets) o;
-    return Objects.equals(this.enforceDeletion, deleteTargets.enforceDeletion) &&
+    return Objects.equals(this.forceDeletion, deleteTargets.forceDeletion) &&
         Objects.equals(this.password, deleteTargets.password) &&
         Objects.equals(this.path, deleteTargets.path) &&
         Objects.equals(this.token, deleteTargets.token) &&
@@ -210,7 +210,7 @@ public class DeleteTargets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enforceDeletion, password, path, token, uidToken, username);
+    return Objects.hash(forceDeletion, password, path, token, uidToken, username);
   }
 
 
@@ -218,7 +218,7 @@ public class DeleteTargets {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTargets {\n");
-    sb.append("    enforceDeletion: ").append(toIndentedString(enforceDeletion)).append("\n");
+    sb.append("    forceDeletion: ").append(toIndentedString(forceDeletion)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

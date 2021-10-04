@@ -123,6 +123,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
   private String secureAccessUrl;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_BASTION = "secure-access-use-internal-bastion";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_BASTION)
+  private Boolean secureAccessUseInternalBastion;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
@@ -692,6 +696,29 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem secureAccessUseInternalBastion(Boolean secureAccessUseInternalBastion) {
+    
+    this.secureAccessUseInternalBastion = secureAccessUseInternalBastion;
+    return this;
+  }
+
+   /**
+   * Get secureAccessUseInternalBastion
+   * @return secureAccessUseInternalBastion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessUseInternalBastion() {
+    return secureAccessUseInternalBastion;
+  }
+
+
+  public void setSecureAccessUseInternalBastion(Boolean secureAccessUseInternalBastion) {
+    this.secureAccessUseInternalBastion = secureAccessUseInternalBastion;
+  }
+
+
   public UpdateItem secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
     
     this.secureAccessWebBrowsing = secureAccessWebBrowsing;
@@ -816,6 +843,7 @@ public class UpdateItem {
         Objects.equals(this.secureAccessSshCreds, updateItem.secureAccessSshCreds) &&
         Objects.equals(this.secureAccessSshCredsUser, updateItem.secureAccessSshCredsUser) &&
         Objects.equals(this.secureAccessUrl, updateItem.secureAccessUrl) &&
+        Objects.equals(this.secureAccessUseInternalBastion, updateItem.secureAccessUseInternalBastion) &&
         Objects.equals(this.secureAccessWebBrowsing, updateItem.secureAccessWebBrowsing) &&
         Objects.equals(this.token, updateItem.token) &&
         Objects.equals(this.uidToken, updateItem.uidToken) &&
@@ -824,7 +852,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessWebBrowsing, token, uidToken, username);
+    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, token, uidToken, username);
   }
 
 
@@ -855,6 +883,7 @@ public class UpdateItem {
     sb.append("    secureAccessSshCreds: ").append(toIndentedString(secureAccessSshCreds)).append("\n");
     sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessUseInternalBastion: ").append(toIndentedString(secureAccessUseInternalBastion)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

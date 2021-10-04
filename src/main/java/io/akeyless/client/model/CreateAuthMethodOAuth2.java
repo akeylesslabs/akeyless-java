@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using OpenID/Oauth2.
+ * createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.
  */
-@ApiModel(description = "createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using OpenID/Oauth2.")
+@ApiModel(description = "createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.")
 
 public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";

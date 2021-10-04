@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enforceDeletion** | **Boolean** | Enforce deletion |  [optional]
+**forceDeletion** | **Boolean** | Enforce deletion |  [optional]
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **path** | **String** | Path to delete the targets from | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

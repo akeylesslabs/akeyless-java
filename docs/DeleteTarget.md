@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enforceDeletion** | **Boolean** | Enforce deletion |  [optional]
+**forceDeletion** | **Boolean** | Enforce deletion |  [optional]
 **name** | **String** | Target name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **targetVersion** | **Integer** | Target version |  [optional]

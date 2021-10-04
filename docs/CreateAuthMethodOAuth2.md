@@ -2,7 +2,7 @@
 
 # CreateAuthMethodOAuth2
 
-createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using OpenID/Oauth2.
+createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.
 ## Properties
 
 Name | Type | Description | Notes

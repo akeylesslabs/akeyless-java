@@ -51,6 +51,8 @@ import io.akeyless.client.model.CreateAuthMethodHuawei;
 import io.akeyless.client.model.CreateAuthMethodHuaweiOutput;
 import io.akeyless.client.model.CreateAuthMethodOAuth2;
 import io.akeyless.client.model.CreateAuthMethodOAuth2Output;
+import io.akeyless.client.model.CreateAuthMethodOIDC;
+import io.akeyless.client.model.CreateAuthMethodOIDCOutput;
 import io.akeyless.client.model.CreateAuthMethodOutput;
 import io.akeyless.client.model.CreateAuthMethodSAML;
 import io.akeyless.client.model.CreateAuthMethodSAMLOutput;
@@ -73,6 +75,8 @@ import io.akeyless.client.model.CreateGcpTarget;
 import io.akeyless.client.model.CreateGcpTargetOutput;
 import io.akeyless.client.model.CreateKey;
 import io.akeyless.client.model.CreateKeyOutput;
+import io.akeyless.client.model.CreateLdapTarget;
+import io.akeyless.client.model.CreateLdapTargetOutput;
 import io.akeyless.client.model.CreateNativeK8STarget;
 import io.akeyless.client.model.CreatePKICertIssuer;
 import io.akeyless.client.model.CreatePKICertIssuerOutput;
@@ -156,6 +160,8 @@ import io.akeyless.client.model.GatewayCreateProducerRabbitMQ;
 import io.akeyless.client.model.GatewayCreateProducerRabbitMQOutput;
 import io.akeyless.client.model.GatewayCreateProducerRdp;
 import io.akeyless.client.model.GatewayCreateProducerRdpOutput;
+import io.akeyless.client.model.GatewayCreateProducerRedshift;
+import io.akeyless.client.model.GatewayCreateProducerRedshiftOutput;
 import io.akeyless.client.model.GatewayCreateProducerSnowflake;
 import io.akeyless.client.model.GatewayCreateProducerSnowflakeOutput;
 import io.akeyless.client.model.GatewayDeleteAllowedManagementAccess;
@@ -1803,6 +1809,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = createAuthMethodOAuth2ValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<CreateAuthMethodOAuth2Output>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createAuthMethodOIDC
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAuthMethodOIDCResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAuthMethodOIDCCall(CreateAuthMethodOIDC body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-auth-method-oidc";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAuthMethodOIDCValidateBeforeCall(CreateAuthMethodOIDC body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createAuthMethodOIDC(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createAuthMethodOIDCCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateAuthMethodOIDCOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAuthMethodOIDCResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateAuthMethodOIDCOutput createAuthMethodOIDC(CreateAuthMethodOIDC body) throws ApiException {
+        ApiResponse<CreateAuthMethodOIDCOutput> localVarResp = createAuthMethodOIDCWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateAuthMethodOIDCOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAuthMethodOIDCResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateAuthMethodOIDCOutput> createAuthMethodOIDCWithHttpInfo(CreateAuthMethodOIDC body) throws ApiException {
+        okhttp3.Call localVarCall = createAuthMethodOIDCValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateAuthMethodOIDCOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createAuthMethodOIDCResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAuthMethodOIDCAsync(CreateAuthMethodOIDC body, final ApiCallback<CreateAuthMethodOIDCOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAuthMethodOIDCValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateAuthMethodOIDCOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4074,6 +4194,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = createWebTargetValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<CreateWebTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createldapTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createldapTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createldapTargetCall(CreateLdapTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-ldap-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createldapTargetValidateBeforeCall(CreateLdapTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createldapTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createldapTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateLdapTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createldapTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateLdapTargetOutput createldapTarget(CreateLdapTarget body) throws ApiException {
+        ApiResponse<CreateLdapTargetOutput> localVarResp = createldapTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateLdapTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createldapTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateLdapTargetOutput> createldapTargetWithHttpInfo(CreateLdapTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createldapTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateLdapTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createldapTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createldapTargetAsync(CreateLdapTarget body, final ApiCallback<CreateLdapTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createldapTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateLdapTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8173,6 +8407,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = gatewayCreateProducerRdpValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GatewayCreateProducerRdpOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for gatewayCreateProducerRedshift
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerRedshiftResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayCreateProducerRedshiftCall(GatewayCreateProducerRedshift body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-create-producer-redshift";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayCreateProducerRedshiftValidateBeforeCall(GatewayCreateProducerRedshift body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayCreateProducerRedshift(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayCreateProducerRedshiftCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewayCreateProducerRedshiftOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerRedshiftResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewayCreateProducerRedshiftOutput gatewayCreateProducerRedshift(GatewayCreateProducerRedshift body) throws ApiException {
+        ApiResponse<GatewayCreateProducerRedshiftOutput> localVarResp = gatewayCreateProducerRedshiftWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewayCreateProducerRedshiftOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerRedshiftResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewayCreateProducerRedshiftOutput> gatewayCreateProducerRedshiftWithHttpInfo(GatewayCreateProducerRedshift body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayCreateProducerRedshiftValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewayCreateProducerRedshiftOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerRedshiftResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayCreateProducerRedshiftAsync(GatewayCreateProducerRedshift body, final ApiCallback<GatewayCreateProducerRedshiftOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayCreateProducerRedshiftValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewayCreateProducerRedshiftOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **signerKeyName** | **String** | A key to sign the certificate with | 
 **streetAddress** | **String** | A comma-separated list of the street address that will be set in the issued certificate |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
-**ttl** | **Long** | The requested Time To Live for the certificate, use second units | 
+**ttl** | **Long** | he requested Time To Live for the certificate, in seconds | 
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 

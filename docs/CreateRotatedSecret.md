@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **rotationInterval** | **String** | The number of days to wait between every automatic key rotation (7-365) |  [optional]
 **rotatorCredsType** | **String** |  |  [optional]
 **rotatorCustomCmd** | **String** |  |  [optional]
-**rotatorType** | **String** |  |  [optional]
+**rotatorType** | **String** | Rotator Type | 
 **sshPassword** | **String** | Deprecated: use RotatedPassword |  [optional]
 **sshUsername** | **String** | Deprecated: use RotatedUser |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]

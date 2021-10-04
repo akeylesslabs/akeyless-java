@@ -65,6 +65,10 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
+  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
+  private Boolean useGwCloudIdentity;
+
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
@@ -276,6 +280,29 @@ public class CreateAzureTarget {
   }
 
 
+  public CreateAzureTarget useGwCloudIdentity(Boolean useGwCloudIdentity) {
+    
+    this.useGwCloudIdentity = useGwCloudIdentity;
+    return this;
+  }
+
+   /**
+   * Get useGwCloudIdentity
+   * @return useGwCloudIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseGwCloudIdentity() {
+    return useGwCloudIdentity;
+  }
+
+
+  public void setUseGwCloudIdentity(Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
   public CreateAzureTarget username(String username) {
     
     this.username = username;
@@ -317,12 +344,13 @@ public class CreateAzureTarget {
         Objects.equals(this.tenantId, createAzureTarget.tenantId) &&
         Objects.equals(this.token, createAzureTarget.token) &&
         Objects.equals(this.uidToken, createAzureTarget.uidToken) &&
+        Objects.equals(this.useGwCloudIdentity, createAzureTarget.useGwCloudIdentity) &&
         Objects.equals(this.username, createAzureTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, key, name, password, tenantId, token, uidToken, username);
+    return Objects.hash(clientId, clientSecret, comment, key, name, password, tenantId, token, uidToken, useGwCloudIdentity, username);
   }
 
 
@@ -339,6 +367,7 @@ public class CreateAzureTarget {
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
