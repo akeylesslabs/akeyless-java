@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cf** | [**CFConfigPart**](CFConfigPart.md) |  |  [optional]
 **configProtectionKeyName** | **String** |  |  [optional]
 **general** | [**GeneralConfigPart**](GeneralConfigPart.md) |  |  [optional]
+**k8sAuths** | [**K8SAuthsConfigPart**](K8SAuthsConfigPart.md) |  |  [optional]
 **kmipClients** | [**KMIPConfigPart**](KMIPConfigPart.md) |  |  [optional]
 **ldap** | [**LdapConfigPart**](LdapConfigPart.md) |  |  [optional]
 **leadership** | [**LeadershipConfigPart**](LeadershipConfigPart.md) |  |  [optional]

@@ -41,6 +41,10 @@ public class Rotator {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation_interval";
+  @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
+  private Integer rotationInterval;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -115,6 +119,29 @@ public class Rotator {
   }
 
 
+  public Rotator rotationInterval(Integer rotationInterval) {
+    
+    this.rotationInterval = rotationInterval;
+    return this;
+  }
+
+   /**
+   * Get rotationInterval
+   * @return rotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getRotationInterval() {
+    return rotationInterval;
+  }
+
+
+  public void setRotationInterval(Integer rotationInterval) {
+    this.rotationInterval = rotationInterval;
+  }
+
+
   public Rotator type(String type) {
     
     this.type = type;
@@ -150,12 +177,13 @@ public class Rotator {
     return Objects.equals(this.id, rotator.id) &&
         Objects.equals(this.lastError, rotator.lastError) &&
         Objects.equals(this.name, rotator.name) &&
+        Objects.equals(this.rotationInterval, rotator.rotationInterval) &&
         Objects.equals(this.type, rotator.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, lastError, name, type);
+    return Objects.hash(id, lastError, name, rotationInterval, type);
   }
 
 
@@ -166,6 +194,7 @@ public class Rotator {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastError: ").append(toIndentedString(lastError)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

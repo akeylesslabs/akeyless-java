@@ -57,6 +57,10 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
 
+  public static final String SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME = "k8s-auth-config-name";
+  @SerializedName(SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME)
+  private String k8sAuthConfigName;
+
 
   public Configure accessId(String accessId) {
     
@@ -111,11 +115,11 @@ public class Configure {
   }
 
    /**
-   * Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam)
+   * Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam/k8s)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam)")
+  @ApiModelProperty(value = "Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam/k8s)")
 
   public String getAccessType() {
     return accessType;
@@ -219,6 +223,29 @@ public class Configure {
   }
 
 
+  public Configure k8sAuthConfigName(String k8sAuthConfigName) {
+    
+    this.k8sAuthConfigName = k8sAuthConfigName;
+    return this;
+  }
+
+   /**
+   * The K8S Auth config name (relevant only for access-type&#x3D;k8s)
+   * @return k8sAuthConfigName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The K8S Auth config name (relevant only for access-type=k8s)")
+
+  public String getK8sAuthConfigName() {
+    return k8sAuthConfigName;
+  }
+
+
+  public void setK8sAuthConfigName(String k8sAuthConfigName) {
+    this.k8sAuthConfigName = k8sAuthConfigName;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -234,12 +261,13 @@ public class Configure {
         Objects.equals(this.adminEmail, configure.adminEmail) &&
         Objects.equals(this.adminPassword, configure.adminPassword) &&
         Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
-        Objects.equals(this.gcpAudience, configure.gcpAudience);
+        Objects.equals(this.gcpAudience, configure.gcpAudience) &&
+        Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, gcpAudience);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, gcpAudience, k8sAuthConfigName);
   }
 
 
@@ -254,6 +282,7 @@ public class Configure {
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
+    sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **certificateIssueDetails** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  |  [optional]
 **certificates** | **String** |  |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
+**customerFragmentId** | **String** |  |  [optional]
 **deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **displayId** | **String** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]

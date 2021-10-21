@@ -333,6 +333,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_HOST_PORT)
   private String hostPort;
 
+  public static final String SERIALIZED_NAME_IS_FIXED_USER = "is_fixed_user";
+  @SerializedName(SERIALIZED_NAME_IS_FIXED_USER)
+  private String isFixedUser;
+
   public static final String SERIALIZED_NAME_ITEM_TARGETS_ASSOC = "item_targets_assoc";
   @SerializedName(SERIALIZED_NAME_ITEM_TARGETS_ASSOC)
   private List<ItemTargetAssociation> itemTargetsAssoc = null;
@@ -360,6 +364,62 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_LAST_ADMIN_ROTATION = "last_admin_rotation";
   @SerializedName(SERIALIZED_NAME_LAST_ADMIN_ROTATION)
   private Long lastAdminRotation;
+
+  public static final String SERIALIZED_NAME_LDAP_ACCESS_ID = "ldap_access_id";
+  @SerializedName(SERIALIZED_NAME_LDAP_ACCESS_ID)
+  private String ldapAccessId;
+
+  public static final String SERIALIZED_NAME_LDAP_ANONYMOUS_SEARCH = "ldap_anonymous_search";
+  @SerializedName(SERIALIZED_NAME_LDAP_ANONYMOUS_SEARCH)
+  private Boolean ldapAnonymousSearch;
+
+  public static final String SERIALIZED_NAME_LDAP_AUDIENCE = "ldap_audience";
+  @SerializedName(SERIALIZED_NAME_LDAP_AUDIENCE)
+  private String ldapAudience;
+
+  public static final String SERIALIZED_NAME_LDAP_BIND_DN = "ldap_bind_dn";
+  @SerializedName(SERIALIZED_NAME_LDAP_BIND_DN)
+  private String ldapBindDn;
+
+  public static final String SERIALIZED_NAME_LDAP_BIND_PASSWORD = "ldap_bind_password";
+  @SerializedName(SERIALIZED_NAME_LDAP_BIND_PASSWORD)
+  private String ldapBindPassword;
+
+  public static final String SERIALIZED_NAME_LDAP_CERTIFICATE = "ldap_certificate";
+  @SerializedName(SERIALIZED_NAME_LDAP_CERTIFICATE)
+  private String ldapCertificate;
+
+  public static final String SERIALIZED_NAME_LDAP_GROUP_ATTR = "ldap_group_attr";
+  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_ATTR)
+  private String ldapGroupAttr;
+
+  public static final String SERIALIZED_NAME_LDAP_GROUP_DN = "ldap_group_dn";
+  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_DN)
+  private String ldapGroupDn;
+
+  public static final String SERIALIZED_NAME_LDAP_GROUP_FILTER = "ldap_group_filter";
+  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_FILTER)
+  private String ldapGroupFilter;
+
+  public static final String SERIALIZED_NAME_LDAP_PRIVATE_KEY = "ldap_private_key";
+  @SerializedName(SERIALIZED_NAME_LDAP_PRIVATE_KEY)
+  private String ldapPrivateKey;
+
+  public static final String SERIALIZED_NAME_LDAP_TOKEN_EXPIRATION = "ldap_token_expiration";
+  @SerializedName(SERIALIZED_NAME_LDAP_TOKEN_EXPIRATION)
+  private String ldapTokenExpiration;
+
+  public static final String SERIALIZED_NAME_LDAP_URL = "ldap_url";
+  @SerializedName(SERIALIZED_NAME_LDAP_URL)
+  private String ldapUrl;
+
+  public static final String SERIALIZED_NAME_LDAP_USER_ATTR = "ldap_user_attr";
+  @SerializedName(SERIALIZED_NAME_LDAP_USER_ATTR)
+  private String ldapUserAttr;
+
+  public static final String SERIALIZED_NAME_LDAP_USER_DN = "ldap_user_dn";
+  @SerializedName(SERIALIZED_NAME_LDAP_USER_DN)
+  private String ldapUserDn;
 
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -2299,6 +2359,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails isFixedUser(String isFixedUser) {
+    
+    this.isFixedUser = isFixedUser;
+    return this;
+  }
+
+   /**
+   * Get isFixedUser
+   * @return isFixedUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getIsFixedUser() {
+    return isFixedUser;
+  }
+
+
+  public void setIsFixedUser(String isFixedUser) {
+    this.isFixedUser = isFixedUser;
+  }
+
+
   public DSProducerDetails itemTargetsAssoc(List<ItemTargetAssociation> itemTargetsAssoc) {
     
     this.itemTargetsAssoc = itemTargetsAssoc;
@@ -2465,6 +2548,328 @@ public class DSProducerDetails {
 
   public void setLastAdminRotation(Long lastAdminRotation) {
     this.lastAdminRotation = lastAdminRotation;
+  }
+
+
+  public DSProducerDetails ldapAccessId(String ldapAccessId) {
+    
+    this.ldapAccessId = ldapAccessId;
+    return this;
+  }
+
+   /**
+   * Get ldapAccessId
+   * @return ldapAccessId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapAccessId() {
+    return ldapAccessId;
+  }
+
+
+  public void setLdapAccessId(String ldapAccessId) {
+    this.ldapAccessId = ldapAccessId;
+  }
+
+
+  public DSProducerDetails ldapAnonymousSearch(Boolean ldapAnonymousSearch) {
+    
+    this.ldapAnonymousSearch = ldapAnonymousSearch;
+    return this;
+  }
+
+   /**
+   * Get ldapAnonymousSearch
+   * @return ldapAnonymousSearch
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getLdapAnonymousSearch() {
+    return ldapAnonymousSearch;
+  }
+
+
+  public void setLdapAnonymousSearch(Boolean ldapAnonymousSearch) {
+    this.ldapAnonymousSearch = ldapAnonymousSearch;
+  }
+
+
+  public DSProducerDetails ldapAudience(String ldapAudience) {
+    
+    this.ldapAudience = ldapAudience;
+    return this;
+  }
+
+   /**
+   * Get ldapAudience
+   * @return ldapAudience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapAudience() {
+    return ldapAudience;
+  }
+
+
+  public void setLdapAudience(String ldapAudience) {
+    this.ldapAudience = ldapAudience;
+  }
+
+
+  public DSProducerDetails ldapBindDn(String ldapBindDn) {
+    
+    this.ldapBindDn = ldapBindDn;
+    return this;
+  }
+
+   /**
+   * Get ldapBindDn
+   * @return ldapBindDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapBindDn() {
+    return ldapBindDn;
+  }
+
+
+  public void setLdapBindDn(String ldapBindDn) {
+    this.ldapBindDn = ldapBindDn;
+  }
+
+
+  public DSProducerDetails ldapBindPassword(String ldapBindPassword) {
+    
+    this.ldapBindPassword = ldapBindPassword;
+    return this;
+  }
+
+   /**
+   * Get ldapBindPassword
+   * @return ldapBindPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapBindPassword() {
+    return ldapBindPassword;
+  }
+
+
+  public void setLdapBindPassword(String ldapBindPassword) {
+    this.ldapBindPassword = ldapBindPassword;
+  }
+
+
+  public DSProducerDetails ldapCertificate(String ldapCertificate) {
+    
+    this.ldapCertificate = ldapCertificate;
+    return this;
+  }
+
+   /**
+   * Get ldapCertificate
+   * @return ldapCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapCertificate() {
+    return ldapCertificate;
+  }
+
+
+  public void setLdapCertificate(String ldapCertificate) {
+    this.ldapCertificate = ldapCertificate;
+  }
+
+
+  public DSProducerDetails ldapGroupAttr(String ldapGroupAttr) {
+    
+    this.ldapGroupAttr = ldapGroupAttr;
+    return this;
+  }
+
+   /**
+   * Get ldapGroupAttr
+   * @return ldapGroupAttr
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapGroupAttr() {
+    return ldapGroupAttr;
+  }
+
+
+  public void setLdapGroupAttr(String ldapGroupAttr) {
+    this.ldapGroupAttr = ldapGroupAttr;
+  }
+
+
+  public DSProducerDetails ldapGroupDn(String ldapGroupDn) {
+    
+    this.ldapGroupDn = ldapGroupDn;
+    return this;
+  }
+
+   /**
+   * Get ldapGroupDn
+   * @return ldapGroupDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapGroupDn() {
+    return ldapGroupDn;
+  }
+
+
+  public void setLdapGroupDn(String ldapGroupDn) {
+    this.ldapGroupDn = ldapGroupDn;
+  }
+
+
+  public DSProducerDetails ldapGroupFilter(String ldapGroupFilter) {
+    
+    this.ldapGroupFilter = ldapGroupFilter;
+    return this;
+  }
+
+   /**
+   * Get ldapGroupFilter
+   * @return ldapGroupFilter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapGroupFilter() {
+    return ldapGroupFilter;
+  }
+
+
+  public void setLdapGroupFilter(String ldapGroupFilter) {
+    this.ldapGroupFilter = ldapGroupFilter;
+  }
+
+
+  public DSProducerDetails ldapPrivateKey(String ldapPrivateKey) {
+    
+    this.ldapPrivateKey = ldapPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get ldapPrivateKey
+   * @return ldapPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapPrivateKey() {
+    return ldapPrivateKey;
+  }
+
+
+  public void setLdapPrivateKey(String ldapPrivateKey) {
+    this.ldapPrivateKey = ldapPrivateKey;
+  }
+
+
+  public DSProducerDetails ldapTokenExpiration(String ldapTokenExpiration) {
+    
+    this.ldapTokenExpiration = ldapTokenExpiration;
+    return this;
+  }
+
+   /**
+   * Get ldapTokenExpiration
+   * @return ldapTokenExpiration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapTokenExpiration() {
+    return ldapTokenExpiration;
+  }
+
+
+  public void setLdapTokenExpiration(String ldapTokenExpiration) {
+    this.ldapTokenExpiration = ldapTokenExpiration;
+  }
+
+
+  public DSProducerDetails ldapUrl(String ldapUrl) {
+    
+    this.ldapUrl = ldapUrl;
+    return this;
+  }
+
+   /**
+   * Get ldapUrl
+   * @return ldapUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapUrl() {
+    return ldapUrl;
+  }
+
+
+  public void setLdapUrl(String ldapUrl) {
+    this.ldapUrl = ldapUrl;
+  }
+
+
+  public DSProducerDetails ldapUserAttr(String ldapUserAttr) {
+    
+    this.ldapUserAttr = ldapUserAttr;
+    return this;
+  }
+
+   /**
+   * Get ldapUserAttr
+   * @return ldapUserAttr
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapUserAttr() {
+    return ldapUserAttr;
+  }
+
+
+  public void setLdapUserAttr(String ldapUserAttr) {
+    this.ldapUserAttr = ldapUserAttr;
+  }
+
+
+  public DSProducerDetails ldapUserDn(String ldapUserDn) {
+    
+    this.ldapUserDn = ldapUserDn;
+    return this;
+  }
+
+   /**
+   * Get ldapUserDn
+   * @return ldapUserDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLdapUserDn() {
+    return ldapUserDn;
+  }
+
+
+  public void setLdapUserDn(String ldapUserDn) {
+    this.ldapUserDn = ldapUserDn;
   }
 
 
@@ -3733,6 +4138,7 @@ public class DSProducerDetails {
         Objects.equals(this.groups, dsProducerDetails.groups) &&
         Objects.equals(this.hostName, dsProducerDetails.hostName) &&
         Objects.equals(this.hostPort, dsProducerDetails.hostPort) &&
+        Objects.equals(this.isFixedUser, dsProducerDetails.isFixedUser) &&
         Objects.equals(this.itemTargetsAssoc, dsProducerDetails.itemTargetsAssoc) &&
         Objects.equals(this.k8sBearerToken, dsProducerDetails.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, dsProducerDetails.k8sClusterCaCertificate) &&
@@ -3740,6 +4146,20 @@ public class DSProducerDetails {
         Objects.equals(this.k8sNamespace, dsProducerDetails.k8sNamespace) &&
         Objects.equals(this.k8sServiceAccount, dsProducerDetails.k8sServiceAccount) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
+        Objects.equals(this.ldapAccessId, dsProducerDetails.ldapAccessId) &&
+        Objects.equals(this.ldapAnonymousSearch, dsProducerDetails.ldapAnonymousSearch) &&
+        Objects.equals(this.ldapAudience, dsProducerDetails.ldapAudience) &&
+        Objects.equals(this.ldapBindDn, dsProducerDetails.ldapBindDn) &&
+        Objects.equals(this.ldapBindPassword, dsProducerDetails.ldapBindPassword) &&
+        Objects.equals(this.ldapCertificate, dsProducerDetails.ldapCertificate) &&
+        Objects.equals(this.ldapGroupAttr, dsProducerDetails.ldapGroupAttr) &&
+        Objects.equals(this.ldapGroupDn, dsProducerDetails.ldapGroupDn) &&
+        Objects.equals(this.ldapGroupFilter, dsProducerDetails.ldapGroupFilter) &&
+        Objects.equals(this.ldapPrivateKey, dsProducerDetails.ldapPrivateKey) &&
+        Objects.equals(this.ldapTokenExpiration, dsProducerDetails.ldapTokenExpiration) &&
+        Objects.equals(this.ldapUrl, dsProducerDetails.ldapUrl) &&
+        Objects.equals(this.ldapUserAttr, dsProducerDetails.ldapUserAttr) &&
+        Objects.equals(this.ldapUserDn, dsProducerDetails.ldapUserDn) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, dsProducerDetails.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, dsProducerDetails.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, dsProducerDetails.mongodbAtlasProjectId) &&
@@ -3795,7 +4215,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAccessId, ldapAnonymousSearch, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupAttr, ldapGroupDn, ldapGroupFilter, ldapPrivateKey, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -3878,6 +4298,7 @@ public class DSProducerDetails {
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
+    sb.append("    isFixedUser: ").append(toIndentedString(isFixedUser)).append("\n");
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
@@ -3885,6 +4306,20 @@ public class DSProducerDetails {
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");
+    sb.append("    ldapAccessId: ").append(toIndentedString(ldapAccessId)).append("\n");
+    sb.append("    ldapAnonymousSearch: ").append(toIndentedString(ldapAnonymousSearch)).append("\n");
+    sb.append("    ldapAudience: ").append(toIndentedString(ldapAudience)).append("\n");
+    sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");
+    sb.append("    ldapBindPassword: ").append(toIndentedString(ldapBindPassword)).append("\n");
+    sb.append("    ldapCertificate: ").append(toIndentedString(ldapCertificate)).append("\n");
+    sb.append("    ldapGroupAttr: ").append(toIndentedString(ldapGroupAttr)).append("\n");
+    sb.append("    ldapGroupDn: ").append(toIndentedString(ldapGroupDn)).append("\n");
+    sb.append("    ldapGroupFilter: ").append(toIndentedString(ldapGroupFilter)).append("\n");
+    sb.append("    ldapPrivateKey: ").append(toIndentedString(ldapPrivateKey)).append("\n");
+    sb.append("    ldapTokenExpiration: ").append(toIndentedString(ldapTokenExpiration)).append("\n");
+    sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
+    sb.append("    ldapUserAttr: ").append(toIndentedString(ldapUserAttr)).append("\n");
+    sb.append("    ldapUserDn: ").append(toIndentedString(ldapUserDn)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");

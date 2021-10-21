@@ -34,6 +34,10 @@ public class ItemVersion {
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
 
+  public static final String SERIALIZED_NAME_CUSTOMER_FRAGMENT_ID = "customer_fragment_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_FRAGMENT_ID)
+  private String customerFragmentId;
+
   public static final String SERIALIZED_NAME_DELETION_DATE = "deletion_date";
   @SerializedName(SERIALIZED_NAME_DELETION_DATE)
   private OffsetDateTime deletionDate;
@@ -75,6 +79,29 @@ public class ItemVersion {
 
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+  }
+
+
+  public ItemVersion customerFragmentId(String customerFragmentId) {
+    
+    this.customerFragmentId = customerFragmentId;
+    return this;
+  }
+
+   /**
+   * Get customerFragmentId
+   * @return customerFragmentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCustomerFragmentId() {
+    return customerFragmentId;
+  }
+
+
+  public void setCustomerFragmentId(String customerFragmentId) {
+    this.customerFragmentId = customerFragmentId;
   }
 
 
@@ -203,6 +230,7 @@ public class ItemVersion {
     }
     ItemVersion itemVersion = (ItemVersion) o;
     return Objects.equals(this.creationDate, itemVersion.creationDate) &&
+        Objects.equals(this.customerFragmentId, itemVersion.customerFragmentId) &&
         Objects.equals(this.deletionDate, itemVersion.deletionDate) &&
         Objects.equals(this.itemVersionState, itemVersion.itemVersionState) &&
         Objects.equals(this.protectionKeyName, itemVersion.protectionKeyName) &&
@@ -212,7 +240,7 @@ public class ItemVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, deletionDate, itemVersionState, protectionKeyName, version, withCustomerFragment);
+    return Objects.hash(creationDate, customerFragmentId, deletionDate, itemVersionState, protectionKeyName, version, withCustomerFragment);
   }
 
 
@@ -221,6 +249,7 @@ public class ItemVersion {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemVersion {\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    itemVersionState: ").append(toIndentedString(itemVersionState)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");

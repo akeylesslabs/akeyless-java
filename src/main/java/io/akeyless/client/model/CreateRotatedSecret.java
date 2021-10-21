@@ -43,6 +43,22 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private String autoRotate;
 
+  public static final String SERIALIZED_NAME_CUSTOM_PAYLOAD = "custom-payload";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
+  private String customPayload;
+
+  public static final String SERIALIZED_NAME_GROUP_ATTRIBUTE = "group-attribute";
+  @SerializedName(SERIALIZED_NAME_GROUP_ATTRIBUTE)
+  private String groupAttribute;
+
+  public static final String SERIALIZED_NAME_GROUP_DN = "group-dn";
+  @SerializedName(SERIALIZED_NAME_GROUP_DN)
+  private String groupDn;
+
+  public static final String SERIALIZED_NAME_GROUP_FILTER = "group-filter";
+  @SerializedName(SERIALIZED_NAME_GROUP_FILTER)
+  private String groupFilter;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -110,6 +126,14 @@ public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USER_ATTRIBUTE = "user-attribute";
+  @SerializedName(SERIALIZED_NAME_USER_ATTRIBUTE)
+  private String userAttribute;
+
+  public static final String SERIALIZED_NAME_USER_DN = "user-dn";
+  @SerializedName(SERIALIZED_NAME_USER_DN)
+  private String userDn;
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
@@ -182,6 +206,98 @@ public class CreateRotatedSecret {
 
   public void setAutoRotate(String autoRotate) {
     this.autoRotate = autoRotate;
+  }
+
+
+  public CreateRotatedSecret customPayload(String customPayload) {
+    
+    this.customPayload = customPayload;
+    return this;
+  }
+
+   /**
+   * Get customPayload
+   * @return customPayload
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCustomPayload() {
+    return customPayload;
+  }
+
+
+  public void setCustomPayload(String customPayload) {
+    this.customPayload = customPayload;
+  }
+
+
+  public CreateRotatedSecret groupAttribute(String groupAttribute) {
+    
+    this.groupAttribute = groupAttribute;
+    return this;
+  }
+
+   /**
+   * Group attribute
+   * @return groupAttribute
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Group attribute")
+
+  public String getGroupAttribute() {
+    return groupAttribute;
+  }
+
+
+  public void setGroupAttribute(String groupAttribute) {
+    this.groupAttribute = groupAttribute;
+  }
+
+
+  public CreateRotatedSecret groupDn(String groupDn) {
+    
+    this.groupDn = groupDn;
+    return this;
+  }
+
+   /**
+   * Group DN
+   * @return groupDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Group DN")
+
+  public String getGroupDn() {
+    return groupDn;
+  }
+
+
+  public void setGroupDn(String groupDn) {
+    this.groupDn = groupDn;
+  }
+
+
+  public CreateRotatedSecret groupFilter(String groupFilter) {
+    
+    this.groupFilter = groupFilter;
+    return this;
+  }
+
+   /**
+   * Group attribute
+   * @return groupFilter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Group attribute")
+
+  public String getGroupFilter() {
+    return groupFilter;
+  }
+
+
+  public void setGroupFilter(String groupFilter) {
+    this.groupFilter = groupFilter;
   }
 
 
@@ -352,11 +468,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * The number of days to wait between every automatic key rotation (7-365)
+   * The number of days to wait between every automatic key rotation (1-365)
    * @return rotationInterval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days to wait between every automatic key rotation (7-365)")
+  @ApiModelProperty(value = "The number of days to wait between every automatic key rotation (1-365)")
 
   public String getRotationInterval() {
     return rotationInterval;
@@ -581,6 +697,52 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret userAttribute(String userAttribute) {
+    
+    this.userAttribute = userAttribute;
+    return this;
+  }
+
+   /**
+   * User Attribute
+   * @return userAttribute
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "User Attribute")
+
+  public String getUserAttribute() {
+    return userAttribute;
+  }
+
+
+  public void setUserAttribute(String userAttribute) {
+    this.userAttribute = userAttribute;
+  }
+
+
+  public CreateRotatedSecret userDn(String userDn) {
+    
+    this.userDn = userDn;
+    return this;
+  }
+
+   /**
+   * User DN
+   * @return userDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "User DN")
+
+  public String getUserDn() {
+    return userDn;
+  }
+
+
+  public void setUserDn(String userDn) {
+    this.userDn = userDn;
+  }
+
+
   public CreateRotatedSecret username(String username) {
     
     this.username = username;
@@ -616,6 +778,10 @@ public class CreateRotatedSecret {
     return Objects.equals(this.apiId, createRotatedSecret.apiId) &&
         Objects.equals(this.apiKey, createRotatedSecret.apiKey) &&
         Objects.equals(this.autoRotate, createRotatedSecret.autoRotate) &&
+        Objects.equals(this.customPayload, createRotatedSecret.customPayload) &&
+        Objects.equals(this.groupAttribute, createRotatedSecret.groupAttribute) &&
+        Objects.equals(this.groupDn, createRotatedSecret.groupDn) &&
+        Objects.equals(this.groupFilter, createRotatedSecret.groupFilter) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
@@ -633,12 +799,14 @@ public class CreateRotatedSecret {
         Objects.equals(this.targetName, createRotatedSecret.targetName) &&
         Objects.equals(this.token, createRotatedSecret.token) &&
         Objects.equals(this.uidToken, createRotatedSecret.uidToken) &&
+        Objects.equals(this.userAttribute, createRotatedSecret.userAttribute) &&
+        Objects.equals(this.userDn, createRotatedSecret.userDn) &&
         Objects.equals(this.username, createRotatedSecret.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, autoRotate, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, username);
+    return Objects.hash(apiId, apiKey, autoRotate, customPayload, groupAttribute, groupDn, groupFilter, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn, username);
   }
 
 
@@ -649,6 +817,10 @@ public class CreateRotatedSecret {
     sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
+    sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
+    sb.append("    groupAttribute: ").append(toIndentedString(groupAttribute)).append("\n");
+    sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
+    sb.append("    groupFilter: ").append(toIndentedString(groupFilter)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -666,6 +838,8 @@ public class CreateRotatedSecret {
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    userAttribute: ").append(toIndentedString(userAttribute)).append("\n");
+    sb.append("    userDn: ").append(toIndentedString(userDn)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

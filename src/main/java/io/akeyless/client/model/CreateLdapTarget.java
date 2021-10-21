@@ -49,18 +49,6 @@ public class CreateLdapTarget {
   @SerializedName(SERIALIZED_NAME_ENABLE_ANONYM_SEARCH)
   private Boolean enableAnonymSearch;
 
-  public static final String SERIALIZED_NAME_GROUP_ATTRIBUTE = "group-attribute";
-  @SerializedName(SERIALIZED_NAME_GROUP_ATTRIBUTE)
-  private String groupAttribute;
-
-  public static final String SERIALIZED_NAME_GROUP_DN = "group-dn";
-  @SerializedName(SERIALIZED_NAME_GROUP_DN)
-  private String groupDn;
-
-  public static final String SERIALIZED_NAME_GROUP_FILTER = "group-filter";
-  @SerializedName(SERIALIZED_NAME_GROUP_FILTER)
-  private String groupFilter;
-
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -96,14 +84,6 @@ public class CreateLdapTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USER_ATTRIBUTE = "user-attribute";
-  @SerializedName(SERIALIZED_NAME_USER_ATTRIBUTE)
-  private String userAttribute;
-
-  public static final String SERIALIZED_NAME_USER_DN = "user-dn";
-  @SerializedName(SERIALIZED_NAME_USER_DN)
-  private String userDn;
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
@@ -142,8 +122,7 @@ public class CreateLdapTarget {
    * Bind DN
    * @return bindDn
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Bind DN")
+  @ApiModelProperty(required = true, value = "Bind DN")
 
   public String getBindDn() {
     return bindDn;
@@ -165,8 +144,7 @@ public class CreateLdapTarget {
    * Bind DN Password
    * @return bindDnPassword
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Bind DN Password")
+  @ApiModelProperty(required = true, value = "Bind DN Password")
 
   public String getBindDnPassword() {
     return bindDnPassword;
@@ -221,75 +199,6 @@ public class CreateLdapTarget {
 
   public void setEnableAnonymSearch(Boolean enableAnonymSearch) {
     this.enableAnonymSearch = enableAnonymSearch;
-  }
-
-
-  public CreateLdapTarget groupAttribute(String groupAttribute) {
-    
-    this.groupAttribute = groupAttribute;
-    return this;
-  }
-
-   /**
-   * Group attribute
-   * @return groupAttribute
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group attribute")
-
-  public String getGroupAttribute() {
-    return groupAttribute;
-  }
-
-
-  public void setGroupAttribute(String groupAttribute) {
-    this.groupAttribute = groupAttribute;
-  }
-
-
-  public CreateLdapTarget groupDn(String groupDn) {
-    
-    this.groupDn = groupDn;
-    return this;
-  }
-
-   /**
-   * Group DN
-   * @return groupDn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group DN")
-
-  public String getGroupDn() {
-    return groupDn;
-  }
-
-
-  public void setGroupDn(String groupDn) {
-    this.groupDn = groupDn;
-  }
-
-
-  public CreateLdapTarget groupFilter(String groupFilter) {
-    
-    this.groupFilter = groupFilter;
-    return this;
-  }
-
-   /**
-   * Group attribute
-   * @return groupFilter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group attribute")
-
-  public String getGroupFilter() {
-    return groupFilter;
-  }
-
-
-  public void setGroupFilter(String groupFilter) {
-    this.groupFilter = groupFilter;
   }
 
 
@@ -498,51 +407,6 @@ public class CreateLdapTarget {
   }
 
 
-  public CreateLdapTarget userAttribute(String userAttribute) {
-    
-    this.userAttribute = userAttribute;
-    return this;
-  }
-
-   /**
-   * User Attribute
-   * @return userAttribute
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "User Attribute")
-
-  public String getUserAttribute() {
-    return userAttribute;
-  }
-
-
-  public void setUserAttribute(String userAttribute) {
-    this.userAttribute = userAttribute;
-  }
-
-
-  public CreateLdapTarget userDn(String userDn) {
-    
-    this.userDn = userDn;
-    return this;
-  }
-
-   /**
-   * User DN
-   * @return userDn
-  **/
-  @ApiModelProperty(required = true, value = "User DN")
-
-  public String getUserDn() {
-    return userDn;
-  }
-
-
-  public void setUserDn(String userDn) {
-    this.userDn = userDn;
-  }
-
-
   public CreateLdapTarget username(String username) {
     
     this.username = username;
@@ -580,9 +444,6 @@ public class CreateLdapTarget {
         Objects.equals(this.bindDnPassword, createLdapTarget.bindDnPassword) &&
         Objects.equals(this.comment, createLdapTarget.comment) &&
         Objects.equals(this.enableAnonymSearch, createLdapTarget.enableAnonymSearch) &&
-        Objects.equals(this.groupAttribute, createLdapTarget.groupAttribute) &&
-        Objects.equals(this.groupDn, createLdapTarget.groupDn) &&
-        Objects.equals(this.groupFilter, createLdapTarget.groupFilter) &&
         Objects.equals(this.key, createLdapTarget.key) &&
         Objects.equals(this.ldapCaCert, createLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, createLdapTarget.ldapUrl) &&
@@ -592,14 +453,12 @@ public class CreateLdapTarget {
         Objects.equals(this.token, createLdapTarget.token) &&
         Objects.equals(this.tokenExpiration, createLdapTarget.tokenExpiration) &&
         Objects.equals(this.uidToken, createLdapTarget.uidToken) &&
-        Objects.equals(this.userAttribute, createLdapTarget.userAttribute) &&
-        Objects.equals(this.userDn, createLdapTarget.userDn) &&
         Objects.equals(this.username, createLdapTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, bindDn, bindDnPassword, comment, enableAnonymSearch, groupAttribute, groupDn, groupFilter, key, ldapCaCert, ldapUrl, name, password, privateKey, token, tokenExpiration, uidToken, userAttribute, userDn, username);
+    return Objects.hash(accessId, bindDn, bindDnPassword, comment, enableAnonymSearch, key, ldapCaCert, ldapUrl, name, password, privateKey, token, tokenExpiration, uidToken, username);
   }
 
 
@@ -612,9 +471,6 @@ public class CreateLdapTarget {
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    enableAnonymSearch: ").append(toIndentedString(enableAnonymSearch)).append("\n");
-    sb.append("    groupAttribute: ").append(toIndentedString(groupAttribute)).append("\n");
-    sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
-    sb.append("    groupFilter: ").append(toIndentedString(groupFilter)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
@@ -624,8 +480,6 @@ public class CreateLdapTarget {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    userAttribute: ").append(toIndentedString(userAttribute)).append("\n");
-    sb.append("    userDn: ").append(toIndentedString(userDn)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -215,18 +215,6 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_LDAP_CERTIFICATE)
   private String ldapCertificate;
 
-  public static final String SERIALIZED_NAME_LDAP_GROUP_ATTR = "ldap_group_attr";
-  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_ATTR)
-  private String ldapGroupAttr;
-
-  public static final String SERIALIZED_NAME_LDAP_GROUP_DN = "ldap_group_dn";
-  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_DN)
-  private String ldapGroupDn;
-
-  public static final String SERIALIZED_NAME_LDAP_GROUP_FILTER = "ldap_group_filter";
-  @SerializedName(SERIALIZED_NAME_LDAP_GROUP_FILTER)
-  private String ldapGroupFilter;
-
   public static final String SERIALIZED_NAME_LDAP_PRIVATE_KEY = "ldap_private_key";
   @SerializedName(SERIALIZED_NAME_LDAP_PRIVATE_KEY)
   private String ldapPrivateKey;
@@ -238,14 +226,6 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_LDAP_URL = "ldap_url";
   @SerializedName(SERIALIZED_NAME_LDAP_URL)
   private String ldapUrl;
-
-  public static final String SERIALIZED_NAME_LDAP_USER_ATTR = "ldap_user_attr";
-  @SerializedName(SERIALIZED_NAME_LDAP_USER_ATTR)
-  private String ldapUserAttr;
-
-  public static final String SERIALIZED_NAME_LDAP_USER_DN = "ldap_user_dn";
-  @SerializedName(SERIALIZED_NAME_LDAP_USER_DN)
-  private String ldapUserDn;
 
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -294,6 +274,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
+
+  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
+  @SerializedName(SERIALIZED_NAME_PAYLOAD)
+  private String payload;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
@@ -1426,75 +1410,6 @@ public class TargetTypeDetailsInput {
   }
 
 
-  public TargetTypeDetailsInput ldapGroupAttr(String ldapGroupAttr) {
-    
-    this.ldapGroupAttr = ldapGroupAttr;
-    return this;
-  }
-
-   /**
-   * Get ldapGroupAttr
-   * @return ldapGroupAttr
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapGroupAttr() {
-    return ldapGroupAttr;
-  }
-
-
-  public void setLdapGroupAttr(String ldapGroupAttr) {
-    this.ldapGroupAttr = ldapGroupAttr;
-  }
-
-
-  public TargetTypeDetailsInput ldapGroupDn(String ldapGroupDn) {
-    
-    this.ldapGroupDn = ldapGroupDn;
-    return this;
-  }
-
-   /**
-   * Get ldapGroupDn
-   * @return ldapGroupDn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapGroupDn() {
-    return ldapGroupDn;
-  }
-
-
-  public void setLdapGroupDn(String ldapGroupDn) {
-    this.ldapGroupDn = ldapGroupDn;
-  }
-
-
-  public TargetTypeDetailsInput ldapGroupFilter(String ldapGroupFilter) {
-    
-    this.ldapGroupFilter = ldapGroupFilter;
-    return this;
-  }
-
-   /**
-   * Get ldapGroupFilter
-   * @return ldapGroupFilter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapGroupFilter() {
-    return ldapGroupFilter;
-  }
-
-
-  public void setLdapGroupFilter(String ldapGroupFilter) {
-    this.ldapGroupFilter = ldapGroupFilter;
-  }
-
-
   public TargetTypeDetailsInput ldapPrivateKey(String ldapPrivateKey) {
     
     this.ldapPrivateKey = ldapPrivateKey;
@@ -1561,52 +1476,6 @@ public class TargetTypeDetailsInput {
 
   public void setLdapUrl(String ldapUrl) {
     this.ldapUrl = ldapUrl;
-  }
-
-
-  public TargetTypeDetailsInput ldapUserAttr(String ldapUserAttr) {
-    
-    this.ldapUserAttr = ldapUserAttr;
-    return this;
-  }
-
-   /**
-   * Get ldapUserAttr
-   * @return ldapUserAttr
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapUserAttr() {
-    return ldapUserAttr;
-  }
-
-
-  public void setLdapUserAttr(String ldapUserAttr) {
-    this.ldapUserAttr = ldapUserAttr;
-  }
-
-
-  public TargetTypeDetailsInput ldapUserDn(String ldapUserDn) {
-    
-    this.ldapUserDn = ldapUserDn;
-    return this;
-  }
-
-   /**
-   * Get ldapUserDn
-   * @return ldapUserDn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapUserDn() {
-    return ldapUserDn;
-  }
-
-
-  public void setLdapUserDn(String ldapUserDn) {
-    this.ldapUserDn = ldapUserDn;
   }
 
 
@@ -1883,6 +1752,29 @@ public class TargetTypeDetailsInput {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+
+  public TargetTypeDetailsInput payload(String payload) {
+    
+    this.payload = payload;
+    return this;
+  }
+
+   /**
+   * Get payload
+   * @return payload
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPayload() {
+    return payload;
+  }
+
+
+  public void setPayload(String payload) {
+    this.payload = payload;
   }
 
 
@@ -2309,14 +2201,9 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.ldapBindDn, targetTypeDetailsInput.ldapBindDn) &&
         Objects.equals(this.ldapBindPassword, targetTypeDetailsInput.ldapBindPassword) &&
         Objects.equals(this.ldapCertificate, targetTypeDetailsInput.ldapCertificate) &&
-        Objects.equals(this.ldapGroupAttr, targetTypeDetailsInput.ldapGroupAttr) &&
-        Objects.equals(this.ldapGroupDn, targetTypeDetailsInput.ldapGroupDn) &&
-        Objects.equals(this.ldapGroupFilter, targetTypeDetailsInput.ldapGroupFilter) &&
         Objects.equals(this.ldapPrivateKey, targetTypeDetailsInput.ldapPrivateKey) &&
         Objects.equals(this.ldapTokenExpiration, targetTypeDetailsInput.ldapTokenExpiration) &&
         Objects.equals(this.ldapUrl, targetTypeDetailsInput.ldapUrl) &&
-        Objects.equals(this.ldapUserAttr, targetTypeDetailsInput.ldapUserAttr) &&
-        Objects.equals(this.ldapUserDn, targetTypeDetailsInput.ldapUserDn) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, targetTypeDetailsInput.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, targetTypeDetailsInput.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, targetTypeDetailsInput.mongodbAtlasProjectId) &&
@@ -2329,6 +2216,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.mongodbUriOptions, targetTypeDetailsInput.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, targetTypeDetailsInput.mongodbUsername) &&
         Objects.equals(this.password, targetTypeDetailsInput.password) &&
+        Objects.equals(this.payload, targetTypeDetailsInput.payload) &&
         Objects.equals(this.port, targetTypeDetailsInput.port) &&
         Objects.equals(this.privateKey, targetTypeDetailsInput.privateKey) &&
         Objects.equals(this.privateKeyPassword, targetTypeDetailsInput.privateKeyPassword) &&
@@ -2349,7 +2237,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAccessId, ldapAnonymousSearch, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupAttr, ldapGroupDn, ldapGroupFilter, ldapPrivateKey, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAccessId, ldapAnonymousSearch, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapPrivateKey, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2403,14 +2291,9 @@ public class TargetTypeDetailsInput {
     sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");
     sb.append("    ldapBindPassword: ").append(toIndentedString(ldapBindPassword)).append("\n");
     sb.append("    ldapCertificate: ").append(toIndentedString(ldapCertificate)).append("\n");
-    sb.append("    ldapGroupAttr: ").append(toIndentedString(ldapGroupAttr)).append("\n");
-    sb.append("    ldapGroupDn: ").append(toIndentedString(ldapGroupDn)).append("\n");
-    sb.append("    ldapGroupFilter: ").append(toIndentedString(ldapGroupFilter)).append("\n");
     sb.append("    ldapPrivateKey: ").append(toIndentedString(ldapPrivateKey)).append("\n");
     sb.append("    ldapTokenExpiration: ").append(toIndentedString(ldapTokenExpiration)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
-    sb.append("    ldapUserAttr: ").append(toIndentedString(ldapUserAttr)).append("\n");
-    sb.append("    ldapUserDn: ").append(toIndentedString(ldapUserDn)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
@@ -2423,6 +2306,7 @@ public class TargetTypeDetailsInput {
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");

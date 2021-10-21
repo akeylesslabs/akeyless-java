@@ -61,6 +61,14 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_JWT)
   private String jwt;
 
+  public static final String SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME = "k8s-auth-config-name";
+  @SerializedName(SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME)
+  private String k8sAuthConfigName;
+
+  public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TOKEN = "k8s-service-account-token";
+  @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TOKEN)
+  private String k8sServiceAccountToken;
+
   public static final String SERIALIZED_NAME_LDAP_PASSWORD = "ldap_password";
   @SerializedName(SERIALIZED_NAME_LDAP_PASSWORD)
   private String ldapPassword;
@@ -127,11 +135,11 @@ public class Auth {
   }
 
    /**
-   * Access Type (access_key/password/saml/ldap/azure_ad/aws_iam/universal_identity/jwt/gcp)
+   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/azure_ad/aws_iam/universal_identity/jwt/gcp)")
+  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp)")
 
   public String getAccessType() {
     return accessType;
@@ -258,6 +266,52 @@ public class Auth {
   }
 
 
+  public Auth k8sAuthConfigName(String k8sAuthConfigName) {
+    
+    this.k8sAuthConfigName = k8sAuthConfigName;
+    return this;
+  }
+
+   /**
+   * The K8S Auth config name (relevant only for access-type&#x3D;k8s)
+   * @return k8sAuthConfigName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The K8S Auth config name (relevant only for access-type=k8s)")
+
+  public String getK8sAuthConfigName() {
+    return k8sAuthConfigName;
+  }
+
+
+  public void setK8sAuthConfigName(String k8sAuthConfigName) {
+    this.k8sAuthConfigName = k8sAuthConfigName;
+  }
+
+
+  public Auth k8sServiceAccountToken(String k8sServiceAccountToken) {
+    
+    this.k8sServiceAccountToken = k8sServiceAccountToken;
+    return this;
+  }
+
+   /**
+   * The K8S service account token. (relevant only for access-type&#x3D;k8s)
+   * @return k8sServiceAccountToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The K8S service account token. (relevant only for access-type=k8s)")
+
+  public String getK8sServiceAccountToken() {
+    return k8sServiceAccountToken;
+  }
+
+
+  public void setK8sServiceAccountToken(String k8sServiceAccountToken) {
+    this.k8sServiceAccountToken = k8sServiceAccountToken;
+  }
+
+
   public Auth ldapPassword(String ldapPassword) {
     
     this.ldapPassword = ldapPassword;
@@ -344,6 +398,8 @@ public class Auth {
         Objects.equals(this.cloudId, auth.cloudId) &&
         Objects.equals(this.gcpAudience, auth.gcpAudience) &&
         Objects.equals(this.jwt, auth.jwt) &&
+        Objects.equals(this.k8sAuthConfigName, auth.k8sAuthConfigName) &&
+        Objects.equals(this.k8sServiceAccountToken, auth.k8sServiceAccountToken) &&
         Objects.equals(this.ldapPassword, auth.ldapPassword) &&
         Objects.equals(this.ldapUsername, auth.ldapUsername) &&
         Objects.equals(this.uidToken, auth.uidToken);
@@ -351,7 +407,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, gcpAudience, jwt, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, gcpAudience, jwt, k8sAuthConfigName, k8sServiceAccountToken, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -367,6 +423,8 @@ public class Auth {
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
+    sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
+    sb.append("    k8sServiceAccountToken: ").append(toIndentedString(k8sServiceAccountToken)).append("\n");
     sb.append("    ldapPassword: ").append(toIndentedString(ldapPassword)).append("\n");
     sb.append("    ldapUsername: ").append(toIndentedString(ldapUsername)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

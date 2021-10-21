@@ -36,6 +36,10 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_URI = "allowed-redirect-uri";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_URI)
+  private List<String> allowedRedirectUri = null;
+
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
@@ -93,6 +97,37 @@ public class CreateAuthMethodSAML {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodSAML allowedRedirectUri(List<String> allowedRedirectUri) {
+    
+    this.allowedRedirectUri = allowedRedirectUri;
+    return this;
+  }
+
+  public CreateAuthMethodSAML addAllowedRedirectUriItem(String allowedRedirectUriItem) {
+    if (this.allowedRedirectUri == null) {
+      this.allowedRedirectUri = new ArrayList<String>();
+    }
+    this.allowedRedirectUri.add(allowedRedirectUriItem);
+    return this;
+  }
+
+   /**
+   * Allowed redirect URIs after the authentication
+   * @return allowedRedirectUri
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allowed redirect URIs after the authentication")
+
+  public List<String> getAllowedRedirectUri() {
+    return allowedRedirectUri;
+  }
+
+
+  public void setAllowedRedirectUri(List<String> allowedRedirectUri) {
+    this.allowedRedirectUri = allowedRedirectUri;
   }
 
 
@@ -319,6 +354,7 @@ public class CreateAuthMethodSAML {
     }
     CreateAuthMethodSAML createAuthMethodSAML = (CreateAuthMethodSAML) o;
     return Objects.equals(this.accessExpires, createAuthMethodSAML.accessExpires) &&
+        Objects.equals(this.allowedRedirectUri, createAuthMethodSAML.allowedRedirectUri) &&
         Objects.equals(this.boundIps, createAuthMethodSAML.boundIps) &&
         Objects.equals(this.forceSubClaims, createAuthMethodSAML.forceSubClaims) &&
         Objects.equals(this.idpMetadataUrl, createAuthMethodSAML.idpMetadataUrl) &&
@@ -332,7 +368,7 @@ public class CreateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, idpMetadataUrl, name, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, idpMetadataUrl, name, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -341,6 +377,7 @@ public class CreateAuthMethodSAML {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodSAML {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");

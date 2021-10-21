@@ -56,6 +56,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   private List<String> clientPermissions = null;
 
+  public static final String SERIALIZED_NAME_CUSTOMER_FRAGMENT_ID = "customer_fragment_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_FRAGMENT_ID)
+  private String customerFragmentId;
+
   public static final String SERIALIZED_NAME_DELETION_DATE = "deletion_date";
   @SerializedName(SERIALIZED_NAME_DELETION_DATE)
   private OffsetDateTime deletionDate;
@@ -253,6 +257,29 @@ public class Item {
 
   public void setClientPermissions(List<String> clientPermissions) {
     this.clientPermissions = clientPermissions;
+  }
+
+
+  public Item customerFragmentId(String customerFragmentId) {
+    
+    this.customerFragmentId = customerFragmentId;
+    return this;
+  }
+
+   /**
+   * Get customerFragmentId
+   * @return customerFragmentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCustomerFragmentId() {
+    return customerFragmentId;
+  }
+
+
+  public void setCustomerFragmentId(String customerFragmentId) {
+    this.customerFragmentId = customerFragmentId;
   }
 
 
@@ -731,6 +758,7 @@ public class Item {
         Objects.equals(this.certificateIssueDetails, item.certificateIssueDetails) &&
         Objects.equals(this.certificates, item.certificates) &&
         Objects.equals(this.clientPermissions, item.clientPermissions) &&
+        Objects.equals(this.customerFragmentId, item.customerFragmentId) &&
         Objects.equals(this.deletionDate, item.deletionDate) &&
         Objects.equals(this.displayId, item.displayId) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
@@ -754,7 +782,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, deletionDate, displayId, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deletionDate, displayId, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, withCustomerFragment);
   }
 
 
@@ -767,6 +795,7 @@ public class Item {
     sb.append("    certificateIssueDetails: ").append(toIndentedString(certificateIssueDetails)).append("\n");
     sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
+    sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");

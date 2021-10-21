@@ -26,6 +26,7 @@ import io.akeyless.client.model.AzureADAccessRules;
 import io.akeyless.client.model.EmailPassAccessRules;
 import io.akeyless.client.model.GCPAccessRules;
 import io.akeyless.client.model.HuaweiAccessRules;
+import io.akeyless.client.model.KubernetesAccessRules;
 import io.akeyless.client.model.LDAPAccessRules;
 import io.akeyless.client.model.OAuth2AccessRules;
 import io.akeyless.client.model.OIDCAccessRules;
@@ -79,6 +80,10 @@ public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_HUAWEI_ACCESS_RULES = "huawei_access_rules";
   @SerializedName(SERIALIZED_NAME_HUAWEI_ACCESS_RULES)
   private HuaweiAccessRules huaweiAccessRules;
+
+  public static final String SERIALIZED_NAME_K8S_ACCESS_RULES = "k8s_access_rules";
+  @SerializedName(SERIALIZED_NAME_K8S_ACCESS_RULES)
+  private KubernetesAccessRules k8sAccessRules;
 
   public static final String SERIALIZED_NAME_LDAP_ACCESS_RULES = "ldap_access_rules";
   @SerializedName(SERIALIZED_NAME_LDAP_ACCESS_RULES)
@@ -335,6 +340,29 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo k8sAccessRules(KubernetesAccessRules k8sAccessRules) {
+    
+    this.k8sAccessRules = k8sAccessRules;
+    return this;
+  }
+
+   /**
+   * Get k8sAccessRules
+   * @return k8sAccessRules
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public KubernetesAccessRules getK8sAccessRules() {
+    return k8sAccessRules;
+  }
+
+
+  public void setK8sAccessRules(KubernetesAccessRules k8sAccessRules) {
+    this.k8sAccessRules = k8sAccessRules;
+  }
+
+
   public AuthMethodAccessInfo ldapAccessRules(LDAPAccessRules ldapAccessRules) {
     
     this.ldapAccessRules = ldapAccessRules;
@@ -492,6 +520,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.forceSubClaims, authMethodAccessInfo.forceSubClaims) &&
         Objects.equals(this.gcpAccessRules, authMethodAccessInfo.gcpAccessRules) &&
         Objects.equals(this.huaweiAccessRules, authMethodAccessInfo.huaweiAccessRules) &&
+        Objects.equals(this.k8sAccessRules, authMethodAccessInfo.k8sAccessRules) &&
         Objects.equals(this.ldapAccessRules, authMethodAccessInfo.ldapAccessRules) &&
         Objects.equals(this.oauth2AccessRules, authMethodAccessInfo.oauth2AccessRules) &&
         Objects.equals(this.oidcAccessRules, authMethodAccessInfo.oidcAccessRules) &&
@@ -502,7 +531,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, huaweiAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, huaweiAccessRules, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
   }
 
 
@@ -520,6 +549,7 @@ public class AuthMethodAccessInfo {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gcpAccessRules: ").append(toIndentedString(gcpAccessRules)).append("\n");
     sb.append("    huaweiAccessRules: ").append(toIndentedString(huaweiAccessRules)).append("\n");
+    sb.append("    k8sAccessRules: ").append(toIndentedString(k8sAccessRules)).append("\n");
     sb.append("    ldapAccessRules: ").append(toIndentedString(ldapAccessRules)).append("\n");
     sb.append("    oauth2AccessRules: ").append(toIndentedString(oauth2AccessRules)).append("\n");
     sb.append("    oidcAccessRules: ").append(toIndentedString(oidcAccessRules)).append("\n");

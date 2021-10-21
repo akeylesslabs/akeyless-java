@@ -33,6 +33,10 @@ import java.util.List;
 @ApiModel(description = "OIDCAccessRules contains access rules specific to Open Id Connect authentication method.")
 
 public class OIDCAccessRules {
+  public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS = "allowed_redirect_URIs";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS)
+  private List<String> allowedRedirectURIs = null;
+
   public static final String SERIALIZED_NAME_BOUND_CLAIMS = "bound_claims";
   @SerializedName(SERIALIZED_NAME_BOUND_CLAIMS)
   private List<OIDCCustomClaim> boundClaims = null;
@@ -52,6 +56,37 @@ public class OIDCAccessRules {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
+
+
+  public OIDCAccessRules allowedRedirectURIs(List<String> allowedRedirectURIs) {
+    
+    this.allowedRedirectURIs = allowedRedirectURIs;
+    return this;
+  }
+
+  public OIDCAccessRules addAllowedRedirectURIsItem(String allowedRedirectURIsItem) {
+    if (this.allowedRedirectURIs == null) {
+      this.allowedRedirectURIs = new ArrayList<String>();
+    }
+    this.allowedRedirectURIs.add(allowedRedirectURIsItem);
+    return this;
+  }
+
+   /**
+   * Allowed redirect URIs after the authentication
+   * @return allowedRedirectURIs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allowed redirect URIs after the authentication")
+
+  public List<String> getAllowedRedirectURIs() {
+    return allowedRedirectURIs;
+  }
+
+
+  public void setAllowedRedirectURIs(List<String> allowedRedirectURIs) {
+    this.allowedRedirectURIs = allowedRedirectURIs;
+  }
 
 
   public OIDCAccessRules boundClaims(List<OIDCCustomClaim> boundClaims) {
@@ -186,7 +221,8 @@ public class OIDCAccessRules {
       return false;
     }
     OIDCAccessRules oiDCAccessRules = (OIDCAccessRules) o;
-    return Objects.equals(this.boundClaims, oiDCAccessRules.boundClaims) &&
+    return Objects.equals(this.allowedRedirectURIs, oiDCAccessRules.allowedRedirectURIs) &&
+        Objects.equals(this.boundClaims, oiDCAccessRules.boundClaims) &&
         Objects.equals(this.clientId, oiDCAccessRules.clientId) &&
         Objects.equals(this.clientSecret, oiDCAccessRules.clientSecret) &&
         Objects.equals(this.issuer, oiDCAccessRules.issuer) &&
@@ -195,7 +231,7 @@ public class OIDCAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(boundClaims, clientId, clientSecret, issuer, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, boundClaims, clientId, clientSecret, issuer, uniqueIdentifier);
   }
 
 
@@ -203,6 +239,7 @@ public class OIDCAccessRules {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OIDCAccessRules {\n");
+    sb.append("    allowedRedirectURIs: ").append(toIndentedString(allowedRedirectURIs)).append("\n");
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");

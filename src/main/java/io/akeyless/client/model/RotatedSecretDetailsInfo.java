@@ -50,6 +50,10 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
 
+  public static final String SERIALIZED_NAME_ROTATION_INTERVAL_MIN = "rotation_interval_min";
+  @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL_MIN)
+  private Boolean rotationIntervalMin;
+
   public static final String SERIALIZED_NAME_ROTATION_STATEMENT = "rotation_statement";
   @SerializedName(SERIALIZED_NAME_ROTATION_STATEMENT)
   private String rotationStatement;
@@ -182,6 +186,29 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo rotationIntervalMin(Boolean rotationIntervalMin) {
+    
+    this.rotationIntervalMin = rotationIntervalMin;
+    return this;
+  }
+
+   /**
+   * Get rotationIntervalMin
+   * @return rotationIntervalMin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getRotationIntervalMin() {
+    return rotationIntervalMin;
+  }
+
+
+  public void setRotationIntervalMin(Boolean rotationIntervalMin) {
+    this.rotationIntervalMin = rotationIntervalMin;
+  }
+
+
   public RotatedSecretDetailsInfo rotationStatement(String rotationStatement) {
     
     this.rotationStatement = rotationStatement;
@@ -288,6 +315,7 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.lastRotationError, rotatedSecretDetailsInfo.lastRotationError) &&
         Objects.equals(this.numberOfVersionsToSave, rotatedSecretDetailsInfo.numberOfVersionsToSave) &&
         Objects.equals(this.rotationHour, rotatedSecretDetailsInfo.rotationHour) &&
+        Objects.equals(this.rotationIntervalMin, rotatedSecretDetailsInfo.rotationIntervalMin) &&
         Objects.equals(this.rotationStatement, rotatedSecretDetailsInfo.rotationStatement) &&
         Objects.equals(this.rotatorCredsType, rotatedSecretDetailsInfo.rotatorCredsType) &&
         Objects.equals(this.rotatorStatus, rotatedSecretDetailsInfo.rotatorStatus) &&
@@ -296,7 +324,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType);
+    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType);
   }
 
 
@@ -309,6 +337,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    lastRotationError: ").append(toIndentedString(lastRotationError)).append("\n");
     sb.append("    numberOfVersionsToSave: ").append(toIndentedString(numberOfVersionsToSave)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
+    sb.append("    rotationIntervalMin: ").append(toIndentedString(rotationIntervalMin)).append("\n");
     sb.append("    rotationStatement: ").append(toIndentedString(rotationStatement)).append("\n");
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");
     sb.append("    rotatorStatus: ").append(toIndentedString(rotatorStatus)).append("\n");

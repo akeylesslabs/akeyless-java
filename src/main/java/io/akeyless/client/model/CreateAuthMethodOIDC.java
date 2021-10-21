@@ -36,6 +36,10 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_URI = "allowed-redirect-uri";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_URI)
+  private List<String> allowedRedirectUri = null;
+
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
@@ -101,6 +105,37 @@ public class CreateAuthMethodOIDC {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodOIDC allowedRedirectUri(List<String> allowedRedirectUri) {
+    
+    this.allowedRedirectUri = allowedRedirectUri;
+    return this;
+  }
+
+  public CreateAuthMethodOIDC addAllowedRedirectUriItem(String allowedRedirectUriItem) {
+    if (this.allowedRedirectUri == null) {
+      this.allowedRedirectUri = new ArrayList<String>();
+    }
+    this.allowedRedirectUri.add(allowedRedirectUriItem);
+    return this;
+  }
+
+   /**
+   * Allowed redirect URIs after the authentication
+   * @return allowedRedirectUri
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allowed redirect URIs after the authentication")
+
+  public List<String> getAllowedRedirectUri() {
+    return allowedRedirectUri;
+  }
+
+
+  public void setAllowedRedirectUri(List<String> allowedRedirectUri) {
+    this.allowedRedirectUri = allowedRedirectUri;
   }
 
 
@@ -373,6 +408,7 @@ public class CreateAuthMethodOIDC {
     }
     CreateAuthMethodOIDC createAuthMethodOIDC = (CreateAuthMethodOIDC) o;
     return Objects.equals(this.accessExpires, createAuthMethodOIDC.accessExpires) &&
+        Objects.equals(this.allowedRedirectUri, createAuthMethodOIDC.allowedRedirectUri) &&
         Objects.equals(this.boundIps, createAuthMethodOIDC.boundIps) &&
         Objects.equals(this.clientId, createAuthMethodOIDC.clientId) &&
         Objects.equals(this.clientSecret, createAuthMethodOIDC.clientSecret) &&
@@ -388,7 +424,7 @@ public class CreateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, clientId, clientSecret, forceSubClaims, issuer, name, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, name, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -397,6 +433,7 @@ public class CreateAuthMethodOIDC {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodOIDC {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");

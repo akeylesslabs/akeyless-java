@@ -25,6 +25,7 @@ import io.akeyless.client.model.CFConfigPart;
 import io.akeyless.client.model.CacheConfigPart;
 import io.akeyless.client.model.DefaultConfigPart;
 import io.akeyless.client.model.GeneralConfigPart;
+import io.akeyless.client.model.K8SAuthsConfigPart;
 import io.akeyless.client.model.KMIPConfigPart;
 import io.akeyless.client.model.LdapConfigPart;
 import io.akeyless.client.model.LeadershipConfigPart;
@@ -61,6 +62,10 @@ public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_GENERAL = "general";
   @SerializedName(SERIALIZED_NAME_GENERAL)
   private GeneralConfigPart general;
+
+  public static final String SERIALIZED_NAME_K8S_AUTHS = "k8s_auths";
+  @SerializedName(SERIALIZED_NAME_K8S_AUTHS)
+  private K8SAuthsConfigPart k8sAuths;
 
   public static final String SERIALIZED_NAME_KMIP_CLIENTS = "kmip_clients";
   @SerializedName(SERIALIZED_NAME_KMIP_CLIENTS)
@@ -215,6 +220,29 @@ public class AkeylessGatewayConfig {
 
   public void setGeneral(GeneralConfigPart general) {
     this.general = general;
+  }
+
+
+  public AkeylessGatewayConfig k8sAuths(K8SAuthsConfigPart k8sAuths) {
+    
+    this.k8sAuths = k8sAuths;
+    return this;
+  }
+
+   /**
+   * Get k8sAuths
+   * @return k8sAuths
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public K8SAuthsConfigPart getK8sAuths() {
+    return k8sAuths;
+  }
+
+
+  public void setK8sAuths(K8SAuthsConfigPart k8sAuths) {
+    this.k8sAuths = k8sAuths;
   }
 
 
@@ -462,6 +490,7 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.cf, akeylessGatewayConfig.cf) &&
         Objects.equals(this.configProtectionKeyName, akeylessGatewayConfig.configProtectionKeyName) &&
         Objects.equals(this.general, akeylessGatewayConfig.general) &&
+        Objects.equals(this.k8sAuths, akeylessGatewayConfig.k8sAuths) &&
         Objects.equals(this.kmipClients, akeylessGatewayConfig.kmipClients) &&
         Objects.equals(this.ldap, akeylessGatewayConfig.ldap) &&
         Objects.equals(this.leadership, akeylessGatewayConfig.leadership) &&
@@ -476,7 +505,7 @@ public class AkeylessGatewayConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, kmipClients, ldap, leadership, logForwarding, migrations, producers, rotators, saml, uidentity, version);
+    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, migrations, producers, rotators, saml, uidentity, version);
   }
 
 
@@ -489,6 +518,7 @@ public class AkeylessGatewayConfig {
     sb.append("    cf: ").append(toIndentedString(cf)).append("\n");
     sb.append("    configProtectionKeyName: ").append(toIndentedString(configProtectionKeyName)).append("\n");
     sb.append("    general: ").append(toIndentedString(general)).append("\n");
+    sb.append("    k8sAuths: ").append(toIndentedString(k8sAuths)).append("\n");
     sb.append("    kmipClients: ").append(toIndentedString(kmipClients)).append("\n");
     sb.append("    ldap: ").append(toIndentedString(ldap)).append("\n");
     sb.append("    leadership: ").append(toIndentedString(leadership)).append("\n");

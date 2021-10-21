@@ -32,6 +32,10 @@ import java.util.List;
  */
 
 public class SAMLAccessRules {
+  public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS = "allowed_redirect_URIs";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS)
+  private List<String> allowedRedirectURIs = null;
+
   public static final String SERIALIZED_NAME_BOUND_ATTRIBUTES = "bound_attributes";
   @SerializedName(SERIALIZED_NAME_BOUND_ATTRIBUTES)
   private List<SAMLAttribute> boundAttributes = null;
@@ -47,6 +51,37 @@ public class SAMLAccessRules {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
+
+
+  public SAMLAccessRules allowedRedirectURIs(List<String> allowedRedirectURIs) {
+    
+    this.allowedRedirectURIs = allowedRedirectURIs;
+    return this;
+  }
+
+  public SAMLAccessRules addAllowedRedirectURIsItem(String allowedRedirectURIsItem) {
+    if (this.allowedRedirectURIs == null) {
+      this.allowedRedirectURIs = new ArrayList<String>();
+    }
+    this.allowedRedirectURIs.add(allowedRedirectURIsItem);
+    return this;
+  }
+
+   /**
+   * Allowed redirect URIs after the authentication
+   * @return allowedRedirectURIs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allowed redirect URIs after the authentication")
+
+  public List<String> getAllowedRedirectURIs() {
+    return allowedRedirectURIs;
+  }
+
+
+  public void setAllowedRedirectURIs(List<String> allowedRedirectURIs) {
+    this.allowedRedirectURIs = allowedRedirectURIs;
+  }
 
 
   public SAMLAccessRules boundAttributes(List<SAMLAttribute> boundAttributes) {
@@ -158,7 +193,8 @@ public class SAMLAccessRules {
       return false;
     }
     SAMLAccessRules saMLAccessRules = (SAMLAccessRules) o;
-    return Objects.equals(this.boundAttributes, saMLAccessRules.boundAttributes) &&
+    return Objects.equals(this.allowedRedirectURIs, saMLAccessRules.allowedRedirectURIs) &&
+        Objects.equals(this.boundAttributes, saMLAccessRules.boundAttributes) &&
         Objects.equals(this.idpMetadataUrl, saMLAccessRules.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXml, saMLAccessRules.idpMetadataXml) &&
         Objects.equals(this.uniqueIdentifier, saMLAccessRules.uniqueIdentifier);
@@ -166,7 +202,7 @@ public class SAMLAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(boundAttributes, idpMetadataUrl, idpMetadataXml, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, boundAttributes, idpMetadataUrl, idpMetadataXml, uniqueIdentifier);
   }
 
 
@@ -174,6 +210,7 @@ public class SAMLAccessRules {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SAMLAccessRules {\n");
+    sb.append("    allowedRedirectURIs: ").append(toIndentedString(allowedRedirectURIs)).append("\n");
     sb.append("    boundAttributes: ").append(toIndentedString(boundAttributes)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXml: ").append(toIndentedString(idpMetadataXml)).append("\n");
