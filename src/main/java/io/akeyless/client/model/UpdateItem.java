@@ -55,6 +55,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   private List<String> rmTag = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST = "secure-access-add-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST)
+  private List<String> secureAccessAddHost = null;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING = "secure-access-allow-port-forwading";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
   private Boolean secureAccessAllowPortForwading;
@@ -110,6 +114,14 @@ public class UpdateItem {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
   private String secureAccessRdpDomain;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_USER = "secure-access-rdp-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_USER)
+  private String secureAccessRdpUser;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RM_HOST = "secure-access-rm-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RM_HOST)
+  private List<String> secureAccessRmHost = null;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS = "secure-access-ssh-creds";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS)
@@ -294,6 +306,37 @@ public class UpdateItem {
 
   public void setRmTag(List<String> rmTag) {
     this.rmTag = rmTag;
+  }
+
+
+  public UpdateItem secureAccessAddHost(List<String> secureAccessAddHost) {
+    
+    this.secureAccessAddHost = secureAccessAddHost;
+    return this;
+  }
+
+  public UpdateItem addSecureAccessAddHostItem(String secureAccessAddHostItem) {
+    if (this.secureAccessAddHost == null) {
+      this.secureAccessAddHost = new ArrayList<String>();
+    }
+    this.secureAccessAddHost.add(secureAccessAddHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessAddHost
+   * @return secureAccessAddHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessAddHost() {
+    return secureAccessAddHost;
+  }
+
+
+  public void setSecureAccessAddHost(List<String> secureAccessAddHost) {
+    this.secureAccessAddHost = secureAccessAddHost;
   }
 
 
@@ -627,6 +670,60 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem secureAccessRdpUser(String secureAccessRdpUser) {
+    
+    this.secureAccessRdpUser = secureAccessRdpUser;
+    return this;
+  }
+
+   /**
+   * Get secureAccessRdpUser
+   * @return secureAccessRdpUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessRdpUser() {
+    return secureAccessRdpUser;
+  }
+
+
+  public void setSecureAccessRdpUser(String secureAccessRdpUser) {
+    this.secureAccessRdpUser = secureAccessRdpUser;
+  }
+
+
+  public UpdateItem secureAccessRmHost(List<String> secureAccessRmHost) {
+    
+    this.secureAccessRmHost = secureAccessRmHost;
+    return this;
+  }
+
+  public UpdateItem addSecureAccessRmHostItem(String secureAccessRmHostItem) {
+    if (this.secureAccessRmHost == null) {
+      this.secureAccessRmHost = new ArrayList<String>();
+    }
+    this.secureAccessRmHost.add(secureAccessRmHostItem);
+    return this;
+  }
+
+   /**
+   * Get secureAccessRmHost
+   * @return secureAccessRmHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSecureAccessRmHost() {
+    return secureAccessRmHost;
+  }
+
+
+  public void setSecureAccessRmHost(List<String> secureAccessRmHost) {
+    this.secureAccessRmHost = secureAccessRmHost;
+  }
+
+
   public UpdateItem secureAccessSshCreds(String secureAccessSshCreds) {
     
     this.secureAccessSshCreds = secureAccessSshCreds;
@@ -826,6 +923,7 @@ public class UpdateItem {
         Objects.equals(this.newName, updateItem.newName) &&
         Objects.equals(this.password, updateItem.password) &&
         Objects.equals(this.rmTag, updateItem.rmTag) &&
+        Objects.equals(this.secureAccessAddHost, updateItem.secureAccessAddHost) &&
         Objects.equals(this.secureAccessAllowPortForwading, updateItem.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessAwsAccountId, updateItem.secureAccessAwsAccountId) &&
         Objects.equals(this.secureAccessAwsNativeCli, updateItem.secureAccessAwsNativeCli) &&
@@ -840,6 +938,8 @@ public class UpdateItem {
         Objects.equals(this.secureAccessEnable, updateItem.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, updateItem.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, updateItem.secureAccessRdpDomain) &&
+        Objects.equals(this.secureAccessRdpUser, updateItem.secureAccessRdpUser) &&
+        Objects.equals(this.secureAccessRmHost, updateItem.secureAccessRmHost) &&
         Objects.equals(this.secureAccessSshCreds, updateItem.secureAccessSshCreds) &&
         Objects.equals(this.secureAccessSshCredsUser, updateItem.secureAccessSshCredsUser) &&
         Objects.equals(this.secureAccessUrl, updateItem.secureAccessUrl) &&
@@ -852,7 +952,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, token, uidToken, username);
+    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAddHost, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, token, uidToken, username);
   }
 
 
@@ -866,6 +966,7 @@ public class UpdateItem {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
+    sb.append("    secureAccessAddHost: ").append(toIndentedString(secureAccessAddHost)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
     sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
@@ -880,6 +981,8 @@ public class UpdateItem {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
+    sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
+    sb.append("    secureAccessRmHost: ").append(toIndentedString(secureAccessRmHost)).append("\n");
     sb.append("    secureAccessSshCreds: ").append(toIndentedString(secureAccessSshCreds)).append("\n");
     sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");

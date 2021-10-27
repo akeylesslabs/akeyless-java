@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ldap** | **String** |  |  [optional]
 **leadership** | **String** |  |  [optional]
 **logForwarding** | **String** |  |  [optional]
+**mQueue** | **String** |  |  [optional]
 **migrations** | **String** |  |  [optional]
 **producers** | [**Object**](.md) |  |  [optional]
 **rotators** | [**Object**](.md) |  |  [optional]

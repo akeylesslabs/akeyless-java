@@ -65,6 +65,10 @@ public class ConfigHash {
   @SerializedName(SERIALIZED_NAME_LOG_FORWARDING)
   private String logForwarding;
 
+  public static final String SERIALIZED_NAME_M_QUEUE = "m_queue";
+  @SerializedName(SERIALIZED_NAME_M_QUEUE)
+  private String mQueue;
+
   public static final String SERIALIZED_NAME_MIGRATIONS = "migrations";
   @SerializedName(SERIALIZED_NAME_MIGRATIONS)
   private String migrations;
@@ -293,6 +297,29 @@ public class ConfigHash {
   }
 
 
+  public ConfigHash mQueue(String mQueue) {
+    
+    this.mQueue = mQueue;
+    return this;
+  }
+
+   /**
+   * Get mQueue
+   * @return mQueue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getmQueue() {
+    return mQueue;
+  }
+
+
+  public void setmQueue(String mQueue) {
+    this.mQueue = mQueue;
+  }
+
+
   public ConfigHash migrations(String migrations) {
     
     this.migrations = migrations;
@@ -426,6 +453,7 @@ public class ConfigHash {
         Objects.equals(this.ldap, configHash.ldap) &&
         Objects.equals(this.leadership, configHash.leadership) &&
         Objects.equals(this.logForwarding, configHash.logForwarding) &&
+        Objects.equals(this.mQueue, configHash.mQueue) &&
         Objects.equals(this.migrations, configHash.migrations) &&
         Objects.equals(this.producers, configHash.producers) &&
         Objects.equals(this.rotators, configHash.rotators) &&
@@ -435,7 +463,7 @@ public class ConfigHash {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, migrations, producers, rotators, saml, universalIdentity);
+    return Objects.hash(admins, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrations, producers, rotators, saml, universalIdentity);
   }
 
 
@@ -452,6 +480,7 @@ public class ConfigHash {
     sb.append("    ldap: ").append(toIndentedString(ldap)).append("\n");
     sb.append("    leadership: ").append(toIndentedString(leadership)).append("\n");
     sb.append("    logForwarding: ").append(toIndentedString(logForwarding)).append("\n");
+    sb.append("    mQueue: ").append(toIndentedString(mQueue)).append("\n");
     sb.append("    migrations: ").append(toIndentedString(migrations)).append("\n");
     sb.append("    producers: ").append(toIndentedString(producers)).append("\n");
     sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");

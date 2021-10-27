@@ -24,6 +24,7 @@ import io.akeyless.client.model.AdminsConfigPart;
 import io.akeyless.client.model.CFConfigPart;
 import io.akeyless.client.model.CacheConfigPart;
 import io.akeyless.client.model.DefaultConfigPart;
+import io.akeyless.client.model.GatewayMessageQueueInfo;
 import io.akeyless.client.model.GeneralConfigPart;
 import io.akeyless.client.model.K8SAuthsConfigPart;
 import io.akeyless.client.model.KMIPConfigPart;
@@ -82,6 +83,10 @@ public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_LOG_FORWARDING = "log_forwarding";
   @SerializedName(SERIALIZED_NAME_LOG_FORWARDING)
   private LogForwardingConfigPart logForwarding;
+
+  public static final String SERIALIZED_NAME_MESSAGE_QUEUE_INFO = "message_queue_info";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_QUEUE_INFO)
+  private GatewayMessageQueueInfo messageQueueInfo;
 
   public static final String SERIALIZED_NAME_MIGRATIONS = "migrations";
   @SerializedName(SERIALIZED_NAME_MIGRATIONS)
@@ -338,6 +343,29 @@ public class AkeylessGatewayConfig {
   }
 
 
+  public AkeylessGatewayConfig messageQueueInfo(GatewayMessageQueueInfo messageQueueInfo) {
+    
+    this.messageQueueInfo = messageQueueInfo;
+    return this;
+  }
+
+   /**
+   * Get messageQueueInfo
+   * @return messageQueueInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GatewayMessageQueueInfo getMessageQueueInfo() {
+    return messageQueueInfo;
+  }
+
+
+  public void setMessageQueueInfo(GatewayMessageQueueInfo messageQueueInfo) {
+    this.messageQueueInfo = messageQueueInfo;
+  }
+
+
   public AkeylessGatewayConfig migrations(MigrationsConfigPart migrations) {
     
     this.migrations = migrations;
@@ -495,6 +523,7 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.ldap, akeylessGatewayConfig.ldap) &&
         Objects.equals(this.leadership, akeylessGatewayConfig.leadership) &&
         Objects.equals(this.logForwarding, akeylessGatewayConfig.logForwarding) &&
+        Objects.equals(this.messageQueueInfo, akeylessGatewayConfig.messageQueueInfo) &&
         Objects.equals(this.migrations, akeylessGatewayConfig.migrations) &&
         Objects.equals(this.producers, akeylessGatewayConfig.producers) &&
         Objects.equals(this.rotators, akeylessGatewayConfig.rotators) &&
@@ -505,7 +534,7 @@ public class AkeylessGatewayConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, migrations, producers, rotators, saml, uidentity, version);
+    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, uidentity, version);
   }
 
 
@@ -523,6 +552,7 @@ public class AkeylessGatewayConfig {
     sb.append("    ldap: ").append(toIndentedString(ldap)).append("\n");
     sb.append("    leadership: ").append(toIndentedString(leadership)).append("\n");
     sb.append("    logForwarding: ").append(toIndentedString(logForwarding)).append("\n");
+    sb.append("    messageQueueInfo: ").append(toIndentedString(messageQueueInfo)).append("\n");
     sb.append("    migrations: ").append(toIndentedString(migrations)).append("\n");
     sb.append("    producers: ").append(toIndentedString(producers)).append("\n");
     sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");

@@ -65,6 +65,7 @@ Name | Type | Description | Notes
 **eksRegion** | **String** |  |  [optional]
 **eksSecretAccessKey** | **String** |  |  [optional]
 **enableAdminRotation** | **Boolean** |  |  [optional]
+**externallyProvidedUser** | **String** |  |  [optional]
 **failureMessage** | **String** |  |  [optional]
 **fixedUserOnly** | **String** |  |  [optional]
 **gcpKeyAlgo** | **String** |  |  [optional]

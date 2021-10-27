@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
 **secureAccessSshCreds** | **String** |  |  [optional]
+**secureAccessSshUser** | **String** |  |  [optional]
 **secureAccessUrl** | **String** |  |  [optional]
 **secureAccessWebBrowsing** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]

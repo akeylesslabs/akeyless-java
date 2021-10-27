@@ -39,6 +39,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_ALLOW_PORT_FORWARDING)
   private Boolean allowPortForwarding;
 
+  public static final String SERIALIZED_NAME_ALLOW_PROVIDING_EXTERNAL_USERNAME = "allow_providing_external_username";
+  @SerializedName(SERIALIZED_NAME_ALLOW_PROVIDING_EXTERNAL_USERNAME)
+  private Boolean allowProvidingExternalUsername;
+
   public static final String SERIALIZED_NAME_BASTION_API = "bastion_api";
   @SerializedName(SERIALIZED_NAME_BASTION_API)
   private String bastionApi;
@@ -98,6 +102,10 @@ public class SecureRemoteAccess {
   public static final String SERIALIZED_NAME_NATIVE = "native";
   @SerializedName(SERIALIZED_NAME_NATIVE)
   private Boolean _native;
+
+  public static final String SERIALIZED_NAME_RDP_USER = "rdp_user";
+  @SerializedName(SERIALIZED_NAME_RDP_USER)
+  private String rdpUser;
 
   public static final String SERIALIZED_NAME_REGION = "region";
   @SerializedName(SERIALIZED_NAME_REGION)
@@ -171,6 +179,29 @@ public class SecureRemoteAccess {
 
   public void setAllowPortForwarding(Boolean allowPortForwarding) {
     this.allowPortForwarding = allowPortForwarding;
+  }
+
+
+  public SecureRemoteAccess allowProvidingExternalUsername(Boolean allowProvidingExternalUsername) {
+    
+    this.allowProvidingExternalUsername = allowProvidingExternalUsername;
+    return this;
+  }
+
+   /**
+   * Get allowProvidingExternalUsername
+   * @return allowProvidingExternalUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAllowProvidingExternalUsername() {
+    return allowProvidingExternalUsername;
+  }
+
+
+  public void setAllowProvidingExternalUsername(Boolean allowProvidingExternalUsername) {
+    this.allowProvidingExternalUsername = allowProvidingExternalUsername;
   }
 
 
@@ -527,6 +558,29 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess rdpUser(String rdpUser) {
+    
+    this.rdpUser = rdpUser;
+    return this;
+  }
+
+   /**
+   * Get rdpUser
+   * @return rdpUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRdpUser() {
+    return rdpUser;
+  }
+
+
+  public void setRdpUser(String rdpUser) {
+    this.rdpUser = rdpUser;
+  }
+
+
   public SecureRemoteAccess region(String region) {
     
     this.region = region;
@@ -699,6 +753,7 @@ public class SecureRemoteAccess {
     SecureRemoteAccess secureRemoteAccess = (SecureRemoteAccess) o;
     return Objects.equals(this.accountId, secureRemoteAccess.accountId) &&
         Objects.equals(this.allowPortForwarding, secureRemoteAccess.allowPortForwarding) &&
+        Objects.equals(this.allowProvidingExternalUsername, secureRemoteAccess.allowProvidingExternalUsername) &&
         Objects.equals(this.bastionApi, secureRemoteAccess.bastionApi) &&
         Objects.equals(this.bastionIssuer, secureRemoteAccess.bastionIssuer) &&
         Objects.equals(this.bastionIssuerId, secureRemoteAccess.bastionIssuerId) &&
@@ -714,6 +769,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.isWeb, secureRemoteAccess.isWeb) &&
         Objects.equals(this.isolated, secureRemoteAccess.isolated) &&
         Objects.equals(this._native, secureRemoteAccess._native) &&
+        Objects.equals(this.rdpUser, secureRemoteAccess.rdpUser) &&
         Objects.equals(this.region, secureRemoteAccess.region) &&
         Objects.equals(this.schema, secureRemoteAccess.schema) &&
         Objects.equals(this.sshPassword, secureRemoteAccess.sshPassword) &&
@@ -725,7 +781,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, region, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdpUser, region, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion);
   }
 
 
@@ -735,6 +791,7 @@ public class SecureRemoteAccess {
     sb.append("class SecureRemoteAccess {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    allowPortForwarding: ").append(toIndentedString(allowPortForwarding)).append("\n");
+    sb.append("    allowProvidingExternalUsername: ").append(toIndentedString(allowProvidingExternalUsername)).append("\n");
     sb.append("    bastionApi: ").append(toIndentedString(bastionApi)).append("\n");
     sb.append("    bastionIssuer: ").append(toIndentedString(bastionIssuer)).append("\n");
     sb.append("    bastionIssuerId: ").append(toIndentedString(bastionIssuerId)).append("\n");
@@ -750,6 +807,7 @@ public class SecureRemoteAccess {
     sb.append("    isWeb: ").append(toIndentedString(isWeb)).append("\n");
     sb.append("    isolated: ").append(toIndentedString(isolated)).append("\n");
     sb.append("    _native: ").append(toIndentedString(_native)).append("\n");
+    sb.append("    rdpUser: ").append(toIndentedString(rdpUser)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");

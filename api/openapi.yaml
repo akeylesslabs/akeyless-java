@@ -2420,6 +2420,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-list-migration:
+    post:
+      operationId: gatewayListMigration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayListMigration'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayMigrationListOutput'
+          description: gatewayMigrationListResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-list-producers:
     post:
       operationId: gatewayListProducers
@@ -2520,6 +2549,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayStopProducerOutput'
           description: gatewayStopProducerResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-sync-migration:
+    post:
+      operationId: gatewaySyncMigration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewaySyncMigration'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayMigrationSyncOutput'
+          description: gatewayMigrationSyncResponse wraps response body.
         default:
           content:
             application/json:
@@ -5193,6 +5251,18 @@ components:
           schema:
             $ref: '#/components/schemas/GetSubAdminsListReplyObj'
       description: gatewayListSubAdminsResponse wraps response body.
+    gatewayMigrationListResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayMigrationListOutput'
+      description: gatewayMigrationListResponse wraps response body.
+    gatewayMigrationSyncResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayMigrationSyncOutput'
+      description: gatewayMigrationSyncResponse wraps response body.
     gatewayRevokeTmpUsersResponse:
       content: {}
       description: gatewayRevokeTmpUsersResponse wraps response body.
@@ -5833,6 +5903,10 @@ components:
             disable_iss_validation: true
             id: id
             use_local_ca_jwt: true
+        message_queue_info:
+          queue_name: queue_name
+          queue_url: queue_url
+          mq_type: mq_type
         cache:
           proactive_cache_enable: true
           proactive_cache_dump_interval: proactive_cache_dump_interval
@@ -6107,6 +6181,8 @@ components:
           $ref: '#/components/schemas/LeadershipConfigPart'
         log_forwarding:
           $ref: '#/components/schemas/LogForwardingConfigPart'
+        message_queue_info:
+          $ref: '#/components/schemas/GatewayMessageQueueInfo'
         migrations:
           $ref: '#/components/schemas/MigrationsConfigPart'
         producers:
@@ -7198,6 +7274,7 @@ components:
           cache: cache
           universal_identity: universal_identity
           customer_fragements: customer_fragements
+          m_queue: m_queue
           producers: '{}'
           general: general
           ldap: ldap
@@ -7229,6 +7306,7 @@ components:
         cache: cache
         universal_identity: universal_identity
         customer_fragements: customer_fragements
+        m_queue: m_queue
         producers: '{}'
         general: general
         ldap: ldap
@@ -7267,6 +7345,9 @@ components:
         log_forwarding:
           type: string
           x-go-name: LogForwarding
+        m_queue:
+          type: string
+          x-go-name: MQueue
         migrations:
           type: string
           x-go-name: Migrations
@@ -7699,6 +7780,7 @@ components:
         venafi_allow_subdomains: true
         aws_user_console_access: true
         user_principal_name: user_principal_name
+        externally_provided_user: externally_provided_user
         db_server_certificates: db_server_certificates
         gcp_key_algo: gcp_key_algo
         db_server_name: db_server_name
@@ -7735,31 +7817,33 @@ components:
         sf_account: sf_account
         secure_remote_access_details:
           schema: schema
-          is_cli: true
-          use_internal_bastion: true
           bastion_ssh: bastion_ssh
           isolated: true
           ssh_private_key: true
-          url: url
           allow_port_forwarding: true
           is_web: true
           endpoint: endpoint
-          account_id: account_id
-          db_name: db_name
           native: true
           enable: true
-          domain: domain
           host:
           - host
           - host
+          dashboard_url: dashboard_url
+          bastion_issuer: bastion_issuer
+          ssh_user: ssh_user
+          is_cli: true
+          use_internal_bastion: true
+          rdp_user: rdp_user
+          url: url
+          account_id: account_id
+          db_name: db_name
+          allow_providing_external_username: true
+          domain: domain
           bastion_api: bastion_api
           category: category
-          dashboard_url: dashboard_url
           region: region
           ssh_password: true
           bastion_issuer_id: 7
-          bastion_issuer: bastion_issuer
-          ssh_user: ssh_user
         groups: groups
         ldap_group_dn: ldap_group_dn
         chef_organizations: chef_organizations
@@ -7967,6 +8051,9 @@ components:
         enable_admin_rotation:
           type: boolean
           x-go-name: EnableAdminRotation
+        externally_provided_user:
+          type: string
+          x-go-name: ExternallyProvidedUser
         failure_message:
           type: string
           x-go-name: FailureMessage
@@ -8491,6 +8578,23 @@ components:
     GCPCredentialsType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+    GatewayMessageQueueInfo:
+      example:
+        queue_name: queue_name
+        queue_url: queue_url
+        mq_type: mq_type
+      properties:
+        mq_type:
+          type: string
+          x-go-name: MQType
+        queue_name:
+          type: string
+          x-go-name: QueueName
+        queue_url:
+          type: string
+          x-go-name: QueueURL
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     GeneralConfigPart:
       example:
         tcp_port: tcp_port
@@ -9044,31 +9148,33 @@ components:
             number_of_versions_to_save: 2
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           dynamic_secret_producer_details:
             gw_cluster_id: 7
             producer_last_keep_alive: producer_last_keep_alive
@@ -9298,31 +9404,33 @@ components:
           number_of_versions_to_save: 2
         secure_remote_access_details:
           schema: schema
-          is_cli: true
-          use_internal_bastion: true
           bastion_ssh: bastion_ssh
           isolated: true
           ssh_private_key: true
-          url: url
           allow_port_forwarding: true
           is_web: true
           endpoint: endpoint
-          account_id: account_id
-          db_name: db_name
           native: true
           enable: true
-          domain: domain
           host:
           - host
           - host
+          dashboard_url: dashboard_url
+          bastion_issuer: bastion_issuer
+          ssh_user: ssh_user
+          is_cli: true
+          use_internal_bastion: true
+          rdp_user: rdp_user
+          url: url
+          account_id: account_id
+          db_name: db_name
+          allow_providing_external_username: true
+          domain: domain
           bastion_api: bastion_api
           category: category
-          dashboard_url: dashboard_url
           region: region
           ssh_password: true
           bastion_issuer_id: 7
-          bastion_issuer: bastion_issuer
-          ssh_user: ssh_user
         dynamic_secret_producer_details:
           gw_cluster_id: 7
           producer_last_keep_alive: producer_last_keep_alive
@@ -9775,7 +9883,7 @@ components:
         client:
           $ref: '#/components/schemas/KMIPClient'
       type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/akeyless-api-proxy/config
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/gateway/config
     KMIPClientListResponse:
       example:
         clients:
@@ -9814,7 +9922,7 @@ components:
           type: array
           x-go-name: Clients
       type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/akeyless-api-proxy/config
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/gateway/config
     KMIPClientUpdateResponse:
       example:
         client:
@@ -9836,7 +9944,7 @@ components:
         client:
           $ref: '#/components/schemas/KMIPClient'
       type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/akeyless-api-proxy/config
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/gateway/config
     KMIPConfigPart:
       example:
         server_enc:
@@ -9889,7 +9997,7 @@ components:
           type: string
           x-go-name: Root
       type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/akeyless-api-proxy/config
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/gateway/config
     KubernetesAccessRules:
       example:
         audience: audience
@@ -10703,31 +10811,33 @@ components:
               number_of_versions_to_save: 2
             secure_remote_access_details:
               schema: schema
-              is_cli: true
-              use_internal_bastion: true
               bastion_ssh: bastion_ssh
               isolated: true
               ssh_private_key: true
-              url: url
               allow_port_forwarding: true
               is_web: true
               endpoint: endpoint
-              account_id: account_id
-              db_name: db_name
               native: true
               enable: true
-              domain: domain
               host:
               - host
               - host
+              dashboard_url: dashboard_url
+              bastion_issuer: bastion_issuer
+              ssh_user: ssh_user
+              is_cli: true
+              use_internal_bastion: true
+              rdp_user: rdp_user
+              url: url
+              account_id: account_id
+              db_name: db_name
+              allow_providing_external_username: true
+              domain: domain
               bastion_api: bastion_api
               category: category
-              dashboard_url: dashboard_url
               region: region
               ssh_password: true
               bastion_issuer_id: 7
-              bastion_issuer: bastion_issuer
-              ssh_user: ssh_user
             dynamic_secret_producer_details:
               gw_cluster_id: 7
               producer_last_keep_alive: producer_last_keep_alive
@@ -10965,31 +11075,33 @@ components:
               number_of_versions_to_save: 2
             secure_remote_access_details:
               schema: schema
-              is_cli: true
-              use_internal_bastion: true
               bastion_ssh: bastion_ssh
               isolated: true
               ssh_private_key: true
-              url: url
               allow_port_forwarding: true
               is_web: true
               endpoint: endpoint
-              account_id: account_id
-              db_name: db_name
               native: true
               enable: true
-              domain: domain
               host:
               - host
               - host
+              dashboard_url: dashboard_url
+              bastion_issuer: bastion_issuer
+              ssh_user: ssh_user
+              is_cli: true
+              use_internal_bastion: true
+              rdp_user: rdp_user
+              url: url
+              account_id: account_id
+              db_name: db_name
+              allow_providing_external_username: true
+              domain: domain
               bastion_api: bastion_api
               category: category
-              dashboard_url: dashboard_url
               region: region
               ssh_password: true
               bastion_issuer_id: 7
-              bastion_issuer: bastion_issuer
-              ssh_user: ssh_user
             dynamic_secret_producer_details:
               gw_cluster_id: 7
               producer_last_keep_alive: producer_last_keep_alive
@@ -12425,31 +12537,33 @@ components:
     SecureRemoteAccess:
       example:
         schema: schema
-        is_cli: true
-        use_internal_bastion: true
         bastion_ssh: bastion_ssh
         isolated: true
         ssh_private_key: true
-        url: url
         allow_port_forwarding: true
         is_web: true
         endpoint: endpoint
-        account_id: account_id
-        db_name: db_name
         native: true
         enable: true
-        domain: domain
         host:
         - host
         - host
+        dashboard_url: dashboard_url
+        bastion_issuer: bastion_issuer
+        ssh_user: ssh_user
+        is_cli: true
+        use_internal_bastion: true
+        rdp_user: rdp_user
+        url: url
+        account_id: account_id
+        db_name: db_name
+        allow_providing_external_username: true
+        domain: domain
         bastion_api: bastion_api
         category: category
-        dashboard_url: dashboard_url
         region: region
         ssh_password: true
         bastion_issuer_id: 7
-        bastion_issuer: bastion_issuer
-        ssh_user: ssh_user
       properties:
         account_id:
           type: string
@@ -12457,6 +12571,9 @@ components:
         allow_port_forwarding:
           type: boolean
           x-go-name: K8SAllowPortForwading
+        allow_providing_external_username:
+          type: boolean
+          x-go-name: AllowProvidingExternalUser
         bastion_api:
           type: string
           x-go-name: BastionAPI
@@ -12505,6 +12622,9 @@ components:
         native:
           type: boolean
           x-go-name: AwsNativeCli
+        rdp_user:
+          type: string
+          x-go-name: RDPUser
         region:
           type: string
           x-go-name: AwsRegion
@@ -15845,6 +15965,9 @@ components:
         secure-access-ssh-creds:
           type: string
           x-go-name: SecureAccessSSHCategory
+        secure-access-ssh-user:
+          type: string
+          x-go-name: SecureAccessSSHUser
         secure-access-url:
           type: string
           x-go-name: SecureAccessURL
@@ -17051,6 +17174,7 @@ components:
             cache: cache
             universal_identity: universal_identity
             customer_fragements: customer_fragements
+            m_queue: m_queue
             producers: '{}'
             general: general
             ldap: ldap
@@ -17247,6 +17371,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -17283,31 +17408,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -17551,6 +17678,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -17587,31 +17715,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -17834,6 +17964,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -17870,31 +18001,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -18092,6 +18225,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -18128,31 +18262,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -18399,6 +18535,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -18435,31 +18572,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -18733,6 +18872,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -18769,31 +18909,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -19013,6 +19155,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -19049,31 +19192,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -19268,6 +19413,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -19304,31 +19450,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -19539,6 +19687,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -19575,31 +19724,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -19832,6 +19983,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -19868,31 +20020,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -20115,6 +20269,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -20151,31 +20306,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -20412,6 +20569,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -20448,31 +20606,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -20696,6 +20856,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -20732,31 +20893,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -20973,6 +21136,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -21009,31 +21173,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -21244,6 +21410,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -21280,31 +21447,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -21524,6 +21693,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -21560,31 +21730,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -21802,6 +21974,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -21838,31 +22011,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -21939,6 +22114,9 @@ components:
         secure-access-rdp-domain:
           type: string
           x-go-name: SecureAccessDomain
+        secure-access-rdp-user:
+          type: string
+          x-go-name: SecureAccessOverrideUser
         target-name:
           description: Target name
           type: string
@@ -22075,6 +22253,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -22111,31 +22290,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -22338,6 +22519,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -22374,31 +22556,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -22587,6 +22771,7 @@ components:
           venafi_allow_subdomains: true
           aws_user_console_access: true
           user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
@@ -22623,31 +22808,33 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
-            is_cli: true
-            use_internal_bastion: true
             bastion_ssh: bastion_ssh
             isolated: true
             ssh_private_key: true
-            url: url
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
-            account_id: account_id
-            db_name: db_name
             native: true
             enable: true
-            domain: domain
             host:
             - host
             - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
             bastion_api: bastion_api
             category: category
-            dashboard_url: dashboard_url
             region: region
             ssh_password: true
             bastion_issuer_id: 7
-            bastion_issuer: bastion_issuer
-            ssh_user: ssh_user
           groups: groups
           ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
@@ -22776,6 +22963,7 @@ components:
             cache: cache
             universal_identity: universal_identity
             customer_fragements: customer_fragements
+            m_queue: m_queue
             producers: '{}'
             general: general
             ldap: ldap
@@ -23066,6 +23254,31 @@ components:
           x-go-name: Username
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayListMigration:
+      description: gatewayListMigration is a command that list migration
+      properties:
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayListProducers:
       description: gatewayListProducers is a command that returns producer
       properties:
@@ -23089,6 +23302,129 @@ components:
             and password
           type: string
           x-go-name: Username
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayMigrationListOutput:
+      example:
+        body:
+          hashi_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              url: url
+              namespaces:
+              - namespaces
+              - namespaces
+              token: token
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              url: url
+              namespaces:
+              - namespaces
+              - namespaces
+              token: token
+          azure_kv_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              name: name
+              client: client
+              secret: secret
+              tenant: tenant
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              name: name
+              client: client
+              secret: secret
+              tenant: tenant
+          k8s_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              client_key:
+              - 2
+              - 2
+              server: server
+              password: password
+              client_cert:
+              - 5
+              - 5
+              namespace: namespace
+              ca:
+              - 5
+              - 5
+              skip_system: true
+              token: token
+              username: username
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              client_key:
+              - 2
+              - 2
+              server: server
+              password: password
+              client_cert:
+              - 5
+              - 5
+              namespace: namespace
+              ca:
+              - 5
+              - 5
+              skip_system: true
+              token: token
+              username: username
+          aws_secrets_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              secret: secret
+              region: region
+              key: key
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+            payload:
+              secret: secret
+              region: region
+              key: key
+      properties:
+        body:
+          $ref: '#/components/schemas/MigrationsConfigPart'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayMigrationSyncOutput:
+      example:
+        migration_name: migration_name
+      properties:
+        migration_name:
+          type: string
+          x-go-name: MigrationName
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayRevokeTmpUsers:
@@ -23213,6 +23549,40 @@ components:
         producer_name:
           type: string
           x-go-name: ProducerName
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewaySyncMigration:
+      description: gatewaySyncMigration is a command that sync migration
+      properties:
+        name:
+          description: Migration name
+          type: string
+          x-go-name: MigrationName
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        start-sync:
+          type: boolean
+          x-go-name: Sync
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      required:
+      - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayUpdateItemOutput:
@@ -25861,6 +26231,11 @@ components:
             type: string
           type: array
           x-go-name: RemoveTags
+        secure-access-add-host:
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessAddHost
         secure-access-allow-port-forwading:
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
@@ -25905,6 +26280,14 @@ components:
         secure-access-rdp-domain:
           type: string
           x-go-name: SecureAccessDomain
+        secure-access-rdp-user:
+          type: string
+          x-go-name: SecureAccessOverrideUser
+        secure-access-rm-host:
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessRemoveHost
         secure-access-ssh-creds:
           type: string
           x-go-name: SecureAccessSSHCategory
