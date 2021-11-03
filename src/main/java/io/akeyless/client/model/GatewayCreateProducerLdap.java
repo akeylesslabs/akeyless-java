@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "gatewayCreateProducerLdap is a command that creates ldap producer")
 
 public class GatewayCreateProducerLdap {
-  public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
-  @SerializedName(SERIALIZED_NAME_ACCESS_ID)
-  private String accessId;
-
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
   private String bindDn;
@@ -42,25 +38,9 @@ public class GatewayCreateProducerLdap {
   @SerializedName(SERIALIZED_NAME_BIND_DN_PASSWORD)
   private String bindDnPassword;
 
-  public static final String SERIALIZED_NAME_ENABLE_ANONYM_SEARCH = "enable-anonym-search";
-  @SerializedName(SERIALIZED_NAME_ENABLE_ANONYM_SEARCH)
-  private Boolean enableAnonymSearch;
-
-  public static final String SERIALIZED_NAME_FIXED_USER_ONLY = "fixed-user-only";
-  @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
-  private String fixedUserOnly = "false";
-
-  public static final String SERIALIZED_NAME_GROUP_ATTRIBUTE = "group-attribute";
-  @SerializedName(SERIALIZED_NAME_GROUP_ATTRIBUTE)
-  private String groupAttribute;
-
-  public static final String SERIALIZED_NAME_GROUP_DN = "group-dn";
-  @SerializedName(SERIALIZED_NAME_GROUP_DN)
-  private String groupDn;
-
-  public static final String SERIALIZED_NAME_GROUP_FILTER = "group-filter";
-  @SerializedName(SERIALIZED_NAME_GROUP_FILTER)
-  private String groupFilter;
+  public static final String SERIALIZED_NAME_EXTERNAL_USERNAME = "external-username";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_USERNAME)
+  private String externalUsername = "false";
 
   public static final String SERIALIZED_NAME_LDAP_CA_CERT = "ldap-ca-cert";
   @SerializedName(SERIALIZED_NAME_LDAP_CA_CERT)
@@ -77,10 +57,6 @@ public class GatewayCreateProducerLdap {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
-
-  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
-  private String privateKey;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -117,29 +93,6 @@ public class GatewayCreateProducerLdap {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public GatewayCreateProducerLdap accessId(String accessId) {
-    
-    this.accessId = accessId;
-    return this;
-  }
-
-   /**
-   * Access ID
-   * @return accessId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access ID")
-
-  public String getAccessId() {
-    return accessId;
-  }
-
-
-  public void setAccessId(String accessId) {
-    this.accessId = accessId;
-  }
 
 
   public GatewayCreateProducerLdap bindDn(String bindDn) {
@@ -188,118 +141,26 @@ public class GatewayCreateProducerLdap {
   }
 
 
-  public GatewayCreateProducerLdap enableAnonymSearch(Boolean enableAnonymSearch) {
+  public GatewayCreateProducerLdap externalUsername(String externalUsername) {
     
-    this.enableAnonymSearch = enableAnonymSearch;
-    return this;
-  }
-
-   /**
-   * EnableAnonymousSearch
-   * @return enableAnonymSearch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "EnableAnonymousSearch")
-
-  public Boolean getEnableAnonymSearch() {
-    return enableAnonymSearch;
-  }
-
-
-  public void setEnableAnonymSearch(Boolean enableAnonymSearch) {
-    this.enableAnonymSearch = enableAnonymSearch;
-  }
-
-
-  public GatewayCreateProducerLdap fixedUserOnly(String fixedUserOnly) {
-    
-    this.fixedUserOnly = fixedUserOnly;
+    this.externalUsername = externalUsername;
     return this;
   }
 
    /**
    * Fixed user
-   * @return fixedUserOnly
+   * @return externalUsername
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Fixed user")
 
-  public String getFixedUserOnly() {
-    return fixedUserOnly;
+  public String getExternalUsername() {
+    return externalUsername;
   }
 
 
-  public void setFixedUserOnly(String fixedUserOnly) {
-    this.fixedUserOnly = fixedUserOnly;
-  }
-
-
-  public GatewayCreateProducerLdap groupAttribute(String groupAttribute) {
-    
-    this.groupAttribute = groupAttribute;
-    return this;
-  }
-
-   /**
-   * Group attribute
-   * @return groupAttribute
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group attribute")
-
-  public String getGroupAttribute() {
-    return groupAttribute;
-  }
-
-
-  public void setGroupAttribute(String groupAttribute) {
-    this.groupAttribute = groupAttribute;
-  }
-
-
-  public GatewayCreateProducerLdap groupDn(String groupDn) {
-    
-    this.groupDn = groupDn;
-    return this;
-  }
-
-   /**
-   * Group DN
-   * @return groupDn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group DN")
-
-  public String getGroupDn() {
-    return groupDn;
-  }
-
-
-  public void setGroupDn(String groupDn) {
-    this.groupDn = groupDn;
-  }
-
-
-  public GatewayCreateProducerLdap groupFilter(String groupFilter) {
-    
-    this.groupFilter = groupFilter;
-    return this;
-  }
-
-   /**
-   * Group attribute
-   * @return groupFilter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group attribute")
-
-  public String getGroupFilter() {
-    return groupFilter;
-  }
-
-
-  public void setGroupFilter(String groupFilter) {
-    this.groupFilter = groupFilter;
+  public void setExternalUsername(String externalUsername) {
+    this.externalUsername = externalUsername;
   }
 
 
@@ -391,29 +252,6 @@ public class GatewayCreateProducerLdap {
 
   public void setPassword(String password) {
     this.password = password;
-  }
-
-
-  public GatewayCreateProducerLdap privateKey(String privateKey) {
-    
-    this.privateKey = privateKey;
-    return this;
-  }
-
-   /**
-   * Base64-encoded ldap private key text
-   * @return privateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Base64-encoded ldap private key text")
-
-  public String getPrivateKey() {
-    return privateKey;
-  }
-
-
-  public void setPrivateKey(String privateKey) {
-    this.privateKey = privateKey;
   }
 
 
@@ -633,19 +471,13 @@ public class GatewayCreateProducerLdap {
       return false;
     }
     GatewayCreateProducerLdap gatewayCreateProducerLdap = (GatewayCreateProducerLdap) o;
-    return Objects.equals(this.accessId, gatewayCreateProducerLdap.accessId) &&
-        Objects.equals(this.bindDn, gatewayCreateProducerLdap.bindDn) &&
+    return Objects.equals(this.bindDn, gatewayCreateProducerLdap.bindDn) &&
         Objects.equals(this.bindDnPassword, gatewayCreateProducerLdap.bindDnPassword) &&
-        Objects.equals(this.enableAnonymSearch, gatewayCreateProducerLdap.enableAnonymSearch) &&
-        Objects.equals(this.fixedUserOnly, gatewayCreateProducerLdap.fixedUserOnly) &&
-        Objects.equals(this.groupAttribute, gatewayCreateProducerLdap.groupAttribute) &&
-        Objects.equals(this.groupDn, gatewayCreateProducerLdap.groupDn) &&
-        Objects.equals(this.groupFilter, gatewayCreateProducerLdap.groupFilter) &&
+        Objects.equals(this.externalUsername, gatewayCreateProducerLdap.externalUsername) &&
         Objects.equals(this.ldapCaCert, gatewayCreateProducerLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, gatewayCreateProducerLdap.ldapUrl) &&
         Objects.equals(this.name, gatewayCreateProducerLdap.name) &&
         Objects.equals(this.password, gatewayCreateProducerLdap.password) &&
-        Objects.equals(this.privateKey, gatewayCreateProducerLdap.privateKey) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerLdap.producerEncryptionKeyName) &&
         Objects.equals(this.targetName, gatewayCreateProducerLdap.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerLdap.token) &&
@@ -659,7 +491,7 @@ public class GatewayCreateProducerLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, bindDn, bindDnPassword, enableAnonymSearch, fixedUserOnly, groupAttribute, groupDn, groupFilter, ldapCaCert, ldapUrl, name, password, privateKey, producerEncryptionKeyName, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl, username);
+    return Objects.hash(bindDn, bindDnPassword, externalUsername, ldapCaCert, ldapUrl, name, password, producerEncryptionKeyName, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl, username);
   }
 
 
@@ -667,19 +499,13 @@ public class GatewayCreateProducerLdap {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerLdap {\n");
-    sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
-    sb.append("    enableAnonymSearch: ").append(toIndentedString(enableAnonymSearch)).append("\n");
-    sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
-    sb.append("    groupAttribute: ").append(toIndentedString(groupAttribute)).append("\n");
-    sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
-    sb.append("    groupFilter: ").append(toIndentedString(groupFilter)).append("\n");
+    sb.append("    externalUsername: ").append(toIndentedString(externalUsername)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

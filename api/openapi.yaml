@@ -7684,12 +7684,10 @@ components:
         chef_server_key: chef_server_key
         db_max_open_conns: db_max_open_conns
         admin_rotation_interval_days: 0
-        ldap_group_filter: ldap_group_filter
         oracle_creation_statements: oracle_creation_statements
         mssql_creation_statements: mssql_creation_statements
         sf_user_role: sf_user_role
         ldap_certificate: ldap_certificate
-        ldap_private_key: ldap_private_key
         ldap_bind_dn: ldap_bind_dn
         ldap_url: ldap_url
         admin_pwd: admin_pwd
@@ -7743,12 +7741,10 @@ components:
         ldap_token_expiration: ldap_token_expiration
         venafi_use_tpp: true
         mongodb_password: mongodb_password
-        ldap_anonymous_search: true
         aws_secret_access_key: aws_secret_access_key
         mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
         postgres_creation_statements: postgres_creation_statements
         db_max_idle_conns: db_max_idle_conns
-        ldap_access_id: ldap_access_id
         artifactory_admin_username: artifactory_admin_username
         admin_name: admin_name
         rabbitmq_server_user: rabbitmq_server_user
@@ -7766,7 +7762,6 @@ components:
         rabbitmq_user_read_permission: rabbitmq_user_read_permission
         azure_client_id: azure_client_id
         mongodb_default_auth_db: mongodb_default_auth_db
-        ldap_group_attr: ldap_group_attr
         mongodb_uri_connection: mongodb_uri_connection
         mongodb_atlas_project_id: mongodb_atlas_project_id
         db_user_name: db_user_name
@@ -7845,7 +7840,6 @@ components:
           ssh_password: true
           bastion_issuer_id: 7
         groups: groups
-        ldap_group_dn: ldap_group_dn
         chef_organizations: chef_organizations
         dynamic_secret_id: 6
         chef_server_host_name: chef_server_host_name
@@ -8132,12 +8126,6 @@ components:
           format: int64
           type: integer
           x-go-name: LastAdminRotation
-        ldap_access_id:
-          type: string
-          x-go-name: AccessId
-        ldap_anonymous_search:
-          type: boolean
-          x-go-name: AnonymousSearch
         ldap_audience:
           type: string
           x-go-name: Audience
@@ -8150,18 +8138,6 @@ components:
         ldap_certificate:
           type: string
           x-go-name: Certificate
-        ldap_group_attr:
-          type: string
-          x-go-name: GroupAttr
-        ldap_group_dn:
-          type: string
-          x-go-name: GroupDn
-        ldap_group_filter:
-          type: string
-          x-go-name: GroupFilter
-        ldap_private_key:
-          type: string
-          x-go-name: PrivateKey
         ldap_token_expiration:
           type: string
           x-go-name: TokenExpirationInSec
@@ -8772,7 +8748,6 @@ components:
           artifactory_admin_apikey: artifactory_admin_apikey
           host: host
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_audience: ldap_audience
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
@@ -8815,7 +8790,6 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           mongodb_password: mongodb_password
           eks_secret_access_key: eks_secret_access_key
-          ldap_anonymous_search: true
           sf_account: sf_account
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
@@ -8824,7 +8798,6 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
-          ldap_access_id: ldap_access_id
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
@@ -12840,7 +12813,6 @@ components:
         artifactory_admin_apikey: artifactory_admin_apikey
         host: host
         ldap_certificate: ldap_certificate
-        ldap_private_key: ldap_private_key
         ldap_audience: ldap_audience
         ldap_bind_dn: ldap_bind_dn
         ldap_url: ldap_url
@@ -12883,7 +12855,6 @@ components:
         k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
         mongodb_password: mongodb_password
         eks_secret_access_key: eks_secret_access_key
-        ldap_anonymous_search: true
         sf_account: sf_account
         aws_secret_access_key: aws_secret_access_key
         mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
@@ -12892,7 +12863,6 @@ components:
         chef_server_port: chef_server_port
         mongodb_is_atlas: true
         eks_cluster_ca_certificate: eks_cluster_ca_certificate
-        ldap_access_id: ldap_access_id
         aws_access_key_id: aws_access_key_id
         aws_region: aws_region
         eks_cluster_name: eks_cluster_name
@@ -13038,12 +13008,6 @@ components:
         k8s_cluster_endpoint:
           type: string
           x-go-name: K8sClusterEndpoint
-        ldap_access_id:
-          type: string
-          x-go-name: AccessId
-        ldap_anonymous_search:
-          type: boolean
-          x-go-name: AnonymousSearch
         ldap_audience:
           type: string
           x-go-name: Audience
@@ -13056,9 +13020,6 @@ components:
         ldap_certificate:
           type: string
           x-go-name: Certificate
-        ldap_private_key:
-          type: string
-          x-go-name: PrivateKey
         ldap_token_expiration:
           type: string
           x-go-name: TokenExpirationInSec
@@ -15370,10 +15331,6 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createLdapTarget:
       properties:
-        access-id:
-          description: Access ID
-          type: string
-          x-go-name: AccessID
         bind-dn:
           description: Bind DN
           type: string
@@ -15386,10 +15343,6 @@ components:
           description: Comment about the target
           type: string
           x-go-name: Comment
-        enable-anonym-search:
-          description: EnableAnonymousSearch
-          type: boolean
-          x-go-name: EnableAnonymSearch
         key:
           description: |-
             The name of a key that used to encrypt the target secret value (if empty, the
@@ -15413,10 +15366,6 @@ components:
             and password
           type: string
           x-go-name: Password
-        private-key:
-          description: Base64-encoded ldap private key text
-          type: string
-          x-go-name: PrivateKey
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -15437,7 +15386,6 @@ components:
           type: string
           x-go-name: Username
       required:
-      - access-id
       - bind-dn
       - bind-dn-password
       - ldap-url
@@ -15654,18 +15602,6 @@ components:
         custom-payload:
           type: string
           x-go-name: Payload
-        group-attribute:
-          description: Group attribute
-          type: string
-          x-go-name: GroupAttribute
-        group-dn:
-          description: Group DN
-          type: string
-          x-go-name: GroupDn
-        group-filter:
-          description: Group attribute
-          type: string
-          x-go-name: GroupFilter
         key:
           description: |-
             The name of a key that used to encrypt the secret value (if empty, the
@@ -17275,12 +17211,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -17334,12 +17268,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -17357,7 +17289,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -17436,7 +17367,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -17582,12 +17512,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -17641,12 +17569,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -17664,7 +17590,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -17743,7 +17668,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -17868,12 +17792,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -17927,12 +17849,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -17950,7 +17870,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -18029,7 +17948,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -18129,12 +18047,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -18188,12 +18104,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -18211,7 +18125,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -18290,7 +18203,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -18439,12 +18351,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -18498,12 +18408,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -18521,7 +18429,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -18600,7 +18507,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -18776,12 +18682,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -18835,12 +18739,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -18858,7 +18760,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -18937,7 +18838,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -19059,12 +18959,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -19118,12 +19016,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -19141,7 +19037,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -19220,7 +19115,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -19317,12 +19211,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -19376,12 +19268,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -19399,7 +19289,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -19478,7 +19367,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -19591,12 +19479,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -19650,12 +19536,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -19673,7 +19557,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -19752,7 +19635,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -19777,10 +19659,6 @@ components:
     gatewayCreateProducerLdap:
       description: gatewayCreateProducerLdap is a command that creates ldap producer
       properties:
-        access-id:
-          description: Access ID
-          type: string
-          x-go-name: AccessID
         bind-dn:
           description: Bind DN
           type: string
@@ -19789,27 +19667,11 @@ components:
           description: Bind DN Password
           type: string
           x-go-name: BindDnPassword
-        enable-anonym-search:
-          description: EnableAnonymousSearch
-          type: boolean
-          x-go-name: EnableAnonymSearch
-        fixed-user-only:
+        external-username:
           default: "false"
           description: Fixed user
           type: string
           x-go-name: FixedUserOnly
-        group-attribute:
-          description: Group attribute
-          type: string
-          x-go-name: GroupAttribute
-        group-dn:
-          description: Group DN
-          type: string
-          x-go-name: GroupDn
-        group-filter:
-          description: Group attribute
-          type: string
-          x-go-name: GroupFilter
         ldap-ca-cert:
           description: CA Certificate File Content
           type: string
@@ -19827,10 +19689,6 @@ components:
             and password
           type: string
           x-go-name: Password
-        private-key:
-          description: Base64-encoded ldap private key text
-          type: string
-          x-go-name: PrivateKey
         producer-encryption-key-name:
           description: Dynamic producer encryption key
           type: string
@@ -19887,12 +19745,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -19946,12 +19802,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -19969,7 +19823,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -20048,7 +19901,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -20173,12 +20025,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -20232,12 +20082,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -20255,7 +20103,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -20334,7 +20181,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -20473,12 +20319,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -20532,12 +20376,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -20555,7 +20397,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -20634,7 +20475,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -20760,12 +20600,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -20819,12 +20657,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -20842,7 +20678,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -20921,7 +20756,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -21040,12 +20874,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -21099,12 +20931,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -21122,7 +20952,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -21201,7 +21030,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -21314,12 +21142,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -21373,12 +21199,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -21396,7 +21220,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -21475,7 +21298,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -21597,12 +21419,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -21656,12 +21476,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -21679,7 +21497,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -21758,7 +21575,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -21878,12 +21694,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -21937,12 +21751,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -21960,7 +21772,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -22039,7 +21850,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -22157,12 +21967,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -22216,12 +22024,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -22239,7 +22045,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -22318,7 +22123,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -22423,12 +22227,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -22482,12 +22284,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -22505,7 +22305,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -22584,7 +22383,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name
@@ -22675,12 +22473,10 @@ components:
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
-          ldap_group_filter: ldap_group_filter
           oracle_creation_statements: oracle_creation_statements
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
-          ldap_private_key: ldap_private_key
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           admin_pwd: admin_pwd
@@ -22734,12 +22530,10 @@ components:
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
           mongodb_password: mongodb_password
-          ldap_anonymous_search: true
           aws_secret_access_key: aws_secret_access_key
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           postgres_creation_statements: postgres_creation_statements
           db_max_idle_conns: db_max_idle_conns
-          ldap_access_id: ldap_access_id
           artifactory_admin_username: artifactory_admin_username
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -22757,7 +22551,6 @@ components:
           rabbitmq_user_read_permission: rabbitmq_user_read_permission
           azure_client_id: azure_client_id
           mongodb_default_auth_db: mongodb_default_auth_db
-          ldap_group_attr: ldap_group_attr
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
           db_user_name: db_user_name
@@ -22836,7 +22629,6 @@ components:
             ssh_password: true
             bastion_issuer_id: 7
           groups: groups
-          ldap_group_dn: ldap_group_dn
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
           chef_server_host_name: chef_server_host_name

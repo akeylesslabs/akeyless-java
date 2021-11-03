@@ -47,18 +47,6 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
   private String customPayload;
 
-  public static final String SERIALIZED_NAME_GROUP_ATTRIBUTE = "group-attribute";
-  @SerializedName(SERIALIZED_NAME_GROUP_ATTRIBUTE)
-  private String groupAttribute;
-
-  public static final String SERIALIZED_NAME_GROUP_DN = "group-dn";
-  @SerializedName(SERIALIZED_NAME_GROUP_DN)
-  private String groupDn;
-
-  public static final String SERIALIZED_NAME_GROUP_FILTER = "group-filter";
-  @SerializedName(SERIALIZED_NAME_GROUP_FILTER)
-  private String groupFilter;
-
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -229,75 +217,6 @@ public class CreateRotatedSecret {
 
   public void setCustomPayload(String customPayload) {
     this.customPayload = customPayload;
-  }
-
-
-  public CreateRotatedSecret groupAttribute(String groupAttribute) {
-    
-    this.groupAttribute = groupAttribute;
-    return this;
-  }
-
-   /**
-   * Group attribute
-   * @return groupAttribute
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group attribute")
-
-  public String getGroupAttribute() {
-    return groupAttribute;
-  }
-
-
-  public void setGroupAttribute(String groupAttribute) {
-    this.groupAttribute = groupAttribute;
-  }
-
-
-  public CreateRotatedSecret groupDn(String groupDn) {
-    
-    this.groupDn = groupDn;
-    return this;
-  }
-
-   /**
-   * Group DN
-   * @return groupDn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group DN")
-
-  public String getGroupDn() {
-    return groupDn;
-  }
-
-
-  public void setGroupDn(String groupDn) {
-    this.groupDn = groupDn;
-  }
-
-
-  public CreateRotatedSecret groupFilter(String groupFilter) {
-    
-    this.groupFilter = groupFilter;
-    return this;
-  }
-
-   /**
-   * Group attribute
-   * @return groupFilter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group attribute")
-
-  public String getGroupFilter() {
-    return groupFilter;
-  }
-
-
-  public void setGroupFilter(String groupFilter) {
-    this.groupFilter = groupFilter;
   }
 
 
@@ -779,9 +698,6 @@ public class CreateRotatedSecret {
         Objects.equals(this.apiKey, createRotatedSecret.apiKey) &&
         Objects.equals(this.autoRotate, createRotatedSecret.autoRotate) &&
         Objects.equals(this.customPayload, createRotatedSecret.customPayload) &&
-        Objects.equals(this.groupAttribute, createRotatedSecret.groupAttribute) &&
-        Objects.equals(this.groupDn, createRotatedSecret.groupDn) &&
-        Objects.equals(this.groupFilter, createRotatedSecret.groupFilter) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
@@ -806,7 +722,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, autoRotate, customPayload, groupAttribute, groupDn, groupFilter, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn, username);
+    return Objects.hash(apiId, apiKey, autoRotate, customPayload, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn, username);
   }
 
 
@@ -818,9 +734,6 @@ public class CreateRotatedSecret {
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
-    sb.append("    groupAttribute: ").append(toIndentedString(groupAttribute)).append("\n");
-    sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
-    sb.append("    groupFilter: ").append(toIndentedString(groupFilter)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

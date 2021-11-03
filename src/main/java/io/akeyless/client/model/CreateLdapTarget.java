@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class CreateLdapTarget {
-  public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
-  @SerializedName(SERIALIZED_NAME_ACCESS_ID)
-  private String accessId;
-
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
   private String bindDn;
@@ -44,10 +40,6 @@ public class CreateLdapTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
-
-  public static final String SERIALIZED_NAME_ENABLE_ANONYM_SEARCH = "enable-anonym-search";
-  @SerializedName(SERIALIZED_NAME_ENABLE_ANONYM_SEARCH)
-  private Boolean enableAnonymSearch;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -69,10 +61,6 @@ public class CreateLdapTarget {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
-  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
-  private String privateKey;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -88,28 +76,6 @@ public class CreateLdapTarget {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public CreateLdapTarget accessId(String accessId) {
-    
-    this.accessId = accessId;
-    return this;
-  }
-
-   /**
-   * Access ID
-   * @return accessId
-  **/
-  @ApiModelProperty(required = true, value = "Access ID")
-
-  public String getAccessId() {
-    return accessId;
-  }
-
-
-  public void setAccessId(String accessId) {
-    this.accessId = accessId;
-  }
 
 
   public CreateLdapTarget bindDn(String bindDn) {
@@ -176,29 +142,6 @@ public class CreateLdapTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
-  }
-
-
-  public CreateLdapTarget enableAnonymSearch(Boolean enableAnonymSearch) {
-    
-    this.enableAnonymSearch = enableAnonymSearch;
-    return this;
-  }
-
-   /**
-   * EnableAnonymousSearch
-   * @return enableAnonymSearch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "EnableAnonymousSearch")
-
-  public Boolean getEnableAnonymSearch() {
-    return enableAnonymSearch;
-  }
-
-
-  public void setEnableAnonymSearch(Boolean enableAnonymSearch) {
-    this.enableAnonymSearch = enableAnonymSearch;
   }
 
 
@@ -315,29 +258,6 @@ public class CreateLdapTarget {
   }
 
 
-  public CreateLdapTarget privateKey(String privateKey) {
-    
-    this.privateKey = privateKey;
-    return this;
-  }
-
-   /**
-   * Base64-encoded ldap private key text
-   * @return privateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Base64-encoded ldap private key text")
-
-  public String getPrivateKey() {
-    return privateKey;
-  }
-
-
-  public void setPrivateKey(String privateKey) {
-    this.privateKey = privateKey;
-  }
-
-
   public CreateLdapTarget token(String token) {
     
     this.token = token;
@@ -439,17 +359,14 @@ public class CreateLdapTarget {
       return false;
     }
     CreateLdapTarget createLdapTarget = (CreateLdapTarget) o;
-    return Objects.equals(this.accessId, createLdapTarget.accessId) &&
-        Objects.equals(this.bindDn, createLdapTarget.bindDn) &&
+    return Objects.equals(this.bindDn, createLdapTarget.bindDn) &&
         Objects.equals(this.bindDnPassword, createLdapTarget.bindDnPassword) &&
         Objects.equals(this.comment, createLdapTarget.comment) &&
-        Objects.equals(this.enableAnonymSearch, createLdapTarget.enableAnonymSearch) &&
         Objects.equals(this.key, createLdapTarget.key) &&
         Objects.equals(this.ldapCaCert, createLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, createLdapTarget.ldapUrl) &&
         Objects.equals(this.name, createLdapTarget.name) &&
         Objects.equals(this.password, createLdapTarget.password) &&
-        Objects.equals(this.privateKey, createLdapTarget.privateKey) &&
         Objects.equals(this.token, createLdapTarget.token) &&
         Objects.equals(this.tokenExpiration, createLdapTarget.tokenExpiration) &&
         Objects.equals(this.uidToken, createLdapTarget.uidToken) &&
@@ -458,7 +375,7 @@ public class CreateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, bindDn, bindDnPassword, comment, enableAnonymSearch, key, ldapCaCert, ldapUrl, name, password, privateKey, token, tokenExpiration, uidToken, username);
+    return Objects.hash(bindDn, bindDnPassword, comment, key, ldapCaCert, ldapUrl, name, password, token, tokenExpiration, uidToken, username);
   }
 
 
@@ -466,17 +383,14 @@ public class CreateLdapTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLdapTarget {\n");
-    sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-    sb.append("    enableAnonymSearch: ").append(toIndentedString(enableAnonymSearch)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
