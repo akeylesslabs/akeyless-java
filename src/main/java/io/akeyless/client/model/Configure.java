@@ -115,11 +115,11 @@ public class Configure {
   }
 
    /**
-   * Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam/k8s)
+   * Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam/gcp/k8s)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam/k8s)")
+  @ApiModelProperty(value = "Access Type (access_key/password/azure_ad/saml/oidc/ldap/aws_iam/gcp/k8s)")
 
   public String getAccessType() {
     return accessType;

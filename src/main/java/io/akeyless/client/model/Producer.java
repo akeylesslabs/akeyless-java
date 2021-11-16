@@ -37,6 +37,10 @@ public class Producer {
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
 
+  public static final String SERIALIZED_NAME_INIT = "init";
+  @SerializedName(SERIALIZED_NAME_INIT)
+  private Boolean init;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -89,6 +93,29 @@ public class Producer {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+
+  public Producer init(Boolean init) {
+    
+    this.init = init;
+    return this;
+  }
+
+   /**
+   * Get init
+   * @return init
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getInit() {
+    return init;
+  }
+
+
+  public void setInit(Boolean init) {
+    this.init = init;
   }
 
 
@@ -149,13 +176,14 @@ public class Producer {
     Producer producer = (Producer) o;
     return Objects.equals(this.active, producer.active) &&
         Objects.equals(this.id, producer.id) &&
+        Objects.equals(this.init, producer.init) &&
         Objects.equals(this.name, producer.name) &&
         Objects.equals(this.type, producer.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, id, name, type);
+    return Objects.hash(active, id, init, name, type);
   }
 
 
@@ -165,6 +193,7 @@ public class Producer {
     sb.append("class Producer {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    init: ").append(toIndentedString(init)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

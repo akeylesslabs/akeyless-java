@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerRdp is a command that creates rdp producer
+ * gatewayUpdateProducerRdp is a command that updates rdp producer
  */
-@ApiModel(description = "gatewayCreateProducerRdp is a command that creates rdp producer")
+@ApiModel(description = "gatewayUpdateProducerRdp is a command that updates rdp producer")
 
-public class GatewayCreateProducerRdp {
+public class GatewayUpdateProducerRdp {
   public static final String SERIALIZED_NAME_FIXED_USER_ONLY = "fixed-user-only";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private String fixedUserOnly = "false";
@@ -39,6 +39,10 @@ public class GatewayCreateProducerRdp {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -109,7 +113,7 @@ public class GatewayCreateProducerRdp {
   private String username;
 
 
-  public GatewayCreateProducerRdp fixedUserOnly(String fixedUserOnly) {
+  public GatewayUpdateProducerRdp fixedUserOnly(String fixedUserOnly) {
     
     this.fixedUserOnly = fixedUserOnly;
     return this;
@@ -132,7 +136,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp name(String name) {
+  public GatewayUpdateProducerRdp name(String name) {
     
     this.name = name;
     return this;
@@ -154,7 +158,30 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp password(String password) {
+  public GatewayUpdateProducerRdp newName(String newName) {
+    
+    this.newName = newName;
+    return this;
+  }
+
+   /**
+   * Producer name
+   * @return newName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Producer name")
+
+  public String getNewName() {
+    return newName;
+  }
+
+
+  public void setNewName(String newName) {
+    this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerRdp password(String password) {
     
     this.password = password;
     return this;
@@ -177,7 +204,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp producerEncryptionKeyName(String producerEncryptionKeyName) {
+  public GatewayUpdateProducerRdp producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
     return this;
@@ -200,7 +227,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp rdpAdminName(String rdpAdminName) {
+  public GatewayUpdateProducerRdp rdpAdminName(String rdpAdminName) {
     
     this.rdpAdminName = rdpAdminName;
     return this;
@@ -223,7 +250,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp rdpAdminPwd(String rdpAdminPwd) {
+  public GatewayUpdateProducerRdp rdpAdminPwd(String rdpAdminPwd) {
     
     this.rdpAdminPwd = rdpAdminPwd;
     return this;
@@ -246,7 +273,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp rdpHostName(String rdpHostName) {
+  public GatewayUpdateProducerRdp rdpHostName(String rdpHostName) {
     
     this.rdpHostName = rdpHostName;
     return this;
@@ -269,7 +296,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp rdpHostPort(String rdpHostPort) {
+  public GatewayUpdateProducerRdp rdpHostPort(String rdpHostPort) {
     
     this.rdpHostPort = rdpHostPort;
     return this;
@@ -292,7 +319,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp rdpUserGroups(String rdpUserGroups) {
+  public GatewayUpdateProducerRdp rdpUserGroups(String rdpUserGroups) {
     
     this.rdpUserGroups = rdpUserGroups;
     return this;
@@ -315,7 +342,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp secureAccessAllowExternalUser(Boolean secureAccessAllowExternalUser) {
+  public GatewayUpdateProducerRdp secureAccessAllowExternalUser(Boolean secureAccessAllowExternalUser) {
     
     this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
     return this;
@@ -338,7 +365,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp secureAccessEnable(String secureAccessEnable) {
+  public GatewayUpdateProducerRdp secureAccessEnable(String secureAccessEnable) {
     
     this.secureAccessEnable = secureAccessEnable;
     return this;
@@ -361,13 +388,13 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp secureAccessHost(List<String> secureAccessHost) {
+  public GatewayUpdateProducerRdp secureAccessHost(List<String> secureAccessHost) {
     
     this.secureAccessHost = secureAccessHost;
     return this;
   }
 
-  public GatewayCreateProducerRdp addSecureAccessHostItem(String secureAccessHostItem) {
+  public GatewayUpdateProducerRdp addSecureAccessHostItem(String secureAccessHostItem) {
     if (this.secureAccessHost == null) {
       this.secureAccessHost = new ArrayList<String>();
     }
@@ -392,7 +419,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp secureAccessRdpDomain(String secureAccessRdpDomain) {
+  public GatewayUpdateProducerRdp secureAccessRdpDomain(String secureAccessRdpDomain) {
     
     this.secureAccessRdpDomain = secureAccessRdpDomain;
     return this;
@@ -415,7 +442,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp secureAccessRdpUser(String secureAccessRdpUser) {
+  public GatewayUpdateProducerRdp secureAccessRdpUser(String secureAccessRdpUser) {
     
     this.secureAccessRdpUser = secureAccessRdpUser;
     return this;
@@ -438,7 +465,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp targetName(String targetName) {
+  public GatewayUpdateProducerRdp targetName(String targetName) {
     
     this.targetName = targetName;
     return this;
@@ -461,7 +488,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp token(String token) {
+  public GatewayUpdateProducerRdp token(String token) {
     
     this.token = token;
     return this;
@@ -484,7 +511,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp uidToken(String uidToken) {
+  public GatewayUpdateProducerRdp uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -507,7 +534,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp userTtl(String userTtl) {
+  public GatewayUpdateProducerRdp userTtl(String userTtl) {
     
     this.userTtl = userTtl;
     return this;
@@ -530,7 +557,7 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp username(String username) {
+  public GatewayUpdateProducerRdp username(String username) {
     
     this.username = username;
     return this;
@@ -561,40 +588,42 @@ public class GatewayCreateProducerRdp {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GatewayCreateProducerRdp gatewayCreateProducerRdp = (GatewayCreateProducerRdp) o;
-    return Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
-        Objects.equals(this.name, gatewayCreateProducerRdp.name) &&
-        Objects.equals(this.password, gatewayCreateProducerRdp.password) &&
-        Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRdp.producerEncryptionKeyName) &&
-        Objects.equals(this.rdpAdminName, gatewayCreateProducerRdp.rdpAdminName) &&
-        Objects.equals(this.rdpAdminPwd, gatewayCreateProducerRdp.rdpAdminPwd) &&
-        Objects.equals(this.rdpHostName, gatewayCreateProducerRdp.rdpHostName) &&
-        Objects.equals(this.rdpHostPort, gatewayCreateProducerRdp.rdpHostPort) &&
-        Objects.equals(this.rdpUserGroups, gatewayCreateProducerRdp.rdpUserGroups) &&
-        Objects.equals(this.secureAccessAllowExternalUser, gatewayCreateProducerRdp.secureAccessAllowExternalUser) &&
-        Objects.equals(this.secureAccessEnable, gatewayCreateProducerRdp.secureAccessEnable) &&
-        Objects.equals(this.secureAccessHost, gatewayCreateProducerRdp.secureAccessHost) &&
-        Objects.equals(this.secureAccessRdpDomain, gatewayCreateProducerRdp.secureAccessRdpDomain) &&
-        Objects.equals(this.secureAccessRdpUser, gatewayCreateProducerRdp.secureAccessRdpUser) &&
-        Objects.equals(this.targetName, gatewayCreateProducerRdp.targetName) &&
-        Objects.equals(this.token, gatewayCreateProducerRdp.token) &&
-        Objects.equals(this.uidToken, gatewayCreateProducerRdp.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerRdp.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerRdp.username);
+    GatewayUpdateProducerRdp gatewayUpdateProducerRdp = (GatewayUpdateProducerRdp) o;
+    return Objects.equals(this.fixedUserOnly, gatewayUpdateProducerRdp.fixedUserOnly) &&
+        Objects.equals(this.name, gatewayUpdateProducerRdp.name) &&
+        Objects.equals(this.newName, gatewayUpdateProducerRdp.newName) &&
+        Objects.equals(this.password, gatewayUpdateProducerRdp.password) &&
+        Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerRdp.producerEncryptionKeyName) &&
+        Objects.equals(this.rdpAdminName, gatewayUpdateProducerRdp.rdpAdminName) &&
+        Objects.equals(this.rdpAdminPwd, gatewayUpdateProducerRdp.rdpAdminPwd) &&
+        Objects.equals(this.rdpHostName, gatewayUpdateProducerRdp.rdpHostName) &&
+        Objects.equals(this.rdpHostPort, gatewayUpdateProducerRdp.rdpHostPort) &&
+        Objects.equals(this.rdpUserGroups, gatewayUpdateProducerRdp.rdpUserGroups) &&
+        Objects.equals(this.secureAccessAllowExternalUser, gatewayUpdateProducerRdp.secureAccessAllowExternalUser) &&
+        Objects.equals(this.secureAccessEnable, gatewayUpdateProducerRdp.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, gatewayUpdateProducerRdp.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdpDomain, gatewayUpdateProducerRdp.secureAccessRdpDomain) &&
+        Objects.equals(this.secureAccessRdpUser, gatewayUpdateProducerRdp.secureAccessRdpUser) &&
+        Objects.equals(this.targetName, gatewayUpdateProducerRdp.targetName) &&
+        Objects.equals(this.token, gatewayUpdateProducerRdp.token) &&
+        Objects.equals(this.uidToken, gatewayUpdateProducerRdp.uidToken) &&
+        Objects.equals(this.userTtl, gatewayUpdateProducerRdp.userTtl) &&
+        Objects.equals(this.username, gatewayUpdateProducerRdp.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedUserOnly, name, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(fixedUserOnly, name, newName, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, targetName, token, uidToken, userTtl, username);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GatewayCreateProducerRdp {\n");
+    sb.append("class GatewayUpdateProducerRdp {\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");

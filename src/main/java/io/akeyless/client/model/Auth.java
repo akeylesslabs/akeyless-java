@@ -135,11 +135,11 @@ public class Auth {
   }
 
    /**
-   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp)
+   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp/k8s)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp)")
+  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp/k8s)")
 
   public String getAccessType() {
     return accessType;

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessId** | **String** | Access ID |  [optional]
 **accessKey** | **String** | Access key (relevant only for access-type&#x3D;access_key) |  [optional]
-**accessType** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp) |  [optional]
+**accessType** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/aws_iam/universal_identity/jwt/gcp/k8s) |  [optional]
 **adminEmail** | **String** | Email (relevant only for access-type&#x3D;password) |  [optional]
 **adminPassword** | **String** | Password (relevant only for access-type&#x3D;password) |  [optional]
 **cloudId** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp) |  [optional]

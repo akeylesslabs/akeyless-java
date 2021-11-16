@@ -59,6 +59,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST)
   private List<String> secureAccessAddHost = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER = "secure-access-allow-external-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER)
+  private String secureAccessAllowExternalUser;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING = "secure-access-allow-port-forwading";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
   private Boolean secureAccessAllowPortForwading;
@@ -337,6 +341,29 @@ public class UpdateItem {
 
   public void setSecureAccessAddHost(List<String> secureAccessAddHost) {
     this.secureAccessAddHost = secureAccessAddHost;
+  }
+
+
+  public UpdateItem secureAccessAllowExternalUser(String secureAccessAllowExternalUser) {
+    
+    this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
+    return this;
+  }
+
+   /**
+   * Get secureAccessAllowExternalUser
+   * @return secureAccessAllowExternalUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecureAccessAllowExternalUser() {
+    return secureAccessAllowExternalUser;
+  }
+
+
+  public void setSecureAccessAllowExternalUser(String secureAccessAllowExternalUser) {
+    this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
   }
 
 
@@ -924,6 +951,7 @@ public class UpdateItem {
         Objects.equals(this.password, updateItem.password) &&
         Objects.equals(this.rmTag, updateItem.rmTag) &&
         Objects.equals(this.secureAccessAddHost, updateItem.secureAccessAddHost) &&
+        Objects.equals(this.secureAccessAllowExternalUser, updateItem.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessAllowPortForwading, updateItem.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessAwsAccountId, updateItem.secureAccessAwsAccountId) &&
         Objects.equals(this.secureAccessAwsNativeCli, updateItem.secureAccessAwsNativeCli) &&
@@ -952,7 +980,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAddHost, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, token, uidToken, username);
+    return Objects.hash(addTag, name, newMetadata, newName, password, rmTag, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, token, uidToken, username);
   }
 
 
@@ -967,6 +995,7 @@ public class UpdateItem {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    secureAccessAddHost: ").append(toIndentedString(secureAccessAddHost)).append("\n");
+    sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
     sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
