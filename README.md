@@ -60,7 +60,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.akeyless.client.ApiClient;
 import io.akeyless.client.ApiException;
 import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
+import io.akeyless.client.model.*;
 import io.akeyless.client.api.V2Api;
 
 public class Example {
