@@ -197,11 +197,11 @@ public class GCPAccessRules {
   }
 
    /**
-   * &#x3D;&#x3D;&#x3D; Human authentication section &#x3D;&#x3D;&#x3D; List of service accounts the service account must be part of in order to be authenticated
+   * List of service accounts the service account must be part of in order to be authenticated
    * @return boundServiceAccounts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "=== Human authentication section === List of service accounts the service account must be part of in order to be authenticated")
+  @ApiModelProperty(value = "List of service accounts the service account must be part of in order to be authenticated")
 
   public List<String> getBoundServiceAccounts() {
     return boundServiceAccounts;

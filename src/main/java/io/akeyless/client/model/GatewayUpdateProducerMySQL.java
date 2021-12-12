@@ -96,6 +96,10 @@ public class GatewayUpdateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -492,6 +496,37 @@ public class GatewayUpdateProducerMySQL {
   }
 
 
+  public GatewayUpdateProducerMySQL tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayUpdateProducerMySQL addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayUpdateProducerMySQL targetName(String targetName) {
     
     this.targetName = targetName;
@@ -632,6 +667,7 @@ public class GatewayUpdateProducerMySQL {
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMySQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerMySQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerMySQL.secureAccessWeb) &&
+        Objects.equals(this.tags, gatewayUpdateProducerMySQL.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerMySQL.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerMySQL.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerMySQL.uidToken) &&
@@ -641,7 +677,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -665,6 +701,7 @@ public class GatewayUpdateProducerMySQL {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

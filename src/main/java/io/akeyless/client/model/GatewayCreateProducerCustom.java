@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * GatewayCreateProducerCustom
@@ -56,6 +58,10 @@ public class GatewayCreateProducerCustom {
   public static final String SERIALIZED_NAME_ROTATE_SYNC_URL = "rotate-sync-url";
   @SerializedName(SERIALIZED_NAME_ROTATE_SYNC_URL)
   private String rotateSyncUrl;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TIMEOUT_SEC = "timeout-sec";
   @SerializedName(SERIALIZED_NAME_TIMEOUT_SEC)
@@ -236,6 +242,37 @@ public class GatewayCreateProducerCustom {
   }
 
 
+  public GatewayCreateProducerCustom tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerCustom addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerCustom timeoutSec(Long timeoutSec) {
     
     this.timeoutSec = timeoutSec;
@@ -367,6 +404,7 @@ public class GatewayCreateProducerCustom {
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerCustom.producerEncryptionKeyName) &&
         Objects.equals(this.revokeSyncUrl, gatewayCreateProducerCustom.revokeSyncUrl) &&
         Objects.equals(this.rotateSyncUrl, gatewayCreateProducerCustom.rotateSyncUrl) &&
+        Objects.equals(this.tags, gatewayCreateProducerCustom.tags) &&
         Objects.equals(this.timeoutSec, gatewayCreateProducerCustom.timeoutSec) &&
         Objects.equals(this.token, gatewayCreateProducerCustom.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerCustom.uidToken) &&
@@ -376,7 +414,7 @@ public class GatewayCreateProducerCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createSyncUrl, name, password, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, timeoutSec, token, uidToken, userTtl, username);
+    return Objects.hash(createSyncUrl, name, password, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl, username);
   }
 
 
@@ -391,6 +429,7 @@ public class GatewayCreateProducerCustom {
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeoutSec: ").append(toIndentedString(timeoutSec)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -88,6 +88,10 @@ public class GatewayCreateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -438,6 +442,37 @@ public class GatewayCreateProducerPostgreSQL {
   }
 
 
+  public GatewayCreateProducerPostgreSQL tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerPostgreSQL addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerPostgreSQL targetName(String targetName) {
     
     this.targetName = targetName;
@@ -576,6 +611,7 @@ public class GatewayCreateProducerPostgreSQL {
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerPostgreSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerPostgreSQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayCreateProducerPostgreSQL.secureAccessWeb) &&
+        Objects.equals(this.tags, gatewayCreateProducerPostgreSQL.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerPostgreSQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerPostgreSQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerPostgreSQL.uidToken) &&
@@ -585,7 +621,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -607,6 +643,7 @@ public class GatewayCreateProducerPostgreSQL {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

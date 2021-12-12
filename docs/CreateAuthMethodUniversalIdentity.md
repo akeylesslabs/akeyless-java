@@ -8,7 +8,7 @@ createAuthMethodUniversalIdentity is a command that creates a new auth method th
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
-**boundIps** | **List&lt;String&gt;** | A CIDR whitelist of the IPs that the access is restricted to |  [optional]
+**boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **denyInheritance** | **Boolean** | Deny from root to create children |  [optional]
 **denyRotate** | **Boolean** | Deny from the token to rotate |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]

@@ -177,11 +177,11 @@ public class CreateAuthMethodOAuth2 {
   }
 
    /**
-   * A CIDR whitelist of the IPs that the access is restricted to
+   * A CIDR whitelist with the IPs that the access is restricted to
    * @return boundIps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A CIDR whitelist of the IPs that the access is restricted to")
+  @ApiModelProperty(value = "A CIDR whitelist with the IPs that the access is restricted to")
 
   public List<String> getBoundIps() {
     return boundIps;

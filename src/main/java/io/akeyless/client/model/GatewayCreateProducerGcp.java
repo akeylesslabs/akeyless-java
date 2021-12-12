@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerGcp is a command that creates a GCP producer
@@ -61,6 +63,10 @@ public class GatewayCreateProducerGcp {
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -266,6 +272,37 @@ public class GatewayCreateProducerGcp {
   }
 
 
+  public GatewayCreateProducerGcp tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerGcp addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerGcp targetName(String targetName) {
     
     this.targetName = targetName;
@@ -398,6 +435,7 @@ public class GatewayCreateProducerGcp {
         Objects.equals(this.name, gatewayCreateProducerGcp.name) &&
         Objects.equals(this.password, gatewayCreateProducerGcp.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGcp.producerEncryptionKeyName) &&
+        Objects.equals(this.tags, gatewayCreateProducerGcp.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerGcp.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGcp.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerGcp.uidToken) &&
@@ -407,7 +445,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, password, producerEncryptionKeyName, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, password, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -423,6 +461,7 @@ public class GatewayCreateProducerGcp {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

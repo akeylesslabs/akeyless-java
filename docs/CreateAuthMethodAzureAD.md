@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
 **audience** | **String** | The audience in the JWT |  [optional]
 **boundGroupId** | **List&lt;String&gt;** | A list of group ids that the access is restricted to |  [optional]
-**boundIps** | **List&lt;String&gt;** | A CIDR whitelist of the IPs that the access is restricted to |  [optional]
+**boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **boundProviders** | **List&lt;String&gt;** | A list of resource providers that the access is restricted to (e.g, Microsoft.Compute, Microsoft.ManagedIdentity, etc) |  [optional]
 **boundResourceId** | **List&lt;String&gt;** | A list of full resource ids that the access is restricted to |  [optional]
 **boundResourceNames** | **List&lt;String&gt;** | A list of resource names that the access is restricted to (e.g, a virtual machine name, scale set name, etc). |  [optional]

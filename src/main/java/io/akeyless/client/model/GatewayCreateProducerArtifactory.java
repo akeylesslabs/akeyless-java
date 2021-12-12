@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerArtifactory is a command that creates artifactory producer
@@ -61,6 +63,10 @@ public class GatewayCreateProducerArtifactory {
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -264,6 +270,37 @@ public class GatewayCreateProducerArtifactory {
   }
 
 
+  public GatewayCreateProducerArtifactory tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerArtifactory addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerArtifactory targetName(String targetName) {
     
     this.targetName = targetName;
@@ -396,6 +433,7 @@ public class GatewayCreateProducerArtifactory {
         Objects.equals(this.name, gatewayCreateProducerArtifactory.name) &&
         Objects.equals(this.password, gatewayCreateProducerArtifactory.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerArtifactory.producerEncryptionKeyName) &&
+        Objects.equals(this.tags, gatewayCreateProducerArtifactory.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerArtifactory.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerArtifactory.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerArtifactory.uidToken) &&
@@ -405,7 +443,7 @@ public class GatewayCreateProducerArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, name, password, producerEncryptionKeyName, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, name, password, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -421,6 +459,7 @@ public class GatewayCreateProducerArtifactory {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerNativeK8S is a command that creates k8s producer
@@ -89,6 +91,10 @@ public class GatewayCreateProducerNativeK8S {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -455,6 +461,37 @@ public class GatewayCreateProducerNativeK8S {
   }
 
 
+  public GatewayCreateProducerNativeK8S tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerNativeK8S addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerNativeK8S targetName(String targetName) {
     
     this.targetName = targetName;
@@ -594,6 +631,7 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerNativeK8S.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayCreateProducerNativeK8S.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerNativeK8S.secureAccessWebBrowsing) &&
+        Objects.equals(this.tags, gatewayCreateProducerNativeK8S.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerNativeK8S.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerNativeK8S.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerNativeK8S.uidToken) &&
@@ -603,7 +641,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -626,6 +664,7 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

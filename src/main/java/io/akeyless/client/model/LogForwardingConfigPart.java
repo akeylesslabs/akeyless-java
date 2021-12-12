@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AwsS3LogForwardingConfig;
 import io.akeyless.client.model.AzureLogAnalyticsForwardingConfig;
+import io.akeyless.client.model.DatadogForwardingConfig;
 import io.akeyless.client.model.ElasticsearchLogForwardingConfig;
 import io.akeyless.client.model.LogstashLogForwardingConfig;
 import io.akeyless.client.model.LogzIoLogForwardingConfig;
@@ -43,6 +44,10 @@ public class LogForwardingConfigPart {
   public static final String SERIALIZED_NAME_AZURE_ANALYTICS_CONFIG = "azure_analytics_config";
   @SerializedName(SERIALIZED_NAME_AZURE_ANALYTICS_CONFIG)
   private AzureLogAnalyticsForwardingConfig azureAnalyticsConfig;
+
+  public static final String SERIALIZED_NAME_DATADOG_CONFIG = "datadog_config";
+  @SerializedName(SERIALIZED_NAME_DATADOG_CONFIG)
+  private DatadogForwardingConfig datadogConfig;
 
   public static final String SERIALIZED_NAME_ELASTICSEARCH_CONFIG = "elasticsearch_config";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_CONFIG)
@@ -128,6 +133,29 @@ public class LogForwardingConfigPart {
 
   public void setAzureAnalyticsConfig(AzureLogAnalyticsForwardingConfig azureAnalyticsConfig) {
     this.azureAnalyticsConfig = azureAnalyticsConfig;
+  }
+
+
+  public LogForwardingConfigPart datadogConfig(DatadogForwardingConfig datadogConfig) {
+    
+    this.datadogConfig = datadogConfig;
+    return this;
+  }
+
+   /**
+   * Get datadogConfig
+   * @return datadogConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public DatadogForwardingConfig getDatadogConfig() {
+    return datadogConfig;
+  }
+
+
+  public void setDatadogConfig(DatadogForwardingConfig datadogConfig) {
+    this.datadogConfig = datadogConfig;
   }
 
 
@@ -372,6 +400,7 @@ public class LogForwardingConfigPart {
     LogForwardingConfigPart logForwardingConfigPart = (LogForwardingConfigPart) o;
     return Objects.equals(this.awsS3Config, logForwardingConfigPart.awsS3Config) &&
         Objects.equals(this.azureAnalyticsConfig, logForwardingConfigPart.azureAnalyticsConfig) &&
+        Objects.equals(this.datadogConfig, logForwardingConfigPart.datadogConfig) &&
         Objects.equals(this.elasticsearchConfig, logForwardingConfigPart.elasticsearchConfig) &&
         Objects.equals(this.loganEnable, logForwardingConfigPart.loganEnable) &&
         Objects.equals(this.loganUrl, logForwardingConfigPart.loganUrl) &&
@@ -386,7 +415,7 @@ public class LogForwardingConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsS3Config, azureAnalyticsConfig, elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, stdOut, syslogConfig, targetLogType);
+    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, stdOut, syslogConfig, targetLogType);
   }
 
 
@@ -396,6 +425,7 @@ public class LogForwardingConfigPart {
     sb.append("class LogForwardingConfigPart {\n");
     sb.append("    awsS3Config: ").append(toIndentedString(awsS3Config)).append("\n");
     sb.append("    azureAnalyticsConfig: ").append(toIndentedString(azureAnalyticsConfig)).append("\n");
+    sb.append("    datadogConfig: ").append(toIndentedString(datadogConfig)).append("\n");
     sb.append("    elasticsearchConfig: ").append(toIndentedString(elasticsearchConfig)).append("\n");
     sb.append("    loganEnable: ").append(toIndentedString(loganEnable)).append("\n");
     sb.append("    loganUrl: ").append(toIndentedString(loganUrl)).append("\n");

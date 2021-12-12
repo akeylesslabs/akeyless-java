@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerChef is a command that creates chef producer
@@ -61,6 +63,10 @@ public class GatewayCreateProducerChef {
   public static final String SERIALIZED_NAME_SKIP_SSL = "skip-ssl";
   @SerializedName(SERIALIZED_NAME_SKIP_SSL)
   private Boolean skipSsl = true;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -266,6 +272,37 @@ public class GatewayCreateProducerChef {
   }
 
 
+  public GatewayCreateProducerChef tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerChef addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerChef targetName(String targetName) {
     
     this.targetName = targetName;
@@ -398,6 +435,7 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.password, gatewayCreateProducerChef.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerChef.producerEncryptionKeyName) &&
         Objects.equals(this.skipSsl, gatewayCreateProducerChef.skipSsl) &&
+        Objects.equals(this.tags, gatewayCreateProducerChef.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerChef.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerChef.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerChef.uidToken) &&
@@ -407,7 +445,7 @@ public class GatewayCreateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, password, producerEncryptionKeyName, skipSsl, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, password, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -423,6 +461,7 @@ public class GatewayCreateProducerChef {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

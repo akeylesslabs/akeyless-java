@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
@@ -49,6 +51,10 @@ public class GatewayCreateProducerSnowflake {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -186,6 +192,37 @@ public class GatewayCreateProducerSnowflake {
 
   public void setRole(String role) {
     this.role = role;
+  }
+
+
+  public GatewayCreateProducerSnowflake tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerSnowflake addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -341,6 +378,7 @@ public class GatewayCreateProducerSnowflake {
         Objects.equals(this.name, gatewayCreateProducerSnowflake.name) &&
         Objects.equals(this.password, gatewayCreateProducerSnowflake.password) &&
         Objects.equals(this.role, gatewayCreateProducerSnowflake.role) &&
+        Objects.equals(this.tags, gatewayCreateProducerSnowflake.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerSnowflake.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerSnowflake.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerSnowflake.uidToken) &&
@@ -351,7 +389,7 @@ public class GatewayCreateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, dbName, name, password, role, targetName, token, uidToken, userTtl, username, warehouse);
+    return Objects.hash(account, dbName, name, password, role, tags, targetName, token, uidToken, userTtl, username, warehouse);
   }
 
 
@@ -364,6 +402,7 @@ public class GatewayCreateProducerSnowflake {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

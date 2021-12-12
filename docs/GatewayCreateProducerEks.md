@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **secureAccessClusterEndpoint** | **String** |  |  [optional]
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessWeb** | **Boolean** |  |  [optional]
+**tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CreatePKICertIssuer
@@ -112,6 +114,10 @@ public class CreatePKICertIssuer {
   public static final String SERIALIZED_NAME_STREET_ADDRESS = "street-address";
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
   private String streetAddress;
+
+  public static final String SERIALIZED_NAME_TAG = "tag";
+  @SerializedName(SERIALIZED_NAME_TAG)
+  private List<String> tag = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -611,6 +617,37 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer tag(List<String> tag) {
+    
+    this.tag = tag;
+    return this;
+  }
+
+  public CreatePKICertIssuer addTagItem(String tagItem) {
+    if (this.tag == null) {
+      this.tag = new ArrayList<String>();
+    }
+    this.tag.add(tagItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this key
+   * @return tag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this key")
+
+  public List<String> getTag() {
+    return tag;
+  }
+
+
+  public void setTag(List<String> tag) {
+    this.tag = tag;
+  }
+
+
   public CreatePKICertIssuer token(String token) {
     
     this.token = token;
@@ -732,6 +769,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.serverFlag, createPKICertIssuer.serverFlag) &&
         Objects.equals(this.signerKeyName, createPKICertIssuer.signerKeyName) &&
         Objects.equals(this.streetAddress, createPKICertIssuer.streetAddress) &&
+        Objects.equals(this.tag, createPKICertIssuer.tag) &&
         Objects.equals(this.token, createPKICertIssuer.token) &&
         Objects.equals(this.ttl, createPKICertIssuer.ttl) &&
         Objects.equals(this.uidToken, createPKICertIssuer.uidToken) &&
@@ -740,7 +778,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, password, postalCode, province, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken, username);
+    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, password, postalCode, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken, username);
   }
 
 
@@ -769,6 +807,7 @@ public class CreatePKICertIssuer {
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

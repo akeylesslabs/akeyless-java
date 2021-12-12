@@ -96,6 +96,10 @@ public class GatewayUpdateProducerMSSQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -492,6 +496,37 @@ public class GatewayUpdateProducerMSSQL {
   }
 
 
+  public GatewayUpdateProducerMSSQL tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayUpdateProducerMSSQL addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayUpdateProducerMSSQL targetName(String targetName) {
     
     this.targetName = targetName;
@@ -632,6 +667,7 @@ public class GatewayUpdateProducerMSSQL {
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMSSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerMSSQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerMSSQL.secureAccessWeb) &&
+        Objects.equals(this.tags, gatewayUpdateProducerMSSQL.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerMSSQL.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerMSSQL.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerMSSQL.uidToken) &&
@@ -641,7 +677,7 @@ public class GatewayUpdateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -665,6 +701,7 @@ public class GatewayUpdateProducerMSSQL {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -29,9 +29,17 @@ import java.io.IOException;
  */
 
 public class ElasticsearchLogForwardingConfig {
-  public static final String SERIALIZED_NAME_ELASTICSEARCH_HOST = "elasticsearch_host";
-  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_HOST)
-  private String elasticsearchHost;
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_API_KEY = "elasticsearch_api_key";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_API_KEY)
+  private String elasticsearchApiKey;
+
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_AUTH_TYPE = "elasticsearch_auth_type";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_AUTH_TYPE)
+  private String elasticsearchAuthType;
+
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_CLOUD_ID = "elasticsearch_cloud_id";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_CLOUD_ID)
+  private String elasticsearchCloudId;
 
   public static final String SERIALIZED_NAME_ELASTICSEARCH_INDEX = "elasticsearch_index";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_INDEX)
@@ -41,27 +49,85 @@ public class ElasticsearchLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_NODES)
   private String elasticsearchNodes;
 
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_PASSWORD = "elasticsearch_password";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_PASSWORD)
+  private String elasticsearchPassword;
 
-  public ElasticsearchLogForwardingConfig elasticsearchHost(String elasticsearchHost) {
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_SERVER_TYPE = "elasticsearch_server_type";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_SERVER_TYPE)
+  private String elasticsearchServerType;
+
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_USER_NAME = "elasticsearch_user_name";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_USER_NAME)
+  private String elasticsearchUserName;
+
+
+  public ElasticsearchLogForwardingConfig elasticsearchApiKey(String elasticsearchApiKey) {
     
-    this.elasticsearchHost = elasticsearchHost;
+    this.elasticsearchApiKey = elasticsearchApiKey;
     return this;
   }
 
    /**
-   * Get elasticsearchHost
-   * @return elasticsearchHost
+   * Get elasticsearchApiKey
+   * @return elasticsearchApiKey
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getElasticsearchHost() {
-    return elasticsearchHost;
+  public String getElasticsearchApiKey() {
+    return elasticsearchApiKey;
   }
 
 
-  public void setElasticsearchHost(String elasticsearchHost) {
-    this.elasticsearchHost = elasticsearchHost;
+  public void setElasticsearchApiKey(String elasticsearchApiKey) {
+    this.elasticsearchApiKey = elasticsearchApiKey;
+  }
+
+
+  public ElasticsearchLogForwardingConfig elasticsearchAuthType(String elasticsearchAuthType) {
+    
+    this.elasticsearchAuthType = elasticsearchAuthType;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchAuthType
+   * @return elasticsearchAuthType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getElasticsearchAuthType() {
+    return elasticsearchAuthType;
+  }
+
+
+  public void setElasticsearchAuthType(String elasticsearchAuthType) {
+    this.elasticsearchAuthType = elasticsearchAuthType;
+  }
+
+
+  public ElasticsearchLogForwardingConfig elasticsearchCloudId(String elasticsearchCloudId) {
+    
+    this.elasticsearchCloudId = elasticsearchCloudId;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchCloudId
+   * @return elasticsearchCloudId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getElasticsearchCloudId() {
+    return elasticsearchCloudId;
+  }
+
+
+  public void setElasticsearchCloudId(String elasticsearchCloudId) {
+    this.elasticsearchCloudId = elasticsearchCloudId;
   }
 
 
@@ -111,6 +177,75 @@ public class ElasticsearchLogForwardingConfig {
   }
 
 
+  public ElasticsearchLogForwardingConfig elasticsearchPassword(String elasticsearchPassword) {
+    
+    this.elasticsearchPassword = elasticsearchPassword;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchPassword
+   * @return elasticsearchPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getElasticsearchPassword() {
+    return elasticsearchPassword;
+  }
+
+
+  public void setElasticsearchPassword(String elasticsearchPassword) {
+    this.elasticsearchPassword = elasticsearchPassword;
+  }
+
+
+  public ElasticsearchLogForwardingConfig elasticsearchServerType(String elasticsearchServerType) {
+    
+    this.elasticsearchServerType = elasticsearchServerType;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchServerType
+   * @return elasticsearchServerType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getElasticsearchServerType() {
+    return elasticsearchServerType;
+  }
+
+
+  public void setElasticsearchServerType(String elasticsearchServerType) {
+    this.elasticsearchServerType = elasticsearchServerType;
+  }
+
+
+  public ElasticsearchLogForwardingConfig elasticsearchUserName(String elasticsearchUserName) {
+    
+    this.elasticsearchUserName = elasticsearchUserName;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchUserName
+   * @return elasticsearchUserName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getElasticsearchUserName() {
+    return elasticsearchUserName;
+  }
+
+
+  public void setElasticsearchUserName(String elasticsearchUserName) {
+    this.elasticsearchUserName = elasticsearchUserName;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -120,14 +255,19 @@ public class ElasticsearchLogForwardingConfig {
       return false;
     }
     ElasticsearchLogForwardingConfig elasticsearchLogForwardingConfig = (ElasticsearchLogForwardingConfig) o;
-    return Objects.equals(this.elasticsearchHost, elasticsearchLogForwardingConfig.elasticsearchHost) &&
+    return Objects.equals(this.elasticsearchApiKey, elasticsearchLogForwardingConfig.elasticsearchApiKey) &&
+        Objects.equals(this.elasticsearchAuthType, elasticsearchLogForwardingConfig.elasticsearchAuthType) &&
+        Objects.equals(this.elasticsearchCloudId, elasticsearchLogForwardingConfig.elasticsearchCloudId) &&
         Objects.equals(this.elasticsearchIndex, elasticsearchLogForwardingConfig.elasticsearchIndex) &&
-        Objects.equals(this.elasticsearchNodes, elasticsearchLogForwardingConfig.elasticsearchNodes);
+        Objects.equals(this.elasticsearchNodes, elasticsearchLogForwardingConfig.elasticsearchNodes) &&
+        Objects.equals(this.elasticsearchPassword, elasticsearchLogForwardingConfig.elasticsearchPassword) &&
+        Objects.equals(this.elasticsearchServerType, elasticsearchLogForwardingConfig.elasticsearchServerType) &&
+        Objects.equals(this.elasticsearchUserName, elasticsearchLogForwardingConfig.elasticsearchUserName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(elasticsearchHost, elasticsearchIndex, elasticsearchNodes);
+    return Objects.hash(elasticsearchApiKey, elasticsearchAuthType, elasticsearchCloudId, elasticsearchIndex, elasticsearchNodes, elasticsearchPassword, elasticsearchServerType, elasticsearchUserName);
   }
 
 
@@ -135,9 +275,14 @@ public class ElasticsearchLogForwardingConfig {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ElasticsearchLogForwardingConfig {\n");
-    sb.append("    elasticsearchHost: ").append(toIndentedString(elasticsearchHost)).append("\n");
+    sb.append("    elasticsearchApiKey: ").append(toIndentedString(elasticsearchApiKey)).append("\n");
+    sb.append("    elasticsearchAuthType: ").append(toIndentedString(elasticsearchAuthType)).append("\n");
+    sb.append("    elasticsearchCloudId: ").append(toIndentedString(elasticsearchCloudId)).append("\n");
     sb.append("    elasticsearchIndex: ").append(toIndentedString(elasticsearchIndex)).append("\n");
     sb.append("    elasticsearchNodes: ").append(toIndentedString(elasticsearchNodes)).append("\n");
+    sb.append("    elasticsearchPassword: ").append(toIndentedString(elasticsearchPassword)).append("\n");
+    sb.append("    elasticsearchServerType: ").append(toIndentedString(elasticsearchServerType)).append("\n");
+    sb.append("    elasticsearchUserName: ").append(toIndentedString(elasticsearchUserName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

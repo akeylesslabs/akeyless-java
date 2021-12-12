@@ -85,6 +85,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_SIGNER_KEY_NAME)
   private String signerKeyName;
 
+  public static final String SERIALIZED_NAME_TAG = "tag";
+  @SerializedName(SERIALIZED_NAME_TAG)
+  private List<String> tag = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -414,6 +418,37 @@ public class CreateSSHCertIssuer {
   }
 
 
+  public CreateSSHCertIssuer tag(List<String> tag) {
+    
+    this.tag = tag;
+    return this;
+  }
+
+  public CreateSSHCertIssuer addTagItem(String tagItem) {
+    if (this.tag == null) {
+      this.tag = new ArrayList<String>();
+    }
+    this.tag.add(tagItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this key
+   * @return tag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this key")
+
+  public List<String> getTag() {
+    return tag;
+  }
+
+
+  public void setTag(List<String> tag) {
+    this.tag = tag;
+  }
+
+
   public CreateSSHCertIssuer token(String token) {
     
     this.token = token;
@@ -527,6 +562,7 @@ public class CreateSSHCertIssuer {
         Objects.equals(this.secureAccessSshCredsUser, createSSHCertIssuer.secureAccessSshCredsUser) &&
         Objects.equals(this.secureAccessUseInternalBastion, createSSHCertIssuer.secureAccessUseInternalBastion) &&
         Objects.equals(this.signerKeyName, createSSHCertIssuer.signerKeyName) &&
+        Objects.equals(this.tag, createSSHCertIssuer.tag) &&
         Objects.equals(this.token, createSSHCertIssuer.token) &&
         Objects.equals(this.ttl, createSSHCertIssuer.ttl) &&
         Objects.equals(this.uidToken, createSSHCertIssuer.uidToken) &&
@@ -535,7 +571,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, extensions, metadata, name, password, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken, username);
+    return Objects.hash(allowedUsers, extensions, metadata, name, password, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken, username);
   }
 
 
@@ -556,6 +592,7 @@ public class CreateSSHCertIssuer {
     sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
     sb.append("    secureAccessUseInternalBastion: ").append(toIndentedString(secureAccessUseInternalBastion)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

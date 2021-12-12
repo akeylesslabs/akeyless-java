@@ -41,6 +41,10 @@ public class GatewayMessageQueueInfo {
   @SerializedName(SERIALIZED_NAME_QUEUE_URL)
   private String queueUrl;
 
+  public static final String SERIALIZED_NAME_USE_NEW_QUEUE = "use_new_queue";
+  @SerializedName(SERIALIZED_NAME_USE_NEW_QUEUE)
+  private Boolean useNewQueue;
+
 
   public GatewayMessageQueueInfo mqType(String mqType) {
     
@@ -111,6 +115,29 @@ public class GatewayMessageQueueInfo {
   }
 
 
+  public GatewayMessageQueueInfo useNewQueue(Boolean useNewQueue) {
+    
+    this.useNewQueue = useNewQueue;
+    return this;
+  }
+
+   /**
+   * Get useNewQueue
+   * @return useNewQueue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseNewQueue() {
+    return useNewQueue;
+  }
+
+
+  public void setUseNewQueue(Boolean useNewQueue) {
+    this.useNewQueue = useNewQueue;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -122,12 +149,13 @@ public class GatewayMessageQueueInfo {
     GatewayMessageQueueInfo gatewayMessageQueueInfo = (GatewayMessageQueueInfo) o;
     return Objects.equals(this.mqType, gatewayMessageQueueInfo.mqType) &&
         Objects.equals(this.queueName, gatewayMessageQueueInfo.queueName) &&
-        Objects.equals(this.queueUrl, gatewayMessageQueueInfo.queueUrl);
+        Objects.equals(this.queueUrl, gatewayMessageQueueInfo.queueUrl) &&
+        Objects.equals(this.useNewQueue, gatewayMessageQueueInfo.useNewQueue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mqType, queueName, queueUrl);
+    return Objects.hash(mqType, queueName, queueUrl, useNewQueue);
   }
 
 
@@ -138,6 +166,7 @@ public class GatewayMessageQueueInfo {
     sb.append("    mqType: ").append(toIndentedString(mqType)).append("\n");
     sb.append("    queueName: ").append(toIndentedString(queueName)).append("\n");
     sb.append("    queueUrl: ").append(toIndentedString(queueUrl)).append("\n");
+    sb.append("    useNewQueue: ").append(toIndentedString(useNewQueue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

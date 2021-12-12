@@ -72,6 +72,10 @@ public class CreateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
+  public static final String SERIALIZED_NAME_PUBLIC_KEY = "public-key";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
+  private String publicKey;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -146,11 +150,11 @@ public class CreateAuthMethodK8S {
   }
 
    /**
-   * A CIDR whitelist of the IPs that the access is restricted to
+   * A CIDR whitelist with the IPs that the access is restricted to
    * @return boundIps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A CIDR whitelist of the IPs that the access is restricted to")
+  @ApiModelProperty(value = "A CIDR whitelist with the IPs that the access is restricted to")
 
   public List<String> getBoundIps() {
     return boundIps;
@@ -346,6 +350,29 @@ public class CreateAuthMethodK8S {
   }
 
 
+  public CreateAuthMethodK8S publicKey(String publicKey) {
+    
+    this.publicKey = publicKey;
+    return this;
+  }
+
+   /**
+   * Base64-encoded public key text for K8S authentication method is required [RSA2048]
+   * @return publicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded public key text for K8S authentication method is required [RSA2048]")
+
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
+
+
   public CreateAuthMethodK8S token(String token) {
     
     this.token = token;
@@ -434,6 +461,7 @@ public class CreateAuthMethodK8S {
         Objects.equals(this.genKey, createAuthMethodK8S.genKey) &&
         Objects.equals(this.name, createAuthMethodK8S.name) &&
         Objects.equals(this.password, createAuthMethodK8S.password) &&
+        Objects.equals(this.publicKey, createAuthMethodK8S.publicKey) &&
         Objects.equals(this.token, createAuthMethodK8S.token) &&
         Objects.equals(this.uidToken, createAuthMethodK8S.uidToken) &&
         Objects.equals(this.username, createAuthMethodK8S.username);
@@ -441,7 +469,7 @@ public class CreateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, name, password, token, uidToken, username);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, name, password, publicKey, token, uidToken, username);
   }
 
 
@@ -459,6 +487,7 @@ public class CreateAuthMethodK8S {
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

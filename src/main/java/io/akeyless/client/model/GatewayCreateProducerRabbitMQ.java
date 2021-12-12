@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * gatewayCreateProducerRabbitMQ is a command that creates rabbitmq producer
@@ -85,6 +87,10 @@ public class GatewayCreateProducerRabbitMQ {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -428,6 +434,37 @@ public class GatewayCreateProducerRabbitMQ {
   }
 
 
+  public GatewayCreateProducerRabbitMQ tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayCreateProducerRabbitMQ addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * List of the tags attached to this secret
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the tags attached to this secret")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public GatewayCreateProducerRabbitMQ targetName(String targetName) {
     
     this.targetName = targetName;
@@ -566,6 +603,7 @@ public class GatewayCreateProducerRabbitMQ {
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerRabbitMQ.secureAccessEnable) &&
         Objects.equals(this.secureAccessUrl, gatewayCreateProducerRabbitMQ.secureAccessUrl) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerRabbitMQ.secureAccessWebBrowsing) &&
+        Objects.equals(this.tags, gatewayCreateProducerRabbitMQ.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerRabbitMQ.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerRabbitMQ.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRabbitMQ.uidToken) &&
@@ -575,7 +613,7 @@ public class GatewayCreateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(name, password, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -597,6 +635,7 @@ public class GatewayCreateProducerRabbitMQ {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
