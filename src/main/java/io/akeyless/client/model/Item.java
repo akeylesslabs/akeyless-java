@@ -24,6 +24,7 @@ import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.ItemGeneralInfo;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemVersion;
+import io.akeyless.client.model.TargetItemVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -131,6 +132,10 @@ public class Item {
   public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation_interval";
   @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
   private Long rotationInterval;
+
+  public static final String SERIALIZED_NAME_TARGET_VERSIONS = "target_versions";
+  @SerializedName(SERIALIZED_NAME_TARGET_VERSIONS)
+  private List<TargetItemVersion> targetVersions = null;
 
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
@@ -721,6 +726,37 @@ public class Item {
   }
 
 
+  public Item targetVersions(List<TargetItemVersion> targetVersions) {
+    
+    this.targetVersions = targetVersions;
+    return this;
+  }
+
+  public Item addTargetVersionsItem(TargetItemVersion targetVersionsItem) {
+    if (this.targetVersions == null) {
+      this.targetVersions = new ArrayList<TargetItemVersion>();
+    }
+    this.targetVersions.add(targetVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get targetVersions
+   * @return targetVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<TargetItemVersion> getTargetVersions() {
+    return targetVersions;
+  }
+
+
+  public void setTargetVersions(List<TargetItemVersion> targetVersions) {
+    this.targetVersions = targetVersions;
+  }
+
+
   public Item withCustomerFragment(Boolean withCustomerFragment) {
     
     this.withCustomerFragment = withCustomerFragment;
@@ -777,12 +813,13 @@ public class Item {
         Objects.equals(this.protectionKeyName, item.protectionKeyName) &&
         Objects.equals(this.publicValue, item.publicValue) &&
         Objects.equals(this.rotationInterval, item.rotationInterval) &&
+        Objects.equals(this.targetVersions, item.targetVersions) &&
         Objects.equals(this.withCustomerFragment, item.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deletionDate, displayId, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deletionDate, displayId, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, targetVersions, withCustomerFragment);
   }
 
 
@@ -814,6 +851,7 @@ public class Item {
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    publicValue: ").append(toIndentedString(publicValue)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
+    sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");
     return sb.toString();

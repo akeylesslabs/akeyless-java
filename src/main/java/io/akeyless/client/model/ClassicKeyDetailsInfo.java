@@ -42,6 +42,10 @@ public class ClassicKeyDetailsInfo {
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ID)
   private String classicKeyId;
 
+  public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
+  @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
+  private Long gwClusterId;
+
   public static final String SERIALIZED_NAME_IS_PROVIDED_BY_USER = "is_provided_by_user";
   @SerializedName(SERIALIZED_NAME_IS_PROVIDED_BY_USER)
   private Boolean isProvidedByUser;
@@ -126,6 +130,29 @@ public class ClassicKeyDetailsInfo {
 
   public void setClassicKeyId(String classicKeyId) {
     this.classicKeyId = classicKeyId;
+  }
+
+
+  public ClassicKeyDetailsInfo gwClusterId(Long gwClusterId) {
+    
+    this.gwClusterId = gwClusterId;
+    return this;
+  }
+
+   /**
+   * Get gwClusterId
+   * @return gwClusterId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getGwClusterId() {
+    return gwClusterId;
+  }
+
+
+  public void setGwClusterId(Long gwClusterId) {
+    this.gwClusterId = gwClusterId;
   }
 
 
@@ -340,6 +367,7 @@ public class ClassicKeyDetailsInfo {
     ClassicKeyDetailsInfo classicKeyDetailsInfo = (ClassicKeyDetailsInfo) o;
     return Objects.equals(this.classicKeyAttributes, classicKeyDetailsInfo.classicKeyAttributes) &&
         Objects.equals(this.classicKeyId, classicKeyDetailsInfo.classicKeyId) &&
+        Objects.equals(this.gwClusterId, classicKeyDetailsInfo.gwClusterId) &&
         Objects.equals(this.isProvidedByUser, classicKeyDetailsInfo.isProvidedByUser) &&
         Objects.equals(this.isUnexportable, classicKeyDetailsInfo.isUnexportable) &&
         Objects.equals(this.keyState, classicKeyDetailsInfo.keyState) &&
@@ -352,7 +380,7 @@ public class ClassicKeyDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(classicKeyAttributes, classicKeyId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, targetAliasHelper, targetTypes, targets);
+    return Objects.hash(classicKeyAttributes, classicKeyId, gwClusterId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, targetAliasHelper, targetTypes, targets);
   }
 
 
@@ -362,6 +390,7 @@ public class ClassicKeyDetailsInfo {
     sb.append("class ClassicKeyDetailsInfo {\n");
     sb.append("    classicKeyAttributes: ").append(toIndentedString(classicKeyAttributes)).append("\n");
     sb.append("    classicKeyId: ").append(toIndentedString(classicKeyId)).append("\n");
+    sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    isProvidedByUser: ").append(toIndentedString(isProvidedByUser)).append("\n");
     sb.append("    isUnexportable: ").append(toIndentedString(isUnexportable)).append("\n");
     sb.append("    keyState: ").append(toIndentedString(keyState)).append("\n");

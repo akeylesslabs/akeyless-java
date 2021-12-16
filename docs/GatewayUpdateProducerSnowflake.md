@@ -1,8 +1,8 @@
 
 
-# GatewayCreateProducerSnowflake
+# GatewayUpdateProducerSnowflake
 
-gatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
+gatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **accountUsername** | **String** | Database Username |  [optional]
 **dbName** | **String** | Database name |  [optional]
 **name** | **String** | Producer name | 
+**newName** | **String** | Producer name |  [optional]
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **role** | **String** | User role |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]

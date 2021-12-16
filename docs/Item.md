@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **protectionKeyName** | **String** |  |  [optional]
 **publicValue** | **String** |  |  [optional]
 **rotationInterval** | **Long** |  |  [optional]
+**targetVersions** | [**List&lt;TargetItemVersion&gt;**](TargetItemVersion.md) |  |  [optional]
 **withCustomerFragment** | **Boolean** |  |  [optional]
 
 

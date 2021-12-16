@@ -291,7 +291,7 @@ public class DSProducerDetails {
 
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY = "gcp_service_account_key";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
-  private List<Integer> gcpServiceAccountKey = null;
+  private String gcpServiceAccountKey;
 
   public static final String SERIALIZED_NAME_GCP_TOKEN_LIFETIME = "gcp_token_lifetime";
   @SerializedName(SERIALIZED_NAME_GCP_TOKEN_LIFETIME)
@@ -2082,17 +2082,9 @@ public class DSProducerDetails {
   }
 
 
-  public DSProducerDetails gcpServiceAccountKey(List<Integer> gcpServiceAccountKey) {
+  public DSProducerDetails gcpServiceAccountKey(String gcpServiceAccountKey) {
     
     this.gcpServiceAccountKey = gcpServiceAccountKey;
-    return this;
-  }
-
-  public DSProducerDetails addGcpServiceAccountKeyItem(Integer gcpServiceAccountKeyItem) {
-    if (this.gcpServiceAccountKey == null) {
-      this.gcpServiceAccountKey = new ArrayList<Integer>();
-    }
-    this.gcpServiceAccountKey.add(gcpServiceAccountKeyItem);
     return this;
   }
 
@@ -2103,12 +2095,12 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Integer> getGcpServiceAccountKey() {
+  public String getGcpServiceAccountKey() {
     return gcpServiceAccountKey;
   }
 
 
-  public void setGcpServiceAccountKey(List<Integer> gcpServiceAccountKey) {
+  public void setGcpServiceAccountKey(String gcpServiceAccountKey) {
     this.gcpServiceAccountKey = gcpServiceAccountKey;
   }
 

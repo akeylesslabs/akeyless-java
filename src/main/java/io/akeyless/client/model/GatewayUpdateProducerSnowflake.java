@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
+ * gatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
  */
-@ApiModel(description = "gatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer")
+@ApiModel(description = "gatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer")
 
-public class GatewayCreateProducerSnowflake {
+public class GatewayUpdateProducerSnowflake {
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
   private String account;
@@ -51,6 +51,10 @@ public class GatewayCreateProducerSnowflake {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -89,7 +93,7 @@ public class GatewayCreateProducerSnowflake {
   private String warehouse;
 
 
-  public GatewayCreateProducerSnowflake account(String account) {
+  public GatewayUpdateProducerSnowflake account(String account) {
     
     this.account = account;
     return this;
@@ -112,7 +116,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake accountPassword(String accountPassword) {
+  public GatewayUpdateProducerSnowflake accountPassword(String accountPassword) {
     
     this.accountPassword = accountPassword;
     return this;
@@ -135,7 +139,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake accountUsername(String accountUsername) {
+  public GatewayUpdateProducerSnowflake accountUsername(String accountUsername) {
     
     this.accountUsername = accountUsername;
     return this;
@@ -158,7 +162,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake dbName(String dbName) {
+  public GatewayUpdateProducerSnowflake dbName(String dbName) {
     
     this.dbName = dbName;
     return this;
@@ -181,7 +185,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake name(String name) {
+  public GatewayUpdateProducerSnowflake name(String name) {
     
     this.name = name;
     return this;
@@ -203,7 +207,30 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake password(String password) {
+  public GatewayUpdateProducerSnowflake newName(String newName) {
+    
+    this.newName = newName;
+    return this;
+  }
+
+   /**
+   * Producer name
+   * @return newName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Producer name")
+
+  public String getNewName() {
+    return newName;
+  }
+
+
+  public void setNewName(String newName) {
+    this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerSnowflake password(String password) {
     
     this.password = password;
     return this;
@@ -226,7 +253,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake role(String role) {
+  public GatewayUpdateProducerSnowflake role(String role) {
     
     this.role = role;
     return this;
@@ -249,13 +276,13 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake tags(List<String> tags) {
+  public GatewayUpdateProducerSnowflake tags(List<String> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public GatewayCreateProducerSnowflake addTagsItem(String tagsItem) {
+  public GatewayUpdateProducerSnowflake addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<String>();
     }
@@ -280,7 +307,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake targetName(String targetName) {
+  public GatewayUpdateProducerSnowflake targetName(String targetName) {
     
     this.targetName = targetName;
     return this;
@@ -303,7 +330,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake token(String token) {
+  public GatewayUpdateProducerSnowflake token(String token) {
     
     this.token = token;
     return this;
@@ -326,7 +353,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake uidToken(String uidToken) {
+  public GatewayUpdateProducerSnowflake uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -349,7 +376,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake userTtl(String userTtl) {
+  public GatewayUpdateProducerSnowflake userTtl(String userTtl) {
     
     this.userTtl = userTtl;
     return this;
@@ -372,7 +399,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake username(String username) {
+  public GatewayUpdateProducerSnowflake username(String username) {
     
     this.username = username;
     return this;
@@ -395,7 +422,7 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake warehouse(String warehouse) {
+  public GatewayUpdateProducerSnowflake warehouse(String warehouse) {
     
     this.warehouse = warehouse;
     return this;
@@ -426,38 +453,40 @@ public class GatewayCreateProducerSnowflake {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GatewayCreateProducerSnowflake gatewayCreateProducerSnowflake = (GatewayCreateProducerSnowflake) o;
-    return Objects.equals(this.account, gatewayCreateProducerSnowflake.account) &&
-        Objects.equals(this.accountPassword, gatewayCreateProducerSnowflake.accountPassword) &&
-        Objects.equals(this.accountUsername, gatewayCreateProducerSnowflake.accountUsername) &&
-        Objects.equals(this.dbName, gatewayCreateProducerSnowflake.dbName) &&
-        Objects.equals(this.name, gatewayCreateProducerSnowflake.name) &&
-        Objects.equals(this.password, gatewayCreateProducerSnowflake.password) &&
-        Objects.equals(this.role, gatewayCreateProducerSnowflake.role) &&
-        Objects.equals(this.tags, gatewayCreateProducerSnowflake.tags) &&
-        Objects.equals(this.targetName, gatewayCreateProducerSnowflake.targetName) &&
-        Objects.equals(this.token, gatewayCreateProducerSnowflake.token) &&
-        Objects.equals(this.uidToken, gatewayCreateProducerSnowflake.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerSnowflake.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerSnowflake.username) &&
-        Objects.equals(this.warehouse, gatewayCreateProducerSnowflake.warehouse);
+    GatewayUpdateProducerSnowflake gatewayUpdateProducerSnowflake = (GatewayUpdateProducerSnowflake) o;
+    return Objects.equals(this.account, gatewayUpdateProducerSnowflake.account) &&
+        Objects.equals(this.accountPassword, gatewayUpdateProducerSnowflake.accountPassword) &&
+        Objects.equals(this.accountUsername, gatewayUpdateProducerSnowflake.accountUsername) &&
+        Objects.equals(this.dbName, gatewayUpdateProducerSnowflake.dbName) &&
+        Objects.equals(this.name, gatewayUpdateProducerSnowflake.name) &&
+        Objects.equals(this.newName, gatewayUpdateProducerSnowflake.newName) &&
+        Objects.equals(this.password, gatewayUpdateProducerSnowflake.password) &&
+        Objects.equals(this.role, gatewayUpdateProducerSnowflake.role) &&
+        Objects.equals(this.tags, gatewayUpdateProducerSnowflake.tags) &&
+        Objects.equals(this.targetName, gatewayUpdateProducerSnowflake.targetName) &&
+        Objects.equals(this.token, gatewayUpdateProducerSnowflake.token) &&
+        Objects.equals(this.uidToken, gatewayUpdateProducerSnowflake.uidToken) &&
+        Objects.equals(this.userTtl, gatewayUpdateProducerSnowflake.userTtl) &&
+        Objects.equals(this.username, gatewayUpdateProducerSnowflake.username) &&
+        Objects.equals(this.warehouse, gatewayUpdateProducerSnowflake.warehouse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, dbName, name, password, role, tags, targetName, token, uidToken, userTtl, username, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, dbName, name, newName, password, role, tags, targetName, token, uidToken, userTtl, username, warehouse);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GatewayCreateProducerSnowflake {\n");
+    sb.append("class GatewayUpdateProducerSnowflake {\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
     sb.append("    accountUsername: ").append(toIndentedString(accountUsername)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

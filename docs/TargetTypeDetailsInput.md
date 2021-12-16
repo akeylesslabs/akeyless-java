@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **eksRegion** | **String** |  |  [optional]
 **eksSecretAccessKey** | **String** |  |  [optional]
 **gcpServiceAccountEmail** | **String** |  |  [optional]
-**gcpServiceAccountKey** | **List&lt;Integer&gt;** |  |  [optional]
+**gcpServiceAccountKey** | **String** |  |  [optional]
 **gkeClusterCaCertificate** | **String** |  |  [optional]
 **gkeClusterEndpoint** | **String** |  |  [optional]
 **gkeClusterName** | **String** |  |  [optional]

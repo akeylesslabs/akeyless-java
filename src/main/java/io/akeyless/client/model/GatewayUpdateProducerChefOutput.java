@@ -20,41 +20,41 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.DSProducerDetails;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * validate-token is a command that validaties token
+ * GatewayUpdateProducerChefOutput
  */
-@ApiModel(description = "validate-token is a command that validaties token")
 
-public class ValidateToken {
-  public static final String SERIALIZED_NAME_TOKEN = "token";
-  @SerializedName(SERIALIZED_NAME_TOKEN)
-  private String token;
+public class GatewayUpdateProducerChefOutput {
+  public static final String SERIALIZED_NAME_PRODUCER_DETAILS = "producer_details";
+  @SerializedName(SERIALIZED_NAME_PRODUCER_DETAILS)
+  private DSProducerDetails producerDetails;
 
 
-  public ValidateToken token(String token) {
+  public GatewayUpdateProducerChefOutput producerDetails(DSProducerDetails producerDetails) {
     
-    this.token = token;
+    this.producerDetails = producerDetails;
     return this;
   }
 
    /**
-   * Token
-   * @return token
+   * Get producerDetails
+   * @return producerDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Token")
+  @ApiModelProperty(value = "")
 
-  public String getToken() {
-    return token;
+  public DSProducerDetails getProducerDetails() {
+    return producerDetails;
   }
 
 
-  public void setToken(String token) {
-    this.token = token;
+  public void setProducerDetails(DSProducerDetails producerDetails) {
+    this.producerDetails = producerDetails;
   }
 
 
@@ -66,21 +66,21 @@ public class ValidateToken {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidateToken validateToken = (ValidateToken) o;
-    return Objects.equals(this.token, validateToken.token);
+    GatewayUpdateProducerChefOutput gatewayUpdateProducerChefOutput = (GatewayUpdateProducerChefOutput) o;
+    return Objects.equals(this.producerDetails, gatewayUpdateProducerChefOutput.producerDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(producerDetails);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidateToken {\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("class GatewayUpdateProducerChefOutput {\n");
+    sb.append("    producerDetails: ").append(toIndentedString(producerDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

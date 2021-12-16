@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * TargetTypeDetailsInput
@@ -153,7 +151,7 @@ public class TargetTypeDetailsInput {
 
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY = "gcp_service_account_key";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
-  private List<Integer> gcpServiceAccountKey = null;
+  private String gcpServiceAccountKey;
 
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
@@ -1022,17 +1020,9 @@ public class TargetTypeDetailsInput {
   }
 
 
-  public TargetTypeDetailsInput gcpServiceAccountKey(List<Integer> gcpServiceAccountKey) {
+  public TargetTypeDetailsInput gcpServiceAccountKey(String gcpServiceAccountKey) {
     
     this.gcpServiceAccountKey = gcpServiceAccountKey;
-    return this;
-  }
-
-  public TargetTypeDetailsInput addGcpServiceAccountKeyItem(Integer gcpServiceAccountKeyItem) {
-    if (this.gcpServiceAccountKey == null) {
-      this.gcpServiceAccountKey = new ArrayList<Integer>();
-    }
-    this.gcpServiceAccountKey.add(gcpServiceAccountKeyItem);
     return this;
   }
 
@@ -1043,12 +1033,12 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Integer> getGcpServiceAccountKey() {
+  public String getGcpServiceAccountKey() {
     return gcpServiceAccountKey;
   }
 
 
-  public void setGcpServiceAccountKey(List<Integer> gcpServiceAccountKey) {
+  public void setGcpServiceAccountKey(String gcpServiceAccountKey) {
     this.gcpServiceAccountKey = gcpServiceAccountKey;
   }
 
