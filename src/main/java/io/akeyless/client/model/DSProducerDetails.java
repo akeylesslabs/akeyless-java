@@ -465,6 +465,14 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ORACLE_CREATION_STATEMENTS)
   private String oracleCreationStatements;
 
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password_length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private Long passwordLength;
+
+  public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
+  private String passwordPolicy;
+
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
@@ -556,6 +564,14 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_USER_TTL = "user_ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl;
+
+  public static final String SERIALIZED_NAME_USERNAME_LENGTH = "username_length";
+  @SerializedName(SERIALIZED_NAME_USERNAME_LENGTH)
+  private Long usernameLength;
+
+  public static final String SERIALIZED_NAME_USERNAME_POLICY = "username_policy";
+  @SerializedName(SERIALIZED_NAME_USERNAME_POLICY)
+  private String usernamePolicy;
 
   public static final String SERIALIZED_NAME_VENAFI_ALLOW_SUBDOMAINS = "venafi_allow_subdomains";
   @SerializedName(SERIALIZED_NAME_VENAFI_ALLOW_SUBDOMAINS)
@@ -3102,6 +3118,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails passwordLength(Long passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * Get passwordLength
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(Long passwordLength) {
+    this.passwordLength = passwordLength;
+  }
+
+
+  public DSProducerDetails passwordPolicy(String passwordPolicy) {
+    
+    this.passwordPolicy = passwordPolicy;
+    return this;
+  }
+
+   /**
+   * Get passwordPolicy
+   * @return passwordPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPasswordPolicy() {
+    return passwordPolicy;
+  }
+
+
+  public void setPasswordPolicy(String passwordPolicy) {
+    this.passwordPolicy = passwordPolicy;
+  }
+
+
   public DSProducerDetails payload(String payload) {
     
     this.payload = payload;
@@ -3639,6 +3701,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails usernameLength(Long usernameLength) {
+    
+    this.usernameLength = usernameLength;
+    return this;
+  }
+
+   /**
+   * Get usernameLength
+   * @return usernameLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getUsernameLength() {
+    return usernameLength;
+  }
+
+
+  public void setUsernameLength(Long usernameLength) {
+    this.usernameLength = usernameLength;
+  }
+
+
+  public DSProducerDetails usernamePolicy(String usernamePolicy) {
+    
+    this.usernamePolicy = usernamePolicy;
+    return this;
+  }
+
+   /**
+   * Get usernamePolicy
+   * @return usernamePolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUsernamePolicy() {
+    return usernamePolicy;
+  }
+
+
+  public void setUsernamePolicy(String usernamePolicy) {
+    this.usernamePolicy = usernamePolicy;
+  }
+
+
   public DSProducerDetails venafiAllowSubdomains(Boolean venafiAllowSubdomains) {
     
     this.venafiAllowSubdomains = venafiAllowSubdomains;
@@ -4063,6 +4171,8 @@ public class DSProducerDetails {
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
         Objects.equals(this.oracleCreationStatements, dsProducerDetails.oracleCreationStatements) &&
+        Objects.equals(this.passwordLength, dsProducerDetails.passwordLength) &&
+        Objects.equals(this.passwordPolicy, dsProducerDetails.passwordPolicy) &&
         Objects.equals(this.payload, dsProducerDetails.payload) &&
         Objects.equals(this.postgresCreationStatements, dsProducerDetails.postgresCreationStatements) &&
         Objects.equals(this.rabbitmqServerPassword, dsProducerDetails.rabbitmqServerPassword) &&
@@ -4086,6 +4196,8 @@ public class DSProducerDetails {
         Objects.equals(this.useGwCloudIdentity, dsProducerDetails.useGwCloudIdentity) &&
         Objects.equals(this.userPrincipalName, dsProducerDetails.userPrincipalName) &&
         Objects.equals(this.userTtl, dsProducerDetails.userTtl) &&
+        Objects.equals(this.usernameLength, dsProducerDetails.usernameLength) &&
+        Objects.equals(this.usernamePolicy, dsProducerDetails.usernamePolicy) &&
         Objects.equals(this.venafiAllowSubdomains, dsProducerDetails.venafiAllowSubdomains) &&
         Objects.equals(this.venafiAllowedDomains, dsProducerDetails.venafiAllowedDomains) &&
         Objects.equals(this.venafiApiKey, dsProducerDetails.venafiApiKey) &&
@@ -4103,7 +4215,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, passwordLength, passwordPolicy, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -4219,6 +4331,8 @@ public class DSProducerDetails {
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
     sb.append("    oracleCreationStatements: ").append(toIndentedString(oracleCreationStatements)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    postgresCreationStatements: ").append(toIndentedString(postgresCreationStatements)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
@@ -4242,6 +4356,8 @@ public class DSProducerDetails {
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    usernameLength: ").append(toIndentedString(usernameLength)).append("\n");
+    sb.append("    usernamePolicy: ").append(toIndentedString(usernamePolicy)).append("\n");
     sb.append("    venafiAllowSubdomains: ").append(toIndentedString(venafiAllowSubdomains)).append("\n");
     sb.append("    venafiAllowedDomains: ").append(toIndentedString(venafiAllowedDomains)).append("\n");
     sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
