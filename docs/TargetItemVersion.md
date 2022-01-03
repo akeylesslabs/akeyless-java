@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **customerFragmentId** | **String** |  |  [optional]
 **deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **itemVersionState** | **String** | ItemState defines the different states an Item can be in |  [optional]
+**latestVersion** | **Boolean** |  |  [optional]
 **protectionKeyName** | **String** |  |  [optional]
 **targetName** | **String** |  |  [optional]
 **version** | **Integer** |  |  [optional]

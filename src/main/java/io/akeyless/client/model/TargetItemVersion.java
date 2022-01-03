@@ -46,6 +46,10 @@ public class TargetItemVersion {
   @SerializedName(SERIALIZED_NAME_ITEM_VERSION_STATE)
   private String itemVersionState;
 
+  public static final String SERIALIZED_NAME_LATEST_VERSION = "latest_version";
+  @SerializedName(SERIALIZED_NAME_LATEST_VERSION)
+  private Boolean latestVersion;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection_key_name";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
   private String protectionKeyName;
@@ -155,6 +159,29 @@ public class TargetItemVersion {
   }
 
 
+  public TargetItemVersion latestVersion(Boolean latestVersion) {
+    
+    this.latestVersion = latestVersion;
+    return this;
+  }
+
+   /**
+   * Get latestVersion
+   * @return latestVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getLatestVersion() {
+    return latestVersion;
+  }
+
+
+  public void setLatestVersion(Boolean latestVersion) {
+    this.latestVersion = latestVersion;
+  }
+
+
   public TargetItemVersion protectionKeyName(String protectionKeyName) {
     
     this.protectionKeyName = protectionKeyName;
@@ -260,6 +287,7 @@ public class TargetItemVersion {
         Objects.equals(this.customerFragmentId, targetItemVersion.customerFragmentId) &&
         Objects.equals(this.deletionDate, targetItemVersion.deletionDate) &&
         Objects.equals(this.itemVersionState, targetItemVersion.itemVersionState) &&
+        Objects.equals(this.latestVersion, targetItemVersion.latestVersion) &&
         Objects.equals(this.protectionKeyName, targetItemVersion.protectionKeyName) &&
         Objects.equals(this.targetName, targetItemVersion.targetName) &&
         Objects.equals(this.version, targetItemVersion.version) &&
@@ -268,7 +296,7 @@ public class TargetItemVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, customerFragmentId, deletionDate, itemVersionState, protectionKeyName, targetName, version, withCustomerFragment);
+    return Objects.hash(creationDate, customerFragmentId, deletionDate, itemVersionState, latestVersion, protectionKeyName, targetName, version, withCustomerFragment);
   }
 
 
@@ -280,6 +308,7 @@ public class TargetItemVersion {
     sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    itemVersionState: ").append(toIndentedString(itemVersionState)).append("\n");
+    sb.append("    latestVersion: ").append(toIndentedString(latestVersion)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

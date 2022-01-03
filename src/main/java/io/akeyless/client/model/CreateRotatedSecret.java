@@ -39,6 +39,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_API_KEY)
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
+  private String authenticationCredentials;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private String autoRotate;
@@ -171,6 +175,29 @@ public class CreateRotatedSecret {
 
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
+  }
+
+
+  public CreateRotatedSecret authenticationCredentials(String authenticationCredentials) {
+    
+    this.authenticationCredentials = authenticationCredentials;
+    return this;
+  }
+
+   /**
+   * Get authenticationCredentials
+   * @return authenticationCredentials
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAuthenticationCredentials() {
+    return authenticationCredentials;
+  }
+
+
+  public void setAuthenticationCredentials(String authenticationCredentials) {
+    this.authenticationCredentials = authenticationCredentials;
   }
 
 
@@ -696,6 +723,7 @@ public class CreateRotatedSecret {
     CreateRotatedSecret createRotatedSecret = (CreateRotatedSecret) o;
     return Objects.equals(this.apiId, createRotatedSecret.apiId) &&
         Objects.equals(this.apiKey, createRotatedSecret.apiKey) &&
+        Objects.equals(this.authenticationCredentials, createRotatedSecret.authenticationCredentials) &&
         Objects.equals(this.autoRotate, createRotatedSecret.autoRotate) &&
         Objects.equals(this.customPayload, createRotatedSecret.customPayload) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
@@ -722,7 +750,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, autoRotate, customPayload, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn, username);
+    return Objects.hash(apiId, apiKey, authenticationCredentials, autoRotate, customPayload, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn, username);
   }
 
 
@@ -732,6 +760,7 @@ public class CreateRotatedSecret {
     sb.append("class CreateRotatedSecret {\n");
     sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
