@@ -253,7 +253,7 @@ Class | Method | HTTP request | Description
  - [CreateAuthMethodSAMLOutput](docs/CreateAuthMethodSAMLOutput.md)
  - [CreateAuthMethodUniversalIdentity](docs/CreateAuthMethodUniversalIdentity.md)
  - [CreateAuthMethodUniversalIdentityOutput](docs/CreateAuthMethodUniversalIdentityOutput.md)
- - [CreateAwsTarget](docs/CreateAwsTarget.md)
+ - [CreateAWSTarget](docs/CreateAWSTarget.md)
  - [CreateDBTarget](docs/CreateDBTarget.md)
  - [CreateDynamicSecret](docs/CreateDynamicSecret.md)
  - [CreateKey](docs/CreateKey.md)
