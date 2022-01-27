@@ -60,6 +60,10 @@ public class UpdateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -266,6 +270,29 @@ public class UpdateAuthMethodOIDC {
   }
 
 
+  public UpdateAuthMethodOIDC jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public UpdateAuthMethodOIDC name(String name) {
     
     this.name = name;
@@ -441,6 +468,7 @@ public class UpdateAuthMethodOIDC {
         Objects.equals(this.clientSecret, updateAuthMethodOIDC.clientSecret) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOIDC.forceSubClaims) &&
         Objects.equals(this.issuer, updateAuthMethodOIDC.issuer) &&
+        Objects.equals(this.jwtTtl, updateAuthMethodOIDC.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodOIDC.name) &&
         Objects.equals(this.newName, updateAuthMethodOIDC.newName) &&
         Objects.equals(this.password, updateAuthMethodOIDC.password) &&
@@ -452,7 +480,7 @@ public class UpdateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, name, newName, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, jwtTtl, name, newName, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -467,6 +495,7 @@ public class UpdateAuthMethodOIDC {
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

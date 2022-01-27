@@ -68,6 +68,10 @@ public class UpdateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -355,6 +359,29 @@ public class UpdateAuthMethodGCP {
   }
 
 
+  public UpdateAuthMethodGCP jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public UpdateAuthMethodGCP name(String name) {
     
     this.name = name;
@@ -555,6 +582,7 @@ public class UpdateAuthMethodGCP {
         Objects.equals(this.boundServiceAccounts, updateAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, updateAuthMethodGCP.boundZones) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodGCP.forceSubClaims) &&
+        Objects.equals(this.jwtTtl, updateAuthMethodGCP.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodGCP.name) &&
         Objects.equals(this.newName, updateAuthMethodGCP.newName) &&
         Objects.equals(this.password, updateAuthMethodGCP.password) &&
@@ -567,7 +595,7 @@ public class UpdateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, name, newName, password, serviceAccountCredsData, token, type, uidToken, username);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, jwtTtl, name, newName, password, serviceAccountCredsData, token, type, uidToken, username);
   }
 
 
@@ -584,6 +612,7 @@ public class UpdateAuthMethodGCP {
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

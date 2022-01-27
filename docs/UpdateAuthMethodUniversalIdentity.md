@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **denyInheritance** | **Boolean** | Deny from root to create children |  [optional]
 **denyRotate** | **Boolean** | Deny from the token to rotate |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
+**jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **newName** | **String** | Auth Method new name |  [optional]
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]

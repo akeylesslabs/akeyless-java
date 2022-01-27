@@ -92,6 +92,10 @@ public class CreateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
   private String jwksUri = "https://login.microsoftonline.com/common/discovery/keys";
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -529,6 +533,29 @@ public class CreateAuthMethodAzureAD {
   }
 
 
+  public CreateAuthMethodAzureAD jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public CreateAuthMethodAzureAD name(String name) {
     
     this.name = name;
@@ -667,6 +694,7 @@ public class CreateAuthMethodAzureAD {
         Objects.equals(this.forceSubClaims, createAuthMethodAzureAD.forceSubClaims) &&
         Objects.equals(this.issuer, createAuthMethodAzureAD.issuer) &&
         Objects.equals(this.jwksUri, createAuthMethodAzureAD.jwksUri) &&
+        Objects.equals(this.jwtTtl, createAuthMethodAzureAD.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodAzureAD.name) &&
         Objects.equals(this.password, createAuthMethodAzureAD.password) &&
         Objects.equals(this.token, createAuthMethodAzureAD.token) &&
@@ -676,7 +704,7 @@ public class CreateAuthMethodAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, issuer, jwksUri, name, password, token, uidToken, username);
+    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, issuer, jwksUri, jwtTtl, name, password, token, uidToken, username);
   }
 
 
@@ -699,6 +727,7 @@ public class CreateAuthMethodAzureAD {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

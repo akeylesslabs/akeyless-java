@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **clientSecret** | **String** | Client Secret |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **issuer** | **String** | Issuer URL |  [optional]
+**jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

@@ -68,6 +68,10 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -351,6 +355,29 @@ public class CreateAuthMethodGCP {
   }
 
 
+  public CreateAuthMethodGCP jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public CreateAuthMethodGCP name(String name) {
     
     this.name = name;
@@ -528,6 +555,7 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.boundServiceAccounts, createAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, createAuthMethodGCP.boundZones) &&
         Objects.equals(this.forceSubClaims, createAuthMethodGCP.forceSubClaims) &&
+        Objects.equals(this.jwtTtl, createAuthMethodGCP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodGCP.name) &&
         Objects.equals(this.password, createAuthMethodGCP.password) &&
         Objects.equals(this.serviceAccountCredsData, createAuthMethodGCP.serviceAccountCredsData) &&
@@ -539,7 +567,7 @@ public class CreateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, name, password, serviceAccountCredsData, token, type, uidToken, username);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, jwtTtl, name, password, serviceAccountCredsData, token, type, uidToken, username);
   }
 
 
@@ -556,6 +584,7 @@ public class CreateAuthMethodGCP {
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    serviceAccountCredsData: ").append(toIndentedString(serviceAccountCredsData)).append("\n");

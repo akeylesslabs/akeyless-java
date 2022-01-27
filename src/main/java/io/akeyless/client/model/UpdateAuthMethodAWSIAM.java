@@ -72,6 +72,10 @@ public class UpdateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -391,6 +395,29 @@ public class UpdateAuthMethodAWSIAM {
   }
 
 
+  public UpdateAuthMethodAWSIAM jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public UpdateAuthMethodAWSIAM name(String name) {
     
     this.name = name;
@@ -570,6 +597,7 @@ public class UpdateAuthMethodAWSIAM {
         Objects.equals(this.boundUserId, updateAuthMethodAWSIAM.boundUserId) &&
         Objects.equals(this.boundUserName, updateAuthMethodAWSIAM.boundUserName) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodAWSIAM.forceSubClaims) &&
+        Objects.equals(this.jwtTtl, updateAuthMethodAWSIAM.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodAWSIAM.name) &&
         Objects.equals(this.newName, updateAuthMethodAWSIAM.newName) &&
         Objects.equals(this.password, updateAuthMethodAWSIAM.password) &&
@@ -581,7 +609,7 @@ public class UpdateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, name, newName, password, stsUrl, token, uidToken, username);
+    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, jwtTtl, name, newName, password, stsUrl, token, uidToken, username);
   }
 
 
@@ -599,6 +627,7 @@ public class UpdateAuthMethodAWSIAM {
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

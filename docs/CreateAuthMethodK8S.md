@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **boundSaNames** | **List&lt;String&gt;** | A list of service account names that the access is restricted to |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **genKey** | **String** | If this flag is set to true, there is no need to manually provide a public key for the Kubernetes Auth Method, and instead, a key pair, will be generated as part of the command and the private part of the key will be returned (the private key is required for the K8S Auth Config in the Akeyless Gateway) |  [optional]
+**jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **publicKey** | **String** | Base64-encoded public key text for K8S authentication method is required [RSA2048] |  [optional]

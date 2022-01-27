@@ -64,6 +64,10 @@ public class UpdateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_GEN_KEY)
   private String genKey = "true";
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -309,6 +313,29 @@ public class UpdateAuthMethodK8S {
   }
 
 
+  public UpdateAuthMethodK8S jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public UpdateAuthMethodK8S name(String name) {
     
     this.name = name;
@@ -486,6 +513,7 @@ public class UpdateAuthMethodK8S {
         Objects.equals(this.boundSaNames, updateAuthMethodK8S.boundSaNames) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodK8S.forceSubClaims) &&
         Objects.equals(this.genKey, updateAuthMethodK8S.genKey) &&
+        Objects.equals(this.jwtTtl, updateAuthMethodK8S.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodK8S.name) &&
         Objects.equals(this.newName, updateAuthMethodK8S.newName) &&
         Objects.equals(this.password, updateAuthMethodK8S.password) &&
@@ -497,7 +525,7 @@ public class UpdateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, name, newName, password, publicKey, token, uidToken, username);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, jwtTtl, name, newName, password, publicKey, token, uidToken, username);
   }
 
 
@@ -513,6 +541,7 @@ public class UpdateAuthMethodK8S {
     sb.append("    boundSaNames: ").append(toIndentedString(boundSaNames)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

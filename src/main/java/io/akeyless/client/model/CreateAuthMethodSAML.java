@@ -52,6 +52,10 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_IDP_METADATA_URL)
   private String idpMetadataUrl;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -208,6 +212,29 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public CreateAuthMethodSAML name(String name) {
     
     this.name = name;
@@ -358,6 +385,7 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.boundIps, createAuthMethodSAML.boundIps) &&
         Objects.equals(this.forceSubClaims, createAuthMethodSAML.forceSubClaims) &&
         Objects.equals(this.idpMetadataUrl, createAuthMethodSAML.idpMetadataUrl) &&
+        Objects.equals(this.jwtTtl, createAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodSAML.name) &&
         Objects.equals(this.password, createAuthMethodSAML.password) &&
         Objects.equals(this.token, createAuthMethodSAML.token) &&
@@ -368,7 +396,7 @@ public class CreateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, idpMetadataUrl, name, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, idpMetadataUrl, jwtTtl, name, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -381,6 +409,7 @@ public class CreateAuthMethodSAML {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

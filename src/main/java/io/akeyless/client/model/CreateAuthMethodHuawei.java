@@ -72,6 +72,10 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -216,11 +220,11 @@ public class CreateAuthMethodHuawei {
   }
 
    /**
-   * A CIDR whitelist of the IPs that the access is restricted to
+   * A CIDR whitelist with the IPs that the access is restricted to
    * @return boundIps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A CIDR whitelist of the IPs that the access is restricted to")
+  @ApiModelProperty(value = "A CIDR whitelist with the IPs that the access is restricted to")
 
   public List<String> getBoundIps() {
     return boundIps;
@@ -379,6 +383,29 @@ public class CreateAuthMethodHuawei {
   }
 
 
+  public CreateAuthMethodHuawei jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public CreateAuthMethodHuawei name(String name) {
     
     this.name = name;
@@ -512,6 +539,7 @@ public class CreateAuthMethodHuawei {
         Objects.equals(this.boundUserId, createAuthMethodHuawei.boundUserId) &&
         Objects.equals(this.boundUserName, createAuthMethodHuawei.boundUserName) &&
         Objects.equals(this.forceSubClaims, createAuthMethodHuawei.forceSubClaims) &&
+        Objects.equals(this.jwtTtl, createAuthMethodHuawei.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodHuawei.name) &&
         Objects.equals(this.password, createAuthMethodHuawei.password) &&
         Objects.equals(this.token, createAuthMethodHuawei.token) &&
@@ -521,7 +549,7 @@ public class CreateAuthMethodHuawei {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, forceSubClaims, name, password, token, uidToken, username);
+    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, forceSubClaims, jwtTtl, name, password, token, uidToken, username);
   }
 
 
@@ -539,6 +567,7 @@ public class CreateAuthMethodHuawei {
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

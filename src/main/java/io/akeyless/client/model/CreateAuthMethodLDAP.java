@@ -44,6 +44,10 @@ public class CreateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -139,6 +143,29 @@ public class CreateAuthMethodLDAP {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public CreateAuthMethodLDAP jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
   }
 
 
@@ -268,6 +295,7 @@ public class CreateAuthMethodLDAP {
     return Objects.equals(this.accessExpires, createAuthMethodLDAP.accessExpires) &&
         Objects.equals(this.boundIps, createAuthMethodLDAP.boundIps) &&
         Objects.equals(this.forceSubClaims, createAuthMethodLDAP.forceSubClaims) &&
+        Objects.equals(this.jwtTtl, createAuthMethodLDAP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodLDAP.name) &&
         Objects.equals(this.password, createAuthMethodLDAP.password) &&
         Objects.equals(this.token, createAuthMethodLDAP.token) &&
@@ -277,7 +305,7 @@ public class CreateAuthMethodLDAP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, name, password, token, uidToken, username);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, jwtTtl, name, password, token, uidToken, username);
   }
 
 
@@ -288,6 +316,7 @@ public class CreateAuthMethodLDAP {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

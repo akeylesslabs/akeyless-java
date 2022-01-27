@@ -57,6 +57,10 @@ public class UpdateRole {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
+  public static final String SERIALIZED_NAME_SRA_REPORTS_ACCESS = "sra-reports-access";
+  @SerializedName(SERIALIZED_NAME_SRA_REPORTS_ACCESS)
+  private String sraReportsAccess;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -230,6 +234,29 @@ public class UpdateRole {
   }
 
 
+  public UpdateRole sraReportsAccess(String sraReportsAccess) {
+    
+    this.sraReportsAccess = sraReportsAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view SRA Clusters. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported.
+   * @return sraReportsAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view SRA Clusters. Currently only 'none', 'own', 'all' values are supported.")
+
+  public String getSraReportsAccess() {
+    return sraReportsAccess;
+  }
+
+
+  public void setSraReportsAccess(String sraReportsAccess) {
+    this.sraReportsAccess = sraReportsAccess;
+  }
+
+
   public UpdateRole token(String token) {
     
     this.token = token;
@@ -315,6 +342,7 @@ public class UpdateRole {
         Objects.equals(this.newComment, updateRole.newComment) &&
         Objects.equals(this.newName, updateRole.newName) &&
         Objects.equals(this.password, updateRole.password) &&
+        Objects.equals(this.sraReportsAccess, updateRole.sraReportsAccess) &&
         Objects.equals(this.token, updateRole.token) &&
         Objects.equals(this.uidToken, updateRole.uidToken) &&
         Objects.equals(this.username, updateRole.username);
@@ -322,7 +350,7 @@ public class UpdateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, gwAnalyticsAccess, name, newComment, newName, password, token, uidToken, username);
+    return Objects.hash(analyticsAccess, auditAccess, gwAnalyticsAccess, name, newComment, newName, password, sraReportsAccess, token, uidToken, username);
   }
 
 
@@ -337,6 +365,7 @@ public class UpdateRole {
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    sraReportsAccess: ").append(toIndentedString(sraReportsAccess)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

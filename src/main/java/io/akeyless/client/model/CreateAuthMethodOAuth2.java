@@ -60,6 +60,10 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
   private String jwksUri;
 
+  public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
+  @SerializedName(SERIALIZED_NAME_JWT_TTL)
+  private Long jwtTtl = 0l;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -261,6 +265,29 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
+  public CreateAuthMethodOAuth2 jwtTtl(Long jwtTtl) {
+    
+    this.jwtTtl = jwtTtl;
+    return this;
+  }
+
+   /**
+   * Jwt TTL
+   * @return jwtTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Jwt TTL")
+
+  public Long getJwtTtl() {
+    return jwtTtl;
+  }
+
+
+  public void setJwtTtl(Long jwtTtl) {
+    this.jwtTtl = jwtTtl;
+  }
+
+
   public CreateAuthMethodOAuth2 name(String name) {
     
     this.name = name;
@@ -413,6 +440,7 @@ public class CreateAuthMethodOAuth2 {
         Objects.equals(this.forceSubClaims, createAuthMethodOAuth2.forceSubClaims) &&
         Objects.equals(this.issuer, createAuthMethodOAuth2.issuer) &&
         Objects.equals(this.jwksUri, createAuthMethodOAuth2.jwksUri) &&
+        Objects.equals(this.jwtTtl, createAuthMethodOAuth2.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOAuth2.name) &&
         Objects.equals(this.password, createAuthMethodOAuth2.password) &&
         Objects.equals(this.token, createAuthMethodOAuth2.token) &&
@@ -423,7 +451,7 @@ public class CreateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, issuer, jwksUri, name, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, issuer, jwksUri, jwtTtl, name, password, token, uidToken, uniqueIdentifier, username);
   }
 
 
@@ -438,6 +466,7 @@ public class CreateAuthMethodOAuth2 {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
+    sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

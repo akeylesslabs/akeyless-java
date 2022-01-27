@@ -37,6 +37,10 @@ public class AssocRoleAuthMethod {
   @SerializedName(SERIALIZED_NAME_AM_NAME)
   private String amName;
 
+  public static final String SERIALIZED_NAME_CASE_SENSITIVE = "case-sensitive";
+  @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
+  private String caseSensitive;
+
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -81,6 +85,29 @@ public class AssocRoleAuthMethod {
 
   public void setAmName(String amName) {
     this.amName = amName;
+  }
+
+
+  public AssocRoleAuthMethod caseSensitive(String caseSensitive) {
+    
+    this.caseSensitive = caseSensitive;
+    return this;
+  }
+
+   /**
+   * Get caseSensitive
+   * @return caseSensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCaseSensitive() {
+    return caseSensitive;
+  }
+
+
+  public void setCaseSensitive(String caseSensitive) {
+    this.caseSensitive = caseSensitive;
   }
 
 
@@ -239,6 +266,7 @@ public class AssocRoleAuthMethod {
     }
     AssocRoleAuthMethod assocRoleAuthMethod = (AssocRoleAuthMethod) o;
     return Objects.equals(this.amName, assocRoleAuthMethod.amName) &&
+        Objects.equals(this.caseSensitive, assocRoleAuthMethod.caseSensitive) &&
         Objects.equals(this.password, assocRoleAuthMethod.password) &&
         Objects.equals(this.roleName, assocRoleAuthMethod.roleName) &&
         Objects.equals(this.subClaims, assocRoleAuthMethod.subClaims) &&
@@ -249,7 +277,7 @@ public class AssocRoleAuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amName, password, roleName, subClaims, token, uidToken, username);
+    return Objects.hash(amName, caseSensitive, password, roleName, subClaims, token, uidToken, username);
   }
 
 
@@ -258,6 +286,7 @@ public class AssocRoleAuthMethod {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocRoleAuthMethod {\n");
     sb.append("    amName: ").append(toIndentedString(amName)).append("\n");
+    sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
