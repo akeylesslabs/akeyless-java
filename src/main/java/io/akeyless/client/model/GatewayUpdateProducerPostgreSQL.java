@@ -72,6 +72,10 @@ public class GatewayUpdateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY)
   private String producerEncryptionKey;
 
+  public static final String SERIALIZED_NAME_REVOCATION_STATEMENT = "revocation-statement";
+  @SerializedName(SERIALIZED_NAME_REVOCATION_STATEMENT)
+  private String revocationStatement;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
   private String secureAccessBastionIssuer;
@@ -91,6 +95,10 @@ public class GatewayUpdateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb;
+
+  public static final String SERIALIZED_NAME_SSL = "ssl";
+  @SerializedName(SERIALIZED_NAME_SSL)
+  private Boolean ssl;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -346,6 +354,29 @@ public class GatewayUpdateProducerPostgreSQL {
   }
 
 
+  public GatewayUpdateProducerPostgreSQL revocationStatement(String revocationStatement) {
+    
+    this.revocationStatement = revocationStatement;
+    return this;
+  }
+
+   /**
+   * PostgreSQL Revocation statements
+   * @return revocationStatement
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PostgreSQL Revocation statements")
+
+  public String getRevocationStatement() {
+    return revocationStatement;
+  }
+
+
+  public void setRevocationStatement(String revocationStatement) {
+    this.revocationStatement = revocationStatement;
+  }
+
+
   public GatewayUpdateProducerPostgreSQL secureAccessBastionIssuer(String secureAccessBastionIssuer) {
     
     this.secureAccessBastionIssuer = secureAccessBastionIssuer;
@@ -466,6 +497,29 @@ public class GatewayUpdateProducerPostgreSQL {
 
   public void setSecureAccessWeb(Boolean secureAccessWeb) {
     this.secureAccessWeb = secureAccessWeb;
+  }
+
+
+  public GatewayUpdateProducerPostgreSQL ssl(Boolean ssl) {
+    
+    this.ssl = ssl;
+    return this;
+  }
+
+   /**
+   * SSL connection mode
+   * @return ssl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection mode")
+
+  public Boolean getSsl() {
+    return ssl;
+  }
+
+
+  public void setSsl(Boolean ssl) {
+    this.ssl = ssl;
   }
 
 
@@ -634,11 +688,13 @@ public class GatewayUpdateProducerPostgreSQL {
         Objects.equals(this.postgresqlPort, gatewayUpdateProducerPostgreSQL.postgresqlPort) &&
         Objects.equals(this.postgresqlUsername, gatewayUpdateProducerPostgreSQL.postgresqlUsername) &&
         Objects.equals(this.producerEncryptionKey, gatewayUpdateProducerPostgreSQL.producerEncryptionKey) &&
+        Objects.equals(this.revocationStatement, gatewayUpdateProducerPostgreSQL.revocationStatement) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerPostgreSQL.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessDbSchema, gatewayUpdateProducerPostgreSQL.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerPostgreSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerPostgreSQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerPostgreSQL.secureAccessWeb) &&
+        Objects.equals(this.ssl, gatewayUpdateProducerPostgreSQL.ssl) &&
         Objects.equals(this.tags, gatewayUpdateProducerPostgreSQL.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerPostgreSQL.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerPostgreSQL.token) &&
@@ -649,7 +705,7 @@ public class GatewayUpdateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, newName, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, newName, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -667,11 +723,13 @@ public class GatewayUpdateProducerPostgreSQL {
     sb.append("    postgresqlPort: ").append(toIndentedString(postgresqlPort)).append("\n");
     sb.append("    postgresqlUsername: ").append(toIndentedString(postgresqlUsername)).append("\n");
     sb.append("    producerEncryptionKey: ").append(toIndentedString(producerEncryptionKey)).append("\n");
+    sb.append("    revocationStatement: ").append(toIndentedString(revocationStatement)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

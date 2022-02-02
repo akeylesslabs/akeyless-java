@@ -481,6 +481,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_POSTGRES_CREATION_STATEMENTS)
   private String postgresCreationStatements;
 
+  public static final String SERIALIZED_NAME_POSTGRES_REVOCATION_STATEMENTS = "postgres_revocation_statements";
+  @SerializedName(SERIALIZED_NAME_POSTGRES_REVOCATION_STATEMENTS)
+  private String postgresRevocationStatements;
+
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
   private String rabbitmqServerPassword;
@@ -544,6 +548,14 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_SHOULD_STOP = "should_stop";
   @SerializedName(SERIALIZED_NAME_SHOULD_STOP)
   private String shouldStop;
+
+  public static final String SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE = "ssl_connection_certificate";
+  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE)
+  private String sslConnectionCertificate;
+
+  public static final String SERIALIZED_NAME_SSL_CONNECTION_MODE = "ssl_connection_mode";
+  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_MODE)
+  private Boolean sslConnectionMode;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -3210,6 +3222,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails postgresRevocationStatements(String postgresRevocationStatements) {
+    
+    this.postgresRevocationStatements = postgresRevocationStatements;
+    return this;
+  }
+
+   /**
+   * Get postgresRevocationStatements
+   * @return postgresRevocationStatements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPostgresRevocationStatements() {
+    return postgresRevocationStatements;
+  }
+
+
+  public void setPostgresRevocationStatements(String postgresRevocationStatements) {
+    this.postgresRevocationStatements = postgresRevocationStatements;
+  }
+
+
   public DSProducerDetails rabbitmqServerPassword(String rabbitmqServerPassword) {
     
     this.rabbitmqServerPassword = rabbitmqServerPassword;
@@ -3575,6 +3610,52 @@ public class DSProducerDetails {
 
   public void setShouldStop(String shouldStop) {
     this.shouldStop = shouldStop;
+  }
+
+
+  public DSProducerDetails sslConnectionCertificate(String sslConnectionCertificate) {
+    
+    this.sslConnectionCertificate = sslConnectionCertificate;
+    return this;
+  }
+
+   /**
+   * (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field
+   * @return sslConnectionCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field")
+
+  public String getSslConnectionCertificate() {
+    return sslConnectionCertificate;
+  }
+
+
+  public void setSslConnectionCertificate(String sslConnectionCertificate) {
+    this.sslConnectionCertificate = sslConnectionCertificate;
+  }
+
+
+  public DSProducerDetails sslConnectionMode(Boolean sslConnectionMode) {
+    
+    this.sslConnectionMode = sslConnectionMode;
+    return this;
+  }
+
+   /**
+   * (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB
+   * @return sslConnectionMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB")
+
+  public Boolean getSslConnectionMode() {
+    return sslConnectionMode;
+  }
+
+
+  public void setSslConnectionMode(Boolean sslConnectionMode) {
+    this.sslConnectionMode = sslConnectionMode;
   }
 
 
@@ -4175,6 +4256,7 @@ public class DSProducerDetails {
         Objects.equals(this.passwordPolicy, dsProducerDetails.passwordPolicy) &&
         Objects.equals(this.payload, dsProducerDetails.payload) &&
         Objects.equals(this.postgresCreationStatements, dsProducerDetails.postgresCreationStatements) &&
+        Objects.equals(this.postgresRevocationStatements, dsProducerDetails.postgresRevocationStatements) &&
         Objects.equals(this.rabbitmqServerPassword, dsProducerDetails.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, dsProducerDetails.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, dsProducerDetails.rabbitmqServerUser) &&
@@ -4191,6 +4273,8 @@ public class DSProducerDetails {
         Objects.equals(this.sfUserRole, dsProducerDetails.sfUserRole) &&
         Objects.equals(this.sfWarehouseName, dsProducerDetails.sfWarehouseName) &&
         Objects.equals(this.shouldStop, dsProducerDetails.shouldStop) &&
+        Objects.equals(this.sslConnectionCertificate, dsProducerDetails.sslConnectionCertificate) &&
+        Objects.equals(this.sslConnectionMode, dsProducerDetails.sslConnectionMode) &&
         Objects.equals(this.tags, dsProducerDetails.tags) &&
         Objects.equals(this.timeoutSeconds, dsProducerDetails.timeoutSeconds) &&
         Objects.equals(this.useGwCloudIdentity, dsProducerDetails.useGwCloudIdentity) &&
@@ -4215,7 +4299,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, passwordLength, passwordPolicy, payload, postgresCreationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -4335,6 +4419,7 @@ public class DSProducerDetails {
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    postgresCreationStatements: ").append(toIndentedString(postgresCreationStatements)).append("\n");
+    sb.append("    postgresRevocationStatements: ").append(toIndentedString(postgresRevocationStatements)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
@@ -4351,6 +4436,8 @@ public class DSProducerDetails {
     sb.append("    sfUserRole: ").append(toIndentedString(sfUserRole)).append("\n");
     sb.append("    sfWarehouseName: ").append(toIndentedString(sfWarehouseName)).append("\n");
     sb.append("    shouldStop: ").append(toIndentedString(shouldStop)).append("\n");
+    sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
+    sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");

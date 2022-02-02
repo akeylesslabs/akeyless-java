@@ -293,6 +293,14 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
   private String sfAccount;
 
+  public static final String SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE = "ssl_connection_certificate";
+  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE)
+  private String sslConnectionCertificate;
+
+  public static final String SERIALIZED_NAME_SSL_CONNECTION_MODE = "ssl_connection_mode";
+  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_MODE)
+  private Boolean sslConnectionMode;
+
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
@@ -1848,6 +1856,52 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput sslConnectionCertificate(String sslConnectionCertificate) {
+    
+    this.sslConnectionCertificate = sslConnectionCertificate;
+    return this;
+  }
+
+   /**
+   * (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field
+   * @return sslConnectionCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field")
+
+  public String getSslConnectionCertificate() {
+    return sslConnectionCertificate;
+  }
+
+
+  public void setSslConnectionCertificate(String sslConnectionCertificate) {
+    this.sslConnectionCertificate = sslConnectionCertificate;
+  }
+
+
+  public TargetTypeDetailsInput sslConnectionMode(Boolean sslConnectionMode) {
+    
+    this.sslConnectionMode = sslConnectionMode;
+    return this;
+  }
+
+   /**
+   * (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB
+   * @return sslConnectionMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB")
+
+  public Boolean getSslConnectionMode() {
+    return sslConnectionMode;
+  }
+
+
+  public void setSslConnectionMode(Boolean sslConnectionMode) {
+    this.sslConnectionMode = sslConnectionMode;
+  }
+
+
   public TargetTypeDetailsInput url(String url) {
     
     this.url = url;
@@ -2130,6 +2184,8 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
         Objects.equals(this.sfAccount, targetTypeDetailsInput.sfAccount) &&
+        Objects.equals(this.sslConnectionCertificate, targetTypeDetailsInput.sslConnectionCertificate) &&
+        Objects.equals(this.sslConnectionMode, targetTypeDetailsInput.sslConnectionMode) &&
         Objects.equals(this.url, targetTypeDetailsInput.url) &&
         Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
         Objects.equals(this.username, targetTypeDetailsInput.username) &&
@@ -2143,7 +2199,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, sslConnectionCertificate, sslConnectionMode, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2217,6 +2273,8 @@ public class TargetTypeDetailsInput {
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
+    sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
+    sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

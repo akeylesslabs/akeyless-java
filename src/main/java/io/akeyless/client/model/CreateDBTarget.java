@@ -105,6 +105,14 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_SNOWFLAKE_ACCOUNT)
   private String snowflakeAccount;
 
+  public static final String SERIALIZED_NAME_SSL = "ssl";
+  @SerializedName(SERIALIZED_NAME_SSL)
+  private Boolean ssl;
+
+  public static final String SERIALIZED_NAME_SSL_CERTIFICATE = "ssl-certificate";
+  @SerializedName(SERIALIZED_NAME_SSL_CERTIFICATE)
+  private String sslCertificate;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -557,6 +565,52 @@ public class CreateDBTarget {
   }
 
 
+  public CreateDBTarget ssl(Boolean ssl) {
+    
+    this.ssl = ssl;
+    return this;
+  }
+
+   /**
+   * SSL connection mode
+   * @return ssl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection mode")
+
+  public Boolean getSsl() {
+    return ssl;
+  }
+
+
+  public void setSsl(Boolean ssl) {
+    this.ssl = ssl;
+  }
+
+
+  public CreateDBTarget sslCertificate(String sslCertificate) {
+    
+    this.sslCertificate = sslCertificate;
+    return this;
+  }
+
+   /**
+   * SSL connection certificate
+   * @return sslCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection certificate")
+
+  public String getSslCertificate() {
+    return sslCertificate;
+  }
+
+
+  public void setSslCertificate(String sslCertificate) {
+    this.sslCertificate = sslCertificate;
+  }
+
+
   public CreateDBTarget token(String token) {
     
     this.token = token;
@@ -677,6 +731,8 @@ public class CreateDBTarget {
         Objects.equals(this.port, createDBTarget.port) &&
         Objects.equals(this.pwd, createDBTarget.pwd) &&
         Objects.equals(this.snowflakeAccount, createDBTarget.snowflakeAccount) &&
+        Objects.equals(this.ssl, createDBTarget.ssl) &&
+        Objects.equals(this.sslCertificate, createDBTarget.sslCertificate) &&
         Objects.equals(this.token, createDBTarget.token) &&
         Objects.equals(this.uidToken, createDBTarget.uidToken) &&
         Objects.equals(this.userName, createDBTarget.userName) &&
@@ -685,7 +741,7 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, password, port, pwd, snowflakeAccount, token, uidToken, userName, username);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, password, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, userName, username);
   }
 
 
@@ -712,6 +768,8 @@ public class CreateDBTarget {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
+    sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
+    sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");

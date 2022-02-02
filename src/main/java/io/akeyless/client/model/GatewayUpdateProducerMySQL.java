@@ -96,6 +96,14 @@ public class GatewayUpdateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb;
 
+  public static final String SERIALIZED_NAME_SSL = "ssl";
+  @SerializedName(SERIALIZED_NAME_SSL)
+  private Boolean ssl;
+
+  public static final String SERIALIZED_NAME_SSL_CERTIFICATE = "ssl-certificate";
+  @SerializedName(SERIALIZED_NAME_SSL_CERTIFICATE)
+  private String sslCertificate;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -496,6 +504,52 @@ public class GatewayUpdateProducerMySQL {
   }
 
 
+  public GatewayUpdateProducerMySQL ssl(Boolean ssl) {
+    
+    this.ssl = ssl;
+    return this;
+  }
+
+   /**
+   * SSL connection mode
+   * @return ssl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection mode")
+
+  public Boolean getSsl() {
+    return ssl;
+  }
+
+
+  public void setSsl(Boolean ssl) {
+    this.ssl = ssl;
+  }
+
+
+  public GatewayUpdateProducerMySQL sslCertificate(String sslCertificate) {
+    
+    this.sslCertificate = sslCertificate;
+    return this;
+  }
+
+   /**
+   * SSL connection certificate
+   * @return sslCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection certificate")
+
+  public String getSslCertificate() {
+    return sslCertificate;
+  }
+
+
+  public void setSslCertificate(String sslCertificate) {
+    this.sslCertificate = sslCertificate;
+  }
+
+
   public GatewayUpdateProducerMySQL tags(List<String> tags) {
     
     this.tags = tags;
@@ -667,6 +721,8 @@ public class GatewayUpdateProducerMySQL {
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMySQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerMySQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerMySQL.secureAccessWeb) &&
+        Objects.equals(this.ssl, gatewayUpdateProducerMySQL.ssl) &&
+        Objects.equals(this.sslCertificate, gatewayUpdateProducerMySQL.sslCertificate) &&
         Objects.equals(this.tags, gatewayUpdateProducerMySQL.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerMySQL.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerMySQL.token) &&
@@ -677,7 +733,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
   }
 
 
@@ -701,6 +757,8 @@ public class GatewayUpdateProducerMySQL {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
+    sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

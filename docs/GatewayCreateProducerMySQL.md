@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
 **secureAccessWeb** | **Boolean** |  |  [optional]
+**ssl** | **Boolean** | SSL connection mode |  [optional]
+**sslCertificate** | **String** | SSL connection certificate |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
