@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **mQueue** | **String** |  |  [optional]
 **migrations** | **String** |  |  [optional]
 **producers** | [**Object**](.md) |  |  [optional]
+**producersStatus** | **String** |  |  [optional]
 **rotators** | [**Object**](.md) |  |  [optional]
 **saml** | **String** |  |  [optional]
 **universalIdentity** | **String** |  |  [optional]

@@ -37,6 +37,10 @@ public class UpdateAssoc {
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
 
+  public static final String SERIALIZED_NAME_CASE_SENSITIVE = "case-sensitive";
+  @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
+  private String caseSensitive;
+
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -77,6 +81,29 @@ public class UpdateAssoc {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public UpdateAssoc caseSensitive(String caseSensitive) {
+    
+    this.caseSensitive = caseSensitive;
+    return this;
+  }
+
+   /**
+   * Get caseSensitive
+   * @return caseSensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCaseSensitive() {
+    return caseSensitive;
+  }
+
+
+  public void setCaseSensitive(String caseSensitive) {
+    this.caseSensitive = caseSensitive;
   }
 
 
@@ -213,6 +240,7 @@ public class UpdateAssoc {
     }
     UpdateAssoc updateAssoc = (UpdateAssoc) o;
     return Objects.equals(this.assocId, updateAssoc.assocId) &&
+        Objects.equals(this.caseSensitive, updateAssoc.caseSensitive) &&
         Objects.equals(this.password, updateAssoc.password) &&
         Objects.equals(this.subClaims, updateAssoc.subClaims) &&
         Objects.equals(this.token, updateAssoc.token) &&
@@ -222,7 +250,7 @@ public class UpdateAssoc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, password, subClaims, token, uidToken, username);
+    return Objects.hash(assocId, caseSensitive, password, subClaims, token, uidToken, username);
   }
 
 
@@ -231,6 +259,7 @@ public class UpdateAssoc {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAssoc {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

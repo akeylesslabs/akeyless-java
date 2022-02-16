@@ -153,6 +153,18 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
   private String gcpServiceAccountKey;
 
+  public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github_app_id";
+  @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
+  private Long githubAppId;
+
+  public static final String SERIALIZED_NAME_GITHUB_APP_PRIVATE_KEY = "github_app_private_key";
+  @SerializedName(SERIALIZED_NAME_GITHUB_APP_PRIVATE_KEY)
+  private String githubAppPrivateKey;
+
+  public static final String SERIALIZED_NAME_GITHUB_BASE_URL = "github_base_url";
+  @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
+  private String githubBaseUrl;
+
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
   private String gkeClusterCaCertificate;
@@ -1048,6 +1060,75 @@ public class TargetTypeDetailsInput {
 
   public void setGcpServiceAccountKey(String gcpServiceAccountKey) {
     this.gcpServiceAccountKey = gcpServiceAccountKey;
+  }
+
+
+  public TargetTypeDetailsInput githubAppId(Long githubAppId) {
+    
+    this.githubAppId = githubAppId;
+    return this;
+  }
+
+   /**
+   * Get githubAppId
+   * @return githubAppId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getGithubAppId() {
+    return githubAppId;
+  }
+
+
+  public void setGithubAppId(Long githubAppId) {
+    this.githubAppId = githubAppId;
+  }
+
+
+  public TargetTypeDetailsInput githubAppPrivateKey(String githubAppPrivateKey) {
+    
+    this.githubAppPrivateKey = githubAppPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get githubAppPrivateKey
+   * @return githubAppPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGithubAppPrivateKey() {
+    return githubAppPrivateKey;
+  }
+
+
+  public void setGithubAppPrivateKey(String githubAppPrivateKey) {
+    this.githubAppPrivateKey = githubAppPrivateKey;
+  }
+
+
+  public TargetTypeDetailsInput githubBaseUrl(String githubBaseUrl) {
+    
+    this.githubBaseUrl = githubBaseUrl;
+    return this;
+  }
+
+   /**
+   * Get githubBaseUrl
+   * @return githubBaseUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGithubBaseUrl() {
+    return githubBaseUrl;
+  }
+
+
+  public void setGithubBaseUrl(String githubBaseUrl) {
+    this.githubBaseUrl = githubBaseUrl;
   }
 
 
@@ -2149,6 +2230,9 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.eksSecretAccessKey, targetTypeDetailsInput.eksSecretAccessKey) &&
         Objects.equals(this.gcpServiceAccountEmail, targetTypeDetailsInput.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKey, targetTypeDetailsInput.gcpServiceAccountKey) &&
+        Objects.equals(this.githubAppId, targetTypeDetailsInput.githubAppId) &&
+        Objects.equals(this.githubAppPrivateKey, targetTypeDetailsInput.githubAppPrivateKey) &&
+        Objects.equals(this.githubBaseUrl, targetTypeDetailsInput.githubBaseUrl) &&
         Objects.equals(this.gkeClusterCaCertificate, targetTypeDetailsInput.gkeClusterCaCertificate) &&
         Objects.equals(this.gkeClusterEndpoint, targetTypeDetailsInput.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, targetTypeDetailsInput.gkeClusterName) &&
@@ -2199,7 +2283,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, sslConnectionCertificate, sslConnectionMode, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, sslConnectionCertificate, sslConnectionMode, url, useGwCloudIdentity, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2238,6 +2322,9 @@ public class TargetTypeDetailsInput {
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
+    sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
+    sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
+    sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
     sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");

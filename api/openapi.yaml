@@ -136,12 +136,12 @@ paths:
       x-accepts: application/json
   /connect:
     post:
-      operationId: connect
+      operationId: Connect
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/connect'
+              $ref: '#/components/schemas/Connect'
         required: true
       responses:
         "200":
@@ -730,6 +730,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/createGcpTargetOutput'
           description: createGcpTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /create-github-target:
+    post:
+      operationId: createGithubTarget
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createGithubTarget'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createGithubTargetOutput'
+          description: createGithubTargetResponse wraps response body.
         default:
           content:
             application/json:
@@ -1904,6 +1933,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-create-producer-github:
+    post:
+      operationId: gatewayCreateProducerGithub
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayCreateProducerGithub'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayCreateProducerGithubOutput'
+          description: gatewayCreateProducerGithubResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-create-producer-gke:
     post:
       operationId: gatewayCreateProducerGke
@@ -2935,6 +2993,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayUpdateProducerGcpOutput'
           description: gatewayUpdateProducerGcpResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-producer-github:
+    post:
+      operationId: gatewayUpdateProducerGithub
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateProducerGithub'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateProducerGithubOutput'
+          description: gatewayUpdateProducerGithubResponse wraps response body.
         default:
           content:
             application/json:
@@ -5260,6 +5347,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /update-github-target:
+    post:
+      operationId: updateGithubTarget
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateGithubTarget'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateGithubTargetOutput'
+          description: updateGithubTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /update-gke-target:
     post:
       operationId: updateGKETarget
@@ -6091,6 +6207,12 @@ components:
           schema:
             $ref: '#/components/schemas/createGcpTargetOutput'
       description: createGcpTargetResponse wraps response body.
+    createGithubTargetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createGithubTargetOutput'
+      description: createGithubTargetResponse wraps response body.
     createKeyResponse:
       content:
         application/json:
@@ -6352,6 +6474,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayCreateProducerGcpOutput'
       description: gatewayCreateProducerGcpResponse wraps response body.
+    gatewayCreateProducerGithubResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayCreateProducerGithubOutput'
+      description: gatewayCreateProducerGithubResponse wraps response body.
     gatewayCreateProducerGkeResponse:
       content:
         application/json:
@@ -6574,6 +6702,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayUpdateProducerGcpOutput'
       description: gatewayUpdateProducerGcpResponse wraps response body.
+    gatewayUpdateProducerGithubResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayUpdateProducerGithubOutput'
+      description: gatewayUpdateProducerGithubResponse wraps response body.
     gatewayUpdateProducerGkeResponse:
       content:
         application/json:
@@ -7074,6 +7208,12 @@ components:
           schema:
             $ref: '#/components/schemas/updateGcpTargetOutput'
       description: updateGcpTargetResponse wraps response body.
+    updateGithubTargetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateGithubTargetOutput'
+      description: updateGithubTargetResponse wraps response body.
     updateItemResponse:
       content:
         application/json:
@@ -7567,6 +7707,7 @@ components:
           syslog_config:
             syslog_host: syslog_host
             syslog_target_tag: syslog_target_tag
+            syslog_formatter: syslog_formatter
             syslog_network: syslog_network
           target_log_type: target_log_type
           datadog_config:
@@ -8769,6 +8910,7 @@ components:
         config_hash:
           k8s_auths: k8s_auths
           cache: cache
+          producers_status: producers_status
           universal_identity: universal_identity
           customer_fragements: customer_fragements
           m_queue: m_queue
@@ -8801,6 +8943,7 @@ components:
       example:
         k8s_auths: k8s_auths
         cache: cache
+        producers_status: producers_status
         universal_identity: universal_identity
         customer_fragements: customer_fragements
         m_queue: m_queue
@@ -8851,6 +8994,9 @@ components:
         producers:
           type: object
           x-go-name: Producers
+        producers_status:
+          type: string
+          x-go-name: ProducersStatus
         rotators:
           type: object
           x-go-name: Rotators
@@ -8862,6 +9008,94 @@ components:
           x-go-name: UIdentity
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    Connect:
+      description: Connect is a command that performs secure remote access
+      example:
+        cert-issuer-name: cert-issuer-name
+        via-bastion: via-bastion
+        identity-file: identity-file
+        bastion-ctrl-subdomain: bastion-ctrl-subdomain
+        uid-token: uid-token
+        bastion-ctrl-path: bastion-ctrl-path
+        target: target
+        token: token
+        password: password
+        bastion-ctrl-port: "9900"
+        name: name
+        bastion-ctrl-proto: http
+        ssh-extra-args: ssh-extra-args
+        RcFileOverride: RcFileOverride
+        username: username
+      properties:
+        RcFileOverride:
+          description: used to override .akeyless-connect.rc in tests
+          type: string
+        bastion-ctrl-path:
+          description: The Bastion API path
+          type: string
+          x-go-name: BastionAPIPath
+        bastion-ctrl-port:
+          default: "9900"
+          description: The Bastion API Port
+          type: string
+          x-go-name: BastionPort
+        bastion-ctrl-proto:
+          default: http
+          description: The Bastion API protocol
+          type: string
+          x-go-name: BastionProtocol
+        bastion-ctrl-subdomain:
+          description: The Bastion API prefix
+          type: string
+          x-go-name: BastionAPIPrefix
+        cert-issuer-name:
+          description: The Akeyless certificate issuer name
+          type: string
+          x-go-name: CertIssuerName
+        identity-file:
+          description: The file from which the identity (private key) for public key
+            authentication is read
+          type: string
+          x-go-name: IdentityFile
+        name:
+          description: The Secret name (for database and AWS producers - producer
+            name)
+          type: string
+          x-go-name: SecretName
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        ssh-extra-args:
+          description: The Use to add offical SSH arguments (except -i)
+          type: string
+          x-go-name: SSHExtraArgs
+        target:
+          description: The target
+          type: string
+          x-go-name: Target
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+        via-bastion:
+          description: The jump box server
+          type: string
+          x-go-name: ViaBastion
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreateClassicKey:
       description: CreateClassicKey is a command that creates classic key
       example:
@@ -9207,12 +9441,13 @@ components:
         k8s_namespace: k8s_namespace
         venafi_sign_using_akeyless_pki: true
         dynamic_secret_key: dynamic_secret_key
-        last_admin_rotation: 1
+        last_admin_rotation: 2
         chef_server_key: chef_server_key
         db_max_open_conns: db_max_open_conns
         admin_rotation_interval_days: 0
         ssl_connection_certificate: ssl_connection_certificate
         oracle_creation_statements: oracle_creation_statements
+        github_app_id: 1
         mssql_creation_statements: mssql_creation_statements
         sf_user_role: sf_user_role
         ldap_certificate: ldap_certificate
@@ -9230,7 +9465,7 @@ components:
         aws_access_mode: aws_access_mode
         aws_user_policies: aws_user_policies
         aws_role_arns: aws_role_arns
-        username_length: 2
+        username_length: 3
         active: true
         item_targets_assoc:
         - assoc_id: assoc_id
@@ -9270,8 +9505,10 @@ components:
         mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
         eks_access_key_id: eks_access_key_id
         venafi_base_url: venafi_base_url
+        github_installation_token_permissions:
+          key: github_installation_token_permissions
         user_ttl: user_ttl
-        timeout_seconds: 5
+        timeout_seconds: 9
         eks_assume_role: eks_assume_role
         ldap_token_expiration: ldap_token_expiration
         venafi_use_tpp: true
@@ -9316,6 +9553,9 @@ components:
         gcp_key_algo: gcp_key_algo
         db_server_name: db_server_name
         venafi_zone: venafi_zone
+        github_installation_token_repositories:
+        - github_installation_token_repositories
+        - github_installation_token_repositories
         gcp_service_account_key: gcp_service_account_key
         venafi_store_private_key: true
         venafi_tpp_username: venafi_tpp_username
@@ -9325,11 +9565,16 @@ components:
         gke_service_account_key: gke_service_account_key
         venafi_auto_generated_folder: venafi_auto_generated_folder
         mongodb_uri_options: mongodb_uri_options
+        github_app_private_key: github_app_private_key
         db_pwd: db_pwd
+        github_installation_token_repositories_ids:
+        - 5
+        - 5
         gke_service_account_name: gke_service_account_name
         mysql_creation_statements: mysql_creation_statements
         gcp_service_account_email: gcp_service_account_email
-        password_length: 5
+        password_length: 7
+        github_installation_id: 5
         dynamic_secret_name: dynamic_secret_name
         rabbitmq_server_uri: rabbitmq_server_uri
         chef_server_access_mode: chef_server_access_mode
@@ -9345,6 +9590,7 @@ components:
         k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
         eks_secret_access_key: eks_secret_access_key
         sf_account: sf_account
+        github_base_url: github_base_url
         secure_remote_access_details:
           schema: schema
           bastion_ssh: bastion_ssh
@@ -9382,6 +9628,7 @@ components:
         chef_server_port: chef_server_port
         mongodb_is_atlas: true
         eks_cluster_ca_certificate: eks_cluster_ca_certificate
+        github_repository_path: github_repository_path
         rotate_sync_url: rotate_sync_url
         aws_access_key_id: aws_access_key_id
         aws_region: aws_region
@@ -9607,6 +9854,39 @@ components:
         gcp_token_type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+        github_app_id:
+          format: int64
+          type: integer
+          x-go-name: GithubAppId
+        github_app_private_key:
+          type: string
+          x-go-name: GithubAppPrivateKey
+        github_base_url:
+          type: string
+          x-go-name: GithubBaseURL
+        github_installation_id:
+          format: int64
+          type: integer
+          x-go-name: GithubInstallationId
+        github_installation_token_permissions:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: GithubTokenPermissions
+        github_installation_token_repositories:
+          items:
+            type: string
+          type: array
+          x-go-name: GithubTokenRepositories
+        github_installation_token_repositories_ids:
+          items:
+            format: int64
+            type: integer
+          type: array
+          x-go-name: GithubTokenRepositoriesById
+        github_repository_path:
+          type: string
+          x-go-name: GithubRepositoryPath
         gke_cluster_ca_certificate:
           type: string
           x-go-name: GKEClusterCACertificate
@@ -10407,6 +10687,7 @@ components:
           chef_server_key: chef_server_key
           ssl_connection_certificate: ssl_connection_certificate
           azure_client_id: azure_client_id
+          github_app_id: 0
           mongodb_default_auth_db: mongodb_default_auth_db
           mongodb_uri_connection: mongodb_uri_connection
           mongodb_atlas_project_id: mongodb_atlas_project_id
@@ -10443,6 +10724,7 @@ components:
           mongodb_uri_options: mongodb_uri_options
           mongodb_username: mongodb_username
           ssl_connection_mode: true
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
           gke_service_account_name: gke_service_account_name
           gcp_service_account_email: gcp_service_account_email
@@ -10460,6 +10742,7 @@ components:
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
           aws_secret_access_key: aws_secret_access_key
+          github_base_url: github_base_url
           mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
           chef_server_host_name: chef_server_host_name
           url: url
@@ -13102,6 +13385,7 @@ components:
         syslog_config:
           syslog_host: syslog_host
           syslog_target_tag: syslog_target_tag
+          syslog_formatter: syslog_formatter
           syslog_network: syslog_network
         target_log_type: target_log_type
         datadog_config:
@@ -14438,8 +14722,12 @@ components:
       example:
         syslog_host: syslog_host
         syslog_target_tag: syslog_target_tag
+        syslog_formatter: syslog_formatter
         syslog_network: syslog_network
       properties:
+        syslog_formatter:
+          type: string
+          x-go-name: SyslogFormatter
         syslog_host:
           type: string
           x-go-name: SyslogHost
@@ -14657,6 +14945,7 @@ components:
         chef_server_key: chef_server_key
         ssl_connection_certificate: ssl_connection_certificate
         azure_client_id: azure_client_id
+        github_app_id: 0
         mongodb_default_auth_db: mongodb_default_auth_db
         mongodb_uri_connection: mongodb_uri_connection
         mongodb_atlas_project_id: mongodb_atlas_project_id
@@ -14693,6 +14982,7 @@ components:
         mongodb_uri_options: mongodb_uri_options
         mongodb_username: mongodb_username
         ssl_connection_mode: true
+        github_app_private_key: github_app_private_key
         db_pwd: db_pwd
         gke_service_account_name: gke_service_account_name
         gcp_service_account_email: gcp_service_account_email
@@ -14710,6 +15000,7 @@ components:
         eks_secret_access_key: eks_secret_access_key
         sf_account: sf_account
         aws_secret_access_key: aws_secret_access_key
+        github_base_url: github_base_url
         mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
         chef_server_host_name: chef_server_host_name
         url: url
@@ -14831,6 +15122,16 @@ components:
         gcp_service_account_key:
           type: string
           x-go-name: GCPServiceAccountKey
+        github_app_id:
+          format: int64
+          type: integer
+          x-go-name: GithubAppId
+        github_app_private_key:
+          type: string
+          x-go-name: GithubAppPrivateKey
+        github_base_url:
+          type: string
+          x-go-name: GithubBaseURL
         gke_cluster_ca_certificate:
           type: string
           x-go-name: GKEClusterCACertificate
@@ -15555,75 +15856,6 @@ components:
         token:
           type: string
           x-go-name: Token
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    connect:
-      description: connect is a command that performs secure remote access
-      properties:
-        bastion-ctrl-path:
-          description: The Bastion API path
-          type: string
-          x-go-name: BastionAPIPath
-        bastion-ctrl-port:
-          default: "9900"
-          description: The Bastion API Port
-          type: string
-          x-go-name: BastionPort
-        bastion-ctrl-proto:
-          default: http
-          description: The Bastion API protocol
-          type: string
-          x-go-name: BastionProtocol
-        bastion-ctrl-subdomain:
-          description: The Bastion API prefix
-          type: string
-          x-go-name: BastionAPIPrefix
-        cert-issuer-name:
-          description: The Akeyless certificate issuer name
-          type: string
-          x-go-name: CertIssuerName
-        identity-file:
-          description: The file from which the identity (private key) for public key
-            authentication is read
-          type: string
-          x-go-name: IdentityFile
-        name:
-          description: The Secret name (for database and AWS producers - producer
-            name)
-          type: string
-          x-go-name: SecretName
-        password:
-          description: Required only when the authentication process requires a username
-            and password
-          type: string
-          x-go-name: Password
-        ssh-extra-args:
-          description: The Use to add offical SSH arguments (except -i)
-          type: string
-          x-go-name: SSHExtraArgs
-        target:
-          description: The target
-          type: string
-          x-go-name: Target
-        token:
-          description: Authentication token (see `/auth` and `/configure`)
-          type: string
-          x-go-name: Profile
-        uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
-            authentication
-          type: string
-          x-go-name: UIDToken
-        username:
-          description: Required only when the authentication process requires a username
-            and password
-          type: string
-          x-go-name: Username
-        via-bastion:
-          description: The jump box server
-          type: string
-          x-go-name: ViaBastion
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     connectOutput:
@@ -17397,6 +17629,70 @@ components:
           x-go-name: TargetID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createGithubTarget:
+      properties:
+        comment:
+          description: Comment about the target
+          type: string
+          x-go-name: Comment
+        github-app-id:
+          description: Github app id
+          format: int64
+          type: integer
+          x-go-name: AppId
+        github-app-private-key:
+          description: App private key
+          type: string
+          x-go-name: AppPrivateKey
+        github-base-url:
+          description: Base URL
+          type: string
+          x-go-name: BaseUrl
+        key:
+          description: |-
+            The name of a key that used to encrypt the target secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      required:
+      - name
+      title: createGithubTarget is a command that creates a new target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createGithubTargetOutput:
+      example:
+        target_id: 0
+      properties:
+        target_id:
+          format: int64
+          type: integer
+          x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createKey:
       description: 'createKey is a command that creates a new key. [Deprecated: Use
         command create-dfc-key]'
@@ -17728,6 +18024,10 @@ components:
         api-key:
           type: string
           x-go-name: ApiKey
+        application-id:
+          description: ApplicationId (used in azure)
+          type: string
+          x-go-name: ApplicationId
         authentication-credentials:
           type: string
           x-go-name: RotatorCredsType
@@ -17826,6 +18126,7 @@ components:
           type: string
           x-go-name: Username
       required:
+      - application-id
       - name
       - rotator-type
       - target-name
@@ -19252,6 +19553,7 @@ components:
           config_hash:
             k8s_auths: k8s_auths
             cache: cache
+            producers_status: producers_status
             universal_identity: universal_identity
             customer_fragements: customer_fragements
             m_queue: m_queue
@@ -19357,12 +19659,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -19380,7 +19683,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -19420,8 +19723,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -19466,6 +19771,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -19475,11 +19783,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -19495,6 +19808,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -19532,6 +19846,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -19672,12 +19987,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -19695,7 +20011,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -19735,8 +20051,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -19781,6 +20099,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -19790,11 +20111,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -19810,6 +20136,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -19847,6 +20174,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -19966,12 +20294,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -19989,7 +20318,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20029,8 +20358,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -20075,6 +20406,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -20084,11 +20418,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -20104,6 +20443,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -20141,6 +20481,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -20235,12 +20576,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -20258,7 +20600,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20298,8 +20640,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -20344,6 +20688,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -20353,11 +20700,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -20373,6 +20725,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -20410,6 +20763,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -20553,12 +20907,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -20576,7 +20931,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20616,8 +20971,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -20662,6 +21019,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -20671,11 +21031,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -20691,6 +21056,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -20728,6 +21094,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -20904,12 +21271,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -20927,7 +21295,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20967,8 +21335,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21013,6 +21383,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -21022,11 +21395,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -21042,6 +21420,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -21079,6 +21458,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -21195,12 +21575,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -21218,7 +21599,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21258,8 +21639,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21304,6 +21687,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -21313,11 +21699,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -21333,6 +21724,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -21370,6 +21762,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -21461,12 +21854,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -21484,7 +21878,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21524,8 +21918,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21570,6 +21966,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -21579,11 +21978,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -21599,6 +22003,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -21636,6 +22041,286 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
+          rotate_sync_url: rotate_sync_url
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          chef_server_url: chef_server_url
+          gke_cluster_name: gke_cluster_name
+          aws_user_groups: aws_user_groups
+          host_name: host_name
+          azure_tenant_id: azure_tenant_id
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerGithub:
+      description: gatewayCreateProducerGithub is a command that creates github producer
+      properties:
+        github-app-id:
+          description: Github app id
+          format: int64
+          type: integer
+          x-go-name: AppId
+        github-app-private-key:
+          description: App private key
+          type: string
+          x-go-name: AppPrivateKey
+        github-base-url:
+          description: Base URL
+          type: string
+          x-go-name: BaseUrl
+        installation-id:
+          description: Github app installation id
+          format: int64
+          type: integer
+          x-go-name: InstallationId
+        installation-repository:
+          description: Repository that the app installation has access to
+          type: string
+          x-go-name: Repository
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        token-permissions:
+          description: Optional - installation token's allowed permissions
+          items:
+            type: string
+          type: array
+          x-go-name: TokenPermissions
+        token-repositories:
+          description: Optional - installation token's allowed repositories
+          items:
+            type: string
+          type: array
+          x-go-name: TokenRepositories
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerGithubOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          k8s_namespace: k8s_namespace
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          last_admin_rotation: 2
+          chef_server_key: chef_server_key
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          ssl_connection_certificate: ssl_connection_certificate
+          oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
+          mssql_creation_statements: mssql_creation_statements
+          sf_user_role: sf_user_role
+          ldap_certificate: ldap_certificate
+          ldap_bind_dn: ldap_bind_dn
+          ldap_url: ldap_url
+          username_policy: username_policy
+          admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          azure_user_roles_template_id: azure_user_roles_template_id
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_access_mode: aws_access_mode
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          username_length: 3
+          active: true
+          item_targets_assoc:
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_id: 6
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_id: 6
+          chef_server_username: chef_server_username
+          db_host_name: db_host_name
+          tags:
+          - tags
+          - tags
+          ldap_user_dn: ldap_user_dn
+          db_name: db_name
+          k8s_service_account: k8s_service_account
+          chef_skip_ssl: true
+          db_port: db_port
+          k8s_cluster_endpoint: k8s_cluster_endpoint
+          artifactory_base_url: artifactory_base_url
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
+          db_isolation_level: db_isolation_level
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          ssl_connection_mode: true
+          postgres_revocation_statements: postgres_revocation_statements
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
+          user_ttl: user_ttl
+          timeout_seconds: 9
+          eks_assume_role: eks_assume_role
+          ldap_token_expiration: ldap_token_expiration
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          db_max_idle_conns: db_max_idle_conns
+          password_policy: password_policy
+          artifactory_admin_username: artifactory_admin_username
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          sf_warehouse_name: sf_warehouse_name
+          artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          host_port: host_port
+          k8s_bearer_token: k8s_bearer_token
+          enable_admin_rotation: true
+          cassandra_creation_statements: cassandra_creation_statements
+          failure_message: failure_message
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_uri_connection: mongodb_uri_connection
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          db_user_name: db_user_name
+          eks_region: eks_region
+          payload: payload
+          artifactory_admin_apikey: artifactory_admin_apikey
+          redshift_creation_statements: redshift_creation_statements
+          ldap_audience: ldap_audience
+          azure_app_object_id: azure_app_object_id
+          ldap_bind_password: ldap_bind_password
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
+          db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
+          db_server_name: db_server_name
+          venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
+          gcp_service_account_key: gcp_service_account_key
+          venafi_store_private_key: true
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
+          db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
+          password_length: 7
+          github_installation_id: 5
+          dynamic_secret_name: dynamic_secret_name
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          aws_user_programmatic_access: true
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          is_fixed_user: is_fixed_user
+          ldap_user_attr: ldap_user_attr
+          use_gw_cloud_identity: true
+          azure_user_programmatic_access: true
+          k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
+          eks_secret_access_key: eks_secret_access_key
+          sf_account: sf_account
+          github_base_url: github_base_url
+          secure_remote_access_details:
+            schema: schema
+            bastion_ssh: bastion_ssh
+            isolated: true
+            ssh_private_key: true
+            allow_port_forwarding: true
+            is_web: true
+            endpoint: endpoint
+            native: true
+            enable: true
+            host:
+            - host
+            - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
+            bastion_api: bastion_api
+            category: category
+            region: region
+            ssh_password: true
+            bastion_issuer_id: 1
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          chef_server_host_name: chef_server_host_name
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -21743,12 +22428,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -21766,7 +22452,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21806,8 +22492,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21852,6 +22540,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -21861,11 +22552,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -21881,6 +22577,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -21918,6 +22615,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -22023,12 +22721,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -22046,7 +22745,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22086,8 +22785,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22132,6 +22833,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -22141,11 +22845,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -22161,6 +22870,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -22198,6 +22908,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -22317,12 +23028,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -22340,7 +23052,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22380,8 +23092,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22426,6 +23140,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -22435,11 +23152,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -22455,6 +23177,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -22492,6 +23215,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -22625,12 +23349,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -22648,7 +23373,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22688,8 +23413,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22734,6 +23461,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -22743,11 +23473,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -22763,6 +23498,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -22800,6 +23536,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -22928,12 +23665,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -22951,7 +23689,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22991,8 +23729,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23037,6 +23777,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -23046,11 +23789,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -23066,6 +23814,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -23103,6 +23852,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -23216,12 +23966,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -23239,7 +23990,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -23279,8 +24030,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23325,6 +24078,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -23334,11 +24090,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -23354,6 +24115,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -23391,6 +24153,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -23498,12 +24261,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -23521,7 +24285,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -23561,8 +24325,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23607,6 +24373,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -23616,11 +24385,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -23636,6 +24410,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -23673,6 +24448,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -23797,12 +24573,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -23820,7 +24597,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -23860,8 +24637,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23906,6 +24685,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -23915,11 +24697,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -23935,6 +24722,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -23972,6 +24760,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -24086,12 +24875,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -24109,7 +24899,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24149,8 +24939,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -24195,6 +24987,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -24204,11 +24999,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -24224,6 +25024,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -24261,6 +25062,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -24376,12 +25178,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -24399,7 +25202,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24439,8 +25242,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -24485,6 +25290,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -24494,11 +25302,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -24514,6 +25327,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -24551,6 +25365,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -24658,12 +25473,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -24681,7 +25497,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24721,8 +25537,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -24767,6 +25585,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -24776,11 +25597,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -24796,6 +25622,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -24833,6 +25660,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -24926,12 +25754,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -24949,7 +25778,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24989,8 +25818,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -25035,6 +25866,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -25044,11 +25878,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -25064,6 +25903,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -25101,6 +25941,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -25218,6 +26059,7 @@ components:
           config_hash:
             k8s_auths: k8s_auths
             cache: cache
+            producers_status: producers_status
             universal_identity: universal_identity
             customer_fragements: customer_fragements
             m_queue: m_queue
@@ -26071,6 +26913,7 @@ components:
           config_hash:
             k8s_auths: k8s_auths
             cache: cache
+            producers_status: producers_status
             universal_identity: universal_identity
             customer_fragements: customer_fragements
             m_queue: m_queue
@@ -26180,12 +27023,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -26203,7 +27047,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -26243,8 +27087,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -26289,6 +27135,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -26298,11 +27147,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -26318,6 +27172,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -26355,6 +27210,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -26499,12 +27355,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -26522,7 +27379,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -26562,8 +27419,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -26608,6 +27467,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -26617,11 +27479,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -26637,6 +27504,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -26674,6 +27542,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -26797,12 +27666,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -26820,7 +27690,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -26860,8 +27730,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -26906,6 +27778,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -26915,11 +27790,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -26935,6 +27815,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -26972,6 +27853,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -27070,12 +27952,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -27093,7 +27976,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -27133,8 +28016,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27179,6 +28064,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -27188,11 +28076,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -27208,6 +28101,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -27245,6 +28139,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -27392,12 +28287,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -27415,7 +28311,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -27455,8 +28351,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27501,6 +28399,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -27510,11 +28411,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -27530,6 +28436,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -27567,6 +28474,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -27751,12 +28659,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -27774,7 +28683,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -27814,8 +28723,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27860,6 +28771,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -27869,11 +28783,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -27889,6 +28808,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -27926,6 +28846,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -28046,12 +28967,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -28069,7 +28991,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28109,8 +29031,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28155,6 +29079,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -28164,11 +29091,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -28184,6 +29116,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -28221,6 +29154,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -28316,12 +29250,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -28339,7 +29274,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28379,8 +29314,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28425,6 +29362,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -28434,11 +29374,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -28454,6 +29399,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -28491,6 +29437,290 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
+          rotate_sync_url: rotate_sync_url
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          chef_server_url: chef_server_url
+          gke_cluster_name: gke_cluster_name
+          aws_user_groups: aws_user_groups
+          host_name: host_name
+          azure_tenant_id: azure_tenant_id
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateProducerGithub:
+      description: gatewayUpdateProducerGithub is a command that updates github producer
+      properties:
+        github-app-id:
+          description: Github app id
+          format: int64
+          type: integer
+          x-go-name: AppId
+        github-app-private-key:
+          description: App private key
+          type: string
+          x-go-name: AppPrivateKey
+        github-base-url:
+          description: Base URL
+          type: string
+          x-go-name: BaseUrl
+        installation-id:
+          description: Github app installation id
+          format: int64
+          type: integer
+          x-go-name: InstallationId
+        installation-repository:
+          description: Repository that the app installation has access to
+          type: string
+          x-go-name: Repository
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        new-name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerNewName
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        token-permissions:
+          description: Optional - installation token's allowed permissions
+          items:
+            type: string
+          type: array
+          x-go-name: TokenPermissions
+        token-repositories:
+          description: Optional - installation token's allowed repositories
+          items:
+            type: string
+          type: array
+          x-go-name: TokenRepositories
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateProducerGithubOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          k8s_namespace: k8s_namespace
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          last_admin_rotation: 2
+          chef_server_key: chef_server_key
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          ssl_connection_certificate: ssl_connection_certificate
+          oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
+          mssql_creation_statements: mssql_creation_statements
+          sf_user_role: sf_user_role
+          ldap_certificate: ldap_certificate
+          ldap_bind_dn: ldap_bind_dn
+          ldap_url: ldap_url
+          username_policy: username_policy
+          admin_pwd: admin_pwd
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          azure_user_roles_template_id: azure_user_roles_template_id
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_access_mode: aws_access_mode
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          username_length: 3
+          active: true
+          item_targets_assoc:
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_id: 6
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_id: 6
+          chef_server_username: chef_server_username
+          db_host_name: db_host_name
+          tags:
+          - tags
+          - tags
+          ldap_user_dn: ldap_user_dn
+          db_name: db_name
+          k8s_service_account: k8s_service_account
+          chef_skip_ssl: true
+          db_port: db_port
+          k8s_cluster_endpoint: k8s_cluster_endpoint
+          artifactory_base_url: artifactory_base_url
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          gcp_token_lifetime: gcp_token_lifetime
+          db_isolation_level: db_isolation_level
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          ssl_connection_mode: true
+          postgres_revocation_statements: postgres_revocation_statements
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
+          user_ttl: user_ttl
+          timeout_seconds: 9
+          eks_assume_role: eks_assume_role
+          ldap_token_expiration: ldap_token_expiration
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          db_max_idle_conns: db_max_idle_conns
+          password_policy: password_policy
+          artifactory_admin_username: artifactory_admin_username
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          sf_warehouse_name: sf_warehouse_name
+          artifactory_token_scope: artifactory_token_scope
+          revoke_sync_url: revoke_sync_url
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          host_port: host_port
+          k8s_bearer_token: k8s_bearer_token
+          enable_admin_rotation: true
+          cassandra_creation_statements: cassandra_creation_statements
+          failure_message: failure_message
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_uri_connection: mongodb_uri_connection
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          db_user_name: db_user_name
+          eks_region: eks_region
+          payload: payload
+          artifactory_admin_apikey: artifactory_admin_apikey
+          redshift_creation_statements: redshift_creation_statements
+          ldap_audience: ldap_audience
+          azure_app_object_id: azure_app_object_id
+          ldap_bind_password: ldap_bind_password
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          user_principal_name: user_principal_name
+          externally_provided_user: externally_provided_user
+          db_server_certificates: db_server_certificates
+          gcp_key_algo: gcp_key_algo
+          db_server_name: db_server_name
+          venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
+          gcp_service_account_key: gcp_service_account_key
+          venafi_store_private_key: true
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
+          db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          gcp_service_account_email: gcp_service_account_email
+          password_length: 7
+          github_installation_id: 5
+          dynamic_secret_name: dynamic_secret_name
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          aws_user_programmatic_access: true
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          is_fixed_user: is_fixed_user
+          ldap_user_attr: ldap_user_attr
+          use_gw_cloud_identity: true
+          azure_user_programmatic_access: true
+          k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
+          eks_secret_access_key: eks_secret_access_key
+          sf_account: sf_account
+          github_base_url: github_base_url
+          secure_remote_access_details:
+            schema: schema
+            bastion_ssh: bastion_ssh
+            isolated: true
+            ssh_private_key: true
+            allow_port_forwarding: true
+            is_web: true
+            endpoint: endpoint
+            native: true
+            enable: true
+            host:
+            - host
+            - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
+            bastion_api: bastion_api
+            category: category
+            region: region
+            ssh_password: true
+            bastion_issuer_id: 1
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          chef_server_host_name: chef_server_host_name
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -28602,12 +29832,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -28625,7 +29856,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28665,8 +29896,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28711,6 +29944,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -28720,11 +29956,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -28740,6 +29981,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -28777,6 +30019,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -28886,12 +30129,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -28909,7 +30153,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28949,8 +30193,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28995,6 +30241,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29004,11 +30253,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -29024,6 +30278,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -29061,6 +30316,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -29184,12 +30440,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -29207,7 +30464,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -29247,8 +30504,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -29293,6 +30552,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29302,11 +30564,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -29322,6 +30589,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -29359,6 +30627,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -29496,12 +30765,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -29519,7 +30789,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -29559,8 +30829,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -29605,6 +30877,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29614,11 +30889,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -29634,6 +30914,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -29671,6 +30952,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -29803,12 +31085,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -29826,7 +31109,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -29866,8 +31149,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -29912,6 +31197,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29921,11 +31209,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -29941,6 +31234,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -29978,6 +31272,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -30095,12 +31390,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -30118,7 +31414,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30158,8 +31454,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -30204,6 +31502,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -30213,11 +31514,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -30233,6 +31539,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -30270,6 +31577,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -30381,12 +31689,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -30404,7 +31713,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30444,8 +31753,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -30490,6 +31801,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -30499,11 +31813,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -30519,6 +31838,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -30556,6 +31876,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -30684,12 +32005,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -30707,7 +32029,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30747,8 +32069,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -30793,6 +32117,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -30802,11 +32129,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -30822,6 +32154,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -30859,6 +32192,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -30977,12 +32311,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -31000,7 +32335,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31040,8 +32375,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31086,6 +32423,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -31095,11 +32435,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -31115,6 +32460,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -31152,6 +32498,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -31271,12 +32618,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -31294,7 +32642,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31334,8 +32682,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31380,6 +32730,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -31389,11 +32742,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -31409,6 +32767,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -31446,6 +32805,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -31557,12 +32917,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -31580,7 +32941,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31620,8 +32981,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31666,6 +33029,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -31675,11 +33041,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -31695,6 +33066,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -31732,6 +33104,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -31829,12 +33202,13 @@ components:
           k8s_namespace: k8s_namespace
           venafi_sign_using_akeyless_pki: true
           dynamic_secret_key: dynamic_secret_key
-          last_admin_rotation: 1
+          last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
@@ -31852,7 +33226,7 @@ components:
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 2
+          username_length: 3
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31892,8 +33266,10 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           eks_access_key_id: eks_access_key_id
           venafi_base_url: venafi_base_url
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 5
+          timeout_seconds: 9
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31938,6 +33314,9 @@ components:
           gcp_key_algo: gcp_key_algo
           db_server_name: db_server_name
           venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -31947,11 +33326,16 @@ components:
           gke_service_account_key: gke_service_account_key
           venafi_auto_generated_folder: venafi_auto_generated_folder
           mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
           db_pwd: db_pwd
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
           gke_service_account_name: gke_service_account_name
           mysql_creation_statements: mysql_creation_statements
           gcp_service_account_email: gcp_service_account_email
-          password_length: 5
+          password_length: 7
+          github_installation_id: 5
           dynamic_secret_name: dynamic_secret_name
           rabbitmq_server_uri: rabbitmq_server_uri
           chef_server_access_mode: chef_server_access_mode
@@ -31967,6 +33351,7 @@ components:
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
           sf_account: sf_account
+          github_base_url: github_base_url
           secure_remote_access_details:
             schema: schema
             bastion_ssh: bastion_ssh
@@ -32004,6 +33389,7 @@ components:
           chef_server_port: chef_server_port
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          github_repository_path: github_repository_path
           rotate_sync_url: rotate_sync_url
           aws_access_key_id: aws_access_key_id
           aws_region: aws_region
@@ -34326,6 +35712,9 @@ components:
           description: The association id to be updated
           type: string
           x-go-name: AssocID
+        case-sensitive:
+          type: string
+          x-go-name: IsSubClaimsCaseSensitive
         password:
           description: Required only when the authentication process requires a username
             and password
@@ -35834,6 +37223,79 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateGcpTargetOutput:
+      example:
+        target_id: 0
+      properties:
+        target_id:
+          format: int64
+          type: integer
+          x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateGithubTarget:
+      properties:
+        comment:
+          description: Comment about the target
+          type: string
+          x-go-name: Comment
+        github-app-id:
+          description: Github app id
+          format: int64
+          type: integer
+          x-go-name: AppId
+        github-app-private-key:
+          description: App private key
+          type: string
+          x-go-name: AppPrivateKey
+        github-base-url:
+          description: Base URL
+          type: string
+          x-go-name: BaseUrl
+        key:
+          description: |-
+            The name of a key that used to encrypt the target secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        new-name:
+          description: New target name
+          type: string
+          x-go-name: NewTargetName
+        password:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Password
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        update-version:
+          default: false
+          description: Create new version for the target
+          type: boolean
+          x-go-name: CreateNewVersion
+        username:
+          description: Required only when the authentication process requires a username
+            and password
+          type: string
+          x-go-name: Username
+      required:
+      - name
+      title: updateGithubTarget is a command that updates a new target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateGithubTargetOutput:
       example:
         target_id: 0
       properties:

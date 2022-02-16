@@ -25,11 +25,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * connect is a command that performs secure remote access
+ * Connect is a command that performs secure remote access
  */
-@ApiModel(description = "connect is a command that performs secure remote access")
+@ApiModel(description = "Connect is a command that performs secure remote access")
 
 public class Connect {
+  public static final String SERIALIZED_NAME_RC_FILE_OVERRIDE = "RcFileOverride";
+  @SerializedName(SERIALIZED_NAME_RC_FILE_OVERRIDE)
+  private String rcFileOverride;
+
   public static final String SERIALIZED_NAME_BASTION_CTRL_PATH = "bastion-ctrl-path";
   @SerializedName(SERIALIZED_NAME_BASTION_CTRL_PATH)
   private String bastionCtrlPath;
@@ -85,6 +89,29 @@ public class Connect {
   public static final String SERIALIZED_NAME_VIA_BASTION = "via-bastion";
   @SerializedName(SERIALIZED_NAME_VIA_BASTION)
   private String viaBastion;
+
+
+  public Connect rcFileOverride(String rcFileOverride) {
+    
+    this.rcFileOverride = rcFileOverride;
+    return this;
+  }
+
+   /**
+   * used to override .akeyless-connect.rc in tests
+   * @return rcFileOverride
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "used to override .akeyless-connect.rc in tests")
+
+  public String getRcFileOverride() {
+    return rcFileOverride;
+  }
+
+
+  public void setRcFileOverride(String rcFileOverride) {
+    this.rcFileOverride = rcFileOverride;
+  }
 
 
   public Connect bastionCtrlPath(String bastionCtrlPath) {
@@ -418,7 +445,8 @@ public class Connect {
       return false;
     }
     Connect connect = (Connect) o;
-    return Objects.equals(this.bastionCtrlPath, connect.bastionCtrlPath) &&
+    return Objects.equals(this.rcFileOverride, connect.rcFileOverride) &&
+        Objects.equals(this.bastionCtrlPath, connect.bastionCtrlPath) &&
         Objects.equals(this.bastionCtrlPort, connect.bastionCtrlPort) &&
         Objects.equals(this.bastionCtrlProto, connect.bastionCtrlProto) &&
         Objects.equals(this.bastionCtrlSubdomain, connect.bastionCtrlSubdomain) &&
@@ -436,7 +464,7 @@ public class Connect {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, name, password, sshExtraArgs, target, token, uidToken, username, viaBastion);
+    return Objects.hash(rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, name, password, sshExtraArgs, target, token, uidToken, username, viaBastion);
   }
 
 
@@ -444,6 +472,7 @@ public class Connect {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Connect {\n");
+    sb.append("    rcFileOverride: ").append(toIndentedString(rcFileOverride)).append("\n");
     sb.append("    bastionCtrlPath: ").append(toIndentedString(bastionCtrlPath)).append("\n");
     sb.append("    bastionCtrlPort: ").append(toIndentedString(bastionCtrlPort)).append("\n");
     sb.append("    bastionCtrlProto: ").append(toIndentedString(bastionCtrlProto)).append("\n");

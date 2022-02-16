@@ -77,6 +77,10 @@ public class ConfigHash {
   @SerializedName(SERIALIZED_NAME_PRODUCERS)
   private Object producers;
 
+  public static final String SERIALIZED_NAME_PRODUCERS_STATUS = "producers_status";
+  @SerializedName(SERIALIZED_NAME_PRODUCERS_STATUS)
+  private String producersStatus;
+
   public static final String SERIALIZED_NAME_ROTATORS = "rotators";
   @SerializedName(SERIALIZED_NAME_ROTATORS)
   private Object rotators;
@@ -366,6 +370,29 @@ public class ConfigHash {
   }
 
 
+  public ConfigHash producersStatus(String producersStatus) {
+    
+    this.producersStatus = producersStatus;
+    return this;
+  }
+
+   /**
+   * Get producersStatus
+   * @return producersStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProducersStatus() {
+    return producersStatus;
+  }
+
+
+  public void setProducersStatus(String producersStatus) {
+    this.producersStatus = producersStatus;
+  }
+
+
   public ConfigHash rotators(Object rotators) {
     
     this.rotators = rotators;
@@ -456,6 +483,7 @@ public class ConfigHash {
         Objects.equals(this.mQueue, configHash.mQueue) &&
         Objects.equals(this.migrations, configHash.migrations) &&
         Objects.equals(this.producers, configHash.producers) &&
+        Objects.equals(this.producersStatus, configHash.producersStatus) &&
         Objects.equals(this.rotators, configHash.rotators) &&
         Objects.equals(this.saml, configHash.saml) &&
         Objects.equals(this.universalIdentity, configHash.universalIdentity);
@@ -463,7 +491,7 @@ public class ConfigHash {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrations, producers, rotators, saml, universalIdentity);
+    return Objects.hash(admins, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrations, producers, producersStatus, rotators, saml, universalIdentity);
   }
 
 
@@ -483,6 +511,7 @@ public class ConfigHash {
     sb.append("    mQueue: ").append(toIndentedString(mQueue)).append("\n");
     sb.append("    migrations: ").append(toIndentedString(migrations)).append("\n");
     sb.append("    producers: ").append(toIndentedString(producers)).append("\n");
+    sb.append("    producersStatus: ").append(toIndentedString(producersStatus)).append("\n");
     sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");
     sb.append("    saml: ").append(toIndentedString(saml)).append("\n");
     sb.append("    universalIdentity: ").append(toIndentedString(universalIdentity)).append("\n");

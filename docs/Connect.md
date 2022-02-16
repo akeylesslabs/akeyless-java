@@ -2,11 +2,12 @@
 
 # Connect
 
-connect is a command that performs secure remote access
+Connect is a command that performs secure remote access
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**rcFileOverride** | **String** | used to override .akeyless-connect.rc in tests |  [optional]
 **bastionCtrlPath** | **String** | The Bastion API path |  [optional]
 **bastionCtrlPort** | **String** | The Bastion API Port |  [optional]
 **bastionCtrlProto** | **String** | The Bastion API protocol |  [optional]

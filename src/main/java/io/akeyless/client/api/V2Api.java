@@ -77,6 +77,8 @@ import io.akeyless.client.model.CreateGKETarget;
 import io.akeyless.client.model.CreateGKETargetOutput;
 import io.akeyless.client.model.CreateGcpTarget;
 import io.akeyless.client.model.CreateGcpTargetOutput;
+import io.akeyless.client.model.CreateGithubTarget;
+import io.akeyless.client.model.CreateGithubTargetOutput;
 import io.akeyless.client.model.CreateKey;
 import io.akeyless.client.model.CreateKeyOutput;
 import io.akeyless.client.model.CreateLdapTarget;
@@ -149,6 +151,8 @@ import io.akeyless.client.model.GatewayCreateProducerEks;
 import io.akeyless.client.model.GatewayCreateProducerEksOutput;
 import io.akeyless.client.model.GatewayCreateProducerGcp;
 import io.akeyless.client.model.GatewayCreateProducerGcpOutput;
+import io.akeyless.client.model.GatewayCreateProducerGithub;
+import io.akeyless.client.model.GatewayCreateProducerGithubOutput;
 import io.akeyless.client.model.GatewayCreateProducerGke;
 import io.akeyless.client.model.GatewayCreateProducerGkeOutput;
 import io.akeyless.client.model.GatewayCreateProducerLdap;
@@ -214,6 +218,8 @@ import io.akeyless.client.model.GatewayUpdateProducerEks;
 import io.akeyless.client.model.GatewayUpdateProducerEksOutput;
 import io.akeyless.client.model.GatewayUpdateProducerGcp;
 import io.akeyless.client.model.GatewayUpdateProducerGcpOutput;
+import io.akeyless.client.model.GatewayUpdateProducerGithub;
+import io.akeyless.client.model.GatewayUpdateProducerGithubOutput;
 import io.akeyless.client.model.GatewayUpdateProducerGke;
 import io.akeyless.client.model.GatewayUpdateProducerGkeOutput;
 import io.akeyless.client.model.GatewayUpdateProducerLdap;
@@ -352,6 +358,8 @@ import io.akeyless.client.model.UpdateGKETarget;
 import io.akeyless.client.model.UpdateGKETargetOutput;
 import io.akeyless.client.model.UpdateGcpTarget;
 import io.akeyless.client.model.UpdateGcpTargetOutput;
+import io.akeyless.client.model.UpdateGithubTarget;
+import io.akeyless.client.model.UpdateGithubTargetOutput;
 import io.akeyless.client.model.UpdateItem;
 import io.akeyless.client.model.UpdateItemOutput;
 import io.akeyless.client.model.UpdateNativeK8STarget;
@@ -3377,6 +3385,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = createGcpTargetValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<CreateGcpTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createGithubTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createGithubTargetCall(CreateGithubTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/create-github-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createGithubTargetValidateBeforeCall(CreateGithubTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createGithubTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createGithubTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateGithubTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateGithubTargetOutput createGithubTarget(CreateGithubTarget body) throws ApiException {
+        ApiResponse<CreateGithubTargetOutput> localVarResp = createGithubTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateGithubTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateGithubTargetOutput> createGithubTargetWithHttpInfo(CreateGithubTarget body) throws ApiException {
+        okhttp3.Call localVarCall = createGithubTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CreateGithubTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createGithubTargetAsync(CreateGithubTarget body, final ApiCallback<CreateGithubTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createGithubTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CreateGithubTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7822,6 +7944,120 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for gatewayCreateProducerGithub
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayCreateProducerGithubCall(GatewayCreateProducerGithub body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-create-producer-github";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayCreateProducerGithubValidateBeforeCall(GatewayCreateProducerGithub body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayCreateProducerGithub(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayCreateProducerGithubCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewayCreateProducerGithubOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewayCreateProducerGithubOutput gatewayCreateProducerGithub(GatewayCreateProducerGithub body) throws ApiException {
+        ApiResponse<GatewayCreateProducerGithubOutput> localVarResp = gatewayCreateProducerGithubWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewayCreateProducerGithubOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewayCreateProducerGithubOutput> gatewayCreateProducerGithubWithHttpInfo(GatewayCreateProducerGithub body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayCreateProducerGithubValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewayCreateProducerGithubOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayCreateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayCreateProducerGithubAsync(GatewayCreateProducerGithub body, final ApiCallback<GatewayCreateProducerGithubOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayCreateProducerGithubValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewayCreateProducerGithubOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for gatewayCreateProducerGke
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -11913,6 +12149,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = gatewayUpdateProducerGcpValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GatewayUpdateProducerGcpOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for gatewayUpdateProducerGithub
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayUpdateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayUpdateProducerGithubCall(GatewayUpdateProducerGithub body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-update-producer-github";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayUpdateProducerGithubValidateBeforeCall(GatewayUpdateProducerGithub body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayUpdateProducerGithub(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayUpdateProducerGithubCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewayUpdateProducerGithubOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayUpdateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewayUpdateProducerGithubOutput gatewayUpdateProducerGithub(GatewayUpdateProducerGithub body) throws ApiException {
+        ApiResponse<GatewayUpdateProducerGithubOutput> localVarResp = gatewayUpdateProducerGithubWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewayUpdateProducerGithubOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayUpdateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewayUpdateProducerGithubOutput> gatewayUpdateProducerGithubWithHttpInfo(GatewayUpdateProducerGithub body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayUpdateProducerGithubValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewayUpdateProducerGithubOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayUpdateProducerGithubResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayUpdateProducerGithubAsync(GatewayUpdateProducerGithub body, final ApiCallback<GatewayUpdateProducerGithubOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayUpdateProducerGithubValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewayUpdateProducerGithubOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -21065,6 +21415,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = updateGcpTargetValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<UpdateGcpTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateGithubTarget
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateGithubTargetCall(UpdateGithubTarget body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/update-github-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateGithubTargetValidateBeforeCall(UpdateGithubTarget body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateGithubTarget(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateGithubTargetCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateGithubTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateGithubTargetOutput updateGithubTarget(UpdateGithubTarget body) throws ApiException {
+        ApiResponse<UpdateGithubTargetOutput> localVarResp = updateGithubTargetWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateGithubTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateGithubTargetOutput> updateGithubTargetWithHttpInfo(UpdateGithubTarget body) throws ApiException {
+        okhttp3.Call localVarCall = updateGithubTargetValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<UpdateGithubTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateGithubTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateGithubTargetAsync(UpdateGithubTarget body, final ApiCallback<UpdateGithubTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateGithubTargetValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<UpdateGithubTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

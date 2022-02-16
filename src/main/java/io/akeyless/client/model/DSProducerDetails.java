@@ -26,7 +26,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * DSProducerDetails
@@ -304,6 +306,38 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_GCP_TOKEN_TYPE = "gcp_token_type";
   @SerializedName(SERIALIZED_NAME_GCP_TOKEN_TYPE)
   private String gcpTokenType;
+
+  public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github_app_id";
+  @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
+  private Long githubAppId;
+
+  public static final String SERIALIZED_NAME_GITHUB_APP_PRIVATE_KEY = "github_app_private_key";
+  @SerializedName(SERIALIZED_NAME_GITHUB_APP_PRIVATE_KEY)
+  private String githubAppPrivateKey;
+
+  public static final String SERIALIZED_NAME_GITHUB_BASE_URL = "github_base_url";
+  @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
+  private String githubBaseUrl;
+
+  public static final String SERIALIZED_NAME_GITHUB_INSTALLATION_ID = "github_installation_id";
+  @SerializedName(SERIALIZED_NAME_GITHUB_INSTALLATION_ID)
+  private Long githubInstallationId;
+
+  public static final String SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_PERMISSIONS = "github_installation_token_permissions";
+  @SerializedName(SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_PERMISSIONS)
+  private Map<String, String> githubInstallationTokenPermissions = null;
+
+  public static final String SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_REPOSITORIES = "github_installation_token_repositories";
+  @SerializedName(SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_REPOSITORIES)
+  private List<String> githubInstallationTokenRepositories = null;
+
+  public static final String SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_REPOSITORIES_IDS = "github_installation_token_repositories_ids";
+  @SerializedName(SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_REPOSITORIES_IDS)
+  private List<Long> githubInstallationTokenRepositoriesIds = null;
+
+  public static final String SERIALIZED_NAME_GITHUB_REPOSITORY_PATH = "github_repository_path";
+  @SerializedName(SERIALIZED_NAME_GITHUB_REPOSITORY_PATH)
+  private String githubRepositoryPath;
 
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
@@ -2199,6 +2233,214 @@ public class DSProducerDetails {
 
   public void setGcpTokenType(String gcpTokenType) {
     this.gcpTokenType = gcpTokenType;
+  }
+
+
+  public DSProducerDetails githubAppId(Long githubAppId) {
+    
+    this.githubAppId = githubAppId;
+    return this;
+  }
+
+   /**
+   * Get githubAppId
+   * @return githubAppId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getGithubAppId() {
+    return githubAppId;
+  }
+
+
+  public void setGithubAppId(Long githubAppId) {
+    this.githubAppId = githubAppId;
+  }
+
+
+  public DSProducerDetails githubAppPrivateKey(String githubAppPrivateKey) {
+    
+    this.githubAppPrivateKey = githubAppPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get githubAppPrivateKey
+   * @return githubAppPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGithubAppPrivateKey() {
+    return githubAppPrivateKey;
+  }
+
+
+  public void setGithubAppPrivateKey(String githubAppPrivateKey) {
+    this.githubAppPrivateKey = githubAppPrivateKey;
+  }
+
+
+  public DSProducerDetails githubBaseUrl(String githubBaseUrl) {
+    
+    this.githubBaseUrl = githubBaseUrl;
+    return this;
+  }
+
+   /**
+   * Get githubBaseUrl
+   * @return githubBaseUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGithubBaseUrl() {
+    return githubBaseUrl;
+  }
+
+
+  public void setGithubBaseUrl(String githubBaseUrl) {
+    this.githubBaseUrl = githubBaseUrl;
+  }
+
+
+  public DSProducerDetails githubInstallationId(Long githubInstallationId) {
+    
+    this.githubInstallationId = githubInstallationId;
+    return this;
+  }
+
+   /**
+   * Get githubInstallationId
+   * @return githubInstallationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getGithubInstallationId() {
+    return githubInstallationId;
+  }
+
+
+  public void setGithubInstallationId(Long githubInstallationId) {
+    this.githubInstallationId = githubInstallationId;
+  }
+
+
+  public DSProducerDetails githubInstallationTokenPermissions(Map<String, String> githubInstallationTokenPermissions) {
+    
+    this.githubInstallationTokenPermissions = githubInstallationTokenPermissions;
+    return this;
+  }
+
+  public DSProducerDetails putGithubInstallationTokenPermissionsItem(String key, String githubInstallationTokenPermissionsItem) {
+    if (this.githubInstallationTokenPermissions == null) {
+      this.githubInstallationTokenPermissions = new HashMap<String, String>();
+    }
+    this.githubInstallationTokenPermissions.put(key, githubInstallationTokenPermissionsItem);
+    return this;
+  }
+
+   /**
+   * Get githubInstallationTokenPermissions
+   * @return githubInstallationTokenPermissions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getGithubInstallationTokenPermissions() {
+    return githubInstallationTokenPermissions;
+  }
+
+
+  public void setGithubInstallationTokenPermissions(Map<String, String> githubInstallationTokenPermissions) {
+    this.githubInstallationTokenPermissions = githubInstallationTokenPermissions;
+  }
+
+
+  public DSProducerDetails githubInstallationTokenRepositories(List<String> githubInstallationTokenRepositories) {
+    
+    this.githubInstallationTokenRepositories = githubInstallationTokenRepositories;
+    return this;
+  }
+
+  public DSProducerDetails addGithubInstallationTokenRepositoriesItem(String githubInstallationTokenRepositoriesItem) {
+    if (this.githubInstallationTokenRepositories == null) {
+      this.githubInstallationTokenRepositories = new ArrayList<String>();
+    }
+    this.githubInstallationTokenRepositories.add(githubInstallationTokenRepositoriesItem);
+    return this;
+  }
+
+   /**
+   * Get githubInstallationTokenRepositories
+   * @return githubInstallationTokenRepositories
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getGithubInstallationTokenRepositories() {
+    return githubInstallationTokenRepositories;
+  }
+
+
+  public void setGithubInstallationTokenRepositories(List<String> githubInstallationTokenRepositories) {
+    this.githubInstallationTokenRepositories = githubInstallationTokenRepositories;
+  }
+
+
+  public DSProducerDetails githubInstallationTokenRepositoriesIds(List<Long> githubInstallationTokenRepositoriesIds) {
+    
+    this.githubInstallationTokenRepositoriesIds = githubInstallationTokenRepositoriesIds;
+    return this;
+  }
+
+  public DSProducerDetails addGithubInstallationTokenRepositoriesIdsItem(Long githubInstallationTokenRepositoriesIdsItem) {
+    if (this.githubInstallationTokenRepositoriesIds == null) {
+      this.githubInstallationTokenRepositoriesIds = new ArrayList<Long>();
+    }
+    this.githubInstallationTokenRepositoriesIds.add(githubInstallationTokenRepositoriesIdsItem);
+    return this;
+  }
+
+   /**
+   * Get githubInstallationTokenRepositoriesIds
+   * @return githubInstallationTokenRepositoriesIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Long> getGithubInstallationTokenRepositoriesIds() {
+    return githubInstallationTokenRepositoriesIds;
+  }
+
+
+  public void setGithubInstallationTokenRepositoriesIds(List<Long> githubInstallationTokenRepositoriesIds) {
+    this.githubInstallationTokenRepositoriesIds = githubInstallationTokenRepositoriesIds;
+  }
+
+
+  public DSProducerDetails githubRepositoryPath(String githubRepositoryPath) {
+    
+    this.githubRepositoryPath = githubRepositoryPath;
+    return this;
+  }
+
+   /**
+   * Get githubRepositoryPath
+   * @return githubRepositoryPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGithubRepositoryPath() {
+    return githubRepositoryPath;
+  }
+
+
+  public void setGithubRepositoryPath(String githubRepositoryPath) {
+    this.githubRepositoryPath = githubRepositoryPath;
   }
 
 
@@ -4212,6 +4454,14 @@ public class DSProducerDetails {
         Objects.equals(this.gcpTokenLifetime, dsProducerDetails.gcpTokenLifetime) &&
         Objects.equals(this.gcpTokenScope, dsProducerDetails.gcpTokenScope) &&
         Objects.equals(this.gcpTokenType, dsProducerDetails.gcpTokenType) &&
+        Objects.equals(this.githubAppId, dsProducerDetails.githubAppId) &&
+        Objects.equals(this.githubAppPrivateKey, dsProducerDetails.githubAppPrivateKey) &&
+        Objects.equals(this.githubBaseUrl, dsProducerDetails.githubBaseUrl) &&
+        Objects.equals(this.githubInstallationId, dsProducerDetails.githubInstallationId) &&
+        Objects.equals(this.githubInstallationTokenPermissions, dsProducerDetails.githubInstallationTokenPermissions) &&
+        Objects.equals(this.githubInstallationTokenRepositories, dsProducerDetails.githubInstallationTokenRepositories) &&
+        Objects.equals(this.githubInstallationTokenRepositoriesIds, dsProducerDetails.githubInstallationTokenRepositoriesIds) &&
+        Objects.equals(this.githubRepositoryPath, dsProducerDetails.githubRepositoryPath) &&
         Objects.equals(this.gkeClusterCaCertificate, dsProducerDetails.gkeClusterCaCertificate) &&
         Objects.equals(this.gkeClusterEndpoint, dsProducerDetails.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, dsProducerDetails.gkeClusterName) &&
@@ -4299,7 +4549,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -4375,6 +4625,14 @@ public class DSProducerDetails {
     sb.append("    gcpTokenLifetime: ").append(toIndentedString(gcpTokenLifetime)).append("\n");
     sb.append("    gcpTokenScope: ").append(toIndentedString(gcpTokenScope)).append("\n");
     sb.append("    gcpTokenType: ").append(toIndentedString(gcpTokenType)).append("\n");
+    sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
+    sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
+    sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
+    sb.append("    githubInstallationId: ").append(toIndentedString(githubInstallationId)).append("\n");
+    sb.append("    githubInstallationTokenPermissions: ").append(toIndentedString(githubInstallationTokenPermissions)).append("\n");
+    sb.append("    githubInstallationTokenRepositories: ").append(toIndentedString(githubInstallationTokenRepositories)).append("\n");
+    sb.append("    githubInstallationTokenRepositoriesIds: ").append(toIndentedString(githubInstallationTokenRepositoriesIds)).append("\n");
+    sb.append("    githubRepositoryPath: ").append(toIndentedString(githubRepositoryPath)).append("\n");
     sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");

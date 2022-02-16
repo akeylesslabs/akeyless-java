@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiId** | **String** |  |  [optional]
 **apiKey** | **String** |  |  [optional]
+**applicationId** | **String** | ApplicationId (used in azure) | 
 **authenticationCredentials** | **String** |  |  [optional]
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation |  [optional]
 **customPayload** | **String** |  |  [optional]

@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**createEKSTarget**](V2Api.md#createEKSTarget) | **POST** /create-eks-target | 
 [**createGKETarget**](V2Api.md#createGKETarget) | **POST** /create-gke-target | 
 [**createGcpTarget**](V2Api.md#createGcpTarget) | **POST** /create-gcp-target | 
+[**createGithubTarget**](V2Api.md#createGithubTarget) | **POST** /create-github-target | 
 [**createKey**](V2Api.md#createKey) | **POST** /create-key | 
 [**createNativeK8STarget**](V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
 [**createPKICertIssuer**](V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
@@ -69,6 +70,7 @@ Method | HTTP request | Description
 [**gatewayCreateProducerCustom**](V2Api.md#gatewayCreateProducerCustom) | **POST** /gateway-create-producer-custom | 
 [**gatewayCreateProducerEks**](V2Api.md#gatewayCreateProducerEks) | **POST** /gateway-create-producer-eks | 
 [**gatewayCreateProducerGcp**](V2Api.md#gatewayCreateProducerGcp) | **POST** /gateway-create-producer-gcp | 
+[**gatewayCreateProducerGithub**](V2Api.md#gatewayCreateProducerGithub) | **POST** /gateway-create-producer-github | 
 [**gatewayCreateProducerGke**](V2Api.md#gatewayCreateProducerGke) | **POST** /gateway-create-producer-gke | 
 [**gatewayCreateProducerLdap**](V2Api.md#gatewayCreateProducerLdap) | **POST** /gateway-create-producer-ldap | 
 [**gatewayCreateProducerMSSQL**](V2Api.md#gatewayCreateProducerMSSQL) | **POST** /gateway-create-producer-mssql | 
@@ -105,6 +107,7 @@ Method | HTTP request | Description
 [**gatewayUpdateProducerCustom**](V2Api.md#gatewayUpdateProducerCustom) | **POST** /gateway-update-producer-custom | 
 [**gatewayUpdateProducerEks**](V2Api.md#gatewayUpdateProducerEks) | **POST** /gateway-update-producer-eks | 
 [**gatewayUpdateProducerGcp**](V2Api.md#gatewayUpdateProducerGcp) | **POST** /gateway-update-producer-gcp | 
+[**gatewayUpdateProducerGithub**](V2Api.md#gatewayUpdateProducerGithub) | **POST** /gateway-update-producer-github | 
 [**gatewayUpdateProducerGke**](V2Api.md#gatewayUpdateProducerGke) | **POST** /gateway-update-producer-gke | 
 [**gatewayUpdateProducerLdap**](V2Api.md#gatewayUpdateProducerLdap) | **POST** /gateway-update-producer-ldap | 
 [**gatewayUpdateProducerMSSQL**](V2Api.md#gatewayUpdateProducerMSSQL) | **POST** /gateway-update-producer-mssql | 
@@ -186,6 +189,7 @@ Method | HTTP request | Description
 [**updateEKSTarget**](V2Api.md#updateEKSTarget) | **POST** /update-eks-target | 
 [**updateGKETarget**](V2Api.md#updateGKETarget) | **POST** /update-gke-target | 
 [**updateGcpTarget**](V2Api.md#updateGcpTarget) | **POST** /update-gcp-target | 
+[**updateGithubTarget**](V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
 [**updateItem**](V2Api.md#updateItem) | **POST** /update-item | 
 [**updateNativeK8STarget**](V2Api.md#updateNativeK8STarget) | **POST** /update-k8s-target | 
 [**updatePKICertIssuer**](V2Api.md#updatePKICertIssuer) | **POST** /update-pki-cert-issuer | 
@@ -1795,6 +1799,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createGcpTargetResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createGithubTarget"></a>
+# **createGithubTarget**
+> CreateGithubTargetOutput createGithubTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateGithubTarget body = new CreateGithubTarget(); // CreateGithubTarget | 
+    try {
+      CreateGithubTargetOutput result = apiInstance.createGithubTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createGithubTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateGithubTarget**](CreateGithubTarget.md)|  |
+
+### Return type
+
+[**CreateGithubTargetOutput**](CreateGithubTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createGithubTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createKey"></a>
@@ -4176,6 +4241,67 @@ No authorization required
 **201** | gatewayCreateProducerGcpResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayCreateProducerGithub"></a>
+# **gatewayCreateProducerGithub**
+> GatewayCreateProducerGithubOutput gatewayCreateProducerGithub(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateProducerGithub body = new GatewayCreateProducerGithub(); // GatewayCreateProducerGithub | 
+    try {
+      GatewayCreateProducerGithubOutput result = apiInstance.gatewayCreateProducerGithub(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateProducerGithub");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateProducerGithub**](GatewayCreateProducerGithub.md)|  |
+
+### Return type
+
+[**GatewayCreateProducerGithubOutput**](GatewayCreateProducerGithubOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayCreateProducerGithubResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayCreateProducerGke"></a>
 # **gatewayCreateProducerGke**
 > GatewayCreateProducerGkeOutput gatewayCreateProducerGke(body)
@@ -6369,6 +6495,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayUpdateProducerGcpResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateProducerGithub"></a>
+# **gatewayUpdateProducerGithub**
+> GatewayUpdateProducerGithubOutput gatewayUpdateProducerGithub(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateProducerGithub body = new GatewayUpdateProducerGithub(); // GatewayUpdateProducerGithub | 
+    try {
+      GatewayUpdateProducerGithubOutput result = apiInstance.gatewayUpdateProducerGithub(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateProducerGithub");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateProducerGithub**](GatewayUpdateProducerGithub.md)|  |
+
+### Return type
+
+[**GatewayUpdateProducerGithubOutput**](GatewayUpdateProducerGithubOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateProducerGithubResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayUpdateProducerGke"></a>
@@ -11301,6 +11488,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateGcpTargetResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateGithubTarget"></a>
+# **updateGithubTarget**
+> UpdateGithubTargetOutput updateGithubTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateGithubTarget body = new UpdateGithubTarget(); // UpdateGithubTarget | 
+    try {
+      UpdateGithubTargetOutput result = apiInstance.updateGithubTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateGithubTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateGithubTarget**](UpdateGithubTarget.md)|  |
+
+### Return type
+
+[**UpdateGithubTargetOutput**](UpdateGithubTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateGithubTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateItem"></a>

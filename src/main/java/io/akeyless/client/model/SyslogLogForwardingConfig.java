@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class SyslogLogForwardingConfig {
+  public static final String SERIALIZED_NAME_SYSLOG_FORMATTER = "syslog_formatter";
+  @SerializedName(SERIALIZED_NAME_SYSLOG_FORMATTER)
+  private String syslogFormatter;
+
   public static final String SERIALIZED_NAME_SYSLOG_HOST = "syslog_host";
   @SerializedName(SERIALIZED_NAME_SYSLOG_HOST)
   private String syslogHost;
@@ -40,6 +44,29 @@ public class SyslogLogForwardingConfig {
   public static final String SERIALIZED_NAME_SYSLOG_TARGET_TAG = "syslog_target_tag";
   @SerializedName(SERIALIZED_NAME_SYSLOG_TARGET_TAG)
   private String syslogTargetTag;
+
+
+  public SyslogLogForwardingConfig syslogFormatter(String syslogFormatter) {
+    
+    this.syslogFormatter = syslogFormatter;
+    return this;
+  }
+
+   /**
+   * Get syslogFormatter
+   * @return syslogFormatter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSyslogFormatter() {
+    return syslogFormatter;
+  }
+
+
+  public void setSyslogFormatter(String syslogFormatter) {
+    this.syslogFormatter = syslogFormatter;
+  }
 
 
   public SyslogLogForwardingConfig syslogHost(String syslogHost) {
@@ -120,14 +147,15 @@ public class SyslogLogForwardingConfig {
       return false;
     }
     SyslogLogForwardingConfig syslogLogForwardingConfig = (SyslogLogForwardingConfig) o;
-    return Objects.equals(this.syslogHost, syslogLogForwardingConfig.syslogHost) &&
+    return Objects.equals(this.syslogFormatter, syslogLogForwardingConfig.syslogFormatter) &&
+        Objects.equals(this.syslogHost, syslogLogForwardingConfig.syslogHost) &&
         Objects.equals(this.syslogNetwork, syslogLogForwardingConfig.syslogNetwork) &&
         Objects.equals(this.syslogTargetTag, syslogLogForwardingConfig.syslogTargetTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(syslogHost, syslogNetwork, syslogTargetTag);
+    return Objects.hash(syslogFormatter, syslogHost, syslogNetwork, syslogTargetTag);
   }
 
 
@@ -135,6 +163,7 @@ public class SyslogLogForwardingConfig {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyslogLogForwardingConfig {\n");
+    sb.append("    syslogFormatter: ").append(toIndentedString(syslogFormatter)).append("\n");
     sb.append("    syslogHost: ").append(toIndentedString(syslogHost)).append("\n");
     sb.append("    syslogNetwork: ").append(toIndentedString(syslogNetwork)).append("\n");
     sb.append("    syslogTargetTag: ").append(toIndentedString(syslogTargetTag)).append("\n");

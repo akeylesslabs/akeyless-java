@@ -1,16 +1,18 @@
 
 
-# UpdateAssoc
+# CreateGithubTarget
 
-updateAssoc is a command that updates the sub-claims of an association between role and auth method.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assocId** | **String** | The association id to be updated | 
-**caseSensitive** | **String** |  |  [optional]
+**comment** | **String** | Comment about the target |  [optional]
+**githubAppId** | **Long** | Github app id |  [optional]
+**githubAppPrivateKey** | **String** | App private key |  [optional]
+**githubBaseUrl** | **String** | Base URL |  [optional]
+**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**name** | **String** | Target name | 
 **password** | **String** | Required only when the authentication process requires a username and password |  [optional]
-**subClaims** | **Map&lt;String, String&gt;** | key/val of sub claims, e.g group&#x3D;admins,developers |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | Required only when the authentication process requires a username and password |  [optional]
