@@ -44,10 +44,6 @@ public class Encrypt {
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PLAINTEXT = "plaintext";
   @SerializedName(SERIALIZED_NAME_PLAINTEXT)
   private String plaintext;
@@ -59,10 +55,6 @@ public class Encrypt {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public Encrypt displayId(String displayId) {
@@ -142,29 +134,6 @@ public class Encrypt {
   }
 
 
-  public Encrypt password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public Encrypt plaintext(String plaintext) {
     
     this.plaintext = plaintext;
@@ -175,7 +144,8 @@ public class Encrypt {
    * Data to be encrypted
    * @return plaintext
   **/
-  @ApiModelProperty(required = true, value = "Data to be encrypted")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Data to be encrypted")
 
   public String getPlaintext() {
     return plaintext;
@@ -233,29 +203,6 @@ public class Encrypt {
   }
 
 
-  public Encrypt username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -268,16 +215,14 @@ public class Encrypt {
     return Objects.equals(this.displayId, encrypt.displayId) &&
         Objects.equals(this.encryptionContext, encrypt.encryptionContext) &&
         Objects.equals(this.keyName, encrypt.keyName) &&
-        Objects.equals(this.password, encrypt.password) &&
         Objects.equals(this.plaintext, encrypt.plaintext) &&
         Objects.equals(this.token, encrypt.token) &&
-        Objects.equals(this.uidToken, encrypt.uidToken) &&
-        Objects.equals(this.username, encrypt.username);
+        Objects.equals(this.uidToken, encrypt.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, encryptionContext, keyName, password, plaintext, token, uidToken, username);
+    return Objects.hash(displayId, encryptionContext, keyName, plaintext, token, uidToken);
   }
 
 
@@ -288,11 +233,9 @@ public class Encrypt {
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

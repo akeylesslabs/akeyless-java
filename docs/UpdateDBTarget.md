@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
 **dbType** | **String** |  | 
 **host** | **String** |  |  [optional]
+**keepPrevVersion** | **String** |  |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **mongodbAtlas** | **Boolean** |  |  [optional]
 **mongodbAtlasApiPrivateKey** | **String** | MongoDB Atlas private key |  [optional]
@@ -22,15 +23,13 @@ Name | Type | Description | Notes
 **name** | **String** | Target name | 
 **newName** | **String** | New target name |  [optional]
 **oracleServiceName** | **String** |  |  [optional]
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **port** | **String** |  |  [optional]
 **pwd** | **String** |  |  [optional]
 **snowflakeAccount** | **String** |  |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**updateVersion** | **Boolean** | Create new version for the target |  [optional]
+**updateVersion** | **Boolean** | Deprecated |  [optional]
 **userName** | **String** |  |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

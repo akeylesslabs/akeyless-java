@@ -23,8 +23,10 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
+import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.RotatedSecretDetailsInfo;
 import io.akeyless.client.model.SecureRemoteAccess;
+import io.akeyless.client.model.StaticSecretDetailsInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -46,6 +48,10 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS)
   private DynamicSecretProducerInfo dynamicSecretProducerDetails;
 
+  public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
+  private PasswordPolicyInfo passwordPolicy;
+
   public static final String SERIALIZED_NAME_ROTATED_SECRET_DETAILS = "rotated_secret_details";
   @SerializedName(SERIALIZED_NAME_ROTATED_SECRET_DETAILS)
   private RotatedSecretDetailsInfo rotatedSecretDetails;
@@ -53,6 +59,10 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS = "secure_remote_access_details";
   @SerializedName(SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS)
   private SecureRemoteAccess secureRemoteAccessDetails;
+
+  public static final String SERIALIZED_NAME_STATIC_SECRET_INFO = "static_secret_info";
+  @SerializedName(SERIALIZED_NAME_STATIC_SECRET_INFO)
+  private StaticSecretDetailsInfo staticSecretInfo;
 
 
   public ItemGeneralInfo certIssueDetails(CertificateIssueInfo certIssueDetails) {
@@ -124,6 +134,29 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo passwordPolicy(PasswordPolicyInfo passwordPolicy) {
+    
+    this.passwordPolicy = passwordPolicy;
+    return this;
+  }
+
+   /**
+   * Get passwordPolicy
+   * @return passwordPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PasswordPolicyInfo getPasswordPolicy() {
+    return passwordPolicy;
+  }
+
+
+  public void setPasswordPolicy(PasswordPolicyInfo passwordPolicy) {
+    this.passwordPolicy = passwordPolicy;
+  }
+
+
   public ItemGeneralInfo rotatedSecretDetails(RotatedSecretDetailsInfo rotatedSecretDetails) {
     
     this.rotatedSecretDetails = rotatedSecretDetails;
@@ -170,6 +203,29 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo staticSecretInfo(StaticSecretDetailsInfo staticSecretInfo) {
+    
+    this.staticSecretInfo = staticSecretInfo;
+    return this;
+  }
+
+   /**
+   * Get staticSecretInfo
+   * @return staticSecretInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public StaticSecretDetailsInfo getStaticSecretInfo() {
+    return staticSecretInfo;
+  }
+
+
+  public void setStaticSecretInfo(StaticSecretDetailsInfo staticSecretInfo) {
+    this.staticSecretInfo = staticSecretInfo;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -182,13 +238,15 @@ public class ItemGeneralInfo {
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
+        Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
         Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails) &&
-        Objects.equals(this.secureRemoteAccessDetails, itemGeneralInfo.secureRemoteAccessDetails);
+        Objects.equals(this.secureRemoteAccessDetails, itemGeneralInfo.secureRemoteAccessDetails) &&
+        Objects.equals(this.staticSecretInfo, itemGeneralInfo.staticSecretInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, classicKeyDetails, dynamicSecretProducerDetails, rotatedSecretDetails, secureRemoteAccessDetails);
+    return Objects.hash(certIssueDetails, classicKeyDetails, dynamicSecretProducerDetails, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo);
   }
 
 
@@ -199,8 +257,10 @@ public class ItemGeneralInfo {
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
+    sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
     sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
+    sb.append("    staticSecretInfo: ").append(toIndentedString(staticSecretInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

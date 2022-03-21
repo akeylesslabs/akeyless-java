@@ -48,6 +48,14 @@ public class GatewayUpdateProducerAzure {
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
 
+  public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
+  @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
+  private String fixedUserClaimKeyname = "false";
+
+  public static final String SERIALIZED_NAME_FIXED_USER_ONLY = "fixed-user-only";
+  @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
+  private Boolean fixedUserOnly = false;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -55,10 +63,6 @@ public class GatewayUpdateProducerAzure {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
-
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -75,6 +79,10 @@ public class GatewayUpdateProducerAzure {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -106,7 +114,7 @@ public class GatewayUpdateProducerAzure {
 
   public static final String SERIALIZED_NAME_USER_PROGRAMMATIC_ACCESS = "user-programmatic-access";
   @SerializedName(SERIALIZED_NAME_USER_PROGRAMMATIC_ACCESS)
-  private Boolean userProgrammaticAccess = true;
+  private Boolean userProgrammaticAccess = false;
 
   public static final String SERIALIZED_NAME_USER_ROLE_TEMPLATE_ID = "user-role-template-id";
   @SerializedName(SERIALIZED_NAME_USER_ROLE_TEMPLATE_ID)
@@ -115,10 +123,6 @@ public class GatewayUpdateProducerAzure {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateProducerAzure appObjId(String appObjId) {
@@ -213,6 +217,52 @@ public class GatewayUpdateProducerAzure {
   }
 
 
+  public GatewayUpdateProducerAzure fixedUserClaimKeyname(String fixedUserClaimKeyname) {
+    
+    this.fixedUserClaimKeyname = fixedUserClaimKeyname;
+    return this;
+  }
+
+   /**
+   * FixedUserClaimKeyname
+   * @return fixedUserClaimKeyname
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "FixedUserClaimKeyname")
+
+  public String getFixedUserClaimKeyname() {
+    return fixedUserClaimKeyname;
+  }
+
+
+  public void setFixedUserClaimKeyname(String fixedUserClaimKeyname) {
+    this.fixedUserClaimKeyname = fixedUserClaimKeyname;
+  }
+
+
+  public GatewayUpdateProducerAzure fixedUserOnly(Boolean fixedUserOnly) {
+    
+    this.fixedUserOnly = fixedUserOnly;
+    return this;
+  }
+
+   /**
+   * Fixed user
+   * @return fixedUserOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fixed user")
+
+  public Boolean getFixedUserOnly() {
+    return fixedUserOnly;
+  }
+
+
+  public void setFixedUserOnly(Boolean fixedUserOnly) {
+    this.fixedUserOnly = fixedUserOnly;
+  }
+
+
   public GatewayUpdateProducerAzure name(String name) {
     
     this.name = name;
@@ -255,29 +305,6 @@ public class GatewayUpdateProducerAzure {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public GatewayUpdateProducerAzure password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -370,6 +397,29 @@ public class GatewayUpdateProducerAzure {
 
   public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
     this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public GatewayUpdateProducerAzure secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebProxy
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
   }
 
 
@@ -611,29 +661,6 @@ public class GatewayUpdateProducerAzure {
   }
 
 
-  public GatewayUpdateProducerAzure username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -647,13 +674,15 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.azureClientId, gatewayUpdateProducerAzure.azureClientId) &&
         Objects.equals(this.azureClientSecret, gatewayUpdateProducerAzure.azureClientSecret) &&
         Objects.equals(this.azureTenantId, gatewayUpdateProducerAzure.azureTenantId) &&
+        Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerAzure.fixedUserClaimKeyname) &&
+        Objects.equals(this.fixedUserOnly, gatewayUpdateProducerAzure.fixedUserOnly) &&
         Objects.equals(this.name, gatewayUpdateProducerAzure.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerAzure.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerAzure.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerAzure.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerAzure.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayUpdateProducerAzure.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, gatewayUpdateProducerAzure.secureAccessWebProxy) &&
         Objects.equals(this.tags, gatewayUpdateProducerAzure.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerAzure.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerAzure.token) &&
@@ -663,13 +692,12 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.userPrincipalName, gatewayUpdateProducerAzure.userPrincipalName) &&
         Objects.equals(this.userProgrammaticAccess, gatewayUpdateProducerAzure.userProgrammaticAccess) &&
         Objects.equals(this.userRoleTemplateId, gatewayUpdateProducerAzure.userRoleTemplateId) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerAzure.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerAzure.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerAzure.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, name, newName, password, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl, username);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, fixedUserClaimKeyname, fixedUserOnly, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
 
@@ -681,13 +709,15 @@ public class GatewayUpdateProducerAzure {
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
+    sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -698,7 +728,6 @@ public class GatewayUpdateProducerAzure {
     sb.append("    userProgrammaticAccess: ").append(toIndentedString(userProgrammaticAccess)).append("\n");
     sb.append("    userRoleTemplateId: ").append(toIndentedString(userRoleTemplateId)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

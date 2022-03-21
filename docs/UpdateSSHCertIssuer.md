@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **metadata** | **String** | A metadata about the issuer |  [optional]
 **name** | **String** | SSH certificate issuer name | 
 **newName** | **String** | New item name |  [optional]
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **principals** | **String** | Signed certificates with principal, e.g example_role1,example_role2 |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
 **secureAccessBastionApi** | **String** |  |  [optional]
@@ -25,7 +24,6 @@ Name | Type | Description | Notes
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **ttl** | **Long** | he requested Time To Live for the certificate, in seconds | 
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

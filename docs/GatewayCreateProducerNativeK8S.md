@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **k8sNamespace** | **String** | K8S namespace |  [optional]
 **k8sServiceAccount** | **String** | K8S service account |  [optional]
 **name** | **String** | Producer name | 
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** |  |  [optional]
 **secureAccessBastionIssuer** | **String** |  |  [optional]
@@ -22,12 +21,12 @@ Name | Type | Description | Notes
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessWeb** | **Boolean** |  |  [optional]
 **secureAccessWebBrowsing** | **Boolean** |  |  [optional]
+**secureAccessWebProxy** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **userTtl** | **String** | User TTL |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

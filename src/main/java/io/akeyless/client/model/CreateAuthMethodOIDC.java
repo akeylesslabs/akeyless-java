@@ -68,10 +68,6 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -83,10 +79,6 @@ public class CreateAuthMethodOIDC {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateAuthMethodOIDC accessExpires(Long accessExpires) {
@@ -311,29 +303,6 @@ public class CreateAuthMethodOIDC {
   }
 
 
-  public CreateAuthMethodOIDC password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public CreateAuthMethodOIDC token(String token) {
     
     this.token = token;
@@ -402,29 +371,6 @@ public class CreateAuthMethodOIDC {
   }
 
 
-  public CreateAuthMethodOIDC username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -443,16 +389,14 @@ public class CreateAuthMethodOIDC {
         Objects.equals(this.issuer, createAuthMethodOIDC.issuer) &&
         Objects.equals(this.jwtTtl, createAuthMethodOIDC.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOIDC.name) &&
-        Objects.equals(this.password, createAuthMethodOIDC.password) &&
         Objects.equals(this.token, createAuthMethodOIDC.token) &&
         Objects.equals(this.uidToken, createAuthMethodOIDC.uidToken) &&
-        Objects.equals(this.uniqueIdentifier, createAuthMethodOIDC.uniqueIdentifier) &&
-        Objects.equals(this.username, createAuthMethodOIDC.username);
+        Objects.equals(this.uniqueIdentifier, createAuthMethodOIDC.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, jwtTtl, name, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, jwtTtl, name, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -469,11 +413,9 @@ public class CreateAuthMethodOIDC {
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

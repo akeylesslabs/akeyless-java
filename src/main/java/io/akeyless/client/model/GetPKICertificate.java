@@ -45,10 +45,6 @@ public class GetPKICertificate {
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
   private String keyDataBase64;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -60,10 +56,6 @@ public class GetPKICertificate {
   public static final String SERIALIZED_NAME_URI_SANS = "uri-sans";
   @SerializedName(SERIALIZED_NAME_URI_SANS)
   private String uriSans;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GetPKICertificate altNames(String altNames) {
@@ -157,29 +149,6 @@ public class GetPKICertificate {
   }
 
 
-  public GetPKICertificate password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public GetPKICertificate token(String token) {
     
     this.token = token;
@@ -249,29 +218,6 @@ public class GetPKICertificate {
   }
 
 
-  public GetPKICertificate username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -285,16 +231,14 @@ public class GetPKICertificate {
         Objects.equals(this.certIssuerName, getPKICertificate.certIssuerName) &&
         Objects.equals(this.commonName, getPKICertificate.commonName) &&
         Objects.equals(this.keyDataBase64, getPKICertificate.keyDataBase64) &&
-        Objects.equals(this.password, getPKICertificate.password) &&
         Objects.equals(this.token, getPKICertificate.token) &&
         Objects.equals(this.uidToken, getPKICertificate.uidToken) &&
-        Objects.equals(this.uriSans, getPKICertificate.uriSans) &&
-        Objects.equals(this.username, getPKICertificate.username);
+        Objects.equals(this.uriSans, getPKICertificate.uriSans);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, password, token, uidToken, uriSans, username);
+    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, token, uidToken, uriSans);
   }
 
 
@@ -306,11 +250,9 @@ public class GetPKICertificate {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uriSans: ").append(toIndentedString(uriSans)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,13 +14,11 @@ Name | Type | Description | Notes
 **k8sIssuer** | **String** | The Kubernetes JWT issuer name. If not set, kubernetes/serviceaccount will use as an issuer. |  [optional]
 **name** | **String** | K8S Auth config name | 
 **newName** | **String** | K8S Auth config new name | 
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **signingKey** | **String** | The private key (in base64 encoded of the PEM format) associated with the public key defined in the Kubernetes auth | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **tokenExp** | **Long** | Time in seconds of expiration of the Akeyless Kube Auth Method token |  [optional]
 **tokenReviewerJwt** | **String** | A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs. If not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API. |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

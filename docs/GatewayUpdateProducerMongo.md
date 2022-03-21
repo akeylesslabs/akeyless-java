@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **mongodbUsername** | **String** | MongoDB server username |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Encrypt producer with following key |  [optional]
 **secureAccessBastionIssuer** | **String** |  |  [optional]
 **secureAccessEnable** | **String** |  |  [optional]
@@ -31,7 +30,6 @@ Name | Type | Description | Notes
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **userTtl** | **String** | User TTL |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

@@ -68,10 +68,6 @@ public class GatewayCreateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -119,10 +115,6 @@ public class GatewayCreateProducerMySQL {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerMySQL dbServerCertificates(String dbServerCertificates) {
@@ -328,29 +320,6 @@ public class GatewayCreateProducerMySQL {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerMySQL password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -646,29 +615,6 @@ public class GatewayCreateProducerMySQL {
   }
 
 
-  public GatewayCreateProducerMySQL username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -687,7 +633,6 @@ public class GatewayCreateProducerMySQL {
         Objects.equals(this.mysqlScreationStatements, gatewayCreateProducerMySQL.mysqlScreationStatements) &&
         Objects.equals(this.mysqlUsername, gatewayCreateProducerMySQL.mysqlUsername) &&
         Objects.equals(this.name, gatewayCreateProducerMySQL.name) &&
-        Objects.equals(this.password, gatewayCreateProducerMySQL.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMySQL.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMySQL.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMySQL.secureAccessEnable) &&
@@ -699,13 +644,12 @@ public class GatewayCreateProducerMySQL {
         Objects.equals(this.targetName, gatewayCreateProducerMySQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerMySQL.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerMySQL.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerMySQL.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerMySQL.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerMySQL.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -722,7 +666,6 @@ public class GatewayCreateProducerMySQL {
     sb.append("    mysqlScreationStatements: ").append(toIndentedString(mysqlScreationStatements)).append("\n");
     sb.append("    mysqlUsername: ").append(toIndentedString(mysqlUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
@@ -735,7 +678,6 @@ public class GatewayCreateProducerMySQL {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -61,10 +61,6 @@ public class SignPKICertWithClassicKey {
   @SerializedName(SERIALIZED_NAME_ORGANIZATIONS)
   private String organizations;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal-code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
   private String postalCode;
@@ -100,10 +96,6 @@ public class SignPKICertWithClassicKey {
   public static final String SERIALIZED_NAME_URI_SANS = "uri-sans";
   @SerializedName(SERIALIZED_NAME_URI_SANS)
   private String uriSans;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -290,29 +282,6 @@ public class SignPKICertWithClassicKey {
 
   public void setOrganizations(String organizations) {
     this.organizations = organizations;
-  }
-
-
-  public SignPKICertWithClassicKey password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -521,29 +490,6 @@ public class SignPKICertWithClassicKey {
   }
 
 
-  public SignPKICertWithClassicKey username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public SignPKICertWithClassicKey version(Integer version) {
     
     this.version = version;
@@ -583,7 +529,6 @@ public class SignPKICertWithClassicKey {
         Objects.equals(this.locality, signPKICertWithClassicKey.locality) &&
         Objects.equals(this.organizationalUnits, signPKICertWithClassicKey.organizationalUnits) &&
         Objects.equals(this.organizations, signPKICertWithClassicKey.organizations) &&
-        Objects.equals(this.password, signPKICertWithClassicKey.password) &&
         Objects.equals(this.postalCode, signPKICertWithClassicKey.postalCode) &&
         Objects.equals(this.province, signPKICertWithClassicKey.province) &&
         Objects.equals(this.publicKeyPemData, signPKICertWithClassicKey.publicKeyPemData) &&
@@ -593,13 +538,12 @@ public class SignPKICertWithClassicKey {
         Objects.equals(this.ttl, signPKICertWithClassicKey.ttl) &&
         Objects.equals(this.uidToken, signPKICertWithClassicKey.uidToken) &&
         Objects.equals(this.uriSans, signPKICertWithClassicKey.uriSans) &&
-        Objects.equals(this.username, signPKICertWithClassicKey.username) &&
         Objects.equals(this.version, signPKICertWithClassicKey.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonName, country, displayId, dnsNames, keyUsage, locality, organizationalUnits, organizations, password, postalCode, province, publicKeyPemData, signingMethod, streetAddress, token, ttl, uidToken, uriSans, username, version);
+    return Objects.hash(commonName, country, displayId, dnsNames, keyUsage, locality, organizationalUnits, organizations, postalCode, province, publicKeyPemData, signingMethod, streetAddress, token, ttl, uidToken, uriSans, version);
   }
 
 
@@ -615,7 +559,6 @@ public class SignPKICertWithClassicKey {
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    organizationalUnits: ").append(toIndentedString(organizationalUnits)).append("\n");
     sb.append("    organizations: ").append(toIndentedString(organizations)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
     sb.append("    publicKeyPemData: ").append(toIndentedString(publicKeyPemData)).append("\n");
@@ -625,7 +568,6 @@ public class SignPKICertWithClassicKey {
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uriSans: ").append(toIndentedString(uriSans)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

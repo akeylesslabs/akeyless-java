@@ -135,6 +135,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_USE_INTERNAL_BASTION)
   private Boolean useInternalBastion;
 
+  public static final String SERIALIZED_NAME_WEB_PROXY = "web_proxy";
+  @SerializedName(SERIALIZED_NAME_WEB_PROXY)
+  private Boolean webProxy;
+
 
   public SecureRemoteAccess accountId(String accountId) {
     
@@ -742,6 +746,29 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess webProxy(Boolean webProxy) {
+    
+    this.webProxy = webProxy;
+    return this;
+  }
+
+   /**
+   * Get webProxy
+   * @return webProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getWebProxy() {
+    return webProxy;
+  }
+
+
+  public void setWebProxy(Boolean webProxy) {
+    this.webProxy = webProxy;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -776,12 +803,13 @@ public class SecureRemoteAccess {
         Objects.equals(this.sshPrivateKey, secureRemoteAccess.sshPrivateKey) &&
         Objects.equals(this.sshUser, secureRemoteAccess.sshUser) &&
         Objects.equals(this.url, secureRemoteAccess.url) &&
-        Objects.equals(this.useInternalBastion, secureRemoteAccess.useInternalBastion);
+        Objects.equals(this.useInternalBastion, secureRemoteAccess.useInternalBastion) &&
+        Objects.equals(this.webProxy, secureRemoteAccess.webProxy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdpUser, region, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdpUser, region, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion, webProxy);
   }
 
 
@@ -815,6 +843,7 @@ public class SecureRemoteAccess {
     sb.append("    sshUser: ").append(toIndentedString(sshUser)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useInternalBastion: ").append(toIndentedString(useInternalBastion)).append("\n");
+    sb.append("    webProxy: ").append(toIndentedString(webProxy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

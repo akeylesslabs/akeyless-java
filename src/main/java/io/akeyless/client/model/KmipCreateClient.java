@@ -37,10 +37,6 @@ public class KmipCreateClient {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -48,10 +44,6 @@ public class KmipCreateClient {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public KmipCreateClient certificateTtl(Long certificateTtl) {
@@ -96,29 +88,6 @@ public class KmipCreateClient {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public KmipCreateClient password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -168,29 +137,6 @@ public class KmipCreateClient {
   }
 
 
-  public KmipCreateClient username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -202,15 +148,13 @@ public class KmipCreateClient {
     KmipCreateClient kmipCreateClient = (KmipCreateClient) o;
     return Objects.equals(this.certificateTtl, kmipCreateClient.certificateTtl) &&
         Objects.equals(this.name, kmipCreateClient.name) &&
-        Objects.equals(this.password, kmipCreateClient.password) &&
         Objects.equals(this.token, kmipCreateClient.token) &&
-        Objects.equals(this.uidToken, kmipCreateClient.uidToken) &&
-        Objects.equals(this.username, kmipCreateClient.username);
+        Objects.equals(this.uidToken, kmipCreateClient.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateTtl, name, password, token, uidToken, username);
+    return Objects.hash(certificateTtl, name, token, uidToken);
   }
 
 
@@ -220,10 +164,8 @@ public class KmipCreateClient {
     sb.append("class KmipCreateClient {\n");
     sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

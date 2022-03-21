@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class DeleteRoles {
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -44,33 +40,6 @@ public class DeleteRoles {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
-
-  public DeleteRoles password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
 
   public DeleteRoles path(String path) {
@@ -141,29 +110,6 @@ public class DeleteRoles {
   }
 
 
-  public DeleteRoles username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -173,16 +119,14 @@ public class DeleteRoles {
       return false;
     }
     DeleteRoles deleteRoles = (DeleteRoles) o;
-    return Objects.equals(this.password, deleteRoles.password) &&
-        Objects.equals(this.path, deleteRoles.path) &&
+    return Objects.equals(this.path, deleteRoles.path) &&
         Objects.equals(this.token, deleteRoles.token) &&
-        Objects.equals(this.uidToken, deleteRoles.uidToken) &&
-        Objects.equals(this.username, deleteRoles.username);
+        Objects.equals(this.uidToken, deleteRoles.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, path, token, uidToken, username);
+    return Objects.hash(path, token, uidToken);
   }
 
 
@@ -190,11 +134,9 @@ public class DeleteRoles {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRoles {\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

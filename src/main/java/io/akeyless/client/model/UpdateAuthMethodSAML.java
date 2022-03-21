@@ -52,6 +52,10 @@ public class UpdateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_IDP_METADATA_URL)
   private String idpMetadataUrl;
 
+  public static final String SERIALIZED_NAME_IDP_METADATA_XML_DATA = "idp-metadata-xml-data";
+  @SerializedName(SERIALIZED_NAME_IDP_METADATA_XML_DATA)
+  private String idpMetadataXmlData;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl = 0l;
@@ -64,10 +68,6 @@ public class UpdateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -79,10 +79,6 @@ public class UpdateAuthMethodSAML {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateAuthMethodSAML accessExpires(Long accessExpires) {
@@ -216,6 +212,29 @@ public class UpdateAuthMethodSAML {
   }
 
 
+  public UpdateAuthMethodSAML idpMetadataXmlData(String idpMetadataXmlData) {
+    
+    this.idpMetadataXmlData = idpMetadataXmlData;
+    return this;
+  }
+
+   /**
+   * IDP metadata xml data
+   * @return idpMetadataXmlData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "IDP metadata xml data")
+
+  public String getIdpMetadataXmlData() {
+    return idpMetadataXmlData;
+  }
+
+
+  public void setIdpMetadataXmlData(String idpMetadataXmlData) {
+    this.idpMetadataXmlData = idpMetadataXmlData;
+  }
+
+
   public UpdateAuthMethodSAML jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -281,29 +300,6 @@ public class UpdateAuthMethodSAML {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public UpdateAuthMethodSAML password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -375,29 +371,6 @@ public class UpdateAuthMethodSAML {
   }
 
 
-  public UpdateAuthMethodSAML username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -412,19 +385,18 @@ public class UpdateAuthMethodSAML {
         Objects.equals(this.boundIps, updateAuthMethodSAML.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodSAML.forceSubClaims) &&
         Objects.equals(this.idpMetadataUrl, updateAuthMethodSAML.idpMetadataUrl) &&
+        Objects.equals(this.idpMetadataXmlData, updateAuthMethodSAML.idpMetadataXmlData) &&
         Objects.equals(this.jwtTtl, updateAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodSAML.name) &&
         Objects.equals(this.newName, updateAuthMethodSAML.newName) &&
-        Objects.equals(this.password, updateAuthMethodSAML.password) &&
         Objects.equals(this.token, updateAuthMethodSAML.token) &&
         Objects.equals(this.uidToken, updateAuthMethodSAML.uidToken) &&
-        Objects.equals(this.uniqueIdentifier, updateAuthMethodSAML.uniqueIdentifier) &&
-        Objects.equals(this.username, updateAuthMethodSAML.username);
+        Objects.equals(this.uniqueIdentifier, updateAuthMethodSAML.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, idpMetadataUrl, jwtTtl, name, newName, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, idpMetadataUrl, idpMetadataXmlData, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -437,14 +409,13 @@ public class UpdateAuthMethodSAML {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
+    sb.append("    idpMetadataXmlData: ").append(toIndentedString(idpMetadataXmlData)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

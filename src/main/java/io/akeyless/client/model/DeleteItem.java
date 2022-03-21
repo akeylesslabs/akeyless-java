@@ -41,10 +41,6 @@ public class DeleteItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -52,10 +48,6 @@ public class DeleteItem {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -130,29 +122,6 @@ public class DeleteItem {
   }
 
 
-  public DeleteItem password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public DeleteItem token(String token) {
     
     this.token = token;
@@ -199,29 +168,6 @@ public class DeleteItem {
   }
 
 
-  public DeleteItem username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public DeleteItem version(Integer version) {
     
     this.version = version;
@@ -257,16 +203,14 @@ public class DeleteItem {
     return Objects.equals(this.deleteImmediately, deleteItem.deleteImmediately) &&
         Objects.equals(this.deleteInDays, deleteItem.deleteInDays) &&
         Objects.equals(this.name, deleteItem.name) &&
-        Objects.equals(this.password, deleteItem.password) &&
         Objects.equals(this.token, deleteItem.token) &&
         Objects.equals(this.uidToken, deleteItem.uidToken) &&
-        Objects.equals(this.username, deleteItem.username) &&
         Objects.equals(this.version, deleteItem.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteImmediately, deleteInDays, name, password, token, uidToken, username, version);
+    return Objects.hash(deleteImmediately, deleteInDays, name, token, uidToken, version);
   }
 
 
@@ -277,10 +221,8 @@ public class DeleteItem {
     sb.append("    deleteImmediately: ").append(toIndentedString(deleteImmediately)).append("\n");
     sb.append("    deleteInDays: ").append(toIndentedString(deleteInDays)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

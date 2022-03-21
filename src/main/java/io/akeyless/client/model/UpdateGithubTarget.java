@@ -45,6 +45,10 @@ public class UpdateGithubTarget {
   @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
   private String githubBaseUrl;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -57,10 +61,6 @@ public class UpdateGithubTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -71,11 +71,7 @@ public class UpdateGithubTarget {
 
   public static final String SERIALIZED_NAME_UPDATE_VERSION = "update-version";
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
-  private Boolean updateVersion = false;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
+  private Boolean updateVersion;
 
 
   public UpdateGithubTarget comment(String comment) {
@@ -170,6 +166,29 @@ public class UpdateGithubTarget {
   }
 
 
+  public UpdateGithubTarget keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
+
+
   public UpdateGithubTarget key(String key) {
     
     this.key = key;
@@ -238,29 +257,6 @@ public class UpdateGithubTarget {
   }
 
 
-  public UpdateGithubTarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UpdateGithubTarget token(String token) {
     
     this.token = token;
@@ -314,11 +310,11 @@ public class UpdateGithubTarget {
   }
 
    /**
-   * Create new version for the target
+   * Deprecated
    * @return updateVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create new version for the target")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getUpdateVersion() {
     return updateVersion;
@@ -327,29 +323,6 @@ public class UpdateGithubTarget {
 
   public void setUpdateVersion(Boolean updateVersion) {
     this.updateVersion = updateVersion;
-  }
-
-
-  public UpdateGithubTarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
   }
 
 
@@ -366,19 +339,18 @@ public class UpdateGithubTarget {
         Objects.equals(this.githubAppId, updateGithubTarget.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, updateGithubTarget.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, updateGithubTarget.githubBaseUrl) &&
+        Objects.equals(this.keepPrevVersion, updateGithubTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGithubTarget.key) &&
         Objects.equals(this.name, updateGithubTarget.name) &&
         Objects.equals(this.newName, updateGithubTarget.newName) &&
-        Objects.equals(this.password, updateGithubTarget.password) &&
         Objects.equals(this.token, updateGithubTarget.token) &&
         Objects.equals(this.uidToken, updateGithubTarget.uidToken) &&
-        Objects.equals(this.updateVersion, updateGithubTarget.updateVersion) &&
-        Objects.equals(this.username, updateGithubTarget.username);
+        Objects.equals(this.updateVersion, updateGithubTarget.updateVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, key, name, newName, password, token, uidToken, updateVersion, username);
+    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -390,14 +362,13 @@ public class UpdateGithubTarget {
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

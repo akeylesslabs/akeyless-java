@@ -123,6 +123,14 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_SECRET)
   private String azureClientSecret;
 
+  public static final String SERIALIZED_NAME_AZURE_FIXED_USER_NAME_SUB_CLAIM_KEY = "azure_fixed_user_name_sub_claim_key";
+  @SerializedName(SERIALIZED_NAME_AZURE_FIXED_USER_NAME_SUB_CLAIM_KEY)
+  private String azureFixedUserNameSubClaimKey;
+
+  public static final String SERIALIZED_NAME_AZURE_FIXED_USER_ONLY = "azure_fixed_user_only";
+  @SerializedName(SERIALIZED_NAME_AZURE_FIXED_USER_ONLY)
+  private Boolean azureFixedUserOnly;
+
   public static final String SERIALIZED_NAME_AZURE_TENANT_ID = "azure_tenant_id";
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
@@ -499,6 +507,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ORACLE_CREATION_STATEMENTS)
   private String oracleCreationStatements;
 
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password_length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   private Long passwordLength;
@@ -563,6 +575,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ROTATE_SYNC_URL)
   private String rotateSyncUrl;
 
+  public static final String SERIALIZED_NAME_SCOPES = "scopes";
+  @SerializedName(SERIALIZED_NAME_SCOPES)
+  private List<String> scopes = null;
+
   public static final String SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS = "secure_remote_access_details";
   @SerializedName(SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS)
   private SecureRemoteAccess secureRemoteAccessDetails;
@@ -602,6 +618,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
+
+  public static final String SERIALIZED_NAME_USER_NAME = "user_name";
+  @SerializedName(SERIALIZED_NAME_USER_NAME)
+  private String userName;
 
   public static final String SERIALIZED_NAME_USER_PRINCIPAL_NAME = "user_principal_name";
   @SerializedName(SERIALIZED_NAME_USER_PRINCIPAL_NAME)
@@ -670,6 +690,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_VENAFI_ZONE = "venafi_zone";
   @SerializedName(SERIALIZED_NAME_VENAFI_ZONE)
   private String venafiZone;
+
+  public static final String SERIALIZED_NAME_WARN_BEFORE_USER_EXPIRATION_MIN = "warn_before_user_expiration_min";
+  @SerializedName(SERIALIZED_NAME_WARN_BEFORE_USER_EXPIRATION_MIN)
+  private Long warnBeforeUserExpirationMin;
 
 
   public DSProducerDetails active(Boolean active) {
@@ -1175,6 +1199,52 @@ public class DSProducerDetails {
 
   public void setAzureClientSecret(String azureClientSecret) {
     this.azureClientSecret = azureClientSecret;
+  }
+
+
+  public DSProducerDetails azureFixedUserNameSubClaimKey(String azureFixedUserNameSubClaimKey) {
+    
+    this.azureFixedUserNameSubClaimKey = azureFixedUserNameSubClaimKey;
+    return this;
+  }
+
+   /**
+   * Get azureFixedUserNameSubClaimKey
+   * @return azureFixedUserNameSubClaimKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureFixedUserNameSubClaimKey() {
+    return azureFixedUserNameSubClaimKey;
+  }
+
+
+  public void setAzureFixedUserNameSubClaimKey(String azureFixedUserNameSubClaimKey) {
+    this.azureFixedUserNameSubClaimKey = azureFixedUserNameSubClaimKey;
+  }
+
+
+  public DSProducerDetails azureFixedUserOnly(Boolean azureFixedUserOnly) {
+    
+    this.azureFixedUserOnly = azureFixedUserOnly;
+    return this;
+  }
+
+   /**
+   * Get azureFixedUserOnly
+   * @return azureFixedUserOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAzureFixedUserOnly() {
+    return azureFixedUserOnly;
+  }
+
+
+  public void setAzureFixedUserOnly(Boolean azureFixedUserOnly) {
+    this.azureFixedUserOnly = azureFixedUserOnly;
   }
 
 
@@ -3372,6 +3442,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Get password
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
   public DSProducerDetails passwordLength(Long passwordLength) {
     
     this.passwordLength = passwordLength;
@@ -3740,6 +3833,37 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails scopes(List<String> scopes) {
+    
+    this.scopes = scopes;
+    return this;
+  }
+
+  public DSProducerDetails addScopesItem(String scopesItem) {
+    if (this.scopes == null) {
+      this.scopes = new ArrayList<String>();
+    }
+    this.scopes.add(scopesItem);
+    return this;
+  }
+
+   /**
+   * Get scopes
+   * @return scopes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getScopes() {
+    return scopes;
+  }
+
+
+  public void setScopes(List<String> scopes) {
+    this.scopes = scopes;
+  }
+
+
   public DSProducerDetails secureRemoteAccessDetails(SecureRemoteAccess secureRemoteAccessDetails) {
     
     this.secureRemoteAccessDetails = secureRemoteAccessDetails;
@@ -3975,6 +4099,29 @@ public class DSProducerDetails {
 
   public void setUseGwCloudIdentity(Boolean useGwCloudIdentity) {
     this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
+  public DSProducerDetails userName(String userName) {
+    
+    this.userName = userName;
+    return this;
+  }
+
+   /**
+   * Get userName
+   * @return userName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUserName() {
+    return userName;
+  }
+
+
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
 
@@ -4377,6 +4524,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails warnBeforeUserExpirationMin(Long warnBeforeUserExpirationMin) {
+    
+    this.warnBeforeUserExpirationMin = warnBeforeUserExpirationMin;
+    return this;
+  }
+
+   /**
+   * Get warnBeforeUserExpirationMin
+   * @return warnBeforeUserExpirationMin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getWarnBeforeUserExpirationMin() {
+    return warnBeforeUserExpirationMin;
+  }
+
+
+  public void setWarnBeforeUserExpirationMin(Long warnBeforeUserExpirationMin) {
+    this.warnBeforeUserExpirationMin = warnBeforeUserExpirationMin;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -4408,6 +4578,8 @@ public class DSProducerDetails {
         Objects.equals(this.azureAppObjectId, dsProducerDetails.azureAppObjectId) &&
         Objects.equals(this.azureClientId, dsProducerDetails.azureClientId) &&
         Objects.equals(this.azureClientSecret, dsProducerDetails.azureClientSecret) &&
+        Objects.equals(this.azureFixedUserNameSubClaimKey, dsProducerDetails.azureFixedUserNameSubClaimKey) &&
+        Objects.equals(this.azureFixedUserOnly, dsProducerDetails.azureFixedUserOnly) &&
         Objects.equals(this.azureTenantId, dsProducerDetails.azureTenantId) &&
         Objects.equals(this.azureUserGroupsObjId, dsProducerDetails.azureUserGroupsObjId) &&
         Objects.equals(this.azureUserPortalAccess, dsProducerDetails.azureUserPortalAccess) &&
@@ -4502,6 +4674,7 @@ public class DSProducerDetails {
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
         Objects.equals(this.oracleCreationStatements, dsProducerDetails.oracleCreationStatements) &&
+        Objects.equals(this.password, dsProducerDetails.password) &&
         Objects.equals(this.passwordLength, dsProducerDetails.passwordLength) &&
         Objects.equals(this.passwordPolicy, dsProducerDetails.passwordPolicy) &&
         Objects.equals(this.payload, dsProducerDetails.payload) &&
@@ -4518,6 +4691,7 @@ public class DSProducerDetails {
         Objects.equals(this.redshiftCreationStatements, dsProducerDetails.redshiftCreationStatements) &&
         Objects.equals(this.revokeSyncUrl, dsProducerDetails.revokeSyncUrl) &&
         Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
+        Objects.equals(this.scopes, dsProducerDetails.scopes) &&
         Objects.equals(this.secureRemoteAccessDetails, dsProducerDetails.secureRemoteAccessDetails) &&
         Objects.equals(this.sfAccount, dsProducerDetails.sfAccount) &&
         Objects.equals(this.sfUserRole, dsProducerDetails.sfUserRole) &&
@@ -4528,6 +4702,7 @@ public class DSProducerDetails {
         Objects.equals(this.tags, dsProducerDetails.tags) &&
         Objects.equals(this.timeoutSeconds, dsProducerDetails.timeoutSeconds) &&
         Objects.equals(this.useGwCloudIdentity, dsProducerDetails.useGwCloudIdentity) &&
+        Objects.equals(this.userName, dsProducerDetails.userName) &&
         Objects.equals(this.userPrincipalName, dsProducerDetails.userPrincipalName) &&
         Objects.equals(this.userTtl, dsProducerDetails.userTtl) &&
         Objects.equals(this.usernameLength, dsProducerDetails.usernameLength) &&
@@ -4544,12 +4719,13 @@ public class DSProducerDetails {
         Objects.equals(this.venafiTppPassword, dsProducerDetails.venafiTppPassword) &&
         Objects.equals(this.venafiTppUsername, dsProducerDetails.venafiTppUsername) &&
         Objects.equals(this.venafiUseTpp, dsProducerDetails.venafiUseTpp) &&
-        Objects.equals(this.venafiZone, dsProducerDetails.venafiZone);
+        Objects.equals(this.venafiZone, dsProducerDetails.venafiZone) &&
+        Objects.equals(this.warnBeforeUserExpirationMin, dsProducerDetails.warnBeforeUserExpirationMin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -4579,6 +4755,8 @@ public class DSProducerDetails {
     sb.append("    azureAppObjectId: ").append(toIndentedString(azureAppObjectId)).append("\n");
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
+    sb.append("    azureFixedUserNameSubClaimKey: ").append(toIndentedString(azureFixedUserNameSubClaimKey)).append("\n");
+    sb.append("    azureFixedUserOnly: ").append(toIndentedString(azureFixedUserOnly)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    azureUserGroupsObjId: ").append(toIndentedString(azureUserGroupsObjId)).append("\n");
     sb.append("    azureUserPortalAccess: ").append(toIndentedString(azureUserPortalAccess)).append("\n");
@@ -4673,6 +4851,7 @@ public class DSProducerDetails {
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
     sb.append("    oracleCreationStatements: ").append(toIndentedString(oracleCreationStatements)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
@@ -4689,6 +4868,7 @@ public class DSProducerDetails {
     sb.append("    redshiftCreationStatements: ").append(toIndentedString(redshiftCreationStatements)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sfUserRole: ").append(toIndentedString(sfUserRole)).append("\n");
@@ -4699,6 +4879,7 @@ public class DSProducerDetails {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
+    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("    usernameLength: ").append(toIndentedString(usernameLength)).append("\n");
@@ -4716,6 +4897,7 @@ public class DSProducerDetails {
     sb.append("    venafiTppUsername: ").append(toIndentedString(venafiTppUsername)).append("\n");
     sb.append("    venafiUseTpp: ").append(toIndentedString(venafiUseTpp)).append("\n");
     sb.append("    venafiZone: ").append(toIndentedString(venafiZone)).append("\n");
+    sb.append("    warnBeforeUserExpirationMin: ").append(toIndentedString(warnBeforeUserExpirationMin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "kmipSetServerState is a command that sets the environment state to active/inactive.")
 
 public class KmipSetServerState {
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
@@ -45,33 +41,6 @@ public class KmipSetServerState {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
-
-  public KmipSetServerState password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
 
   public KmipSetServerState state(String state) {
@@ -142,29 +111,6 @@ public class KmipSetServerState {
   }
 
 
-  public KmipSetServerState username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -174,16 +120,14 @@ public class KmipSetServerState {
       return false;
     }
     KmipSetServerState kmipSetServerState = (KmipSetServerState) o;
-    return Objects.equals(this.password, kmipSetServerState.password) &&
-        Objects.equals(this.state, kmipSetServerState.state) &&
+    return Objects.equals(this.state, kmipSetServerState.state) &&
         Objects.equals(this.token, kmipSetServerState.token) &&
-        Objects.equals(this.uidToken, kmipSetServerState.uidToken) &&
-        Objects.equals(this.username, kmipSetServerState.username);
+        Objects.equals(this.uidToken, kmipSetServerState.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, state, token, uidToken, username);
+    return Objects.hash(state, token, uidToken);
   }
 
 
@@ -191,11 +135,9 @@ public class KmipSetServerState {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KmipSetServerState {\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

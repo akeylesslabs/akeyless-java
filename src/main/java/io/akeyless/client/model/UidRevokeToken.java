@@ -33,10 +33,6 @@ public class UidRevokeToken {
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
   private String authMethodName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_REVOKE_TOKEN = "revoke-token";
   @SerializedName(SERIALIZED_NAME_REVOKE_TOKEN)
   private String revokeToken;
@@ -52,10 +48,6 @@ public class UidRevokeToken {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UidRevokeToken authMethodName(String authMethodName) {
@@ -78,29 +70,6 @@ public class UidRevokeToken {
 
   public void setAuthMethodName(String authMethodName) {
     this.authMethodName = authMethodName;
-  }
-
-
-  public UidRevokeToken password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -194,29 +163,6 @@ public class UidRevokeToken {
   }
 
 
-  public UidRevokeToken username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -227,17 +173,15 @@ public class UidRevokeToken {
     }
     UidRevokeToken uidRevokeToken = (UidRevokeToken) o;
     return Objects.equals(this.authMethodName, uidRevokeToken.authMethodName) &&
-        Objects.equals(this.password, uidRevokeToken.password) &&
         Objects.equals(this.revokeToken, uidRevokeToken.revokeToken) &&
         Objects.equals(this.revokeType, uidRevokeToken.revokeType) &&
         Objects.equals(this.token, uidRevokeToken.token) &&
-        Objects.equals(this.uidToken, uidRevokeToken.uidToken) &&
-        Objects.equals(this.username, uidRevokeToken.username);
+        Objects.equals(this.uidToken, uidRevokeToken.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodName, password, revokeToken, revokeType, token, uidToken, username);
+    return Objects.hash(authMethodName, revokeToken, revokeType, token, uidToken);
   }
 
 
@@ -246,12 +190,10 @@ public class UidRevokeToken {
     StringBuilder sb = new StringBuilder();
     sb.append("class UidRevokeToken {\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    revokeToken: ").append(toIndentedString(revokeToken)).append("\n");
     sb.append("    revokeType: ").append(toIndentedString(revokeType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -53,6 +53,10 @@ public class UpdateGKETarget {
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_EMAIL)
   private String gkeServiceAccountEmail;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -65,10 +69,6 @@ public class UpdateGKETarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -79,15 +79,11 @@ public class UpdateGKETarget {
 
   public static final String SERIALIZED_NAME_UPDATE_VERSION = "update-version";
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
-  private Boolean updateVersion = false;
+  private Boolean updateVersion;
 
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateGKETarget comment(String comment) {
@@ -228,6 +224,29 @@ public class UpdateGKETarget {
   }
 
 
+  public UpdateGKETarget keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
+
+
   public UpdateGKETarget key(String key) {
     
     this.key = key;
@@ -296,29 +315,6 @@ public class UpdateGKETarget {
   }
 
 
-  public UpdateGKETarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UpdateGKETarget token(String token) {
     
     this.token = token;
@@ -372,11 +368,11 @@ public class UpdateGKETarget {
   }
 
    /**
-   * Create new version for the target
+   * Deprecated
    * @return updateVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create new version for the target")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getUpdateVersion() {
     return updateVersion;
@@ -411,29 +407,6 @@ public class UpdateGKETarget {
   }
 
 
-  public UpdateGKETarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -449,20 +422,19 @@ public class UpdateGKETarget {
         Objects.equals(this.gkeClusterEndpoint, updateGKETarget.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, updateGKETarget.gkeClusterName) &&
         Objects.equals(this.gkeServiceAccountEmail, updateGKETarget.gkeServiceAccountEmail) &&
+        Objects.equals(this.keepPrevVersion, updateGKETarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGKETarget.key) &&
         Objects.equals(this.name, updateGKETarget.name) &&
         Objects.equals(this.newName, updateGKETarget.newName) &&
-        Objects.equals(this.password, updateGKETarget.password) &&
         Objects.equals(this.token, updateGKETarget.token) &&
         Objects.equals(this.uidToken, updateGKETarget.uidToken) &&
         Objects.equals(this.updateVersion, updateGKETarget.updateVersion) &&
-        Objects.equals(this.useGwCloudIdentity, updateGKETarget.useGwCloudIdentity) &&
-        Objects.equals(this.username, updateGKETarget.username);
+        Objects.equals(this.useGwCloudIdentity, updateGKETarget.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, key, name, newName, password, token, uidToken, updateVersion, useGwCloudIdentity, username);
+    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -476,15 +448,14 @@ public class UpdateGKETarget {
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
     sb.append("    gkeServiceAccountEmail: ").append(toIndentedString(gkeServiceAccountEmail)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

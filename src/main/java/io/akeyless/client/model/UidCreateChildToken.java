@@ -50,10 +50,6 @@ public class UidCreateChildToken {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -65,10 +61,6 @@ public class UidCreateChildToken {
   public static final String SERIALIZED_NAME_UID_TOKEN_ID = "uid-token-id";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN_ID)
   private String uidTokenId;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UidCreateChildToken authMethodName(String authMethodName) {
@@ -186,29 +178,6 @@ public class UidCreateChildToken {
   }
 
 
-  public UidCreateChildToken password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UidCreateChildToken token(String token) {
     
     this.token = token;
@@ -278,29 +247,6 @@ public class UidCreateChildToken {
   }
 
 
-  public UidCreateChildToken username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -315,16 +261,14 @@ public class UidCreateChildToken {
         Objects.equals(this.childDenyRotate, uidCreateChildToken.childDenyRotate) &&
         Objects.equals(this.childTtl, uidCreateChildToken.childTtl) &&
         Objects.equals(this.comment, uidCreateChildToken.comment) &&
-        Objects.equals(this.password, uidCreateChildToken.password) &&
         Objects.equals(this.token, uidCreateChildToken.token) &&
         Objects.equals(this.uidToken, uidCreateChildToken.uidToken) &&
-        Objects.equals(this.uidTokenId, uidCreateChildToken.uidTokenId) &&
-        Objects.equals(this.username, uidCreateChildToken.username);
+        Objects.equals(this.uidTokenId, uidCreateChildToken.uidTokenId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodName, childDenyInheritance, childDenyRotate, childTtl, comment, password, token, uidToken, uidTokenId, username);
+    return Objects.hash(authMethodName, childDenyInheritance, childDenyRotate, childTtl, comment, token, uidToken, uidTokenId);
   }
 
 
@@ -337,11 +281,9 @@ public class UidCreateChildToken {
     sb.append("    childDenyRotate: ").append(toIndentedString(childDenyRotate)).append("\n");
     sb.append("    childTtl: ").append(toIndentedString(childTtl)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uidTokenId: ").append(toIndentedString(uidTokenId)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

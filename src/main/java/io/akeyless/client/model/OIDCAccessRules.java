@@ -49,6 +49,10 @@ public class OIDCAccessRules {
   @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
   private String clientSecret;
 
+  public static final String SERIALIZED_NAME_IS_INTERNAL = "is_internal";
+  @SerializedName(SERIALIZED_NAME_IS_INTERNAL)
+  private Boolean isInternal;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
@@ -166,6 +170,29 @@ public class OIDCAccessRules {
   }
 
 
+  public OIDCAccessRules isInternal(Boolean isInternal) {
+    
+    this.isInternal = isInternal;
+    return this;
+  }
+
+   /**
+   * IsInternal indicates whether this is an internal Auth Method where the client has no control over it, or it was created by the client e.g - Sign In with Google will create an OIDC Auth Method with IsInternal&#x3D;true
+   * @return isInternal
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "IsInternal indicates whether this is an internal Auth Method where the client has no control over it, or it was created by the client e.g - Sign In with Google will create an OIDC Auth Method with IsInternal=true")
+
+  public Boolean getIsInternal() {
+    return isInternal;
+  }
+
+
+  public void setIsInternal(Boolean isInternal) {
+    this.isInternal = isInternal;
+  }
+
+
   public OIDCAccessRules issuer(String issuer) {
     
     this.issuer = issuer;
@@ -225,13 +252,14 @@ public class OIDCAccessRules {
         Objects.equals(this.boundClaims, oiDCAccessRules.boundClaims) &&
         Objects.equals(this.clientId, oiDCAccessRules.clientId) &&
         Objects.equals(this.clientSecret, oiDCAccessRules.clientSecret) &&
+        Objects.equals(this.isInternal, oiDCAccessRules.isInternal) &&
         Objects.equals(this.issuer, oiDCAccessRules.issuer) &&
         Objects.equals(this.uniqueIdentifier, oiDCAccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedRedirectURIs, boundClaims, clientId, clientSecret, issuer, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, boundClaims, clientId, clientSecret, isInternal, issuer, uniqueIdentifier);
   }
 
 
@@ -243,6 +271,7 @@ public class OIDCAccessRules {
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    isInternal: ").append(toIndentedString(isInternal)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");

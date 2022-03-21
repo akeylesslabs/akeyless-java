@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AccountObjectVersionSettingsOutput;
 import io.akeyless.client.model.CustomerFullAddress;
 import io.akeyless.client.model.SmInfo;
 import io.akeyless.client.model.SraInfo;
@@ -48,6 +49,10 @@ public class GetAccountSettingsCommandOutput {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_OBJECT_VERSION_SETTINGS = "object_version_settings";
+  @SerializedName(SERIALIZED_NAME_OBJECT_VERSION_SETTINGS)
+  private AccountObjectVersionSettingsOutput objectVersionSettings;
 
   public static final String SERIALIZED_NAME_PHONE = "phone";
   @SerializedName(SERIALIZED_NAME_PHONE)
@@ -158,6 +163,29 @@ public class GetAccountSettingsCommandOutput {
   }
 
 
+  public GetAccountSettingsCommandOutput objectVersionSettings(AccountObjectVersionSettingsOutput objectVersionSettings) {
+    
+    this.objectVersionSettings = objectVersionSettings;
+    return this;
+  }
+
+   /**
+   * Get objectVersionSettings
+   * @return objectVersionSettings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AccountObjectVersionSettingsOutput getObjectVersionSettings() {
+    return objectVersionSettings;
+  }
+
+
+  public void setObjectVersionSettings(AccountObjectVersionSettingsOutput objectVersionSettings) {
+    this.objectVersionSettings = objectVersionSettings;
+  }
+
+
   public GetAccountSettingsCommandOutput phone(String phone) {
     
     this.phone = phone;
@@ -263,6 +291,7 @@ public class GetAccountSettingsCommandOutput {
         Objects.equals(this.address, getAccountSettingsCommandOutput.address) &&
         Objects.equals(this.companyName, getAccountSettingsCommandOutput.companyName) &&
         Objects.equals(this.email, getAccountSettingsCommandOutput.email) &&
+        Objects.equals(this.objectVersionSettings, getAccountSettingsCommandOutput.objectVersionSettings) &&
         Objects.equals(this.phone, getAccountSettingsCommandOutput.phone) &&
         Objects.equals(this.secretManagement, getAccountSettingsCommandOutput.secretManagement) &&
         Objects.equals(this.secureRemoteAccess, getAccountSettingsCommandOutput.secureRemoteAccess) &&
@@ -271,7 +300,7 @@ public class GetAccountSettingsCommandOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, address, companyName, email, phone, secretManagement, secureRemoteAccess, systemAccessCredsSettings);
+    return Objects.hash(accountId, address, companyName, email, objectVersionSettings, phone, secretManagement, secureRemoteAccess, systemAccessCredsSettings);
   }
 
 
@@ -283,6 +312,7 @@ public class GetAccountSettingsCommandOutput {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    objectVersionSettings: ").append(toIndentedString(objectVersionSettings)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    secretManagement: ").append(toIndentedString(secretManagement)).append("\n");
     sb.append("    secureRemoteAccess: ").append(toIndentedString(secureRemoteAccess)).append("\n");

@@ -49,10 +49,6 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant-id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   private String tenantId;
@@ -68,10 +64,6 @@ public class CreateAzureTarget {
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateAzureTarget clientId(String clientId) {
@@ -188,29 +180,6 @@ public class CreateAzureTarget {
   }
 
 
-  public CreateAzureTarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public CreateAzureTarget tenantId(String tenantId) {
     
     this.tenantId = tenantId;
@@ -303,29 +272,6 @@ public class CreateAzureTarget {
   }
 
 
-  public CreateAzureTarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -340,17 +286,15 @@ public class CreateAzureTarget {
         Objects.equals(this.comment, createAzureTarget.comment) &&
         Objects.equals(this.key, createAzureTarget.key) &&
         Objects.equals(this.name, createAzureTarget.name) &&
-        Objects.equals(this.password, createAzureTarget.password) &&
         Objects.equals(this.tenantId, createAzureTarget.tenantId) &&
         Objects.equals(this.token, createAzureTarget.token) &&
         Objects.equals(this.uidToken, createAzureTarget.uidToken) &&
-        Objects.equals(this.useGwCloudIdentity, createAzureTarget.useGwCloudIdentity) &&
-        Objects.equals(this.username, createAzureTarget.username);
+        Objects.equals(this.useGwCloudIdentity, createAzureTarget.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, key, name, password, tenantId, token, uidToken, useGwCloudIdentity, username);
+    return Objects.hash(clientId, clientSecret, comment, key, name, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -363,12 +307,10 @@ public class CreateAzureTarget {
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

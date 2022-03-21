@@ -29,17 +29,29 @@ import java.io.IOException;
  */
 
 public class CreateRole {
+  public static final String SERIALIZED_NAME_ANALYTICS_ACCESS = "analytics-access";
+  @SerializedName(SERIALIZED_NAME_ANALYTICS_ACCESS)
+  private String analyticsAccess;
+
+  public static final String SERIALIZED_NAME_AUDIT_ACCESS = "audit-access";
+  @SerializedName(SERIALIZED_NAME_AUDIT_ACCESS)
+  private String auditAccess;
+
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
+
+  public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
+  @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
+  private String gwAnalyticsAccess;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+  public static final String SERIALIZED_NAME_SRA_REPORTS_ACCESS = "sra-reports-access";
+  @SerializedName(SERIALIZED_NAME_SRA_REPORTS_ACCESS)
+  private String sraReportsAccess;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -49,9 +61,51 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
+
+  public CreateRole analyticsAccess(String analyticsAccess) {
+    
+    this.analyticsAccess = analyticsAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
+   * @return analyticsAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.")
+
+  public String getAnalyticsAccess() {
+    return analyticsAccess;
+  }
+
+
+  public void setAnalyticsAccess(String analyticsAccess) {
+    this.analyticsAccess = analyticsAccess;
+  }
+
+
+  public CreateRole auditAccess(String auditAccess) {
+    
+    this.auditAccess = auditAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view audit logs. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
+   * @return auditAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.")
+
+  public String getAuditAccess() {
+    return auditAccess;
+  }
+
+
+  public void setAuditAccess(String auditAccess) {
+    this.auditAccess = auditAccess;
+  }
 
 
   public CreateRole comment(String comment) {
@@ -77,6 +131,29 @@ public class CreateRole {
   }
 
 
+  public CreateRole gwAnalyticsAccess(String gwAnalyticsAccess) {
+    
+    this.gwAnalyticsAccess = gwAnalyticsAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view gw analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
+   * @return gwAnalyticsAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view gw analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.")
+
+  public String getGwAnalyticsAccess() {
+    return gwAnalyticsAccess;
+  }
+
+
+  public void setGwAnalyticsAccess(String gwAnalyticsAccess) {
+    this.gwAnalyticsAccess = gwAnalyticsAccess;
+  }
+
+
   public CreateRole name(String name) {
     
     this.name = name;
@@ -99,26 +176,26 @@ public class CreateRole {
   }
 
 
-  public CreateRole password(String password) {
+  public CreateRole sraReportsAccess(String sraReportsAccess) {
     
-    this.password = password;
+    this.sraReportsAccess = sraReportsAccess;
     return this;
   }
 
    /**
-   * Required only when the authentication process requires a username and password
-   * @return password
+   * Allow this role to view SRA Clusters. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported.
+   * @return sraReportsAccess
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+  @ApiModelProperty(value = "Allow this role to view SRA Clusters. Currently only 'none', 'own', 'all' values are supported.")
 
-  public String getPassword() {
-    return password;
+  public String getSraReportsAccess() {
+    return sraReportsAccess;
   }
 
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setSraReportsAccess(String sraReportsAccess) {
+    this.sraReportsAccess = sraReportsAccess;
   }
 
 
@@ -168,29 +245,6 @@ public class CreateRole {
   }
 
 
-  public CreateRole username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -200,17 +254,19 @@ public class CreateRole {
       return false;
     }
     CreateRole createRole = (CreateRole) o;
-    return Objects.equals(this.comment, createRole.comment) &&
+    return Objects.equals(this.analyticsAccess, createRole.analyticsAccess) &&
+        Objects.equals(this.auditAccess, createRole.auditAccess) &&
+        Objects.equals(this.comment, createRole.comment) &&
+        Objects.equals(this.gwAnalyticsAccess, createRole.gwAnalyticsAccess) &&
         Objects.equals(this.name, createRole.name) &&
-        Objects.equals(this.password, createRole.password) &&
+        Objects.equals(this.sraReportsAccess, createRole.sraReportsAccess) &&
         Objects.equals(this.token, createRole.token) &&
-        Objects.equals(this.uidToken, createRole.uidToken) &&
-        Objects.equals(this.username, createRole.username);
+        Objects.equals(this.uidToken, createRole.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, name, password, token, uidToken, username);
+    return Objects.hash(analyticsAccess, auditAccess, comment, gwAnalyticsAccess, name, sraReportsAccess, token, uidToken);
   }
 
 
@@ -218,12 +274,14 @@ public class CreateRole {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRole {\n");
+    sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
+    sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    sraReportsAccess: ").append(toIndentedString(sraReportsAccess)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

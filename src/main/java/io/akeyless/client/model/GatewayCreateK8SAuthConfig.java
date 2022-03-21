@@ -54,10 +54,6 @@ public class GatewayCreateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SIGNING_KEY = "signing-key";
   @SerializedName(SERIALIZED_NAME_SIGNING_KEY)
   private String signingKey;
@@ -77,10 +73,6 @@ public class GatewayCreateK8SAuthConfig {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateK8SAuthConfig accessId(String accessId) {
@@ -218,29 +210,6 @@ public class GatewayCreateK8SAuthConfig {
   }
 
 
-  public GatewayCreateK8SAuthConfig password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public GatewayCreateK8SAuthConfig signingKey(String signingKey) {
     
     this.signingKey = signingKey;
@@ -355,29 +324,6 @@ public class GatewayCreateK8SAuthConfig {
   }
 
 
-  public GatewayCreateK8SAuthConfig username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -393,18 +339,16 @@ public class GatewayCreateK8SAuthConfig {
         Objects.equals(this.k8sHost, gatewayCreateK8SAuthConfig.k8sHost) &&
         Objects.equals(this.k8sIssuer, gatewayCreateK8SAuthConfig.k8sIssuer) &&
         Objects.equals(this.name, gatewayCreateK8SAuthConfig.name) &&
-        Objects.equals(this.password, gatewayCreateK8SAuthConfig.password) &&
         Objects.equals(this.signingKey, gatewayCreateK8SAuthConfig.signingKey) &&
         Objects.equals(this.token, gatewayCreateK8SAuthConfig.token) &&
         Objects.equals(this.tokenExp, gatewayCreateK8SAuthConfig.tokenExp) &&
         Objects.equals(this.tokenReviewerJwt, gatewayCreateK8SAuthConfig.tokenReviewerJwt) &&
-        Objects.equals(this.uidToken, gatewayCreateK8SAuthConfig.uidToken) &&
-        Objects.equals(this.username, gatewayCreateK8SAuthConfig.username);
+        Objects.equals(this.uidToken, gatewayCreateK8SAuthConfig.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, configEncryptionKeyName, k8sCaCert, k8sHost, k8sIssuer, name, password, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, username);
+    return Objects.hash(accessId, configEncryptionKeyName, k8sCaCert, k8sHost, k8sIssuer, name, signingKey, token, tokenExp, tokenReviewerJwt, uidToken);
   }
 
 
@@ -418,13 +362,11 @@ public class GatewayCreateK8SAuthConfig {
     sb.append("    k8sHost: ").append(toIndentedString(k8sHost)).append("\n");
     sb.append("    k8sIssuer: ").append(toIndentedString(k8sIssuer)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    signingKey: ").append(toIndentedString(signingKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExp: ").append(toIndentedString(tokenExp)).append("\n");
     sb.append("    tokenReviewerJwt: ").append(toIndentedString(tokenReviewerJwt)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

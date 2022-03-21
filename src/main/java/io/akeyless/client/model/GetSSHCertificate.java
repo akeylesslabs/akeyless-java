@@ -37,10 +37,6 @@ public class GetSSHCertificate {
   @SerializedName(SERIALIZED_NAME_CERT_USERNAME)
   private String certUsername;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PUBLIC_KEY_DATA = "public-key-data";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_DATA)
   private String publicKeyData;
@@ -52,10 +48,6 @@ public class GetSSHCertificate {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GetSSHCertificate certIssuerName(String certIssuerName) {
@@ -99,29 +91,6 @@ public class GetSSHCertificate {
 
   public void setCertUsername(String certUsername) {
     this.certUsername = certUsername;
-  }
-
-
-  public GetSSHCertificate password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -194,29 +163,6 @@ public class GetSSHCertificate {
   }
 
 
-  public GetSSHCertificate username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -228,16 +174,14 @@ public class GetSSHCertificate {
     GetSSHCertificate getSSHCertificate = (GetSSHCertificate) o;
     return Objects.equals(this.certIssuerName, getSSHCertificate.certIssuerName) &&
         Objects.equals(this.certUsername, getSSHCertificate.certUsername) &&
-        Objects.equals(this.password, getSSHCertificate.password) &&
         Objects.equals(this.publicKeyData, getSSHCertificate.publicKeyData) &&
         Objects.equals(this.token, getSSHCertificate.token) &&
-        Objects.equals(this.uidToken, getSSHCertificate.uidToken) &&
-        Objects.equals(this.username, getSSHCertificate.username);
+        Objects.equals(this.uidToken, getSSHCertificate.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssuerName, certUsername, password, publicKeyData, token, uidToken, username);
+    return Objects.hash(certIssuerName, certUsername, publicKeyData, token, uidToken);
   }
 
 
@@ -247,11 +191,9 @@ public class GetSSHCertificate {
     sb.append("class GetSSHCertificate {\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    certUsername: ").append(toIndentedString(certUsername)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

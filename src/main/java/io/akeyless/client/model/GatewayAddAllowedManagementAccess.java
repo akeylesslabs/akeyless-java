@@ -41,10 +41,6 @@ public class GatewayAddAllowedManagementAccess {
   @SerializedName(SERIALIZED_NAME_ALLOW_GW_LOGIN)
   private Boolean allowGwLogin;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SUB_ADMIN_ACCESS_ID = "sub-admin-access-id";
   @SerializedName(SERIALIZED_NAME_SUB_ADMIN_ACCESS_ID)
   private String subAdminAccessId;
@@ -60,10 +56,6 @@ public class GatewayAddAllowedManagementAccess {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayAddAllowedManagementAccess allowGwApi(Boolean allowGwApi) {
@@ -109,29 +101,6 @@ public class GatewayAddAllowedManagementAccess {
 
   public void setAllowGwLogin(Boolean allowGwLogin) {
     this.allowGwLogin = allowGwLogin;
-  }
-
-
-  public GatewayAddAllowedManagementAccess password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -234,29 +203,6 @@ public class GatewayAddAllowedManagementAccess {
   }
 
 
-  public GatewayAddAllowedManagementAccess username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -268,17 +214,15 @@ public class GatewayAddAllowedManagementAccess {
     GatewayAddAllowedManagementAccess gatewayAddAllowedManagementAccess = (GatewayAddAllowedManagementAccess) o;
     return Objects.equals(this.allowGwApi, gatewayAddAllowedManagementAccess.allowGwApi) &&
         Objects.equals(this.allowGwLogin, gatewayAddAllowedManagementAccess.allowGwLogin) &&
-        Objects.equals(this.password, gatewayAddAllowedManagementAccess.password) &&
         Objects.equals(this.subAdminAccessId, gatewayAddAllowedManagementAccess.subAdminAccessId) &&
         Objects.equals(this.subClaims, gatewayAddAllowedManagementAccess.subClaims) &&
         Objects.equals(this.token, gatewayAddAllowedManagementAccess.token) &&
-        Objects.equals(this.uidToken, gatewayAddAllowedManagementAccess.uidToken) &&
-        Objects.equals(this.username, gatewayAddAllowedManagementAccess.username);
+        Objects.equals(this.uidToken, gatewayAddAllowedManagementAccess.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowGwApi, allowGwLogin, password, subAdminAccessId, subClaims, token, uidToken, username);
+    return Objects.hash(allowGwApi, allowGwLogin, subAdminAccessId, subClaims, token, uidToken);
   }
 
 
@@ -288,12 +232,10 @@ public class GatewayAddAllowedManagementAccess {
     sb.append("class GatewayAddAllowedManagementAccess {\n");
     sb.append("    allowGwApi: ").append(toIndentedString(allowGwApi)).append("\n");
     sb.append("    allowGwLogin: ").append(toIndentedString(allowGwLogin)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    subAdminAccessId: ").append(toIndentedString(subAdminAccessId)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

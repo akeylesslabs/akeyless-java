@@ -43,10 +43,6 @@ public class GatewayUpdateProducerCustom {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
@@ -82,10 +78,6 @@ public class GatewayUpdateProducerCustom {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateProducerCustom createSyncUrl(String createSyncUrl) {
@@ -152,29 +144,6 @@ public class GatewayUpdateProducerCustom {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public GatewayUpdateProducerCustom password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -392,29 +361,6 @@ public class GatewayUpdateProducerCustom {
   }
 
 
-  public GatewayUpdateProducerCustom username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -427,7 +373,6 @@ public class GatewayUpdateProducerCustom {
     return Objects.equals(this.createSyncUrl, gatewayUpdateProducerCustom.createSyncUrl) &&
         Objects.equals(this.name, gatewayUpdateProducerCustom.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCustom.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerCustom.password) &&
         Objects.equals(this.payload, gatewayUpdateProducerCustom.payload) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerCustom.producerEncryptionKeyName) &&
         Objects.equals(this.revokeSyncUrl, gatewayUpdateProducerCustom.revokeSyncUrl) &&
@@ -436,13 +381,12 @@ public class GatewayUpdateProducerCustom {
         Objects.equals(this.timeoutSec, gatewayUpdateProducerCustom.timeoutSec) &&
         Objects.equals(this.token, gatewayUpdateProducerCustom.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerCustom.uidToken) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerCustom.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerCustom.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerCustom.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createSyncUrl, name, newName, password, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl, username);
+    return Objects.hash(createSyncUrl, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
   }
 
 
@@ -453,7 +397,6 @@ public class GatewayUpdateProducerCustom {
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
@@ -463,7 +406,6 @@ public class GatewayUpdateProducerCustom {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **locality** | **String** | A comma-separated list of the locality that will be set in the issued certificate |  [optional]
 **organizationalUnits** | **String** | A comma-separated list of organizational units (OU) that will be set in the issued certificate |  [optional]
 **organizations** | **String** | A comma-separated list of organizations (O) that will be set in the issued certificate |  [optional]
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **postalCode** | **String** | A comma-separated list of the postal code that will be set in the issued certificate |  [optional]
 **province** | **String** | A comma-separated list of the province that will be set in the issued certificate |  [optional]
 **publicKeyPemData** | **String** | PublicKey using for signing in a PEM format. |  [optional]
@@ -24,7 +23,6 @@ Name | Type | Description | Notes
 **ttl** | **Long** | he requested Time To Live for the certificate, in seconds | 
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **uriSans** | **String** | The URI Subject Alternative Names to be included in the PKI certificate (in a comma-delimited list) |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **version** | **Integer** | classic key version | 
 
 

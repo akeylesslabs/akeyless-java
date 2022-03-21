@@ -33,6 +33,10 @@ public class UpdateWebTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -45,10 +49,6 @@ public class UpdateWebTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -59,15 +59,11 @@ public class UpdateWebTarget {
 
   public static final String SERIALIZED_NAME_UPDATE_VERSION = "update-version";
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
-  private Boolean updateVersion = false;
+  private Boolean updateVersion;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateWebTarget comment(String comment) {
@@ -90,6 +86,29 @@ public class UpdateWebTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateWebTarget keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
   }
 
 
@@ -161,29 +180,6 @@ public class UpdateWebTarget {
   }
 
 
-  public UpdateWebTarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UpdateWebTarget token(String token) {
     
     this.token = token;
@@ -237,11 +233,11 @@ public class UpdateWebTarget {
   }
 
    /**
-   * Create new version for the target
+   * Deprecated
    * @return updateVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create new version for the target")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getUpdateVersion() {
     return updateVersion;
@@ -276,29 +272,6 @@ public class UpdateWebTarget {
   }
 
 
-  public UpdateWebTarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -309,20 +282,19 @@ public class UpdateWebTarget {
     }
     UpdateWebTarget updateWebTarget = (UpdateWebTarget) o;
     return Objects.equals(this.comment, updateWebTarget.comment) &&
+        Objects.equals(this.keepPrevVersion, updateWebTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateWebTarget.key) &&
         Objects.equals(this.name, updateWebTarget.name) &&
         Objects.equals(this.newName, updateWebTarget.newName) &&
-        Objects.equals(this.password, updateWebTarget.password) &&
         Objects.equals(this.token, updateWebTarget.token) &&
         Objects.equals(this.uidToken, updateWebTarget.uidToken) &&
         Objects.equals(this.updateVersion, updateWebTarget.updateVersion) &&
-        Objects.equals(this.url, updateWebTarget.url) &&
-        Objects.equals(this.username, updateWebTarget.username);
+        Objects.equals(this.url, updateWebTarget.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, key, name, newName, password, token, uidToken, updateVersion, url, username);
+    return Objects.hash(comment, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, url);
   }
 
 
@@ -331,15 +303,14 @@ public class UpdateWebTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWebTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

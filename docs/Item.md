@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **itemName** | **String** |  |  [optional]
 **itemSize** | **Long** |  |  [optional]
 **itemState** | **String** | ItemState defines the different states an Item can be in |  [optional]
+**itemSubType** | **String** |  |  [optional]
 **itemTags** | **List&lt;String&gt;** |  |  [optional]
 **itemTargetsAssoc** | [**List&lt;ItemTargetAssociation&gt;**](ItemTargetAssociation.md) |  |  [optional]
 **itemType** | **String** |  |  [optional]

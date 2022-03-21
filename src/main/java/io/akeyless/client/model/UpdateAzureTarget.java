@@ -41,6 +41,10 @@ public class UpdateAzureTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -52,10 +56,6 @@ public class UpdateAzureTarget {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
-
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
 
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant-id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -71,15 +71,11 @@ public class UpdateAzureTarget {
 
   public static final String SERIALIZED_NAME_UPDATE_VERSION = "update-version";
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
-  private Boolean updateVersion = false;
+  private Boolean updateVersion;
 
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateAzureTarget clientId(String clientId) {
@@ -151,6 +147,29 @@ public class UpdateAzureTarget {
   }
 
 
+  public UpdateAzureTarget keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
+
+
   public UpdateAzureTarget key(String key) {
     
     this.key = key;
@@ -216,29 +235,6 @@ public class UpdateAzureTarget {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public UpdateAzureTarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -318,11 +314,11 @@ public class UpdateAzureTarget {
   }
 
    /**
-   * Create new version for the target
+   * Deprecated
    * @return updateVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create new version for the target")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getUpdateVersion() {
     return updateVersion;
@@ -357,29 +353,6 @@ public class UpdateAzureTarget {
   }
 
 
-  public UpdateAzureTarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -392,21 +365,20 @@ public class UpdateAzureTarget {
     return Objects.equals(this.clientId, updateAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, updateAzureTarget.clientSecret) &&
         Objects.equals(this.comment, updateAzureTarget.comment) &&
+        Objects.equals(this.keepPrevVersion, updateAzureTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateAzureTarget.key) &&
         Objects.equals(this.name, updateAzureTarget.name) &&
         Objects.equals(this.newName, updateAzureTarget.newName) &&
-        Objects.equals(this.password, updateAzureTarget.password) &&
         Objects.equals(this.tenantId, updateAzureTarget.tenantId) &&
         Objects.equals(this.token, updateAzureTarget.token) &&
         Objects.equals(this.uidToken, updateAzureTarget.uidToken) &&
         Objects.equals(this.updateVersion, updateAzureTarget.updateVersion) &&
-        Objects.equals(this.useGwCloudIdentity, updateAzureTarget.useGwCloudIdentity) &&
-        Objects.equals(this.username, updateAzureTarget.username);
+        Objects.equals(this.useGwCloudIdentity, updateAzureTarget.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, key, name, newName, password, tenantId, token, uidToken, updateVersion, useGwCloudIdentity, username);
+    return Objects.hash(clientId, clientSecret, comment, keepPrevVersion, key, name, newName, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -417,16 +389,15 @@ public class UpdateAzureTarget {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

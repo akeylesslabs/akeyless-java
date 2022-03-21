@@ -41,10 +41,6 @@ public class UpdateAssoc {
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
   private String caseSensitive;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub-claims";
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
   private Map<String, String> subClaims = null;
@@ -56,10 +52,6 @@ public class UpdateAssoc {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateAssoc assocId(String assocId) {
@@ -104,29 +96,6 @@ public class UpdateAssoc {
 
   public void setCaseSensitive(String caseSensitive) {
     this.caseSensitive = caseSensitive;
-  }
-
-
-  public UpdateAssoc password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -207,29 +176,6 @@ public class UpdateAssoc {
   }
 
 
-  public UpdateAssoc username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,16 +187,14 @@ public class UpdateAssoc {
     UpdateAssoc updateAssoc = (UpdateAssoc) o;
     return Objects.equals(this.assocId, updateAssoc.assocId) &&
         Objects.equals(this.caseSensitive, updateAssoc.caseSensitive) &&
-        Objects.equals(this.password, updateAssoc.password) &&
         Objects.equals(this.subClaims, updateAssoc.subClaims) &&
         Objects.equals(this.token, updateAssoc.token) &&
-        Objects.equals(this.uidToken, updateAssoc.uidToken) &&
-        Objects.equals(this.username, updateAssoc.username);
+        Objects.equals(this.uidToken, updateAssoc.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, caseSensitive, password, subClaims, token, uidToken, username);
+    return Objects.hash(assocId, caseSensitive, subClaims, token, uidToken);
   }
 
 
@@ -260,11 +204,9 @@ public class UpdateAssoc {
     sb.append("class UpdateAssoc {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -68,10 +68,6 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -83,10 +79,6 @@ public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateAuthMethodOAuth2 accessExpires(Long accessExpires) {
@@ -310,29 +302,6 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
-  public CreateAuthMethodOAuth2 password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public CreateAuthMethodOAuth2 token(String token) {
     
     this.token = token;
@@ -401,29 +370,6 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
-  public CreateAuthMethodOAuth2 username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -442,16 +388,14 @@ public class CreateAuthMethodOAuth2 {
         Objects.equals(this.jwksUri, createAuthMethodOAuth2.jwksUri) &&
         Objects.equals(this.jwtTtl, createAuthMethodOAuth2.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOAuth2.name) &&
-        Objects.equals(this.password, createAuthMethodOAuth2.password) &&
         Objects.equals(this.token, createAuthMethodOAuth2.token) &&
         Objects.equals(this.uidToken, createAuthMethodOAuth2.uidToken) &&
-        Objects.equals(this.uniqueIdentifier, createAuthMethodOAuth2.uniqueIdentifier) &&
-        Objects.equals(this.username, createAuthMethodOAuth2.username);
+        Objects.equals(this.uniqueIdentifier, createAuthMethodOAuth2.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, issuer, jwksUri, jwtTtl, name, password, token, uidToken, uniqueIdentifier, username);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, issuer, jwksUri, jwtTtl, name, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -468,11 +412,9 @@ public class CreateAuthMethodOAuth2 {
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -45,6 +45,14 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_DEFAULT_VERSIONING = "default-versioning";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_VERSIONING)
+  private String defaultVersioning;
+
+  public static final String SERIALIZED_NAME_ITEM_TYPE = "item-type";
+  @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
+  private String itemType;
+
   public static final String SERIALIZED_NAME_JWT_TTL_DEFAULT = "jwt-ttl-default";
   @SerializedName(SERIALIZED_NAME_JWT_TTL_DEFAULT)
   private Long jwtTtlDefault;
@@ -57,9 +65,9 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_JWT_TTL_MIN)
   private Long jwtTtlMin;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
 
   public static final String SERIALIZED_NAME_PHONE = "phone";
   @SerializedName(SERIALIZED_NAME_PHONE)
@@ -76,10 +84,6 @@ public class UpdateAccountSettings {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateAccountSettings address(String address) {
@@ -174,6 +178,52 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings defaultVersioning(String defaultVersioning) {
+    
+    this.defaultVersioning = defaultVersioning;
+    return this;
+  }
+
+   /**
+   * Should create version by default
+   * @return defaultVersioning
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Should create version by default")
+
+  public String getDefaultVersioning() {
+    return defaultVersioning;
+  }
+
+
+  public void setDefaultVersioning(String defaultVersioning) {
+    this.defaultVersioning = defaultVersioning;
+  }
+
+
+  public UpdateAccountSettings itemType(String itemType) {
+    
+    this.itemType = itemType;
+    return this;
+  }
+
+   /**
+   * VersionSettingsObjectType defines object types for account version settings
+   * @return itemType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "VersionSettingsObjectType defines object types for account version settings")
+
+  public String getItemType() {
+    return itemType;
+  }
+
+
+  public void setItemType(String itemType) {
+    this.itemType = itemType;
+  }
+
+
   public UpdateAccountSettings jwtTtlDefault(Long jwtTtlDefault) {
     
     this.jwtTtlDefault = jwtTtlDefault;
@@ -243,26 +293,26 @@ public class UpdateAccountSettings {
   }
 
 
-  public UpdateAccountSettings password(String password) {
+  public UpdateAccountSettings maxVersions(String maxVersions) {
     
-    this.password = password;
+    this.maxVersions = maxVersions;
     return this;
   }
 
    /**
-   * Required only when the authentication process requires a username and password
-   * @return password
+   * Max versions
+   * @return maxVersions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+  @ApiModelProperty(value = "Max versions")
 
-  public String getPassword() {
-    return password;
+  public String getMaxVersions() {
+    return maxVersions;
   }
 
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -358,29 +408,6 @@ public class UpdateAccountSettings {
   }
 
 
-  public UpdateAccountSettings username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -394,20 +421,21 @@ public class UpdateAccountSettings {
         Objects.equals(this.city, updateAccountSettings.city) &&
         Objects.equals(this.companyName, updateAccountSettings.companyName) &&
         Objects.equals(this.country, updateAccountSettings.country) &&
+        Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
+        Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
-        Objects.equals(this.password, updateAccountSettings.password) &&
+        Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
         Objects.equals(this.phone, updateAccountSettings.phone) &&
         Objects.equals(this.postalCode, updateAccountSettings.postalCode) &&
         Objects.equals(this.token, updateAccountSettings.token) &&
-        Objects.equals(this.uidToken, updateAccountSettings.uidToken) &&
-        Objects.equals(this.username, updateAccountSettings.username);
+        Objects.equals(this.uidToken, updateAccountSettings.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, jwtTtlDefault, jwtTtlMax, jwtTtlMin, password, phone, postalCode, token, uidToken, username);
+    return Objects.hash(address, city, companyName, country, defaultVersioning, itemType, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, phone, postalCode, token, uidToken);
   }
 
 
@@ -419,15 +447,16 @@ public class UpdateAccountSettings {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
+    sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

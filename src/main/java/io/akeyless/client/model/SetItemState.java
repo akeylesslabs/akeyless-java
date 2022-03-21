@@ -37,10 +37,6 @@ public class SetItemState {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -48,10 +44,6 @@ public class SetItemState {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -102,29 +94,6 @@ public class SetItemState {
   }
 
 
-  public SetItemState password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public SetItemState token(String token) {
     
     this.token = token;
@@ -171,29 +140,6 @@ public class SetItemState {
   }
 
 
-  public SetItemState username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public SetItemState version(Integer version) {
     
     this.version = version;
@@ -228,16 +174,14 @@ public class SetItemState {
     SetItemState setItemState = (SetItemState) o;
     return Objects.equals(this.desiredState, setItemState.desiredState) &&
         Objects.equals(this.name, setItemState.name) &&
-        Objects.equals(this.password, setItemState.password) &&
         Objects.equals(this.token, setItemState.token) &&
         Objects.equals(this.uidToken, setItemState.uidToken) &&
-        Objects.equals(this.username, setItemState.username) &&
         Objects.equals(this.version, setItemState.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(desiredState, name, password, token, uidToken, username, version);
+    return Objects.hash(desiredState, name, token, uidToken, version);
   }
 
 
@@ -247,10 +191,8 @@ public class SetItemState {
     sb.append("class SetItemState {\n");
     sb.append("    desiredState: ").append(toIndentedString(desiredState)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

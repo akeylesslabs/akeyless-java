@@ -49,10 +49,6 @@ public class Decrypt {
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -60,10 +56,6 @@ public class Decrypt {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public Decrypt ciphertext(String ciphertext) {
@@ -76,7 +68,8 @@ public class Decrypt {
    * Ciphertext to be decrypted in base64 encoded format
    * @return ciphertext
   **/
-  @ApiModelProperty(required = true, value = "Ciphertext to be decrypted in base64 encoded format")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ciphertext to be decrypted in base64 encoded format")
 
   public String getCiphertext() {
     return ciphertext;
@@ -165,29 +158,6 @@ public class Decrypt {
   }
 
 
-  public Decrypt password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public Decrypt token(String token) {
     
     this.token = token;
@@ -234,29 +204,6 @@ public class Decrypt {
   }
 
 
-  public Decrypt username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -270,15 +217,13 @@ public class Decrypt {
         Objects.equals(this.displayId, decrypt.displayId) &&
         Objects.equals(this.encryptionContext, decrypt.encryptionContext) &&
         Objects.equals(this.keyName, decrypt.keyName) &&
-        Objects.equals(this.password, decrypt.password) &&
         Objects.equals(this.token, decrypt.token) &&
-        Objects.equals(this.uidToken, decrypt.uidToken) &&
-        Objects.equals(this.username, decrypt.username);
+        Objects.equals(this.uidToken, decrypt.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, encryptionContext, keyName, password, token, uidToken, username);
+    return Objects.hash(ciphertext, displayId, encryptionContext, keyName, token, uidToken);
   }
 
 
@@ -290,10 +235,8 @@ public class Decrypt {
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

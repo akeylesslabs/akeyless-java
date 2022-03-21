@@ -56,10 +56,6 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -92,6 +88,10 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -111,10 +111,6 @@ public class GatewayCreateProducerNativeK8S {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerNativeK8S k8sClusterCaCert(String k8sClusterCaCert) {
@@ -251,29 +247,6 @@ public class GatewayCreateProducerNativeK8S {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerNativeK8S password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -461,6 +434,29 @@ public class GatewayCreateProducerNativeK8S {
   }
 
 
+  public GatewayCreateProducerNativeK8S secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebProxy
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+  }
+
+
   public GatewayCreateProducerNativeK8S tags(List<String> tags) {
     
     this.tags = tags;
@@ -584,29 +580,6 @@ public class GatewayCreateProducerNativeK8S {
   }
 
 
-  public GatewayCreateProducerNativeK8S username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -622,7 +595,6 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.k8sNamespace, gatewayCreateProducerNativeK8S.k8sNamespace) &&
         Objects.equals(this.k8sServiceAccount, gatewayCreateProducerNativeK8S.k8sServiceAccount) &&
         Objects.equals(this.name, gatewayCreateProducerNativeK8S.name) &&
-        Objects.equals(this.password, gatewayCreateProducerNativeK8S.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerNativeK8S.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerNativeK8S.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerNativeK8S.secureAccessBastionIssuer) &&
@@ -631,17 +603,17 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerNativeK8S.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayCreateProducerNativeK8S.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerNativeK8S.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, gatewayCreateProducerNativeK8S.secureAccessWebProxy) &&
         Objects.equals(this.tags, gatewayCreateProducerNativeK8S.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerNativeK8S.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerNativeK8S.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerNativeK8S.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerNativeK8S.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerNativeK8S.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerNativeK8S.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -655,7 +627,6 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -664,12 +635,12 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

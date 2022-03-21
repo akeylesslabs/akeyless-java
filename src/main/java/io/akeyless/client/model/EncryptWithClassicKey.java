@@ -33,10 +33,6 @@ public class EncryptWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PLAINTEXT = "plaintext";
   @SerializedName(SERIALIZED_NAME_PLAINTEXT)
   private String plaintext;
@@ -48,10 +44,6 @@ public class EncryptWithClassicKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -77,29 +69,6 @@ public class EncryptWithClassicKey {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
-  }
-
-
-  public EncryptWithClassicKey password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -171,29 +140,6 @@ public class EncryptWithClassicKey {
   }
 
 
-  public EncryptWithClassicKey username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public EncryptWithClassicKey version(Integer version) {
     
     this.version = version;
@@ -226,17 +172,15 @@ public class EncryptWithClassicKey {
     }
     EncryptWithClassicKey encryptWithClassicKey = (EncryptWithClassicKey) o;
     return Objects.equals(this.displayId, encryptWithClassicKey.displayId) &&
-        Objects.equals(this.password, encryptWithClassicKey.password) &&
         Objects.equals(this.plaintext, encryptWithClassicKey.plaintext) &&
         Objects.equals(this.token, encryptWithClassicKey.token) &&
         Objects.equals(this.uidToken, encryptWithClassicKey.uidToken) &&
-        Objects.equals(this.username, encryptWithClassicKey.username) &&
         Objects.equals(this.version, encryptWithClassicKey.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, password, plaintext, token, uidToken, username, version);
+    return Objects.hash(displayId, plaintext, token, uidToken, version);
   }
 
 
@@ -245,11 +189,9 @@ public class EncryptWithClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

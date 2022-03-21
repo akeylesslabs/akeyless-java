@@ -56,10 +56,6 @@ public class GatewayCreateProducerGithub {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -79,10 +75,6 @@ public class GatewayCreateProducerGithub {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerGithub githubAppId(Long githubAppId) {
@@ -222,29 +214,6 @@ public class GatewayCreateProducerGithub {
   }
 
 
-  public GatewayCreateProducerGithub password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public GatewayCreateProducerGithub targetName(String targetName) {
     
     this.targetName = targetName;
@@ -376,29 +345,6 @@ public class GatewayCreateProducerGithub {
   }
 
 
-  public GatewayCreateProducerGithub username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -414,18 +360,16 @@ public class GatewayCreateProducerGithub {
         Objects.equals(this.installationId, gatewayCreateProducerGithub.installationId) &&
         Objects.equals(this.installationRepository, gatewayCreateProducerGithub.installationRepository) &&
         Objects.equals(this.name, gatewayCreateProducerGithub.name) &&
-        Objects.equals(this.password, gatewayCreateProducerGithub.password) &&
         Objects.equals(this.targetName, gatewayCreateProducerGithub.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGithub.token) &&
         Objects.equals(this.tokenPermissions, gatewayCreateProducerGithub.tokenPermissions) &&
         Objects.equals(this.tokenRepositories, gatewayCreateProducerGithub.tokenRepositories) &&
-        Objects.equals(this.uidToken, gatewayCreateProducerGithub.uidToken) &&
-        Objects.equals(this.username, gatewayCreateProducerGithub.username);
+        Objects.equals(this.uidToken, gatewayCreateProducerGithub.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, name, password, targetName, token, tokenPermissions, tokenRepositories, uidToken, username);
+    return Objects.hash(githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, name, targetName, token, tokenPermissions, tokenRepositories, uidToken);
   }
 
 
@@ -439,13 +383,11 @@ public class GatewayCreateProducerGithub {
     sb.append("    installationId: ").append(toIndentedString(installationId)).append("\n");
     sb.append("    installationRepository: ").append(toIndentedString(installationRepository)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenPermissions: ").append(toIndentedString(tokenPermissions)).append("\n");
     sb.append("    tokenRepositories: ").append(toIndentedString(tokenRepositories)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

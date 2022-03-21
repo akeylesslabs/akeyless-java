@@ -76,10 +76,6 @@ public class UpdateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PUBLIC_KEY = "public-key";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
   private String publicKey;
@@ -91,10 +87,6 @@ public class UpdateAuthMethodK8S {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateAuthMethodK8S accessExpires(Long accessExpires) {
@@ -381,29 +373,6 @@ public class UpdateAuthMethodK8S {
   }
 
 
-  public UpdateAuthMethodK8S password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UpdateAuthMethodK8S publicKey(String publicKey) {
     
     this.publicKey = publicKey;
@@ -473,29 +442,6 @@ public class UpdateAuthMethodK8S {
   }
 
 
-  public UpdateAuthMethodK8S username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -516,16 +462,14 @@ public class UpdateAuthMethodK8S {
         Objects.equals(this.jwtTtl, updateAuthMethodK8S.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodK8S.name) &&
         Objects.equals(this.newName, updateAuthMethodK8S.newName) &&
-        Objects.equals(this.password, updateAuthMethodK8S.password) &&
         Objects.equals(this.publicKey, updateAuthMethodK8S.publicKey) &&
         Objects.equals(this.token, updateAuthMethodK8S.token) &&
-        Objects.equals(this.uidToken, updateAuthMethodK8S.uidToken) &&
-        Objects.equals(this.username, updateAuthMethodK8S.username);
+        Objects.equals(this.uidToken, updateAuthMethodK8S.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, jwtTtl, name, newName, password, publicKey, token, uidToken, username);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, jwtTtl, name, newName, publicKey, token, uidToken);
   }
 
 
@@ -544,11 +488,9 @@ public class UpdateAuthMethodK8S {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

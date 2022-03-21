@@ -67,10 +67,6 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
   private String rotatedPassword;
@@ -130,10 +126,6 @@ public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_USER_DN = "user-dn";
   @SerializedName(SERIALIZED_NAME_USER_DN)
   private String userDn;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateRotatedSecret apiId(String apiId) {
@@ -338,29 +330,6 @@ public class CreateRotatedSecret {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public CreateRotatedSecret password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -715,29 +684,6 @@ public class CreateRotatedSecret {
   }
 
 
-  public CreateRotatedSecret username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -756,7 +702,6 @@ public class CreateRotatedSecret {
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
-        Objects.equals(this.password, createRotatedSecret.password) &&
         Objects.equals(this.rotatedPassword, createRotatedSecret.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, createRotatedSecret.rotatedUsername) &&
         Objects.equals(this.rotationHour, createRotatedSecret.rotationHour) &&
@@ -771,13 +716,12 @@ public class CreateRotatedSecret {
         Objects.equals(this.token, createRotatedSecret.token) &&
         Objects.equals(this.uidToken, createRotatedSecret.uidToken) &&
         Objects.equals(this.userAttribute, createRotatedSecret.userAttribute) &&
-        Objects.equals(this.userDn, createRotatedSecret.userDn) &&
-        Objects.equals(this.username, createRotatedSecret.username);
+        Objects.equals(this.userDn, createRotatedSecret.userDn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, customPayload, key, metadata, name, password, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn, username);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, customPayload, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
 
@@ -794,7 +738,6 @@ public class CreateRotatedSecret {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
@@ -810,7 +753,6 @@ public class CreateRotatedSecret {
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userAttribute: ").append(toIndentedString(userAttribute)).append("\n");
     sb.append("    userDn: ").append(toIndentedString(userDn)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

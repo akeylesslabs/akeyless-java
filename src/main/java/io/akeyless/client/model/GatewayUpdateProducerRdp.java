@@ -44,10 +44,6 @@ public class GatewayUpdateProducerRdp {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -111,10 +107,6 @@ public class GatewayUpdateProducerRdp {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateProducerRdp fixedUserOnly(String fixedUserOnly) {
@@ -182,29 +174,6 @@ public class GatewayUpdateProducerRdp {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public GatewayUpdateProducerRdp password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -592,29 +561,6 @@ public class GatewayUpdateProducerRdp {
   }
 
 
-  public GatewayUpdateProducerRdp username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -627,7 +573,6 @@ public class GatewayUpdateProducerRdp {
     return Objects.equals(this.fixedUserOnly, gatewayUpdateProducerRdp.fixedUserOnly) &&
         Objects.equals(this.name, gatewayUpdateProducerRdp.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerRdp.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerRdp.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, gatewayUpdateProducerRdp.rdpAdminName) &&
         Objects.equals(this.rdpAdminPwd, gatewayUpdateProducerRdp.rdpAdminPwd) &&
@@ -643,13 +588,12 @@ public class GatewayUpdateProducerRdp {
         Objects.equals(this.targetName, gatewayUpdateProducerRdp.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerRdp.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerRdp.uidToken) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerRdp.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerRdp.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerRdp.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedUserOnly, name, newName, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(fixedUserOnly, name, newName, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -660,7 +604,6 @@ public class GatewayUpdateProducerRdp {
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");
     sb.append("    rdpAdminPwd: ").append(toIndentedString(rdpAdminPwd)).append("\n");
@@ -677,7 +620,6 @@ public class GatewayUpdateProducerRdp {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

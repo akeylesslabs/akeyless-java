@@ -53,6 +53,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_CLOUD_ID)
   private String cloudId;
 
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
+  private Boolean debug;
+
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
@@ -217,6 +221,29 @@ public class Auth {
 
   public void setCloudId(String cloudId) {
     this.cloudId = cloudId;
+  }
+
+
+  public Auth debug(Boolean debug) {
+    
+    this.debug = debug;
+    return this;
+  }
+
+   /**
+   * Get debug
+   * @return debug
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getDebug() {
+    return debug;
+  }
+
+
+  public void setDebug(Boolean debug) {
+    this.debug = debug;
   }
 
 
@@ -396,6 +423,7 @@ public class Auth {
         Objects.equals(this.adminEmail, auth.adminEmail) &&
         Objects.equals(this.adminPassword, auth.adminPassword) &&
         Objects.equals(this.cloudId, auth.cloudId) &&
+        Objects.equals(this.debug, auth.debug) &&
         Objects.equals(this.gcpAudience, auth.gcpAudience) &&
         Objects.equals(this.jwt, auth.jwt) &&
         Objects.equals(this.k8sAuthConfigName, auth.k8sAuthConfigName) &&
@@ -407,7 +435,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, gcpAudience, jwt, k8sAuthConfigName, k8sServiceAccountToken, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, debug, gcpAudience, jwt, k8sAuthConfigName, k8sServiceAccountToken, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -421,6 +449,7 @@ public class Auth {
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");

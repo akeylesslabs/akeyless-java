@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **ldapCaCert** | **String** | CA Certificate File Content |  [optional]
 **ldapUrl** | **String** | LDAP Server URL |  [optional]
 **name** | **String** | Producer name | 
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
@@ -23,7 +22,6 @@ Name | Type | Description | Notes
 **userAttribute** | **String** | User Attribute |  [optional]
 **userDn** | **String** | User DN |  [optional]
 **userTtl** | **String** | User TTL |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

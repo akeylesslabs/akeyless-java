@@ -10,15 +10,16 @@ Name | Type | Description | Notes
 **city** | **String** | City |  [optional]
 **companyName** | **String** | Company name |  [optional]
 **country** | **String** | Country |  [optional]
+**defaultVersioning** | **String** | Should create version by default |  [optional]
+**itemType** | **String** | VersionSettingsObjectType defines object types for account version settings |  [optional]
 **jwtTtlDefault** | **Long** | Default ttl |  [optional]
 **jwtTtlMax** | **Long** | Maximum ttl |  [optional]
 **jwtTtlMin** | **Long** | Minimum ttl |  [optional]
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
+**maxVersions** | **String** | Max versions |  [optional]
 **phone** | **String** | Phone number |  [optional]
 **postalCode** | **String** | Postal code |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

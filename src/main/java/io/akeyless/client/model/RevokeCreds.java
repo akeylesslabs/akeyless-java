@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "revokeCreds will permanently revoke the credentials associated with the provided token or profile.")
 
 public class RevokeCreds {
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -41,33 +37,6 @@ public class RevokeCreds {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
-
-  public RevokeCreds password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
 
   public RevokeCreds token(String token) {
@@ -116,29 +85,6 @@ public class RevokeCreds {
   }
 
 
-  public RevokeCreds username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -148,15 +94,13 @@ public class RevokeCreds {
       return false;
     }
     RevokeCreds revokeCreds = (RevokeCreds) o;
-    return Objects.equals(this.password, revokeCreds.password) &&
-        Objects.equals(this.token, revokeCreds.token) &&
-        Objects.equals(this.uidToken, revokeCreds.uidToken) &&
-        Objects.equals(this.username, revokeCreds.username);
+    return Objects.equals(this.token, revokeCreds.token) &&
+        Objects.equals(this.uidToken, revokeCreds.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, token, uidToken, username);
+    return Objects.hash(token, uidToken);
   }
 
 
@@ -164,10 +108,8 @@ public class RevokeCreds {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RevokeCreds {\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -56,10 +56,6 @@ public class GatewayCreateProducerLdap {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -95,10 +91,6 @@ public class GatewayCreateProducerLdap {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerLdap bindDn(String bindDn) {
@@ -235,29 +227,6 @@ public class GatewayCreateProducerLdap {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerLdap password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -476,29 +445,6 @@ public class GatewayCreateProducerLdap {
   }
 
 
-  public GatewayCreateProducerLdap username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -514,7 +460,6 @@ public class GatewayCreateProducerLdap {
         Objects.equals(this.ldapCaCert, gatewayCreateProducerLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, gatewayCreateProducerLdap.ldapUrl) &&
         Objects.equals(this.name, gatewayCreateProducerLdap.name) &&
-        Objects.equals(this.password, gatewayCreateProducerLdap.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerLdap.producerEncryptionKeyName) &&
         Objects.equals(this.tags, gatewayCreateProducerLdap.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerLdap.targetName) &&
@@ -523,13 +468,12 @@ public class GatewayCreateProducerLdap {
         Objects.equals(this.uidToken, gatewayCreateProducerLdap.uidToken) &&
         Objects.equals(this.userAttribute, gatewayCreateProducerLdap.userAttribute) &&
         Objects.equals(this.userDn, gatewayCreateProducerLdap.userDn) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerLdap.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerLdap.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerLdap.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, externalUsername, ldapCaCert, ldapUrl, name, password, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl, username);
+    return Objects.hash(bindDn, bindDnPassword, externalUsername, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
 
@@ -543,7 +487,6 @@ public class GatewayCreateProducerLdap {
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -553,7 +496,6 @@ public class GatewayCreateProducerLdap {
     sb.append("    userAttribute: ").append(toIndentedString(userAttribute)).append("\n");
     sb.append("    userDn: ").append(toIndentedString(userDn)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

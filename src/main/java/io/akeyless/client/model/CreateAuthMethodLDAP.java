@@ -52,9 +52,9 @@ public class CreateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+  public static final String SERIALIZED_NAME_PUBLIC_KEY_DATA = "public-key-data";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_DATA)
+  private String publicKeyData;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -63,10 +63,6 @@ public class CreateAuthMethodLDAP {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateAuthMethodLDAP accessExpires(Long accessExpires) {
@@ -191,26 +187,26 @@ public class CreateAuthMethodLDAP {
   }
 
 
-  public CreateAuthMethodLDAP password(String password) {
+  public CreateAuthMethodLDAP publicKeyData(String publicKeyData) {
     
-    this.password = password;
+    this.publicKeyData = publicKeyData;
     return this;
   }
 
    /**
-   * Required only when the authentication process requires a username and password
-   * @return password
+   * A public key generated for LDAP authentication method on Akeyless in base64 format [RSA2048]
+   * @return publicKeyData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
+  @ApiModelProperty(value = "A public key generated for LDAP authentication method on Akeyless in base64 format [RSA2048]")
 
-  public String getPassword() {
-    return password;
+  public String getPublicKeyData() {
+    return publicKeyData;
   }
 
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setPublicKeyData(String publicKeyData) {
+    this.publicKeyData = publicKeyData;
   }
 
 
@@ -260,29 +256,6 @@ public class CreateAuthMethodLDAP {
   }
 
 
-  public CreateAuthMethodLDAP username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -297,15 +270,14 @@ public class CreateAuthMethodLDAP {
         Objects.equals(this.forceSubClaims, createAuthMethodLDAP.forceSubClaims) &&
         Objects.equals(this.jwtTtl, createAuthMethodLDAP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodLDAP.name) &&
-        Objects.equals(this.password, createAuthMethodLDAP.password) &&
+        Objects.equals(this.publicKeyData, createAuthMethodLDAP.publicKeyData) &&
         Objects.equals(this.token, createAuthMethodLDAP.token) &&
-        Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken) &&
-        Objects.equals(this.username, createAuthMethodLDAP.username);
+        Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, jwtTtl, name, password, token, uidToken, username);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, jwtTtl, name, publicKeyData, token, uidToken);
   }
 
 
@@ -318,10 +290,9 @@ public class CreateAuthMethodLDAP {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

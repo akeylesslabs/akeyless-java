@@ -30,10 +30,6 @@ import java.io.IOException;
 @ApiModel(description = "deleteAuthMethods is a command that deletes multiple auth methods from a given path.")
 
 public class DeleteAuthMethods {
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -45,33 +41,6 @@ public class DeleteAuthMethods {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
-
-  public DeleteAuthMethods password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
 
   public DeleteAuthMethods path(String path) {
@@ -142,29 +111,6 @@ public class DeleteAuthMethods {
   }
 
 
-  public DeleteAuthMethods username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -174,16 +120,14 @@ public class DeleteAuthMethods {
       return false;
     }
     DeleteAuthMethods deleteAuthMethods = (DeleteAuthMethods) o;
-    return Objects.equals(this.password, deleteAuthMethods.password) &&
-        Objects.equals(this.path, deleteAuthMethods.path) &&
+    return Objects.equals(this.path, deleteAuthMethods.path) &&
         Objects.equals(this.token, deleteAuthMethods.token) &&
-        Objects.equals(this.uidToken, deleteAuthMethods.uidToken) &&
-        Objects.equals(this.username, deleteAuthMethods.username);
+        Objects.equals(this.uidToken, deleteAuthMethods.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, path, token, uidToken, username);
+    return Objects.hash(path, token, uidToken);
   }
 
 
@@ -191,11 +135,9 @@ public class DeleteAuthMethods {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteAuthMethods {\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

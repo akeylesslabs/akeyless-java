@@ -51,10 +51,6 @@ public class UploadPKCS12 {
   @SerializedName(SERIALIZED_NAME_PASSPHRASE)
   private String passphrase;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SPLIT_LEVEL = "split-level";
   @SerializedName(SERIALIZED_NAME_SPLIT_LEVEL)
   private Long splitLevel = 2l;
@@ -70,10 +66,6 @@ public class UploadPKCS12 {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UploadPKCS12 customerFrgId(String customerFrgId) {
@@ -188,29 +180,6 @@ public class UploadPKCS12 {
   }
 
 
-  public UploadPKCS12 password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UploadPKCS12 splitLevel(Long splitLevel) {
     
     this.splitLevel = splitLevel;
@@ -311,29 +280,6 @@ public class UploadPKCS12 {
   }
 
 
-  public UploadPKCS12 username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -348,17 +294,15 @@ public class UploadPKCS12 {
         Objects.equals(this.metadata, uploadPKCS12.metadata) &&
         Objects.equals(this.name, uploadPKCS12.name) &&
         Objects.equals(this.passphrase, uploadPKCS12.passphrase) &&
-        Objects.equals(this.password, uploadPKCS12.password) &&
         Objects.equals(this.splitLevel, uploadPKCS12.splitLevel) &&
         Objects.equals(this.tag, uploadPKCS12.tag) &&
         Objects.equals(this.token, uploadPKCS12.token) &&
-        Objects.equals(this.uidToken, uploadPKCS12.uidToken) &&
-        Objects.equals(this.username, uploadPKCS12.username);
+        Objects.equals(this.uidToken, uploadPKCS12.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerFrgId, in, metadata, name, passphrase, password, splitLevel, tag, token, uidToken, username);
+    return Objects.hash(customerFrgId, in, metadata, name, passphrase, splitLevel, tag, token, uidToken);
   }
 
 
@@ -371,12 +315,10 @@ public class UploadPKCS12 {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passphrase: ").append(toIndentedString(passphrase)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

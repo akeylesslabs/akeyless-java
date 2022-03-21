@@ -52,6 +52,10 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
   private String customPayload;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -70,11 +74,7 @@ public class UpdateRotatedSecret {
 
   public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
-  private Boolean newVersion = false;
-
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+  private Boolean newVersion;
 
   public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
   @SerializedName(SERIALIZED_NAME_RM_TAG)
@@ -119,10 +119,6 @@ public class UpdateRotatedSecret {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateRotatedSecret addTag(List<String> addTag) {
@@ -248,6 +244,29 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
+
+
   public UpdateRotatedSecret key(String key) {
     
     this.key = key;
@@ -346,11 +365,11 @@ public class UpdateRotatedSecret {
   }
 
    /**
-   * Whether to create a new version of not
+   * Deprecated
    * @return newVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to create a new version of not")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getNewVersion() {
     return newVersion;
@@ -359,29 +378,6 @@ public class UpdateRotatedSecret {
 
   public void setNewVersion(Boolean newVersion) {
     this.newVersion = newVersion;
-  }
-
-
-  public UpdateRotatedSecret password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -646,29 +642,6 @@ public class UpdateRotatedSecret {
   }
 
 
-  public UpdateRotatedSecret username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -683,12 +656,12 @@ public class UpdateRotatedSecret {
         Objects.equals(this.apiKey, updateRotatedSecret.apiKey) &&
         Objects.equals(this.autoRotate, updateRotatedSecret.autoRotate) &&
         Objects.equals(this.customPayload, updateRotatedSecret.customPayload) &&
+        Objects.equals(this.keepPrevVersion, updateRotatedSecret.keepPrevVersion) &&
         Objects.equals(this.key, updateRotatedSecret.key) &&
         Objects.equals(this.name, updateRotatedSecret.name) &&
         Objects.equals(this.newMetadata, updateRotatedSecret.newMetadata) &&
         Objects.equals(this.newName, updateRotatedSecret.newName) &&
         Objects.equals(this.newVersion, updateRotatedSecret.newVersion) &&
-        Objects.equals(this.password, updateRotatedSecret.password) &&
         Objects.equals(this.rmTag, updateRotatedSecret.rmTag) &&
         Objects.equals(this.rotatedPassword, updateRotatedSecret.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, updateRotatedSecret.rotatedUsername) &&
@@ -699,13 +672,12 @@ public class UpdateRotatedSecret {
         Objects.equals(this.sshPassword, updateRotatedSecret.sshPassword) &&
         Objects.equals(this.sshUsername, updateRotatedSecret.sshUsername) &&
         Objects.equals(this.token, updateRotatedSecret.token) &&
-        Objects.equals(this.uidToken, updateRotatedSecret.uidToken) &&
-        Objects.equals(this.username, updateRotatedSecret.username);
+        Objects.equals(this.uidToken, updateRotatedSecret.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, key, name, newMetadata, newName, newVersion, password, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, sshPassword, sshUsername, token, uidToken, username);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, sshPassword, sshUsername, token, uidToken);
   }
 
 
@@ -718,12 +690,12 @@ public class UpdateRotatedSecret {
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
@@ -735,7 +707,6 @@ public class UpdateRotatedSecret {
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

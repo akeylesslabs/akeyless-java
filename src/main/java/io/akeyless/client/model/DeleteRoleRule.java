@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class DeleteRoleRule {
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -52,33 +48,6 @@ public class DeleteRoleRule {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
-
-  public DeleteRoleRule password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
 
   public DeleteRoleRule path(String path) {
@@ -194,29 +163,6 @@ public class DeleteRoleRule {
   }
 
 
-  public DeleteRoleRule username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -226,18 +172,16 @@ public class DeleteRoleRule {
       return false;
     }
     DeleteRoleRule deleteRoleRule = (DeleteRoleRule) o;
-    return Objects.equals(this.password, deleteRoleRule.password) &&
-        Objects.equals(this.path, deleteRoleRule.path) &&
+    return Objects.equals(this.path, deleteRoleRule.path) &&
         Objects.equals(this.roleName, deleteRoleRule.roleName) &&
         Objects.equals(this.ruleType, deleteRoleRule.ruleType) &&
         Objects.equals(this.token, deleteRoleRule.token) &&
-        Objects.equals(this.uidToken, deleteRoleRule.uidToken) &&
-        Objects.equals(this.username, deleteRoleRule.username);
+        Objects.equals(this.uidToken, deleteRoleRule.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, path, roleName, ruleType, token, uidToken, username);
+    return Objects.hash(path, roleName, ruleType, token, uidToken);
   }
 
 
@@ -245,13 +189,11 @@ public class DeleteRoleRule {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRoleRule {\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

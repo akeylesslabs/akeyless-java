@@ -40,10 +40,6 @@ public class GatewayCreateProducerRdp {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -108,10 +104,6 @@ public class GatewayCreateProducerRdp {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
 
   public GatewayCreateProducerRdp fixedUserOnly(String fixedUserOnly) {
     
@@ -155,29 +147,6 @@ public class GatewayCreateProducerRdp {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerRdp password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -565,29 +534,6 @@ public class GatewayCreateProducerRdp {
   }
 
 
-  public GatewayCreateProducerRdp username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -599,7 +545,6 @@ public class GatewayCreateProducerRdp {
     GatewayCreateProducerRdp gatewayCreateProducerRdp = (GatewayCreateProducerRdp) o;
     return Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
         Objects.equals(this.name, gatewayCreateProducerRdp.name) &&
-        Objects.equals(this.password, gatewayCreateProducerRdp.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, gatewayCreateProducerRdp.rdpAdminName) &&
         Objects.equals(this.rdpAdminPwd, gatewayCreateProducerRdp.rdpAdminPwd) &&
@@ -615,13 +560,12 @@ public class GatewayCreateProducerRdp {
         Objects.equals(this.targetName, gatewayCreateProducerRdp.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerRdp.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRdp.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerRdp.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerRdp.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerRdp.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedUserOnly, name, password, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(fixedUserOnly, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -631,7 +575,6 @@ public class GatewayCreateProducerRdp {
     sb.append("class GatewayCreateProducerRdp {\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");
     sb.append("    rdpAdminPwd: ").append(toIndentedString(rdpAdminPwd)).append("\n");
@@ -648,7 +591,6 @@ public class GatewayCreateProducerRdp {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

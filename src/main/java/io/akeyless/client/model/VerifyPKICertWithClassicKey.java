@@ -33,10 +33,6 @@ public class VerifyPKICertWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PKI_CERT = "pki-cert";
   @SerializedName(SERIALIZED_NAME_PKI_CERT)
   private String pkiCert;
@@ -48,10 +44,6 @@ public class VerifyPKICertWithClassicKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -77,29 +69,6 @@ public class VerifyPKICertWithClassicKey {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
-  }
-
-
-  public VerifyPKICertWithClassicKey password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -171,29 +140,6 @@ public class VerifyPKICertWithClassicKey {
   }
 
 
-  public VerifyPKICertWithClassicKey username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public VerifyPKICertWithClassicKey version(Integer version) {
     
     this.version = version;
@@ -226,17 +172,15 @@ public class VerifyPKICertWithClassicKey {
     }
     VerifyPKICertWithClassicKey verifyPKICertWithClassicKey = (VerifyPKICertWithClassicKey) o;
     return Objects.equals(this.displayId, verifyPKICertWithClassicKey.displayId) &&
-        Objects.equals(this.password, verifyPKICertWithClassicKey.password) &&
         Objects.equals(this.pkiCert, verifyPKICertWithClassicKey.pkiCert) &&
         Objects.equals(this.token, verifyPKICertWithClassicKey.token) &&
         Objects.equals(this.uidToken, verifyPKICertWithClassicKey.uidToken) &&
-        Objects.equals(this.username, verifyPKICertWithClassicKey.username) &&
         Objects.equals(this.version, verifyPKICertWithClassicKey.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, password, pkiCert, token, uidToken, username, version);
+    return Objects.hash(displayId, pkiCert, token, uidToken, version);
   }
 
 
@@ -245,11 +189,9 @@ public class VerifyPKICertWithClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerifyPKICertWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    pkiCert: ").append(toIndentedString(pkiCert)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

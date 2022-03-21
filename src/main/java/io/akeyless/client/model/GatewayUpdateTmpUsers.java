@@ -38,10 +38,6 @@ public class GatewayUpdateTmpUsers {
   @SerializedName(SERIALIZED_NAME_NEW_TTL_MIN)
   private Long newTtlMin;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TMP_CREDS_ID = "tmp-creds-id";
   @SerializedName(SERIALIZED_NAME_TMP_CREDS_ID)
   private String tmpCredsId;
@@ -53,10 +49,6 @@ public class GatewayUpdateTmpUsers {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateTmpUsers name(String name) {
@@ -100,29 +92,6 @@ public class GatewayUpdateTmpUsers {
 
   public void setNewTtlMin(Long newTtlMin) {
     this.newTtlMin = newTtlMin;
-  }
-
-
-  public GatewayUpdateTmpUsers password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -194,29 +163,6 @@ public class GatewayUpdateTmpUsers {
   }
 
 
-  public GatewayUpdateTmpUsers username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -228,16 +174,14 @@ public class GatewayUpdateTmpUsers {
     GatewayUpdateTmpUsers gatewayUpdateTmpUsers = (GatewayUpdateTmpUsers) o;
     return Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
         Objects.equals(this.newTtlMin, gatewayUpdateTmpUsers.newTtlMin) &&
-        Objects.equals(this.password, gatewayUpdateTmpUsers.password) &&
         Objects.equals(this.tmpCredsId, gatewayUpdateTmpUsers.tmpCredsId) &&
         Objects.equals(this.token, gatewayUpdateTmpUsers.token) &&
-        Objects.equals(this.uidToken, gatewayUpdateTmpUsers.uidToken) &&
-        Objects.equals(this.username, gatewayUpdateTmpUsers.username);
+        Objects.equals(this.uidToken, gatewayUpdateTmpUsers.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, newTtlMin, password, tmpCredsId, token, uidToken, username);
+    return Objects.hash(name, newTtlMin, tmpCredsId, token, uidToken);
   }
 
 
@@ -247,11 +191,9 @@ public class GatewayUpdateTmpUsers {
     sb.append("class GatewayUpdateTmpUsers {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newTtlMin: ").append(toIndentedString(newTtlMin)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    tmpCredsId: ").append(toIndentedString(tmpCredsId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **metadata** | **String** | Metadata about the secret |  [optional]
 **name** | **String** | Secret name | 
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **rotatedPassword** | **String** |  |  [optional]
 **rotatedUsername** | **String** |  |  [optional]
 **rotationHour** | **Integer** |  |  [optional]
@@ -31,7 +30,6 @@ Name | Type | Description | Notes
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **userAttribute** | **String** | User Attribute |  [optional]
 **userDn** | **String** | User DN |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

@@ -33,10 +33,6 @@ public class DescribeItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SHOW_VERSIONS = "show-versions";
   @SerializedName(SERIALIZED_NAME_SHOW_VERSIONS)
   private Boolean showVersions = false;
@@ -48,10 +44,6 @@ public class DescribeItem {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public DescribeItem name(String name) {
@@ -73,29 +65,6 @@ public class DescribeItem {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public DescribeItem password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -168,29 +137,6 @@ public class DescribeItem {
   }
 
 
-  public DescribeItem username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -201,16 +147,14 @@ public class DescribeItem {
     }
     DescribeItem describeItem = (DescribeItem) o;
     return Objects.equals(this.name, describeItem.name) &&
-        Objects.equals(this.password, describeItem.password) &&
         Objects.equals(this.showVersions, describeItem.showVersions) &&
         Objects.equals(this.token, describeItem.token) &&
-        Objects.equals(this.uidToken, describeItem.uidToken) &&
-        Objects.equals(this.username, describeItem.username);
+        Objects.equals(this.uidToken, describeItem.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password, showVersions, token, uidToken, username);
+    return Objects.hash(name, showVersions, token, uidToken);
   }
 
 
@@ -219,11 +163,9 @@ public class DescribeItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeItem {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -57,10 +57,6 @@ public class UpdateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRINCIPALS = "principals";
   @SerializedName(SERIALIZED_NAME_PRINCIPALS)
   private String principals;
@@ -108,10 +104,6 @@ public class UpdateSSHCertIssuer {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateSSHCertIssuer addTag(List<String> addTag) {
@@ -263,29 +255,6 @@ public class UpdateSSHCertIssuer {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public UpdateSSHCertIssuer password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -579,29 +548,6 @@ public class UpdateSSHCertIssuer {
   }
 
 
-  public UpdateSSHCertIssuer username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -617,7 +563,6 @@ public class UpdateSSHCertIssuer {
         Objects.equals(this.metadata, updateSSHCertIssuer.metadata) &&
         Objects.equals(this.name, updateSSHCertIssuer.name) &&
         Objects.equals(this.newName, updateSSHCertIssuer.newName) &&
-        Objects.equals(this.password, updateSSHCertIssuer.password) &&
         Objects.equals(this.principals, updateSSHCertIssuer.principals) &&
         Objects.equals(this.rmTag, updateSSHCertIssuer.rmTag) &&
         Objects.equals(this.secureAccessBastionApi, updateSSHCertIssuer.secureAccessBastionApi) &&
@@ -629,13 +574,12 @@ public class UpdateSSHCertIssuer {
         Objects.equals(this.signerKeyName, updateSSHCertIssuer.signerKeyName) &&
         Objects.equals(this.token, updateSSHCertIssuer.token) &&
         Objects.equals(this.ttl, updateSSHCertIssuer.ttl) &&
-        Objects.equals(this.uidToken, updateSSHCertIssuer.uidToken) &&
-        Objects.equals(this.username, updateSSHCertIssuer.username);
+        Objects.equals(this.uidToken, updateSSHCertIssuer.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowedUsers, extensions, metadata, name, newName, password, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken, username);
+    return Objects.hash(addTag, allowedUsers, extensions, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
   }
 
 
@@ -649,7 +593,6 @@ public class UpdateSSHCertIssuer {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    secureAccessBastionApi: ").append(toIndentedString(secureAccessBastionApi)).append("\n");
@@ -662,7 +605,6 @@ public class UpdateSSHCertIssuer {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

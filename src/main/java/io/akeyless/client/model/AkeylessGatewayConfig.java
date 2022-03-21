@@ -34,7 +34,6 @@ import io.akeyless.client.model.LogForwardingConfigPart;
 import io.akeyless.client.model.MigrationsConfigPart;
 import io.akeyless.client.model.ProducersConfigPart;
 import io.akeyless.client.model.RotatorsConfigPart;
-import io.akeyless.client.model.UIdentityConfigPart;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -103,10 +102,6 @@ public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_SAML = "saml";
   @SerializedName(SERIALIZED_NAME_SAML)
   private DefaultConfigPart saml;
-
-  public static final String SERIALIZED_NAME_UIDENTITY = "uidentity";
-  @SerializedName(SERIALIZED_NAME_UIDENTITY)
-  private UIdentityConfigPart uidentity;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -458,29 +453,6 @@ public class AkeylessGatewayConfig {
   }
 
 
-  public AkeylessGatewayConfig uidentity(UIdentityConfigPart uidentity) {
-    
-    this.uidentity = uidentity;
-    return this;
-  }
-
-   /**
-   * Get uidentity
-   * @return uidentity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UIdentityConfigPart getUidentity() {
-    return uidentity;
-  }
-
-
-  public void setUidentity(UIdentityConfigPart uidentity) {
-    this.uidentity = uidentity;
-  }
-
-
   public AkeylessGatewayConfig version(Integer version) {
     
     this.version = version;
@@ -528,13 +500,12 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.producers, akeylessGatewayConfig.producers) &&
         Objects.equals(this.rotators, akeylessGatewayConfig.rotators) &&
         Objects.equals(this.saml, akeylessGatewayConfig.saml) &&
-        Objects.equals(this.uidentity, akeylessGatewayConfig.uidentity) &&
         Objects.equals(this.version, akeylessGatewayConfig.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, uidentity, version);
+    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
   }
 
 
@@ -557,7 +528,6 @@ public class AkeylessGatewayConfig {
     sb.append("    producers: ").append(toIndentedString(producers)).append("\n");
     sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");
     sb.append("    saml: ").append(toIndentedString(saml)).append("\n");
-    sb.append("    uidentity: ").append(toIndentedString(uidentity)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

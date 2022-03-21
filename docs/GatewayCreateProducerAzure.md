@@ -11,12 +11,14 @@ Name | Type | Description | Notes
 **azureClientId** | **String** | Azure Client ID |  [optional]
 **azureClientSecret** | **String** | Azure Client Secret |  [optional]
 **azureTenantId** | **String** | Azure Tenant ID |  [optional]
+**fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional]
+**fixedUserOnly** | **Boolean** | Fixed user |  [optional]
 **name** | **String** | Producer name | 
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessWeb** | **Boolean** |  |  [optional]
 **secureAccessWebBrowsing** | **Boolean** |  |  [optional]
+**secureAccessWebProxy** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
@@ -27,7 +29,6 @@ Name | Type | Description | Notes
 **userProgrammaticAccess** | **Boolean** | Azure User programmatic access |  [optional]
 **userRoleTemplateId** | **String** | User Role Template Id |  [optional]
 **userTtl** | **String** | User TTL |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

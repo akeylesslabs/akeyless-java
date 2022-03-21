@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.SystemAccessCredentialsReplyObj;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,9 +30,36 @@ import java.io.IOException;
  */
 
 public class AuthOutput {
+  public static final String SERIALIZED_NAME_CREDS = "creds";
+  @SerializedName(SERIALIZED_NAME_CREDS)
+  private SystemAccessCredentialsReplyObj creds;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+
+  public AuthOutput creds(SystemAccessCredentialsReplyObj creds) {
+    
+    this.creds = creds;
+    return this;
+  }
+
+   /**
+   * Get creds
+   * @return creds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SystemAccessCredentialsReplyObj getCreds() {
+    return creds;
+  }
+
+
+  public void setCreds(SystemAccessCredentialsReplyObj creds) {
+    this.creds = creds;
+  }
 
 
   public AuthOutput token(String token) {
@@ -66,12 +94,13 @@ public class AuthOutput {
       return false;
     }
     AuthOutput authOutput = (AuthOutput) o;
-    return Objects.equals(this.token, authOutput.token);
+    return Objects.equals(this.creds, authOutput.creds) &&
+        Objects.equals(this.token, authOutput.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(creds, token);
   }
 
 
@@ -79,6 +108,7 @@ public class AuthOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthOutput {\n");
+    sb.append("    creds: ").append(toIndentedString(creds)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();

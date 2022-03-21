@@ -60,10 +60,6 @@ public class CreateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -75,10 +71,6 @@ public class CreateAuthMethodUniversalIdentity {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateAuthMethodUniversalIdentity accessExpires(Long accessExpires) {
@@ -249,29 +241,6 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
-  public CreateAuthMethodUniversalIdentity password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public CreateAuthMethodUniversalIdentity token(String token) {
     
     this.token = token;
@@ -341,29 +310,6 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
-  public CreateAuthMethodUniversalIdentity username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -380,16 +326,14 @@ public class CreateAuthMethodUniversalIdentity {
         Objects.equals(this.forceSubClaims, createAuthMethodUniversalIdentity.forceSubClaims) &&
         Objects.equals(this.jwtTtl, createAuthMethodUniversalIdentity.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodUniversalIdentity.name) &&
-        Objects.equals(this.password, createAuthMethodUniversalIdentity.password) &&
         Objects.equals(this.token, createAuthMethodUniversalIdentity.token) &&
         Objects.equals(this.ttl, createAuthMethodUniversalIdentity.ttl) &&
-        Objects.equals(this.uidToken, createAuthMethodUniversalIdentity.uidToken) &&
-        Objects.equals(this.username, createAuthMethodUniversalIdentity.username);
+        Objects.equals(this.uidToken, createAuthMethodUniversalIdentity.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, jwtTtl, name, password, token, ttl, uidToken, username);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, jwtTtl, name, token, ttl, uidToken);
   }
 
 
@@ -404,11 +348,9 @@ public class CreateAuthMethodUniversalIdentity {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

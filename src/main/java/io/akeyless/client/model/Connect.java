@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "Connect is a command that performs secure remote access")
 
 public class Connect {
+  public static final String SERIALIZED_NAME_HELPER = "Helper";
+  @SerializedName(SERIALIZED_NAME_HELPER)
+  private Object helper;
+
   public static final String SERIALIZED_NAME_RC_FILE_OVERRIDE = "RcFileOverride";
   @SerializedName(SERIALIZED_NAME_RC_FILE_OVERRIDE)
   private String rcFileOverride;
@@ -62,10 +66,6 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SSH_EXTRA_ARGS = "ssh-extra-args";
   @SerializedName(SERIALIZED_NAME_SSH_EXTRA_ARGS)
   private String sshExtraArgs;
@@ -82,13 +82,32 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
   public static final String SERIALIZED_NAME_VIA_BASTION = "via-bastion";
   @SerializedName(SERIALIZED_NAME_VIA_BASTION)
   private String viaBastion;
+
+
+  public Connect helper(Object helper) {
+    
+    this.helper = helper;
+    return this;
+  }
+
+   /**
+   * Get helper
+   * @return helper
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getHelper() {
+    return helper;
+  }
+
+
+  public void setHelper(Object helper) {
+    this.helper = helper;
+  }
 
 
   public Connect rcFileOverride(String rcFileOverride) {
@@ -275,29 +294,6 @@ public class Connect {
   }
 
 
-  public Connect password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public Connect sshExtraArgs(String sshExtraArgs) {
     
     this.sshExtraArgs = sshExtraArgs;
@@ -390,29 +386,6 @@ public class Connect {
   }
 
 
-  public Connect username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public Connect viaBastion(String viaBastion) {
     
     this.viaBastion = viaBastion;
@@ -445,7 +418,8 @@ public class Connect {
       return false;
     }
     Connect connect = (Connect) o;
-    return Objects.equals(this.rcFileOverride, connect.rcFileOverride) &&
+    return Objects.equals(this.helper, connect.helper) &&
+        Objects.equals(this.rcFileOverride, connect.rcFileOverride) &&
         Objects.equals(this.bastionCtrlPath, connect.bastionCtrlPath) &&
         Objects.equals(this.bastionCtrlPort, connect.bastionCtrlPort) &&
         Objects.equals(this.bastionCtrlProto, connect.bastionCtrlProto) &&
@@ -453,18 +427,16 @@ public class Connect {
         Objects.equals(this.certIssuerName, connect.certIssuerName) &&
         Objects.equals(this.identityFile, connect.identityFile) &&
         Objects.equals(this.name, connect.name) &&
-        Objects.equals(this.password, connect.password) &&
         Objects.equals(this.sshExtraArgs, connect.sshExtraArgs) &&
         Objects.equals(this.target, connect.target) &&
         Objects.equals(this.token, connect.token) &&
         Objects.equals(this.uidToken, connect.uidToken) &&
-        Objects.equals(this.username, connect.username) &&
         Objects.equals(this.viaBastion, connect.viaBastion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, name, password, sshExtraArgs, target, token, uidToken, username, viaBastion);
+    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, name, sshExtraArgs, target, token, uidToken, viaBastion);
   }
 
 
@@ -472,6 +444,7 @@ public class Connect {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Connect {\n");
+    sb.append("    helper: ").append(toIndentedString(helper)).append("\n");
     sb.append("    rcFileOverride: ").append(toIndentedString(rcFileOverride)).append("\n");
     sb.append("    bastionCtrlPath: ").append(toIndentedString(bastionCtrlPath)).append("\n");
     sb.append("    bastionCtrlPort: ").append(toIndentedString(bastionCtrlPort)).append("\n");
@@ -480,12 +453,10 @@ public class Connect {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    identityFile: ").append(toIndentedString(identityFile)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    sshExtraArgs: ").append(toIndentedString(sshExtraArgs)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    viaBastion: ").append(toIndentedString(viaBastion)).append("\n");
     sb.append("}");
     return sb.toString();

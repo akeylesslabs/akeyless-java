@@ -40,10 +40,6 @@ public class GatewayCreateProducerRedshift {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY = "producer-encryption-key";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY)
   private String producerEncryptionKey;
@@ -96,10 +92,6 @@ public class GatewayCreateProducerRedshift {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
 
   public GatewayCreateProducerRedshift creationStatements(String creationStatements) {
     
@@ -143,29 +135,6 @@ public class GatewayCreateProducerRedshift {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerRedshift password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -484,29 +453,6 @@ public class GatewayCreateProducerRedshift {
   }
 
 
-  public GatewayCreateProducerRedshift username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -518,7 +464,6 @@ public class GatewayCreateProducerRedshift {
     GatewayCreateProducerRedshift gatewayCreateProducerRedshift = (GatewayCreateProducerRedshift) o;
     return Objects.equals(this.creationStatements, gatewayCreateProducerRedshift.creationStatements) &&
         Objects.equals(this.name, gatewayCreateProducerRedshift.name) &&
-        Objects.equals(this.password, gatewayCreateProducerRedshift.password) &&
         Objects.equals(this.producerEncryptionKey, gatewayCreateProducerRedshift.producerEncryptionKey) &&
         Objects.equals(this.redshiftDbName, gatewayCreateProducerRedshift.redshiftDbName) &&
         Objects.equals(this.redshiftHost, gatewayCreateProducerRedshift.redshiftHost) &&
@@ -531,13 +476,12 @@ public class GatewayCreateProducerRedshift {
         Objects.equals(this.targetName, gatewayCreateProducerRedshift.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerRedshift.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRedshift.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerRedshift.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerRedshift.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerRedshift.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, password, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -547,7 +491,6 @@ public class GatewayCreateProducerRedshift {
     sb.append("class GatewayCreateProducerRedshift {\n");
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKey: ").append(toIndentedString(producerEncryptionKey)).append("\n");
     sb.append("    redshiftDbName: ").append(toIndentedString(redshiftDbName)).append("\n");
     sb.append("    redshiftHost: ").append(toIndentedString(redshiftHost)).append("\n");
@@ -561,7 +504,6 @@ public class GatewayCreateProducerRedshift {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

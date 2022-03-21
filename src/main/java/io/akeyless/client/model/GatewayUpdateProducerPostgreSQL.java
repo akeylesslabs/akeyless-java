@@ -44,10 +44,6 @@ public class GatewayUpdateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_POSTGRESQL_DB_NAME = "postgresql-db-name";
   @SerializedName(SERIALIZED_NAME_POSTGRESQL_DB_NAME)
   private String postgresqlDbName;
@@ -120,10 +116,6 @@ public class GatewayUpdateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
 
   public GatewayUpdateProducerPostgreSQL creationStatements(String creationStatements) {
     
@@ -190,29 +182,6 @@ public class GatewayUpdateProducerPostgreSQL {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public GatewayUpdateProducerPostgreSQL password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -646,29 +615,6 @@ public class GatewayUpdateProducerPostgreSQL {
   }
 
 
-  public GatewayUpdateProducerPostgreSQL username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -681,7 +627,6 @@ public class GatewayUpdateProducerPostgreSQL {
     return Objects.equals(this.creationStatements, gatewayUpdateProducerPostgreSQL.creationStatements) &&
         Objects.equals(this.name, gatewayUpdateProducerPostgreSQL.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerPostgreSQL.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerPostgreSQL.password) &&
         Objects.equals(this.postgresqlDbName, gatewayUpdateProducerPostgreSQL.postgresqlDbName) &&
         Objects.equals(this.postgresqlHost, gatewayUpdateProducerPostgreSQL.postgresqlHost) &&
         Objects.equals(this.postgresqlPassword, gatewayUpdateProducerPostgreSQL.postgresqlPassword) &&
@@ -699,13 +644,12 @@ public class GatewayUpdateProducerPostgreSQL {
         Objects.equals(this.targetName, gatewayUpdateProducerPostgreSQL.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerPostgreSQL.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerPostgreSQL.uidToken) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerPostgreSQL.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerPostgreSQL.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerPostgreSQL.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, newName, password, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(creationStatements, name, newName, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -716,7 +660,6 @@ public class GatewayUpdateProducerPostgreSQL {
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    postgresqlDbName: ").append(toIndentedString(postgresqlDbName)).append("\n");
     sb.append("    postgresqlHost: ").append(toIndentedString(postgresqlHost)).append("\n");
     sb.append("    postgresqlPassword: ").append(toIndentedString(postgresqlPassword)).append("\n");
@@ -735,7 +678,6 @@ public class GatewayUpdateProducerPostgreSQL {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

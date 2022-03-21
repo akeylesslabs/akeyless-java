@@ -41,10 +41,6 @@ public class AssocRoleAuthMethod {
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
   private String caseSensitive;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_ROLE_NAME = "role-name";
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)
   private String roleName;
@@ -60,10 +56,6 @@ public class AssocRoleAuthMethod {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public AssocRoleAuthMethod amName(String amName) {
@@ -108,29 +100,6 @@ public class AssocRoleAuthMethod {
 
   public void setCaseSensitive(String caseSensitive) {
     this.caseSensitive = caseSensitive;
-  }
-
-
-  public AssocRoleAuthMethod password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -233,29 +202,6 @@ public class AssocRoleAuthMethod {
   }
 
 
-  public AssocRoleAuthMethod username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -267,17 +213,15 @@ public class AssocRoleAuthMethod {
     AssocRoleAuthMethod assocRoleAuthMethod = (AssocRoleAuthMethod) o;
     return Objects.equals(this.amName, assocRoleAuthMethod.amName) &&
         Objects.equals(this.caseSensitive, assocRoleAuthMethod.caseSensitive) &&
-        Objects.equals(this.password, assocRoleAuthMethod.password) &&
         Objects.equals(this.roleName, assocRoleAuthMethod.roleName) &&
         Objects.equals(this.subClaims, assocRoleAuthMethod.subClaims) &&
         Objects.equals(this.token, assocRoleAuthMethod.token) &&
-        Objects.equals(this.uidToken, assocRoleAuthMethod.uidToken) &&
-        Objects.equals(this.username, assocRoleAuthMethod.username);
+        Objects.equals(this.uidToken, assocRoleAuthMethod.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amName, caseSensitive, password, roleName, subClaims, token, uidToken, username);
+    return Objects.hash(amName, caseSensitive, roleName, subClaims, token, uidToken);
   }
 
 
@@ -287,12 +231,10 @@ public class AssocRoleAuthMethod {
     sb.append("class AssocRoleAuthMethod {\n");
     sb.append("    amName: ").append(toIndentedString(amName)).append("\n");
     sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

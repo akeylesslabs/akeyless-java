@@ -13,10 +13,9 @@ Name | Type | Description | Notes
 **jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **newName** | **String** | Auth Method new name |  [optional]
-**password** | **String** | Required only when the authentication process requires a username and password |  [optional]
+**publicKeyData** | **String** | A public key generated for LDAP authentication method on Akeyless in base64 format [RSA2048] |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**username** | **String** | Required only when the authentication process requires a username and password |  [optional]
 
 
 

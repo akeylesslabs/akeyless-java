@@ -47,10 +47,6 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SPLIT_LEVEL = "split-level";
   @SerializedName(SERIALIZED_NAME_SPLIT_LEVEL)
   private Long splitLevel = 2l;
@@ -66,10 +62,6 @@ public class CreateDFCKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateDFCKey alg(String alg) {
@@ -159,29 +151,6 @@ public class CreateDFCKey {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public CreateDFCKey password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -285,29 +254,6 @@ public class CreateDFCKey {
   }
 
 
-  public CreateDFCKey username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -321,17 +267,15 @@ public class CreateDFCKey {
         Objects.equals(this.customerFrgId, createDFCKey.customerFrgId) &&
         Objects.equals(this.metadata, createDFCKey.metadata) &&
         Objects.equals(this.name, createDFCKey.name) &&
-        Objects.equals(this.password, createDFCKey.password) &&
         Objects.equals(this.splitLevel, createDFCKey.splitLevel) &&
         Objects.equals(this.tag, createDFCKey.tag) &&
         Objects.equals(this.token, createDFCKey.token) &&
-        Objects.equals(this.uidToken, createDFCKey.uidToken) &&
-        Objects.equals(this.username, createDFCKey.username);
+        Objects.equals(this.uidToken, createDFCKey.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, metadata, name, password, splitLevel, tag, token, uidToken, username);
+    return Objects.hash(alg, customerFrgId, metadata, name, splitLevel, tag, token, uidToken);
   }
 
 
@@ -343,12 +287,10 @@ public class CreateDFCKey {
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

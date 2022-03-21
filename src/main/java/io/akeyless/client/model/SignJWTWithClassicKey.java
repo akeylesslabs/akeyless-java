@@ -37,10 +37,6 @@ public class SignJWTWithClassicKey {
   @SerializedName(SERIALIZED_NAME_JWT_CLAIMS)
   private String jwtClaims;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_SIGNING_METHOD = "signing-method";
   @SerializedName(SERIALIZED_NAME_SIGNING_METHOD)
   private String signingMethod;
@@ -52,10 +48,6 @@ public class SignJWTWithClassicKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -103,29 +95,6 @@ public class SignJWTWithClassicKey {
 
   public void setJwtClaims(String jwtClaims) {
     this.jwtClaims = jwtClaims;
-  }
-
-
-  public SignJWTWithClassicKey password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -197,29 +166,6 @@ public class SignJWTWithClassicKey {
   }
 
 
-  public SignJWTWithClassicKey username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public SignJWTWithClassicKey version(Integer version) {
     
     this.version = version;
@@ -253,17 +199,15 @@ public class SignJWTWithClassicKey {
     SignJWTWithClassicKey signJWTWithClassicKey = (SignJWTWithClassicKey) o;
     return Objects.equals(this.displayId, signJWTWithClassicKey.displayId) &&
         Objects.equals(this.jwtClaims, signJWTWithClassicKey.jwtClaims) &&
-        Objects.equals(this.password, signJWTWithClassicKey.password) &&
         Objects.equals(this.signingMethod, signJWTWithClassicKey.signingMethod) &&
         Objects.equals(this.token, signJWTWithClassicKey.token) &&
         Objects.equals(this.uidToken, signJWTWithClassicKey.uidToken) &&
-        Objects.equals(this.username, signJWTWithClassicKey.username) &&
         Objects.equals(this.version, signJWTWithClassicKey.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, jwtClaims, password, signingMethod, token, uidToken, username, version);
+    return Objects.hash(displayId, jwtClaims, signingMethod, token, uidToken, version);
   }
 
 
@@ -273,11 +217,9 @@ public class SignJWTWithClassicKey {
     sb.append("class SignJWTWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    jwtClaims: ").append(toIndentedString(jwtClaims)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    signingMethod: ").append(toIndentedString(signingMethod)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

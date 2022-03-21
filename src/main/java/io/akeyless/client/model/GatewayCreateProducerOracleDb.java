@@ -68,10 +68,6 @@ public class GatewayCreateProducerOracleDb {
   @SerializedName(SERIALIZED_NAME_ORACLE_USERNAME)
   private String oracleUsername;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -95,10 +91,6 @@ public class GatewayCreateProducerOracleDb {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerOracleDb dbServerCertificates(String dbServerCertificates) {
@@ -307,29 +299,6 @@ public class GatewayCreateProducerOracleDb {
   }
 
 
-  public GatewayCreateProducerOracleDb password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public GatewayCreateProducerOracleDb producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -476,29 +445,6 @@ public class GatewayCreateProducerOracleDb {
   }
 
 
-  public GatewayCreateProducerOracleDb username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -517,19 +463,17 @@ public class GatewayCreateProducerOracleDb {
         Objects.equals(this.oracleScreationStatements, gatewayCreateProducerOracleDb.oracleScreationStatements) &&
         Objects.equals(this.oracleServiceName, gatewayCreateProducerOracleDb.oracleServiceName) &&
         Objects.equals(this.oracleUsername, gatewayCreateProducerOracleDb.oracleUsername) &&
-        Objects.equals(this.password, gatewayCreateProducerOracleDb.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerOracleDb.producerEncryptionKeyName) &&
         Objects.equals(this.tags, gatewayCreateProducerOracleDb.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerOracleDb.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerOracleDb.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerOracleDb.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerOracleDb.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerOracleDb.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerOracleDb.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, password, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(dbServerCertificates, dbServerName, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -546,14 +490,12 @@ public class GatewayCreateProducerOracleDb {
     sb.append("    oracleScreationStatements: ").append(toIndentedString(oracleScreationStatements)).append("\n");
     sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");
     sb.append("    oracleUsername: ").append(toIndentedString(oracleUsername)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

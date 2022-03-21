@@ -45,6 +45,10 @@ public class UpdateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_TOKEN)
   private String k8sClusterToken;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -57,10 +61,6 @@ public class UpdateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -71,11 +71,7 @@ public class UpdateNativeK8STarget {
 
   public static final String SERIALIZED_NAME_UPDATE_VERSION = "update-version";
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
-  private Boolean updateVersion = false;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
+  private Boolean updateVersion;
 
 
   public UpdateNativeK8STarget comment(String comment) {
@@ -167,6 +163,29 @@ public class UpdateNativeK8STarget {
   }
 
 
+  public UpdateNativeK8STarget keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
+
+
   public UpdateNativeK8STarget key(String key) {
     
     this.key = key;
@@ -235,29 +254,6 @@ public class UpdateNativeK8STarget {
   }
 
 
-  public UpdateNativeK8STarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UpdateNativeK8STarget token(String token) {
     
     this.token = token;
@@ -311,11 +307,11 @@ public class UpdateNativeK8STarget {
   }
 
    /**
-   * Create new version for the target
+   * Deprecated
    * @return updateVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create new version for the target")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getUpdateVersion() {
     return updateVersion;
@@ -324,29 +320,6 @@ public class UpdateNativeK8STarget {
 
   public void setUpdateVersion(Boolean updateVersion) {
     this.updateVersion = updateVersion;
-  }
-
-
-  public UpdateNativeK8STarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
   }
 
 
@@ -363,19 +336,18 @@ public class UpdateNativeK8STarget {
         Objects.equals(this.k8sClusterCaCert, updateNativeK8STarget.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, updateNativeK8STarget.k8sClusterEndpoint) &&
         Objects.equals(this.k8sClusterToken, updateNativeK8STarget.k8sClusterToken) &&
+        Objects.equals(this.keepPrevVersion, updateNativeK8STarget.keepPrevVersion) &&
         Objects.equals(this.key, updateNativeK8STarget.key) &&
         Objects.equals(this.name, updateNativeK8STarget.name) &&
         Objects.equals(this.newName, updateNativeK8STarget.newName) &&
-        Objects.equals(this.password, updateNativeK8STarget.password) &&
         Objects.equals(this.token, updateNativeK8STarget.token) &&
         Objects.equals(this.uidToken, updateNativeK8STarget.uidToken) &&
-        Objects.equals(this.updateVersion, updateNativeK8STarget.updateVersion) &&
-        Objects.equals(this.username, updateNativeK8STarget.username);
+        Objects.equals(this.updateVersion, updateNativeK8STarget.updateVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, key, name, newName, password, token, uidToken, updateVersion, username);
+    return Objects.hash(comment, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -387,14 +359,13 @@ public class UpdateNativeK8STarget {
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -65,10 +65,6 @@ public class CreateEKSTarget {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -80,10 +76,6 @@ public class CreateEKSTarget {
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public CreateEKSTarget comment(String comment) {
@@ -287,29 +279,6 @@ public class CreateEKSTarget {
   }
 
 
-  public CreateEKSTarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public CreateEKSTarget token(String token) {
     
     this.token = token;
@@ -379,29 +348,6 @@ public class CreateEKSTarget {
   }
 
 
-  public CreateEKSTarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -420,16 +366,14 @@ public class CreateEKSTarget {
         Objects.equals(this.eksSecretAccessKey, createEKSTarget.eksSecretAccessKey) &&
         Objects.equals(this.key, createEKSTarget.key) &&
         Objects.equals(this.name, createEKSTarget.name) &&
-        Objects.equals(this.password, createEKSTarget.password) &&
         Objects.equals(this.token, createEKSTarget.token) &&
         Objects.equals(this.uidToken, createEKSTarget.uidToken) &&
-        Objects.equals(this.useGwCloudIdentity, createEKSTarget.useGwCloudIdentity) &&
-        Objects.equals(this.username, createEKSTarget.username);
+        Objects.equals(this.useGwCloudIdentity, createEKSTarget.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, password, token, uidToken, useGwCloudIdentity, username);
+    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -446,11 +390,9 @@ public class CreateEKSTarget {
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

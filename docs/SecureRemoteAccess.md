@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **sshUser** | **String** |  |  [optional]
 **url** | **String** |  |  [optional]
 **useInternalBastion** | **Boolean** |  |  [optional]
+**webProxy** | **Boolean** |  |  [optional]
 
 
 

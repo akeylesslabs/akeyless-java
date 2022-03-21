@@ -53,6 +53,10 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -93,10 +97,6 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_ORACLE_SERVICE_NAME)
   private String oracleServiceName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
@@ -119,15 +119,11 @@ public class UpdateDBTarget {
 
   public static final String SERIALIZED_NAME_UPDATE_VERSION = "update-version";
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
-  private Boolean updateVersion = false;
+  private Boolean updateVersion;
 
   public static final String SERIALIZED_NAME_USER_NAME = "user-name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public UpdateDBTarget comment(String comment) {
@@ -264,6 +260,29 @@ public class UpdateDBTarget {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public UpdateDBTarget keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
   }
 
 
@@ -496,29 +515,6 @@ public class UpdateDBTarget {
   }
 
 
-  public UpdateDBTarget password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public UpdateDBTarget port(String port) {
     
     this.port = port;
@@ -641,11 +637,11 @@ public class UpdateDBTarget {
   }
 
    /**
-   * Create new version for the target
+   * Deprecated
    * @return updateVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create new version for the target")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getUpdateVersion() {
     return updateVersion;
@@ -680,29 +676,6 @@ public class UpdateDBTarget {
   }
 
 
-  public UpdateDBTarget username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -718,6 +691,7 @@ public class UpdateDBTarget {
         Objects.equals(this.dbServerName, updateDBTarget.dbServerName) &&
         Objects.equals(this.dbType, updateDBTarget.dbType) &&
         Objects.equals(this.host, updateDBTarget.host) &&
+        Objects.equals(this.keepPrevVersion, updateDBTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDBTarget.key) &&
         Objects.equals(this.mongodbAtlas, updateDBTarget.mongodbAtlas) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, updateDBTarget.mongodbAtlasApiPrivateKey) &&
@@ -728,20 +702,18 @@ public class UpdateDBTarget {
         Objects.equals(this.name, updateDBTarget.name) &&
         Objects.equals(this.newName, updateDBTarget.newName) &&
         Objects.equals(this.oracleServiceName, updateDBTarget.oracleServiceName) &&
-        Objects.equals(this.password, updateDBTarget.password) &&
         Objects.equals(this.port, updateDBTarget.port) &&
         Objects.equals(this.pwd, updateDBTarget.pwd) &&
         Objects.equals(this.snowflakeAccount, updateDBTarget.snowflakeAccount) &&
         Objects.equals(this.token, updateDBTarget.token) &&
         Objects.equals(this.uidToken, updateDBTarget.uidToken) &&
         Objects.equals(this.updateVersion, updateDBTarget.updateVersion) &&
-        Objects.equals(this.userName, updateDBTarget.userName) &&
-        Objects.equals(this.username, updateDBTarget.username);
+        Objects.equals(this.userName, updateDBTarget.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, password, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName, username);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName);
   }
 
 
@@ -755,6 +727,7 @@ public class UpdateDBTarget {
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
@@ -765,7 +738,6 @@ public class UpdateDBTarget {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
@@ -773,7 +745,6 @@ public class UpdateDBTarget {
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

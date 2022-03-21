@@ -52,10 +52,6 @@ public class GatewayCreateProducerChef {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -83,10 +79,6 @@ public class GatewayCreateProducerChef {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerChef chefOrgs(String chefOrgs) {
@@ -200,29 +192,6 @@ public class GatewayCreateProducerChef {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerChef password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -395,29 +364,6 @@ public class GatewayCreateProducerChef {
   }
 
 
-  public GatewayCreateProducerChef username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -432,20 +378,18 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.chefServerUrl, gatewayCreateProducerChef.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, gatewayCreateProducerChef.chefServerUsername) &&
         Objects.equals(this.name, gatewayCreateProducerChef.name) &&
-        Objects.equals(this.password, gatewayCreateProducerChef.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerChef.producerEncryptionKeyName) &&
         Objects.equals(this.skipSsl, gatewayCreateProducerChef.skipSsl) &&
         Objects.equals(this.tags, gatewayCreateProducerChef.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerChef.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerChef.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerChef.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerChef.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerChef.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerChef.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, password, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -458,7 +402,6 @@ public class GatewayCreateProducerChef {
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -466,7 +409,6 @@ public class GatewayCreateProducerChef {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

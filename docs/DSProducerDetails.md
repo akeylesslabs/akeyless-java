@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **azureAppObjectId** | **String** |  |  [optional]
 **azureClientId** | **String** |  |  [optional]
 **azureClientSecret** | **String** |  |  [optional]
+**azureFixedUserNameSubClaimKey** | **String** |  |  [optional]
+**azureFixedUserOnly** | **Boolean** |  |  [optional]
 **azureTenantId** | **String** |  |  [optional]
 **azureUserGroupsObjId** | **String** |  |  [optional]
 **azureUserPortalAccess** | **Boolean** |  |  [optional]
@@ -122,6 +124,7 @@ Name | Type | Description | Notes
 **mssqlRevocationStatements** | **String** |  |  [optional]
 **mysqlCreationStatements** | **String** |  |  [optional]
 **oracleCreationStatements** | **String** |  |  [optional]
+**password** | **String** |  |  [optional]
 **passwordLength** | **Long** |  |  [optional]
 **passwordPolicy** | **String** |  |  [optional]
 **payload** | **String** |  |  [optional]
@@ -138,6 +141,7 @@ Name | Type | Description | Notes
 **redshiftCreationStatements** | **String** |  |  [optional]
 **revokeSyncUrl** | **String** |  |  [optional]
 **rotateSyncUrl** | **String** |  |  [optional]
+**scopes** | **List&lt;String&gt;** |  |  [optional]
 **secureRemoteAccessDetails** | [**SecureRemoteAccess**](SecureRemoteAccess.md) |  |  [optional]
 **sfAccount** | **String** |  |  [optional]
 **sfUserRole** | **String** | generated  users info |  [optional]
@@ -148,6 +152,7 @@ Name | Type | Description | Notes
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **timeoutSeconds** | **Long** |  |  [optional]
 **useGwCloudIdentity** | **Boolean** |  |  [optional]
+**userName** | **String** |  |  [optional]
 **userPrincipalName** | **String** |  |  [optional]
 **userTtl** | **String** |  |  [optional]
 **usernameLength** | **Long** |  |  [optional]
@@ -165,6 +170,7 @@ Name | Type | Description | Notes
 **venafiTppUsername** | **String** |  |  [optional]
 **venafiUseTpp** | **Boolean** |  |  [optional]
 **venafiZone** | **String** |  |  [optional]
+**warnBeforeUserExpirationMin** | **Long** |  |  [optional]
 
 
 

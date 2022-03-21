@@ -52,10 +52,6 @@ public class GatewayCreateProducerSnowflake {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
@@ -79,10 +75,6 @@ public class GatewayCreateProducerSnowflake {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "24h";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
   public static final String SERIALIZED_NAME_WAREHOUSE = "warehouse";
   @SerializedName(SERIALIZED_NAME_WAREHOUSE)
@@ -200,29 +192,6 @@ public class GatewayCreateProducerSnowflake {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerSnowflake password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -372,29 +341,6 @@ public class GatewayCreateProducerSnowflake {
   }
 
 
-  public GatewayCreateProducerSnowflake username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public GatewayCreateProducerSnowflake warehouse(String warehouse) {
     
     this.warehouse = warehouse;
@@ -432,20 +378,18 @@ public class GatewayCreateProducerSnowflake {
         Objects.equals(this.accountUsername, gatewayCreateProducerSnowflake.accountUsername) &&
         Objects.equals(this.dbName, gatewayCreateProducerSnowflake.dbName) &&
         Objects.equals(this.name, gatewayCreateProducerSnowflake.name) &&
-        Objects.equals(this.password, gatewayCreateProducerSnowflake.password) &&
         Objects.equals(this.role, gatewayCreateProducerSnowflake.role) &&
         Objects.equals(this.tags, gatewayCreateProducerSnowflake.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerSnowflake.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerSnowflake.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerSnowflake.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerSnowflake.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerSnowflake.username) &&
         Objects.equals(this.warehouse, gatewayCreateProducerSnowflake.warehouse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, dbName, name, password, role, tags, targetName, token, uidToken, userTtl, username, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, dbName, name, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
 
@@ -458,14 +402,12 @@ public class GatewayCreateProducerSnowflake {
     sb.append("    accountUsername: ").append(toIndentedString(accountUsername)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    warehouse: ").append(toIndentedString(warehouse)).append("\n");
     sb.append("}");
     return sb.toString();

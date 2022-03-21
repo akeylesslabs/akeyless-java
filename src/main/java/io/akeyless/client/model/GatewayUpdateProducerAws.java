@@ -80,10 +80,6 @@ public class GatewayUpdateProducerAws {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -116,6 +112,10 @@ public class GatewayUpdateProducerAws {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -135,10 +135,6 @@ public class GatewayUpdateProducerAws {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateProducerAws accessMode(String accessMode) {
@@ -416,29 +412,6 @@ public class GatewayUpdateProducerAws {
   }
 
 
-  public GatewayUpdateProducerAws password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public GatewayUpdateProducerAws producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -623,6 +596,29 @@ public class GatewayUpdateProducerAws {
   }
 
 
+  public GatewayUpdateProducerAws secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Get secureAccessWebProxy
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+  }
+
+
   public GatewayUpdateProducerAws tags(List<String> tags) {
     
     this.tags = tags;
@@ -746,29 +742,6 @@ public class GatewayUpdateProducerAws {
   }
 
 
-  public GatewayUpdateProducerAws username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -790,7 +763,6 @@ public class GatewayUpdateProducerAws {
         Objects.equals(this.enableAdminRotation, gatewayUpdateProducerAws.enableAdminRotation) &&
         Objects.equals(this.name, gatewayUpdateProducerAws.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerAws.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerAws.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerAws.producerEncryptionKeyName) &&
         Objects.equals(this.region, gatewayUpdateProducerAws.region) &&
         Objects.equals(this.secureAccessAwsAccountId, gatewayUpdateProducerAws.secureAccessAwsAccountId) &&
@@ -799,17 +771,17 @@ public class GatewayUpdateProducerAws {
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerAws.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerAws.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayUpdateProducerAws.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, gatewayUpdateProducerAws.secureAccessWebProxy) &&
         Objects.equals(this.tags, gatewayUpdateProducerAws.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerAws.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerAws.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerAws.uidToken) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerAws.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerAws.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerAws.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, newName, password, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, newName, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -829,7 +801,6 @@ public class GatewayUpdateProducerAws {
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
@@ -838,12 +809,12 @@ public class GatewayUpdateProducerAws {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

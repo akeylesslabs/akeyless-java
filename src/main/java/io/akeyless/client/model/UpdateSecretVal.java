@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class UpdateSecretVal {
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -43,11 +47,7 @@ public class UpdateSecretVal {
 
   public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
-  private Boolean newVersion = false;
-
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+  private Boolean newVersion;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -57,13 +57,32 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
+
+  public UpdateSecretVal keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
 
 
   public UpdateSecretVal key(String key) {
@@ -141,11 +160,11 @@ public class UpdateSecretVal {
   }
 
    /**
-   * Whether to create a new version of not
+   * Deprecated
    * @return newVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to create a new version of not")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getNewVersion() {
     return newVersion;
@@ -154,29 +173,6 @@ public class UpdateSecretVal {
 
   public void setNewVersion(Boolean newVersion) {
     this.newVersion = newVersion;
-  }
-
-
-  public UpdateSecretVal password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -226,29 +222,6 @@ public class UpdateSecretVal {
   }
 
 
-  public UpdateSecretVal username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public UpdateSecretVal value(String value) {
     
     this.value = value;
@@ -280,20 +253,19 @@ public class UpdateSecretVal {
       return false;
     }
     UpdateSecretVal updateSecretVal = (UpdateSecretVal) o;
-    return Objects.equals(this.key, updateSecretVal.key) &&
+    return Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
+        Objects.equals(this.key, updateSecretVal.key) &&
         Objects.equals(this.multiline, updateSecretVal.multiline) &&
         Objects.equals(this.name, updateSecretVal.name) &&
         Objects.equals(this.newVersion, updateSecretVal.newVersion) &&
-        Objects.equals(this.password, updateSecretVal.password) &&
         Objects.equals(this.token, updateSecretVal.token) &&
         Objects.equals(this.uidToken, updateSecretVal.uidToken) &&
-        Objects.equals(this.username, updateSecretVal.username) &&
         Objects.equals(this.value, updateSecretVal.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, multiline, name, newVersion, password, token, uidToken, username, value);
+    return Objects.hash(keepPrevVersion, key, multiline, name, newVersion, token, uidToken, value);
   }
 
 
@@ -301,14 +273,13 @@ public class UpdateSecretVal {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSecretVal {\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    multiline: ").append(toIndentedString(multiline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -33,17 +33,17 @@ public class UpdateSSHTargetDetails {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
-  private Boolean newVersion = false;
-
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+  private Boolean newVersion;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
@@ -77,10 +77,6 @@ public class UpdateSSHTargetDetails {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
 
   public UpdateSSHTargetDetails host(String host) {
     
@@ -102,6 +98,29 @@ public class UpdateSSHTargetDetails {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public UpdateSSHTargetDetails keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Get keepPrevVersion
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
   }
 
 
@@ -134,11 +153,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Whether to create a new version of not
+   * Deprecated
    * @return newVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to create a new version of not")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getNewVersion() {
     return newVersion;
@@ -147,29 +166,6 @@ public class UpdateSSHTargetDetails {
 
   public void setNewVersion(Boolean newVersion) {
     this.newVersion = newVersion;
-  }
-
-
-  public UpdateSSHTargetDetails password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -357,29 +353,6 @@ public class UpdateSSHTargetDetails {
   }
 
 
-  public UpdateSSHTargetDetails username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -390,9 +363,9 @@ public class UpdateSSHTargetDetails {
     }
     UpdateSSHTargetDetails updateSSHTargetDetails = (UpdateSSHTargetDetails) o;
     return Objects.equals(this.host, updateSSHTargetDetails.host) &&
+        Objects.equals(this.keepPrevVersion, updateSSHTargetDetails.keepPrevVersion) &&
         Objects.equals(this.name, updateSSHTargetDetails.name) &&
         Objects.equals(this.newVersion, updateSSHTargetDetails.newVersion) &&
-        Objects.equals(this.password, updateSSHTargetDetails.password) &&
         Objects.equals(this.port, updateSSHTargetDetails.port) &&
         Objects.equals(this.privateKey, updateSSHTargetDetails.privateKey) &&
         Objects.equals(this.privateKeyPassword, updateSSHTargetDetails.privateKeyPassword) &&
@@ -400,13 +373,12 @@ public class UpdateSSHTargetDetails {
         Objects.equals(this.sshPassword, updateSSHTargetDetails.sshPassword) &&
         Objects.equals(this.sshUsername, updateSSHTargetDetails.sshUsername) &&
         Objects.equals(this.token, updateSSHTargetDetails.token) &&
-        Objects.equals(this.uidToken, updateSSHTargetDetails.uidToken) &&
-        Objects.equals(this.username, updateSSHTargetDetails.username);
+        Objects.equals(this.uidToken, updateSSHTargetDetails.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, name, newVersion, password, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken, username);
+    return Objects.hash(host, keepPrevVersion, name, newVersion, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken);
   }
 
 
@@ -415,9 +387,9 @@ public class UpdateSSHTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHTargetDetails {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
@@ -426,7 +398,6 @@ public class UpdateSSHTargetDetails {
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -64,10 +64,6 @@ public class GatewayCreateProducerEks {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -111,10 +107,6 @@ public class GatewayCreateProducerEks {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayCreateProducerEks eksAccessKeyId(String eksAccessKeyId) {
@@ -297,29 +289,6 @@ public class GatewayCreateProducerEks {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public GatewayCreateProducerEks password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -584,29 +553,6 @@ public class GatewayCreateProducerEks {
   }
 
 
-  public GatewayCreateProducerEks username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -624,7 +570,6 @@ public class GatewayCreateProducerEks {
         Objects.equals(this.eksRegion, gatewayCreateProducerEks.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, gatewayCreateProducerEks.eksSecretAccessKey) &&
         Objects.equals(this.name, gatewayCreateProducerEks.name) &&
-        Objects.equals(this.password, gatewayCreateProducerEks.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerEks.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerEks.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerEks.secureAccessBastionIssuer) &&
@@ -635,13 +580,12 @@ public class GatewayCreateProducerEks {
         Objects.equals(this.targetName, gatewayCreateProducerEks.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerEks.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerEks.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerEks.userTtl) &&
-        Objects.equals(this.username, gatewayCreateProducerEks.username);
+        Objects.equals(this.userTtl, gatewayCreateProducerEks.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -657,7 +601,6 @@ public class GatewayCreateProducerEks {
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -669,7 +612,6 @@ public class GatewayCreateProducerEks {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

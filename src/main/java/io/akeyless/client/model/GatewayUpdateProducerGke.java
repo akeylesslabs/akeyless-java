@@ -60,10 +60,6 @@ public class GatewayUpdateProducerGke {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -107,10 +103,6 @@ public class GatewayUpdateProducerGke {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateProducerGke gkeAccountKey(String gkeAccountKey) {
@@ -270,29 +262,6 @@ public class GatewayUpdateProducerGke {
 
   public void setNewName(String newName) {
     this.newName = newName;
-  }
-
-
-  public GatewayUpdateProducerGke password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -557,29 +526,6 @@ public class GatewayUpdateProducerGke {
   }
 
 
-  public GatewayUpdateProducerGke username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -596,7 +542,6 @@ public class GatewayUpdateProducerGke {
         Objects.equals(this.gkeServiceAccountEmail, gatewayUpdateProducerGke.gkeServiceAccountEmail) &&
         Objects.equals(this.name, gatewayUpdateProducerGke.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerGke.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerGke.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerGke.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, gatewayUpdateProducerGke.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerGke.secureAccessBastionIssuer) &&
@@ -607,13 +552,12 @@ public class GatewayUpdateProducerGke {
         Objects.equals(this.targetName, gatewayUpdateProducerGke.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerGke.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerGke.uidToken) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerGke.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerGke.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerGke.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, newName, password, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -628,7 +572,6 @@ public class GatewayUpdateProducerGke {
     sb.append("    gkeServiceAccountEmail: ").append(toIndentedString(gkeServiceAccountEmail)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -640,7 +583,6 @@ public class GatewayUpdateProducerGke {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

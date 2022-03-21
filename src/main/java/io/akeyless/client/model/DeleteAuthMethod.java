@@ -33,10 +33,6 @@ public class DeleteAuthMethod {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -44,10 +40,6 @@ public class DeleteAuthMethod {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public DeleteAuthMethod name(String name) {
@@ -69,29 +61,6 @@ public class DeleteAuthMethod {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public DeleteAuthMethod password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
@@ -141,29 +110,6 @@ public class DeleteAuthMethod {
   }
 
 
-  public DeleteAuthMethod username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -174,15 +120,13 @@ public class DeleteAuthMethod {
     }
     DeleteAuthMethod deleteAuthMethod = (DeleteAuthMethod) o;
     return Objects.equals(this.name, deleteAuthMethod.name) &&
-        Objects.equals(this.password, deleteAuthMethod.password) &&
         Objects.equals(this.token, deleteAuthMethod.token) &&
-        Objects.equals(this.uidToken, deleteAuthMethod.uidToken) &&
-        Objects.equals(this.username, deleteAuthMethod.username);
+        Objects.equals(this.uidToken, deleteAuthMethod.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password, token, uidToken, username);
+    return Objects.hash(name, token, uidToken);
   }
 
 
@@ -191,10 +135,8 @@ public class DeleteAuthMethod {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteAuthMethod {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

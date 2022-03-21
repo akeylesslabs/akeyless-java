@@ -84,10 +84,6 @@ public class GatewayUpdateProducerMongo {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -127,10 +123,6 @@ public class GatewayUpdateProducerMongo {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
 
 
   public GatewayUpdateProducerMongo mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
@@ -431,29 +423,6 @@ public class GatewayUpdateProducerMongo {
   }
 
 
-  public GatewayUpdateProducerMongo password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
   public GatewayUpdateProducerMongo producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -700,29 +669,6 @@ public class GatewayUpdateProducerMongo {
   }
 
 
-  public GatewayUpdateProducerMongo username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Required only when the authentication process requires a username and password
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required only when the authentication process requires a username and password")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -745,7 +691,6 @@ public class GatewayUpdateProducerMongo {
         Objects.equals(this.mongodbUsername, gatewayUpdateProducerMongo.mongodbUsername) &&
         Objects.equals(this.name, gatewayUpdateProducerMongo.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerMongo.newName) &&
-        Objects.equals(this.password, gatewayUpdateProducerMongo.password) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerMongo.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerMongo.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMongo.secureAccessEnable) &&
@@ -755,13 +700,12 @@ public class GatewayUpdateProducerMongo {
         Objects.equals(this.targetName, gatewayUpdateProducerMongo.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerMongo.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerMongo.uidToken) &&
-        Objects.equals(this.userTtl, gatewayUpdateProducerMongo.userTtl) &&
-        Objects.equals(this.username, gatewayUpdateProducerMongo.username);
+        Objects.equals(this.userTtl, gatewayUpdateProducerMongo.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, password, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -782,7 +726,6 @@ public class GatewayUpdateProducerMongo {
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
@@ -793,7 +736,6 @@ public class GatewayUpdateProducerMongo {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }
