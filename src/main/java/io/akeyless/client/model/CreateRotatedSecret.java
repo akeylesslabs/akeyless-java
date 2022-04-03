@@ -184,7 +184,8 @@ public class CreateRotatedSecret {
    * ApplicationId (used in azure)
    * @return applicationId
   **/
-  @ApiModelProperty(required = true, value = "ApplicationId (used in azure)")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ApplicationId (used in azure)")
 
   public String getApplicationId() {
     return applicationId;

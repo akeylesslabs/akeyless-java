@@ -455,6 +455,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID)
   private String mongodbAtlasProjectId;
 
+  public static final String SERIALIZED_NAME_MONGODB_CUSTOM_DATA = "mongodb_custom_data";
+  @SerializedName(SERIALIZED_NAME_MONGODB_CUSTOM_DATA)
+  private String mongodbCustomData;
+
   public static final String SERIALIZED_NAME_MONGODB_DB_NAME = "mongodb_db_name";
   @SerializedName(SERIALIZED_NAME_MONGODB_DB_NAME)
   private String mongodbDbName;
@@ -582,6 +586,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS = "secure_remote_access_details";
   @SerializedName(SERIALIZED_NAME_SECURE_REMOTE_ACCESS_DETAILS)
   private SecureRemoteAccess secureRemoteAccessDetails;
+
+  public static final String SERIALIZED_NAME_SESSION_EXTENSION_WARN_INTERVAL_MIN = "session_extension_warn_interval_min";
+  @SerializedName(SERIALIZED_NAME_SESSION_EXTENSION_WARN_INTERVAL_MIN)
+  private Long sessionExtensionWarnIntervalMin;
 
   public static final String SERIALIZED_NAME_SF_ACCOUNT = "sf_account";
   @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
@@ -3143,6 +3151,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails mongodbCustomData(String mongodbCustomData) {
+    
+    this.mongodbCustomData = mongodbCustomData;
+    return this;
+  }
+
+   /**
+   * Get mongodbCustomData
+   * @return mongodbCustomData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMongodbCustomData() {
+    return mongodbCustomData;
+  }
+
+
+  public void setMongodbCustomData(String mongodbCustomData) {
+    this.mongodbCustomData = mongodbCustomData;
+  }
+
+
   public DSProducerDetails mongodbDbName(String mongodbDbName) {
     
     this.mongodbDbName = mongodbDbName;
@@ -3884,6 +3915,29 @@ public class DSProducerDetails {
 
   public void setSecureRemoteAccessDetails(SecureRemoteAccess secureRemoteAccessDetails) {
     this.secureRemoteAccessDetails = secureRemoteAccessDetails;
+  }
+
+
+  public DSProducerDetails sessionExtensionWarnIntervalMin(Long sessionExtensionWarnIntervalMin) {
+    
+    this.sessionExtensionWarnIntervalMin = sessionExtensionWarnIntervalMin;
+    return this;
+  }
+
+   /**
+   * Get sessionExtensionWarnIntervalMin
+   * @return sessionExtensionWarnIntervalMin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getSessionExtensionWarnIntervalMin() {
+    return sessionExtensionWarnIntervalMin;
+  }
+
+
+  public void setSessionExtensionWarnIntervalMin(Long sessionExtensionWarnIntervalMin) {
+    this.sessionExtensionWarnIntervalMin = sessionExtensionWarnIntervalMin;
   }
 
 
@@ -4661,6 +4715,7 @@ public class DSProducerDetails {
         Objects.equals(this.mongodbAtlasApiPrivateKey, dsProducerDetails.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, dsProducerDetails.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, dsProducerDetails.mongodbAtlasProjectId) &&
+        Objects.equals(this.mongodbCustomData, dsProducerDetails.mongodbCustomData) &&
         Objects.equals(this.mongodbDbName, dsProducerDetails.mongodbDbName) &&
         Objects.equals(this.mongodbDefaultAuthDb, dsProducerDetails.mongodbDefaultAuthDb) &&
         Objects.equals(this.mongodbHostPort, dsProducerDetails.mongodbHostPort) &&
@@ -4693,6 +4748,7 @@ public class DSProducerDetails {
         Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
         Objects.equals(this.scopes, dsProducerDetails.scopes) &&
         Objects.equals(this.secureRemoteAccessDetails, dsProducerDetails.secureRemoteAccessDetails) &&
+        Objects.equals(this.sessionExtensionWarnIntervalMin, dsProducerDetails.sessionExtensionWarnIntervalMin) &&
         Objects.equals(this.sfAccount, dsProducerDetails.sfAccount) &&
         Objects.equals(this.sfUserRole, dsProducerDetails.sfUserRole) &&
         Objects.equals(this.sfWarehouseName, dsProducerDetails.sfWarehouseName) &&
@@ -4725,7 +4781,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -4838,6 +4894,7 @@ public class DSProducerDetails {
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
+    sb.append("    mongodbCustomData: ").append(toIndentedString(mongodbCustomData)).append("\n");
     sb.append("    mongodbDbName: ").append(toIndentedString(mongodbDbName)).append("\n");
     sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
     sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
@@ -4870,6 +4927,7 @@ public class DSProducerDetails {
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
+    sb.append("    sessionExtensionWarnIntervalMin: ").append(toIndentedString(sessionExtensionWarnIntervalMin)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sfUserRole: ").append(toIndentedString(sfUserRole)).append("\n");
     sb.append("    sfWarehouseName: ").append(toIndentedString(sfWarehouseName)).append("\n");

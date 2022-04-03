@@ -44,6 +44,10 @@ public class GatewayCreateProducerMongo {
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID)
   private String mongodbAtlasProjectId;
 
+  public static final String SERIALIZED_NAME_MONGODB_CUSTOM_DATA = "mongodb-custom-data";
+  @SerializedName(SERIALIZED_NAME_MONGODB_CUSTOM_DATA)
+  private String mongodbCustomData;
+
   public static final String SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB = "mongodb-default-auth-db";
   @SerializedName(SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB)
   private String mongodbDefaultAuthDb;
@@ -187,6 +191,29 @@ public class GatewayCreateProducerMongo {
 
   public void setMongodbAtlasProjectId(String mongodbAtlasProjectId) {
     this.mongodbAtlasProjectId = mongodbAtlasProjectId;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbCustomData(String mongodbCustomData) {
+    
+    this.mongodbCustomData = mongodbCustomData;
+    return this;
+  }
+
+   /**
+   * MongoDB custom data
+   * @return mongodbCustomData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MongoDB custom data")
+
+  public String getMongodbCustomData() {
+    return mongodbCustomData;
+  }
+
+
+  public void setMongodbCustomData(String mongodbCustomData) {
+    this.mongodbCustomData = mongodbCustomData;
   }
 
 
@@ -654,6 +681,7 @@ public class GatewayCreateProducerMongo {
     return Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, gatewayCreateProducerMongo.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, gatewayCreateProducerMongo.mongodbAtlasProjectId) &&
+        Objects.equals(this.mongodbCustomData, gatewayCreateProducerMongo.mongodbCustomData) &&
         Objects.equals(this.mongodbDefaultAuthDb, gatewayCreateProducerMongo.mongodbDefaultAuthDb) &&
         Objects.equals(this.mongodbHostPort, gatewayCreateProducerMongo.mongodbHostPort) &&
         Objects.equals(this.mongodbName, gatewayCreateProducerMongo.mongodbName) &&
@@ -677,7 +705,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -688,6 +716,7 @@ public class GatewayCreateProducerMongo {
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
+    sb.append("    mongodbCustomData: ").append(toIndentedString(mongodbCustomData)).append("\n");
     sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
     sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
     sb.append("    mongodbName: ").append(toIndentedString(mongodbName)).append("\n");

@@ -9585,14 +9585,14 @@ components:
         - venafi_allowed_domains
         - venafi_allowed_domains
         azure_fixed_user_only: true
-        warn_before_user_expiration_min: 2
+        warn_before_user_expiration_min: 4
         azure_user_roles_template_id: azure_user_roles_template_id
         fixed_user_only: fixed_user_only
         rabbitmq_server_password: rabbitmq_server_password
         aws_access_mode: aws_access_mode
         aws_user_policies: aws_user_policies
         aws_role_arns: aws_role_arns
-        username_length: 3
+        username_length: 2
         active: true
         item_targets_assoc:
         - assoc_id: assoc_id
@@ -9608,6 +9608,7 @@ components:
         - tags
         ldap_user_dn: ldap_user_dn
         azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+        mongodb_custom_data: mongodb_custom_data
         db_name: db_name
         k8s_service_account: k8s_service_account
         chef_skip_ssl: true
@@ -9637,7 +9638,7 @@ components:
         github_installation_token_permissions:
           key: github_installation_token_permissions
         user_ttl: user_ttl
-        timeout_seconds: 9
+        timeout_seconds: 3
         eks_assume_role: eks_assume_role
         ldap_token_expiration: ldap_token_expiration
         venafi_use_tpp: true
@@ -9689,6 +9690,7 @@ components:
         - github_installation_token_repositories
         - github_installation_token_repositories
         gcp_service_account_key: gcp_service_account_key
+        session_extension_warn_interval_min: 9
         venafi_store_private_key: true
         venafi_tpp_username: venafi_tpp_username
         azure_user_portal_access: true
@@ -10111,6 +10113,9 @@ components:
           description: mongodb atlas fields
           type: string
           x-go-name: MongoDBAtlasProjectID
+        mongodb_custom_data:
+          type: string
+          x-go-name: MongoDBCustomData
         mongodb_db_name:
           description: common fields
           type: string
@@ -10212,6 +10217,10 @@ components:
           x-go-name: DockerhubScopes
         secure_remote_access_details:
           $ref: '#/components/schemas/SecureRemoteAccess'
+        session_extension_warn_interval_min:
+          format: int64
+          type: integer
+          x-go-name: SessionExtensionWarnIntervalInMin
         sf_account:
           type: string
           x-go-name: SnowflakeAccountName
@@ -18180,7 +18189,6 @@ components:
           type: string
           x-go-name: UserDn
       required:
-      - application-id
       - name
       - rotator-type
       - target-name
@@ -19452,14 +19460,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -19475,6 +19483,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -19504,7 +19513,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -19556,6 +19565,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -19782,14 +19792,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -19805,6 +19815,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -19834,7 +19845,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -19886,6 +19897,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -20101,14 +20113,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20124,6 +20136,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -20153,7 +20166,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -20205,6 +20218,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -20382,14 +20396,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20405,6 +20419,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -20434,7 +20449,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -20486,6 +20501,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -20712,14 +20728,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -20735,6 +20751,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -20764,7 +20781,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -20816,6 +20833,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -21065,14 +21083,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21088,6 +21106,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -21117,7 +21136,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21169,6 +21188,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -21340,14 +21360,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21363,6 +21383,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -21392,7 +21413,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21444,6 +21465,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -21643,14 +21665,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21666,6 +21688,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -21695,7 +21718,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -21747,6 +21770,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -21921,14 +21945,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -21944,6 +21968,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -21973,7 +21998,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22025,6 +22050,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -22199,14 +22225,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22222,6 +22248,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -22251,7 +22278,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22303,6 +22330,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -22493,14 +22521,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22516,6 +22544,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -22545,7 +22574,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22597,6 +22626,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -22785,14 +22815,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -22808,6 +22838,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -22837,7 +22868,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -22889,6 +22920,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -23091,14 +23123,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -23114,6 +23146,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -23143,7 +23176,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23195,6 +23228,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -23298,6 +23332,10 @@ components:
           description: MongoDB Atlas project ID
           type: string
           x-go-name: MongoProjectID
+        mongodb-custom-data:
+          description: MongoDB custom data
+          type: string
+          x-go-name: CustomData
         mongodb-default-auth-db:
           description: MongoDB server default authentication database
           type: string
@@ -23411,14 +23449,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -23434,6 +23472,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -23463,7 +23502,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23515,6 +23554,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -23726,14 +23766,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -23749,6 +23789,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -23778,7 +23819,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -23830,6 +23871,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -24029,14 +24071,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24052,6 +24094,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -24081,7 +24124,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -24133,6 +24176,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -24323,14 +24367,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24346,6 +24390,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -24375,7 +24420,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -24427,6 +24472,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -24634,14 +24680,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24657,6 +24703,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -24686,7 +24733,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -24738,6 +24785,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -24938,14 +24986,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -24961,6 +25009,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -24990,7 +25039,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -25042,6 +25091,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -25132,6 +25182,11 @@ components:
     gatewayCreateProducerRdp:
       description: gatewayCreateProducerRdp is a command that creates rdp producer
       properties:
+        allow-user-extend-session:
+          description: AllowUserExtendSession
+          format: int64
+          type: integer
+          x-go-name: AllowUserExtendSession
         fixed-user-only:
           default: "false"
           description: Fixed user
@@ -25208,6 +25263,11 @@ components:
           description: User TTL
           type: string
           x-go-name: UserTtl
+        warn-user-before-expiration:
+          description: WarnBeforeUserExpiration
+          format: int64
+          type: integer
+          x-go-name: WarnBeforeUserExpiration
       required:
       - name
       type: object
@@ -25240,14 +25300,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -25263,6 +25323,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -25292,7 +25353,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -25344,6 +25405,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -25534,14 +25596,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -25557,6 +25619,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -25586,7 +25649,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -25638,6 +25701,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -25814,14 +25878,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -25837,6 +25901,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -25866,7 +25931,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -25918,6 +25983,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -26924,14 +26990,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -26947,6 +27013,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -26976,7 +27043,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27028,6 +27095,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -27258,14 +27326,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -27281,6 +27349,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -27310,7 +27379,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27362,6 +27431,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -27581,14 +27651,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -27604,6 +27674,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -27633,7 +27704,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27685,6 +27756,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -27866,14 +27938,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -27889,6 +27961,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -27918,7 +27991,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -27970,6 +28043,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -28200,14 +28274,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28223,6 +28297,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -28252,7 +28327,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28304,6 +28379,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -28561,14 +28637,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28584,6 +28660,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -28613,7 +28690,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28665,6 +28742,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -28840,14 +28918,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -28863,6 +28941,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -28892,7 +28971,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -28944,6 +29023,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -29147,14 +29227,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -29170,6 +29250,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -29199,7 +29280,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -29251,6 +29332,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -29429,14 +29511,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -29452,6 +29534,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -29481,7 +29564,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -29533,6 +29616,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -29711,14 +29795,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -29734,6 +29818,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -29763,7 +29848,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -29815,6 +29900,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -30009,14 +30095,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30032,6 +30118,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -30061,7 +30148,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -30113,6 +30200,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -30305,14 +30393,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30328,6 +30416,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -30357,7 +30446,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -30409,6 +30498,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -30615,14 +30705,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30638,6 +30728,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -30667,7 +30758,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -30719,6 +30810,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -30822,6 +30914,10 @@ components:
           description: MongoDB Atlas project ID
           type: string
           x-go-name: MongoProjectID
+        mongodb-custom-data:
+          description: MongoDB custom data
+          type: string
+          x-go-name: CustomData
         mongodb-default-auth-db:
           description: MongoDB server default authentication database
           type: string
@@ -30939,14 +31035,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -30962,6 +31058,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -30991,7 +31088,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31043,6 +31140,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -31258,14 +31356,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31281,6 +31379,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -31310,7 +31409,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31362,6 +31461,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -31565,14 +31665,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31588,6 +31688,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -31617,7 +31718,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31669,6 +31770,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -31863,14 +31965,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -31886,6 +31988,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -31915,7 +32018,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -31967,6 +32070,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -32178,14 +32282,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -32201,6 +32305,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -32230,7 +32335,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -32282,6 +32387,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -32486,14 +32592,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -32509,6 +32615,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -32538,7 +32645,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -32590,6 +32697,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -32680,6 +32788,11 @@ components:
     gatewayUpdateProducerRdp:
       description: gatewayUpdateProducerRdp is a command that updates rdp producer
       properties:
+        allow-user-extend-session:
+          description: AllowUserExtendSession
+          format: int64
+          type: integer
+          x-go-name: AllowUserExtendSession
         fixed-user-only:
           default: "false"
           description: Fixed user
@@ -32760,6 +32873,11 @@ components:
           description: User TTL
           type: string
           x-go-name: UserTtl
+        warn-user-before-expiration:
+          description: WarnBeforeUserExpiration
+          format: int64
+          type: integer
+          x-go-name: WarnBeforeUserExpiration
       required:
       - name
       type: object
@@ -32792,14 +32910,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -32815,6 +32933,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -32844,7 +32963,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -32896,6 +33015,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -33090,14 +33210,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -33113,6 +33233,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -33142,7 +33263,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -33194,6 +33315,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
@@ -33374,14 +33496,14 @@ components:
           - venafi_allowed_domains
           - venafi_allowed_domains
           azure_fixed_user_only: true
-          warn_before_user_expiration_min: 2
+          warn_before_user_expiration_min: 4
           azure_user_roles_template_id: azure_user_roles_template_id
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_access_mode: aws_access_mode
           aws_user_policies: aws_user_policies
           aws_role_arns: aws_role_arns
-          username_length: 3
+          username_length: 2
           active: true
           item_targets_assoc:
           - assoc_id: assoc_id
@@ -33397,6 +33519,7 @@ components:
           - tags
           ldap_user_dn: ldap_user_dn
           azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          mongodb_custom_data: mongodb_custom_data
           db_name: db_name
           k8s_service_account: k8s_service_account
           chef_skip_ssl: true
@@ -33426,7 +33549,7 @@ components:
           github_installation_token_permissions:
             key: github_installation_token_permissions
           user_ttl: user_ttl
-          timeout_seconds: 9
+          timeout_seconds: 3
           eks_assume_role: eks_assume_role
           ldap_token_expiration: ldap_token_expiration
           venafi_use_tpp: true
@@ -33478,6 +33601,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true

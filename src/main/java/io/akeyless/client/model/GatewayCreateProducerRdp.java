@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerRdp is a command that creates rdp producer")
 
 public class GatewayCreateProducerRdp {
+  public static final String SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION = "allow-user-extend-session";
+  @SerializedName(SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION)
+  private Long allowUserExtendSession;
+
   public static final String SERIALIZED_NAME_FIXED_USER_ONLY = "fixed-user-only";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private String fixedUserOnly = "false";
@@ -103,6 +107,33 @@ public class GatewayCreateProducerRdp {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+  public static final String SERIALIZED_NAME_WARN_USER_BEFORE_EXPIRATION = "warn-user-before-expiration";
+  @SerializedName(SERIALIZED_NAME_WARN_USER_BEFORE_EXPIRATION)
+  private Long warnUserBeforeExpiration;
+
+
+  public GatewayCreateProducerRdp allowUserExtendSession(Long allowUserExtendSession) {
+    
+    this.allowUserExtendSession = allowUserExtendSession;
+    return this;
+  }
+
+   /**
+   * AllowUserExtendSession
+   * @return allowUserExtendSession
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AllowUserExtendSession")
+
+  public Long getAllowUserExtendSession() {
+    return allowUserExtendSession;
+  }
+
+
+  public void setAllowUserExtendSession(Long allowUserExtendSession) {
+    this.allowUserExtendSession = allowUserExtendSession;
+  }
 
 
   public GatewayCreateProducerRdp fixedUserOnly(String fixedUserOnly) {
@@ -534,6 +565,29 @@ public class GatewayCreateProducerRdp {
   }
 
 
+  public GatewayCreateProducerRdp warnUserBeforeExpiration(Long warnUserBeforeExpiration) {
+    
+    this.warnUserBeforeExpiration = warnUserBeforeExpiration;
+    return this;
+  }
+
+   /**
+   * WarnBeforeUserExpiration
+   * @return warnUserBeforeExpiration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "WarnBeforeUserExpiration")
+
+  public Long getWarnUserBeforeExpiration() {
+    return warnUserBeforeExpiration;
+  }
+
+
+  public void setWarnUserBeforeExpiration(Long warnUserBeforeExpiration) {
+    this.warnUserBeforeExpiration = warnUserBeforeExpiration;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -543,7 +597,8 @@ public class GatewayCreateProducerRdp {
       return false;
     }
     GatewayCreateProducerRdp gatewayCreateProducerRdp = (GatewayCreateProducerRdp) o;
-    return Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
+    return Objects.equals(this.allowUserExtendSession, gatewayCreateProducerRdp.allowUserExtendSession) &&
+        Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
         Objects.equals(this.name, gatewayCreateProducerRdp.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, gatewayCreateProducerRdp.rdpAdminName) &&
@@ -560,12 +615,13 @@ public class GatewayCreateProducerRdp {
         Objects.equals(this.targetName, gatewayCreateProducerRdp.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerRdp.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerRdp.uidToken) &&
-        Objects.equals(this.userTtl, gatewayCreateProducerRdp.userTtl);
+        Objects.equals(this.userTtl, gatewayCreateProducerRdp.userTtl) &&
+        Objects.equals(this.warnUserBeforeExpiration, gatewayCreateProducerRdp.warnUserBeforeExpiration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedUserOnly, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(allowUserExtendSession, fixedUserOnly, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
 
@@ -573,6 +629,7 @@ public class GatewayCreateProducerRdp {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerRdp {\n");
+    sb.append("    allowUserExtendSession: ").append(toIndentedString(allowUserExtendSession)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
@@ -591,6 +648,7 @@ public class GatewayCreateProducerRdp {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    warnUserBeforeExpiration: ").append(toIndentedString(warnUserBeforeExpiration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
