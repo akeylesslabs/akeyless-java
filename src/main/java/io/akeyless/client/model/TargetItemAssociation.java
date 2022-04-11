@@ -34,6 +34,10 @@ public class TargetItemAssociation {
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
 
+  public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  private Long clusterId;
+
   public static final String SERIALIZED_NAME_ITEM_NAME = "item_name";
   @SerializedName(SERIALIZED_NAME_ITEM_NAME)
   private String itemName;
@@ -63,6 +67,29 @@ public class TargetItemAssociation {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public TargetItemAssociation clusterId(Long clusterId) {
+    
+    this.clusterId = clusterId;
+    return this;
+  }
+
+   /**
+   * Get clusterId
+   * @return clusterId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getClusterId() {
+    return clusterId;
+  }
+
+
+  public void setClusterId(Long clusterId) {
+    this.clusterId = clusterId;
   }
 
 
@@ -122,13 +149,14 @@ public class TargetItemAssociation {
     }
     TargetItemAssociation targetItemAssociation = (TargetItemAssociation) o;
     return Objects.equals(this.assocId, targetItemAssociation.assocId) &&
+        Objects.equals(this.clusterId, targetItemAssociation.clusterId) &&
         Objects.equals(this.itemName, targetItemAssociation.itemName) &&
         Objects.equals(this.itemType, targetItemAssociation.itemType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, itemName, itemType);
+    return Objects.hash(assocId, clusterId, itemName, itemType);
   }
 
 
@@ -137,6 +165,7 @@ public class TargetItemAssociation {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetItemAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("}");
