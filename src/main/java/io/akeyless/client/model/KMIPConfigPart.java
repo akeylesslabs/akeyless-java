@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.KMIPClient;
+import io.akeyless.client.model.KMIPServer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,6 +38,14 @@ public class KMIPConfigPart {
   public static final String SERIALIZED_NAME_CLIENTS = "clients";
   @SerializedName(SERIALIZED_NAME_CLIENTS)
   private Map<String, KMIPClient> clients = null;
+
+  public static final String SERIALIZED_NAME_KEY_ENC = "key_enc";
+  @SerializedName(SERIALIZED_NAME_KEY_ENC)
+  private List<Integer> keyEnc = null;
+
+  public static final String SERIALIZED_NAME_SERVER = "server";
+  @SerializedName(SERIALIZED_NAME_SERVER)
+  private KMIPServer server;
 
   public static final String SERIALIZED_NAME_SERVER_ENC = "server_enc";
   @SerializedName(SERIALIZED_NAME_SERVER_ENC)
@@ -74,6 +83,60 @@ public class KMIPConfigPart {
   }
 
 
+  public KMIPConfigPart keyEnc(List<Integer> keyEnc) {
+    
+    this.keyEnc = keyEnc;
+    return this;
+  }
+
+  public KMIPConfigPart addKeyEncItem(Integer keyEncItem) {
+    if (this.keyEnc == null) {
+      this.keyEnc = new ArrayList<Integer>();
+    }
+    this.keyEnc.add(keyEncItem);
+    return this;
+  }
+
+   /**
+   * Saves the private key of the cert issuer in encypted form
+   * @return keyEnc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Saves the private key of the cert issuer in encypted form")
+
+  public List<Integer> getKeyEnc() {
+    return keyEnc;
+  }
+
+
+  public void setKeyEnc(List<Integer> keyEnc) {
+    this.keyEnc = keyEnc;
+  }
+
+
+  public KMIPConfigPart server(KMIPServer server) {
+    
+    this.server = server;
+    return this;
+  }
+
+   /**
+   * Get server
+   * @return server
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public KMIPServer getServer() {
+    return server;
+  }
+
+
+  public void setServer(KMIPServer server) {
+    this.server = server;
+  }
+
+
   public KMIPConfigPart serverEnc(List<Integer> serverEnc) {
     
     this.serverEnc = serverEnc;
@@ -89,11 +152,11 @@ public class KMIPConfigPart {
   }
 
    /**
-   * Get serverEnc
+   * Saved for backward compatibility TODO: remove this after all clients upgrade
    * @return serverEnc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Saved for backward compatibility TODO: remove this after all clients upgrade")
 
   public List<Integer> getServerEnc() {
     return serverEnc;
@@ -115,12 +178,14 @@ public class KMIPConfigPart {
     }
     KMIPConfigPart kmIPConfigPart = (KMIPConfigPart) o;
     return Objects.equals(this.clients, kmIPConfigPart.clients) &&
+        Objects.equals(this.keyEnc, kmIPConfigPart.keyEnc) &&
+        Objects.equals(this.server, kmIPConfigPart.server) &&
         Objects.equals(this.serverEnc, kmIPConfigPart.serverEnc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clients, serverEnc);
+    return Objects.hash(clients, keyEnc, server, serverEnc);
   }
 
 
@@ -129,6 +194,8 @@ public class KMIPConfigPart {
     StringBuilder sb = new StringBuilder();
     sb.append("class KMIPConfigPart {\n");
     sb.append("    clients: ").append(toIndentedString(clients)).append("\n");
+    sb.append("    keyEnc: ").append(toIndentedString(keyEnc)).append("\n");
+    sb.append("    server: ").append(toIndentedString(server)).append("\n");
     sb.append("    serverEnc: ").append(toIndentedString(serverEnc)).append("\n");
     sb.append("}");
     return sb.toString();

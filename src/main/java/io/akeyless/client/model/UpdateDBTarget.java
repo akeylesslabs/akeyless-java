@@ -109,6 +109,14 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_SNOWFLAKE_ACCOUNT)
   private String snowflakeAccount;
 
+  public static final String SERIALIZED_NAME_SSL = "ssl";
+  @SerializedName(SERIALIZED_NAME_SSL)
+  private Boolean ssl;
+
+  public static final String SERIALIZED_NAME_SSL_CERTIFICATE = "ssl-certificate";
+  @SerializedName(SERIALIZED_NAME_SSL_CERTIFICATE)
+  private String sslCertificate;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -584,6 +592,52 @@ public class UpdateDBTarget {
   }
 
 
+  public UpdateDBTarget ssl(Boolean ssl) {
+    
+    this.ssl = ssl;
+    return this;
+  }
+
+   /**
+   * SSL connection mode
+   * @return ssl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection mode")
+
+  public Boolean getSsl() {
+    return ssl;
+  }
+
+
+  public void setSsl(Boolean ssl) {
+    this.ssl = ssl;
+  }
+
+
+  public UpdateDBTarget sslCertificate(String sslCertificate) {
+    
+    this.sslCertificate = sslCertificate;
+    return this;
+  }
+
+   /**
+   * SSL connection certificate
+   * @return sslCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection certificate")
+
+  public String getSslCertificate() {
+    return sslCertificate;
+  }
+
+
+  public void setSslCertificate(String sslCertificate) {
+    this.sslCertificate = sslCertificate;
+  }
+
+
   public UpdateDBTarget token(String token) {
     
     this.token = token;
@@ -705,6 +759,8 @@ public class UpdateDBTarget {
         Objects.equals(this.port, updateDBTarget.port) &&
         Objects.equals(this.pwd, updateDBTarget.pwd) &&
         Objects.equals(this.snowflakeAccount, updateDBTarget.snowflakeAccount) &&
+        Objects.equals(this.ssl, updateDBTarget.ssl) &&
+        Objects.equals(this.sslCertificate, updateDBTarget.sslCertificate) &&
         Objects.equals(this.token, updateDBTarget.token) &&
         Objects.equals(this.uidToken, updateDBTarget.uidToken) &&
         Objects.equals(this.updateVersion, updateDBTarget.updateVersion) &&
@@ -713,7 +769,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, token, uidToken, updateVersion, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
 
@@ -741,6 +797,8 @@ public class UpdateDBTarget {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
+    sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
+    sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");

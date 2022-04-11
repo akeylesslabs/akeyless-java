@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * listAuthMethods is a command that returns a list of all auth methods in the account.
@@ -37,6 +39,10 @@ public class ListAuthMethods {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private List<String> type = null;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -89,6 +95,37 @@ public class ListAuthMethods {
   }
 
 
+  public ListAuthMethods type(List<String> type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  public ListAuthMethods addTypeItem(String typeItem) {
+    if (this.type == null) {
+      this.type = new ArrayList<String>();
+    }
+    this.type.add(typeItem);
+    return this;
+  }
+
+   /**
+   * The Auth method types list of the requested method. In case it is empty, all types of auth methods will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s]
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Auth method types list of the requested method. In case it is empty, all types of auth methods will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s]")
+
+  public List<String> getType() {
+    return type;
+  }
+
+
+  public void setType(List<String> type) {
+    this.type = type;
+  }
+
+
   public ListAuthMethods uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -123,12 +160,13 @@ public class ListAuthMethods {
     ListAuthMethods listAuthMethods = (ListAuthMethods) o;
     return Objects.equals(this.paginationToken, listAuthMethods.paginationToken) &&
         Objects.equals(this.token, listAuthMethods.token) &&
+        Objects.equals(this.type, listAuthMethods.type) &&
         Objects.equals(this.uidToken, listAuthMethods.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paginationToken, token, uidToken);
+    return Objects.hash(paginationToken, token, type, uidToken);
   }
 
 
@@ -138,6 +176,7 @@ public class ListAuthMethods {
     sb.append("class ListAuthMethods {\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

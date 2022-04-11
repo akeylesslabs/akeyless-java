@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **leadership** | **String** |  |  [optional]
 **logForwarding** | **String** |  |  [optional]
 **mQueue** | **String** |  |  [optional]
+**migrationStatus** | **String** |  |  [optional]
 **migrations** | **String** |  |  [optional]
 **producers** | [**Object**](.md) |  |  [optional]
 **producersStatus** | **String** |  |  [optional]

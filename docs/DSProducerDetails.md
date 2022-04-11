@@ -90,6 +90,8 @@ Name | Type | Description | Notes
 **gkeServiceAccountKey** | **String** |  |  [optional]
 **gkeServiceAccountName** | **String** |  |  [optional]
 **groups** | **String** |  |  [optional]
+**hanadbCreationStatements** | **String** |  |  [optional]
+**hanadbRevocationStatements** | **String** |  |  [optional]
 **hostName** | **String** |  |  [optional]
 **hostPort** | **String** |  |  [optional]
 **isFixedUser** | **String** |  |  [optional]
