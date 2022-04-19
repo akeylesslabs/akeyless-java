@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class ListRoles {
+  public static final String SERIALIZED_NAME_FILTER = "filter";
+  @SerializedName(SERIALIZED_NAME_FILTER)
+  private String filter;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
@@ -40,6 +44,29 @@ public class ListRoles {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public ListRoles filter(String filter) {
+    
+    this.filter = filter;
+    return this;
+  }
+
+   /**
+   * Filter by item name or part of it
+   * @return filter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by item name or part of it")
+
+  public String getFilter() {
+    return filter;
+  }
+
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
 
 
   public ListRoles paginationToken(String paginationToken) {
@@ -120,14 +147,15 @@ public class ListRoles {
       return false;
     }
     ListRoles listRoles = (ListRoles) o;
-    return Objects.equals(this.paginationToken, listRoles.paginationToken) &&
+    return Objects.equals(this.filter, listRoles.filter) &&
+        Objects.equals(this.paginationToken, listRoles.paginationToken) &&
         Objects.equals(this.token, listRoles.token) &&
         Objects.equals(this.uidToken, listRoles.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paginationToken, token, uidToken);
+    return Objects.hash(filter, paginationToken, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class ListRoles {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListRoles {\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

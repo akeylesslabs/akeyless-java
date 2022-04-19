@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **clientSecret** | **String** | Client Secret |  [optional]
 **isInternal** | **Boolean** | IsInternal indicates whether this is an internal Auth Method where the client has no control over it, or it was created by the client e.g - Sign In with Google will create an OIDC Auth Method with IsInternal&#x3D;true |  [optional]
 **issuer** | **String** | Issuer URL |  [optional]
+**requiredScopes** | **List&lt;String&gt;** | A list of required scopes to request from the oidc provider, and to check on the token |  [optional]
+**requiredScopesPrefix** | **String** | A prefix to add to the required scopes (for example, azures&#39; Application ID URI) |  [optional]
 **uniqueIdentifier** | **String** | A unique identifier to distinguish different users |  [optional]
 
 

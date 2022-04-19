@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.APIKeyAccessRules;
 import io.akeyless.client.model.AWSIAMAccessRules;
 import io.akeyless.client.model.AzureADAccessRules;
+import io.akeyless.client.model.CertAccessRules;
 import io.akeyless.client.model.EmailPassAccessRules;
 import io.akeyless.client.model.GCPAccessRules;
 import io.akeyless.client.model.HuaweiAccessRules;
@@ -60,6 +61,10 @@ public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_AZURE_AD_ACCESS_RULES = "azure_ad_access_rules";
   @SerializedName(SERIALIZED_NAME_AZURE_AD_ACCESS_RULES)
   private AzureADAccessRules azureAdAccessRules;
+
+  public static final String SERIALIZED_NAME_CERT_ACCESS_RULES = "cert_access_rules";
+  @SerializedName(SERIALIZED_NAME_CERT_ACCESS_RULES)
+  private CertAccessRules certAccessRules;
 
   public static final String SERIALIZED_NAME_CIDR_WHITELIST = "cidr_whitelist";
   @SerializedName(SERIALIZED_NAME_CIDR_WHITELIST)
@@ -226,6 +231,29 @@ public class AuthMethodAccessInfo {
 
   public void setAzureAdAccessRules(AzureADAccessRules azureAdAccessRules) {
     this.azureAdAccessRules = azureAdAccessRules;
+  }
+
+
+  public AuthMethodAccessInfo certAccessRules(CertAccessRules certAccessRules) {
+    
+    this.certAccessRules = certAccessRules;
+    return this;
+  }
+
+   /**
+   * Get certAccessRules
+   * @return certAccessRules
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CertAccessRules getCertAccessRules() {
+    return certAccessRules;
+  }
+
+
+  public void setCertAccessRules(CertAccessRules certAccessRules) {
+    this.certAccessRules = certAccessRules;
   }
 
 
@@ -542,6 +570,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.apiKeyAccessRules, authMethodAccessInfo.apiKeyAccessRules) &&
         Objects.equals(this.awsIamAccessRules, authMethodAccessInfo.awsIamAccessRules) &&
         Objects.equals(this.azureAdAccessRules, authMethodAccessInfo.azureAdAccessRules) &&
+        Objects.equals(this.certAccessRules, authMethodAccessInfo.certAccessRules) &&
         Objects.equals(this.cidrWhitelist, authMethodAccessInfo.cidrWhitelist) &&
         Objects.equals(this.emailPassAccessRules, authMethodAccessInfo.emailPassAccessRules) &&
         Objects.equals(this.forceSubClaims, authMethodAccessInfo.forceSubClaims) &&
@@ -559,7 +588,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
   }
 
 
@@ -572,6 +601,7 @@ public class AuthMethodAccessInfo {
     sb.append("    apiKeyAccessRules: ").append(toIndentedString(apiKeyAccessRules)).append("\n");
     sb.append("    awsIamAccessRules: ").append(toIndentedString(awsIamAccessRules)).append("\n");
     sb.append("    azureAdAccessRules: ").append(toIndentedString(azureAdAccessRules)).append("\n");
+    sb.append("    certAccessRules: ").append(toIndentedString(certAccessRules)).append("\n");
     sb.append("    cidrWhitelist: ").append(toIndentedString(cidrWhitelist)).append("\n");
     sb.append("    emailPassAccessRules: ").append(toIndentedString(emailPassAccessRules)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

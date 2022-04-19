@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**createAuthMethod**](V2Api.md#createAuthMethod) | **POST** /create-auth-method | 
 [**createAuthMethodAWSIAM**](V2Api.md#createAuthMethodAWSIAM) | **POST** /create-auth-method-aws-iam | 
 [**createAuthMethodAzureAD**](V2Api.md#createAuthMethodAzureAD) | **POST** /create-auth-method-azure-ad | 
+[**createAuthMethodCert**](V2Api.md#createAuthMethodCert) | **POST** /create-auth-method-cert | 
 [**createAuthMethodGCP**](V2Api.md#createAuthMethodGCP) | **POST** /create-auth-method-gcp | 
 [**createAuthMethodHuawei**](V2Api.md#createAuthMethodHuawei) | **POST** /create-auth-method-huawei | 
 [**createAuthMethodK8S**](V2Api.md#createAuthMethodK8S) | **POST** /create-auth-method-k8s | 
@@ -180,6 +181,7 @@ Method | HTTP request | Description
 [**updateAuthMethod**](V2Api.md#updateAuthMethod) | **POST** /update-auth-method | 
 [**updateAuthMethodAWSIAM**](V2Api.md#updateAuthMethodAWSIAM) | **POST** /update-auth-method-aws-iam | 
 [**updateAuthMethodAzureAD**](V2Api.md#updateAuthMethodAzureAD) | **POST** /update-auth-method-azure-ad | 
+[**updateAuthMethodCert**](V2Api.md#updateAuthMethodCert) | **POST** /update-auth-method-cert | 
 [**updateAuthMethodGCP**](V2Api.md#updateAuthMethodGCP) | **POST** /update-auth-method-gcp | 
 [**updateAuthMethodK8S**](V2Api.md#updateAuthMethodK8S) | **POST** /update-auth-method-k8s | 
 [**updateAuthMethodLDAP**](V2Api.md#updateAuthMethodLDAP) | **POST** /update-auth-method-ldap | 
@@ -828,6 +830,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createAuthMethodAzureADResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createAuthMethodCert"></a>
+# **createAuthMethodCert**
+> CreateAuthMethodCertOutput createAuthMethodCert(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateAuthMethodCert body = new CreateAuthMethodCert(); // CreateAuthMethodCert | 
+    try {
+      CreateAuthMethodCertOutput result = apiInstance.createAuthMethodCert(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createAuthMethodCert");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAuthMethodCert**](CreateAuthMethodCert.md)|  |
+
+### Return type
+
+[**CreateAuthMethodCertOutput**](CreateAuthMethodCertOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createAuthMethodCertResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createAuthMethodGCP"></a>
@@ -10944,6 +11007,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateAuthMethodAzureADResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateAuthMethodCert"></a>
+# **updateAuthMethodCert**
+> UpdateAuthMethodCertOutput updateAuthMethodCert(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateAuthMethodCert body = new UpdateAuthMethodCert(); // UpdateAuthMethodCert | 
+    try {
+      UpdateAuthMethodCertOutput result = apiInstance.updateAuthMethodCert(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateAuthMethodCert");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateAuthMethodCert**](UpdateAuthMethodCert.md)|  |
+
+### Return type
+
+[**UpdateAuthMethodCertOutput**](UpdateAuthMethodCertOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateAuthMethodCertResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateAuthMethodGCP"></a>

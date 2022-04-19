@@ -49,6 +49,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_ADMIN_PASSWORD)
   private String adminPassword;
 
+  public static final String SERIALIZED_NAME_CERT_DATA = "cert-data";
+  @SerializedName(SERIALIZED_NAME_CERT_DATA)
+  private String certData;
+
   public static final String SERIALIZED_NAME_CLOUD_ID = "cloud-id";
   @SerializedName(SERIALIZED_NAME_CLOUD_ID)
   private String cloudId;
@@ -72,6 +76,10 @@ public class Auth {
   public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TOKEN = "k8s-service-account-token";
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TOKEN)
   private String k8sServiceAccountToken;
+
+  public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
+  @SerializedName(SERIALIZED_NAME_KEY_DATA)
+  private String keyData;
 
   public static final String SERIALIZED_NAME_LDAP_PASSWORD = "ldap_password";
   @SerializedName(SERIALIZED_NAME_LDAP_PASSWORD)
@@ -139,11 +147,11 @@ public class Auth {
   }
 
    /**
-   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/k8s)
+   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/k8s)")
+  @ApiModelProperty(value = "Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert)")
 
   public String getAccessType() {
     return accessType;
@@ -198,6 +206,29 @@ public class Auth {
 
   public void setAdminPassword(String adminPassword) {
     this.adminPassword = adminPassword;
+  }
+
+
+  public Auth certData(String certData) {
+    
+    this.certData = certData;
+    return this;
+  }
+
+   /**
+   * Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert)
+   * @return certData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert)")
+
+  public String getCertData() {
+    return certData;
+  }
+
+
+  public void setCertData(String certData) {
+    this.certData = certData;
   }
 
 
@@ -339,6 +370,29 @@ public class Auth {
   }
 
 
+  public Auth keyData(String keyData) {
+    
+    this.keyData = keyData;
+    return this;
+  }
+
+   /**
+   * Private key data encoded in base64. Used if file was not provided.(relevant only for access-type&#x3D;cert)
+   * @return keyData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Private key data encoded in base64. Used if file was not provided.(relevant only for access-type=cert)")
+
+  public String getKeyData() {
+    return keyData;
+  }
+
+
+  public void setKeyData(String keyData) {
+    this.keyData = keyData;
+  }
+
+
   public Auth ldapPassword(String ldapPassword) {
     
     this.ldapPassword = ldapPassword;
@@ -422,12 +476,14 @@ public class Auth {
         Objects.equals(this.accessType, auth.accessType) &&
         Objects.equals(this.adminEmail, auth.adminEmail) &&
         Objects.equals(this.adminPassword, auth.adminPassword) &&
+        Objects.equals(this.certData, auth.certData) &&
         Objects.equals(this.cloudId, auth.cloudId) &&
         Objects.equals(this.debug, auth.debug) &&
         Objects.equals(this.gcpAudience, auth.gcpAudience) &&
         Objects.equals(this.jwt, auth.jwt) &&
         Objects.equals(this.k8sAuthConfigName, auth.k8sAuthConfigName) &&
         Objects.equals(this.k8sServiceAccountToken, auth.k8sServiceAccountToken) &&
+        Objects.equals(this.keyData, auth.keyData) &&
         Objects.equals(this.ldapPassword, auth.ldapPassword) &&
         Objects.equals(this.ldapUsername, auth.ldapUsername) &&
         Objects.equals(this.uidToken, auth.uidToken);
@@ -435,7 +491,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, cloudId, debug, gcpAudience, jwt, k8sAuthConfigName, k8sServiceAccountToken, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, certData, cloudId, debug, gcpAudience, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -448,12 +504,14 @@ public class Auth {
     sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
+    sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("    k8sServiceAccountToken: ").append(toIndentedString(k8sServiceAccountToken)).append("\n");
+    sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    ldapPassword: ").append(toIndentedString(ldapPassword)).append("\n");
     sb.append("    ldapUsername: ").append(toIndentedString(ldapUsername)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

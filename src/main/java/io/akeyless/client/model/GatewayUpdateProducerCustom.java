@@ -31,9 +31,17 @@ import java.util.List;
  */
 
 public class GatewayUpdateProducerCustom {
+  public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin_rotation_interval_days";
+  @SerializedName(SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS)
+  private Long adminRotationIntervalDays;
+
   public static final String SERIALIZED_NAME_CREATE_SYNC_URL = "create-sync-url";
   @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
   private String createSyncUrl;
+
+  public static final String SERIALIZED_NAME_ENABLE_ADMIN_ROTATION = "enable_admin_rotation";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
+  private Boolean enableAdminRotation = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -80,6 +88,29 @@ public class GatewayUpdateProducerCustom {
   private String userTtl = "60m";
 
 
+  public GatewayUpdateProducerCustom adminRotationIntervalDays(Long adminRotationIntervalDays) {
+    
+    this.adminRotationIntervalDays = adminRotationIntervalDays;
+    return this;
+  }
+
+   /**
+   * Define rotation interval in days
+   * @return adminRotationIntervalDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Define rotation interval in days")
+
+  public Long getAdminRotationIntervalDays() {
+    return adminRotationIntervalDays;
+  }
+
+
+  public void setAdminRotationIntervalDays(Long adminRotationIntervalDays) {
+    this.adminRotationIntervalDays = adminRotationIntervalDays;
+  }
+
+
   public GatewayUpdateProducerCustom createSyncUrl(String createSyncUrl) {
     
     this.createSyncUrl = createSyncUrl;
@@ -99,6 +130,29 @@ public class GatewayUpdateProducerCustom {
 
   public void setCreateSyncUrl(String createSyncUrl) {
     this.createSyncUrl = createSyncUrl;
+  }
+
+
+  public GatewayUpdateProducerCustom enableAdminRotation(Boolean enableAdminRotation) {
+    
+    this.enableAdminRotation = enableAdminRotation;
+    return this;
+  }
+
+   /**
+   * Should admin credentials be rotated
+   * @return enableAdminRotation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Should admin credentials be rotated")
+
+  public Boolean getEnableAdminRotation() {
+    return enableAdminRotation;
+  }
+
+
+  public void setEnableAdminRotation(Boolean enableAdminRotation) {
+    this.enableAdminRotation = enableAdminRotation;
   }
 
 
@@ -370,7 +424,9 @@ public class GatewayUpdateProducerCustom {
       return false;
     }
     GatewayUpdateProducerCustom gatewayUpdateProducerCustom = (GatewayUpdateProducerCustom) o;
-    return Objects.equals(this.createSyncUrl, gatewayUpdateProducerCustom.createSyncUrl) &&
+    return Objects.equals(this.adminRotationIntervalDays, gatewayUpdateProducerCustom.adminRotationIntervalDays) &&
+        Objects.equals(this.createSyncUrl, gatewayUpdateProducerCustom.createSyncUrl) &&
+        Objects.equals(this.enableAdminRotation, gatewayUpdateProducerCustom.enableAdminRotation) &&
         Objects.equals(this.name, gatewayUpdateProducerCustom.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCustom.newName) &&
         Objects.equals(this.payload, gatewayUpdateProducerCustom.payload) &&
@@ -386,7 +442,7 @@ public class GatewayUpdateProducerCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createSyncUrl, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
+    return Objects.hash(adminRotationIntervalDays, createSyncUrl, enableAdminRotation, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
   }
 
 
@@ -394,7 +450,9 @@ public class GatewayUpdateProducerCustom {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerCustom {\n");
+    sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
+    sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");

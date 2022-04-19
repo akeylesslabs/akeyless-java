@@ -72,6 +72,14 @@ public class UpdateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_REQUIRED_SCOPES = "required-scopes";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPES)
+  private List<String> requiredScopes = null;
+
+  public static final String SERIALIZED_NAME_REQUIRED_SCOPES_PREFIX = "required-scopes-prefix";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPES_PREFIX)
+  private String requiredScopesPrefix;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -330,6 +338,60 @@ public class UpdateAuthMethodOIDC {
   }
 
 
+  public UpdateAuthMethodOIDC requiredScopes(List<String> requiredScopes) {
+    
+    this.requiredScopes = requiredScopes;
+    return this;
+  }
+
+  public UpdateAuthMethodOIDC addRequiredScopesItem(String requiredScopesItem) {
+    if (this.requiredScopes == null) {
+      this.requiredScopes = new ArrayList<String>();
+    }
+    this.requiredScopes.add(requiredScopesItem);
+    return this;
+  }
+
+   /**
+   * RequiredScopes is a list of required scopes that the oidc method will request from the oidc provider and the user must approve
+   * @return requiredScopes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RequiredScopes is a list of required scopes that the oidc method will request from the oidc provider and the user must approve")
+
+  public List<String> getRequiredScopes() {
+    return requiredScopes;
+  }
+
+
+  public void setRequiredScopes(List<String> requiredScopes) {
+    this.requiredScopes = requiredScopes;
+  }
+
+
+  public UpdateAuthMethodOIDC requiredScopesPrefix(String requiredScopesPrefix) {
+    
+    this.requiredScopesPrefix = requiredScopesPrefix;
+    return this;
+  }
+
+   /**
+   * RequiredScopesPrefix is a a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures&#39; Application ID URI)
+   * @return requiredScopesPrefix
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RequiredScopesPrefix is a a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures' Application ID URI)")
+
+  public String getRequiredScopesPrefix() {
+    return requiredScopesPrefix;
+  }
+
+
+  public void setRequiredScopesPrefix(String requiredScopesPrefix) {
+    this.requiredScopesPrefix = requiredScopesPrefix;
+  }
+
+
   public UpdateAuthMethodOIDC token(String token) {
     
     this.token = token;
@@ -417,6 +479,8 @@ public class UpdateAuthMethodOIDC {
         Objects.equals(this.jwtTtl, updateAuthMethodOIDC.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodOIDC.name) &&
         Objects.equals(this.newName, updateAuthMethodOIDC.newName) &&
+        Objects.equals(this.requiredScopes, updateAuthMethodOIDC.requiredScopes) &&
+        Objects.equals(this.requiredScopesPrefix, updateAuthMethodOIDC.requiredScopesPrefix) &&
         Objects.equals(this.token, updateAuthMethodOIDC.token) &&
         Objects.equals(this.uidToken, updateAuthMethodOIDC.uidToken) &&
         Objects.equals(this.uniqueIdentifier, updateAuthMethodOIDC.uniqueIdentifier);
@@ -424,7 +488,7 @@ public class UpdateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, jwtTtl, name, newName, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -442,6 +506,8 @@ public class UpdateAuthMethodOIDC {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    requiredScopes: ").append(toIndentedString(requiredScopes)).append("\n");
+    sb.append("    requiredScopesPrefix: ").append(toIndentedString(requiredScopesPrefix)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");

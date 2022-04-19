@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **apiKeyAccessRules** | [**APIKeyAccessRules**](APIKeyAccessRules.md) |  |  [optional]
 **awsIamAccessRules** | [**AWSIAMAccessRules**](AWSIAMAccessRules.md) |  |  [optional]
 **azureAdAccessRules** | [**AzureADAccessRules**](AzureADAccessRules.md) |  |  [optional]
+**certAccessRules** | [**CertAccessRules**](CertAccessRules.md) |  |  [optional]
 **cidrWhitelist** | **String** |  |  [optional]
 **emailPassAccessRules** | [**EmailPassAccessRules**](EmailPassAccessRules.md) |  |  [optional]
 **forceSubClaims** | **Boolean** | if true the role associated with this auth method must include sub claims |  [optional]

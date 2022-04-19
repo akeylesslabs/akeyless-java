@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "listAuthMethods is a command that returns a list of all auth methods in the account.")
 
 public class ListAuthMethods {
+  public static final String SERIALIZED_NAME_FILTER = "filter";
+  @SerializedName(SERIALIZED_NAME_FILTER)
+  private String filter;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
@@ -47,6 +51,29 @@ public class ListAuthMethods {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public ListAuthMethods filter(String filter) {
+    
+    this.filter = filter;
+    return this;
+  }
+
+   /**
+   * Filter by auth method name or part of it
+   * @return filter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by auth method name or part of it")
+
+  public String getFilter() {
+    return filter;
+  }
+
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
 
 
   public ListAuthMethods paginationToken(String paginationToken) {
@@ -110,11 +137,11 @@ public class ListAuthMethods {
   }
 
    /**
-   * The Auth method types list of the requested method. In case it is empty, all types of auth methods will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s]
+   * The Auth method types list of the requested method. In case it is empty, all types of auth methods will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert]
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Auth method types list of the requested method. In case it is empty, all types of auth methods will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s]")
+  @ApiModelProperty(value = "The Auth method types list of the requested method. In case it is empty, all types of auth methods will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert]")
 
   public List<String> getType() {
     return type;
@@ -158,7 +185,8 @@ public class ListAuthMethods {
       return false;
     }
     ListAuthMethods listAuthMethods = (ListAuthMethods) o;
-    return Objects.equals(this.paginationToken, listAuthMethods.paginationToken) &&
+    return Objects.equals(this.filter, listAuthMethods.filter) &&
+        Objects.equals(this.paginationToken, listAuthMethods.paginationToken) &&
         Objects.equals(this.token, listAuthMethods.token) &&
         Objects.equals(this.type, listAuthMethods.type) &&
         Objects.equals(this.uidToken, listAuthMethods.uidToken);
@@ -166,7 +194,7 @@ public class ListAuthMethods {
 
   @Override
   public int hashCode() {
-    return Objects.hash(paginationToken, token, type, uidToken);
+    return Objects.hash(filter, paginationToken, token, type, uidToken);
   }
 
 
@@ -174,6 +202,7 @@ public class ListAuthMethods {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListAuthMethods {\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

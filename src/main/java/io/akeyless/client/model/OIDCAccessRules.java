@@ -57,6 +57,14 @@ public class OIDCAccessRules {
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
 
+  public static final String SERIALIZED_NAME_REQUIRED_SCOPES = "required_scopes";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPES)
+  private List<String> requiredScopes = null;
+
+  public static final String SERIALIZED_NAME_REQUIRED_SCOPES_PREFIX = "required_scopes_prefix";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPES_PREFIX)
+  private String requiredScopesPrefix;
+
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
@@ -216,6 +224,60 @@ public class OIDCAccessRules {
   }
 
 
+  public OIDCAccessRules requiredScopes(List<String> requiredScopes) {
+    
+    this.requiredScopes = requiredScopes;
+    return this;
+  }
+
+  public OIDCAccessRules addRequiredScopesItem(String requiredScopesItem) {
+    if (this.requiredScopes == null) {
+      this.requiredScopes = new ArrayList<String>();
+    }
+    this.requiredScopes.add(requiredScopesItem);
+    return this;
+  }
+
+   /**
+   * A list of required scopes to request from the oidc provider, and to check on the token
+   * @return requiredScopes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of required scopes to request from the oidc provider, and to check on the token")
+
+  public List<String> getRequiredScopes() {
+    return requiredScopes;
+  }
+
+
+  public void setRequiredScopes(List<String> requiredScopes) {
+    this.requiredScopes = requiredScopes;
+  }
+
+
+  public OIDCAccessRules requiredScopesPrefix(String requiredScopesPrefix) {
+    
+    this.requiredScopesPrefix = requiredScopesPrefix;
+    return this;
+  }
+
+   /**
+   * A prefix to add to the required scopes (for example, azures&#39; Application ID URI)
+   * @return requiredScopesPrefix
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A prefix to add to the required scopes (for example, azures' Application ID URI)")
+
+  public String getRequiredScopesPrefix() {
+    return requiredScopesPrefix;
+  }
+
+
+  public void setRequiredScopesPrefix(String requiredScopesPrefix) {
+    this.requiredScopesPrefix = requiredScopesPrefix;
+  }
+
+
   public OIDCAccessRules uniqueIdentifier(String uniqueIdentifier) {
     
     this.uniqueIdentifier = uniqueIdentifier;
@@ -254,12 +316,14 @@ public class OIDCAccessRules {
         Objects.equals(this.clientSecret, oiDCAccessRules.clientSecret) &&
         Objects.equals(this.isInternal, oiDCAccessRules.isInternal) &&
         Objects.equals(this.issuer, oiDCAccessRules.issuer) &&
+        Objects.equals(this.requiredScopes, oiDCAccessRules.requiredScopes) &&
+        Objects.equals(this.requiredScopesPrefix, oiDCAccessRules.requiredScopesPrefix) &&
         Objects.equals(this.uniqueIdentifier, oiDCAccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedRedirectURIs, boundClaims, clientId, clientSecret, isInternal, issuer, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, boundClaims, clientId, clientSecret, isInternal, issuer, requiredScopes, requiredScopesPrefix, uniqueIdentifier);
   }
 
 
@@ -273,6 +337,8 @@ public class OIDCAccessRules {
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    isInternal: ").append(toIndentedString(isInternal)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    requiredScopes: ").append(toIndentedString(requiredScopes)).append("\n");
+    sb.append("    requiredScopesPrefix: ").append(toIndentedString(requiredScopesPrefix)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();

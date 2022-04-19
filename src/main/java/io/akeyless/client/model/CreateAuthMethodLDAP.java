@@ -64,6 +64,10 @@ public class CreateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
 
   public CreateAuthMethodLDAP accessExpires(Long accessExpires) {
     
@@ -256,6 +260,29 @@ public class CreateAuthMethodLDAP {
   }
 
 
+  public CreateAuthMethodLDAP uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \&quot;sub claim\&quot; that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \"sub claim\" that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -272,12 +299,13 @@ public class CreateAuthMethodLDAP {
         Objects.equals(this.name, createAuthMethodLDAP.name) &&
         Objects.equals(this.publicKeyData, createAuthMethodLDAP.publicKeyData) &&
         Objects.equals(this.token, createAuthMethodLDAP.token) &&
-        Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken);
+        Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken) &&
+        Objects.equals(this.uniqueIdentifier, createAuthMethodLDAP.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, jwtTtl, name, publicKeyData, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, jwtTtl, name, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -293,6 +321,7 @@ public class CreateAuthMethodLDAP {
     sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }
