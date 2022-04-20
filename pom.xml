@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.akeyless</groupId>
-    <artifactId>akeyless-java-lior</artifactId>
+    <artifactId>akeyless-java</artifactId>
     <packaging>jar</packaging>
-    <name>akeyless-java-lior</name>
-    <version>2.15.33</version>
+    <name>akeyless-java</name>
+    <version>2.16.0</version>
     <url>https://github.com/akeylesslabs/akeyless-java</url>
     <description>Akeyless Java SDK</description>
     <scm>

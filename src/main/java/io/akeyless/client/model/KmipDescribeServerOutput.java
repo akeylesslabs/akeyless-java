@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * KmipDescribeServerOutput
@@ -38,6 +39,14 @@ public class KmipDescribeServerOutput {
   public static final String SERIALIZED_NAME_CA_CERT = "ca_cert";
   @SerializedName(SERIALIZED_NAME_CA_CERT)
   private List<Integer> caCert = null;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE = "certificate_issue_date";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE)
+  private OffsetDateTime certificateIssueDate;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_TTL_IN_SECONDS = "certificate_ttl_in_seconds";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL_IN_SECONDS)
+  private Long certificateTtlInSeconds;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -102,6 +111,52 @@ public class KmipDescribeServerOutput {
   }
 
 
+  public KmipDescribeServerOutput certificateIssueDate(OffsetDateTime certificateIssueDate) {
+    
+    this.certificateIssueDate = certificateIssueDate;
+    return this;
+  }
+
+   /**
+   * Get certificateIssueDate
+   * @return certificateIssueDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getCertificateIssueDate() {
+    return certificateIssueDate;
+  }
+
+
+  public void setCertificateIssueDate(OffsetDateTime certificateIssueDate) {
+    this.certificateIssueDate = certificateIssueDate;
+  }
+
+
+  public KmipDescribeServerOutput certificateTtlInSeconds(Long certificateTtlInSeconds) {
+    
+    this.certificateTtlInSeconds = certificateTtlInSeconds;
+    return this;
+  }
+
+   /**
+   * Get certificateTtlInSeconds
+   * @return certificateTtlInSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getCertificateTtlInSeconds() {
+    return certificateTtlInSeconds;
+  }
+
+
+  public void setCertificateTtlInSeconds(Long certificateTtlInSeconds) {
+    this.certificateTtlInSeconds = certificateTtlInSeconds;
+  }
+
+
   public KmipDescribeServerOutput hostname(String hostname) {
     
     this.hostname = hostname;
@@ -159,13 +214,15 @@ public class KmipDescribeServerOutput {
     KmipDescribeServerOutput kmipDescribeServerOutput = (KmipDescribeServerOutput) o;
     return Objects.equals(this.active, kmipDescribeServerOutput.active) &&
         Objects.equals(this.caCert, kmipDescribeServerOutput.caCert) &&
+        Objects.equals(this.certificateIssueDate, kmipDescribeServerOutput.certificateIssueDate) &&
+        Objects.equals(this.certificateTtlInSeconds, kmipDescribeServerOutput.certificateTtlInSeconds) &&
         Objects.equals(this.hostname, kmipDescribeServerOutput.hostname) &&
         Objects.equals(this.root, kmipDescribeServerOutput.root);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, caCert, hostname, root);
+    return Objects.hash(active, caCert, certificateIssueDate, certificateTtlInSeconds, hostname, root);
   }
 
 
@@ -175,6 +232,8 @@ public class KmipDescribeServerOutput {
     sb.append("class KmipDescribeServerOutput {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    caCert: ").append(toIndentedString(caCert)).append("\n");
+    sb.append("    certificateIssueDate: ").append(toIndentedString(certificateIssueDate)).append("\n");
+    sb.append("    certificateTtlInSeconds: ").append(toIndentedString(certificateTtlInSeconds)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    root: ").append(toIndentedString(root)).append("\n");
     sb.append("}");

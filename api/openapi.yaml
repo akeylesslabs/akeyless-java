@@ -4108,6 +4108,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /kmip-delete-environment:
+    delete:
+      operationId: kmipDeleteServer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/kmipDeleteServer'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/kmipDeleteServerOutput'
+          description: kmipDeleteServerResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /kmip-get-client:
     post:
       operationId: kmipDescribeClient
@@ -4182,6 +4211,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/KMIPClientListResponse'
           description: kmipListClientsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /kmip-move-environment:
+    post:
+      operationId: kmipMoveServer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/kmipMoveServer'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/kmipMoveServerOutput'
+          description: kmipMoveServerResponse wraps response body.
         default:
           content:
             application/json:
@@ -7153,6 +7211,12 @@ components:
           schema:
             $ref: '#/components/schemas/kmipDeleteClientOutput'
       description: kmipDeleteClientResponse wraps response body.
+    kmipDeleteServerResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/kmipDeleteServerOutput'
+      description: kmipDeleteServerResponse wraps response body.
     kmipDescribeClientResponse:
       content:
         application/json:
@@ -7171,6 +7235,12 @@ components:
           schema:
             $ref: '#/components/schemas/KMIPClientListResponse'
       description: kmipListClientsResponse wraps response body.
+    kmipMoveServerResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/kmipMoveServerOutput'
+      description: kmipMoveServerResponse wraps response body.
     kmipRenewClientCertificateResponse:
       content:
         application/json:
@@ -7798,18 +7868,18 @@ components:
         cf:
           customer_fragements:
             key: customer_fragements
-        version: 1
+        version: 6
         producers:
           producers:
           - init: true
             name: name
             active: true
-            id: 2
+            id: 7
             type: type
           - init: true
             name: name
             active: true
-            id: 2
+            id: 7
             type: type
         general:
           tcp_port: tcp_port
@@ -7891,17 +7961,17 @@ components:
               protection_key: protection_key
             payload:
               client_key:
-              - 3
-              - 3
+              - 4
+              - 4
               server: server
               password: password
               client_cert:
-              - 9
-              - 9
+              - 2
+              - 2
               namespace: namespace
               ca:
-              - 7
-              - 7
+              - 3
+              - 3
               skip_system: true
               token: token
               username: username
@@ -7912,17 +7982,17 @@ components:
               protection_key: protection_key
             payload:
               client_key:
-              - 3
-              - 3
+              - 4
+              - 4
               server: server
               password: password
               client_cert:
-              - 9
-              - 9
+              - 2
+              - 2
               namespace: namespace
               ca:
-              - 7
-              - 7
+              - 3
+              - 3
               skip_system: true
               token: token
               username: username
@@ -7947,8 +8017,8 @@ components:
               key: key
         leadership:
           open_leadership:
-          - 2
-          - 2
+          - 9
+          - 9
         log_forwarding:
           aws_s3_config:
             aws_access_id: aws_access_id
@@ -8003,8 +8073,8 @@ components:
           default_secret_location: default_secret_location
         kmip_clients:
           key_enc:
-          - 6
-          - 6
+          - 1
+          - 1
           server:
             hostname: hostname
             root: root
@@ -8012,12 +8082,14 @@ components:
             - 5
             - 5
             active: true
+            certificate_issue_date: 2000-01-23T04:56:07.000+00:00
             ca:
-            - 1
-            - 1
+            - 5
+            - 5
+            certificate_ttl_in_seconds: 2
           server_enc:
-          - 5
-          - 5
+          - 7
+          - 7
           clients:
             key:
               name: name
@@ -8034,6 +8106,7 @@ components:
                 - capabilities
                 type: type
               id: id
+              certificate_ttl_in_seconds: 6
         config_protection_key_name: config_protection_key_name
         admins:
           allowed_access:
@@ -8052,14 +8125,14 @@ components:
               hash: hash
         rotators:
           rotators:
-          - rotation_interval: 7
+          - rotation_interval: 1
             name: name
-            id: 4
+            id: 1
             last_error: last_error
             type: type
-          - rotation_interval: 7
+          - rotation_interval: 1
             name: name
-            id: 4
+            id: 1
             last_error: last_error
             type: type
       properties:
@@ -9530,6 +9603,10 @@ components:
       example:
         protection-key-name: protection-key-name
         metadata: metadata
+        vault-name: vault-name
+        key-operations:
+        - key-operations
+        - key-operations
         name: name
         target-name: target-name
         alg: alg
@@ -9554,6 +9631,13 @@ components:
           description: Base64-encoded classic key value
           type: string
           x-go-name: ClassicKeyValue
+        key-operations:
+          description: A list of allowed operations for the key (required for azure
+            targets)
+          items:
+            type: string
+          type: array
+          x-go-name: KeyOperations
         metadata:
           description: Metadata about the classic key
           type: string
@@ -9587,6 +9671,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        vault-name:
+          description: Name of the vault used (required for azure targets)
+          type: string
+          x-go-name: VaultName
       required:
       - alg
       - name
@@ -11081,12 +11169,12 @@ components:
         - init: true
           name: name
           active: true
-          id: 2
+          id: 7
           type: type
         - init: true
           name: name
           active: true
-          id: 2
+          id: 7
           type: type
       properties:
         producers:
@@ -12182,17 +12270,17 @@ components:
           protection_key: protection_key
         payload:
           client_key:
-          - 3
-          - 3
+          - 4
+          - 4
           server: server
           password: password
           client_cert:
-          - 9
-          - 9
+          - 2
+          - 2
           namespace: namespace
           ca:
-          - 7
-          - 7
+          - 3
+          - 3
           skip_system: true
           token: token
           username: username
@@ -12206,17 +12294,17 @@ components:
     K8SPayload:
       example:
         client_key:
-        - 3
-        - 3
+        - 4
+        - 4
         server: server
         password: password
         client_cert:
-        - 9
-        - 9
+        - 2
+        - 2
         namespace: namespace
         ca:
-        - 7
-        - 7
+        - 3
+        - 3
         skip_system: true
         token: token
         username: username
@@ -12275,11 +12363,16 @@ components:
           - capabilities
           type: type
         id: id
+        certificate_ttl_in_seconds: 6
       properties:
         certificate_issue_date:
           format: date-time
           type: string
           x-go-name: CertificateIssueDate
+        certificate_ttl_in_seconds:
+          format: int64
+          type: integer
+          x-go-name: CertificateTTLInSeconds
         id:
           type: string
           x-go-name: ID
@@ -12310,6 +12403,7 @@ components:
             - capabilities
             type: type
           id: id
+          certificate_ttl_in_seconds: 6
       properties:
         client:
           $ref: '#/components/schemas/KMIPClient'
@@ -12332,6 +12426,7 @@ components:
             - capabilities
             type: type
           id: id
+          certificate_ttl_in_seconds: 6
         - name: name
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
@@ -12346,6 +12441,7 @@ components:
             - capabilities
             type: type
           id: id
+          certificate_ttl_in_seconds: 6
       properties:
         clients:
           items:
@@ -12371,6 +12467,7 @@ components:
             - capabilities
             type: type
           id: id
+          certificate_ttl_in_seconds: 6
       properties:
         client:
           $ref: '#/components/schemas/KMIPClient'
@@ -12379,8 +12476,8 @@ components:
     KMIPConfigPart:
       example:
         key_enc:
-        - 6
-        - 6
+        - 1
+        - 1
         server:
           hostname: hostname
           root: root
@@ -12388,12 +12485,14 @@ components:
           - 5
           - 5
           active: true
+          certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           ca:
-          - 1
-          - 1
+          - 5
+          - 5
+          certificate_ttl_in_seconds: 2
         server_enc:
-        - 5
-        - 5
+        - 7
+        - 7
         clients:
           key:
             name: name
@@ -12410,6 +12509,7 @@ components:
               - capabilities
               type: type
             id: id
+            certificate_ttl_in_seconds: 6
       properties:
         clients:
           additionalProperties:
@@ -12462,9 +12562,11 @@ components:
         - 5
         - 5
         active: true
+        certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         ca:
-        - 1
-        - 1
+        - 5
+        - 5
+        certificate_ttl_in_seconds: 2
       properties:
         active:
           type: boolean
@@ -12481,6 +12583,14 @@ components:
             type: integer
           type: array
           x-go-name: Certificate
+        certificate_issue_date:
+          format: date-time
+          type: string
+          x-go-name: CertificateIssueDate
+        certificate_ttl_in_seconds:
+          format: int64
+          type: integer
+          x-go-name: CertificateTTLInSeconds
         hostname:
           type: string
           x-go-name: Hostname
@@ -12672,8 +12782,8 @@ components:
     LeadershipConfigPart:
       example:
         open_leadership:
-        - 2
-        - 2
+        - 9
+        - 9
       properties:
         open_leadership:
           items:
@@ -14217,17 +14327,17 @@ components:
             protection_key: protection_key
           payload:
             client_key:
-            - 3
-            - 3
+            - 4
+            - 4
             server: server
             password: password
             client_cert:
-            - 9
-            - 9
+            - 2
+            - 2
             namespace: namespace
             ca:
-            - 7
-            - 7
+            - 3
+            - 3
             skip_system: true
             token: token
             username: username
@@ -14238,17 +14348,17 @@ components:
             protection_key: protection_key
           payload:
             client_key:
-            - 3
-            - 3
+            - 4
+            - 4
             server: server
             password: password
             client_cert:
-            - 9
-            - 9
+            - 2
+            - 2
             namespace: namespace
             ca:
-            - 7
-            - 7
+            - 3
+            - 3
             skip_system: true
             token: token
             username: username
@@ -14680,7 +14790,7 @@ components:
         init: true
         name: name
         active: true
-        id: 2
+        id: 7
         type: type
       properties:
         active:
@@ -14712,12 +14822,12 @@ components:
         - init: true
           name: name
           active: true
-          id: 2
+          id: 7
           type: type
         - init: true
           name: name
           active: true
-          id: 2
+          id: 7
           type: type
       properties:
         producers:
@@ -15023,9 +15133,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     Rotator:
       example:
-        rotation_interval: 7
+        rotation_interval: 1
         name: name
-        id: 4
+        id: 1
         last_error: last_error
         type: type
       properties:
@@ -15059,14 +15169,14 @@ components:
     RotatorsConfigPart:
       example:
         rotators:
-        - rotation_interval: 7
+        - rotation_interval: 1
           name: name
-          id: 4
+          id: 1
           last_error: last_error
           type: type
-        - rotation_interval: 7
+        - rotation_interval: 1
           name: name
-          id: 4
+          id: 1
           last_error: last_error
           type: type
       properties:
@@ -25253,6 +25363,20 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        secure-access-bastion-issuer:
+          type: string
+          x-go-name: SecureAccessBastionIssuer
+        secure-access-enable:
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-host:
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessHost
+        secure-access-web:
+          type: boolean
+          x-go-name: AccessWebCategory
         tags:
           description: List of the tags attached to this secret
           items:
@@ -27429,17 +27553,17 @@ components:
               protection_key: protection_key
             payload:
               client_key:
-              - 3
-              - 3
+              - 4
+              - 4
               server: server
               password: password
               client_cert:
-              - 9
-              - 9
+              - 2
+              - 2
               namespace: namespace
               ca:
-              - 7
-              - 7
+              - 3
+              - 3
               skip_system: true
               token: token
               username: username
@@ -27450,17 +27574,17 @@ components:
               protection_key: protection_key
             payload:
               client_key:
-              - 3
-              - 3
+              - 4
+              - 4
               server: server
               password: password
               client_cert:
-              - 9
-              - 9
+              - 2
+              - 2
               namespace: namespace
               ca:
-              - 7
-              - 7
+              - 3
+              - 3
               skip_system: true
               token: token
               username: username
@@ -33004,6 +33128,20 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        secure-access-bastion-issuer:
+          type: string
+          x-go-name: SecureAccessBastionIssuer
+        secure-access-enable:
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-host:
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessHost
+        secure-access-web:
+          type: boolean
+          x-go-name: AccessWebCategory
         tags:
           description: List of the tags attached to this secret
           items:
@@ -35398,6 +35536,26 @@ components:
     kmipDeleteClientOutput:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    kmipDeleteServer:
+      description: |-
+        kmipDeleteServer is a command that the kmip server
+        (allowed only if it has no clients nor associated items)
+      properties:
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    kmipDeleteServerOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     kmipDescribeClient:
       properties:
         client-id:
@@ -35439,9 +35597,11 @@ components:
         hostname: hostname
         root: root
         active: true
+        certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         ca_cert:
         - 0
         - 0
+        certificate_ttl_in_seconds: 6
       properties:
         active:
           type: boolean
@@ -35452,6 +35612,14 @@ components:
             type: integer
           type: array
           x-go-name: CACert
+        certificate_issue_date:
+          format: date-time
+          type: string
+          x-go-name: CertificateIssueDate
+        certificate_ttl_in_seconds:
+          format: int64
+          type: integer
+          x-go-name: CertificateTTLInSeconds
         hostname:
           type: string
           x-go-name: Hostname
@@ -35473,6 +35641,39 @@ components:
           type: string
           x-go-name: UIDToken
       title: kmipListClients is a command that shows existing KMIP clients.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    kmipMoveServer:
+      description: |-
+        kmipMoveServer is a command that Moves the root location of the kmip server
+        and all associated items to a new root location
+      properties:
+        new-root:
+          type: string
+          x-go-name: NewRoot
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    kmipMoveServerOutput:
+      example:
+        old_root: old_root
+        new_root: new_root
+      properties:
+        new_root:
+          type: string
+          x-go-name: NewRoot
+        old_root:
+          type: string
+          x-go-name: OldRoot
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     kmipRenewClientCertificate:
@@ -38541,6 +38742,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateOutput:
       properties:
+        changelog:
+          type: string
+          x-go-name: Changelog
         latest:
           type: string
           x-go-name: Latest

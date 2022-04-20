@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class UpdateOutput {
+  public static final String SERIALIZED_NAME_CHANGELOG = "changelog";
+  @SerializedName(SERIALIZED_NAME_CHANGELOG)
+  private String changelog;
+
   public static final String SERIALIZED_NAME_LATEST = "latest";
   @SerializedName(SERIALIZED_NAME_LATEST)
   private String latest;
@@ -36,6 +40,29 @@ public class UpdateOutput {
   public static final String SERIALIZED_NAME_UPDATED = "updated";
   @SerializedName(SERIALIZED_NAME_UPDATED)
   private Boolean updated;
+
+
+  public UpdateOutput changelog(String changelog) {
+    
+    this.changelog = changelog;
+    return this;
+  }
+
+   /**
+   * Get changelog
+   * @return changelog
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getChangelog() {
+    return changelog;
+  }
+
+
+  public void setChangelog(String changelog) {
+    this.changelog = changelog;
+  }
 
 
   public UpdateOutput latest(String latest) {
@@ -93,13 +120,14 @@ public class UpdateOutput {
       return false;
     }
     UpdateOutput updateOutput = (UpdateOutput) o;
-    return Objects.equals(this.latest, updateOutput.latest) &&
+    return Objects.equals(this.changelog, updateOutput.changelog) &&
+        Objects.equals(this.latest, updateOutput.latest) &&
         Objects.equals(this.updated, updateOutput.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(latest, updated);
+    return Objects.hash(changelog, latest, updated);
   }
 
 
@@ -107,6 +135,7 @@ public class UpdateOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateOutput {\n");
+    sb.append("    changelog: ").append(toIndentedString(changelog)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");

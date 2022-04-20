@@ -44,6 +44,10 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
 
+  public static final String SERIALIZED_NAME_KEY_OPERATIONS = "key-operations";
+  @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
+  private List<String> keyOperations = null;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -71,6 +75,10 @@ public class CreateClassicKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_VAULT_NAME = "vault-name";
+  @SerializedName(SERIALIZED_NAME_VAULT_NAME)
+  private String vaultName;
 
 
   public CreateClassicKey alg(String alg) {
@@ -138,6 +146,37 @@ public class CreateClassicKey {
 
   public void setKeyData(String keyData) {
     this.keyData = keyData;
+  }
+
+
+  public CreateClassicKey keyOperations(List<String> keyOperations) {
+    
+    this.keyOperations = keyOperations;
+    return this;
+  }
+
+  public CreateClassicKey addKeyOperationsItem(String keyOperationsItem) {
+    if (this.keyOperations == null) {
+      this.keyOperations = new ArrayList<String>();
+    }
+    this.keyOperations.add(keyOperationsItem);
+    return this;
+  }
+
+   /**
+   * A list of allowed operations for the key (required for azure targets)
+   * @return keyOperations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of allowed operations for the key (required for azure targets)")
+
+  public List<String> getKeyOperations() {
+    return keyOperations;
+  }
+
+
+  public void setKeyOperations(List<String> keyOperations) {
+    this.keyOperations = keyOperations;
   }
 
 
@@ -309,6 +348,29 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey vaultName(String vaultName) {
+    
+    this.vaultName = vaultName;
+    return this;
+  }
+
+   /**
+   * Name of the vault used (required for azure targets)
+   * @return vaultName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the vault used (required for azure targets)")
+
+  public String getVaultName() {
+    return vaultName;
+  }
+
+
+  public void setVaultName(String vaultName) {
+    this.vaultName = vaultName;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -321,18 +383,20 @@ public class CreateClassicKey {
     return Objects.equals(this.alg, createClassicKey.alg) &&
         Objects.equals(this.certFileData, createClassicKey.certFileData) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
+        Objects.equals(this.keyOperations, createClassicKey.keyOperations) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
         Objects.equals(this.name, createClassicKey.name) &&
         Objects.equals(this.protectionKeyName, createClassicKey.protectionKeyName) &&
         Objects.equals(this.tags, createClassicKey.tags) &&
         Objects.equals(this.targetName, createClassicKey.targetName) &&
         Objects.equals(this.token, createClassicKey.token) &&
-        Objects.equals(this.uidToken, createClassicKey.uidToken);
+        Objects.equals(this.uidToken, createClassicKey.uidToken) &&
+        Objects.equals(this.vaultName, createClassicKey.vaultName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, keyData, metadata, name, protectionKeyName, tags, targetName, token, uidToken);
+    return Objects.hash(alg, certFileData, keyData, keyOperations, metadata, name, protectionKeyName, tags, targetName, token, uidToken, vaultName);
   }
 
 
@@ -343,6 +407,7 @@ public class CreateClassicKey {
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
+    sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
@@ -350,6 +415,7 @@ public class CreateClassicKey {
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    vaultName: ").append(toIndentedString(vaultName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -37,6 +37,10 @@ public class KMIPClient {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE)
   private OffsetDateTime certificateIssueDate;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_TTL_IN_SECONDS = "certificate_ttl_in_seconds";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL_IN_SECONDS)
+  private Long certificateTtlInSeconds;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -70,6 +74,29 @@ public class KMIPClient {
 
   public void setCertificateIssueDate(OffsetDateTime certificateIssueDate) {
     this.certificateIssueDate = certificateIssueDate;
+  }
+
+
+  public KMIPClient certificateTtlInSeconds(Long certificateTtlInSeconds) {
+    
+    this.certificateTtlInSeconds = certificateTtlInSeconds;
+    return this;
+  }
+
+   /**
+   * Get certificateTtlInSeconds
+   * @return certificateTtlInSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getCertificateTtlInSeconds() {
+    return certificateTtlInSeconds;
+  }
+
+
+  public void setCertificateTtlInSeconds(Long certificateTtlInSeconds) {
+    this.certificateTtlInSeconds = certificateTtlInSeconds;
   }
 
 
@@ -160,6 +187,7 @@ public class KMIPClient {
     }
     KMIPClient kmIPClient = (KMIPClient) o;
     return Objects.equals(this.certificateIssueDate, kmIPClient.certificateIssueDate) &&
+        Objects.equals(this.certificateTtlInSeconds, kmIPClient.certificateTtlInSeconds) &&
         Objects.equals(this.id, kmIPClient.id) &&
         Objects.equals(this.name, kmIPClient.name) &&
         Objects.equals(this.rules, kmIPClient.rules);
@@ -167,7 +195,7 @@ public class KMIPClient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateIssueDate, id, name, rules);
+    return Objects.hash(certificateIssueDate, certificateTtlInSeconds, id, name, rules);
   }
 
 
@@ -176,6 +204,7 @@ public class KMIPClient {
     StringBuilder sb = new StringBuilder();
     sb.append("class KMIPClient {\n");
     sb.append("    certificateIssueDate: ").append(toIndentedString(certificateIssueDate)).append("\n");
+    sb.append("    certificateTtlInSeconds: ").append(toIndentedString(certificateTtlInSeconds)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
