@@ -51,6 +51,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private String autoRotate;
 
+  public static final String SERIALIZED_NAME_AWS_REGION = "aws-region";
+  @SerializedName(SERIALIZED_NAME_AWS_REGION)
+  private String awsRegion = "us-east-2";
+
   public static final String SERIALIZED_NAME_CUSTOM_PAYLOAD = "custom-payload";
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
   private String customPayload;
@@ -94,6 +98,58 @@ public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_ROTATOR_TYPE = "rotator-type";
   @SerializedName(SERIALIZED_NAME_ROTATOR_TYPE)
   private String rotatorType;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER = "secure-access-allow-external-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER)
+  private Boolean secureAccessAllowExternalUser = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID = "secure-access-aws-account-id";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID)
+  private String secureAccessAwsAccountId;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_NATIVE_CLI = "secure-access-aws-native-cli";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_NATIVE_CLI)
+  private Boolean secureAccessAwsNativeCli;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DB_NAME = "secure-access-db-name";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DB_NAME)
+  private String secureAccessDbName;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA = "secure-access-db-schema";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA)
+  private String secureAccessDbSchema;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
+  private String secureAccessRdpDomain;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_USER = "secure-access-rdp-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_USER)
+  private String secureAccessRdpUser;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_SSH_PASSWORD = "ssh-password";
   @SerializedName(SERIALIZED_NAME_SSH_PASSWORD)
@@ -240,6 +296,29 @@ public class CreateRotatedSecret {
 
   public void setAutoRotate(String autoRotate) {
     this.autoRotate = autoRotate;
+  }
+
+
+  public CreateRotatedSecret awsRegion(String awsRegion) {
+    
+    this.awsRegion = awsRegion;
+    return this;
+  }
+
+   /**
+   * Region (used in aws)
+   * @return awsRegion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Region (used in aws)")
+
+  public String getAwsRegion() {
+    return awsRegion;
+  }
+
+
+  public void setAwsRegion(String awsRegion) {
+    this.awsRegion = awsRegion;
   }
 
 
@@ -494,6 +573,313 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret secureAccessAllowExternalUser(Boolean secureAccessAllowExternalUser) {
+    
+    this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
+    return this;
+  }
+
+   /**
+   * Secure Access Allow Providing External User (used in ssh)
+   * @return secureAccessAllowExternalUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Allow Providing External User (used in ssh)")
+
+  public Boolean getSecureAccessAllowExternalUser() {
+    return secureAccessAllowExternalUser;
+  }
+
+
+  public void setSecureAccessAllowExternalUser(Boolean secureAccessAllowExternalUser) {
+    this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
+  }
+
+
+  public CreateRotatedSecret secureAccessAwsAccountId(String secureAccessAwsAccountId) {
+    
+    this.secureAccessAwsAccountId = secureAccessAwsAccountId;
+    return this;
+  }
+
+   /**
+   * Secure Access Account Id (used in aws)
+   * @return secureAccessAwsAccountId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Account Id (used in aws)")
+
+  public String getSecureAccessAwsAccountId() {
+    return secureAccessAwsAccountId;
+  }
+
+
+  public void setSecureAccessAwsAccountId(String secureAccessAwsAccountId) {
+    this.secureAccessAwsAccountId = secureAccessAwsAccountId;
+  }
+
+
+  public CreateRotatedSecret secureAccessAwsNativeCli(Boolean secureAccessAwsNativeCli) {
+    
+    this.secureAccessAwsNativeCli = secureAccessAwsNativeCli;
+    return this;
+  }
+
+   /**
+   * Secure Access Aws Native Cli (used in aws)
+   * @return secureAccessAwsNativeCli
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Aws Native Cli (used in aws)")
+
+  public Boolean getSecureAccessAwsNativeCli() {
+    return secureAccessAwsNativeCli;
+  }
+
+
+  public void setSecureAccessAwsNativeCli(Boolean secureAccessAwsNativeCli) {
+    this.secureAccessAwsNativeCli = secureAccessAwsNativeCli;
+  }
+
+
+  public CreateRotatedSecret secureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+   /**
+   * Secure Access Bastion Issuer
+   * @return secureAccessBastionIssuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Bastion Issuer")
+
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+
+  public void setSecureAccessBastionIssuer(String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public CreateRotatedSecret secureAccessDbName(String secureAccessDbName) {
+    
+    this.secureAccessDbName = secureAccessDbName;
+    return this;
+  }
+
+   /**
+   * Secure Access DB Name (used in data bases)
+   * @return secureAccessDbName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access DB Name (used in data bases)")
+
+  public String getSecureAccessDbName() {
+    return secureAccessDbName;
+  }
+
+
+  public void setSecureAccessDbName(String secureAccessDbName) {
+    this.secureAccessDbName = secureAccessDbName;
+  }
+
+
+  public CreateRotatedSecret secureAccessDbSchema(String secureAccessDbSchema) {
+    
+    this.secureAccessDbSchema = secureAccessDbSchema;
+    return this;
+  }
+
+   /**
+   * Secure Access Schema (used in mssql, postgresql)
+   * @return secureAccessDbSchema
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Schema (used in mssql, postgresql)")
+
+  public String getSecureAccessDbSchema() {
+    return secureAccessDbSchema;
+  }
+
+
+  public void setSecureAccessDbSchema(String secureAccessDbSchema) {
+    this.secureAccessDbSchema = secureAccessDbSchema;
+  }
+
+
+  public CreateRotatedSecret secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Secure Access Enabled
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Enabled")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public CreateRotatedSecret secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public CreateRotatedSecret addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Secure Access Host
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Host")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
+  public CreateRotatedSecret secureAccessRdpDomain(String secureAccessRdpDomain) {
+    
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+    return this;
+  }
+
+   /**
+   * Secure Access Domain (used in ssh)
+   * @return secureAccessRdpDomain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Domain (used in ssh)")
+
+  public String getSecureAccessRdpDomain() {
+    return secureAccessRdpDomain;
+  }
+
+
+  public void setSecureAccessRdpDomain(String secureAccessRdpDomain) {
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+  }
+
+
+  public CreateRotatedSecret secureAccessRdpUser(String secureAccessRdpUser) {
+    
+    this.secureAccessRdpUser = secureAccessRdpUser;
+    return this;
+  }
+
+   /**
+   * Secure Access Override User (used in ssh)
+   * @return secureAccessRdpUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Override User (used in ssh)")
+
+  public String getSecureAccessRdpUser() {
+    return secureAccessRdpUser;
+  }
+
+
+  public void setSecureAccessRdpUser(String secureAccessRdpUser) {
+    this.secureAccessRdpUser = secureAccessRdpUser;
+  }
+
+
+  public CreateRotatedSecret secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Secure Access Web
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Web")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
+  public CreateRotatedSecret secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Secure Access Isolated (used in aws, azure)
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Isolated (used in aws, azure)")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public CreateRotatedSecret secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Secure Access Web Proxy (used in aws, azure)
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Web Proxy (used in aws, azure)")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+  }
+
+
   public CreateRotatedSecret sshPassword(String sshPassword) {
     
     this.sshPassword = sshPassword;
@@ -699,6 +1085,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.applicationId, createRotatedSecret.applicationId) &&
         Objects.equals(this.authenticationCredentials, createRotatedSecret.authenticationCredentials) &&
         Objects.equals(this.autoRotate, createRotatedSecret.autoRotate) &&
+        Objects.equals(this.awsRegion, createRotatedSecret.awsRegion) &&
         Objects.equals(this.customPayload, createRotatedSecret.customPayload) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
@@ -710,6 +1097,19 @@ public class CreateRotatedSecret {
         Objects.equals(this.rotatorCredsType, createRotatedSecret.rotatorCredsType) &&
         Objects.equals(this.rotatorCustomCmd, createRotatedSecret.rotatorCustomCmd) &&
         Objects.equals(this.rotatorType, createRotatedSecret.rotatorType) &&
+        Objects.equals(this.secureAccessAllowExternalUser, createRotatedSecret.secureAccessAllowExternalUser) &&
+        Objects.equals(this.secureAccessAwsAccountId, createRotatedSecret.secureAccessAwsAccountId) &&
+        Objects.equals(this.secureAccessAwsNativeCli, createRotatedSecret.secureAccessAwsNativeCli) &&
+        Objects.equals(this.secureAccessBastionIssuer, createRotatedSecret.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessDbName, createRotatedSecret.secureAccessDbName) &&
+        Objects.equals(this.secureAccessDbSchema, createRotatedSecret.secureAccessDbSchema) &&
+        Objects.equals(this.secureAccessEnable, createRotatedSecret.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, createRotatedSecret.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdpDomain, createRotatedSecret.secureAccessRdpDomain) &&
+        Objects.equals(this.secureAccessRdpUser, createRotatedSecret.secureAccessRdpUser) &&
+        Objects.equals(this.secureAccessWeb, createRotatedSecret.secureAccessWeb) &&
+        Objects.equals(this.secureAccessWebBrowsing, createRotatedSecret.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, createRotatedSecret.secureAccessWebProxy) &&
         Objects.equals(this.sshPassword, createRotatedSecret.sshPassword) &&
         Objects.equals(this.sshUsername, createRotatedSecret.sshUsername) &&
         Objects.equals(this.tags, createRotatedSecret.tags) &&
@@ -722,7 +1122,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, customPayload, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
 
@@ -735,6 +1135,7 @@ public class CreateRotatedSecret {
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
+    sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -746,6 +1147,19 @@ public class CreateRotatedSecret {
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");
     sb.append("    rotatorCustomCmd: ").append(toIndentedString(rotatorCustomCmd)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
+    sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
+    sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");
+    sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
+    sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

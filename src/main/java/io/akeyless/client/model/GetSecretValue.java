@@ -35,6 +35,10 @@ public class GetSecretValue {
   @SerializedName(SERIALIZED_NAME_NAMES)
   private List<String> names = new ArrayList<String>();
 
+  public static final String SERIALIZED_NAME_PRETTY_PRINT = "pretty-print";
+  @SerializedName(SERIALIZED_NAME_PRETTY_PRINT)
+  private Boolean prettyPrint;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -72,6 +76,29 @@ public class GetSecretValue {
 
   public void setNames(List<String> names) {
     this.names = names;
+  }
+
+
+  public GetSecretValue prettyPrint(Boolean prettyPrint) {
+    
+    this.prettyPrint = prettyPrint;
+    return this;
+  }
+
+   /**
+   * Get prettyPrint
+   * @return prettyPrint
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getPrettyPrint() {
+    return prettyPrint;
+  }
+
+
+  public void setPrettyPrint(Boolean prettyPrint) {
+    this.prettyPrint = prettyPrint;
   }
 
 
@@ -154,6 +181,7 @@ public class GetSecretValue {
     }
     GetSecretValue getSecretValue = (GetSecretValue) o;
     return Objects.equals(this.names, getSecretValue.names) &&
+        Objects.equals(this.prettyPrint, getSecretValue.prettyPrint) &&
         Objects.equals(this.token, getSecretValue.token) &&
         Objects.equals(this.uidToken, getSecretValue.uidToken) &&
         Objects.equals(this.version, getSecretValue.version);
@@ -161,7 +189,7 @@ public class GetSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, token, uidToken, version);
+    return Objects.hash(names, prettyPrint, token, uidToken, version);
   }
 
 
@@ -170,6 +198,7 @@ public class GetSecretValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSecretValue {\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    prettyPrint: ").append(toIndentedString(prettyPrint)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

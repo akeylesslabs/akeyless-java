@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **displayId** | **String** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]
+**itemAccessibility** | **Long** |  |  [optional]
 **itemGeneralInfo** | [**ItemGeneralInfo**](ItemGeneralInfo.md) |  |  [optional]
 **itemId** | **Long** |  |  [optional]
 **itemMetadata** | **String** |  |  [optional]

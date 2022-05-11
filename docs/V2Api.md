@@ -41,6 +41,7 @@ Method | HTTP request | Description
 [**createRotatedSecret**](V2Api.md#createRotatedSecret) | **POST** /create-rotated-secret | 
 [**createSSHCertIssuer**](V2Api.md#createSSHCertIssuer) | **POST** /create-ssh-cert-issuer | 
 [**createSSHTarget**](V2Api.md#createSSHTarget) | **POST** /create-ssh-target | 
+[**createSalesforceTarget**](V2Api.md#createSalesforceTarget) | **POST** /create-salesforce-target | 
 [**createSecret**](V2Api.md#createSecret) | **POST** /create-secret | 
 [**createWebTarget**](V2Api.md#createWebTarget) | **POST** /create-web-target | 
 [**createldapTarget**](V2Api.md#createldapTarget) | **POST** /create-ldap-target | 
@@ -64,6 +65,7 @@ Method | HTTP request | Description
 [**encryptPKCS1**](V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
 [**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
+[**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
 [**gatewayCreateProducerAws**](V2Api.md#gatewayCreateProducerAws) | **POST** /gateway-create-producer-aws | 
 [**gatewayCreateProducerAzure**](V2Api.md#gatewayCreateProducerAzure) | **POST** /gateway-create-producer-azure | 
@@ -89,9 +91,11 @@ Method | HTTP request | Description
 [**gatewayCreateProducerSnowflake**](V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
 [**gatewayDeleteAllowedManagementAccess**](V2Api.md#gatewayDeleteAllowedManagementAccess) | **POST** /gateway-delete-allowed-management-access | 
 [**gatewayDeleteK8SAuthConfig**](V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
+[**gatewayDeleteMigration**](V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 [**gatewayGetConfig**](V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
 [**gatewayGetK8SAuthConfig**](V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
+[**gatewayGetMigration**](V2Api.md#gatewayGetMigration) | **POST** /gateway-get-migration | 
 [**gatewayGetProducer**](V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
 [**gatewayGetTmpUsers**](V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
 [**gatewayListAllowedManagementAccess**](V2Api.md#gatewayListAllowedManagementAccess) | **POST** /gateway-list-allowed-management-access | 
@@ -103,6 +107,7 @@ Method | HTTP request | Description
 [**gatewaySyncMigration**](V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
 [**gatewayUpdateItem**](V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
 [**gatewayUpdateK8SAuthConfig**](V2Api.md#gatewayUpdateK8SAuthConfig) | **POST** /gateway-update-k8s-auth-config | 
+[**gatewayUpdateMigration**](V2Api.md#gatewayUpdateMigration) | **POST** /gateway-update-migration | 
 [**gatewayUpdateProducerArtifactory**](V2Api.md#gatewayUpdateProducerArtifactory) | **POST** /gateway-update-producer-artifactory | 
 [**gatewayUpdateProducerAws**](V2Api.md#gatewayUpdateProducerAws) | **POST** /gateway-update-producer-aws | 
 [**gatewayUpdateProducerAzure**](V2Api.md#gatewayUpdateProducerAzure) | **POST** /gateway-update-producer-azure | 
@@ -114,6 +119,7 @@ Method | HTTP request | Description
 [**gatewayUpdateProducerGcp**](V2Api.md#gatewayUpdateProducerGcp) | **POST** /gateway-update-producer-gcp | 
 [**gatewayUpdateProducerGithub**](V2Api.md#gatewayUpdateProducerGithub) | **POST** /gateway-update-producer-github | 
 [**gatewayUpdateProducerGke**](V2Api.md#gatewayUpdateProducerGke) | **POST** /gateway-update-producer-gke | 
+[**gatewayUpdateProducerHanaDb**](V2Api.md#gatewayUpdateProducerHanaDb) | **POST** /gateway-update-producer-hana | 
 [**gatewayUpdateProducerLdap**](V2Api.md#gatewayUpdateProducerLdap) | **POST** /gateway-update-producer-ldap | 
 [**gatewayUpdateProducerMSSQL**](V2Api.md#gatewayUpdateProducerMSSQL) | **POST** /gateway-update-producer-mssql | 
 [**gatewayUpdateProducerMongo**](V2Api.md#gatewayUpdateProducerMongo) | **POST** /gateway-update-producer-mongo | 
@@ -211,6 +217,7 @@ Method | HTTP request | Description
 [**updateSSHCertIssuer**](V2Api.md#updateSSHCertIssuer) | **POST** /update-ssh-cert-issuer | 
 [**updateSSHTarget**](V2Api.md#updateSSHTarget) | **POST** /update-ssh-target | 
 [**updateSSHTargetDetails**](V2Api.md#updateSSHTargetDetails) | **POST** /update-ssh-target-details | 
+[**updateSalesforceTarget**](V2Api.md#updateSalesforceTarget) | **POST** /update-salesforce-target | 
 [**updateSecretVal**](V2Api.md#updateSecretVal) | **POST** /update-secret-val | 
 [**updateTarget**](V2Api.md#updateTarget) | **POST** /update-target | 
 [**updateTargetDetails**](V2Api.md#updateTargetDetails) | **POST** /update-target-details | 
@@ -2481,6 +2488,67 @@ No authorization required
 **200** | createSSHTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="createSalesforceTarget"></a>
+# **createSalesforceTarget**
+> CreateSalesforceTargetOutput createSalesforceTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateSalesforceTarget body = new CreateSalesforceTarget(); // CreateSalesforceTarget | 
+    try {
+      CreateSalesforceTargetOutput result = apiInstance.createSalesforceTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createSalesforceTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateSalesforceTarget**](CreateSalesforceTarget.md)|  |
+
+### Return type
+
+[**CreateSalesforceTargetOutput**](CreateSalesforceTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createSalesforceTargetResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="createSecret"></a>
 # **createSecret**
 > CreateSecretOutput createSecret(body)
@@ -3882,6 +3950,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayCreateK8SAuthConfigResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayCreateMigration"></a>
+# **gatewayCreateMigration**
+> GatewayMigrationCreateOutput gatewayCreateMigration(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateMigration body = new GatewayCreateMigration(); // GatewayCreateMigration | 
+    try {
+      GatewayMigrationCreateOutput result = apiInstance.gatewayCreateMigration(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateMigration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateMigration**](GatewayCreateMigration.md)|  |
+
+### Return type
+
+[**GatewayMigrationCreateOutput**](GatewayMigrationCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayMigrationCreateResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateProducerArtifactory"></a>
@@ -5409,6 +5538,67 @@ No authorization required
 **201** | gatewayDeleteK8SAuthConfigResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayDeleteMigration"></a>
+# **gatewayDeleteMigration**
+> GatewayMigrationDeleteOutput gatewayDeleteMigration(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayDeleteMigration body = new GatewayDeleteMigration(); // GatewayDeleteMigration | 
+    try {
+      GatewayMigrationDeleteOutput result = apiInstance.gatewayDeleteMigration(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayDeleteMigration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayDeleteMigration**](GatewayDeleteMigration.md)|  |
+
+### Return type
+
+[**GatewayMigrationDeleteOutput**](GatewayMigrationDeleteOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayMigrationDeleteResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayDeleteProducer"></a>
 # **gatewayDeleteProducer**
 > GatewayDeleteProducerOutput gatewayDeleteProducer(body)
@@ -5590,6 +5780,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayGetK8SAuthConfigResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayGetMigration"></a>
+# **gatewayGetMigration**
+> GatewayMigrationGetOutput gatewayGetMigration(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayGetMigration body = new GatewayGetMigration(); // GatewayGetMigration | 
+    try {
+      GatewayMigrationGetOutput result = apiInstance.gatewayGetMigration(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayGetMigration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayGetMigration**](GatewayGetMigration.md)|  |
+
+### Return type
+
+[**GatewayMigrationGetOutput**](GatewayMigrationGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayMigrationGetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayGetProducer"></a>
@@ -6262,6 +6513,67 @@ No authorization required
 **201** | gatewayUpdateK8SAuthConfigResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayUpdateMigration"></a>
+# **gatewayUpdateMigration**
+> GatewayMigrationUpdateOutput gatewayUpdateMigration(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateMigration body = new GatewayUpdateMigration(); // GatewayUpdateMigration | 
+    try {
+      GatewayMigrationUpdateOutput result = apiInstance.gatewayUpdateMigration(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateMigration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateMigration**](GatewayUpdateMigration.md)|  |
+
+### Return type
+
+[**GatewayMigrationUpdateOutput**](GatewayMigrationUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayMigrationUpdateResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayUpdateProducerArtifactory"></a>
 # **gatewayUpdateProducerArtifactory**
 > GatewayUpdateProducerArtifactoryOutput gatewayUpdateProducerArtifactory(body)
@@ -6931,6 +7243,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayUpdateProducerGkeResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateProducerHanaDb"></a>
+# **gatewayUpdateProducerHanaDb**
+> GatewayUpdateProducerHanaDbOutput gatewayUpdateProducerHanaDb(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateProducerHanaDb body = new GatewayUpdateProducerHanaDb(); // GatewayUpdateProducerHanaDb | 
+    try {
+      GatewayUpdateProducerHanaDbOutput result = apiInstance.gatewayUpdateProducerHanaDb(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateProducerHanaDb");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateProducerHanaDb**](GatewayUpdateProducerHanaDb.md)|  |
+
+### Return type
+
+[**GatewayUpdateProducerHanaDbOutput**](GatewayUpdateProducerHanaDbOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateProducerHanaDbResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayUpdateProducerLdap"></a>
@@ -12835,6 +13208,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateTargetResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateSalesforceTarget"></a>
+# **updateSalesforceTarget**
+> UpdateSalesforceTargetOutput updateSalesforceTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateSalesforceTarget body = new UpdateSalesforceTarget(); // UpdateSalesforceTarget | 
+    try {
+      UpdateSalesforceTargetOutput result = apiInstance.updateSalesforceTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateSalesforceTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateSalesforceTarget**](UpdateSalesforceTarget.md)|  |
+
+### Return type
+
+[**UpdateSalesforceTargetOutput**](UpdateSalesforceTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateSalesforceTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateSecretVal"></a>

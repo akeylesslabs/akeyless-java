@@ -41,6 +41,10 @@ public class AwsS3LogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_AWS_REGION)
   private String awsRegion;
 
+  public static final String SERIALIZED_NAME_AWS_USE_GATEWAY_CLOUD_IDENTITY = "aws_use_gateway_cloud_identity";
+  @SerializedName(SERIALIZED_NAME_AWS_USE_GATEWAY_CLOUD_IDENTITY)
+  private Boolean awsUseGatewayCloudIdentity;
+
   public static final String SERIALIZED_NAME_BUCKET_NAME = "bucket_name";
   @SerializedName(SERIALIZED_NAME_BUCKET_NAME)
   private String bucketName;
@@ -119,6 +123,29 @@ public class AwsS3LogForwardingConfig {
   }
 
 
+  public AwsS3LogForwardingConfig awsUseGatewayCloudIdentity(Boolean awsUseGatewayCloudIdentity) {
+    
+    this.awsUseGatewayCloudIdentity = awsUseGatewayCloudIdentity;
+    return this;
+  }
+
+   /**
+   * Get awsUseGatewayCloudIdentity
+   * @return awsUseGatewayCloudIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAwsUseGatewayCloudIdentity() {
+    return awsUseGatewayCloudIdentity;
+  }
+
+
+  public void setAwsUseGatewayCloudIdentity(Boolean awsUseGatewayCloudIdentity) {
+    this.awsUseGatewayCloudIdentity = awsUseGatewayCloudIdentity;
+  }
+
+
   public AwsS3LogForwardingConfig bucketName(String bucketName) {
     
     this.bucketName = bucketName;
@@ -177,13 +204,14 @@ public class AwsS3LogForwardingConfig {
     return Objects.equals(this.awsAccessId, awsS3LogForwardingConfig.awsAccessId) &&
         Objects.equals(this.awsAccessKey, awsS3LogForwardingConfig.awsAccessKey) &&
         Objects.equals(this.awsRegion, awsS3LogForwardingConfig.awsRegion) &&
+        Objects.equals(this.awsUseGatewayCloudIdentity, awsS3LogForwardingConfig.awsUseGatewayCloudIdentity) &&
         Objects.equals(this.bucketName, awsS3LogForwardingConfig.bucketName) &&
         Objects.equals(this.logFolder, awsS3LogForwardingConfig.logFolder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsAccessId, awsAccessKey, awsRegion, bucketName, logFolder);
+    return Objects.hash(awsAccessId, awsAccessKey, awsRegion, awsUseGatewayCloudIdentity, bucketName, logFolder);
   }
 
 
@@ -194,6 +222,7 @@ public class AwsS3LogForwardingConfig {
     sb.append("    awsAccessId: ").append(toIndentedString(awsAccessId)).append("\n");
     sb.append("    awsAccessKey: ").append(toIndentedString(awsAccessKey)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
+    sb.append("    awsUseGatewayCloudIdentity: ").append(toIndentedString(awsUseGatewayCloudIdentity)).append("\n");
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    logFolder: ").append(toIndentedString(logFolder)).append("\n");
     sb.append("}");

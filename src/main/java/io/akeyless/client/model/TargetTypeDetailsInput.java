@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * TargetTypeDetailsInput
@@ -69,6 +71,14 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
 
+  public static final String SERIALIZED_NAME_CA_CERT_DATA = "ca_cert_data";
+  @SerializedName(SERIALIZED_NAME_CA_CERT_DATA)
+  private List<Integer> caCertData = null;
+
+  public static final String SERIALIZED_NAME_CA_CERT_NAME = "ca_cert_name";
+  @SerializedName(SERIALIZED_NAME_CA_CERT_NAME)
+  private String caCertName;
+
   public static final String SERIALIZED_NAME_CHEF_SERVER_HOST_NAME = "chef_server_host_name";
   @SerializedName(SERIALIZED_NAME_CHEF_SERVER_HOST_NAME)
   private String chefServerHostName;
@@ -92,6 +102,14 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_CHEF_SKIP_SSL = "chef_skip_ssl";
   @SerializedName(SERIALIZED_NAME_CHEF_SKIP_SSL)
   private Boolean chefSkipSsl;
+
+  public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
+  @SerializedName(SERIALIZED_NAME_CLIENT_ID)
+  private String clientId;
+
+  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
+  @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
+  private String clientSecret;
 
   public static final String SERIALIZED_NAME_DB_HOST_NAME = "db_host_name";
   @SerializedName(SERIALIZED_NAME_DB_HOST_NAME)
@@ -301,6 +319,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_USER)
   private String rabbitmqServerUser;
 
+  public static final String SERIALIZED_NAME_SECURITY_TOKEN = "security_token";
+  @SerializedName(SERIALIZED_NAME_SECURITY_TOKEN)
+  private String securityToken;
+
   public static final String SERIALIZED_NAME_SF_ACCOUNT = "sf_account";
   @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
   private String sfAccount;
@@ -312,6 +334,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_SSL_CONNECTION_MODE = "ssl_connection_mode";
   @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_MODE)
   private Boolean sslConnectionMode;
+
+  public static final String SERIALIZED_NAME_TENANT_URL = "tenant_url";
+  @SerializedName(SERIALIZED_NAME_TENANT_URL)
+  private String tenantUrl;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
@@ -584,6 +610,60 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput caCertData(List<Integer> caCertData) {
+    
+    this.caCertData = caCertData;
+    return this;
+  }
+
+  public TargetTypeDetailsInput addCaCertDataItem(Integer caCertDataItem) {
+    if (this.caCertData == null) {
+      this.caCertData = new ArrayList<Integer>();
+    }
+    this.caCertData.add(caCertDataItem);
+    return this;
+  }
+
+   /**
+   * CACertData is the rsa 4096 certificate data in PEM format
+   * @return caCertData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CACertData is the rsa 4096 certificate data in PEM format")
+
+  public List<Integer> getCaCertData() {
+    return caCertData;
+  }
+
+
+  public void setCaCertData(List<Integer> caCertData) {
+    this.caCertData = caCertData;
+  }
+
+
+  public TargetTypeDetailsInput caCertName(String caCertName) {
+    
+    this.caCertName = caCertName;
+    return this;
+  }
+
+   /**
+   * CACertName is the name of the certificate in SalesForce tenant
+   * @return caCertName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CACertName is the name of the certificate in SalesForce tenant")
+
+  public String getCaCertName() {
+    return caCertName;
+  }
+
+
+  public void setCaCertName(String caCertName) {
+    this.caCertName = caCertName;
+  }
+
+
   public TargetTypeDetailsInput chefServerHostName(String chefServerHostName) {
     
     this.chefServerHostName = chefServerHostName;
@@ -719,6 +799,52 @@ public class TargetTypeDetailsInput {
 
   public void setChefSkipSsl(Boolean chefSkipSsl) {
     this.chefSkipSsl = chefSkipSsl;
+  }
+
+
+  public TargetTypeDetailsInput clientId(String clientId) {
+    
+    this.clientId = clientId;
+    return this;
+  }
+
+   /**
+   * Get clientId
+   * @return clientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
+
+
+  public TargetTypeDetailsInput clientSecret(String clientSecret) {
+    
+    this.clientSecret = clientSecret;
+    return this;
+  }
+
+   /**
+   * Get clientSecret
+   * @return clientSecret
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getClientSecret() {
+    return clientSecret;
+  }
+
+
+  public void setClientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
   }
 
 
@@ -1918,6 +2044,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput securityToken(String securityToken) {
+    
+    this.securityToken = securityToken;
+    return this;
+  }
+
+   /**
+   * Get securityToken
+   * @return securityToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSecurityToken() {
+    return securityToken;
+  }
+
+
+  public void setSecurityToken(String securityToken) {
+    this.securityToken = securityToken;
+  }
+
+
   public TargetTypeDetailsInput sfAccount(String sfAccount) {
     
     this.sfAccount = sfAccount;
@@ -1984,6 +2133,29 @@ public class TargetTypeDetailsInput {
 
   public void setSslConnectionMode(Boolean sslConnectionMode) {
     this.sslConnectionMode = sslConnectionMode;
+  }
+
+
+  public TargetTypeDetailsInput tenantUrl(String tenantUrl) {
+    
+    this.tenantUrl = tenantUrl;
+    return this;
+  }
+
+   /**
+   * Get tenantUrl
+   * @return tenantUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTenantUrl() {
+    return tenantUrl;
+  }
+
+
+  public void setTenantUrl(String tenantUrl) {
+    this.tenantUrl = tenantUrl;
   }
 
 
@@ -2236,12 +2408,16 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.azureClientId, targetTypeDetailsInput.azureClientId) &&
         Objects.equals(this.azureClientSecret, targetTypeDetailsInput.azureClientSecret) &&
         Objects.equals(this.azureTenantId, targetTypeDetailsInput.azureTenantId) &&
+        Objects.equals(this.caCertData, targetTypeDetailsInput.caCertData) &&
+        Objects.equals(this.caCertName, targetTypeDetailsInput.caCertName) &&
         Objects.equals(this.chefServerHostName, targetTypeDetailsInput.chefServerHostName) &&
         Objects.equals(this.chefServerKey, targetTypeDetailsInput.chefServerKey) &&
         Objects.equals(this.chefServerPort, targetTypeDetailsInput.chefServerPort) &&
         Objects.equals(this.chefServerUrl, targetTypeDetailsInput.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, targetTypeDetailsInput.chefServerUsername) &&
         Objects.equals(this.chefSkipSsl, targetTypeDetailsInput.chefSkipSsl) &&
+        Objects.equals(this.clientId, targetTypeDetailsInput.clientId) &&
+        Objects.equals(this.clientSecret, targetTypeDetailsInput.clientSecret) &&
         Objects.equals(this.dbHostName, targetTypeDetailsInput.dbHostName) &&
         Objects.equals(this.dbName, targetTypeDetailsInput.dbName) &&
         Objects.equals(this.dbPort, targetTypeDetailsInput.dbPort) &&
@@ -2294,9 +2470,11 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.rabbitmqServerPassword, targetTypeDetailsInput.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
+        Objects.equals(this.securityToken, targetTypeDetailsInput.securityToken) &&
         Objects.equals(this.sfAccount, targetTypeDetailsInput.sfAccount) &&
         Objects.equals(this.sslConnectionCertificate, targetTypeDetailsInput.sslConnectionCertificate) &&
         Objects.equals(this.sslConnectionMode, targetTypeDetailsInput.sslConnectionMode) &&
+        Objects.equals(this.tenantUrl, targetTypeDetailsInput.tenantUrl) &&
         Objects.equals(this.url, targetTypeDetailsInput.url) &&
         Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
         Objects.equals(this.userName, targetTypeDetailsInput.userName) &&
@@ -2311,7 +2489,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, sfAccount, sslConnectionCertificate, sslConnectionMode, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2329,12 +2507,16 @@ public class TargetTypeDetailsInput {
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    caCertData: ").append(toIndentedString(caCertData)).append("\n");
+    sb.append("    caCertName: ").append(toIndentedString(caCertName)).append("\n");
     sb.append("    chefServerHostName: ").append(toIndentedString(chefServerHostName)).append("\n");
     sb.append("    chefServerKey: ").append(toIndentedString(chefServerKey)).append("\n");
     sb.append("    chefServerPort: ").append(toIndentedString(chefServerPort)).append("\n");
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    dbPort: ").append(toIndentedString(dbPort)).append("\n");
@@ -2387,9 +2569,11 @@ public class TargetTypeDetailsInput {
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
+    sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
     sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
+    sb.append("    tenantUrl: ").append(toIndentedString(tenantUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");

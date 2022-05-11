@@ -48,6 +48,18 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
   private List<String> keyOperations = null;
 
+  public static final String SERIALIZED_NAME_KEYRING_NAME = "keyring-name";
+  @SerializedName(SERIALIZED_NAME_KEYRING_NAME)
+  private String keyringName;
+
+  public static final String SERIALIZED_NAME_KMS_ALGORITHM = "kms-algorithm";
+  @SerializedName(SERIALIZED_NAME_KMS_ALGORITHM)
+  private String kmsAlgorithm;
+
+  public static final String SERIALIZED_NAME_LOCATION_ID = "location-id";
+  @SerializedName(SERIALIZED_NAME_LOCATION_ID)
+  private String locationId;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -56,9 +68,17 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PROJECT_ID = "project-id";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection-key-name";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
   private String protectionKeyName;
+
+  public static final String SERIALIZED_NAME_PURPOSE = "purpose";
+  @SerializedName(SERIALIZED_NAME_PURPOSE)
+  private String purpose;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -67,6 +87,10 @@ public class CreateClassicKey {
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
+
+  public static final String SERIALIZED_NAME_TENANT_SECRET_TYPE = "tenant-secret-type";
+  @SerializedName(SERIALIZED_NAME_TENANT_SECRET_TYPE)
+  private String tenantSecretType;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -180,6 +204,75 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey keyringName(String keyringName) {
+    
+    this.keyringName = keyringName;
+    return this;
+  }
+
+   /**
+   * Keyring name of the GCP KMS (required for gcp targets)
+   * @return keyringName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Keyring name of the GCP KMS (required for gcp targets)")
+
+  public String getKeyringName() {
+    return keyringName;
+  }
+
+
+  public void setKeyringName(String keyringName) {
+    this.keyringName = keyringName;
+  }
+
+
+  public CreateClassicKey kmsAlgorithm(String kmsAlgorithm) {
+    
+    this.kmsAlgorithm = kmsAlgorithm;
+    return this;
+  }
+
+   /**
+   * Algorithm of the key in GCP KMS (required for gcp targets)
+   * @return kmsAlgorithm
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Algorithm of the key in GCP KMS (required for gcp targets)")
+
+  public String getKmsAlgorithm() {
+    return kmsAlgorithm;
+  }
+
+
+  public void setKmsAlgorithm(String kmsAlgorithm) {
+    this.kmsAlgorithm = kmsAlgorithm;
+  }
+
+
+  public CreateClassicKey locationId(String locationId) {
+    
+    this.locationId = locationId;
+    return this;
+  }
+
+   /**
+   * Location id of the GCP KMS (required for gcp targets)
+   * @return locationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Location id of the GCP KMS (required for gcp targets)")
+
+  public String getLocationId() {
+    return locationId;
+  }
+
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+
   public CreateClassicKey metadata(String metadata) {
     
     this.metadata = metadata;
@@ -225,6 +318,29 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey projectId(String projectId) {
+    
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Project id of the GCP KMS (required for gcp targets)
+   * @return projectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Project id of the GCP KMS (required for gcp targets)")
+
+  public String getProjectId() {
+    return projectId;
+  }
+
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
+
   public CreateClassicKey protectionKeyName(String protectionKeyName) {
     
     this.protectionKeyName = protectionKeyName;
@@ -245,6 +361,29 @@ public class CreateClassicKey {
 
   public void setProtectionKeyName(String protectionKeyName) {
     this.protectionKeyName = protectionKeyName;
+  }
+
+
+  public CreateClassicKey purpose(String purpose) {
+    
+    this.purpose = purpose;
+    return this;
+  }
+
+   /**
+   * Purpose of the key in GCP KMS (required for gcp targets)
+   * @return purpose
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Purpose of the key in GCP KMS (required for gcp targets)")
+
+  public String getPurpose() {
+    return purpose;
+  }
+
+
+  public void setPurpose(String purpose) {
+    this.purpose = purpose;
   }
 
 
@@ -299,6 +438,29 @@ public class CreateClassicKey {
 
   public void setTargetName(String targetName) {
     this.targetName = targetName;
+  }
+
+
+  public CreateClassicKey tenantSecretType(String tenantSecretType) {
+    
+    this.tenantSecretType = tenantSecretType;
+    return this;
+  }
+
+   /**
+   * The tenant secret type [Data/SearchIndex/Analytics] (required for salesforce targets)
+   * @return tenantSecretType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The tenant secret type [Data/SearchIndex/Analytics] (required for salesforce targets)")
+
+  public String getTenantSecretType() {
+    return tenantSecretType;
+  }
+
+
+  public void setTenantSecretType(String tenantSecretType) {
+    this.tenantSecretType = tenantSecretType;
   }
 
 
@@ -384,11 +546,17 @@ public class CreateClassicKey {
         Objects.equals(this.certFileData, createClassicKey.certFileData) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
         Objects.equals(this.keyOperations, createClassicKey.keyOperations) &&
+        Objects.equals(this.keyringName, createClassicKey.keyringName) &&
+        Objects.equals(this.kmsAlgorithm, createClassicKey.kmsAlgorithm) &&
+        Objects.equals(this.locationId, createClassicKey.locationId) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
         Objects.equals(this.name, createClassicKey.name) &&
+        Objects.equals(this.projectId, createClassicKey.projectId) &&
         Objects.equals(this.protectionKeyName, createClassicKey.protectionKeyName) &&
+        Objects.equals(this.purpose, createClassicKey.purpose) &&
         Objects.equals(this.tags, createClassicKey.tags) &&
         Objects.equals(this.targetName, createClassicKey.targetName) &&
+        Objects.equals(this.tenantSecretType, createClassicKey.tenantSecretType) &&
         Objects.equals(this.token, createClassicKey.token) &&
         Objects.equals(this.uidToken, createClassicKey.uidToken) &&
         Objects.equals(this.vaultName, createClassicKey.vaultName);
@@ -396,7 +564,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, keyData, keyOperations, metadata, name, protectionKeyName, tags, targetName, token, uidToken, vaultName);
+    return Objects.hash(alg, certFileData, keyData, keyOperations, keyringName, kmsAlgorithm, locationId, metadata, name, projectId, protectionKeyName, purpose, tags, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
 
@@ -408,11 +576,17 @@ public class CreateClassicKey {
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
+    sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
+    sb.append("    kmsAlgorithm: ").append(toIndentedString(kmsAlgorithm)).append("\n");
+    sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
+    sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
+    sb.append("    tenantSecretType: ").append(toIndentedString(tenantSecretType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    vaultName: ").append(toIndentedString(vaultName)).append("\n");

@@ -31,6 +31,10 @@ import java.util.List;
  */
 
 public class HashiPayload {
+  public static final String SERIALIZED_NAME_IMPORT_AS_JSON = "import_as_json";
+  @SerializedName(SERIALIZED_NAME_IMPORT_AS_JSON)
+  private Boolean importAsJson;
+
   public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
   @SerializedName(SERIALIZED_NAME_NAMESPACES)
   private List<String> namespaces = null;
@@ -42,6 +46,29 @@ public class HashiPayload {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+
+
+  public HashiPayload importAsJson(Boolean importAsJson) {
+    
+    this.importAsJson = importAsJson;
+    return this;
+  }
+
+   /**
+   * Get importAsJson
+   * @return importAsJson
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getImportAsJson() {
+    return importAsJson;
+  }
+
+
+  public void setImportAsJson(Boolean importAsJson) {
+    this.importAsJson = importAsJson;
+  }
 
 
   public HashiPayload namespaces(List<String> namespaces) {
@@ -130,14 +157,15 @@ public class HashiPayload {
       return false;
     }
     HashiPayload hashiPayload = (HashiPayload) o;
-    return Objects.equals(this.namespaces, hashiPayload.namespaces) &&
+    return Objects.equals(this.importAsJson, hashiPayload.importAsJson) &&
+        Objects.equals(this.namespaces, hashiPayload.namespaces) &&
         Objects.equals(this.token, hashiPayload.token) &&
         Objects.equals(this.url, hashiPayload.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespaces, token, url);
+    return Objects.hash(importAsJson, namespaces, token, url);
   }
 
 
@@ -145,6 +173,7 @@ public class HashiPayload {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HashiPayload {\n");
+    sb.append("    importAsJson: ").append(toIndentedString(importAsJson)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

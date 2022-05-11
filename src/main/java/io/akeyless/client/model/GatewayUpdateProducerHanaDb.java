@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerHanaDb is a command that updates mssql producer
+ * gatewayUpdateProducerHanaDb is a command that updates hanadb producer
  */
-@ApiModel(description = "gatewayUpdateProducerHanaDb is a command that updates mssql producer")
+@ApiModel(description = "gatewayUpdateProducerHanaDb is a command that updates hanadb producer")
 
 public class GatewayUpdateProducerHanaDb {
   public static final String SERIALIZED_NAME_HANA_DBNAME = "hana-dbname";

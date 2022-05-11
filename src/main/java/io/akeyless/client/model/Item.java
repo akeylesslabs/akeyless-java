@@ -73,6 +73,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
   private Boolean isEnabled;
 
+  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item_accessibility";
+  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
+  private Long itemAccessibility;
+
   public static final String SERIALIZED_NAME_ITEM_GENERAL_INFO = "item_general_info";
   @SerializedName(SERIALIZED_NAME_ITEM_GENERAL_INFO)
   private ItemGeneralInfo itemGeneralInfo;
@@ -358,6 +362,29 @@ public class Item {
 
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
+  }
+
+
+  public Item itemAccessibility(Long itemAccessibility) {
+    
+    this.itemAccessibility = itemAccessibility;
+    return this;
+  }
+
+   /**
+   * Get itemAccessibility
+   * @return itemAccessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getItemAccessibility() {
+    return itemAccessibility;
+  }
+
+
+  public void setItemAccessibility(Long itemAccessibility) {
+    this.itemAccessibility = itemAccessibility;
   }
 
 
@@ -825,6 +852,7 @@ public class Item {
         Objects.equals(this.deletionDate, item.deletionDate) &&
         Objects.equals(this.displayId, item.displayId) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
+        Objects.equals(this.itemAccessibility, item.itemAccessibility) &&
         Objects.equals(this.itemGeneralInfo, item.itemGeneralInfo) &&
         Objects.equals(this.itemId, item.itemId) &&
         Objects.equals(this.itemMetadata, item.itemMetadata) &&
@@ -847,7 +875,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deletionDate, displayId, isEnabled, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, targetVersions, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, targetVersions, withCustomerFragment);
   }
 
 
@@ -864,6 +892,7 @@ public class Item {
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    itemGeneralInfo: ").append(toIndentedString(itemGeneralInfo)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemMetadata: ").append(toIndentedString(itemMetadata)).append("\n");

@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerHanaDb
 
-gatewayUpdateProducerHanaDb is a command that updates mssql producer
+gatewayUpdateProducerHanaDb is a command that updates hanadb producer
 ## Properties
 
 Name | Type | Description | Notes

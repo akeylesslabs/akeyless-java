@@ -94,7 +94,7 @@ public class UpdateAuthMethodAzureAD {
 
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
-  private Long jwtTtl = 0l;
+  private Long jwtTtl;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
