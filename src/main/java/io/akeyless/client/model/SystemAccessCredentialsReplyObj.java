@@ -41,6 +41,10 @@ public class SystemAccessCredentialsReplyObj {
   @SerializedName(SERIALIZED_NAME_KFM_CREDS)
   private String kfmCreds;
 
+  public static final String SERIALIZED_NAME_TOKEN = "token";
+  @SerializedName(SERIALIZED_NAME_TOKEN)
+  private String token;
+
   public static final String SERIALIZED_NAME_UAM_CREDS = "uam_creds";
   @SerializedName(SERIALIZED_NAME_UAM_CREDS)
   private String uamCreds;
@@ -115,6 +119,29 @@ public class SystemAccessCredentialsReplyObj {
   }
 
 
+  public SystemAccessCredentialsReplyObj token(String token) {
+    
+    this.token = token;
+    return this;
+  }
+
+   /**
+   * Credentials tmp token
+   * @return token
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Credentials tmp token")
+
+  public String getToken() {
+    return token;
+  }
+
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+
   public SystemAccessCredentialsReplyObj uamCreds(String uamCreds) {
     
     this.uamCreds = uamCreds;
@@ -150,12 +177,13 @@ public class SystemAccessCredentialsReplyObj {
     return Objects.equals(this.authCreds, systemAccessCredentialsReplyObj.authCreds) &&
         Objects.equals(this.expiry, systemAccessCredentialsReplyObj.expiry) &&
         Objects.equals(this.kfmCreds, systemAccessCredentialsReplyObj.kfmCreds) &&
+        Objects.equals(this.token, systemAccessCredentialsReplyObj.token) &&
         Objects.equals(this.uamCreds, systemAccessCredentialsReplyObj.uamCreds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authCreds, expiry, kfmCreds, uamCreds);
+    return Objects.hash(authCreds, expiry, kfmCreds, token, uamCreds);
   }
 
 
@@ -166,6 +194,7 @@ public class SystemAccessCredentialsReplyObj {
     sb.append("    authCreds: ").append(toIndentedString(authCreds)).append("\n");
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    kfmCreds: ").append(toIndentedString(kfmCreds)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uamCreds: ").append(toIndentedString(uamCreds)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -77,10 +77,6 @@ public class LogForwardingConfigPart {
   @SerializedName(SERIALIZED_NAME_SPLUNK_CONFIG)
   private SplunkLogForwardingConfig splunkConfig;
 
-  public static final String SERIALIZED_NAME_STD_OUT = "std_out";
-  @SerializedName(SERIALIZED_NAME_STD_OUT)
-  private Boolean stdOut;
-
   public static final String SERIALIZED_NAME_SYSLOG_CONFIG = "syslog_config";
   @SerializedName(SERIALIZED_NAME_SYSLOG_CONFIG)
   private SyslogLogForwardingConfig syslogConfig;
@@ -320,29 +316,6 @@ public class LogForwardingConfigPart {
   }
 
 
-  public LogForwardingConfigPart stdOut(Boolean stdOut) {
-    
-    this.stdOut = stdOut;
-    return this;
-  }
-
-   /**
-   * Get stdOut
-   * @return stdOut
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getStdOut() {
-    return stdOut;
-  }
-
-
-  public void setStdOut(Boolean stdOut) {
-    this.stdOut = stdOut;
-  }
-
-
   public LogForwardingConfigPart syslogConfig(SyslogLogForwardingConfig syslogConfig) {
     
     this.syslogConfig = syslogConfig;
@@ -408,14 +381,13 @@ public class LogForwardingConfigPart {
         Objects.equals(this.logzIoConfig, logForwardingConfigPart.logzIoConfig) &&
         Objects.equals(this.pullIntervalSec, logForwardingConfigPart.pullIntervalSec) &&
         Objects.equals(this.splunkConfig, logForwardingConfigPart.splunkConfig) &&
-        Objects.equals(this.stdOut, logForwardingConfigPart.stdOut) &&
         Objects.equals(this.syslogConfig, logForwardingConfigPart.syslogConfig) &&
         Objects.equals(this.targetLogType, logForwardingConfigPart.targetLogType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, stdOut, syslogConfig, targetLogType);
+    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
   }
 
 
@@ -433,7 +405,6 @@ public class LogForwardingConfigPart {
     sb.append("    logzIoConfig: ").append(toIndentedString(logzIoConfig)).append("\n");
     sb.append("    pullIntervalSec: ").append(toIndentedString(pullIntervalSec)).append("\n");
     sb.append("    splunkConfig: ").append(toIndentedString(splunkConfig)).append("\n");
-    sb.append("    stdOut: ").append(toIndentedString(stdOut)).append("\n");
     sb.append("    syslogConfig: ").append(toIndentedString(syslogConfig)).append("\n");
     sb.append("    targetLogType: ").append(toIndentedString(targetLogType)).append("\n");
     sb.append("}");

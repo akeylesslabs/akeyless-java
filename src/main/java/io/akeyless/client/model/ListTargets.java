@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ListTargets
@@ -40,6 +42,10 @@ public class ListTargets {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private List<String> type = null;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -115,6 +121,37 @@ public class ListTargets {
   }
 
 
+  public ListTargets type(List<String> type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  public ListTargets addTypeItem(String typeItem) {
+    if (this.type == null) {
+      this.type = new ArrayList<String>();
+    }
+    this.type.add(typeItem);
+    return this;
+  }
+
+   /**
+   * The target types list . In case it is empty, all types of targets will be returned. options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The target types list . In case it is empty, all types of targets will be returned. options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]")
+
+  public List<String> getType() {
+    return type;
+  }
+
+
+  public void setType(List<String> type) {
+    this.type = type;
+  }
+
+
   public ListTargets uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -150,12 +187,13 @@ public class ListTargets {
     return Objects.equals(this.filter, listTargets.filter) &&
         Objects.equals(this.paginationToken, listTargets.paginationToken) &&
         Objects.equals(this.token, listTargets.token) &&
+        Objects.equals(this.type, listTargets.type) &&
         Objects.equals(this.uidToken, listTargets.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, paginationToken, token, uidToken);
+    return Objects.hash(filter, paginationToken, token, type, uidToken);
   }
 
 
@@ -166,6 +204,7 @@ public class ListTargets {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

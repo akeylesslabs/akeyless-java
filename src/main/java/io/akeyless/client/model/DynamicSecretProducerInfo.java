@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "DynamicSecretProducerInfo The dynamic secret producer info This parameter relevant and required only in case of create update dynamic secret.")
 
 public class DynamicSecretProducerInfo {
+  public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
+  @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
+  private String failureMessage;
+
   public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   private Long gwClusterId;
@@ -49,6 +53,29 @@ public class DynamicSecretProducerInfo {
   public static final String SERIALIZED_NAME_PRODUCER_TYPE = "producer_type";
   @SerializedName(SERIALIZED_NAME_PRODUCER_TYPE)
   private String producerType;
+
+
+  public DynamicSecretProducerInfo failureMessage(String failureMessage) {
+    
+    this.failureMessage = failureMessage;
+    return this;
+  }
+
+   /**
+   * Get failureMessage
+   * @return failureMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+
+  public void setFailureMessage(String failureMessage) {
+    this.failureMessage = failureMessage;
+  }
 
 
   public DynamicSecretProducerInfo gwClusterId(Long gwClusterId) {
@@ -175,7 +202,8 @@ public class DynamicSecretProducerInfo {
       return false;
     }
     DynamicSecretProducerInfo dynamicSecretProducerInfo = (DynamicSecretProducerInfo) o;
-    return Objects.equals(this.gwClusterId, dynamicSecretProducerInfo.gwClusterId) &&
+    return Objects.equals(this.failureMessage, dynamicSecretProducerInfo.failureMessage) &&
+        Objects.equals(this.gwClusterId, dynamicSecretProducerInfo.gwClusterId) &&
         Objects.equals(this.producerLastKeepAlive, dynamicSecretProducerInfo.producerLastKeepAlive) &&
         Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
         Objects.equals(this.producerStatus, dynamicSecretProducerInfo.producerStatus) &&
@@ -184,7 +212,7 @@ public class DynamicSecretProducerInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gwClusterId, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
+    return Objects.hash(failureMessage, gwClusterId, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
   }
 
 
@@ -192,6 +220,7 @@ public class DynamicSecretProducerInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretProducerInfo {\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    producerLastKeepAlive: ").append(toIndentedString(producerLastKeepAlive)).append("\n");
     sb.append("    producerMetadata: ").append(toIndentedString(producerMetadata)).append("\n");

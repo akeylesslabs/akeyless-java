@@ -27,6 +27,7 @@ import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.RotatedSecretDetailsInfo;
 import io.akeyless.client.model.SecureRemoteAccess;
 import io.akeyless.client.model.StaticSecretDetailsInfo;
+import io.akeyless.client.model.TokenizerInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -43,6 +44,10 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_CLASSIC_KEY_DETAILS = "classic_key_details";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_DETAILS)
   private ClassicKeyDetailsInfo classicKeyDetails;
+
+  public static final String SERIALIZED_NAME_DISPLAY_METADATA = "display_metadata";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_METADATA)
+  private String displayMetadata;
 
   public static final String SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS = "dynamic_secret_producer_details";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS)
@@ -63,6 +68,10 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_STATIC_SECRET_INFO = "static_secret_info";
   @SerializedName(SERIALIZED_NAME_STATIC_SECRET_INFO)
   private StaticSecretDetailsInfo staticSecretInfo;
+
+  public static final String SERIALIZED_NAME_TOKENIZER_INFO = "tokenizer_info";
+  @SerializedName(SERIALIZED_NAME_TOKENIZER_INFO)
+  private TokenizerInfo tokenizerInfo;
 
 
   public ItemGeneralInfo certIssueDetails(CertificateIssueInfo certIssueDetails) {
@@ -108,6 +117,29 @@ public class ItemGeneralInfo {
 
   public void setClassicKeyDetails(ClassicKeyDetailsInfo classicKeyDetails) {
     this.classicKeyDetails = classicKeyDetails;
+  }
+
+
+  public ItemGeneralInfo displayMetadata(String displayMetadata) {
+    
+    this.displayMetadata = displayMetadata;
+    return this;
+  }
+
+   /**
+   * Get displayMetadata
+   * @return displayMetadata
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDisplayMetadata() {
+    return displayMetadata;
+  }
+
+
+  public void setDisplayMetadata(String displayMetadata) {
+    this.displayMetadata = displayMetadata;
   }
 
 
@@ -226,6 +258,29 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo tokenizerInfo(TokenizerInfo tokenizerInfo) {
+    
+    this.tokenizerInfo = tokenizerInfo;
+    return this;
+  }
+
+   /**
+   * Get tokenizerInfo
+   * @return tokenizerInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TokenizerInfo getTokenizerInfo() {
+    return tokenizerInfo;
+  }
+
+
+  public void setTokenizerInfo(TokenizerInfo tokenizerInfo) {
+    this.tokenizerInfo = tokenizerInfo;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -237,16 +292,18 @@ public class ItemGeneralInfo {
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
+        Objects.equals(this.displayMetadata, itemGeneralInfo.displayMetadata) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
         Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
         Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails) &&
         Objects.equals(this.secureRemoteAccessDetails, itemGeneralInfo.secureRemoteAccessDetails) &&
-        Objects.equals(this.staticSecretInfo, itemGeneralInfo.staticSecretInfo);
+        Objects.equals(this.staticSecretInfo, itemGeneralInfo.staticSecretInfo) &&
+        Objects.equals(this.tokenizerInfo, itemGeneralInfo.tokenizerInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, classicKeyDetails, dynamicSecretProducerDetails, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo);
+    return Objects.hash(certIssueDetails, classicKeyDetails, displayMetadata, dynamicSecretProducerDetails, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
 
@@ -256,11 +313,13 @@ public class ItemGeneralInfo {
     sb.append("class ItemGeneralInfo {\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
+    sb.append("    displayMetadata: ").append(toIndentedString(displayMetadata)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
     sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
     sb.append("    staticSecretInfo: ").append(toIndentedString(staticSecretInfo)).append("\n");
+    sb.append("    tokenizerInfo: ").append(toIndentedString(tokenizerInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

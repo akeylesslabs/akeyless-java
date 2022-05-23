@@ -33,6 +33,10 @@ public class Producer {
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
+  public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
+  @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
+  private String failureMessage;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
@@ -70,6 +74,29 @@ public class Producer {
 
   public void setActive(Boolean active) {
     this.active = active;
+  }
+
+
+  public Producer failureMessage(String failureMessage) {
+    
+    this.failureMessage = failureMessage;
+    return this;
+  }
+
+   /**
+   * Get failureMessage
+   * @return failureMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+
+  public void setFailureMessage(String failureMessage) {
+    this.failureMessage = failureMessage;
   }
 
 
@@ -175,6 +202,7 @@ public class Producer {
     }
     Producer producer = (Producer) o;
     return Objects.equals(this.active, producer.active) &&
+        Objects.equals(this.failureMessage, producer.failureMessage) &&
         Objects.equals(this.id, producer.id) &&
         Objects.equals(this.init, producer.init) &&
         Objects.equals(this.name, producer.name) &&
@@ -183,7 +211,7 @@ public class Producer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, id, init, name, type);
+    return Objects.hash(active, failureMessage, id, init, name, type);
   }
 
 
@@ -192,6 +220,7 @@ public class Producer {
     StringBuilder sb = new StringBuilder();
     sb.append("class Producer {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    init: ").append(toIndentedString(init)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
