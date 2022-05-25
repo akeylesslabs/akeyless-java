@@ -67,6 +67,18 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_SECRET)
   private String azureClientSecret;
 
+  public static final String SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME = "azure_resource_group_name";
+  @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME)
+  private String azureResourceGroupName;
+
+  public static final String SERIALIZED_NAME_AZURE_RESOURCE_NAME = "azure_resource_name";
+  @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_NAME)
+  private String azureResourceName;
+
+  public static final String SERIALIZED_NAME_AZURE_SUBSCRIPTION_ID = "azure_subscription_id";
+  @SerializedName(SERIALIZED_NAME_AZURE_SUBSCRIPTION_ID)
+  private String azureSubscriptionId;
+
   public static final String SERIALIZED_NAME_AZURE_TENANT_ID = "azure_tenant_id";
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
@@ -584,6 +596,75 @@ public class TargetTypeDetailsInput {
 
   public void setAzureClientSecret(String azureClientSecret) {
     this.azureClientSecret = azureClientSecret;
+  }
+
+
+  public TargetTypeDetailsInput azureResourceGroupName(String azureResourceGroupName) {
+    
+    this.azureResourceGroupName = azureResourceGroupName;
+    return this;
+  }
+
+   /**
+   * Get azureResourceGroupName
+   * @return azureResourceGroupName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureResourceGroupName() {
+    return azureResourceGroupName;
+  }
+
+
+  public void setAzureResourceGroupName(String azureResourceGroupName) {
+    this.azureResourceGroupName = azureResourceGroupName;
+  }
+
+
+  public TargetTypeDetailsInput azureResourceName(String azureResourceName) {
+    
+    this.azureResourceName = azureResourceName;
+    return this;
+  }
+
+   /**
+   * Get azureResourceName
+   * @return azureResourceName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureResourceName() {
+    return azureResourceName;
+  }
+
+
+  public void setAzureResourceName(String azureResourceName) {
+    this.azureResourceName = azureResourceName;
+  }
+
+
+  public TargetTypeDetailsInput azureSubscriptionId(String azureSubscriptionId) {
+    
+    this.azureSubscriptionId = azureSubscriptionId;
+    return this;
+  }
+
+   /**
+   * Get azureSubscriptionId
+   * @return azureSubscriptionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureSubscriptionId() {
+    return azureSubscriptionId;
+  }
+
+
+  public void setAzureSubscriptionId(String azureSubscriptionId) {
+    this.azureSubscriptionId = azureSubscriptionId;
   }
 
 
@@ -2407,6 +2488,9 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.awsSessionToken, targetTypeDetailsInput.awsSessionToken) &&
         Objects.equals(this.azureClientId, targetTypeDetailsInput.azureClientId) &&
         Objects.equals(this.azureClientSecret, targetTypeDetailsInput.azureClientSecret) &&
+        Objects.equals(this.azureResourceGroupName, targetTypeDetailsInput.azureResourceGroupName) &&
+        Objects.equals(this.azureResourceName, targetTypeDetailsInput.azureResourceName) &&
+        Objects.equals(this.azureSubscriptionId, targetTypeDetailsInput.azureSubscriptionId) &&
         Objects.equals(this.azureTenantId, targetTypeDetailsInput.azureTenantId) &&
         Objects.equals(this.caCertData, targetTypeDetailsInput.caCertData) &&
         Objects.equals(this.caCertName, targetTypeDetailsInput.caCertName) &&
@@ -2489,7 +2573,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2506,6 +2590,9 @@ public class TargetTypeDetailsInput {
     sb.append("    awsSessionToken: ").append(toIndentedString(awsSessionToken)).append("\n");
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
+    sb.append("    azureResourceGroupName: ").append(toIndentedString(azureResourceGroupName)).append("\n");
+    sb.append("    azureResourceName: ").append(toIndentedString(azureResourceName)).append("\n");
+    sb.append("    azureSubscriptionId: ").append(toIndentedString(azureSubscriptionId)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    caCertData: ").append(toIndentedString(caCertData)).append("\n");
     sb.append("    caCertName: ").append(toIndentedString(caCertName)).append("\n");

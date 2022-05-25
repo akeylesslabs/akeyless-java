@@ -26,13 +26,19 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Target
  */
 
 public class Target {
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Object> attributes = null;
+
   public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   private List<String> clientPermissions = null;
@@ -72,6 +78,37 @@ public class Target {
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
+
+
+  public Target attributes(Map<String, Object> attributes) {
+    
+    this.attributes = attributes;
+    return this;
+  }
+
+  public Target putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<String, Object>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+   /**
+   * this is not \&quot;omitempty\&quot; since an empty value causes no update while an empty map will clear the attributes
+   * @return attributes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "this is not \"omitempty\" since an empty value causes no update while an empty map will clear the attributes")
+
+  public Map<String, Object> getAttributes() {
+    return attributes;
+  }
+
+
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+  }
 
 
   public Target clientPermissions(List<String> clientPermissions) {
@@ -337,7 +374,8 @@ public class Target {
       return false;
     }
     Target target = (Target) o;
-    return Objects.equals(this.clientPermissions, target.clientPermissions) &&
+    return Objects.equals(this.attributes, target.attributes) &&
+        Objects.equals(this.clientPermissions, target.clientPermissions) &&
         Objects.equals(this.comment, target.comment) &&
         Objects.equals(this.lastVersion, target.lastVersion) &&
         Objects.equals(this.protectionKeyName, target.protectionKeyName) &&
@@ -351,7 +389,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientPermissions, comment, lastVersion, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(attributes, clientPermissions, comment, lastVersion, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
   }
 
 
@@ -359,6 +397,7 @@ public class Target {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Target {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");

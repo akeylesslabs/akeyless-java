@@ -159,6 +159,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_SSH_USERNAME)
   private String sshUsername;
 
+  public static final String SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME = "storage-account-key-name";
+  @SerializedName(SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME)
+  private String storageAccountKeyName;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -926,6 +930,29 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret storageAccountKeyName(String storageAccountKeyName) {
+    
+    this.storageAccountKeyName = storageAccountKeyName;
+    return this;
+  }
+
+   /**
+   * The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account)
+   * @return storageAccountKeyName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account)")
+
+  public String getStorageAccountKeyName() {
+    return storageAccountKeyName;
+  }
+
+
+  public void setStorageAccountKeyName(String storageAccountKeyName) {
+    this.storageAccountKeyName = storageAccountKeyName;
+  }
+
+
   public CreateRotatedSecret tags(List<String> tags) {
     
     this.tags = tags;
@@ -1112,6 +1139,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.secureAccessWebProxy, createRotatedSecret.secureAccessWebProxy) &&
         Objects.equals(this.sshPassword, createRotatedSecret.sshPassword) &&
         Objects.equals(this.sshUsername, createRotatedSecret.sshUsername) &&
+        Objects.equals(this.storageAccountKeyName, createRotatedSecret.storageAccountKeyName) &&
         Objects.equals(this.tags, createRotatedSecret.tags) &&
         Objects.equals(this.targetName, createRotatedSecret.targetName) &&
         Objects.equals(this.token, createRotatedSecret.token) &&
@@ -1122,7 +1150,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, tags, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
 
@@ -1162,6 +1190,7 @@ public class CreateRotatedSecret {
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
+    sb.append("    storageAccountKeyName: ").append(toIndentedString(storageAccountKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -72,6 +72,10 @@ public class GatewayCreateProducerRedshift {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_SSL = "ssl";
+  @SerializedName(SERIALIZED_NAME_SSL)
+  private Boolean ssl;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -330,6 +334,29 @@ public class GatewayCreateProducerRedshift {
   }
 
 
+  public GatewayCreateProducerRedshift ssl(Boolean ssl) {
+    
+    this.ssl = ssl;
+    return this;
+  }
+
+   /**
+   * SSL connection mode
+   * @return ssl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL connection mode")
+
+  public Boolean getSsl() {
+    return ssl;
+  }
+
+
+  public void setSsl(Boolean ssl) {
+    this.ssl = ssl;
+  }
+
+
   public GatewayCreateProducerRedshift tags(List<String> tags) {
     
     this.tags = tags;
@@ -472,6 +499,7 @@ public class GatewayCreateProducerRedshift {
         Objects.equals(this.redshiftUsername, gatewayCreateProducerRedshift.redshiftUsername) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerRedshift.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerRedshift.secureAccessHost) &&
+        Objects.equals(this.ssl, gatewayCreateProducerRedshift.ssl) &&
         Objects.equals(this.tags, gatewayCreateProducerRedshift.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerRedshift.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerRedshift.token) &&
@@ -481,7 +509,7 @@ public class GatewayCreateProducerRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, name, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -499,6 +527,7 @@ public class GatewayCreateProducerRedshift {
     sb.append("    redshiftUsername: ").append(toIndentedString(redshiftUsername)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

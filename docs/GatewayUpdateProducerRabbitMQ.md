@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **rabbitmqUserWritePermission** | **String** | User write permission |  [optional]
 **secureAccessEnable** | **String** |  |  [optional]
 **secureAccessUrl** | **String** |  |  [optional]
+**secureAccessWeb** | **Boolean** | Secure Access Web Category |  [optional]
 **secureAccessWebBrowsing** | **Boolean** |  |  [optional]
 **secureAccessWebProxy** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]

@@ -6014,6 +6014,64 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /update-ldap-target:
+    post:
+      operationId: updateLdapTarget
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateLdapTarget'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateLdapTargetOutput'
+          description: updateLdapTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /update-ldap-target-details:
+    post:
+      operationId: updateLdapTargetDetails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateLdapTargetDetails'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateTargetOutput'
+          description: updateTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /update-pki-cert-issuer:
     post:
       operationId: UpdatePKICertIssuer
@@ -7943,6 +8001,12 @@ components:
           schema:
             $ref: '#/components/schemas/updateItemOutput'
       description: updateItemResponse wraps response body.
+    updateLdapTargetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateLdapTargetOutput'
+      description: updateLdapTargetResponse wraps response body.
     updateNativeK8STargetResponse:
       content:
         application/json:
@@ -8689,7 +8753,7 @@ components:
         - client_permissions
         - client_permissions
         access_info:
-          jwt_ttl: 1
+          jwt_ttl: 6
           gcp_access_rules:
             bound_service_accounts:
             - bound_service_accounts
@@ -8739,7 +8803,7 @@ components:
             issuer: issuer
           universal_identity_access_rules:
             deny_inheritance: true
-            ttl: 5
+            ttl: 1
             deny_rotate: true
           oauth2_access_rules:
             bound_claims:
@@ -8817,9 +8881,7 @@ components:
             bound_organizational_units:
             - bound_organizational_units
             - bound_organizational_units
-            certificate:
-            - 6
-            - 6
+            certificate: certificate
             bound_uri_sans:
             - bound_uri_sans
             - bound_uri_sans
@@ -8923,7 +8985,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AuthMethodAccessInfo:
       example:
-        jwt_ttl: 1
+        jwt_ttl: 6
         gcp_access_rules:
           bound_service_accounts:
           - bound_service_accounts
@@ -8973,7 +9035,7 @@ components:
           issuer: issuer
         universal_identity_access_rules:
           deny_inheritance: true
-          ttl: 5
+          ttl: 1
           deny_rotate: true
         oauth2_access_rules:
           bound_claims:
@@ -9051,9 +9113,7 @@ components:
           bound_organizational_units:
           - bound_organizational_units
           - bound_organizational_units
-          certificate:
-          - 6
-          - 6
+          certificate: certificate
           bound_uri_sans:
           - bound_uri_sans
           - bound_uri_sans
@@ -9473,9 +9533,7 @@ components:
         bound_organizational_units:
         - bound_organizational_units
         - bound_organizational_units
-        certificate:
-        - 6
-        - 6
+        certificate: certificate
         bound_uri_sans:
         - bound_uri_sans
         - bound_uri_sans
@@ -9528,10 +9586,7 @@ components:
           x-go-name: BoundUriSans
         certificate:
           description: Base64 encdoed PEM certificate
-          items:
-            format: uint8
-            type: integer
-          type: array
+          type: string
           x-go-name: Certificate
         revoked_cert_ids:
           description: A list of revoked cert ids
@@ -10485,6 +10540,7 @@ components:
         gke_cluster_ca_certificate: gke_cluster_ca_certificate
         host_port: host_port
         k8s_bearer_token: k8s_bearer_token
+        azure_resource_name: azure_resource_name
         enable_admin_rotation: true
         cassandra_creation_statements: cassandra_creation_statements
         failure_message: failure_message
@@ -10503,7 +10559,9 @@ components:
         ldap_bind_password: ldap_bind_password
         venafi_allow_subdomains: true
         aws_user_console_access: true
+        azure_resource_group_name: azure_resource_group_name
         user_principal_name: user_principal_name
+        azure_subscription_id: azure_subscription_id
         externally_provided_user: externally_provided_user
         db_server_certificates: db_server_certificates
         gcp_key_algo: gcp_key_algo
@@ -10671,6 +10729,15 @@ components:
         azure_fixed_user_only:
           type: boolean
           x-go-name: AzureFixedUserOnly
+        azure_resource_group_name:
+          type: string
+          x-go-name: AzureResourceGroupName
+        azure_resource_name:
+          type: string
+          x-go-name: AzureResourceName
+        azure_subscription_id:
+          type: string
+          x-go-name: AzureSubscriptionId
         azure_tenant_id:
           type: string
           x-go-name: AzureTenantID
@@ -11703,6 +11770,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           chef_server_key: chef_server_key
           ssl_connection_certificate: ssl_connection_certificate
           client_id: client_id
@@ -11728,8 +11796,10 @@ components:
           rabbitmq_server_password: rabbitmq_server_password
           ldap_bind_password: ldap_bind_password
           private_key: private_key
+          azure_resource_group_name: azure_resource_group_name
           chef_server_username: chef_server_username
           db_host_name: db_host_name
+          azure_subscription_id: azure_subscription_id
           db_name: db_name
           port: port
           db_server_certificates: db_server_certificates
@@ -11821,6 +11891,8 @@ components:
             version: 9
             customer_fragment_id: customer_fragment_id
           target_type: target_type
+          attributes:
+            key: '{}'
           comment: comment
           protection_key_name: protection_key_name
           target_id: 6
@@ -13394,7 +13466,7 @@ components:
           - client_permissions
           - client_permissions
           access_info:
-            jwt_ttl: 1
+            jwt_ttl: 6
             gcp_access_rules:
               bound_service_accounts:
               - bound_service_accounts
@@ -13444,7 +13516,7 @@ components:
               issuer: issuer
             universal_identity_access_rules:
               deny_inheritance: true
-              ttl: 5
+              ttl: 1
               deny_rotate: true
             oauth2_access_rules:
               bound_claims:
@@ -13522,9 +13594,7 @@ components:
               bound_organizational_units:
               - bound_organizational_units
               - bound_organizational_units
-              certificate:
-              - 6
-              - 6
+              certificate: certificate
               bound_uri_sans:
               - bound_uri_sans
               - bound_uri_sans
@@ -13645,7 +13715,7 @@ components:
           - client_permissions
           - client_permissions
           access_info:
-            jwt_ttl: 1
+            jwt_ttl: 6
             gcp_access_rules:
               bound_service_accounts:
               - bound_service_accounts
@@ -13695,7 +13765,7 @@ components:
               issuer: issuer
             universal_identity_access_rules:
               deny_inheritance: true
-              ttl: 5
+              ttl: 1
               deny_rotate: true
             oauth2_access_rules:
               bound_claims:
@@ -13773,9 +13843,7 @@ components:
               bound_organizational_units:
               - bound_organizational_units
               - bound_organizational_units
-              certificate:
-              - 6
-              - 6
+              certificate: certificate
               bound_uri_sans:
               - bound_uri_sans
               - bound_uri_sans
@@ -14640,6 +14708,8 @@ components:
             version: 9
             customer_fragment_id: customer_fragment_id
           target_type: target_type
+          attributes:
+            key: '{}'
           comment: comment
           protection_key_name: protection_key_name
           target_id: 6
@@ -14674,6 +14744,8 @@ components:
             version: 9
             customer_fragment_id: customer_fragment_id
           target_type: target_type
+          attributes:
+            key: '{}'
           comment: comment
           protection_key_name: protection_key_name
           target_id: 6
@@ -16275,10 +16347,21 @@ components:
           version: 9
           customer_fragment_id: customer_fragment_id
         target_type: target_type
+        attributes:
+          key: '{}'
         comment: comment
         protection_key_name: protection_key_name
         target_id: 6
       properties:
+        attributes:
+          additionalProperties:
+            properties: {}
+            type: object
+          description: |-
+            this is not "omitempty" since an empty value causes no update
+            while an empty map will clear the attributes
+          type: object
+          x-go-name: Attributes
         client_permissions:
           items:
             type: string
@@ -16402,6 +16485,7 @@ components:
         gke_cluster_endpoint: gke_cluster_endpoint
         gke_cluster_ca_certificate: gke_cluster_ca_certificate
         k8s_bearer_token: k8s_bearer_token
+        azure_resource_name: azure_resource_name
         chef_server_key: chef_server_key
         ssl_connection_certificate: ssl_connection_certificate
         client_id: client_id
@@ -16427,8 +16511,10 @@ components:
         rabbitmq_server_password: rabbitmq_server_password
         ldap_bind_password: ldap_bind_password
         private_key: private_key
+        azure_resource_group_name: azure_resource_group_name
         chef_server_username: chef_server_username
         db_host_name: db_host_name
+        azure_subscription_id: azure_subscription_id
         db_name: db_name
         port: port
         db_server_certificates: db_server_certificates
@@ -16516,6 +16602,15 @@ components:
         azure_client_secret:
           type: string
           x-go-name: AzureClientSecret
+        azure_resource_group_name:
+          type: string
+          x-go-name: AzureResourceGroupName
+        azure_resource_name:
+          type: string
+          x-go-name: AzureResourceName
+        azure_subscription_id:
+          type: string
+          x-go-name: AzureSubscriptionId
         azure_tenant_id:
           type: string
           x-go-name: AzureTenantID
@@ -16900,7 +16995,7 @@ components:
     UniversalIdentityAccessRules:
       example:
         deny_inheritance: true
-        ttl: 5
+        ttl: 1
         deny_rotate: true
       properties:
         deny_inheritance:
@@ -18674,6 +18769,18 @@ components:
           description: Target name
           type: string
           x-go-name: TargetName
+        resource-group-name:
+          description: The Resource Group name in your Azure subscription
+          type: string
+          x-go-name: AzureResourceGroupName
+        resource-name:
+          description: The name of the relevant Resource
+          type: string
+          x-go-name: AzureResourceName
+        subscription-id:
+          description: Azure Subscription Id
+          type: string
+          x-go-name: AzureSubscriptionId
         tenant-id:
           type: string
           x-go-name: AzureTenantID
@@ -19644,6 +19751,11 @@ components:
           description: 'Deprecated: use RotatedUser'
           type: string
           x-go-name: SshUser
+        storage-account-key-name:
+          description: The name of the storage account key to rotate [key1/key2/kerb1/kerb2]
+            (relevat to azure-storage-account)
+          type: string
+          x-go-name: StorageKeyName
         tags:
           description: List of the tags attached to this secret
           items:
@@ -20463,7 +20575,8 @@ components:
           x-go-name: RoleName
         rule-type:
           default: item-rule
-          description: item-rule, role-rule, auth-method-rule, search-rule or reports-rule
+          description: item-rule, role-rule, auth-method-rule, search-rule, reports-rule,
+            gw-reports-rule or sra-reports-rule
           type: string
           x-go-name: RuleType
         token:
@@ -21286,6 +21399,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -21304,7 +21418,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -21620,6 +21736,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -21638,7 +21755,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -21943,6 +22062,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -21961,7 +22081,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -22228,6 +22350,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -22246,7 +22369,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -22562,6 +22687,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -22580,7 +22706,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -22929,6 +23057,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -22947,7 +23076,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -23208,6 +23339,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -23226,7 +23358,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -23515,6 +23649,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -23533,7 +23668,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -23797,6 +23934,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -23815,7 +23953,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -24079,6 +24219,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -24097,7 +24238,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -24377,6 +24520,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -24395,7 +24539,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -24687,6 +24833,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -24705,7 +24852,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -24983,6 +25132,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -25001,7 +25151,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -25293,6 +25445,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -25311,7 +25464,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -25621,6 +25776,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -25639,7 +25795,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -25940,6 +26098,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -25958,7 +26117,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -26247,6 +26408,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -26265,7 +26427,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -26559,6 +26723,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -26577,7 +26742,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -26874,6 +27041,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -26892,7 +27060,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -27041,6 +27211,11 @@ components:
         secure-access-url:
           type: string
           x-go-name: SecureAccessURL
+        secure-access-web:
+          default: true
+          description: Secure Access Web Category
+          type: boolean
+          x-go-name: AccessWebCategory
         secure-access-web-browsing:
           type: boolean
           x-go-name: SecureAccessIsolated
@@ -27182,6 +27357,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -27200,7 +27376,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -27498,6 +27676,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -27516,7 +27695,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -27661,6 +27842,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        ssl:
+          description: SSL connection mode
+          type: boolean
+          x-go-name: SSLConnection
         tags:
           description: List of the tags attached to this secret
           items:
@@ -27796,6 +27981,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -27814,7 +28000,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -28080,6 +28268,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -28098,7 +28287,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -29448,6 +29639,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -29466,7 +29658,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -29786,6 +29980,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -29804,7 +29999,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -30113,6 +30310,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -30131,7 +30329,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -30402,6 +30602,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -30420,7 +30621,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -30740,6 +30943,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -30758,7 +30962,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -31115,6 +31321,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -31133,7 +31340,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -31398,6 +31607,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -31416,7 +31626,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -31709,6 +31921,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -31727,7 +31940,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -31995,6 +32210,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -32013,7 +32229,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -32281,6 +32499,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -32299,7 +32518,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -32583,6 +32804,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -32601,7 +32823,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -32897,6 +33121,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -32915,7 +33140,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -33197,6 +33424,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -33215,7 +33443,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -33511,6 +33741,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -33529,7 +33760,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -33843,6 +34076,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -33861,7 +34095,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -34166,6 +34402,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -34184,7 +34421,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -34477,6 +34716,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -34495,7 +34735,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -34793,6 +35035,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -34811,7 +35054,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -35112,6 +35357,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -35130,7 +35376,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -35283,6 +35531,11 @@ components:
         secure-access-url:
           type: string
           x-go-name: SecureAccessURL
+        secure-access-web:
+          default: true
+          description: Secure Access Web Category
+          type: boolean
+          x-go-name: AccessWebCategory
         secure-access-web-browsing:
           type: boolean
           x-go-name: SecureAccessIsolated
@@ -35424,6 +35677,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -35442,7 +35696,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -35744,6 +36000,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -35762,7 +36019,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -35911,6 +36170,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        ssl:
+          description: SSL connection mode
+          type: boolean
+          x-go-name: SSLConnection
         tags:
           description: List of the tags attached to this secret
           items:
@@ -36046,6 +36309,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -36064,7 +36328,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -36334,6 +36600,7 @@ components:
           gke_cluster_ca_certificate: gke_cluster_ca_certificate
           host_port: host_port
           k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
           enable_admin_rotation: true
           cassandra_creation_statements: cassandra_creation_statements
           failure_message: failure_message
@@ -36352,7 +36619,9 @@ components:
           ldap_bind_password: ldap_bind_password
           venafi_allow_subdomains: true
           aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
           externally_provided_user: externally_provided_user
           db_server_certificates: db_server_certificates
           gcp_key_algo: gcp_key_algo
@@ -36712,18 +36981,13 @@ components:
     getRSAPublicOutput:
       example:
         raw: raw
-        ssh:
-        - 0
-        - 0
+        ssh: ssh
       properties:
         raw:
           type: string
           x-go-name: Raw
         ssh:
-          items:
-            format: uint8
-            type: integer
-          type: array
+          type: string
           x-go-name: SSH
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -37356,6 +37620,9 @@ components:
           description: Filter by item name or part of it
           type: string
           x-go-name: Filter
+        minimal-view:
+          type: boolean
+          x-go-name: BasicData
         pagination-token:
           description: Next page reference
           type: string
@@ -37729,8 +37996,8 @@ components:
           x-go-name: RoleName
         rule-type:
           default: item-rule
-          description: item-rule, target-rule, role-rule, auth-method-rule, search-rule
-            or reports-rule
+          description: item-rule, target-rule, role-rule, auth-method-rule, search-rule,
+            reports-rule, gw-reports-rule or sra-reports-rule
           type: string
           x-go-name: RuleType
         token:
@@ -39570,6 +39837,18 @@ components:
           description: New target name
           type: string
           x-go-name: NewTargetName
+        resource-group-name:
+          description: The Resource Group name in your Azure subscription
+          type: string
+          x-go-name: AzureResourceGroupName
+        resource-name:
+          description: The name of the relevant Resource
+          type: string
+          x-go-name: AzureResourceName
+        subscription-id:
+          description: Azure Subscription Id
+          type: string
+          x-go-name: AzureSubscriptionId
         tenant-id:
           type: string
           x-go-name: AzureTenantID
@@ -40253,6 +40532,125 @@ components:
           x-go-name: Updated
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateLdapTarget:
+      properties:
+        bind-dn:
+          type: string
+          x-go-name: BindDn
+        bind-dn-password:
+          type: string
+          x-go-name: BindDnPassword
+        comment:
+          description: Comment about the target
+          type: string
+          x-go-name: Comment
+        keep-prev-version:
+          type: string
+          x-go-name: KeepPrevVersion
+        key:
+          description: |-
+            The name of a key that used to encrypt the target secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        ldap-ca-cert:
+          type: string
+          x-go-name: LdapCACert
+        ldap-url:
+          type: string
+          x-go-name: LdapUrl
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        new-name:
+          description: New target name
+          type: string
+          x-go-name: NewTargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        token-expiration:
+          type: string
+          x-go-name: TokenExpiration
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        update-version:
+          description: Deprecated
+          type: boolean
+          x-go-name: CreateNewVersion
+      required:
+      - name
+      title: updateLdapTarget is a command that updates an existing target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateLdapTargetDetails:
+      properties:
+        bind-dn:
+          type: string
+          x-go-name: BindDn
+        bind-dn-password:
+          type: string
+          x-go-name: BindDnPassword
+        keep-prev-version:
+          type: string
+          x-go-name: KeepPrevVersion
+        key:
+          type: string
+          x-go-name: ProtectionKey
+        ldap-ca-cert:
+          type: string
+          x-go-name: LdapCACert
+        ldap-url:
+          type: string
+          x-go-name: LdapUrl
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        new-version:
+          description: Deprecated
+          type: boolean
+          x-go-name: NewVersion
+        protection_key:
+          description: |-
+            The name of a key that used to encrypt the target secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        token-expiration:
+          type: string
+          x-go-name: TokenExpiration
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: updateLdapTargetDetails is a command that updates an existing target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateLdapTargetOutput:
+      example:
+        target_id: 0
+      properties:
+        target_id:
+          format: int64
+          type: integer
+          x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateNativeK8STarget:
       example:
         k8s-cluster-endpoint: k8s-cluster-endpoint
@@ -40717,6 +41115,10 @@ components:
           description: 'Deprecated: use RotatedUser'
           type: string
           x-go-name: SshUser
+        storage-account-key-name:
+          description: The name of the storage account key to rotate [key1/key2/kerb1/kerb2]
+          type: string
+          x-go-name: StorageKeyName
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string

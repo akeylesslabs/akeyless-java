@@ -131,6 +131,18 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_AZURE_FIXED_USER_ONLY)
   private Boolean azureFixedUserOnly;
 
+  public static final String SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME = "azure_resource_group_name";
+  @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME)
+  private String azureResourceGroupName;
+
+  public static final String SERIALIZED_NAME_AZURE_RESOURCE_NAME = "azure_resource_name";
+  @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_NAME)
+  private String azureResourceName;
+
+  public static final String SERIALIZED_NAME_AZURE_SUBSCRIPTION_ID = "azure_subscription_id";
+  @SerializedName(SERIALIZED_NAME_AZURE_SUBSCRIPTION_ID)
+  private String azureSubscriptionId;
+
   public static final String SERIALIZED_NAME_AZURE_TENANT_ID = "azure_tenant_id";
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
@@ -1261,6 +1273,75 @@ public class DSProducerDetails {
 
   public void setAzureFixedUserOnly(Boolean azureFixedUserOnly) {
     this.azureFixedUserOnly = azureFixedUserOnly;
+  }
+
+
+  public DSProducerDetails azureResourceGroupName(String azureResourceGroupName) {
+    
+    this.azureResourceGroupName = azureResourceGroupName;
+    return this;
+  }
+
+   /**
+   * Get azureResourceGroupName
+   * @return azureResourceGroupName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureResourceGroupName() {
+    return azureResourceGroupName;
+  }
+
+
+  public void setAzureResourceGroupName(String azureResourceGroupName) {
+    this.azureResourceGroupName = azureResourceGroupName;
+  }
+
+
+  public DSProducerDetails azureResourceName(String azureResourceName) {
+    
+    this.azureResourceName = azureResourceName;
+    return this;
+  }
+
+   /**
+   * Get azureResourceName
+   * @return azureResourceName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureResourceName() {
+    return azureResourceName;
+  }
+
+
+  public void setAzureResourceName(String azureResourceName) {
+    this.azureResourceName = azureResourceName;
+  }
+
+
+  public DSProducerDetails azureSubscriptionId(String azureSubscriptionId) {
+    
+    this.azureSubscriptionId = azureSubscriptionId;
+    return this;
+  }
+
+   /**
+   * Get azureSubscriptionId
+   * @return azureSubscriptionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureSubscriptionId() {
+    return azureSubscriptionId;
+  }
+
+
+  public void setAzureSubscriptionId(String azureSubscriptionId) {
+    this.azureSubscriptionId = azureSubscriptionId;
   }
 
 
@@ -4688,6 +4769,9 @@ public class DSProducerDetails {
         Objects.equals(this.azureClientSecret, dsProducerDetails.azureClientSecret) &&
         Objects.equals(this.azureFixedUserNameSubClaimKey, dsProducerDetails.azureFixedUserNameSubClaimKey) &&
         Objects.equals(this.azureFixedUserOnly, dsProducerDetails.azureFixedUserOnly) &&
+        Objects.equals(this.azureResourceGroupName, dsProducerDetails.azureResourceGroupName) &&
+        Objects.equals(this.azureResourceName, dsProducerDetails.azureResourceName) &&
+        Objects.equals(this.azureSubscriptionId, dsProducerDetails.azureSubscriptionId) &&
         Objects.equals(this.azureTenantId, dsProducerDetails.azureTenantId) &&
         Objects.equals(this.azureUserGroupsObjId, dsProducerDetails.azureUserGroupsObjId) &&
         Objects.equals(this.azureUserPortalAccess, dsProducerDetails.azureUserPortalAccess) &&
@@ -4837,7 +4921,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -4869,6 +4953,9 @@ public class DSProducerDetails {
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureFixedUserNameSubClaimKey: ").append(toIndentedString(azureFixedUserNameSubClaimKey)).append("\n");
     sb.append("    azureFixedUserOnly: ").append(toIndentedString(azureFixedUserOnly)).append("\n");
+    sb.append("    azureResourceGroupName: ").append(toIndentedString(azureResourceGroupName)).append("\n");
+    sb.append("    azureResourceName: ").append(toIndentedString(azureResourceName)).append("\n");
+    sb.append("    azureSubscriptionId: ").append(toIndentedString(azureSubscriptionId)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    azureUserGroupsObjId: ").append(toIndentedString(azureUserGroupsObjId)).append("\n");
     sb.append("    azureUserPortalAccess: ").append(toIndentedString(azureUserPortalAccess)).append("\n");

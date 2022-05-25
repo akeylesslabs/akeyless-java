@@ -35,6 +35,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
 
+  public static final String SERIALIZED_NAME_MINIMAL_VIEW = "minimal-view";
+  @SerializedName(SERIALIZED_NAME_MINIMAL_VIEW)
+  private Boolean minimalView;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
@@ -80,6 +84,29 @@ public class ListItems {
 
   public void setFilter(String filter) {
     this.filter = filter;
+  }
+
+
+  public ListItems minimalView(Boolean minimalView) {
+    
+    this.minimalView = minimalView;
+    return this;
+  }
+
+   /**
+   * Get minimalView
+   * @return minimalView
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getMinimalView() {
+    return minimalView;
+  }
+
+
+  public void setMinimalView(Boolean minimalView) {
+    this.minimalView = minimalView;
   }
 
 
@@ -239,6 +266,7 @@ public class ListItems {
     }
     ListItems listItems = (ListItems) o;
     return Objects.equals(this.filter, listItems.filter) &&
+        Objects.equals(this.minimalView, listItems.minimalView) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
         Objects.equals(this.tag, listItems.tag) &&
@@ -249,7 +277,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, paginationToken, path, tag, token, type, uidToken);
+    return Objects.hash(filter, minimalView, paginationToken, path, tag, token, type, uidToken);
   }
 
 
@@ -258,6 +286,7 @@ public class ListItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListItems {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");

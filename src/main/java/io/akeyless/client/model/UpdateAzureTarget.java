@@ -57,6 +57,18 @@ public class UpdateAzureTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_RESOURCE_GROUP_NAME = "resource-group-name";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_GROUP_NAME)
+  private String resourceGroupName;
+
+  public static final String SERIALIZED_NAME_RESOURCE_NAME = "resource-name";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)
+  private String resourceName;
+
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription-id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
+  private String subscriptionId;
+
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant-id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   private String tenantId;
@@ -238,6 +250,75 @@ public class UpdateAzureTarget {
   }
 
 
+  public UpdateAzureTarget resourceGroupName(String resourceGroupName) {
+    
+    this.resourceGroupName = resourceGroupName;
+    return this;
+  }
+
+   /**
+   * The Resource Group name in your Azure subscription
+   * @return resourceGroupName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Resource Group name in your Azure subscription")
+
+  public String getResourceGroupName() {
+    return resourceGroupName;
+  }
+
+
+  public void setResourceGroupName(String resourceGroupName) {
+    this.resourceGroupName = resourceGroupName;
+  }
+
+
+  public UpdateAzureTarget resourceName(String resourceName) {
+    
+    this.resourceName = resourceName;
+    return this;
+  }
+
+   /**
+   * The name of the relevant Resource
+   * @return resourceName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the relevant Resource")
+
+  public String getResourceName() {
+    return resourceName;
+  }
+
+
+  public void setResourceName(String resourceName) {
+    this.resourceName = resourceName;
+  }
+
+
+  public UpdateAzureTarget subscriptionId(String subscriptionId) {
+    
+    this.subscriptionId = subscriptionId;
+    return this;
+  }
+
+   /**
+   * Azure Subscription Id
+   * @return subscriptionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Azure Subscription Id")
+
+  public String getSubscriptionId() {
+    return subscriptionId;
+  }
+
+
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+
+
   public UpdateAzureTarget tenantId(String tenantId) {
     
     this.tenantId = tenantId;
@@ -369,6 +450,9 @@ public class UpdateAzureTarget {
         Objects.equals(this.key, updateAzureTarget.key) &&
         Objects.equals(this.name, updateAzureTarget.name) &&
         Objects.equals(this.newName, updateAzureTarget.newName) &&
+        Objects.equals(this.resourceGroupName, updateAzureTarget.resourceGroupName) &&
+        Objects.equals(this.resourceName, updateAzureTarget.resourceName) &&
+        Objects.equals(this.subscriptionId, updateAzureTarget.subscriptionId) &&
         Objects.equals(this.tenantId, updateAzureTarget.tenantId) &&
         Objects.equals(this.token, updateAzureTarget.token) &&
         Objects.equals(this.uidToken, updateAzureTarget.uidToken) &&
@@ -378,7 +462,7 @@ public class UpdateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, keepPrevVersion, key, name, newName, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(clientId, clientSecret, comment, keepPrevVersion, key, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -393,6 +477,9 @@ public class UpdateAzureTarget {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
+    sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

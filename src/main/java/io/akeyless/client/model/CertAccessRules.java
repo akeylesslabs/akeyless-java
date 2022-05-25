@@ -57,7 +57,7 @@ public class CertAccessRules {
 
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE)
-  private List<Integer> certificate = null;
+  private String certificate;
 
   public static final String SERIALIZED_NAME_REVOKED_CERT_IDS = "revoked_cert_ids";
   @SerializedName(SERIALIZED_NAME_REVOKED_CERT_IDS)
@@ -254,17 +254,9 @@ public class CertAccessRules {
   }
 
 
-  public CertAccessRules certificate(List<Integer> certificate) {
+  public CertAccessRules certificate(String certificate) {
     
     this.certificate = certificate;
-    return this;
-  }
-
-  public CertAccessRules addCertificateItem(Integer certificateItem) {
-    if (this.certificate == null) {
-      this.certificate = new ArrayList<Integer>();
-    }
-    this.certificate.add(certificateItem);
     return this;
   }
 
@@ -275,12 +267,12 @@ public class CertAccessRules {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Base64 encdoed PEM certificate")
 
-  public List<Integer> getCertificate() {
+  public String getCertificate() {
     return certificate;
   }
 
 
-  public void setCertificate(List<Integer> certificate) {
+  public void setCertificate(String certificate) {
     this.certificate = certificate;
   }
 

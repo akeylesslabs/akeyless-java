@@ -25,62 +25,35 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GetRSAPublicOutput
+ * UpdateLdapTargetOutput
  */
 
-public class GetRSAPublicOutput {
-  public static final String SERIALIZED_NAME_RAW = "raw";
-  @SerializedName(SERIALIZED_NAME_RAW)
-  private String raw;
-
-  public static final String SERIALIZED_NAME_SSH = "ssh";
-  @SerializedName(SERIALIZED_NAME_SSH)
-  private String ssh;
+public class UpdateLdapTargetOutput {
+  public static final String SERIALIZED_NAME_TARGET_ID = "target_id";
+  @SerializedName(SERIALIZED_NAME_TARGET_ID)
+  private Long targetId;
 
 
-  public GetRSAPublicOutput raw(String raw) {
+  public UpdateLdapTargetOutput targetId(Long targetId) {
     
-    this.raw = raw;
+    this.targetId = targetId;
     return this;
   }
 
    /**
-   * Get raw
-   * @return raw
+   * Get targetId
+   * @return targetId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRaw() {
-    return raw;
+  public Long getTargetId() {
+    return targetId;
   }
 
 
-  public void setRaw(String raw) {
-    this.raw = raw;
-  }
-
-
-  public GetRSAPublicOutput ssh(String ssh) {
-    
-    this.ssh = ssh;
-    return this;
-  }
-
-   /**
-   * Get ssh
-   * @return ssh
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getSsh() {
-    return ssh;
-  }
-
-
-  public void setSsh(String ssh) {
-    this.ssh = ssh;
+  public void setTargetId(Long targetId) {
+    this.targetId = targetId;
   }
 
 
@@ -92,23 +65,21 @@ public class GetRSAPublicOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetRSAPublicOutput getRSAPublicOutput = (GetRSAPublicOutput) o;
-    return Objects.equals(this.raw, getRSAPublicOutput.raw) &&
-        Objects.equals(this.ssh, getRSAPublicOutput.ssh);
+    UpdateLdapTargetOutput updateLdapTargetOutput = (UpdateLdapTargetOutput) o;
+    return Objects.equals(this.targetId, updateLdapTargetOutput.targetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(raw, ssh);
+    return Objects.hash(targetId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetRSAPublicOutput {\n");
-    sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
-    sb.append("    ssh: ").append(toIndentedString(ssh)).append("\n");
+    sb.append("class UpdateLdapTargetOutput {\n");
+    sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

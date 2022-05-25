@@ -80,6 +80,10 @@ public class GatewayCreateProducerRabbitMQ {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
   private String secureAccessUrl;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb = true;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   private Boolean secureAccessWebBrowsing;
@@ -384,6 +388,29 @@ public class GatewayCreateProducerRabbitMQ {
   }
 
 
+  public GatewayCreateProducerRabbitMQ secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Secure Access Web Category
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure Access Web Category")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
   public GatewayCreateProducerRabbitMQ secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
     
     this.secureAccessWebBrowsing = secureAccessWebBrowsing;
@@ -574,6 +601,7 @@ public class GatewayCreateProducerRabbitMQ {
         Objects.equals(this.rabbitmqUserWritePermission, gatewayCreateProducerRabbitMQ.rabbitmqUserWritePermission) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerRabbitMQ.secureAccessEnable) &&
         Objects.equals(this.secureAccessUrl, gatewayCreateProducerRabbitMQ.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWeb, gatewayCreateProducerRabbitMQ.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerRabbitMQ.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, gatewayCreateProducerRabbitMQ.secureAccessWebProxy) &&
         Objects.equals(this.tags, gatewayCreateProducerRabbitMQ.tags) &&
@@ -585,7 +613,7 @@ public class GatewayCreateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -605,6 +633,7 @@ public class GatewayCreateProducerRabbitMQ {
     sb.append("    rabbitmqUserWritePermission: ").append(toIndentedString(rabbitmqUserWritePermission)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

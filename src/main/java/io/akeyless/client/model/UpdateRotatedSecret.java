@@ -168,6 +168,10 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_SSH_USERNAME)
   private String sshUsername;
 
+  public static final String SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME = "storage-account-key-name";
+  @SerializedName(SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME)
+  private String storageAccountKeyName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -982,6 +986,29 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret storageAccountKeyName(String storageAccountKeyName) {
+    
+    this.storageAccountKeyName = storageAccountKeyName;
+    return this;
+  }
+
+   /**
+   * The name of the storage account key to rotate [key1/key2/kerb1/kerb2]
+   * @return storageAccountKeyName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the storage account key to rotate [key1/key2/kerb1/kerb2]")
+
+  public String getStorageAccountKeyName() {
+    return storageAccountKeyName;
+  }
+
+
+  public void setStorageAccountKeyName(String storageAccountKeyName) {
+    this.storageAccountKeyName = storageAccountKeyName;
+  }
+
+
   public UpdateRotatedSecret token(String token) {
     
     this.token = token;
@@ -1071,13 +1098,14 @@ public class UpdateRotatedSecret {
         Objects.equals(this.secureAccessWebProxy, updateRotatedSecret.secureAccessWebProxy) &&
         Objects.equals(this.sshPassword, updateRotatedSecret.sshPassword) &&
         Objects.equals(this.sshUsername, updateRotatedSecret.sshUsername) &&
+        Objects.equals(this.storageAccountKeyName, updateRotatedSecret.storageAccountKeyName) &&
         Objects.equals(this.token, updateRotatedSecret.token) &&
         Objects.equals(this.uidToken, updateRotatedSecret.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, token, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
   }
 
 
@@ -1119,6 +1147,7 @@ public class UpdateRotatedSecret {
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
+    sb.append("    storageAccountKeyName: ").append(toIndentedString(storageAccountKeyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | **String** | Filter by item name or part of it |  [optional]
+**minimalView** | **Boolean** |  |  [optional]
 **paginationToken** | **String** | Next page reference |  [optional]
 **path** | **String** | Path to folder |  [optional]
 **tag** | **String** | Filter by item tag |  [optional]
