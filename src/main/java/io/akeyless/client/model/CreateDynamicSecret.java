@@ -31,6 +31,10 @@ import java.util.List;
  */
 
 public class CreateDynamicSecret {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -54,6 +58,29 @@ public class CreateDynamicSecret {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public CreateDynamicSecret deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public CreateDynamicSecret key(String key) {
@@ -210,7 +237,8 @@ public class CreateDynamicSecret {
       return false;
     }
     CreateDynamicSecret createDynamicSecret = (CreateDynamicSecret) o;
-    return Objects.equals(this.key, createDynamicSecret.key) &&
+    return Objects.equals(this.deleteProtection, createDynamicSecret.deleteProtection) &&
+        Objects.equals(this.key, createDynamicSecret.key) &&
         Objects.equals(this.metadata, createDynamicSecret.metadata) &&
         Objects.equals(this.name, createDynamicSecret.name) &&
         Objects.equals(this.tags, createDynamicSecret.tags) &&
@@ -220,7 +248,7 @@ public class CreateDynamicSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, metadata, name, tags, token, uidToken);
+    return Objects.hash(deleteProtection, key, metadata, name, tags, token, uidToken);
   }
 
 
@@ -228,6 +256,7 @@ public class CreateDynamicSecret {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDynamicSecret {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

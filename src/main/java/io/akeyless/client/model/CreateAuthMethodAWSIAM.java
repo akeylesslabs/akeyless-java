@@ -72,6 +72,10 @@ public class CreateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -383,6 +387,37 @@ public class CreateAuthMethodAWSIAM {
   }
 
 
+  public CreateAuthMethodAWSIAM gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public CreateAuthMethodAWSIAM addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public CreateAuthMethodAWSIAM jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -516,6 +551,7 @@ public class CreateAuthMethodAWSIAM {
         Objects.equals(this.boundUserId, createAuthMethodAWSIAM.boundUserId) &&
         Objects.equals(this.boundUserName, createAuthMethodAWSIAM.boundUserName) &&
         Objects.equals(this.forceSubClaims, createAuthMethodAWSIAM.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, createAuthMethodAWSIAM.gwBoundIps) &&
         Objects.equals(this.jwtTtl, createAuthMethodAWSIAM.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodAWSIAM.name) &&
         Objects.equals(this.stsUrl, createAuthMethodAWSIAM.stsUrl) &&
@@ -525,7 +561,7 @@ public class CreateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, jwtTtl, name, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, jwtTtl, name, stsUrl, token, uidToken);
   }
 
 
@@ -543,6 +579,7 @@ public class CreateAuthMethodAWSIAM {
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    stsUrl: ").append(toIndentedString(stsUrl)).append("\n");

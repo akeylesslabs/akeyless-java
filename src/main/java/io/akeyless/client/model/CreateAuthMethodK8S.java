@@ -64,6 +64,10 @@ public class CreateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_GEN_KEY)
   private String genKey = "true";
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -301,6 +305,37 @@ public class CreateAuthMethodK8S {
   }
 
 
+  public CreateAuthMethodK8S gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public CreateAuthMethodK8S addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public CreateAuthMethodK8S jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -432,6 +467,7 @@ public class CreateAuthMethodK8S {
         Objects.equals(this.boundSaNames, createAuthMethodK8S.boundSaNames) &&
         Objects.equals(this.forceSubClaims, createAuthMethodK8S.forceSubClaims) &&
         Objects.equals(this.genKey, createAuthMethodK8S.genKey) &&
+        Objects.equals(this.gwBoundIps, createAuthMethodK8S.gwBoundIps) &&
         Objects.equals(this.jwtTtl, createAuthMethodK8S.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodK8S.name) &&
         Objects.equals(this.publicKey, createAuthMethodK8S.publicKey) &&
@@ -441,7 +477,7 @@ public class CreateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, jwtTtl, name, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, gwBoundIps, jwtTtl, name, publicKey, token, uidToken);
   }
 
 
@@ -457,6 +493,7 @@ public class CreateAuthMethodK8S {
     sb.append("    boundSaNames: ").append(toIndentedString(boundSaNames)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");

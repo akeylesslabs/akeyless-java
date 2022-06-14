@@ -48,6 +48,10 @@ public class UpdateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_IDP_METADATA_URL = "idp-metadata-url";
   @SerializedName(SERIALIZED_NAME_IDP_METADATA_URL)
   private String idpMetadataUrl;
@@ -186,6 +190,37 @@ public class UpdateAuthMethodSAML {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public UpdateAuthMethodSAML gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethodSAML addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
   }
 
 
@@ -384,6 +419,7 @@ public class UpdateAuthMethodSAML {
         Objects.equals(this.allowedRedirectUri, updateAuthMethodSAML.allowedRedirectUri) &&
         Objects.equals(this.boundIps, updateAuthMethodSAML.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodSAML.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethodSAML.gwBoundIps) &&
         Objects.equals(this.idpMetadataUrl, updateAuthMethodSAML.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXmlData, updateAuthMethodSAML.idpMetadataXmlData) &&
         Objects.equals(this.jwtTtl, updateAuthMethodSAML.jwtTtl) &&
@@ -396,7 +432,7 @@ public class UpdateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, idpMetadataUrl, idpMetadataXmlData, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -408,6 +444,7 @@ public class UpdateAuthMethodSAML {
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXmlData: ").append(toIndentedString(idpMetadataXmlData)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **boundUriSans** | **List&lt;String&gt;** | A list of URIs. At least one must exist in the SANs. Supports globbing. |  [optional]
 **certificateData** | **String** | The certificate data in base64, if no file was provided |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
+**gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **revokedCertIds** | **List&lt;String&gt;** | A list of revoked cert ids |  [optional]

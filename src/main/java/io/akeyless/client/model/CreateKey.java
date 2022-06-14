@@ -40,6 +40,10 @@ public class CreateKey {
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -107,6 +111,29 @@ public class CreateKey {
 
   public void setCustomerFrgId(String customerFrgId) {
     this.customerFrgId = customerFrgId;
+  }
+
+
+  public CreateKey deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -266,6 +293,7 @@ public class CreateKey {
     CreateKey createKey = (CreateKey) o;
     return Objects.equals(this.alg, createKey.alg) &&
         Objects.equals(this.customerFrgId, createKey.customerFrgId) &&
+        Objects.equals(this.deleteProtection, createKey.deleteProtection) &&
         Objects.equals(this.metadata, createKey.metadata) &&
         Objects.equals(this.name, createKey.name) &&
         Objects.equals(this.splitLevel, createKey.splitLevel) &&
@@ -276,7 +304,7 @@ public class CreateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, customerFrgId, deleteProtection, metadata, name, splitLevel, tag, token, uidToken);
   }
 
 
@@ -286,6 +314,7 @@ public class CreateKey {
     sb.append("class CreateKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");

@@ -35,6 +35,10 @@ public class UploadPKCS12 {
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_IN = "in";
   @SerializedName(SERIALIZED_NAME_IN)
   private String in;
@@ -88,6 +92,29 @@ public class UploadPKCS12 {
 
   public void setCustomerFrgId(String customerFrgId) {
     this.customerFrgId = customerFrgId;
+  }
+
+
+  public UploadPKCS12 deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -290,6 +317,7 @@ public class UploadPKCS12 {
     }
     UploadPKCS12 uploadPKCS12 = (UploadPKCS12) o;
     return Objects.equals(this.customerFrgId, uploadPKCS12.customerFrgId) &&
+        Objects.equals(this.deleteProtection, uploadPKCS12.deleteProtection) &&
         Objects.equals(this.in, uploadPKCS12.in) &&
         Objects.equals(this.metadata, uploadPKCS12.metadata) &&
         Objects.equals(this.name, uploadPKCS12.name) &&
@@ -302,7 +330,7 @@ public class UploadPKCS12 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerFrgId, in, metadata, name, passphrase, splitLevel, tag, token, uidToken);
+    return Objects.hash(customerFrgId, deleteProtection, in, metadata, name, passphrase, splitLevel, tag, token, uidToken);
   }
 
 
@@ -311,6 +339,7 @@ public class UploadPKCS12 {
     StringBuilder sb = new StringBuilder();
     sb.append("class UploadPKCS12 {\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

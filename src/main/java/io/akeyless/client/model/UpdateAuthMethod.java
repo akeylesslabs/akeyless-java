@@ -43,6 +43,10 @@ public class UpdateAuthMethod {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -138,6 +142,37 @@ public class UpdateAuthMethod {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public UpdateAuthMethod gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethod addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
   }
 
 
@@ -267,6 +302,7 @@ public class UpdateAuthMethod {
     return Objects.equals(this.accessExpires, updateAuthMethod.accessExpires) &&
         Objects.equals(this.boundIps, updateAuthMethod.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethod.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethod.gwBoundIps) &&
         Objects.equals(this.jwtTtl, updateAuthMethod.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethod.name) &&
         Objects.equals(this.newName, updateAuthMethod.newName) &&
@@ -276,7 +312,7 @@ public class UpdateAuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, jwtTtl, name, newName, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, gwBoundIps, jwtTtl, name, newName, token, uidToken);
   }
 
 
@@ -287,6 +323,7 @@ public class UpdateAuthMethod {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

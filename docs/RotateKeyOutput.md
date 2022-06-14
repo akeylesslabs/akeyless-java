@@ -7,6 +7,8 @@ RotateKeyOutput defines output of RotateKey operation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**classicKeyGwUrl** | **String** |  |  [optional]
+**itemType** | **String** |  |  [optional]
 **newItemVersion** | **Integer** |  |  [optional]
 **nextRotationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 

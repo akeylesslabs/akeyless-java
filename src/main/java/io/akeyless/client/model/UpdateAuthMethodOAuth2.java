@@ -52,6 +52,10 @@ public class UpdateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
@@ -213,6 +217,37 @@ public class UpdateAuthMethodOAuth2 {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public UpdateAuthMethodOAuth2 gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethodOAuth2 addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
   }
 
 
@@ -411,6 +446,7 @@ public class UpdateAuthMethodOAuth2 {
         Objects.equals(this.boundClientIds, updateAuthMethodOAuth2.boundClientIds) &&
         Objects.equals(this.boundIps, updateAuthMethodOAuth2.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOAuth2.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethodOAuth2.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodOAuth2.issuer) &&
         Objects.equals(this.jwksUri, updateAuthMethodOAuth2.jwksUri) &&
         Objects.equals(this.jwtTtl, updateAuthMethodOAuth2.jwtTtl) &&
@@ -423,7 +459,7 @@ public class UpdateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, issuer, jwksUri, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gwBoundIps, issuer, jwksUri, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -436,6 +472,7 @@ public class UpdateAuthMethodOAuth2 {
     sb.append("    boundClientIds: ").append(toIndentedString(boundClientIds)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");

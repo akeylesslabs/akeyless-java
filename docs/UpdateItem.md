@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
+**deleteProtection** | **String** |  |  [optional]
 **name** | **String** | Current item name | 
 **newMetadata** | **String** | New item metadata |  [optional]
 **newName** | **String** | New item name |  [optional]

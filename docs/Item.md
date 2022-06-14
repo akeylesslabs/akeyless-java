@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **certificates** | **String** |  |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **customerFragmentId** | **String** |  |  [optional]
+**deleteProtection** | **Boolean** |  |  [optional]
 **deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **displayId** | **String** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]

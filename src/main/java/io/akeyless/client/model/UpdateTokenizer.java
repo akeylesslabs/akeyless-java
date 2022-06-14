@@ -44,6 +44,10 @@ public class UpdateTokenizer {
   @SerializedName(SERIALIZED_NAME_DECRYPTION_TEMPLATE)
   private String decryptionTemplate;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_ENCRYPTION_KEY_NAME = "encryption-key-name";
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY_NAME)
   private String encryptionKeyName;
@@ -167,6 +171,29 @@ public class UpdateTokenizer {
 
   public void setDecryptionTemplate(String decryptionTemplate) {
     this.decryptionTemplate = decryptionTemplate;
+  }
+
+
+  public UpdateTokenizer deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -463,6 +490,7 @@ public class UpdateTokenizer {
     return Objects.equals(this.addTag, updateTokenizer.addTag) &&
         Objects.equals(this.alphabet, updateTokenizer.alphabet) &&
         Objects.equals(this.decryptionTemplate, updateTokenizer.decryptionTemplate) &&
+        Objects.equals(this.deleteProtection, updateTokenizer.deleteProtection) &&
         Objects.equals(this.encryptionKeyName, updateTokenizer.encryptionKeyName) &&
         Objects.equals(this.encryptionTemplate, updateTokenizer.encryptionTemplate) &&
         Objects.equals(this.name, updateTokenizer.name) &&
@@ -479,7 +507,7 @@ public class UpdateTokenizer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, alphabet, decryptionTemplate, encryptionKeyName, encryptionTemplate, name, newMetadata, newName, pattern, rmTag, templateType, token, tokenizerType, tweakType, uidToken);
+    return Objects.hash(addTag, alphabet, decryptionTemplate, deleteProtection, encryptionKeyName, encryptionTemplate, name, newMetadata, newName, pattern, rmTag, templateType, token, tokenizerType, tweakType, uidToken);
   }
 
 
@@ -490,6 +518,7 @@ public class UpdateTokenizer {
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    alphabet: ").append(toIndentedString(alphabet)).append("\n");
     sb.append("    decryptionTemplate: ").append(toIndentedString(decryptionTemplate)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    encryptionKeyName: ").append(toIndentedString(encryptionKeyName)).append("\n");
     sb.append("    encryptionTemplate: ").append(toIndentedString(encryptionTemplate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

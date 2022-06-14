@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alphabet** | **String** | Alphabet to use in regexp vaultless tokenization |  [optional]
 **decryptionTemplate** | **String** | The Decryption output template to use in regexp vaultless tokenization |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **encryptionKeyName** | **String** | AES key name to use in vaultless tokenization |  [optional]
 **encryptionTemplate** | **String** | The Encryption output template to use in regexp vaultless tokenization |  [optional]
 **metadata** | **String** | A metadata about the tokenizer |  [optional]

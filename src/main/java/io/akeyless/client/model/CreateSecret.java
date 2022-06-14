@@ -31,6 +31,10 @@ import java.util.List;
  */
 
 public class CreateSecret {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -94,6 +98,29 @@ public class CreateSecret {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
+
+  public CreateSecret deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public CreateSecret metadata(String metadata) {
@@ -487,7 +514,8 @@ public class CreateSecret {
       return false;
     }
     CreateSecret createSecret = (CreateSecret) o;
-    return Objects.equals(this.metadata, createSecret.metadata) &&
+    return Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
+        Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
         Objects.equals(this.name, createSecret.name) &&
         Objects.equals(this.protectionKey, createSecret.protectionKey) &&
@@ -507,7 +535,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, multilineValue, name, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, uidToken, value);
+    return Objects.hash(deleteProtection, metadata, multilineValue, name, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, uidToken, value);
   }
 
 
@@ -515,6 +543,7 @@ public class CreateSecret {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecret {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

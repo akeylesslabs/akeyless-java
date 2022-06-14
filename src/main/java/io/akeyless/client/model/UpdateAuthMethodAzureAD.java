@@ -84,6 +84,10 @@ public class UpdateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer = "https://sts.windows.net/---bound_tenant_id---";
@@ -483,6 +487,37 @@ public class UpdateAuthMethodAzureAD {
   }
 
 
+  public UpdateAuthMethodAzureAD gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethodAzureAD addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public UpdateAuthMethodAzureAD issuer(String issuer) {
     
     this.issuer = issuer;
@@ -665,6 +700,7 @@ public class UpdateAuthMethodAzureAD {
         Objects.equals(this.boundSubId, updateAuthMethodAzureAD.boundSubId) &&
         Objects.equals(this.boundTenantId, updateAuthMethodAzureAD.boundTenantId) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodAzureAD.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethodAzureAD.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodAzureAD.issuer) &&
         Objects.equals(this.jwksUri, updateAuthMethodAzureAD.jwksUri) &&
         Objects.equals(this.jwtTtl, updateAuthMethodAzureAD.jwtTtl) &&
@@ -676,7 +712,7 @@ public class UpdateAuthMethodAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, issuer, jwksUri, jwtTtl, name, newName, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, gwBoundIps, issuer, jwksUri, jwtTtl, name, newName, token, uidToken);
   }
 
 
@@ -697,6 +733,7 @@ public class UpdateAuthMethodAzureAD {
     sb.append("    boundSubId: ").append(toIndentedString(boundSubId)).append("\n");
     sb.append("    boundTenantId: ").append(toIndentedString(boundTenantId)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");

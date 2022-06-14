@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **key** | **String** | The name of a key that used to encrypt the dynamic secret values (if empty, the account default protectionKey key will be used) |  [optional]
 **metadata** | **String** | Metadata about the dynamic secret |  [optional]
 **name** | **String** | Dynamic secret name | 

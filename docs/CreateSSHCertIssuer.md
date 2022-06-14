@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowedUsers** | **String** | Users allowed to fetch the certificate, e.g root,ubuntu | 
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **extensions** | **Map&lt;String, String&gt;** | Signed certificates with extensions, e.g permit-port-forwarding&#x3D;\\\&quot;\\\&quot; |  [optional]
 **metadata** | **String** | A metadata about the issuer |  [optional]
 **name** | **String** | SSH certificate issuer name | 

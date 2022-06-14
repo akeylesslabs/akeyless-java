@@ -37,6 +37,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_ALLOWED_USERS)
   private String allowedUsers;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
   private Map<String, String> extensions = null;
@@ -117,6 +121,29 @@ public class CreateSSHCertIssuer {
 
   public void setAllowedUsers(String allowedUsers) {
     this.allowedUsers = allowedUsers;
+  }
+
+
+  public CreateSSHCertIssuer deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -496,6 +523,7 @@ public class CreateSSHCertIssuer {
     }
     CreateSSHCertIssuer createSSHCertIssuer = (CreateSSHCertIssuer) o;
     return Objects.equals(this.allowedUsers, createSSHCertIssuer.allowedUsers) &&
+        Objects.equals(this.deleteProtection, createSSHCertIssuer.deleteProtection) &&
         Objects.equals(this.extensions, createSSHCertIssuer.extensions) &&
         Objects.equals(this.metadata, createSSHCertIssuer.metadata) &&
         Objects.equals(this.name, createSSHCertIssuer.name) &&
@@ -515,7 +543,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, extensions, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
+    return Objects.hash(allowedUsers, deleteProtection, extensions, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
   }
 
 
@@ -524,6 +552,7 @@ public class CreateSSHCertIssuer {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSSHCertIssuer {\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -36,6 +36,10 @@ public class MigrationStatus {
   @SerializedName(SERIALIZED_NAME_LAST_MESSAGES)
   private Map<String, String> lastMessages = null;
 
+  public static final String SERIALIZED_NAME_LAST_REPORTS = "last_reports";
+  @SerializedName(SERIALIZED_NAME_LAST_REPORTS)
+  private Map<String, String> lastReports = null;
+
   public static final String SERIALIZED_NAME_LAST_STATUSES = "last_statuses";
   @SerializedName(SERIALIZED_NAME_LAST_STATUSES)
   private Map<String, String> lastStatuses = null;
@@ -69,6 +73,37 @@ public class MigrationStatus {
 
   public void setLastMessages(Map<String, String> lastMessages) {
     this.lastMessages = lastMessages;
+  }
+
+
+  public MigrationStatus lastReports(Map<String, String> lastReports) {
+    
+    this.lastReports = lastReports;
+    return this;
+  }
+
+  public MigrationStatus putLastReportsItem(String key, String lastReportsItem) {
+    if (this.lastReports == null) {
+      this.lastReports = new HashMap<String, String>();
+    }
+    this.lastReports.put(key, lastReportsItem);
+    return this;
+  }
+
+   /**
+   * Get lastReports
+   * @return lastReports
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getLastReports() {
+    return lastReports;
+  }
+
+
+  public void setLastReports(Map<String, String> lastReports) {
+    this.lastReports = lastReports;
   }
 
 
@@ -113,12 +148,13 @@ public class MigrationStatus {
     }
     MigrationStatus migrationStatus = (MigrationStatus) o;
     return Objects.equals(this.lastMessages, migrationStatus.lastMessages) &&
+        Objects.equals(this.lastReports, migrationStatus.lastReports) &&
         Objects.equals(this.lastStatuses, migrationStatus.lastStatuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastMessages, lastStatuses);
+    return Objects.hash(lastMessages, lastReports, lastStatuses);
   }
 
 
@@ -127,6 +163,7 @@ public class MigrationStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationStatus {\n");
     sb.append("    lastMessages: ").append(toIndentedString(lastMessages)).append("\n");
+    sb.append("    lastReports: ").append(toIndentedString(lastReports)).append("\n");
     sb.append("    lastStatuses: ").append(toIndentedString(lastStatuses)).append("\n");
     sb.append("}");
     return sb.toString();

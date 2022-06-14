@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **clientFlag** | **Boolean** | If set, certificates will be flagged for client auth use |  [optional]
 **codeSigningFlag** | **Boolean** | If set, certificates will be flagged for code signing use |  [optional]
 **country** | **String** | A comma-separated list of the country that will be set in the issued certificate |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **keyUsage** | **String** | key-usage |  [optional]
 **locality** | **String** | A comma-separated list of the locality that will be set in the issued certificate |  [optional]
 **metadata** | **String** | A metadata about the issuer |  [optional]

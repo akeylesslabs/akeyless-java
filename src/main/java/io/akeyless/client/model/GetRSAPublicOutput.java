@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class GetRSAPublicOutput {
+  public static final String SERIALIZED_NAME_PEM = "pem";
+  @SerializedName(SERIALIZED_NAME_PEM)
+  private String pem;
+
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
   private String raw;
@@ -36,6 +40,29 @@ public class GetRSAPublicOutput {
   public static final String SERIALIZED_NAME_SSH = "ssh";
   @SerializedName(SERIALIZED_NAME_SSH)
   private String ssh;
+
+
+  public GetRSAPublicOutput pem(String pem) {
+    
+    this.pem = pem;
+    return this;
+  }
+
+   /**
+   * Get pem
+   * @return pem
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPem() {
+    return pem;
+  }
+
+
+  public void setPem(String pem) {
+    this.pem = pem;
+  }
 
 
   public GetRSAPublicOutput raw(String raw) {
@@ -93,13 +120,14 @@ public class GetRSAPublicOutput {
       return false;
     }
     GetRSAPublicOutput getRSAPublicOutput = (GetRSAPublicOutput) o;
-    return Objects.equals(this.raw, getRSAPublicOutput.raw) &&
+    return Objects.equals(this.pem, getRSAPublicOutput.pem) &&
+        Objects.equals(this.raw, getRSAPublicOutput.raw) &&
         Objects.equals(this.ssh, getRSAPublicOutput.ssh);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(raw, ssh);
+    return Objects.hash(pem, raw, ssh);
   }
 
 
@@ -107,6 +135,7 @@ public class GetRSAPublicOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRSAPublicOutput {\n");
+    sb.append("    pem: ").append(toIndentedString(pem)).append("\n");
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
     sb.append("    ssh: ").append(toIndentedString(ssh)).append("\n");
     sb.append("}");

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **allowedRedirectUri** | **List&lt;String&gt;** | Allowed redirect URIs after the authentication |  [optional]
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
+**gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **idpMetadataUrl** | **String** | IDP metadata url |  [optional]
 **idpMetadataXmlData** | **String** | IDP metadata xml data |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]

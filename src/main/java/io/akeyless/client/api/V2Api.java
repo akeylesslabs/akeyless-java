@@ -201,6 +201,8 @@ import io.akeyless.client.model.GatewayDeleteProducerOutput;
 import io.akeyless.client.model.GatewayGetConfig;
 import io.akeyless.client.model.GatewayGetK8SAuthConfig;
 import io.akeyless.client.model.GatewayGetK8SAuthConfigOutput;
+import io.akeyless.client.model.GatewayGetLdapAuthConfig;
+import io.akeyless.client.model.GatewayGetLdapAuthConfigOutput;
 import io.akeyless.client.model.GatewayGetMigration;
 import io.akeyless.client.model.GatewayGetProducer;
 import io.akeyless.client.model.GatewayGetTmpUsers;
@@ -223,6 +225,8 @@ import io.akeyless.client.model.GatewayUpdateItem;
 import io.akeyless.client.model.GatewayUpdateItemOutput;
 import io.akeyless.client.model.GatewayUpdateK8SAuthConfig;
 import io.akeyless.client.model.GatewayUpdateK8SAuthConfigOutput;
+import io.akeyless.client.model.GatewayUpdateLdapAuthConfig;
+import io.akeyless.client.model.GatewayUpdateLdapAuthConfigOutput;
 import io.akeyless.client.model.GatewayUpdateMigration;
 import io.akeyless.client.model.GatewayUpdateProducerArtifactory;
 import io.akeyless.client.model.GatewayUpdateProducerArtifactoryOutput;
@@ -11066,6 +11070,120 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for gatewayGetLdapAuthConfig
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayGetLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayGetLdapAuthConfigCall(GatewayGetLdapAuthConfig body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-get-ldap-auth-config";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayGetLdapAuthConfigValidateBeforeCall(GatewayGetLdapAuthConfig body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayGetLdapAuthConfig(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayGetLdapAuthConfigCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewayGetLdapAuthConfigOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayGetLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewayGetLdapAuthConfigOutput gatewayGetLdapAuthConfig(GatewayGetLdapAuthConfig body) throws ApiException {
+        ApiResponse<GatewayGetLdapAuthConfigOutput> localVarResp = gatewayGetLdapAuthConfigWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewayGetLdapAuthConfigOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayGetLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewayGetLdapAuthConfigOutput> gatewayGetLdapAuthConfigWithHttpInfo(GatewayGetLdapAuthConfig body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayGetLdapAuthConfigValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewayGetLdapAuthConfigOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> gatewayGetLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayGetLdapAuthConfigAsync(GatewayGetLdapAuthConfig body, final ApiCallback<GatewayGetLdapAuthConfigOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayGetLdapAuthConfigValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewayGetLdapAuthConfigOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for gatewayGetMigration
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -12426,6 +12544,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = gatewayUpdateK8SAuthConfigValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GatewayUpdateK8SAuthConfigOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for gatewayUpdateLdapAuthConfig
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> GatewayUpdateLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayUpdateLdapAuthConfigCall(GatewayUpdateLdapAuthConfig body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-update-ldap-auth-config";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayUpdateLdapAuthConfigValidateBeforeCall(GatewayUpdateLdapAuthConfig body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayUpdateLdapAuthConfig(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayUpdateLdapAuthConfigCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewayUpdateLdapAuthConfigOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> GatewayUpdateLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewayUpdateLdapAuthConfigOutput gatewayUpdateLdapAuthConfig(GatewayUpdateLdapAuthConfig body) throws ApiException {
+        ApiResponse<GatewayUpdateLdapAuthConfigOutput> localVarResp = gatewayUpdateLdapAuthConfigWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewayUpdateLdapAuthConfigOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> GatewayUpdateLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewayUpdateLdapAuthConfigOutput> gatewayUpdateLdapAuthConfigWithHttpInfo(GatewayUpdateLdapAuthConfig body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayUpdateLdapAuthConfigValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewayUpdateLdapAuthConfigOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> GatewayUpdateLdapAuthConfigResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayUpdateLdapAuthConfigAsync(GatewayUpdateLdapAuthConfig body, final ApiCallback<GatewayUpdateLdapAuthConfigOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayUpdateLdapAuthConfigValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewayUpdateLdapAuthConfigOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

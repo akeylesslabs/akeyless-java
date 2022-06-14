@@ -43,6 +43,10 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -137,6 +141,29 @@ public class UploadRSA {
 
   public void setCustomerFrgId(String customerFrgId) {
     this.customerFrgId = customerFrgId;
+  }
+
+
+  public UploadRSA deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -320,6 +347,7 @@ public class UploadRSA {
     return Objects.equals(this.alg, uploadRSA.alg) &&
         Objects.equals(this.certFileData, uploadRSA.certFileData) &&
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
+        Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
         Objects.equals(this.rsaFileData, uploadRSA.rsaFileData) &&
@@ -331,7 +359,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, customerFrgId, metadata, name, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, metadata, name, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
 
@@ -342,6 +370,7 @@ public class UploadRSA {
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rsaFileData: ").append(toIndentedString(rsaFileData)).append("\n");

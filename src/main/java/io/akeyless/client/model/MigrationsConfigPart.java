@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AWSSecretsMigration;
 import io.akeyless.client.model.AzureKeyVaultMigration;
+import io.akeyless.client.model.GCPSecretsMigration;
 import io.akeyless.client.model.HashiMigration;
 import io.akeyless.client.model.K8SMigration;
 import io.swagger.annotations.ApiModel;
@@ -42,6 +43,10 @@ public class MigrationsConfigPart {
   public static final String SERIALIZED_NAME_AZURE_KV_MIGRATIONS = "azure_kv_migrations";
   @SerializedName(SERIALIZED_NAME_AZURE_KV_MIGRATIONS)
   private List<AzureKeyVaultMigration> azureKvMigrations = null;
+
+  public static final String SERIALIZED_NAME_GCP_SECRETS_MIGRATIONS = "gcp_secrets_migrations";
+  @SerializedName(SERIALIZED_NAME_GCP_SECRETS_MIGRATIONS)
+  private List<GCPSecretsMigration> gcpSecretsMigrations = null;
 
   public static final String SERIALIZED_NAME_HASHI_MIGRATIONS = "hashi_migrations";
   @SerializedName(SERIALIZED_NAME_HASHI_MIGRATIONS)
@@ -111,6 +116,37 @@ public class MigrationsConfigPart {
 
   public void setAzureKvMigrations(List<AzureKeyVaultMigration> azureKvMigrations) {
     this.azureKvMigrations = azureKvMigrations;
+  }
+
+
+  public MigrationsConfigPart gcpSecretsMigrations(List<GCPSecretsMigration> gcpSecretsMigrations) {
+    
+    this.gcpSecretsMigrations = gcpSecretsMigrations;
+    return this;
+  }
+
+  public MigrationsConfigPart addGcpSecretsMigrationsItem(GCPSecretsMigration gcpSecretsMigrationsItem) {
+    if (this.gcpSecretsMigrations == null) {
+      this.gcpSecretsMigrations = new ArrayList<GCPSecretsMigration>();
+    }
+    this.gcpSecretsMigrations.add(gcpSecretsMigrationsItem);
+    return this;
+  }
+
+   /**
+   * Get gcpSecretsMigrations
+   * @return gcpSecretsMigrations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<GCPSecretsMigration> getGcpSecretsMigrations() {
+    return gcpSecretsMigrations;
+  }
+
+
+  public void setGcpSecretsMigrations(List<GCPSecretsMigration> gcpSecretsMigrations) {
+    this.gcpSecretsMigrations = gcpSecretsMigrations;
   }
 
 
@@ -187,13 +223,14 @@ public class MigrationsConfigPart {
     MigrationsConfigPart migrationsConfigPart = (MigrationsConfigPart) o;
     return Objects.equals(this.awsSecretsMigrations, migrationsConfigPart.awsSecretsMigrations) &&
         Objects.equals(this.azureKvMigrations, migrationsConfigPart.azureKvMigrations) &&
+        Objects.equals(this.gcpSecretsMigrations, migrationsConfigPart.gcpSecretsMigrations) &&
         Objects.equals(this.hashiMigrations, migrationsConfigPart.hashiMigrations) &&
         Objects.equals(this.k8sMigrations, migrationsConfigPart.k8sMigrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsSecretsMigrations, azureKvMigrations, hashiMigrations, k8sMigrations);
+    return Objects.hash(awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations);
   }
 
 
@@ -203,6 +240,7 @@ public class MigrationsConfigPart {
     sb.append("class MigrationsConfigPart {\n");
     sb.append("    awsSecretsMigrations: ").append(toIndentedString(awsSecretsMigrations)).append("\n");
     sb.append("    azureKvMigrations: ").append(toIndentedString(azureKvMigrations)).append("\n");
+    sb.append("    gcpSecretsMigrations: ").append(toIndentedString(gcpSecretsMigrations)).append("\n");
     sb.append("    hashiMigrations: ").append(toIndentedString(hashiMigrations)).append("\n");
     sb.append("    k8sMigrations: ").append(toIndentedString(k8sMigrations)).append("\n");
     sb.append("}");

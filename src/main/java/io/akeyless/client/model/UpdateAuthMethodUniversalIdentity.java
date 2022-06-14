@@ -52,6 +52,10 @@ public class UpdateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -197,6 +201,37 @@ public class UpdateAuthMethodUniversalIdentity {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public UpdateAuthMethodUniversalIdentity gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethodUniversalIdentity addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
   }
 
 
@@ -351,6 +386,7 @@ public class UpdateAuthMethodUniversalIdentity {
         Objects.equals(this.denyInheritance, updateAuthMethodUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, updateAuthMethodUniversalIdentity.denyRotate) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodUniversalIdentity.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethodUniversalIdentity.gwBoundIps) &&
         Objects.equals(this.jwtTtl, updateAuthMethodUniversalIdentity.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodUniversalIdentity.name) &&
         Objects.equals(this.newName, updateAuthMethodUniversalIdentity.newName) &&
@@ -361,7 +397,7 @@ public class UpdateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, jwtTtl, name, newName, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, gwBoundIps, jwtTtl, name, newName, token, ttl, uidToken);
   }
 
 
@@ -374,6 +410,7 @@ public class UpdateAuthMethodUniversalIdentity {
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

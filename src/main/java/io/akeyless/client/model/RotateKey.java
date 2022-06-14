@@ -25,22 +25,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * rotateKey is a command that rotates an existing key, creating a new version. [Deprecated: Use command update-rotation-settings] of it.
+ * of it.
  */
-@ApiModel(description = "rotateKey is a command that rotates an existing key, creating a new version. [Deprecated: Use command update-rotation-settings] of it.")
+@ApiModel(description = "of it.")
 
 public class RotateKey {
-  public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
-  @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
-  private String autoRotate;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation-interval";
-  @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
-  private String rotationInterval;
+  public static final String SERIALIZED_NAME_NEW_KEY_DATA = "new-key-data";
+  @SerializedName(SERIALIZED_NAME_NEW_KEY_DATA)
+  private String newKeyData;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -49,29 +45,6 @@ public class RotateKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-
-  public RotateKey autoRotate(String autoRotate) {
-    
-    this.autoRotate = autoRotate;
-    return this;
-  }
-
-   /**
-   * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation
-   * @return autoRotate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation")
-
-  public String getAutoRotate() {
-    return autoRotate;
-  }
-
-
-  public void setAutoRotate(String autoRotate) {
-    this.autoRotate = autoRotate;
-  }
 
 
   public RotateKey name(String name) {
@@ -96,26 +69,26 @@ public class RotateKey {
   }
 
 
-  public RotateKey rotationInterval(String rotationInterval) {
+  public RotateKey newKeyData(String newKeyData) {
     
-    this.rotationInterval = rotationInterval;
+    this.newKeyData = newKeyData;
     return this;
   }
 
    /**
-   * The number of days to wait between every automatic key rotation (7-365)
-   * @return rotationInterval
+   * The new base64 encoded value for the classic key. relevant only for keys provided by user (&#39;bring-your-own-key&#39;)
+   * @return newKeyData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days to wait between every automatic key rotation (7-365)")
+  @ApiModelProperty(value = "The new base64 encoded value for the classic key. relevant only for keys provided by user ('bring-your-own-key')")
 
-  public String getRotationInterval() {
-    return rotationInterval;
+  public String getNewKeyData() {
+    return newKeyData;
   }
 
 
-  public void setRotationInterval(String rotationInterval) {
-    this.rotationInterval = rotationInterval;
+  public void setNewKeyData(String newKeyData) {
+    this.newKeyData = newKeyData;
   }
 
 
@@ -174,16 +147,15 @@ public class RotateKey {
       return false;
     }
     RotateKey rotateKey = (RotateKey) o;
-    return Objects.equals(this.autoRotate, rotateKey.autoRotate) &&
-        Objects.equals(this.name, rotateKey.name) &&
-        Objects.equals(this.rotationInterval, rotateKey.rotationInterval) &&
+    return Objects.equals(this.name, rotateKey.name) &&
+        Objects.equals(this.newKeyData, rotateKey.newKeyData) &&
         Objects.equals(this.token, rotateKey.token) &&
         Objects.equals(this.uidToken, rotateKey.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, name, rotationInterval, token, uidToken);
+    return Objects.hash(name, newKeyData, token, uidToken);
   }
 
 
@@ -191,9 +163,8 @@ public class RotateKey {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateKey {\n");
-    sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
+    sb.append("    newKeyData: ").append(toIndentedString(newKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **boundUserId** | **List&lt;String&gt;** | A list of full user ids that the access is restricted to |  [optional]
 **boundUserName** | **List&lt;String&gt;** | A list of full user-name that the access is restricted to |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
+**gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **stsUrl** | **String** | sts URL |  [optional]

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **emailPassAccessRules** | [**EmailPassAccessRules**](EmailPassAccessRules.md) |  |  [optional]
 **forceSubClaims** | **Boolean** | if true the role associated with this auth method must include sub claims |  [optional]
 **gcpAccessRules** | [**GCPAccessRules**](GCPAccessRules.md) |  |  [optional]
+**gwCidrWhitelist** | **String** |  |  [optional]
 **huaweiAccessRules** | [**HuaweiAccessRules**](HuaweiAccessRules.md) |  |  [optional]
 **jwtTtl** | **Long** |  |  [optional]
 **k8sAccessRules** | [**KubernetesAccessRules**](KubernetesAccessRules.md) |  |  [optional]

@@ -72,6 +72,10 @@ public class CreateAuthMethodCert {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -383,6 +387,37 @@ public class CreateAuthMethodCert {
   }
 
 
+  public CreateAuthMethodCert gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public CreateAuthMethodCert addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public CreateAuthMethodCert jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -546,6 +581,7 @@ public class CreateAuthMethodCert {
         Objects.equals(this.boundUriSans, createAuthMethodCert.boundUriSans) &&
         Objects.equals(this.certificateData, createAuthMethodCert.certificateData) &&
         Objects.equals(this.forceSubClaims, createAuthMethodCert.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, createAuthMethodCert.gwBoundIps) &&
         Objects.equals(this.jwtTtl, createAuthMethodCert.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodCert.name) &&
         Objects.equals(this.revokedCertIds, createAuthMethodCert.revokedCertIds) &&
@@ -556,7 +592,7 @@ public class CreateAuthMethodCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, gwBoundIps, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -574,6 +610,7 @@ public class CreateAuthMethodCert {
     sb.append("    boundUriSans: ").append(toIndentedString(boundUriSans)).append("\n");
     sb.append("    certificateData: ").append(toIndentedString(certificateData)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    revokedCertIds: ").append(toIndentedString(revokedCertIds)).append("\n");

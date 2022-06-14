@@ -31,6 +31,14 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "RotateKeyOutput defines output of RotateKey operation")
 
 public class RotateKeyOutput {
+  public static final String SERIALIZED_NAME_CLASSIC_KEY_GW_URL = "classic_key_gw_url";
+  @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_GW_URL)
+  private String classicKeyGwUrl;
+
+  public static final String SERIALIZED_NAME_ITEM_TYPE = "item_type";
+  @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
+  private String itemType;
+
   public static final String SERIALIZED_NAME_NEW_ITEM_VERSION = "new_item_version";
   @SerializedName(SERIALIZED_NAME_NEW_ITEM_VERSION)
   private Integer newItemVersion;
@@ -38,6 +46,52 @@ public class RotateKeyOutput {
   public static final String SERIALIZED_NAME_NEXT_ROTATION_DATE = "next_rotation_date";
   @SerializedName(SERIALIZED_NAME_NEXT_ROTATION_DATE)
   private OffsetDateTime nextRotationDate;
+
+
+  public RotateKeyOutput classicKeyGwUrl(String classicKeyGwUrl) {
+    
+    this.classicKeyGwUrl = classicKeyGwUrl;
+    return this;
+  }
+
+   /**
+   * Get classicKeyGwUrl
+   * @return classicKeyGwUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getClassicKeyGwUrl() {
+    return classicKeyGwUrl;
+  }
+
+
+  public void setClassicKeyGwUrl(String classicKeyGwUrl) {
+    this.classicKeyGwUrl = classicKeyGwUrl;
+  }
+
+
+  public RotateKeyOutput itemType(String itemType) {
+    
+    this.itemType = itemType;
+    return this;
+  }
+
+   /**
+   * Get itemType
+   * @return itemType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getItemType() {
+    return itemType;
+  }
+
+
+  public void setItemType(String itemType) {
+    this.itemType = itemType;
+  }
 
 
   public RotateKeyOutput newItemVersion(Integer newItemVersion) {
@@ -95,13 +149,15 @@ public class RotateKeyOutput {
       return false;
     }
     RotateKeyOutput rotateKeyOutput = (RotateKeyOutput) o;
-    return Objects.equals(this.newItemVersion, rotateKeyOutput.newItemVersion) &&
+    return Objects.equals(this.classicKeyGwUrl, rotateKeyOutput.classicKeyGwUrl) &&
+        Objects.equals(this.itemType, rotateKeyOutput.itemType) &&
+        Objects.equals(this.newItemVersion, rotateKeyOutput.newItemVersion) &&
         Objects.equals(this.nextRotationDate, rotateKeyOutput.nextRotationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newItemVersion, nextRotationDate);
+    return Objects.hash(classicKeyGwUrl, itemType, newItemVersion, nextRotationDate);
   }
 
 
@@ -109,6 +165,8 @@ public class RotateKeyOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateKeyOutput {\n");
+    sb.append("    classicKeyGwUrl: ").append(toIndentedString(classicKeyGwUrl)).append("\n");
+    sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    newItemVersion: ").append(toIndentedString(newItemVersion)).append("\n");
     sb.append("    nextRotationDate: ").append(toIndentedString(nextRotationDate)).append("\n");
     sb.append("}");

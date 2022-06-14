@@ -56,6 +56,10 @@ public class UpdateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
@@ -244,6 +248,37 @@ public class UpdateAuthMethodOIDC {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public UpdateAuthMethodOIDC gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethodOIDC addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
   }
 
 
@@ -475,6 +510,7 @@ public class UpdateAuthMethodOIDC {
         Objects.equals(this.clientId, updateAuthMethodOIDC.clientId) &&
         Objects.equals(this.clientSecret, updateAuthMethodOIDC.clientSecret) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOIDC.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethodOIDC.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodOIDC.issuer) &&
         Objects.equals(this.jwtTtl, updateAuthMethodOIDC.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodOIDC.name) &&
@@ -488,7 +524,7 @@ public class UpdateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, issuer, jwtTtl, name, newName, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, jwtTtl, name, newName, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -502,6 +538,7 @@ public class UpdateAuthMethodOIDC {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **boundSubId** | **List&lt;String&gt;** | A list of subscription ids that the access is restricted to |  [optional]
 **boundTenantId** | **String** | The Azure tenant id that the access is restricted to | 
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
+**gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **issuer** | **String** | Issuer URL |  [optional]
 **jwksUri** | **String** | The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]

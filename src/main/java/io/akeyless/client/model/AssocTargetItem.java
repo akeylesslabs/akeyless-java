@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * assocTargetItem is a command that creates an association between target and item.
@@ -30,13 +32,41 @@ import java.io.IOException;
 @ApiModel(description = "assocTargetItem is a command that creates an association between target and item.")
 
 public class AssocTargetItem {
+  public static final String SERIALIZED_NAME_KEY_OPERATIONS = "key-operations";
+  @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
+  private List<String> keyOperations = null;
+
+  public static final String SERIALIZED_NAME_KEYRING_NAME = "keyring-name";
+  @SerializedName(SERIALIZED_NAME_KEYRING_NAME)
+  private String keyringName;
+
+  public static final String SERIALIZED_NAME_KMS_ALGORITHM = "kms-algorithm";
+  @SerializedName(SERIALIZED_NAME_KMS_ALGORITHM)
+  private String kmsAlgorithm;
+
+  public static final String SERIALIZED_NAME_LOCATION_ID = "location-id";
+  @SerializedName(SERIALIZED_NAME_LOCATION_ID)
+  private String locationId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PROJECT_ID = "project-id";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
+
+  public static final String SERIALIZED_NAME_PURPOSE = "purpose";
+  @SerializedName(SERIALIZED_NAME_PURPOSE)
+  private String purpose;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
+
+  public static final String SERIALIZED_NAME_TENANT_SECRET_TYPE = "tenant-secret-type";
+  @SerializedName(SERIALIZED_NAME_TENANT_SECRET_TYPE)
+  private String tenantSecretType;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -45,6 +75,110 @@ public class AssocTargetItem {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_VAULT_NAME = "vault-name";
+  @SerializedName(SERIALIZED_NAME_VAULT_NAME)
+  private String vaultName;
+
+
+  public AssocTargetItem keyOperations(List<String> keyOperations) {
+    
+    this.keyOperations = keyOperations;
+    return this;
+  }
+
+  public AssocTargetItem addKeyOperationsItem(String keyOperationsItem) {
+    if (this.keyOperations == null) {
+      this.keyOperations = new ArrayList<String>();
+    }
+    this.keyOperations.add(keyOperationsItem);
+    return this;
+  }
+
+   /**
+   * A list of allowed operations for the key (required for azure targets)
+   * @return keyOperations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of allowed operations for the key (required for azure targets)")
+
+  public List<String> getKeyOperations() {
+    return keyOperations;
+  }
+
+
+  public void setKeyOperations(List<String> keyOperations) {
+    this.keyOperations = keyOperations;
+  }
+
+
+  public AssocTargetItem keyringName(String keyringName) {
+    
+    this.keyringName = keyringName;
+    return this;
+  }
+
+   /**
+   * Keyring name of the GCP KMS (required for gcp targets)
+   * @return keyringName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Keyring name of the GCP KMS (required for gcp targets)")
+
+  public String getKeyringName() {
+    return keyringName;
+  }
+
+
+  public void setKeyringName(String keyringName) {
+    this.keyringName = keyringName;
+  }
+
+
+  public AssocTargetItem kmsAlgorithm(String kmsAlgorithm) {
+    
+    this.kmsAlgorithm = kmsAlgorithm;
+    return this;
+  }
+
+   /**
+   * Algorithm of the key in GCP KMS (required for gcp targets)
+   * @return kmsAlgorithm
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Algorithm of the key in GCP KMS (required for gcp targets)")
+
+  public String getKmsAlgorithm() {
+    return kmsAlgorithm;
+  }
+
+
+  public void setKmsAlgorithm(String kmsAlgorithm) {
+    this.kmsAlgorithm = kmsAlgorithm;
+  }
+
+
+  public AssocTargetItem locationId(String locationId) {
+    
+    this.locationId = locationId;
+    return this;
+  }
+
+   /**
+   * Location id of the GCP KMS (required for gcp targets)
+   * @return locationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Location id of the GCP KMS (required for gcp targets)")
+
+  public String getLocationId() {
+    return locationId;
+  }
+
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
 
 
   public AssocTargetItem name(String name) {
@@ -69,6 +203,52 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem projectId(String projectId) {
+    
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Project id of the GCP KMS (required for gcp targets)
+   * @return projectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Project id of the GCP KMS (required for gcp targets)")
+
+  public String getProjectId() {
+    return projectId;
+  }
+
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
+
+  public AssocTargetItem purpose(String purpose) {
+    
+    this.purpose = purpose;
+    return this;
+  }
+
+   /**
+   * Purpose of the key in GCP KMS (required for gcp targets)
+   * @return purpose
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Purpose of the key in GCP KMS (required for gcp targets)")
+
+  public String getPurpose() {
+    return purpose;
+  }
+
+
+  public void setPurpose(String purpose) {
+    this.purpose = purpose;
+  }
+
+
   public AssocTargetItem targetName(String targetName) {
     
     this.targetName = targetName;
@@ -88,6 +268,29 @@ public class AssocTargetItem {
 
   public void setTargetName(String targetName) {
     this.targetName = targetName;
+  }
+
+
+  public AssocTargetItem tenantSecretType(String tenantSecretType) {
+    
+    this.tenantSecretType = tenantSecretType;
+    return this;
+  }
+
+   /**
+   * The tenant secret type [Data/SearchIndex/Analytics] (required for salesforce targets)
+   * @return tenantSecretType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The tenant secret type [Data/SearchIndex/Analytics] (required for salesforce targets)")
+
+  public String getTenantSecretType() {
+    return tenantSecretType;
+  }
+
+
+  public void setTenantSecretType(String tenantSecretType) {
+    this.tenantSecretType = tenantSecretType;
   }
 
 
@@ -137,6 +340,29 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem vaultName(String vaultName) {
+    
+    this.vaultName = vaultName;
+    return this;
+  }
+
+   /**
+   * Name of the vault used (required for azure targets)
+   * @return vaultName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the vault used (required for azure targets)")
+
+  public String getVaultName() {
+    return vaultName;
+  }
+
+
+  public void setVaultName(String vaultName) {
+    this.vaultName = vaultName;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -146,15 +372,23 @@ public class AssocTargetItem {
       return false;
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
-    return Objects.equals(this.name, assocTargetItem.name) &&
+    return Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
+        Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
+        Objects.equals(this.kmsAlgorithm, assocTargetItem.kmsAlgorithm) &&
+        Objects.equals(this.locationId, assocTargetItem.locationId) &&
+        Objects.equals(this.name, assocTargetItem.name) &&
+        Objects.equals(this.projectId, assocTargetItem.projectId) &&
+        Objects.equals(this.purpose, assocTargetItem.purpose) &&
         Objects.equals(this.targetName, assocTargetItem.targetName) &&
+        Objects.equals(this.tenantSecretType, assocTargetItem.tenantSecretType) &&
         Objects.equals(this.token, assocTargetItem.token) &&
-        Objects.equals(this.uidToken, assocTargetItem.uidToken);
+        Objects.equals(this.uidToken, assocTargetItem.uidToken) &&
+        Objects.equals(this.vaultName, assocTargetItem.vaultName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, targetName, token, uidToken);
+    return Objects.hash(keyOperations, keyringName, kmsAlgorithm, locationId, name, projectId, purpose, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
 
@@ -162,10 +396,18 @@ public class AssocTargetItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
+    sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
+    sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
+    sb.append("    kmsAlgorithm: ").append(toIndentedString(kmsAlgorithm)).append("\n");
+    sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
+    sb.append("    tenantSecretType: ").append(toIndentedString(tenantSecretType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    vaultName: ").append(toIndentedString(vaultName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

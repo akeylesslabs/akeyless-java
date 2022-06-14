@@ -39,6 +39,10 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -106,6 +110,29 @@ public class CreateDFCKey {
 
   public void setCustomerFrgId(String customerFrgId) {
     this.customerFrgId = customerFrgId;
+  }
+
+
+  public CreateDFCKey deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -265,6 +292,7 @@ public class CreateDFCKey {
     CreateDFCKey createDFCKey = (CreateDFCKey) o;
     return Objects.equals(this.alg, createDFCKey.alg) &&
         Objects.equals(this.customerFrgId, createDFCKey.customerFrgId) &&
+        Objects.equals(this.deleteProtection, createDFCKey.deleteProtection) &&
         Objects.equals(this.metadata, createDFCKey.metadata) &&
         Objects.equals(this.name, createDFCKey.name) &&
         Objects.equals(this.splitLevel, createDFCKey.splitLevel) &&
@@ -275,7 +303,7 @@ public class CreateDFCKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, customerFrgId, deleteProtection, metadata, name, splitLevel, tag, token, uidToken);
   }
 
 
@@ -285,6 +313,7 @@ public class CreateDFCKey {
     sb.append("class CreateDFCKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");

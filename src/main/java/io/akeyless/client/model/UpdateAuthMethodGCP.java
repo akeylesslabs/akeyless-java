@@ -68,6 +68,10 @@ public class UpdateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -351,6 +355,37 @@ public class UpdateAuthMethodGCP {
   }
 
 
+  public UpdateAuthMethodGCP gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAuthMethodGCP addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public UpdateAuthMethodGCP jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -528,6 +563,7 @@ public class UpdateAuthMethodGCP {
         Objects.equals(this.boundServiceAccounts, updateAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, updateAuthMethodGCP.boundZones) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodGCP.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, updateAuthMethodGCP.gwBoundIps) &&
         Objects.equals(this.jwtTtl, updateAuthMethodGCP.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodGCP.name) &&
         Objects.equals(this.newName, updateAuthMethodGCP.newName) &&
@@ -539,7 +575,7 @@ public class UpdateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, jwtTtl, name, newName, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, gwBoundIps, jwtTtl, name, newName, serviceAccountCredsData, token, type, uidToken);
   }
 
 
@@ -556,6 +592,7 @@ public class UpdateAuthMethodGCP {
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

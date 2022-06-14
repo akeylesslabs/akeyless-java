@@ -76,11 +76,11 @@ public class GatewaySyncMigration {
   }
 
    /**
-   * Get startSync
+   * true, for starting synchronization, false for stopping
    * @return startSync
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "true, for starting synchronization, false for stopping")
 
   public Boolean getStartSync() {
     return startSync;

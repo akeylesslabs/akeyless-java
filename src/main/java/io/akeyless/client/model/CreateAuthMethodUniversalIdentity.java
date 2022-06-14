@@ -52,6 +52,10 @@ public class CreateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -196,6 +200,37 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
+  public CreateAuthMethodUniversalIdentity gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public CreateAuthMethodUniversalIdentity addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A CIDR whitelist with the GW IPs that the access is restricted to
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A CIDR whitelist with the GW IPs that the access is restricted to")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public CreateAuthMethodUniversalIdentity jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -324,6 +359,7 @@ public class CreateAuthMethodUniversalIdentity {
         Objects.equals(this.denyInheritance, createAuthMethodUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, createAuthMethodUniversalIdentity.denyRotate) &&
         Objects.equals(this.forceSubClaims, createAuthMethodUniversalIdentity.forceSubClaims) &&
+        Objects.equals(this.gwBoundIps, createAuthMethodUniversalIdentity.gwBoundIps) &&
         Objects.equals(this.jwtTtl, createAuthMethodUniversalIdentity.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodUniversalIdentity.name) &&
         Objects.equals(this.token, createAuthMethodUniversalIdentity.token) &&
@@ -333,7 +369,7 @@ public class CreateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, jwtTtl, name, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, gwBoundIps, jwtTtl, name, token, ttl, uidToken);
   }
 
 
@@ -346,6 +382,7 @@ public class CreateAuthMethodUniversalIdentity {
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
