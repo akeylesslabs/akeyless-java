@@ -36,6 +36,10 @@ public class GatewayCreateProducerRedshift {
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
   private String creationStatements;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -117,6 +121,29 @@ public class GatewayCreateProducerRedshift {
 
   public void setCreationStatements(String creationStatements) {
     this.creationStatements = creationStatements;
+  }
+
+
+  public GatewayCreateProducerRedshift deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -490,6 +517,7 @@ public class GatewayCreateProducerRedshift {
     }
     GatewayCreateProducerRedshift gatewayCreateProducerRedshift = (GatewayCreateProducerRedshift) o;
     return Objects.equals(this.creationStatements, gatewayCreateProducerRedshift.creationStatements) &&
+        Objects.equals(this.deleteProtection, gatewayCreateProducerRedshift.deleteProtection) &&
         Objects.equals(this.name, gatewayCreateProducerRedshift.name) &&
         Objects.equals(this.producerEncryptionKey, gatewayCreateProducerRedshift.producerEncryptionKey) &&
         Objects.equals(this.redshiftDbName, gatewayCreateProducerRedshift.redshiftDbName) &&
@@ -509,7 +537,7 @@ public class GatewayCreateProducerRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, deleteProtection, name, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -518,6 +546,7 @@ public class GatewayCreateProducerRedshift {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerRedshift {\n");
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKey: ").append(toIndentedString(producerEncryptionKey)).append("\n");
     sb.append("    redshiftDbName: ").append(toIndentedString(redshiftDbName)).append("\n");

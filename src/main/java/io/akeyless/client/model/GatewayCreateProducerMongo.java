@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer")
 
 public class GatewayCreateProducerMongo {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb-atlas-api-private-key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
   private String mongodbAtlasApiPrivateKey;
@@ -123,6 +127,29 @@ public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerMongo deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerMongo mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
@@ -678,7 +705,8 @@ public class GatewayCreateProducerMongo {
       return false;
     }
     GatewayCreateProducerMongo gatewayCreateProducerMongo = (GatewayCreateProducerMongo) o;
-    return Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerMongo.deleteProtection) &&
+        Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, gatewayCreateProducerMongo.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, gatewayCreateProducerMongo.mongodbAtlasProjectId) &&
         Objects.equals(this.mongodbCustomData, gatewayCreateProducerMongo.mongodbCustomData) &&
@@ -705,7 +733,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -713,6 +741,7 @@ public class GatewayCreateProducerMongo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMongo {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");

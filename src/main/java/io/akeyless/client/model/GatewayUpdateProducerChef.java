@@ -48,6 +48,10 @@ public class GatewayUpdateProducerChef {
   @SerializedName(SERIALIZED_NAME_CHEF_SERVER_USERNAME)
   private String chefServerUsername;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -174,6 +178,29 @@ public class GatewayUpdateProducerChef {
 
   public void setChefServerUsername(String chefServerUsername) {
     this.chefServerUsername = chefServerUsername;
+  }
+
+
+  public GatewayUpdateProducerChef deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -404,6 +431,7 @@ public class GatewayUpdateProducerChef {
         Objects.equals(this.chefServerKey, gatewayUpdateProducerChef.chefServerKey) &&
         Objects.equals(this.chefServerUrl, gatewayUpdateProducerChef.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, gatewayUpdateProducerChef.chefServerUsername) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerChef.deleteProtection) &&
         Objects.equals(this.name, gatewayUpdateProducerChef.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerChef.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerChef.producerEncryptionKeyName) &&
@@ -417,7 +445,7 @@ public class GatewayUpdateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, name, newName, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, name, newName, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -429,6 +457,7 @@ public class GatewayUpdateProducerChef {
     sb.append("    chefServerKey: ").append(toIndentedString(chefServerKey)).append("\n");
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

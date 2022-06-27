@@ -45,6 +45,10 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_DETAILS)
   private ClassicKeyDetailsInfo classicKeyDetails;
 
+  public static final String SERIALIZED_NAME_CLUSTER_GW_URL = "cluster_gw_url";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_GW_URL)
+  private String clusterGwUrl;
+
   public static final String SERIALIZED_NAME_DISPLAY_METADATA = "display_metadata";
   @SerializedName(SERIALIZED_NAME_DISPLAY_METADATA)
   private String displayMetadata;
@@ -117,6 +121,29 @@ public class ItemGeneralInfo {
 
   public void setClassicKeyDetails(ClassicKeyDetailsInfo classicKeyDetails) {
     this.classicKeyDetails = classicKeyDetails;
+  }
+
+
+  public ItemGeneralInfo clusterGwUrl(String clusterGwUrl) {
+    
+    this.clusterGwUrl = clusterGwUrl;
+    return this;
+  }
+
+   /**
+   * Get clusterGwUrl
+   * @return clusterGwUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getClusterGwUrl() {
+    return clusterGwUrl;
+  }
+
+
+  public void setClusterGwUrl(String clusterGwUrl) {
+    this.clusterGwUrl = clusterGwUrl;
   }
 
 
@@ -292,6 +319,7 @@ public class ItemGeneralInfo {
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
+        Objects.equals(this.clusterGwUrl, itemGeneralInfo.clusterGwUrl) &&
         Objects.equals(this.displayMetadata, itemGeneralInfo.displayMetadata) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
         Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
@@ -303,7 +331,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, classicKeyDetails, displayMetadata, dynamicSecretProducerDetails, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(certIssueDetails, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
 
@@ -313,6 +341,7 @@ public class ItemGeneralInfo {
     sb.append("class ItemGeneralInfo {\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
+    sb.append("    clusterGwUrl: ").append(toIndentedString(clusterGwUrl)).append("\n");
     sb.append("    displayMetadata: ").append(toIndentedString(displayMetadata)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");

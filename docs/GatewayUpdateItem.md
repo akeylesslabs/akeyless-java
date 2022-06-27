@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **apiKey** | **String** |  |  [optional]
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation |  [optional]
 **customPayload** | **String** |  |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **name** | **String** | Item name | 

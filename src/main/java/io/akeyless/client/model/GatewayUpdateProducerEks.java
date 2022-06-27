@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateProducerEks is a command that updates eks producer")
 
 public class GatewayUpdateProducerEks {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks-access-key-id";
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
@@ -111,6 +115,29 @@ public class GatewayUpdateProducerEks {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayUpdateProducerEks deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayUpdateProducerEks eksAccessKeyId(String eksAccessKeyId) {
@@ -589,7 +616,8 @@ public class GatewayUpdateProducerEks {
       return false;
     }
     GatewayUpdateProducerEks gatewayUpdateProducerEks = (GatewayUpdateProducerEks) o;
-    return Objects.equals(this.eksAccessKeyId, gatewayUpdateProducerEks.eksAccessKeyId) &&
+    return Objects.equals(this.deleteProtection, gatewayUpdateProducerEks.deleteProtection) &&
+        Objects.equals(this.eksAccessKeyId, gatewayUpdateProducerEks.eksAccessKeyId) &&
         Objects.equals(this.eksAssumeRole, gatewayUpdateProducerEks.eksAssumeRole) &&
         Objects.equals(this.eksClusterCaCert, gatewayUpdateProducerEks.eksClusterCaCert) &&
         Objects.equals(this.eksClusterEndpoint, gatewayUpdateProducerEks.eksClusterEndpoint) &&
@@ -613,7 +641,7 @@ public class GatewayUpdateProducerEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -621,6 +649,7 @@ public class GatewayUpdateProducerEks {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerEks {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
     sb.append("    eksAssumeRole: ").append(toIndentedString(eksAssumeRole)).append("\n");
     sb.append("    eksClusterCaCert: ").append(toIndentedString(eksClusterCaCert)).append("\n");

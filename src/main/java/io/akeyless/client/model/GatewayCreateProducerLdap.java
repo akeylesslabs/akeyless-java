@@ -40,6 +40,10 @@ public class GatewayCreateProducerLdap {
   @SerializedName(SERIALIZED_NAME_BIND_DN_PASSWORD)
   private String bindDnPassword;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_EXTERNAL_USERNAME = "external-username";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_USERNAME)
   private String externalUsername = "false";
@@ -136,6 +140,29 @@ public class GatewayCreateProducerLdap {
 
   public void setBindDnPassword(String bindDnPassword) {
     this.bindDnPassword = bindDnPassword;
+  }
+
+
+  public GatewayCreateProducerLdap deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -456,6 +483,7 @@ public class GatewayCreateProducerLdap {
     GatewayCreateProducerLdap gatewayCreateProducerLdap = (GatewayCreateProducerLdap) o;
     return Objects.equals(this.bindDn, gatewayCreateProducerLdap.bindDn) &&
         Objects.equals(this.bindDnPassword, gatewayCreateProducerLdap.bindDnPassword) &&
+        Objects.equals(this.deleteProtection, gatewayCreateProducerLdap.deleteProtection) &&
         Objects.equals(this.externalUsername, gatewayCreateProducerLdap.externalUsername) &&
         Objects.equals(this.ldapCaCert, gatewayCreateProducerLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, gatewayCreateProducerLdap.ldapUrl) &&
@@ -473,7 +501,7 @@ public class GatewayCreateProducerLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, externalUsername, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(bindDn, bindDnPassword, deleteProtection, externalUsername, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
 
@@ -483,6 +511,7 @@ public class GatewayCreateProducerLdap {
     sb.append("class GatewayCreateProducerLdap {\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    externalUsername: ").append(toIndentedString(externalUsername)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");

@@ -68,6 +68,10 @@ public class GatewayCreateProducerAws {
   @SerializedName(SERIALIZED_NAME_AWS_USER_PROGRAMMATIC_ACCESS)
   private Boolean awsUserProgrammaticAccess = true;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_ENABLE_ADMIN_ROTATION = "enable-admin-rotation";
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation = false;
@@ -337,6 +341,29 @@ public class GatewayCreateProducerAws {
 
   public void setAwsUserProgrammaticAccess(Boolean awsUserProgrammaticAccess) {
     this.awsUserProgrammaticAccess = awsUserProgrammaticAccess;
+  }
+
+
+  public GatewayCreateProducerAws deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -733,6 +760,7 @@ public class GatewayCreateProducerAws {
         Objects.equals(this.awsUserGroups, gatewayCreateProducerAws.awsUserGroups) &&
         Objects.equals(this.awsUserPolicies, gatewayCreateProducerAws.awsUserPolicies) &&
         Objects.equals(this.awsUserProgrammaticAccess, gatewayCreateProducerAws.awsUserProgrammaticAccess) &&
+        Objects.equals(this.deleteProtection, gatewayCreateProducerAws.deleteProtection) &&
         Objects.equals(this.enableAdminRotation, gatewayCreateProducerAws.enableAdminRotation) &&
         Objects.equals(this.name, gatewayCreateProducerAws.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAws.producerEncryptionKeyName) &&
@@ -753,7 +781,7 @@ public class GatewayCreateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, name, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -770,6 +798,7 @@ public class GatewayCreateProducerAws {
     sb.append("    awsUserGroups: ").append(toIndentedString(awsUserGroups)).append("\n");
     sb.append("    awsUserPolicies: ").append(toIndentedString(awsUserPolicies)).append("\n");
     sb.append("    awsUserProgrammaticAccess: ").append(toIndentedString(awsUserProgrammaticAccess)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

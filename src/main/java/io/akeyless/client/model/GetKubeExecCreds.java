@@ -42,6 +42,10 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_COMMON_NAME)
   private String commonName;
 
+  public static final String SERIALIZED_NAME_EXTENDED_KEY_USAGE = "extended-key-usage";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_KEY_USAGE)
+  private String extendedKeyUsage;
+
   public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
   private String keyDataBase64;
@@ -49,6 +53,10 @@ public class GetKubeExecCreds {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+  public static final String SERIALIZED_NAME_TTL = "ttl";
+  @SerializedName(SERIALIZED_NAME_TTL)
+  private Long ttl;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -127,6 +135,29 @@ public class GetKubeExecCreds {
   }
 
 
+  public GetKubeExecCreds extendedKeyUsage(String extendedKeyUsage) {
+    
+    this.extendedKeyUsage = extendedKeyUsage;
+    return this;
+  }
+
+   /**
+   * A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: &#39;clientauth&#39;, &#39;serverauth&#39;.
+   * @return extendedKeyUsage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'.")
+
+  public String getExtendedKeyUsage() {
+    return extendedKeyUsage;
+  }
+
+
+  public void setExtendedKeyUsage(String extendedKeyUsage) {
+    this.extendedKeyUsage = extendedKeyUsage;
+  }
+
+
   public GetKubeExecCreds keyDataBase64(String keyDataBase64) {
     
     this.keyDataBase64 = keyDataBase64;
@@ -170,6 +201,29 @@ public class GetKubeExecCreds {
 
   public void setToken(String token) {
     this.token = token;
+  }
+
+
+  public GetKubeExecCreds ttl(Long ttl) {
+    
+    this.ttl = ttl;
+    return this;
+  }
+
+   /**
+   * Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)
+   * @return ttl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)")
+
+  public Long getTtl() {
+    return ttl;
+  }
+
+
+  public void setTtl(Long ttl) {
+    this.ttl = ttl;
   }
 
 
@@ -231,15 +285,17 @@ public class GetKubeExecCreds {
     return Objects.equals(this.altNames, getKubeExecCreds.altNames) &&
         Objects.equals(this.certIssuerName, getKubeExecCreds.certIssuerName) &&
         Objects.equals(this.commonName, getKubeExecCreds.commonName) &&
+        Objects.equals(this.extendedKeyUsage, getKubeExecCreds.extendedKeyUsage) &&
         Objects.equals(this.keyDataBase64, getKubeExecCreds.keyDataBase64) &&
         Objects.equals(this.token, getKubeExecCreds.token) &&
+        Objects.equals(this.ttl, getKubeExecCreds.ttl) &&
         Objects.equals(this.uidToken, getKubeExecCreds.uidToken) &&
         Objects.equals(this.uriSans, getKubeExecCreds.uriSans);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, token, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, extendedKeyUsage, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
 
@@ -250,8 +306,10 @@ public class GetKubeExecCreds {
     sb.append("    altNames: ").append(toIndentedString(altNames)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
+    sb.append("    extendedKeyUsage: ").append(toIndentedString(extendedKeyUsage)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uriSans: ").append(toIndentedString(uriSans)).append("\n");
     sb.append("}");

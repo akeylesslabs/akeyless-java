@@ -35,6 +35,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
   private List<String> addTag = null;
 
+  public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
+  @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
+  private String certFileData;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
@@ -188,6 +192,29 @@ public class UpdateItem {
 
   public void setAddTag(List<String> addTag) {
     this.addTag = addTag;
+  }
+
+
+  public UpdateItem certFileData(String certFileData) {
+    
+    this.certFileData = certFileData;
+    return this;
+  }
+
+   /**
+   * PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates.
+   * @return certFileData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.")
+
+  public String getCertFileData() {
+    return certFileData;
+  }
+
+
+  public void setCertFileData(String certFileData) {
+    this.certFileData = certFileData;
   }
 
 
@@ -945,6 +972,7 @@ public class UpdateItem {
     }
     UpdateItem updateItem = (UpdateItem) o;
     return Objects.equals(this.addTag, updateItem.addTag) &&
+        Objects.equals(this.certFileData, updateItem.certFileData) &&
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
         Objects.equals(this.name, updateItem.name) &&
         Objects.equals(this.newMetadata, updateItem.newMetadata) &&
@@ -980,7 +1008,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, deleteProtection, name, newMetadata, newName, rmTag, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(addTag, certFileData, deleteProtection, name, newMetadata, newName, rmTag, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
 
@@ -989,6 +1017,7 @@ public class UpdateItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateItem {\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
+    sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");

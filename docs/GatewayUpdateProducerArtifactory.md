@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **artifactoryTokenAudience** | **String** | Token Audience | 
 **artifactoryTokenScope** | **String** | Token Scope | 
 **baseUrl** | **String** | Base URL |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

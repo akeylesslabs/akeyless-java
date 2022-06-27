@@ -48,6 +48,10 @@ public class GatewayUpdateProducerAzure {
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
   private String fixedUserClaimKeyname = "false";
@@ -214,6 +218,29 @@ public class GatewayUpdateProducerAzure {
 
   public void setAzureTenantId(String azureTenantId) {
     this.azureTenantId = azureTenantId;
+  }
+
+
+  public GatewayUpdateProducerAzure deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -674,6 +701,7 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.azureClientId, gatewayUpdateProducerAzure.azureClientId) &&
         Objects.equals(this.azureClientSecret, gatewayUpdateProducerAzure.azureClientSecret) &&
         Objects.equals(this.azureTenantId, gatewayUpdateProducerAzure.azureTenantId) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerAzure.deleteProtection) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerAzure.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, gatewayUpdateProducerAzure.fixedUserOnly) &&
         Objects.equals(this.name, gatewayUpdateProducerAzure.name) &&
@@ -697,7 +725,7 @@ public class GatewayUpdateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, fixedUserClaimKeyname, fixedUserOnly, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
 
@@ -709,6 +737,7 @@ public class GatewayUpdateProducerAzure {
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

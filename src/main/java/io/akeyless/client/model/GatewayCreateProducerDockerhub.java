@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer")
 
 public class GatewayCreateProducerDockerhub {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DOCKERHUB_PASSWORD = "dockerhub-password";
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_PASSWORD)
   private String dockerhubPassword;
@@ -71,6 +75,29 @@ public class GatewayCreateProducerDockerhub {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerDockerhub deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerDockerhub dockerhubPassword(String dockerhubPassword) {
@@ -319,7 +346,8 @@ public class GatewayCreateProducerDockerhub {
       return false;
     }
     GatewayCreateProducerDockerhub gatewayCreateProducerDockerhub = (GatewayCreateProducerDockerhub) o;
-    return Objects.equals(this.dockerhubPassword, gatewayCreateProducerDockerhub.dockerhubPassword) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerDockerhub.deleteProtection) &&
+        Objects.equals(this.dockerhubPassword, gatewayCreateProducerDockerhub.dockerhubPassword) &&
         Objects.equals(this.dockerhubTokenScopes, gatewayCreateProducerDockerhub.dockerhubTokenScopes) &&
         Objects.equals(this.dockerhubUsername, gatewayCreateProducerDockerhub.dockerhubUsername) &&
         Objects.equals(this.name, gatewayCreateProducerDockerhub.name) &&
@@ -333,7 +361,7 @@ public class GatewayCreateProducerDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -341,6 +369,7 @@ public class GatewayCreateProducerDockerhub {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerDockerhub {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubTokenScopes: ").append(toIndentedString(dockerhubTokenScopes)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");

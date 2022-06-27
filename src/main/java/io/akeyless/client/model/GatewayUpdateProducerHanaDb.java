@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateProducerHanaDb is a command that updates hanadb producer")
 
 public class GatewayUpdateProducerHanaDb {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_HANA_DBNAME = "hana-dbname";
   @SerializedName(SERIALIZED_NAME_HANA_DBNAME)
   private String hanaDbname;
@@ -111,6 +115,29 @@ public class GatewayUpdateProducerHanaDb {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayUpdateProducerHanaDb deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayUpdateProducerHanaDb hanaDbname(String hanaDbname) {
@@ -597,7 +624,8 @@ public class GatewayUpdateProducerHanaDb {
       return false;
     }
     GatewayUpdateProducerHanaDb gatewayUpdateProducerHanaDb = (GatewayUpdateProducerHanaDb) o;
-    return Objects.equals(this.hanaDbname, gatewayUpdateProducerHanaDb.hanaDbname) &&
+    return Objects.equals(this.deleteProtection, gatewayUpdateProducerHanaDb.deleteProtection) &&
+        Objects.equals(this.hanaDbname, gatewayUpdateProducerHanaDb.hanaDbname) &&
         Objects.equals(this.hanadbCreateStatements, gatewayUpdateProducerHanaDb.hanadbCreateStatements) &&
         Objects.equals(this.hanadbHost, gatewayUpdateProducerHanaDb.hanadbHost) &&
         Objects.equals(this.hanadbPassword, gatewayUpdateProducerHanaDb.hanadbPassword) &&
@@ -621,7 +649,7 @@ public class GatewayUpdateProducerHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -629,6 +657,7 @@ public class GatewayUpdateProducerHanaDb {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerHanaDb {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    hanaDbname: ").append(toIndentedString(hanaDbname)).append("\n");
     sb.append("    hanadbCreateStatements: ").append(toIndentedString(hanadbCreateStatements)).append("\n");
     sb.append("    hanadbHost: ").append(toIndentedString(hanadbHost)).append("\n");

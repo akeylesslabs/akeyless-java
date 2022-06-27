@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerGcp is a command that creates a GCP producer")
 
 public class GatewayCreateProducerGcp {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_GCP_CRED_TYPE = "gcp-cred-type";
   @SerializedName(SERIALIZED_NAME_GCP_CRED_TYPE)
   private String gcpCredType;
@@ -79,6 +83,29 @@ public class GatewayCreateProducerGcp {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerGcp deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerGcp gcpCredType(String gcpCredType) {
@@ -373,7 +400,8 @@ public class GatewayCreateProducerGcp {
       return false;
     }
     GatewayCreateProducerGcp gatewayCreateProducerGcp = (GatewayCreateProducerGcp) o;
-    return Objects.equals(this.gcpCredType, gatewayCreateProducerGcp.gcpCredType) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerGcp.deleteProtection) &&
+        Objects.equals(this.gcpCredType, gatewayCreateProducerGcp.gcpCredType) &&
         Objects.equals(this.gcpKey, gatewayCreateProducerGcp.gcpKey) &&
         Objects.equals(this.gcpKeyAlgo, gatewayCreateProducerGcp.gcpKeyAlgo) &&
         Objects.equals(this.gcpSaEmail, gatewayCreateProducerGcp.gcpSaEmail) &&
@@ -389,7 +417,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -397,6 +425,7 @@ public class GatewayCreateProducerGcp {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerGcp {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    gcpCredType: ").append(toIndentedString(gcpCredType)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");

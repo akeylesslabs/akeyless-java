@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **accountPassword** | **String** | Database Password |  [optional]
 **accountUsername** | **String** | Database Username |  [optional]
 **dbName** | **String** | Database name |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **role** | **String** | User role |  [optional]

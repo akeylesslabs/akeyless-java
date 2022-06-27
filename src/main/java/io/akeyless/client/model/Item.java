@@ -137,6 +137,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
   private String protectionKeyName;
 
+  public static final String SERIALIZED_NAME_PROTECTION_KEY_TYPE = "protection_key_type";
+  @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_TYPE)
+  private String protectionKeyType;
+
   public static final String SERIALIZED_NAME_PUBLIC_VALUE = "public_value";
   @SerializedName(SERIALIZED_NAME_PUBLIC_VALUE)
   private String publicValue;
@@ -761,6 +765,29 @@ public class Item {
   }
 
 
+  public Item protectionKeyType(String protectionKeyType) {
+    
+    this.protectionKeyType = protectionKeyType;
+    return this;
+  }
+
+   /**
+   * Get protectionKeyType
+   * @return protectionKeyType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProtectionKeyType() {
+    return protectionKeyType;
+  }
+
+
+  public void setProtectionKeyType(String protectionKeyType) {
+    this.protectionKeyType = protectionKeyType;
+  }
+
+
   public Item publicValue(String publicValue) {
     
     this.publicValue = publicValue;
@@ -895,6 +922,7 @@ public class Item {
         Objects.equals(this.lastVersion, item.lastVersion) &&
         Objects.equals(this.nextRotationDate, item.nextRotationDate) &&
         Objects.equals(this.protectionKeyName, item.protectionKeyName) &&
+        Objects.equals(this.protectionKeyType, item.protectionKeyType) &&
         Objects.equals(this.publicValue, item.publicValue) &&
         Objects.equals(this.rotationInterval, item.rotationInterval) &&
         Objects.equals(this.targetVersions, item.targetVersions) &&
@@ -903,7 +931,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, publicValue, rotationInterval, targetVersions, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, targetVersions, withCustomerFragment);
   }
 
 
@@ -936,6 +964,7 @@ public class Item {
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    nextRotationDate: ").append(toIndentedString(nextRotationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
+    sb.append("    protectionKeyType: ").append(toIndentedString(protectionKeyType)).append("\n");
     sb.append("    publicValue: ").append(toIndentedString(publicValue)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");

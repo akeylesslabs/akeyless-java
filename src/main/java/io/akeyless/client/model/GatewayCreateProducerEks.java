@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerEks is a command that creates eks producer")
 
 public class GatewayCreateProducerEks {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks-access-key-id";
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
@@ -107,6 +111,29 @@ public class GatewayCreateProducerEks {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerEks deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerEks eksAccessKeyId(String eksAccessKeyId) {
@@ -562,7 +589,8 @@ public class GatewayCreateProducerEks {
       return false;
     }
     GatewayCreateProducerEks gatewayCreateProducerEks = (GatewayCreateProducerEks) o;
-    return Objects.equals(this.eksAccessKeyId, gatewayCreateProducerEks.eksAccessKeyId) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerEks.deleteProtection) &&
+        Objects.equals(this.eksAccessKeyId, gatewayCreateProducerEks.eksAccessKeyId) &&
         Objects.equals(this.eksAssumeRole, gatewayCreateProducerEks.eksAssumeRole) &&
         Objects.equals(this.eksClusterCaCert, gatewayCreateProducerEks.eksClusterCaCert) &&
         Objects.equals(this.eksClusterEndpoint, gatewayCreateProducerEks.eksClusterEndpoint) &&
@@ -585,7 +613,7 @@ public class GatewayCreateProducerEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -593,6 +621,7 @@ public class GatewayCreateProducerEks {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerEks {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
     sb.append("    eksAssumeRole: ").append(toIndentedString(eksAssumeRole)).append("\n");
     sb.append("    eksClusterCaCert: ").append(toIndentedString(eksClusterCaCert)).append("\n");

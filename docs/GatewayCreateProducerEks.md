@@ -7,6 +7,7 @@ gatewayCreateProducerEks is a command that creates eks producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **eksAccessKeyId** | **String** | Access Key ID |  [optional]
 **eksAssumeRole** | **String** | IAM assume role |  [optional]
 **eksClusterCaCert** | **String** | EKS cluster CA certificate |  [optional]

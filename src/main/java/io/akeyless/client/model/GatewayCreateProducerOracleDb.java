@@ -40,6 +40,10 @@ public class GatewayCreateProducerOracleDb {
   @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
   private String dbServerName;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -152,6 +156,29 @@ public class GatewayCreateProducerOracleDb {
 
   public void setDbServerName(String dbServerName) {
     this.dbServerName = dbServerName;
+  }
+
+
+  public GatewayCreateProducerOracleDb deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -572,6 +599,7 @@ public class GatewayCreateProducerOracleDb {
     GatewayCreateProducerOracleDb gatewayCreateProducerOracleDb = (GatewayCreateProducerOracleDb) o;
     return Objects.equals(this.dbServerCertificates, gatewayCreateProducerOracleDb.dbServerCertificates) &&
         Objects.equals(this.dbServerName, gatewayCreateProducerOracleDb.dbServerName) &&
+        Objects.equals(this.deleteProtection, gatewayCreateProducerOracleDb.deleteProtection) &&
         Objects.equals(this.name, gatewayCreateProducerOracleDb.name) &&
         Objects.equals(this.oracleHost, gatewayCreateProducerOracleDb.oracleHost) &&
         Objects.equals(this.oraclePassword, gatewayCreateProducerOracleDb.oraclePassword) &&
@@ -593,7 +621,7 @@ public class GatewayCreateProducerOracleDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -603,6 +631,7 @@ public class GatewayCreateProducerOracleDb {
     sb.append("class GatewayCreateProducerOracleDb {\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oracleHost: ").append(toIndentedString(oracleHost)).append("\n");
     sb.append("    oraclePassword: ").append(toIndentedString(oraclePassword)).append("\n");

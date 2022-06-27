@@ -50,11 +50,11 @@ public class GatewayGetMigration {
   }
 
    /**
-   * Get name
+   * Migration name to display
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Migration name to display")
 
   public String getName() {
     return name;

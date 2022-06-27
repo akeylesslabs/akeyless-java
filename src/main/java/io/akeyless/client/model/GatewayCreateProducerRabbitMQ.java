@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerRabbitMQ is a command that creates rabbitmq producer")
 
 public class GatewayCreateProducerRabbitMQ {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -111,6 +115,29 @@ public class GatewayCreateProducerRabbitMQ {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerRabbitMQ deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerRabbitMQ name(String name) {
@@ -589,7 +616,8 @@ public class GatewayCreateProducerRabbitMQ {
       return false;
     }
     GatewayCreateProducerRabbitMQ gatewayCreateProducerRabbitMQ = (GatewayCreateProducerRabbitMQ) o;
-    return Objects.equals(this.name, gatewayCreateProducerRabbitMQ.name) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerRabbitMQ.deleteProtection) &&
+        Objects.equals(this.name, gatewayCreateProducerRabbitMQ.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRabbitMQ.producerEncryptionKeyName) &&
         Objects.equals(this.rabbitmqAdminPwd, gatewayCreateProducerRabbitMQ.rabbitmqAdminPwd) &&
         Objects.equals(this.rabbitmqAdminUser, gatewayCreateProducerRabbitMQ.rabbitmqAdminUser) &&
@@ -613,7 +641,7 @@ public class GatewayCreateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -621,6 +649,7 @@ public class GatewayCreateProducerRabbitMQ {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerRabbitMQ {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rabbitmqAdminPwd: ").append(toIndentedString(rabbitmqAdminPwd)).append("\n");

@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateProducerDockerhub is a command that updates a DOCKERHUB producer")
 
 public class GatewayUpdateProducerDockerhub {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DOCKERHUB_PASSWORD = "dockerhub-password";
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_PASSWORD)
   private String dockerhubPassword;
@@ -75,6 +79,29 @@ public class GatewayUpdateProducerDockerhub {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayUpdateProducerDockerhub deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayUpdateProducerDockerhub dockerhubPassword(String dockerhubPassword) {
@@ -346,7 +373,8 @@ public class GatewayUpdateProducerDockerhub {
       return false;
     }
     GatewayUpdateProducerDockerhub gatewayUpdateProducerDockerhub = (GatewayUpdateProducerDockerhub) o;
-    return Objects.equals(this.dockerhubPassword, gatewayUpdateProducerDockerhub.dockerhubPassword) &&
+    return Objects.equals(this.deleteProtection, gatewayUpdateProducerDockerhub.deleteProtection) &&
+        Objects.equals(this.dockerhubPassword, gatewayUpdateProducerDockerhub.dockerhubPassword) &&
         Objects.equals(this.dockerhubTokenScopes, gatewayUpdateProducerDockerhub.dockerhubTokenScopes) &&
         Objects.equals(this.dockerhubUsername, gatewayUpdateProducerDockerhub.dockerhubUsername) &&
         Objects.equals(this.name, gatewayUpdateProducerDockerhub.name) &&
@@ -361,7 +389,7 @@ public class GatewayUpdateProducerDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -369,6 +397,7 @@ public class GatewayUpdateProducerDockerhub {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerDockerhub {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubTokenScopes: ").append(toIndentedString(dockerhubTokenScopes)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");

@@ -7,6 +7,7 @@ gatewayCreateProducerGithub is a command that creates github producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **githubAppId** | **Long** | Github app id |  [optional]
 **githubAppPrivateKey** | **String** | App private key |  [optional]
 **githubBaseUrl** | **String** | Base URL |  [optional]

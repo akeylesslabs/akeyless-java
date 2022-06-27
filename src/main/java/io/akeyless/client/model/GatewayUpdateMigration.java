@@ -124,6 +124,10 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_NAME = "new_name";
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection-key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
@@ -135,10 +139,6 @@ public class GatewayUpdateMigration {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -152,11 +152,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * AWS Secret Access Key
+   * AWS Secret Access Key (relevant only for AWS migration)
    * @return awsKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AWS Secret Access Key")
+  @ApiModelProperty(value = "AWS Secret Access Key (relevant only for AWS migration)")
 
   public String getAwsKey() {
     return awsKey;
@@ -175,11 +175,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * AWS Access Key ID
+   * AWS Access Key ID with sufficient permissions to get all secrets, e.g. &#39;arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/_*]&#39; (relevant only for AWS migration)
    * @return awsKeyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AWS Access Key ID")
+  @ApiModelProperty(value = "AWS Access Key ID with sufficient permissions to get all secrets, e.g. 'arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/_*]' (relevant only for AWS migration)")
 
   public String getAwsKeyId() {
     return awsKeyId;
@@ -198,11 +198,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * AWS region
+   * AWS region of the required Secrets Manager (relevant only for AWS migration)
    * @return awsRegion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AWS region")
+  @ApiModelProperty(value = "AWS region of the required Secrets Manager (relevant only for AWS migration)")
 
   public String getAwsRegion() {
     return awsRegion;
@@ -221,11 +221,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Azure KV Access client ID
+   * Azure Key Vault Access client ID, should be Azure AD App with a service principal (relevant only for Azure Key Vault migration)
    * @return azureClientId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Azure KV Access client ID")
+  @ApiModelProperty(value = "Azure Key Vault Access client ID, should be Azure AD App with a service principal (relevant only for Azure Key Vault migration)")
 
   public String getAzureClientId() {
     return azureClientId;
@@ -244,11 +244,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Azure Key Vault Name
+   * Azure Key Vault Name (relevant only for Azure Key Vault migration)
    * @return azureKvName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Azure Key Vault Name")
+  @ApiModelProperty(value = "Azure Key Vault Name (relevant only for Azure Key Vault migration)")
 
   public String getAzureKvName() {
     return azureKvName;
@@ -267,11 +267,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Azure KV secret
+   * Azure Key Vault secret (relevant only for Azure Key Vault migration)
    * @return azureSecret
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Azure KV secret")
+  @ApiModelProperty(value = "Azure Key Vault secret (relevant only for Azure Key Vault migration)")
 
   public String getAzureSecret() {
     return azureSecret;
@@ -290,11 +290,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Azure KV Access tenant ID
+   * Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration)
    * @return azureTenantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Azure KV Access tenant ID")
+  @ApiModelProperty(value = "Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration)")
 
   public String getAzureTenantId() {
     return azureTenantId;
@@ -313,11 +313,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Base64-encoded service account private key text
+   * Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration)
    * @return gcpKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Base64-encoded service account private key text")
+  @ApiModelProperty(value = "Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)")
 
   public String getGcpKey() {
     return gcpKey;
@@ -336,11 +336,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Import secret key as json value or independent secrets
+   * Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration)
    * @return hashiJson
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Import secret key as json value or independent secrets")
+  @ApiModelProperty(value = "Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration)")
 
   public String getHashiJson() {
     return hashiJson;
@@ -367,11 +367,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Hashi namespaces
+   * HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration)
    * @return hashiNs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hashi namespaces")
+  @ApiModelProperty(value = "HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration)")
 
   public List<String> getHashiNs() {
     return hashiNs;
@@ -390,11 +390,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Hashi token
+   * HashiCorp Vault access token with sufficient permissions to preform list &amp; read operations on secrets objects (relevant only for HasiCorp Vault migration)
    * @return hashiToken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hashi token")
+  @ApiModelProperty(value = "HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HasiCorp Vault migration)")
 
   public String getHashiToken() {
     return hashiToken;
@@ -413,11 +413,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Hashi url
+   * HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration)
    * @return hashiUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hashi url")
+  @ApiModelProperty(value = "HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration)")
 
   public String getHashiUrl() {
     return hashiUrl;
@@ -436,11 +436,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Migration ID
+   * Migration ID (Can be retrieved with gateway-list-migration command)
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Migration ID")
+  @ApiModelProperty(value = "Migration ID (Can be retrieved with gateway-list-migration command)")
 
   public String getId() {
     return id;
@@ -467,11 +467,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * For Certificate Authentication method K8s Cluster CA certificate
+   * For Certificate Authentication method K8s Cluster CA certificate (relevant only for K8s migration with Certificate Authentication method)
    * @return k8sCaCertificate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Certificate Authentication method K8s Cluster CA certificate")
+  @ApiModelProperty(value = "For Certificate Authentication method K8s Cluster CA certificate (relevant only for K8s migration with Certificate Authentication method)")
 
   public List<Integer> getK8sCaCertificate() {
     return k8sCaCertificate;
@@ -498,11 +498,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * K8s Client certificate
+   * K8s Client certificate with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Certificate Authentication method)
    * @return k8sClientCertificate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8s Client certificate")
+  @ApiModelProperty(value = "K8s Client certificate with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Certificate Authentication method)")
 
   public List<Integer> getK8sClientCertificate() {
     return k8sClientCertificate;
@@ -529,11 +529,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * K8s Client key
+   * K8s Client key (relevant only for K8s migration with Certificate Authentication method)
    * @return k8sClientKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8s Client key")
+  @ApiModelProperty(value = "K8s Client key (relevant only for K8s migration with Certificate Authentication method)")
 
   public List<Integer> getK8sClientKey() {
     return k8sClientKey;
@@ -552,11 +552,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * K8s Namespace
+   * K8s Namespace, Use this field to import secrets from a particular namespace only. By default, the secrets are imported from all namespaces (relevant only for K8s migration)
    * @return k8sNamespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8s Namespace")
+  @ApiModelProperty(value = "K8s Namespace, Use this field to import secrets from a particular namespace only. By default, the secrets are imported from all namespaces (relevant only for K8s migration)")
 
   public String getK8sNamespace() {
     return k8sNamespace;
@@ -575,11 +575,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * K8s client password
+   * K8s Client password (relevant only for K8s migration with Password Authentication method)
    * @return k8sPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8s client password")
+  @ApiModelProperty(value = "K8s Client password (relevant only for K8s migration with Password Authentication method)")
 
   public String getK8sPassword() {
     return k8sPassword;
@@ -598,11 +598,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * K8s Skip Control Plane Secrets
+   * K8s Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for K8s migration)
    * @return k8sSkipSystem
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8s Skip Control Plane Secrets")
+  @ApiModelProperty(value = "K8s Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for K8s migration)")
 
   public Boolean getK8sSkipSystem() {
     return k8sSkipSystem;
@@ -621,11 +621,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * For Token Authentication method K8s Bearer Token
+   * For Token Authentication method K8s Bearer Token with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Token Authentication method)
    * @return k8sToken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Token Authentication method K8s Bearer Token")
+  @ApiModelProperty(value = "For Token Authentication method K8s Bearer Token with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Token Authentication method)")
 
   public String getK8sToken() {
     return k8sToken;
@@ -644,11 +644,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * K8s Endpoint URL
+   * K8s API Server URL, e.g. https://k8s-api.mycompany.com:6443 (relevant only for K8s migration)
    * @return k8sUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8s Endpoint URL")
+  @ApiModelProperty(value = "K8s API Server URL, e.g. https://k8s-api.mycompany.com:6443 (relevant only for K8s migration)")
 
   public String getK8sUrl() {
     return k8sUrl;
@@ -667,11 +667,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * For Password Authentication method K8s client username
+   * For Password Authentication method K8s Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Password Authentication method)
    * @return k8sUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Authentication method K8s client username")
+  @ApiModelProperty(value = "For Password Authentication method K8s Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Password Authentication method)")
 
   public String getK8sUsername() {
     return k8sUsername;
@@ -693,7 +693,8 @@ public class GatewayUpdateMigration {
    * Migration name
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Migration name")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Migration name")
 
   public String getName() {
     return name;
@@ -702,6 +703,29 @@ public class GatewayUpdateMigration {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayUpdateMigration newName(String newName) {
+    
+    this.newName = newName;
+    return this;
+  }
+
+   /**
+   * New migration name
+   * @return newName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "New migration name")
+
+  public String getNewName() {
+    return newName;
+  }
+
+
+  public void setNewName(String newName) {
+    this.newName = newName;
   }
 
 
@@ -774,29 +798,6 @@ public class GatewayUpdateMigration {
   }
 
 
-  public GatewayUpdateMigration type(String type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Migration type, can be: hashi/aws/gcp/k8s/azure_kv
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Migration type, can be: hashi/aws/gcp/k8s/azure_kv")
-
-  public String getType() {
-    return type;
-  }
-
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
   public GatewayUpdateMigration uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -852,16 +853,16 @@ public class GatewayUpdateMigration {
         Objects.equals(this.k8sUrl, gatewayUpdateMigration.k8sUrl) &&
         Objects.equals(this.k8sUsername, gatewayUpdateMigration.k8sUsername) &&
         Objects.equals(this.name, gatewayUpdateMigration.name) &&
+        Objects.equals(this.newName, gatewayUpdateMigration.newName) &&
         Objects.equals(this.protectionKey, gatewayUpdateMigration.protectionKey) &&
         Objects.equals(this.targetLocation, gatewayUpdateMigration.targetLocation) &&
         Objects.equals(this.token, gatewayUpdateMigration.token) &&
-        Objects.equals(this.type, gatewayUpdateMigration.type) &&
         Objects.equals(this.uidToken, gatewayUpdateMigration.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, targetLocation, token, type, uidToken);
+    return Objects.hash(awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, targetLocation, token, uidToken);
   }
 
 
@@ -892,10 +893,10 @@ public class GatewayUpdateMigration {
     sb.append("    k8sUrl: ").append(toIndentedString(k8sUrl)).append("\n");
     sb.append("    k8sUsername: ").append(toIndentedString(k8sUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

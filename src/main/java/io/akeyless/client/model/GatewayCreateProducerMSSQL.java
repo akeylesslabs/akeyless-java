@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerMSSQL is a command that creates mssql producer")
 
 public class GatewayCreateProducerMSSQL {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS = "mssql-create-statements";
   @SerializedName(SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS)
   private String mssqlCreateStatements;
@@ -107,6 +111,29 @@ public class GatewayCreateProducerMSSQL {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerMSSQL deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerMSSQL mssqlCreateStatements(String mssqlCreateStatements) {
@@ -570,7 +597,8 @@ public class GatewayCreateProducerMSSQL {
       return false;
     }
     GatewayCreateProducerMSSQL gatewayCreateProducerMSSQL = (GatewayCreateProducerMSSQL) o;
-    return Objects.equals(this.mssqlCreateStatements, gatewayCreateProducerMSSQL.mssqlCreateStatements) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerMSSQL.deleteProtection) &&
+        Objects.equals(this.mssqlCreateStatements, gatewayCreateProducerMSSQL.mssqlCreateStatements) &&
         Objects.equals(this.mssqlDbname, gatewayCreateProducerMSSQL.mssqlDbname) &&
         Objects.equals(this.mssqlHost, gatewayCreateProducerMSSQL.mssqlHost) &&
         Objects.equals(this.mssqlPassword, gatewayCreateProducerMSSQL.mssqlPassword) &&
@@ -593,7 +621,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -601,6 +629,7 @@ public class GatewayCreateProducerMSSQL {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMSSQL {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    mssqlCreateStatements: ").append(toIndentedString(mssqlCreateStatements)).append("\n");
     sb.append("    mssqlDbname: ").append(toIndentedString(mssqlDbname)).append("\n");
     sb.append("    mssqlHost: ").append(toIndentedString(mssqlHost)).append("\n");

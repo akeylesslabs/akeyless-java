@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **azureClientId** | **String** | Azure Client ID |  [optional]
 **azureClientSecret** | **String** | Azure Client Secret |  [optional]
 **azureTenantId** | **String** | Azure Tenant ID |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional]
 **fixedUserOnly** | **Boolean** | Fixed user |  [optional]
 **name** | **String** | Producer name | 

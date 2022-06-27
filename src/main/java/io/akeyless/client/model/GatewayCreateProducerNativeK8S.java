@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerNativeK8S is a command that creates k8s producer")
 
 public class GatewayCreateProducerNativeK8S {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
   private String k8sClusterCaCert;
@@ -111,6 +115,29 @@ public class GatewayCreateProducerNativeK8S {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerNativeK8S deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerNativeK8S k8sClusterCaCert(String k8sClusterCaCert) {
@@ -589,7 +616,8 @@ public class GatewayCreateProducerNativeK8S {
       return false;
     }
     GatewayCreateProducerNativeK8S gatewayCreateProducerNativeK8S = (GatewayCreateProducerNativeK8S) o;
-    return Objects.equals(this.k8sClusterCaCert, gatewayCreateProducerNativeK8S.k8sClusterCaCert) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerNativeK8S.deleteProtection) &&
+        Objects.equals(this.k8sClusterCaCert, gatewayCreateProducerNativeK8S.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, gatewayCreateProducerNativeK8S.k8sClusterEndpoint) &&
         Objects.equals(this.k8sClusterToken, gatewayCreateProducerNativeK8S.k8sClusterToken) &&
         Objects.equals(this.k8sNamespace, gatewayCreateProducerNativeK8S.k8sNamespace) &&
@@ -613,7 +641,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -621,6 +649,7 @@ public class GatewayCreateProducerNativeK8S {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerNativeK8S {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");

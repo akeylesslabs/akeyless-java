@@ -68,6 +68,10 @@ public class GatewayUpdateProducerAws {
   @SerializedName(SERIALIZED_NAME_AWS_USER_PROGRAMMATIC_ACCESS)
   private Boolean awsUserProgrammaticAccess = true;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_ENABLE_ADMIN_ROTATION = "enable-admin-rotation";
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation = false;
@@ -341,6 +345,29 @@ public class GatewayUpdateProducerAws {
 
   public void setAwsUserProgrammaticAccess(Boolean awsUserProgrammaticAccess) {
     this.awsUserProgrammaticAccess = awsUserProgrammaticAccess;
+  }
+
+
+  public GatewayUpdateProducerAws deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -760,6 +787,7 @@ public class GatewayUpdateProducerAws {
         Objects.equals(this.awsUserGroups, gatewayUpdateProducerAws.awsUserGroups) &&
         Objects.equals(this.awsUserPolicies, gatewayUpdateProducerAws.awsUserPolicies) &&
         Objects.equals(this.awsUserProgrammaticAccess, gatewayUpdateProducerAws.awsUserProgrammaticAccess) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerAws.deleteProtection) &&
         Objects.equals(this.enableAdminRotation, gatewayUpdateProducerAws.enableAdminRotation) &&
         Objects.equals(this.name, gatewayUpdateProducerAws.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerAws.newName) &&
@@ -781,7 +809,7 @@ public class GatewayUpdateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, enableAdminRotation, name, newName, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, name, newName, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -798,6 +826,7 @@ public class GatewayUpdateProducerAws {
     sb.append("    awsUserGroups: ").append(toIndentedString(awsUserGroups)).append("\n");
     sb.append("    awsUserPolicies: ").append(toIndentedString(awsUserPolicies)).append("\n");
     sb.append("    awsUserProgrammaticAccess: ").append(toIndentedString(awsUserProgrammaticAccess)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

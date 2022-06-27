@@ -39,6 +39,10 @@ public class GatewayUpdateProducerCustom {
   @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
   private String createSyncUrl;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_ENABLE_ADMIN_ROTATION = "enable_admin_rotation";
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation = false;
@@ -130,6 +134,29 @@ public class GatewayUpdateProducerCustom {
 
   public void setCreateSyncUrl(String createSyncUrl) {
     this.createSyncUrl = createSyncUrl;
+  }
+
+
+  public GatewayUpdateProducerCustom deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -426,6 +453,7 @@ public class GatewayUpdateProducerCustom {
     GatewayUpdateProducerCustom gatewayUpdateProducerCustom = (GatewayUpdateProducerCustom) o;
     return Objects.equals(this.adminRotationIntervalDays, gatewayUpdateProducerCustom.adminRotationIntervalDays) &&
         Objects.equals(this.createSyncUrl, gatewayUpdateProducerCustom.createSyncUrl) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerCustom.deleteProtection) &&
         Objects.equals(this.enableAdminRotation, gatewayUpdateProducerCustom.enableAdminRotation) &&
         Objects.equals(this.name, gatewayUpdateProducerCustom.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCustom.newName) &&
@@ -442,7 +470,7 @@ public class GatewayUpdateProducerCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminRotationIntervalDays, createSyncUrl, enableAdminRotation, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
+    return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, enableAdminRotation, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
   }
 
 
@@ -452,6 +480,7 @@ public class GatewayUpdateProducerCustom {
     sb.append("class GatewayUpdateProducerCustom {\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

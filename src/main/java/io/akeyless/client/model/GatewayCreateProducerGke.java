@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayCreateProducerGke is a command that creates gke producer")
 
 public class GatewayCreateProducerGke {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_GKE_ACCOUNT_KEY = "gke-account-key";
   @SerializedName(SERIALIZED_NAME_GKE_ACCOUNT_KEY)
   private String gkeAccountKey;
@@ -99,6 +103,29 @@ public class GatewayCreateProducerGke {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayCreateProducerGke deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayCreateProducerGke gkeAccountKey(String gkeAccountKey) {
@@ -508,7 +535,8 @@ public class GatewayCreateProducerGke {
       return false;
     }
     GatewayCreateProducerGke gatewayCreateProducerGke = (GatewayCreateProducerGke) o;
-    return Objects.equals(this.gkeAccountKey, gatewayCreateProducerGke.gkeAccountKey) &&
+    return Objects.equals(this.deleteProtection, gatewayCreateProducerGke.deleteProtection) &&
+        Objects.equals(this.gkeAccountKey, gatewayCreateProducerGke.gkeAccountKey) &&
         Objects.equals(this.gkeClusterCert, gatewayCreateProducerGke.gkeClusterCert) &&
         Objects.equals(this.gkeClusterEndpoint, gatewayCreateProducerGke.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, gatewayCreateProducerGke.gkeClusterName) &&
@@ -529,7 +557,7 @@ public class GatewayCreateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -537,6 +565,7 @@ public class GatewayCreateProducerGke {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerGke {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    gkeAccountKey: ").append(toIndentedString(gkeAccountKey)).append("\n");
     sb.append("    gkeClusterCert: ").append(toIndentedString(gkeClusterCert)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");

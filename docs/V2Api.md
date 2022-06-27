@@ -106,6 +106,7 @@ Method | HTTP request | Description
 [**gatewayListProducers**](V2Api.md#gatewayListProducers) | **POST** /gateway-list-producers | 
 [**gatewayRevokeTmpUsers**](V2Api.md#gatewayRevokeTmpUsers) | **POST** /gateway-revoke-producer-tmp-creds | 
 [**gatewayStartProducer**](V2Api.md#gatewayStartProducer) | **POST** /gateway-start-producer | 
+[**gatewayStatusMigration**](V2Api.md#gatewayStatusMigration) | **POST** /gateway-migration-status | 
 [**gatewayStopProducer**](V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
 [**gatewaySyncMigration**](V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
 [**gatewayUpdateItem**](V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
@@ -6459,6 +6460,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayStartProducerResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayStatusMigration"></a>
+# **gatewayStatusMigration**
+> MigrationStatusReplyObj gatewayStatusMigration(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayStatusMigration body = new GatewayStatusMigration(); // GatewayStatusMigration | 
+    try {
+      MigrationStatusReplyObj result = apiInstance.gatewayStatusMigration(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayStatusMigration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayStatusMigration**](GatewayStatusMigration.md)|  |
+
+### Return type
+
+[**MigrationStatusReplyObj**](MigrationStatusReplyObj.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayMigrationStatusResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayStopProducer"></a>

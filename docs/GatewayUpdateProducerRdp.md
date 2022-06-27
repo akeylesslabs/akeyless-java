@@ -8,6 +8,7 @@ gatewayUpdateProducerRdp is a command that updates rdp producer
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowUserExtendSession** | **Long** | AllowUserExtendSession |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **fixedUserOnly** | **String** | Fixed user |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]

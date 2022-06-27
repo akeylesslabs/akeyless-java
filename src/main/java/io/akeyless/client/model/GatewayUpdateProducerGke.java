@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateProducerGke is a command that updates gke producer")
 
 public class GatewayUpdateProducerGke {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_GKE_ACCOUNT_KEY = "gke-account-key";
   @SerializedName(SERIALIZED_NAME_GKE_ACCOUNT_KEY)
   private String gkeAccountKey;
@@ -103,6 +107,29 @@ public class GatewayUpdateProducerGke {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayUpdateProducerGke deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayUpdateProducerGke gkeAccountKey(String gkeAccountKey) {
@@ -535,7 +562,8 @@ public class GatewayUpdateProducerGke {
       return false;
     }
     GatewayUpdateProducerGke gatewayUpdateProducerGke = (GatewayUpdateProducerGke) o;
-    return Objects.equals(this.gkeAccountKey, gatewayUpdateProducerGke.gkeAccountKey) &&
+    return Objects.equals(this.deleteProtection, gatewayUpdateProducerGke.deleteProtection) &&
+        Objects.equals(this.gkeAccountKey, gatewayUpdateProducerGke.gkeAccountKey) &&
         Objects.equals(this.gkeClusterCert, gatewayUpdateProducerGke.gkeClusterCert) &&
         Objects.equals(this.gkeClusterEndpoint, gatewayUpdateProducerGke.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, gatewayUpdateProducerGke.gkeClusterName) &&
@@ -557,7 +585,7 @@ public class GatewayUpdateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -565,6 +593,7 @@ public class GatewayUpdateProducerGke {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerGke {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    gkeAccountKey: ").append(toIndentedString(gkeAccountKey)).append("\n");
     sb.append("    gkeClusterCert: ").append(toIndentedString(gkeClusterCert)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");

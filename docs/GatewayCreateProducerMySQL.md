@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional]
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **mysqlDbname** | **String** | MySQL DB Name |  [optional]
 **mysqlHost** | **String** | MySQL Host |  [optional]
 **mysqlPassword** | **String** | MySQL Password |  [optional]

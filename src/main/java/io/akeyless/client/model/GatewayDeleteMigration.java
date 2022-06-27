@@ -50,10 +50,10 @@ public class GatewayDeleteMigration {
   }
 
    /**
-   * Migration name
+   * Migration ID
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "Migration name")
+  @ApiModelProperty(required = true, value = "Migration ID")
 
   public String getId() {
     return id;

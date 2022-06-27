@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **lastVersion** | **Integer** |  |  [optional]
 **nextRotationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **protectionKeyName** | **String** |  |  [optional]
+**protectionKeyType** | **String** |  |  [optional]
 **publicValue** | **String** |  |  [optional]
 **rotationInterval** | **Long** |  |  [optional]
 **targetVersions** | [**List&lt;TargetItemVersion&gt;**](TargetItemVersion.md) |  |  [optional]

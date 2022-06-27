@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateProducerGithub is a command that updates github producer")
 
 public class GatewayUpdateProducerGithub {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github-app-id";
   @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
   private Long githubAppId;
@@ -79,6 +83,29 @@ public class GatewayUpdateProducerGithub {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GatewayUpdateProducerGithub deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayUpdateProducerGithub githubAppId(Long githubAppId) {
@@ -381,7 +408,8 @@ public class GatewayUpdateProducerGithub {
       return false;
     }
     GatewayUpdateProducerGithub gatewayUpdateProducerGithub = (GatewayUpdateProducerGithub) o;
-    return Objects.equals(this.githubAppId, gatewayUpdateProducerGithub.githubAppId) &&
+    return Objects.equals(this.deleteProtection, gatewayUpdateProducerGithub.deleteProtection) &&
+        Objects.equals(this.githubAppId, gatewayUpdateProducerGithub.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, gatewayUpdateProducerGithub.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, gatewayUpdateProducerGithub.githubBaseUrl) &&
         Objects.equals(this.installationId, gatewayUpdateProducerGithub.installationId) &&
@@ -397,7 +425,7 @@ public class GatewayUpdateProducerGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, name, newName, targetName, token, tokenPermissions, tokenRepositories, uidToken);
+    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, name, newName, targetName, token, tokenPermissions, tokenRepositories, uidToken);
   }
 
 
@@ -405,6 +433,7 @@ public class GatewayUpdateProducerGithub {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerGithub {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");

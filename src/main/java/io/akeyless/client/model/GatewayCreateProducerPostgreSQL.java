@@ -36,6 +36,10 @@ public class GatewayCreateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
   private String creationStatements;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -133,6 +137,29 @@ public class GatewayCreateProducerPostgreSQL {
 
   public void setCreationStatements(String creationStatements) {
     this.creationStatements = creationStatements;
+  }
+
+
+  public GatewayCreateProducerPostgreSQL deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -598,6 +625,7 @@ public class GatewayCreateProducerPostgreSQL {
     }
     GatewayCreateProducerPostgreSQL gatewayCreateProducerPostgreSQL = (GatewayCreateProducerPostgreSQL) o;
     return Objects.equals(this.creationStatements, gatewayCreateProducerPostgreSQL.creationStatements) &&
+        Objects.equals(this.deleteProtection, gatewayCreateProducerPostgreSQL.deleteProtection) &&
         Objects.equals(this.name, gatewayCreateProducerPostgreSQL.name) &&
         Objects.equals(this.postgresqlDbName, gatewayCreateProducerPostgreSQL.postgresqlDbName) &&
         Objects.equals(this.postgresqlHost, gatewayCreateProducerPostgreSQL.postgresqlHost) &&
@@ -621,7 +649,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, name, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, deleteProtection, name, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -630,6 +658,7 @@ public class GatewayCreateProducerPostgreSQL {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerPostgreSQL {\n");
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    postgresqlDbName: ").append(toIndentedString(postgresqlDbName)).append("\n");
     sb.append("    postgresqlHost: ").append(toIndentedString(postgresqlHost)).append("\n");

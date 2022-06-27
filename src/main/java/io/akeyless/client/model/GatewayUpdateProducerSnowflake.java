@@ -48,6 +48,10 @@ public class GatewayUpdateProducerSnowflake {
   @SerializedName(SERIALIZED_NAME_DB_NAME)
   private String dbName;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -174,6 +178,29 @@ public class GatewayUpdateProducerSnowflake {
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
+  }
+
+
+  public GatewayUpdateProducerSnowflake deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -404,6 +431,7 @@ public class GatewayUpdateProducerSnowflake {
         Objects.equals(this.accountPassword, gatewayUpdateProducerSnowflake.accountPassword) &&
         Objects.equals(this.accountUsername, gatewayUpdateProducerSnowflake.accountUsername) &&
         Objects.equals(this.dbName, gatewayUpdateProducerSnowflake.dbName) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerSnowflake.deleteProtection) &&
         Objects.equals(this.name, gatewayUpdateProducerSnowflake.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerSnowflake.newName) &&
         Objects.equals(this.role, gatewayUpdateProducerSnowflake.role) &&
@@ -417,7 +445,7 @@ public class GatewayUpdateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, dbName, name, newName, role, tags, targetName, token, uidToken, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, name, newName, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
 
@@ -429,6 +457,7 @@ public class GatewayUpdateProducerSnowflake {
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
     sb.append("    accountUsername: ").append(toIndentedString(accountUsername)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

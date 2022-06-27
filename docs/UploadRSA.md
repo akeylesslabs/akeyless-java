@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **metadata** | **String** | A metadata about the key |  [optional]
 **name** | **String** | Name of key to be created | 
+**overwrite** | **String** | When the overwrite flag is set, this command will only update an existing key. [true, false] |  [optional]
 **rsaFileData** | **String** | RSA private key data, base64 encoded |  [optional]
 **splitLevel** | **Long** | The number of fragments that the item will be split into |  [optional]
 **tag** | **List&lt;String&gt;** | List of the tags attached to this key |  [optional]

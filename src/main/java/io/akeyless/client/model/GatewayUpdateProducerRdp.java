@@ -36,6 +36,10 @@ public class GatewayUpdateProducerRdp {
   @SerializedName(SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION)
   private Long allowUserExtendSession;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_FIXED_USER_ONLY = "fixed-user-only";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private String fixedUserOnly = "false";
@@ -137,6 +141,29 @@ public class GatewayUpdateProducerRdp {
 
   public void setAllowUserExtendSession(Long allowUserExtendSession) {
     this.allowUserExtendSession = allowUserExtendSession;
+  }
+
+
+  public GatewayUpdateProducerRdp deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -625,6 +652,7 @@ public class GatewayUpdateProducerRdp {
     }
     GatewayUpdateProducerRdp gatewayUpdateProducerRdp = (GatewayUpdateProducerRdp) o;
     return Objects.equals(this.allowUserExtendSession, gatewayUpdateProducerRdp.allowUserExtendSession) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerRdp.deleteProtection) &&
         Objects.equals(this.fixedUserOnly, gatewayUpdateProducerRdp.fixedUserOnly) &&
         Objects.equals(this.name, gatewayUpdateProducerRdp.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerRdp.newName) &&
@@ -649,7 +677,7 @@ public class GatewayUpdateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, fixedUserOnly, name, newName, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, name, newName, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
 
@@ -658,6 +686,7 @@ public class GatewayUpdateProducerRdp {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerRdp {\n");
     sb.append("    allowUserExtendSession: ").append(toIndentedString(allowUserExtendSession)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

@@ -43,6 +43,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_BASE_URL)
   private String artifactoryBaseUrl;
 
+  public static final String SERIALIZED_NAME_AUTH_FLOW = "auth_flow";
+  @SerializedName(SERIALIZED_NAME_AUTH_FLOW)
+  private String authFlow;
+
   public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws_access_key_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
   private String awsAccessKeyId;
@@ -458,6 +462,29 @@ public class TargetTypeDetailsInput {
 
   public void setArtifactoryBaseUrl(String artifactoryBaseUrl) {
     this.artifactoryBaseUrl = artifactoryBaseUrl;
+  }
+
+
+  public TargetTypeDetailsInput authFlow(String authFlow) {
+    
+    this.authFlow = authFlow;
+    return this;
+  }
+
+   /**
+   * Get authFlow
+   * @return authFlow
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAuthFlow() {
+    return authFlow;
+  }
+
+
+  public void setAuthFlow(String authFlow) {
+    this.authFlow = authFlow;
   }
 
 
@@ -2482,6 +2509,7 @@ public class TargetTypeDetailsInput {
     return Objects.equals(this.artifactoryAdminApikey, targetTypeDetailsInput.artifactoryAdminApikey) &&
         Objects.equals(this.artifactoryAdminUsername, targetTypeDetailsInput.artifactoryAdminUsername) &&
         Objects.equals(this.artifactoryBaseUrl, targetTypeDetailsInput.artifactoryBaseUrl) &&
+        Objects.equals(this.authFlow, targetTypeDetailsInput.authFlow) &&
         Objects.equals(this.awsAccessKeyId, targetTypeDetailsInput.awsAccessKeyId) &&
         Objects.equals(this.awsRegion, targetTypeDetailsInput.awsRegion) &&
         Objects.equals(this.awsSecretAccessKey, targetTypeDetailsInput.awsSecretAccessKey) &&
@@ -2573,7 +2601,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2584,6 +2612,7 @@ public class TargetTypeDetailsInput {
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
     sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
     sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");
+    sb.append("    authFlow: ").append(toIndentedString(authFlow)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");

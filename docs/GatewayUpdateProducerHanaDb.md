@@ -7,6 +7,7 @@ gatewayUpdateProducerHanaDb is a command that updates hanadb producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **hanaDbname** | **String** | HanaDb Name |  [optional]
 **hanadbCreateStatements** | **String** | HanaDb Creation statements |  [optional]
 **hanadbHost** | **String** | HanaDb Host |  [optional]

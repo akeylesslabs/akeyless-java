@@ -7,7 +7,7 @@ gatewayGetMigration is a command that get migration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
+**name** | **String** | Migration name to display |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 

@@ -53,6 +53,10 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_AZURE_AD_OBJECT_ID)
   private String azureAdObjectId;
 
+  public static final String SERIALIZED_NAME_CERT_DATA = "cert-data";
+  @SerializedName(SERIALIZED_NAME_CERT_DATA)
+  private String certData;
+
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
@@ -60,6 +64,10 @@ public class Configure {
   public static final String SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME = "k8s-auth-config-name";
   @SerializedName(SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME)
   private String k8sAuthConfigName;
+
+  public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
+  @SerializedName(SERIALIZED_NAME_KEY_DATA)
+  private String keyData;
 
 
   public Configure accessId(String accessId) {
@@ -200,6 +208,29 @@ public class Configure {
   }
 
 
+  public Configure certData(String certData) {
+    
+    this.certData = certData;
+    return this;
+  }
+
+   /**
+   * Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert in Curl Context)
+   * @return certData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)")
+
+  public String getCertData() {
+    return certData;
+  }
+
+
+  public void setCertData(String certData) {
+    this.certData = certData;
+  }
+
+
   public Configure gcpAudience(String gcpAudience) {
     
     this.gcpAudience = gcpAudience;
@@ -246,6 +277,29 @@ public class Configure {
   }
 
 
+  public Configure keyData(String keyData) {
+    
+    this.keyData = keyData;
+    return this;
+  }
+
+   /**
+   * Private key data encoded in base64. Used if file was not provided.(relevant only for access-type&#x3D;cert in Curl Context)
+   * @return keyData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Private key data encoded in base64. Used if file was not provided.(relevant only for access-type=cert in Curl Context)")
+
+  public String getKeyData() {
+    return keyData;
+  }
+
+
+  public void setKeyData(String keyData) {
+    this.keyData = keyData;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -261,13 +315,15 @@ public class Configure {
         Objects.equals(this.adminEmail, configure.adminEmail) &&
         Objects.equals(this.adminPassword, configure.adminPassword) &&
         Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
+        Objects.equals(this.certData, configure.certData) &&
         Objects.equals(this.gcpAudience, configure.gcpAudience) &&
-        Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName);
+        Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName) &&
+        Objects.equals(this.keyData, configure.keyData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, gcpAudience, k8sAuthConfigName);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, k8sAuthConfigName, keyData);
   }
 
 
@@ -281,8 +337,10 @@ public class Configure {
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
+    sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
+    sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

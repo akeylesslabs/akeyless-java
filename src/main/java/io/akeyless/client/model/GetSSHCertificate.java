@@ -37,6 +37,10 @@ public class GetSSHCertificate {
   @SerializedName(SERIALIZED_NAME_CERT_USERNAME)
   private String certUsername;
 
+  public static final String SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME = "legacy-signing-alg-name";
+  @SerializedName(SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME)
+  private Boolean legacySigningAlgName;
+
   public static final String SERIALIZED_NAME_PUBLIC_KEY_DATA = "public-key-data";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_DATA)
   private String publicKeyData;
@@ -44,6 +48,10 @@ public class GetSSHCertificate {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+  public static final String SERIALIZED_NAME_TTL = "ttl";
+  @SerializedName(SERIALIZED_NAME_TTL)
+  private Long ttl;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -94,6 +102,29 @@ public class GetSSHCertificate {
   }
 
 
+  public GetSSHCertificate legacySigningAlgName(Boolean legacySigningAlgName) {
+    
+    this.legacySigningAlgName = legacySigningAlgName;
+    return this;
+  }
+
+   /**
+   * Set this option to output legacy (&#39;ssh-rsa-cert-v01@openssh.com&#39;) signing algorithm name in the certificate.
+   * @return legacySigningAlgName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the certificate.")
+
+  public Boolean getLegacySigningAlgName() {
+    return legacySigningAlgName;
+  }
+
+
+  public void setLegacySigningAlgName(Boolean legacySigningAlgName) {
+    this.legacySigningAlgName = legacySigningAlgName;
+  }
+
+
   public GetSSHCertificate publicKeyData(String publicKeyData) {
     
     this.publicKeyData = publicKeyData;
@@ -140,6 +171,29 @@ public class GetSSHCertificate {
   }
 
 
+  public GetSSHCertificate ttl(Long ttl) {
+    
+    this.ttl = ttl;
+    return this;
+  }
+
+   /**
+   * Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)
+   * @return ttl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)")
+
+  public Long getTtl() {
+    return ttl;
+  }
+
+
+  public void setTtl(Long ttl) {
+    this.ttl = ttl;
+  }
+
+
   public GetSSHCertificate uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -174,14 +228,16 @@ public class GetSSHCertificate {
     GetSSHCertificate getSSHCertificate = (GetSSHCertificate) o;
     return Objects.equals(this.certIssuerName, getSSHCertificate.certIssuerName) &&
         Objects.equals(this.certUsername, getSSHCertificate.certUsername) &&
+        Objects.equals(this.legacySigningAlgName, getSSHCertificate.legacySigningAlgName) &&
         Objects.equals(this.publicKeyData, getSSHCertificate.publicKeyData) &&
         Objects.equals(this.token, getSSHCertificate.token) &&
+        Objects.equals(this.ttl, getSSHCertificate.ttl) &&
         Objects.equals(this.uidToken, getSSHCertificate.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssuerName, certUsername, publicKeyData, token, uidToken);
+    return Objects.hash(certIssuerName, certUsername, legacySigningAlgName, publicKeyData, token, ttl, uidToken);
   }
 
 
@@ -191,8 +247,10 @@ public class GetSSHCertificate {
     sb.append("class GetSSHCertificate {\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    certUsername: ").append(toIndentedString(certUsername)).append("\n");
+    sb.append("    legacySigningAlgName: ").append(toIndentedString(legacySigningAlgName)).append("\n");
     sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

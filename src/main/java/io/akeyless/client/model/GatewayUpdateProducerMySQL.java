@@ -40,6 +40,10 @@ public class GatewayUpdateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
   private String dbServerName;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_MYSQL_DBNAME = "mysql-dbname";
   @SerializedName(SERIALIZED_NAME_MYSQL_DBNAME)
   private String mysqlDbname;
@@ -164,6 +168,29 @@ public class GatewayUpdateProducerMySQL {
 
   public void setDbServerName(String dbServerName) {
     this.dbServerName = dbServerName;
+  }
+
+
+  public GatewayUpdateProducerMySQL deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -653,6 +680,7 @@ public class GatewayUpdateProducerMySQL {
     GatewayUpdateProducerMySQL gatewayUpdateProducerMySQL = (GatewayUpdateProducerMySQL) o;
     return Objects.equals(this.dbServerCertificates, gatewayUpdateProducerMySQL.dbServerCertificates) &&
         Objects.equals(this.dbServerName, gatewayUpdateProducerMySQL.dbServerName) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerMySQL.deleteProtection) &&
         Objects.equals(this.mysqlDbname, gatewayUpdateProducerMySQL.mysqlDbname) &&
         Objects.equals(this.mysqlHost, gatewayUpdateProducerMySQL.mysqlHost) &&
         Objects.equals(this.mysqlPassword, gatewayUpdateProducerMySQL.mysqlPassword) &&
@@ -677,7 +705,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -687,6 +715,7 @@ public class GatewayUpdateProducerMySQL {
     sb.append("class GatewayUpdateProducerMySQL {\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    mysqlDbname: ").append(toIndentedString(mysqlDbname)).append("\n");
     sb.append("    mysqlHost: ").append(toIndentedString(mysqlHost)).append("\n");
     sb.append("    mysqlPassword: ").append(toIndentedString(mysqlPassword)).append("\n");

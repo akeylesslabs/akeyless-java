@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **artifactoryAdminApikey** | **String** |  |  [optional]
 **artifactoryAdminUsername** | **String** |  |  [optional]
 **artifactoryBaseUrl** | **String** |  |  [optional]
+**authFlow** | **String** |  |  [optional]
 **awsAccessKeyId** | **String** |  |  [optional]
 **awsRegion** | **String** |  |  [optional]
 **awsSecretAccessKey** | **String** |  |  [optional]

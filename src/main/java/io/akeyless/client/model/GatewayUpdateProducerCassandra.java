@@ -52,6 +52,10 @@ public class GatewayUpdateProducerCassandra {
   @SerializedName(SERIALIZED_NAME_CASSANDRA_USERNAME)
   private String cassandraUsername;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -197,6 +201,29 @@ public class GatewayUpdateProducerCassandra {
 
   public void setCassandraUsername(String cassandraUsername) {
     this.cassandraUsername = cassandraUsername;
+  }
+
+
+  public GatewayUpdateProducerCassandra deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -405,6 +432,7 @@ public class GatewayUpdateProducerCassandra {
         Objects.equals(this.cassandraPassword, gatewayUpdateProducerCassandra.cassandraPassword) &&
         Objects.equals(this.cassandraPort, gatewayUpdateProducerCassandra.cassandraPort) &&
         Objects.equals(this.cassandraUsername, gatewayUpdateProducerCassandra.cassandraUsername) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerCassandra.deleteProtection) &&
         Objects.equals(this.name, gatewayUpdateProducerCassandra.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCassandra.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerCassandra.producerEncryptionKeyName) &&
@@ -417,7 +445,7 @@ public class GatewayUpdateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -430,6 +458,7 @@ public class GatewayUpdateProducerCassandra {
     sb.append("    cassandraPassword: ").append(toIndentedString(cassandraPassword)).append("\n");
     sb.append("    cassandraPort: ").append(toIndentedString(cassandraPort)).append("\n");
     sb.append("    cassandraUsername: ").append(toIndentedString(cassandraUsername)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

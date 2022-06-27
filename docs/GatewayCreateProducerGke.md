@@ -7,6 +7,7 @@ gatewayCreateProducerGke is a command that creates gke producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **gkeAccountKey** | **String** | GKE Service Account key file path |  [optional]
 **gkeClusterCert** | **String** | GKE cluster CA certificate |  [optional]
 **gkeClusterEndpoint** | **String** | GKE cluster URL endpoint |  [optional]

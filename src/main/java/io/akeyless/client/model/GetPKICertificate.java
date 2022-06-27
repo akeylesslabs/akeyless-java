@@ -41,6 +41,10 @@ public class GetPKICertificate {
   @SerializedName(SERIALIZED_NAME_COMMON_NAME)
   private String commonName;
 
+  public static final String SERIALIZED_NAME_EXTENDED_KEY_USAGE = "extended-key-usage";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_KEY_USAGE)
+  private String extendedKeyUsage;
+
   public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
   private String keyDataBase64;
@@ -48,6 +52,10 @@ public class GetPKICertificate {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+  public static final String SERIALIZED_NAME_TTL = "ttl";
+  @SerializedName(SERIALIZED_NAME_TTL)
+  private Long ttl;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -126,6 +134,29 @@ public class GetPKICertificate {
   }
 
 
+  public GetPKICertificate extendedKeyUsage(String extendedKeyUsage) {
+    
+    this.extendedKeyUsage = extendedKeyUsage;
+    return this;
+  }
+
+   /**
+   * A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: &#39;clientauth&#39;, &#39;serverauth&#39;.
+   * @return extendedKeyUsage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'.")
+
+  public String getExtendedKeyUsage() {
+    return extendedKeyUsage;
+  }
+
+
+  public void setExtendedKeyUsage(String extendedKeyUsage) {
+    this.extendedKeyUsage = extendedKeyUsage;
+  }
+
+
   public GetPKICertificate keyDataBase64(String keyDataBase64) {
     
     this.keyDataBase64 = keyDataBase64;
@@ -169,6 +200,29 @@ public class GetPKICertificate {
 
   public void setToken(String token) {
     this.token = token;
+  }
+
+
+  public GetPKICertificate ttl(Long ttl) {
+    
+    this.ttl = ttl;
+    return this;
+  }
+
+   /**
+   * Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)
+   * @return ttl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)")
+
+  public Long getTtl() {
+    return ttl;
+  }
+
+
+  public void setTtl(Long ttl) {
+    this.ttl = ttl;
   }
 
 
@@ -230,15 +284,17 @@ public class GetPKICertificate {
     return Objects.equals(this.altNames, getPKICertificate.altNames) &&
         Objects.equals(this.certIssuerName, getPKICertificate.certIssuerName) &&
         Objects.equals(this.commonName, getPKICertificate.commonName) &&
+        Objects.equals(this.extendedKeyUsage, getPKICertificate.extendedKeyUsage) &&
         Objects.equals(this.keyDataBase64, getPKICertificate.keyDataBase64) &&
         Objects.equals(this.token, getPKICertificate.token) &&
+        Objects.equals(this.ttl, getPKICertificate.ttl) &&
         Objects.equals(this.uidToken, getPKICertificate.uidToken) &&
         Objects.equals(this.uriSans, getPKICertificate.uriSans);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, keyDataBase64, token, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, extendedKeyUsage, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
 
@@ -249,8 +305,10 @@ public class GetPKICertificate {
     sb.append("    altNames: ").append(toIndentedString(altNames)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
+    sb.append("    extendedKeyUsage: ").append(toIndentedString(extendedKeyUsage)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uriSans: ").append(toIndentedString(uriSans)).append("\n");
     sb.append("}");

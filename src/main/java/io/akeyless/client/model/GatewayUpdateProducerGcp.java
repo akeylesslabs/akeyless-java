@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateProducerGcp is a command that updates a GCP producer")
 
 public class GatewayUpdateProducerGcp {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_GCP_CRED_TYPE = "gcp-cred-type";
   @SerializedName(SERIALIZED_NAME_GCP_CRED_TYPE)
   private String gcpCredType;
@@ -83,6 +87,29 @@ public class GatewayUpdateProducerGcp {
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
+
+
+  public GatewayUpdateProducerGcp deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
 
   public GatewayUpdateProducerGcp gcpCredType(String gcpCredType) {
@@ -400,7 +427,8 @@ public class GatewayUpdateProducerGcp {
       return false;
     }
     GatewayUpdateProducerGcp gatewayUpdateProducerGcp = (GatewayUpdateProducerGcp) o;
-    return Objects.equals(this.gcpCredType, gatewayUpdateProducerGcp.gcpCredType) &&
+    return Objects.equals(this.deleteProtection, gatewayUpdateProducerGcp.deleteProtection) &&
+        Objects.equals(this.gcpCredType, gatewayUpdateProducerGcp.gcpCredType) &&
         Objects.equals(this.gcpKey, gatewayUpdateProducerGcp.gcpKey) &&
         Objects.equals(this.gcpKeyAlgo, gatewayUpdateProducerGcp.gcpKeyAlgo) &&
         Objects.equals(this.gcpSaEmail, gatewayUpdateProducerGcp.gcpSaEmail) &&
@@ -417,7 +445,7 @@ public class GatewayUpdateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -425,6 +453,7 @@ public class GatewayUpdateProducerGcp {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerGcp {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    gcpCredType: ").append(toIndentedString(gcpCredType)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");

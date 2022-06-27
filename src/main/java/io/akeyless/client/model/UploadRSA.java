@@ -55,6 +55,10 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_OVERWRITE = "overwrite";
+  @SerializedName(SERIALIZED_NAME_OVERWRITE)
+  private String overwrite;
+
   public static final String SERIALIZED_NAME_RSA_FILE_DATA = "rsa-file-data";
   @SerializedName(SERIALIZED_NAME_RSA_FILE_DATA)
   private String rsaFileData;
@@ -212,6 +216,29 @@ public class UploadRSA {
   }
 
 
+  public UploadRSA overwrite(String overwrite) {
+    
+    this.overwrite = overwrite;
+    return this;
+  }
+
+   /**
+   * When the overwrite flag is set, this command will only update an existing key. [true, false]
+   * @return overwrite
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When the overwrite flag is set, this command will only update an existing key. [true, false]")
+
+  public String getOverwrite() {
+    return overwrite;
+  }
+
+
+  public void setOverwrite(String overwrite) {
+    this.overwrite = overwrite;
+  }
+
+
   public UploadRSA rsaFileData(String rsaFileData) {
     
     this.rsaFileData = rsaFileData;
@@ -350,6 +377,7 @@ public class UploadRSA {
         Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
+        Objects.equals(this.overwrite, uploadRSA.overwrite) &&
         Objects.equals(this.rsaFileData, uploadRSA.rsaFileData) &&
         Objects.equals(this.splitLevel, uploadRSA.splitLevel) &&
         Objects.equals(this.tag, uploadRSA.tag) &&
@@ -359,7 +387,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, metadata, name, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
 
@@ -373,6 +401,7 @@ public class UploadRSA {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    overwrite: ").append(toIndentedString(overwrite)).append("\n");
     sb.append("    rsaFileData: ").append(toIndentedString(rsaFileData)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");

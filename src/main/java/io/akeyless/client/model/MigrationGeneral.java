@@ -37,6 +37,10 @@ public class MigrationGeneral {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_NAME = "new_name";
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
+
   public static final String SERIALIZED_NAME_PREFIX = "prefix";
   @SerializedName(SERIALIZED_NAME_PREFIX)
   private String prefix;
@@ -89,6 +93,29 @@ public class MigrationGeneral {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public MigrationGeneral newName(String newName) {
+    
+    this.newName = newName;
+    return this;
+  }
+
+   /**
+   * Get newName
+   * @return newName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getNewName() {
+    return newName;
+  }
+
+
+  public void setNewName(String newName) {
+    this.newName = newName;
   }
 
 
@@ -149,13 +176,14 @@ public class MigrationGeneral {
     MigrationGeneral migrationGeneral = (MigrationGeneral) o;
     return Objects.equals(this.id, migrationGeneral.id) &&
         Objects.equals(this.name, migrationGeneral.name) &&
+        Objects.equals(this.newName, migrationGeneral.newName) &&
         Objects.equals(this.prefix, migrationGeneral.prefix) &&
         Objects.equals(this.protectionKey, migrationGeneral.protectionKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, prefix, protectionKey);
+    return Objects.hash(id, name, newName, prefix, protectionKey);
   }
 
 
@@ -165,6 +193,7 @@ public class MigrationGeneral {
     sb.append("class MigrationGeneral {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("}");
