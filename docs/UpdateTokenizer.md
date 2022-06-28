@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
 **alphabet** | **String** | Alphabet to use in regexp vaultless tokenization |  [optional]
-**decryptionTemplate** | **String** | The Decryption output template to use in regexp vaultless tokenization |  [optional]
+**decodingTemplate** | **String** | The Decoding output template to use in regexp vaultless tokenization |  [optional]
 **deleteProtection** | **String** |  |  [optional]
+**encodingTemplate** | **String** | The Encoding output template to use in regexp vaultless tokenization |  [optional]
 **encryptionKeyName** | **String** | AES key name to use in vaultless tokenization |  [optional]
-**encryptionTemplate** | **String** | The Encryption output template to use in regexp vaultless tokenization |  [optional]
 **name** | **String** | Current item name | 
 **newMetadata** | **String** | New item metadata |  [optional]
 **newName** | **String** | New item name |  [optional]

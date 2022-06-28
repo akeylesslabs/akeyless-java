@@ -34,13 +34,13 @@ public class RegexpTokenizerInfo {
   @SerializedName(SERIALIZED_NAME_ALPHABET)
   private String alphabet;
 
-  public static final String SERIALIZED_NAME_DECRYPTION_TEMPLATE = "decryption_template";
-  @SerializedName(SERIALIZED_NAME_DECRYPTION_TEMPLATE)
-  private String decryptionTemplate;
+  public static final String SERIALIZED_NAME_DECODING_TEMPLATE = "decoding_template";
+  @SerializedName(SERIALIZED_NAME_DECODING_TEMPLATE)
+  private String decodingTemplate;
 
-  public static final String SERIALIZED_NAME_ENCRYPTION_TEMPLATE = "encryption_template";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTION_TEMPLATE)
-  private String encryptionTemplate;
+  public static final String SERIALIZED_NAME_ENCODING_TEMPLATE = "encoding_template";
+  @SerializedName(SERIALIZED_NAME_ENCODING_TEMPLATE)
+  private String encodingTemplate;
 
   public static final String SERIALIZED_NAME_PATTERN = "pattern";
   @SerializedName(SERIALIZED_NAME_PATTERN)
@@ -70,49 +70,49 @@ public class RegexpTokenizerInfo {
   }
 
 
-  public RegexpTokenizerInfo decryptionTemplate(String decryptionTemplate) {
+  public RegexpTokenizerInfo decodingTemplate(String decodingTemplate) {
     
-    this.decryptionTemplate = decryptionTemplate;
+    this.decodingTemplate = decodingTemplate;
     return this;
   }
 
    /**
    * Transformation to perform on the decrypted data
-   * @return decryptionTemplate
+   * @return decodingTemplate
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Transformation to perform on the decrypted data")
 
-  public String getDecryptionTemplate() {
-    return decryptionTemplate;
+  public String getDecodingTemplate() {
+    return decodingTemplate;
   }
 
 
-  public void setDecryptionTemplate(String decryptionTemplate) {
-    this.decryptionTemplate = decryptionTemplate;
+  public void setDecodingTemplate(String decodingTemplate) {
+    this.decodingTemplate = decodingTemplate;
   }
 
 
-  public RegexpTokenizerInfo encryptionTemplate(String encryptionTemplate) {
+  public RegexpTokenizerInfo encodingTemplate(String encodingTemplate) {
     
-    this.encryptionTemplate = encryptionTemplate;
+    this.encodingTemplate = encodingTemplate;
     return this;
   }
 
    /**
    * Transformation to perform on the encrypted data, if the required output template doesn&#39;t match the input string The output Should still be valid for the Pattern, otherwise the secret would be able to be decrypted.
-   * @return encryptionTemplate
+   * @return encodingTemplate
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Transformation to perform on the encrypted data, if the required output template doesn't match the input string The output Should still be valid for the Pattern, otherwise the secret would be able to be decrypted.")
 
-  public String getEncryptionTemplate() {
-    return encryptionTemplate;
+  public String getEncodingTemplate() {
+    return encodingTemplate;
   }
 
 
-  public void setEncryptionTemplate(String encryptionTemplate) {
-    this.encryptionTemplate = encryptionTemplate;
+  public void setEncodingTemplate(String encodingTemplate) {
+    this.encodingTemplate = encodingTemplate;
   }
 
 
@@ -149,14 +149,14 @@ public class RegexpTokenizerInfo {
     }
     RegexpTokenizerInfo regexpTokenizerInfo = (RegexpTokenizerInfo) o;
     return Objects.equals(this.alphabet, regexpTokenizerInfo.alphabet) &&
-        Objects.equals(this.decryptionTemplate, regexpTokenizerInfo.decryptionTemplate) &&
-        Objects.equals(this.encryptionTemplate, regexpTokenizerInfo.encryptionTemplate) &&
+        Objects.equals(this.decodingTemplate, regexpTokenizerInfo.decodingTemplate) &&
+        Objects.equals(this.encodingTemplate, regexpTokenizerInfo.encodingTemplate) &&
         Objects.equals(this.pattern, regexpTokenizerInfo.pattern);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alphabet, decryptionTemplate, encryptionTemplate, pattern);
+    return Objects.hash(alphabet, decodingTemplate, encodingTemplate, pattern);
   }
 
 
@@ -165,8 +165,8 @@ public class RegexpTokenizerInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class RegexpTokenizerInfo {\n");
     sb.append("    alphabet: ").append(toIndentedString(alphabet)).append("\n");
-    sb.append("    decryptionTemplate: ").append(toIndentedString(decryptionTemplate)).append("\n");
-    sb.append("    encryptionTemplate: ").append(toIndentedString(encryptionTemplate)).append("\n");
+    sb.append("    decodingTemplate: ").append(toIndentedString(decodingTemplate)).append("\n");
+    sb.append("    encodingTemplate: ").append(toIndentedString(encodingTemplate)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("}");
     return sb.toString();

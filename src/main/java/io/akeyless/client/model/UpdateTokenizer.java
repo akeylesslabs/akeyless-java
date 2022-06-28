@@ -40,21 +40,21 @@ public class UpdateTokenizer {
   @SerializedName(SERIALIZED_NAME_ALPHABET)
   private String alphabet;
 
-  public static final String SERIALIZED_NAME_DECRYPTION_TEMPLATE = "decryption-template";
-  @SerializedName(SERIALIZED_NAME_DECRYPTION_TEMPLATE)
-  private String decryptionTemplate;
+  public static final String SERIALIZED_NAME_DECODING_TEMPLATE = "decoding-template";
+  @SerializedName(SERIALIZED_NAME_DECODING_TEMPLATE)
+  private String decodingTemplate;
 
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENCODING_TEMPLATE = "encoding-template";
+  @SerializedName(SERIALIZED_NAME_ENCODING_TEMPLATE)
+  private String encodingTemplate;
+
   public static final String SERIALIZED_NAME_ENCRYPTION_KEY_NAME = "encryption-key-name";
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY_NAME)
   private String encryptionKeyName;
-
-  public static final String SERIALIZED_NAME_ENCRYPTION_TEMPLATE = "encryption-template";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTION_TEMPLATE)
-  private String encryptionTemplate;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -151,26 +151,26 @@ public class UpdateTokenizer {
   }
 
 
-  public UpdateTokenizer decryptionTemplate(String decryptionTemplate) {
+  public UpdateTokenizer decodingTemplate(String decodingTemplate) {
     
-    this.decryptionTemplate = decryptionTemplate;
+    this.decodingTemplate = decodingTemplate;
     return this;
   }
 
    /**
-   * The Decryption output template to use in regexp vaultless tokenization
-   * @return decryptionTemplate
+   * The Decoding output template to use in regexp vaultless tokenization
+   * @return decodingTemplate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Decryption output template to use in regexp vaultless tokenization")
+  @ApiModelProperty(value = "The Decoding output template to use in regexp vaultless tokenization")
 
-  public String getDecryptionTemplate() {
-    return decryptionTemplate;
+  public String getDecodingTemplate() {
+    return decodingTemplate;
   }
 
 
-  public void setDecryptionTemplate(String decryptionTemplate) {
-    this.decryptionTemplate = decryptionTemplate;
+  public void setDecodingTemplate(String decodingTemplate) {
+    this.decodingTemplate = decodingTemplate;
   }
 
 
@@ -197,6 +197,29 @@ public class UpdateTokenizer {
   }
 
 
+  public UpdateTokenizer encodingTemplate(String encodingTemplate) {
+    
+    this.encodingTemplate = encodingTemplate;
+    return this;
+  }
+
+   /**
+   * The Encoding output template to use in regexp vaultless tokenization
+   * @return encodingTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Encoding output template to use in regexp vaultless tokenization")
+
+  public String getEncodingTemplate() {
+    return encodingTemplate;
+  }
+
+
+  public void setEncodingTemplate(String encodingTemplate) {
+    this.encodingTemplate = encodingTemplate;
+  }
+
+
   public UpdateTokenizer encryptionKeyName(String encryptionKeyName) {
     
     this.encryptionKeyName = encryptionKeyName;
@@ -217,29 +240,6 @@ public class UpdateTokenizer {
 
   public void setEncryptionKeyName(String encryptionKeyName) {
     this.encryptionKeyName = encryptionKeyName;
-  }
-
-
-  public UpdateTokenizer encryptionTemplate(String encryptionTemplate) {
-    
-    this.encryptionTemplate = encryptionTemplate;
-    return this;
-  }
-
-   /**
-   * The Encryption output template to use in regexp vaultless tokenization
-   * @return encryptionTemplate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Encryption output template to use in regexp vaultless tokenization")
-
-  public String getEncryptionTemplate() {
-    return encryptionTemplate;
-  }
-
-
-  public void setEncryptionTemplate(String encryptionTemplate) {
-    this.encryptionTemplate = encryptionTemplate;
   }
 
 
@@ -489,10 +489,10 @@ public class UpdateTokenizer {
     UpdateTokenizer updateTokenizer = (UpdateTokenizer) o;
     return Objects.equals(this.addTag, updateTokenizer.addTag) &&
         Objects.equals(this.alphabet, updateTokenizer.alphabet) &&
-        Objects.equals(this.decryptionTemplate, updateTokenizer.decryptionTemplate) &&
+        Objects.equals(this.decodingTemplate, updateTokenizer.decodingTemplate) &&
         Objects.equals(this.deleteProtection, updateTokenizer.deleteProtection) &&
+        Objects.equals(this.encodingTemplate, updateTokenizer.encodingTemplate) &&
         Objects.equals(this.encryptionKeyName, updateTokenizer.encryptionKeyName) &&
-        Objects.equals(this.encryptionTemplate, updateTokenizer.encryptionTemplate) &&
         Objects.equals(this.name, updateTokenizer.name) &&
         Objects.equals(this.newMetadata, updateTokenizer.newMetadata) &&
         Objects.equals(this.newName, updateTokenizer.newName) &&
@@ -507,7 +507,7 @@ public class UpdateTokenizer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, alphabet, decryptionTemplate, deleteProtection, encryptionKeyName, encryptionTemplate, name, newMetadata, newName, pattern, rmTag, templateType, token, tokenizerType, tweakType, uidToken);
+    return Objects.hash(addTag, alphabet, decodingTemplate, deleteProtection, encodingTemplate, encryptionKeyName, name, newMetadata, newName, pattern, rmTag, templateType, token, tokenizerType, tweakType, uidToken);
   }
 
 
@@ -517,10 +517,10 @@ public class UpdateTokenizer {
     sb.append("class UpdateTokenizer {\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    alphabet: ").append(toIndentedString(alphabet)).append("\n");
-    sb.append("    decryptionTemplate: ").append(toIndentedString(decryptionTemplate)).append("\n");
+    sb.append("    decodingTemplate: ").append(toIndentedString(decodingTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    encodingTemplate: ").append(toIndentedString(encodingTemplate)).append("\n");
     sb.append("    encryptionKeyName: ").append(toIndentedString(encryptionKeyName)).append("\n");
-    sb.append("    encryptionTemplate: ").append(toIndentedString(encryptionTemplate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
