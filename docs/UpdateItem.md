@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
 **certFileData** | **String** | PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates. |  [optional]
 **deleteProtection** | **String** |  |  [optional]
+**itemAccessibility** | **String** | for personal password manager |  [optional]
 **name** | **String** | Current item name | 
 **newMetadata** | **String** | New item metadata |  [optional]
 **newName** | **String** | New item name |  [optional]

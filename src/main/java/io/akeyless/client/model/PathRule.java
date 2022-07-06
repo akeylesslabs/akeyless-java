@@ -39,6 +39,10 @@ public class PathRule {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
+  public static final String SERIALIZED_NAME_TTL = "ttl";
+  @SerializedName(SERIALIZED_NAME_TTL)
+  private Long ttl;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -98,6 +102,29 @@ public class PathRule {
   }
 
 
+  public PathRule ttl(Long ttl) {
+    
+    this.ttl = ttl;
+    return this;
+  }
+
+   /**
+   * Get ttl
+   * @return ttl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getTtl() {
+    return ttl;
+  }
+
+
+  public void setTtl(Long ttl) {
+    this.ttl = ttl;
+  }
+
+
   public PathRule type(String type) {
     
     this.type = type;
@@ -132,12 +159,13 @@ public class PathRule {
     PathRule pathRule = (PathRule) o;
     return Objects.equals(this.capabilities, pathRule.capabilities) &&
         Objects.equals(this.path, pathRule.path) &&
+        Objects.equals(this.ttl, pathRule.ttl) &&
         Objects.equals(this.type, pathRule.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, path, type);
+    return Objects.hash(capabilities, path, ttl, type);
   }
 
 
@@ -147,6 +175,7 @@ public class PathRule {
     sb.append("class PathRule {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

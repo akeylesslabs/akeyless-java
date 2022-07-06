@@ -37,6 +37,10 @@ public class DeleteItem {
   @SerializedName(SERIALIZED_NAME_DELETE_IN_DAYS)
   private Long deleteInDays = 7l;
 
+  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
+  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
+  private String itemAccessibility;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -97,6 +101,29 @@ public class DeleteItem {
 
   public void setDeleteInDays(Long deleteInDays) {
     this.deleteInDays = deleteInDays;
+  }
+
+
+  public DeleteItem itemAccessibility(String itemAccessibility) {
+    
+    this.itemAccessibility = itemAccessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return itemAccessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getItemAccessibility() {
+    return itemAccessibility;
+  }
+
+
+  public void setItemAccessibility(String itemAccessibility) {
+    this.itemAccessibility = itemAccessibility;
   }
 
 
@@ -202,6 +229,7 @@ public class DeleteItem {
     DeleteItem deleteItem = (DeleteItem) o;
     return Objects.equals(this.deleteImmediately, deleteItem.deleteImmediately) &&
         Objects.equals(this.deleteInDays, deleteItem.deleteInDays) &&
+        Objects.equals(this.itemAccessibility, deleteItem.itemAccessibility) &&
         Objects.equals(this.name, deleteItem.name) &&
         Objects.equals(this.token, deleteItem.token) &&
         Objects.equals(this.uidToken, deleteItem.uidToken) &&
@@ -210,7 +238,7 @@ public class DeleteItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteImmediately, deleteInDays, name, token, uidToken, version);
+    return Objects.hash(deleteImmediately, deleteInDays, itemAccessibility, name, token, uidToken, version);
   }
 
 
@@ -220,6 +248,7 @@ public class DeleteItem {
     sb.append("class DeleteItem {\n");
     sb.append("    deleteImmediately: ").append(toIndentedString(deleteImmediately)).append("\n");
     sb.append("    deleteInDays: ").append(toIndentedString(deleteInDays)).append("\n");
+    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

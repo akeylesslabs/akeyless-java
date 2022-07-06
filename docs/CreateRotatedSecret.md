@@ -44,8 +44,8 @@ Name | Type | Description | Notes
 **targetName** | **String** | Target name | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**userAttribute** | **String** | User Attribute |  [optional]
-**userDn** | **String** | User DN |  [optional]
+**userAttribute** | **String** | LDAP User Attribute, Default value \&quot;cn\&quot; |  [optional]
+**userDn** | **String** | LDAP User Base DN |  [optional]
 
 
 

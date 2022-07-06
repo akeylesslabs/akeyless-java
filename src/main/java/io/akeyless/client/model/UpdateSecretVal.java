@@ -23,12 +23,23 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * UpdateSecretVal
  */
 
 public class UpdateSecretVal {
+  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "custom-fields";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
+  private Map<String, String> customFields = null;
+
+  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
+  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
+  private String itemAccessibility;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -57,9 +68,71 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
+  public static final String SERIALIZED_NAME_WEBSITE = "website";
+  @SerializedName(SERIALIZED_NAME_WEBSITE)
+  private String website;
+
+
+  public UpdateSecretVal customFields(Map<String, String> customFields) {
+    
+    this.customFields = customFields;
+    return this;
+  }
+
+  public UpdateSecretVal putCustomFieldsItem(String key, String customFieldsItem) {
+    if (this.customFields == null) {
+      this.customFields = new HashMap<String, String>();
+    }
+    this.customFields.put(key, customFieldsItem);
+    return this;
+  }
+
+   /**
+   * For Password Management use, additional fields
+   * @return customFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, additional fields")
+
+  public Map<String, String> getCustomFields() {
+    return customFields;
+  }
+
+
+  public void setCustomFields(Map<String, String> customFields) {
+    this.customFields = customFields;
+  }
+
+
+  public UpdateSecretVal itemAccessibility(String itemAccessibility) {
+    
+    this.itemAccessibility = itemAccessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return itemAccessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getItemAccessibility() {
+    return itemAccessibility;
+  }
+
+
+  public void setItemAccessibility(String itemAccessibility) {
+    this.itemAccessibility = itemAccessibility;
+  }
 
 
   public UpdateSecretVal keepPrevVersion(String keepPrevVersion) {
@@ -222,6 +295,29 @@ public class UpdateSecretVal {
   }
 
 
+  public UpdateSecretVal username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * For Password Management use
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   public UpdateSecretVal value(String value) {
     
     this.value = value;
@@ -244,6 +340,29 @@ public class UpdateSecretVal {
   }
 
 
+  public UpdateSecretVal website(String website) {
+    
+    this.website = website;
+    return this;
+  }
+
+   /**
+   * For Password Management use, reflect the website context
+   * @return website
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, reflect the website context")
+
+  public String getWebsite() {
+    return website;
+  }
+
+
+  public void setWebsite(String website) {
+    this.website = website;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -253,19 +372,23 @@ public class UpdateSecretVal {
       return false;
     }
     UpdateSecretVal updateSecretVal = (UpdateSecretVal) o;
-    return Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
+    return Objects.equals(this.customFields, updateSecretVal.customFields) &&
+        Objects.equals(this.itemAccessibility, updateSecretVal.itemAccessibility) &&
+        Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
         Objects.equals(this.key, updateSecretVal.key) &&
         Objects.equals(this.multiline, updateSecretVal.multiline) &&
         Objects.equals(this.name, updateSecretVal.name) &&
         Objects.equals(this.newVersion, updateSecretVal.newVersion) &&
         Objects.equals(this.token, updateSecretVal.token) &&
         Objects.equals(this.uidToken, updateSecretVal.uidToken) &&
-        Objects.equals(this.value, updateSecretVal.value);
+        Objects.equals(this.username, updateSecretVal.username) &&
+        Objects.equals(this.value, updateSecretVal.value) &&
+        Objects.equals(this.website, updateSecretVal.website);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keepPrevVersion, key, multiline, name, newVersion, token, uidToken, value);
+    return Objects.hash(customFields, itemAccessibility, keepPrevVersion, key, multiline, name, newVersion, token, uidToken, username, value, website);
   }
 
 
@@ -273,6 +396,8 @@ public class UpdateSecretVal {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSecretVal {\n");
+    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
+    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    multiline: ").append(toIndentedString(multiline)).append("\n");
@@ -280,7 +405,9 @@ public class UpdateSecretVal {
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    website: ").append(toIndentedString(website)).append("\n");
     sb.append("}");
     return sb.toString();
   }

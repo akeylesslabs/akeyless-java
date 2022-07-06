@@ -1086,11 +1086,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * User Attribute
+   * LDAP User Attribute, Default value \&quot;cn\&quot;
    * @return userAttribute
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User Attribute")
+  @ApiModelProperty(value = "LDAP User Attribute, Default value \"cn\"")
 
   public String getUserAttribute() {
     return userAttribute;
@@ -1109,11 +1109,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * User DN
+   * LDAP User Base DN
    * @return userDn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User DN")
+  @ApiModelProperty(value = "LDAP User Base DN")
 
   public String getUserDn() {
     return userDn;

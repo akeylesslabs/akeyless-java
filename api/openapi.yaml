@@ -8452,20 +8452,20 @@ components:
         cf:
           customer_fragements:
             key: customer_fragements
-        version: 6
+        version: 7
         producers:
           producers:
           - init: true
             name: name
             active: true
             failure_message: failure_message
-            id: 7
+            id: 1
             type: type
           - init: true
             name: name
             active: true
             failure_message: failure_message
-            id: 7
+            id: 1
             type: type
         general:
           tcp_port: tcp_port
@@ -8554,17 +8554,17 @@ components:
               new_name: new_name
             payload:
               client_key:
-              - 4
-              - 4
+              - 7
+              - 7
               server: server
               password: password
               client_cert:
-              - 2
-              - 2
+              - 4
+              - 4
               namespace: namespace
               ca:
-              - 3
-              - 3
+              - 2
+              - 2
               skip_system: true
               token: token
               username: username
@@ -8576,17 +8576,17 @@ components:
               new_name: new_name
             payload:
               client_key:
-              - 4
-              - 4
+              - 7
+              - 7
               server: server
               password: password
               client_cert:
-              - 2
-              - 2
+              - 4
+              - 4
               namespace: namespace
               ca:
-              - 3
-              - 3
+              - 2
+              - 2
               skip_system: true
               token: token
               username: username
@@ -8630,8 +8630,8 @@ components:
               gcp_credentials_json: gcp_credentials_json
         leadership:
           open_leadership:
-          - 9
-          - 9
+          - 3
+          - 3
         log_forwarding:
           aws_s3_config:
             aws_access_id: aws_access_id
@@ -8681,28 +8681,28 @@ components:
             elasticsearch_nodes: elasticsearch_nodes
         saml:
           saml_access_id: saml_access_id
-          default_protection_key_id: 1
+          default_protection_key_id: 6
           oidc_access_id: oidc_access_id
           default_secret_location: default_secret_location
         kmip_clients:
           key_enc:
-          - 1
-          - 1
+          - 5
+          - 5
           server:
             hostname: hostname
             root: root
             certificate:
-            - 5
-            - 5
+            - 2
+            - 2
             active: true
             certificate_issue_date: 2000-01-23T04:56:07.000+00:00
             ca:
             - 5
             - 5
-            certificate_ttl_in_seconds: 2
+            certificate_ttl_in_seconds: 7
           server_enc:
-          - 7
-          - 7
+          - 9
+          - 9
           clients:
             key:
               name: name
@@ -8713,11 +8713,13 @@ components:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               - path: path
                 capabilities:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               id: id
               certificate_ttl_in_seconds: 6
         config_protection_key_name: config_protection_key_name
@@ -8851,11 +8853,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             admin: true
           auth_method_sub_claims:
             key:
@@ -8870,11 +8874,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             admin: true
           auth_method_sub_claims:
             key:
@@ -9393,11 +9399,13 @@ components:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           - path: path
             capabilities:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           admin: true
         auth_method_sub_claims:
           key:
@@ -10135,6 +10143,7 @@ components:
       description: Connect is a command that performs secure remote access
       example:
         cert-issuer-name: cert-issuer-name
+        ssh-legacy-signing-alg: true
         via-bastion: via-bastion
         identity-file: identity-file
         bastion-ctrl-subdomain: bastion-ctrl-subdomain
@@ -10191,6 +10200,11 @@ components:
           description: The Use to add offical SSH arguments (except -i)
           type: string
           x-go-name: SSHExtraArgs
+        ssh-legacy-signing-alg:
+          description: Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com')
+            signing algorithm name in the ssh certificate.
+          type: boolean
+          x-go-name: SSHLegacySigningAlg
         target:
           description: The target
           type: string
@@ -11352,7 +11366,7 @@ components:
     DefaultConfigPart:
       example:
         saml_access_id: saml_access_id
-        default_protection_key_id: 1
+        default_protection_key_id: 6
         oidc_access_id: oidc_access_id
         default_secret_location: default_secret_location
       properties:
@@ -11997,13 +12011,13 @@ components:
           name: name
           active: true
           failure_message: failure_message
-          id: 7
+          id: 1
           type: type
         - init: true
           name: name
           active: true
           failure_message: failure_message
-          id: 7
+          id: 1
           type: type
       properties:
         producers:
@@ -13188,17 +13202,17 @@ components:
           new_name: new_name
         payload:
           client_key:
-          - 4
-          - 4
+          - 7
+          - 7
           server: server
           password: password
           client_cert:
-          - 2
-          - 2
+          - 4
+          - 4
           namespace: namespace
           ca:
-          - 3
-          - 3
+          - 2
+          - 2
           skip_system: true
           token: token
           username: username
@@ -13212,17 +13226,17 @@ components:
     K8SPayload:
       example:
         client_key:
-        - 4
-        - 4
+        - 7
+        - 7
         server: server
         password: password
         client_cert:
-        - 2
-        - 2
+        - 4
+        - 4
         namespace: namespace
         ca:
-        - 3
-        - 3
+        - 2
+        - 2
         skip_system: true
         token: token
         username: username
@@ -13275,11 +13289,13 @@ components:
           - capabilities
           - capabilities
           type: type
+          ttl: 1
         - path: path
           capabilities:
           - capabilities
           - capabilities
           type: type
+          ttl: 1
         id: id
         certificate_ttl_in_seconds: 6
       properties:
@@ -13315,11 +13331,13 @@ components:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           - path: path
             capabilities:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           id: id
           certificate_ttl_in_seconds: 6
       properties:
@@ -13338,11 +13356,13 @@ components:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           - path: path
             capabilities:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           id: id
           certificate_ttl_in_seconds: 6
         - name: name
@@ -13353,11 +13373,13 @@ components:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           - path: path
             capabilities:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           id: id
           certificate_ttl_in_seconds: 6
       properties:
@@ -13379,11 +13401,13 @@ components:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           - path: path
             capabilities:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           id: id
           certificate_ttl_in_seconds: 6
       properties:
@@ -13394,23 +13418,23 @@ components:
     KMIPConfigPart:
       example:
         key_enc:
-        - 1
-        - 1
+        - 5
+        - 5
         server:
           hostname: hostname
           root: root
           certificate:
-          - 5
-          - 5
+          - 2
+          - 2
           active: true
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           ca:
           - 5
           - 5
-          certificate_ttl_in_seconds: 2
+          certificate_ttl_in_seconds: 7
         server_enc:
-        - 7
-        - 7
+        - 9
+        - 9
         clients:
           key:
             name: name
@@ -13421,11 +13445,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             id: id
             certificate_ttl_in_seconds: 6
       properties:
@@ -13477,14 +13503,14 @@ components:
         hostname: hostname
         root: root
         certificate:
-        - 5
-        - 5
+        - 2
+        - 2
         active: true
         certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         ca:
         - 5
         - 5
-        certificate_ttl_in_seconds: 2
+        certificate_ttl_in_seconds: 7
       properties:
         active:
           type: boolean
@@ -13702,8 +13728,8 @@ components:
     LeadershipConfigPart:
       example:
         open_leadership:
-        - 9
-        - 9
+        - 3
+        - 3
       properties:
         open_leadership:
           items:
@@ -13728,11 +13754,13 @@ components:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               - path: path
                 capabilities:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               admin: true
             auth_method_sub_claims:
               key:
@@ -13747,11 +13775,13 @@ components:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               - path: path
                 capabilities:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               admin: true
             auth_method_sub_claims:
               key:
@@ -13978,11 +14008,13 @@ components:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               - path: path
                 capabilities:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               admin: true
             auth_method_sub_claims:
               key:
@@ -13997,11 +14029,13 @@ components:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               - path: path
                 capabilities:
                 - capabilities
                 - capabilities
                 type: type
+                ttl: 1
               admin: true
             auth_method_sub_claims:
               key:
@@ -14923,11 +14957,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             admin: true
         - role_name: role_name
           client_permissions:
@@ -14958,11 +14994,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             admin: true
       properties:
         next_page:
@@ -15385,17 +15423,17 @@ components:
             new_name: new_name
           payload:
             client_key:
-            - 4
-            - 4
+            - 7
+            - 7
             server: server
             password: password
             client_cert:
-            - 2
-            - 2
+            - 4
+            - 4
             namespace: namespace
             ca:
-            - 3
-            - 3
+            - 2
+            - 2
             skip_system: true
             token: token
             username: username
@@ -15407,17 +15445,17 @@ components:
             new_name: new_name
           payload:
             client_key:
-            - 4
-            - 4
+            - 7
+            - 7
             server: server
             password: password
             client_cert:
-            - 2
-            - 2
+            - 4
+            - 4
             namespace: namespace
             ca:
-            - 3
-            - 3
+            - 2
+            - 2
             skip_system: true
             token: token
             username: username
@@ -15846,6 +15884,7 @@ components:
         - capabilities
         - capabilities
         type: type
+        ttl: 1
       properties:
         capabilities:
           description: The approved/denied capabilities in the path
@@ -15857,6 +15896,10 @@ components:
           description: The path the rule refers to
           type: string
           x-go-name: Path
+        ttl:
+          format: int64
+          type: integer
+          x-go-name: TTL
         type:
           title: PathRuleType defines a kind of every PathRule assigned to a Role.
           type: string
@@ -15874,7 +15917,7 @@ components:
         name: name
         active: true
         failure_message: failure_message
-        id: 7
+        id: 1
         type: type
       properties:
         active:
@@ -15910,13 +15953,13 @@ components:
           name: name
           active: true
           failure_message: failure_message
-          id: 7
+          id: 1
           type: type
         - init: true
           name: name
           active: true
           failure_message: failure_message
-          id: 7
+          id: 1
           type: type
       properties:
         producers:
@@ -15983,11 +16026,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             admin: true
           auth_method_sub_claims:
             key:
@@ -16002,11 +16047,13 @@ components:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             - path: path
               capabilities:
               - capabilities
               - capabilities
               type: type
+              ttl: 1
             admin: true
           auth_method_sub_claims:
             key:
@@ -16047,11 +16094,13 @@ components:
                   - capabilities
                   - capabilities
                   type: type
+                  ttl: 1
                 - path: path
                   capabilities:
                   - capabilities
                   - capabilities
                   type: type
+                  ttl: 1
                 admin: true
               auth_method_sub_claims:
                 key:
@@ -16066,11 +16115,13 @@ components:
                   - capabilities
                   - capabilities
                   type: type
+                  ttl: 1
                 - path: path
                   capabilities:
                   - capabilities
                   - capabilities
                   type: type
+                  ttl: 1
                 admin: true
               auth_method_sub_claims:
                 key:
@@ -16116,11 +16167,13 @@ components:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           - path: path
             capabilities:
             - capabilities
             - capabilities
             type: type
+            ttl: 1
           admin: true
       properties:
         client_permissions:
@@ -16322,11 +16375,13 @@ components:
           - capabilities
           - capabilities
           type: type
+          ttl: 1
         - path: path
           capabilities:
           - capabilities
           - capabilities
           type: type
+          ttl: 1
         admin: true
       properties:
         admin:
@@ -20355,11 +20410,11 @@ components:
           type: string
           x-go-name: UIDToken
         user-attribute:
-          description: User Attribute
+          description: LDAP User Attribute, Default value "cn"
           type: string
           x-go-name: UserAttribute
         user-dn:
-          description: User DN
+          description: LDAP User Base DN
           type: string
           x-go-name: UserDn
       required:
@@ -20613,10 +20668,20 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createSecret:
       properties:
+        custom-fields:
+          additionalProperties:
+            type: string
+          description: For Password Management use, additional fields
+          type: object
+          x-go-name: CustomFields
         delete_protection:
           description: Protection from accidental deletion of this item
           type: string
           x-go-name: ItemProtected
+        item-accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         metadata:
           description: Metadata about the secret
           type: string
@@ -20629,6 +20694,11 @@ components:
           description: Secret name
           type: string
           x-go-name: SecretName
+        password-length:
+          description: For PasswordPolicy use
+          format: int64
+          type: integer
+          x-go-name: PasswordLength
         protection_key:
           description: |-
             The name of a key that used to encrypt the secret value (if empty, the
@@ -20671,16 +20741,44 @@ components:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
           x-go-name: Profile
+        type:
+          description: For Password Management use, reflect the website context
+          type: string
+          x-go-name: SecretType
         uid-token:
           description: |-
             The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
+        use-lower-letters:
+          description: For PasswordPolicy use
+          type: string
+          x-go-name: UseLowerLetters
+        use-numbers:
+          description: For PasswordPolicy use
+          type: string
+          x-go-name: UseNumbers
+        use-special-characters:
+          description: For PasswordPolicy use
+          type: string
+          x-go-name: UseSpecialCharacters
+        use_capital-letters:
+          description: For PasswordPolicy use
+          type: string
+          x-go-name: UseCapitalLetters
+        username:
+          description: For Password Management use
+          type: string
+          x-go-name: Username
         value:
           description: The secret value
           type: string
           x-go-name: Value
+        website:
+          description: For Password Management use, reflect the website context
+          type: string
+          x-go-name: Website
       required:
       - name
       - value
@@ -21046,6 +21144,10 @@ components:
           format: int64
           type: integer
           x-go-name: DeleteInDays
+        item-accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         name:
           description: Item name
           type: string
@@ -29743,17 +29845,17 @@ components:
               new_name: new_name
             payload:
               client_key:
-              - 4
-              - 4
+              - 7
+              - 7
               server: server
               password: password
               client_cert:
-              - 2
-              - 2
+              - 4
+              - 4
               namespace: namespace
               ca:
-              - 3
-              - 3
+              - 2
+              - 2
               skip_system: true
               token: token
               username: username
@@ -29765,17 +29867,17 @@ components:
               new_name: new_name
             payload:
               client_key:
-              - 4
-              - 4
+              - 7
+              - 7
               server: server
               password: password
               client_cert:
-              - 2
-              - 2
+              - 4
+              - 4
               namespace: namespace
               ca:
-              - 3
-              - 3
+              - 2
+              - 2
               skip_system: true
               token: token
               username: username
@@ -29884,17 +29986,17 @@ components:
               new_name: new_name
             payload:
               client_key:
-              - 4
-              - 4
+              - 7
+              - 7
               server: server
               password: password
               client_cert:
-              - 2
-              - 2
+              - 4
+              - 4
               namespace: namespace
               ca:
-              - 3
-              - 3
+              - 2
+              - 2
               skip_system: true
               token: token
               username: username
@@ -29906,17 +30008,17 @@ components:
               new_name: new_name
             payload:
               client_key:
-              - 4
-              - 4
+              - 7
+              - 7
               server: server
               password: password
               client_cert:
-              - 2
-              - 2
+              - 4
+              - 4
               namespace: namespace
               ca:
-              - 3
-              - 3
+              - 2
+              - 2
               skip_system: true
               token: token
               username: username
@@ -38297,6 +38399,10 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getSecretValue:
       properties:
+        item-accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         names:
           description: Secret name
           items:
@@ -38832,6 +38938,10 @@ components:
           description: Filter by item name or part of it
           type: string
           x-go-name: Filter
+        item-accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         minimal-view:
           type: boolean
           x-go-name: BasicData
@@ -38843,6 +38953,11 @@ components:
           description: Path to folder
           type: string
           x-go-name: Path
+        sub_types:
+          items:
+            type: string
+          type: array
+          x-go-name: SubTypes
         tag:
           description: Filter by item tag
           type: string
@@ -41703,6 +41818,10 @@ components:
         delete_protection:
           type: string
           x-go-name: ItemProtected
+        item-accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         name:
           description: Current item name
           type: string
@@ -42783,6 +42902,16 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateSecretVal:
       properties:
+        custom-fields:
+          additionalProperties:
+            type: string
+          description: For Password Management use, additional fields
+          type: object
+          x-go-name: CustomFields
+        item-accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         keep-prev-version:
           type: string
           x-go-name: KeepPrevVersion
@@ -42814,10 +42943,18 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        username:
+          description: For Password Management use
+          type: string
+          x-go-name: Username
         value:
           description: The new secret value
           type: string
           x-go-name: Value
+        website:
+          description: For Password Management use, reflect the website context
+          type: string
+          x-go-name: Website
       required:
       - name
       - value

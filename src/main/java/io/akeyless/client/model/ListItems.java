@@ -35,6 +35,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
 
+  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
+  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
+  private String itemAccessibility;
+
   public static final String SERIALIZED_NAME_MINIMAL_VIEW = "minimal-view";
   @SerializedName(SERIALIZED_NAME_MINIMAL_VIEW)
   private Boolean minimalView;
@@ -46,6 +50,10 @@ public class ListItems {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_SUB_TYPES = "sub_types";
+  @SerializedName(SERIALIZED_NAME_SUB_TYPES)
+  private List<String> subTypes = null;
 
   public static final String SERIALIZED_NAME_TAG = "tag";
   @SerializedName(SERIALIZED_NAME_TAG)
@@ -84,6 +92,29 @@ public class ListItems {
 
   public void setFilter(String filter) {
     this.filter = filter;
+  }
+
+
+  public ListItems itemAccessibility(String itemAccessibility) {
+    
+    this.itemAccessibility = itemAccessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return itemAccessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getItemAccessibility() {
+    return itemAccessibility;
+  }
+
+
+  public void setItemAccessibility(String itemAccessibility) {
+    this.itemAccessibility = itemAccessibility;
   }
 
 
@@ -153,6 +184,37 @@ public class ListItems {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+
+  public ListItems subTypes(List<String> subTypes) {
+    
+    this.subTypes = subTypes;
+    return this;
+  }
+
+  public ListItems addSubTypesItem(String subTypesItem) {
+    if (this.subTypes == null) {
+      this.subTypes = new ArrayList<String>();
+    }
+    this.subTypes.add(subTypesItem);
+    return this;
+  }
+
+   /**
+   * Get subTypes
+   * @return subTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSubTypes() {
+    return subTypes;
+  }
+
+
+  public void setSubTypes(List<String> subTypes) {
+    this.subTypes = subTypes;
   }
 
 
@@ -266,9 +328,11 @@ public class ListItems {
     }
     ListItems listItems = (ListItems) o;
     return Objects.equals(this.filter, listItems.filter) &&
+        Objects.equals(this.itemAccessibility, listItems.itemAccessibility) &&
         Objects.equals(this.minimalView, listItems.minimalView) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
+        Objects.equals(this.subTypes, listItems.subTypes) &&
         Objects.equals(this.tag, listItems.tag) &&
         Objects.equals(this.token, listItems.token) &&
         Objects.equals(this.type, listItems.type) &&
@@ -277,7 +341,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, minimalView, paginationToken, path, tag, token, type, uidToken);
+    return Objects.hash(filter, itemAccessibility, minimalView, paginationToken, path, subTypes, tag, token, type, uidToken);
   }
 
 
@@ -286,9 +350,11 @@ public class ListItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListItems {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    subTypes: ").append(toIndentedString(subTypes)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
