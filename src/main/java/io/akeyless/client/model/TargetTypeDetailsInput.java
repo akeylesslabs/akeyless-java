@@ -223,6 +223,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_IMPLEMENTATION_TYPE = "implementation_type";
+  @SerializedName(SERIALIZED_NAME_IMPLEMENTATION_TYPE)
+  private String implementationType;
+
   public static final String SERIALIZED_NAME_K8S_BEARER_TOKEN = "k8s_bearer_token";
   @SerializedName(SERIALIZED_NAME_K8S_BEARER_TOKEN)
   private String k8sBearerToken;
@@ -1508,6 +1512,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput implementationType(String implementationType) {
+    
+    this.implementationType = implementationType;
+    return this;
+  }
+
+   /**
+   * Get implementationType
+   * @return implementationType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getImplementationType() {
+    return implementationType;
+  }
+
+
+  public void setImplementationType(String implementationType) {
+    this.implementationType = implementationType;
+  }
+
+
   public TargetTypeDetailsInput k8sBearerToken(String k8sBearerToken) {
     
     this.k8sBearerToken = k8sBearerToken;
@@ -2554,6 +2581,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.gkeServiceAccountKey, targetTypeDetailsInput.gkeServiceAccountKey) &&
         Objects.equals(this.gkeServiceAccountName, targetTypeDetailsInput.gkeServiceAccountName) &&
         Objects.equals(this.host, targetTypeDetailsInput.host) &&
+        Objects.equals(this.implementationType, targetTypeDetailsInput.implementationType) &&
         Objects.equals(this.k8sBearerToken, targetTypeDetailsInput.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, targetTypeDetailsInput.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, targetTypeDetailsInput.k8sClusterEndpoint) &&
@@ -2601,7 +2629,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2657,6 +2685,7 @@ public class TargetTypeDetailsInput {
     sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
     sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");

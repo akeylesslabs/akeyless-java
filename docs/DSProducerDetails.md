@@ -98,6 +98,7 @@ Name | Type | Description | Notes
 **hanadbRevocationStatements** | **String** |  |  [optional]
 **hostName** | **String** |  |  [optional]
 **hostPort** | **String** |  |  [optional]
+**implementationType** | **String** |  |  [optional]
 **isFixedUser** | **String** |  |  [optional]
 **itemTargetsAssoc** | [**List&lt;ItemTargetAssociation&gt;**](ItemTargetAssociation.md) |  |  [optional]
 **k8sBearerToken** | **String** |  |  [optional]

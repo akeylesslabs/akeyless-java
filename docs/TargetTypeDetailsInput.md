@@ -54,6 +54,7 @@ Name | Type | Description | Notes
 **gkeServiceAccountKey** | **String** |  |  [optional]
 **gkeServiceAccountName** | **String** |  |  [optional]
 **host** | **String** |  |  [optional]
+**implementationType** | **String** |  |  [optional]
 **k8sBearerToken** | **String** |  |  [optional]
 **k8sClusterCaCertificate** | **String** |  |  [optional]
 **k8sClusterEndpoint** | **String** |  |  [optional]

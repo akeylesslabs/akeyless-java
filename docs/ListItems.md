@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessibility** | **String** | for personal password manager |  [optional]
 **filter** | **String** | Filter by item name or part of it |  [optional]
-**itemAccessibility** | **String** | for personal password manager |  [optional]
 **minimalView** | **Boolean** |  |  [optional]
 **paginationToken** | **String** | Next page reference |  [optional]
 **path** | **String** | Path to folder |  [optional]

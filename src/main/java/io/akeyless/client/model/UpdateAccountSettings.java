@@ -49,6 +49,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_DEFAULT_VERSIONING)
   private String defaultVersioning;
 
+  public static final String SERIALIZED_NAME_DP_ENABLE_CLASSIC_KEY_PROTECTION = "dp-enable-classic-key-protection";
+  @SerializedName(SERIALIZED_NAME_DP_ENABLE_CLASSIC_KEY_PROTECTION)
+  private String dpEnableClassicKeyProtection;
+
   public static final String SERIALIZED_NAME_ITEM_TYPE = "item-type";
   @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
   private String itemType;
@@ -198,6 +202,29 @@ public class UpdateAccountSettings {
 
   public void setDefaultVersioning(String defaultVersioning) {
     this.defaultVersioning = defaultVersioning;
+  }
+
+
+  public UpdateAccountSettings dpEnableClassicKeyProtection(String dpEnableClassicKeyProtection) {
+    
+    this.dpEnableClassicKeyProtection = dpEnableClassicKeyProtection;
+    return this;
+  }
+
+   /**
+   * Enable classic key protection [\&quot;true\&quot;/\&quot;false\&quot;]
+   * @return dpEnableClassicKeyProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable classic key protection [\"true\"/\"false\"]")
+
+  public String getDpEnableClassicKeyProtection() {
+    return dpEnableClassicKeyProtection;
+  }
+
+
+  public void setDpEnableClassicKeyProtection(String dpEnableClassicKeyProtection) {
+    this.dpEnableClassicKeyProtection = dpEnableClassicKeyProtection;
   }
 
 
@@ -422,6 +449,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.companyName, updateAccountSettings.companyName) &&
         Objects.equals(this.country, updateAccountSettings.country) &&
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
+        Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
@@ -435,7 +463,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultVersioning, itemType, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, phone, postalCode, token, uidToken);
+    return Objects.hash(address, city, companyName, country, defaultVersioning, dpEnableClassicKeyProtection, itemType, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, phone, postalCode, token, uidToken);
   }
 
 
@@ -448,6 +476,7 @@ public class UpdateAccountSettings {
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
+    sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");

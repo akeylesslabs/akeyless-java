@@ -32,13 +32,9 @@ import java.util.Map;
  */
 
 public class UpdateSecretVal {
-  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "custom-fields";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
-  private Map<String, String> customFields = null;
-
-  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
-  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
-  private String itemAccessibility;
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -60,6 +56,22 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
   private Boolean newVersion;
 
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_CUSTOM_FIELD = "password-manager-custom-field";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_CUSTOM_FIELD)
+  private Map<String, String> passwordManagerCustomField = null;
+
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL = "password-manager-inject-url";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL)
+  private String passwordManagerInjectUrl;
+
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD = "password-manager-password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD)
+  private String passwordManagerPassword;
+
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_USERNAME = "password-manager-username";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_USERNAME)
+  private String passwordManagerUsername;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -68,70 +80,31 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
-  public static final String SERIALIZED_NAME_WEBSITE = "website";
-  @SerializedName(SERIALIZED_NAME_WEBSITE)
-  private String website;
 
-
-  public UpdateSecretVal customFields(Map<String, String> customFields) {
+  public UpdateSecretVal accessibility(String accessibility) {
     
-    this.customFields = customFields;
-    return this;
-  }
-
-  public UpdateSecretVal putCustomFieldsItem(String key, String customFieldsItem) {
-    if (this.customFields == null) {
-      this.customFields = new HashMap<String, String>();
-    }
-    this.customFields.put(key, customFieldsItem);
-    return this;
-  }
-
-   /**
-   * For Password Management use, additional fields
-   * @return customFields
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, additional fields")
-
-  public Map<String, String> getCustomFields() {
-    return customFields;
-  }
-
-
-  public void setCustomFields(Map<String, String> customFields) {
-    this.customFields = customFields;
-  }
-
-
-  public UpdateSecretVal itemAccessibility(String itemAccessibility) {
-    
-    this.itemAccessibility = itemAccessibility;
+    this.accessibility = accessibility;
     return this;
   }
 
    /**
    * for personal password manager
-   * @return itemAccessibility
+   * @return accessibility
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "for personal password manager")
 
-  public String getItemAccessibility() {
-    return itemAccessibility;
+  public String getAccessibility() {
+    return accessibility;
   }
 
 
-  public void setItemAccessibility(String itemAccessibility) {
-    this.itemAccessibility = itemAccessibility;
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
   }
 
 
@@ -249,6 +222,106 @@ public class UpdateSecretVal {
   }
 
 
+  public UpdateSecretVal passwordManagerCustomField(Map<String, String> passwordManagerCustomField) {
+    
+    this.passwordManagerCustomField = passwordManagerCustomField;
+    return this;
+  }
+
+  public UpdateSecretVal putPasswordManagerCustomFieldItem(String key, String passwordManagerCustomFieldItem) {
+    if (this.passwordManagerCustomField == null) {
+      this.passwordManagerCustomField = new HashMap<String, String>();
+    }
+    this.passwordManagerCustomField.put(key, passwordManagerCustomFieldItem);
+    return this;
+  }
+
+   /**
+   * For Password Management use, additional fields
+   * @return passwordManagerCustomField
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, additional fields")
+
+  public Map<String, String> getPasswordManagerCustomField() {
+    return passwordManagerCustomField;
+  }
+
+
+  public void setPasswordManagerCustomField(Map<String, String> passwordManagerCustomField) {
+    this.passwordManagerCustomField = passwordManagerCustomField;
+  }
+
+
+  public UpdateSecretVal passwordManagerInjectUrl(String passwordManagerInjectUrl) {
+    
+    this.passwordManagerInjectUrl = passwordManagerInjectUrl;
+    return this;
+  }
+
+   /**
+   * For Password Management use, reflect the website context
+   * @return passwordManagerInjectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, reflect the website context")
+
+  public String getPasswordManagerInjectUrl() {
+    return passwordManagerInjectUrl;
+  }
+
+
+  public void setPasswordManagerInjectUrl(String passwordManagerInjectUrl) {
+    this.passwordManagerInjectUrl = passwordManagerInjectUrl;
+  }
+
+
+  public UpdateSecretVal passwordManagerPassword(String passwordManagerPassword) {
+    
+    this.passwordManagerPassword = passwordManagerPassword;
+    return this;
+  }
+
+   /**
+   * For Password Management use, additional fields
+   * @return passwordManagerPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, additional fields")
+
+  public String getPasswordManagerPassword() {
+    return passwordManagerPassword;
+  }
+
+
+  public void setPasswordManagerPassword(String passwordManagerPassword) {
+    this.passwordManagerPassword = passwordManagerPassword;
+  }
+
+
+  public UpdateSecretVal passwordManagerUsername(String passwordManagerUsername) {
+    
+    this.passwordManagerUsername = passwordManagerUsername;
+    return this;
+  }
+
+   /**
+   * For Password Management use
+   * @return passwordManagerUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use")
+
+  public String getPasswordManagerUsername() {
+    return passwordManagerUsername;
+  }
+
+
+  public void setPasswordManagerUsername(String passwordManagerUsername) {
+    this.passwordManagerUsername = passwordManagerUsername;
+  }
+
+
   public UpdateSecretVal token(String token) {
     
     this.token = token;
@@ -295,29 +368,6 @@ public class UpdateSecretVal {
   }
 
 
-  public UpdateSecretVal username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * For Password Management use
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public UpdateSecretVal value(String value) {
     
     this.value = value;
@@ -340,29 +390,6 @@ public class UpdateSecretVal {
   }
 
 
-  public UpdateSecretVal website(String website) {
-    
-    this.website = website;
-    return this;
-  }
-
-   /**
-   * For Password Management use, reflect the website context
-   * @return website
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, reflect the website context")
-
-  public String getWebsite() {
-    return website;
-  }
-
-
-  public void setWebsite(String website) {
-    this.website = website;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -372,23 +399,24 @@ public class UpdateSecretVal {
       return false;
     }
     UpdateSecretVal updateSecretVal = (UpdateSecretVal) o;
-    return Objects.equals(this.customFields, updateSecretVal.customFields) &&
-        Objects.equals(this.itemAccessibility, updateSecretVal.itemAccessibility) &&
+    return Objects.equals(this.accessibility, updateSecretVal.accessibility) &&
         Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
         Objects.equals(this.key, updateSecretVal.key) &&
         Objects.equals(this.multiline, updateSecretVal.multiline) &&
         Objects.equals(this.name, updateSecretVal.name) &&
         Objects.equals(this.newVersion, updateSecretVal.newVersion) &&
+        Objects.equals(this.passwordManagerCustomField, updateSecretVal.passwordManagerCustomField) &&
+        Objects.equals(this.passwordManagerInjectUrl, updateSecretVal.passwordManagerInjectUrl) &&
+        Objects.equals(this.passwordManagerPassword, updateSecretVal.passwordManagerPassword) &&
+        Objects.equals(this.passwordManagerUsername, updateSecretVal.passwordManagerUsername) &&
         Objects.equals(this.token, updateSecretVal.token) &&
         Objects.equals(this.uidToken, updateSecretVal.uidToken) &&
-        Objects.equals(this.username, updateSecretVal.username) &&
-        Objects.equals(this.value, updateSecretVal.value) &&
-        Objects.equals(this.website, updateSecretVal.website);
+        Objects.equals(this.value, updateSecretVal.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customFields, itemAccessibility, keepPrevVersion, key, multiline, name, newVersion, token, uidToken, username, value, website);
+    return Objects.hash(accessibility, keepPrevVersion, key, multiline, name, newVersion, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, token, uidToken, value);
   }
 
 
@@ -396,18 +424,19 @@ public class UpdateSecretVal {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSecretVal {\n");
-    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
-    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    multiline: ").append(toIndentedString(multiline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
+    sb.append("    passwordManagerCustomField: ").append(toIndentedString(passwordManagerCustomField)).append("\n");
+    sb.append("    passwordManagerInjectUrl: ").append(toIndentedString(passwordManagerInjectUrl)).append("\n");
+    sb.append("    passwordManagerPassword: ").append(toIndentedString(passwordManagerPassword)).append("\n");
+    sb.append("    passwordManagerUsername: ").append(toIndentedString(passwordManagerUsername)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    website: ").append(toIndentedString(website)).append("\n");
     sb.append("}");
     return sb.toString();
   }

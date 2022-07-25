@@ -53,6 +53,10 @@ public class LogForwardingConfigPart {
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_CONFIG)
   private ElasticsearchLogForwardingConfig elasticsearchConfig;
 
+  public static final String SERIALIZED_NAME_JSON_OUTPUT = "json_output";
+  @SerializedName(SERIALIZED_NAME_JSON_OUTPUT)
+  private Boolean jsonOutput;
+
   public static final String SERIALIZED_NAME_LOGAN_ENABLE = "logan_enable";
   @SerializedName(SERIALIZED_NAME_LOGAN_ENABLE)
   private Boolean loganEnable;
@@ -175,6 +179,29 @@ public class LogForwardingConfigPart {
 
   public void setElasticsearchConfig(ElasticsearchLogForwardingConfig elasticsearchConfig) {
     this.elasticsearchConfig = elasticsearchConfig;
+  }
+
+
+  public LogForwardingConfigPart jsonOutput(Boolean jsonOutput) {
+    
+    this.jsonOutput = jsonOutput;
+    return this;
+  }
+
+   /**
+   * Get jsonOutput
+   * @return jsonOutput
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getJsonOutput() {
+    return jsonOutput;
+  }
+
+
+  public void setJsonOutput(Boolean jsonOutput) {
+    this.jsonOutput = jsonOutput;
   }
 
 
@@ -375,6 +402,7 @@ public class LogForwardingConfigPart {
         Objects.equals(this.azureAnalyticsConfig, logForwardingConfigPart.azureAnalyticsConfig) &&
         Objects.equals(this.datadogConfig, logForwardingConfigPart.datadogConfig) &&
         Objects.equals(this.elasticsearchConfig, logForwardingConfigPart.elasticsearchConfig) &&
+        Objects.equals(this.jsonOutput, logForwardingConfigPart.jsonOutput) &&
         Objects.equals(this.loganEnable, logForwardingConfigPart.loganEnable) &&
         Objects.equals(this.loganUrl, logForwardingConfigPart.loganUrl) &&
         Objects.equals(this.logstashConfig, logForwardingConfigPart.logstashConfig) &&
@@ -387,7 +415,7 @@ public class LogForwardingConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
+    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, jsonOutput, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
   }
 
 
@@ -399,6 +427,7 @@ public class LogForwardingConfigPart {
     sb.append("    azureAnalyticsConfig: ").append(toIndentedString(azureAnalyticsConfig)).append("\n");
     sb.append("    datadogConfig: ").append(toIndentedString(datadogConfig)).append("\n");
     sb.append("    elasticsearchConfig: ").append(toIndentedString(elasticsearchConfig)).append("\n");
+    sb.append("    jsonOutput: ").append(toIndentedString(jsonOutput)).append("\n");
     sb.append("    loganEnable: ").append(toIndentedString(loganEnable)).append("\n");
     sb.append("    loganUrl: ").append(toIndentedString(loganUrl)).append("\n");
     sb.append("    logstashConfig: ").append(toIndentedString(logstashConfig)).append("\n");

@@ -31,13 +31,13 @@ import java.util.List;
  */
 
 public class ListItems {
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility;
+
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
-
-  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
-  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
-  private String itemAccessibility;
 
   public static final String SERIALIZED_NAME_MINIMAL_VIEW = "minimal-view";
   @SerializedName(SERIALIZED_NAME_MINIMAL_VIEW)
@@ -72,6 +72,29 @@ public class ListItems {
   private String uidToken;
 
 
+  public ListItems accessibility(String accessibility) {
+    
+    this.accessibility = accessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return accessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getAccessibility() {
+    return accessibility;
+  }
+
+
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
+  }
+
+
   public ListItems filter(String filter) {
     
     this.filter = filter;
@@ -92,29 +115,6 @@ public class ListItems {
 
   public void setFilter(String filter) {
     this.filter = filter;
-  }
-
-
-  public ListItems itemAccessibility(String itemAccessibility) {
-    
-    this.itemAccessibility = itemAccessibility;
-    return this;
-  }
-
-   /**
-   * for personal password manager
-   * @return itemAccessibility
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "for personal password manager")
-
-  public String getItemAccessibility() {
-    return itemAccessibility;
-  }
-
-
-  public void setItemAccessibility(String itemAccessibility) {
-    this.itemAccessibility = itemAccessibility;
   }
 
 
@@ -327,8 +327,8 @@ public class ListItems {
       return false;
     }
     ListItems listItems = (ListItems) o;
-    return Objects.equals(this.filter, listItems.filter) &&
-        Objects.equals(this.itemAccessibility, listItems.itemAccessibility) &&
+    return Objects.equals(this.accessibility, listItems.accessibility) &&
+        Objects.equals(this.filter, listItems.filter) &&
         Objects.equals(this.minimalView, listItems.minimalView) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
@@ -341,7 +341,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, itemAccessibility, minimalView, paginationToken, path, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, filter, minimalView, paginationToken, path, subTypes, tag, token, type, uidToken);
   }
 
 
@@ -349,8 +349,8 @@ public class ListItems {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListItems {\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");

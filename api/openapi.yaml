@@ -8362,6 +8362,16 @@ components:
           $ref: '#/components/schemas/AWSPayload'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    AccountGeneralSettings:
+      description: AccountGeneralSettings describes general settings for an account
+      example:
+        data_protection_section:
+          enable_classic_key_protection: true
+      properties:
+        data_protection_section:
+          $ref: '#/components/schemas/DataProtectionSection'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AccountObjectVersionSettingsOutput:
       example:
         default-versioning: true
@@ -8641,12 +8651,7 @@ components:
             bucket_name: bucket_name
             log_folder: log_folder
           logan_url: logan_url
-          syslog_config:
-            syslog_host: syslog_host
-            syslog_target_tag: syslog_target_tag
-            syslog_formatter: syslog_formatter
-            syslog_network: syslog_network
-          target_log_type: target_log_type
+          json_output: true
           azure_analytics_config:
             azure_workspace_key: azure_workspace_key
             azure_workspace_id: azure_workspace_id
@@ -8656,12 +8661,6 @@ components:
             splunk_index: splunk_index
             splunk_sourcetype: splunk_sourcetype
             splunk_url: splunk_url
-          datadog_config:
-            datadog_log_source: datadog_log_source
-            datadog_log_service: datadog_log_service
-            datadog_log_tags: datadog_log_tags
-            datadog_host: datadog_host
-            datadog_api_key: datadog_api_key
           logstash_config:
             logstash_protocol: logstash_protocol
             logstash_dns: logstash_dns
@@ -8669,6 +8668,18 @@ components:
           logz_io_config:
             target_logz_io_protocol: target_logz_io_protocol
             target_logz_io_token: target_logz_io_token
+          syslog_config:
+            syslog_host: syslog_host
+            syslog_target_tag: syslog_target_tag
+            syslog_formatter: syslog_formatter
+            syslog_network: syslog_network
+          target_log_type: target_log_type
+          datadog_config:
+            datadog_log_source: datadog_log_source
+            datadog_log_service: datadog_log_service
+            datadog_log_tags: datadog_log_tags
+            datadog_host: datadog_host
+            datadog_api_key: datadog_api_key
           pull_interval_sec: pull_interval_sec
           elasticsearch_config:
             elasticsearch_index: elasticsearch_index
@@ -10558,6 +10569,7 @@ components:
         last_admin_rotation: 2
         chef_server_key: chef_server_key
         db_max_open_conns: db_max_open_conns
+        implementation_type: implementation_type
         admin_rotation_interval_days: 0
         ssl_connection_certificate: ssl_connection_certificate
         oracle_creation_statements: oracle_creation_statements
@@ -11066,6 +11078,9 @@ components:
         host_port:
           type: string
           x-go-name: HostPort
+        implementation_type:
+          type: string
+          x-go-name: ImplementationType
         is_fixed_user:
           type: string
           x-go-name: IsFixedUser
@@ -11338,6 +11353,18 @@ components:
           x-go-name: WarnBeforeUserExpirationInMin
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+    DataProtectionSection:
+      description: |-
+        We need the fields to be pointers as we
+        use the same struct for partial updates as well
+      example:
+        enable_classic_key_protection: true
+      properties:
+        enable_classic_key_protection:
+          type: boolean
+          x-go-name: EnableClassicKeyProtection
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     DatadogForwardingConfig:
       example:
         datadog_log_source: datadog_log_source
@@ -11903,6 +11930,9 @@ components:
             max-versions: max-versions
           - item-type: item-type
             max-versions: max-versions
+        general_settings:
+          data_protection_section:
+            enable_classic_key_protection: true
         secret_management:
           package: package
           tier: tier
@@ -11923,6 +11953,8 @@ components:
         email:
           type: string
           x-go-name: CustomerEmail
+        general_settings:
+          $ref: '#/components/schemas/AccountGeneralSettings'
         object_version_settings:
           $ref: '#/components/schemas/AccountObjectVersionSettingsOutput'
         phone:
@@ -12062,6 +12094,7 @@ components:
           k8s_bearer_token: k8s_bearer_token
           azure_resource_name: azure_resource_name
           chef_server_key: chef_server_key
+          implementation_type: implementation_type
           ssl_connection_certificate: ssl_connection_certificate
           client_id: client_id
           azure_client_id: azure_client_id
@@ -15112,12 +15145,7 @@ components:
           bucket_name: bucket_name
           log_folder: log_folder
         logan_url: logan_url
-        syslog_config:
-          syslog_host: syslog_host
-          syslog_target_tag: syslog_target_tag
-          syslog_formatter: syslog_formatter
-          syslog_network: syslog_network
-        target_log_type: target_log_type
+        json_output: true
         azure_analytics_config:
           azure_workspace_key: azure_workspace_key
           azure_workspace_id: azure_workspace_id
@@ -15127,12 +15155,6 @@ components:
           splunk_index: splunk_index
           splunk_sourcetype: splunk_sourcetype
           splunk_url: splunk_url
-        datadog_config:
-          datadog_log_source: datadog_log_source
-          datadog_log_service: datadog_log_service
-          datadog_log_tags: datadog_log_tags
-          datadog_host: datadog_host
-          datadog_api_key: datadog_api_key
         logstash_config:
           logstash_protocol: logstash_protocol
           logstash_dns: logstash_dns
@@ -15140,6 +15162,18 @@ components:
         logz_io_config:
           target_logz_io_protocol: target_logz_io_protocol
           target_logz_io_token: target_logz_io_token
+        syslog_config:
+          syslog_host: syslog_host
+          syslog_target_tag: syslog_target_tag
+          syslog_formatter: syslog_formatter
+          syslog_network: syslog_network
+        target_log_type: target_log_type
+        datadog_config:
+          datadog_log_source: datadog_log_source
+          datadog_log_service: datadog_log_service
+          datadog_log_tags: datadog_log_tags
+          datadog_host: datadog_host
+          datadog_api_key: datadog_api_key
         pull_interval_sec: pull_interval_sec
         elasticsearch_config:
           elasticsearch_index: elasticsearch_index
@@ -15159,6 +15193,9 @@ components:
           $ref: '#/components/schemas/DatadogForwardingConfig'
         elasticsearch_config:
           $ref: '#/components/schemas/ElasticsearchLogForwardingConfig'
+        json_output:
+          type: boolean
+          x-go-name: JsonOutput
         logan_enable:
           type: boolean
           x-go-name: LoganEnable
@@ -16970,6 +17007,7 @@ components:
         k8s_bearer_token: k8s_bearer_token
         azure_resource_name: azure_resource_name
         chef_server_key: chef_server_key
+        implementation_type: implementation_type
         ssl_connection_certificate: ssl_connection_certificate
         client_id: client_id
         azure_client_id: azure_client_id
@@ -17218,6 +17256,9 @@ components:
         host:
           type: string
           x-go-name: HostName
+        implementation_type:
+          type: string
+          x-go-name: ImplementationType
         k8s_bearer_token:
           type: string
           x-go-name: K8sBearerToken
@@ -20668,20 +20709,14 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createSecret:
       properties:
-        custom-fields:
-          additionalProperties:
-            type: string
-          description: For Password Management use, additional fields
-          type: object
-          x-go-name: CustomFields
+        accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         delete_protection:
           description: Protection from accidental deletion of this item
           type: string
           x-go-name: ItemProtected
-        item-accessibility:
-          description: for personal password manager
-          type: string
-          x-go-name: ItemAccessibilityString
         metadata:
           description: Metadata about the secret
           type: string
@@ -20694,11 +20729,24 @@ components:
           description: Secret name
           type: string
           x-go-name: SecretName
-        password-length:
-          description: For PasswordPolicy use
-          format: int64
-          type: integer
-          x-go-name: PasswordLength
+        password-manager-custom-field:
+          additionalProperties:
+            type: string
+          description: For Password Management use, additional fields
+          type: object
+          x-go-name: CustomFields
+        password-manager-inject-url:
+          description: For Password Management use, reflect the website context
+          type: string
+          x-go-name: Website
+        password-manager-password:
+          description: For Password Management use, additional fields
+          type: string
+          x-go-name: Password
+        password-manager-username:
+          description: For Password Management use
+          type: string
+          x-go-name: Username
         protection_key:
           description: |-
             The name of a key that used to encrypt the secret value (if empty, the
@@ -20751,34 +20799,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
-        use-lower-letters:
-          description: For PasswordPolicy use
-          type: string
-          x-go-name: UseLowerLetters
-        use-numbers:
-          description: For PasswordPolicy use
-          type: string
-          x-go-name: UseNumbers
-        use-special-characters:
-          description: For PasswordPolicy use
-          type: string
-          x-go-name: UseSpecialCharacters
-        use_capital-letters:
-          description: For PasswordPolicy use
-          type: string
-          x-go-name: UseCapitalLetters
-        username:
-          description: For Password Management use
-          type: string
-          x-go-name: Username
         value:
           description: The secret value
           type: string
           x-go-name: Value
-        website:
-          description: For Password Management use, reflect the website context
-          type: string
-          x-go-name: Website
       required:
       - name
       - value
@@ -21131,6 +21155,10 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteItem:
       properties:
+        accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         delete-immediately:
           default: false
           description: When delete-in-days=-1, must be set
@@ -21144,10 +21172,6 @@ components:
           format: int64
           type: integer
           x-go-name: DeleteInDays
-        item-accessibility:
-          description: for personal password manager
-          type: string
-          x-go-name: ItemAccessibilityString
         name:
           description: Item name
           type: string
@@ -21767,6 +21791,7 @@ components:
           type: string
           x-go-name: Profile
         token-exp:
+          default: 300
           description: Time in seconds of expiration of the Akeyless Kube Auth Method
             token
           format: int64
@@ -22096,6 +22121,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -22439,6 +22465,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -22771,6 +22798,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -23065,6 +23093,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -23408,6 +23437,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -23788,6 +23818,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -24076,6 +24107,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -24392,6 +24424,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -24683,6 +24716,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -24974,6 +25008,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -25281,6 +25316,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -25600,6 +25636,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -25905,6 +25942,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -26224,6 +26262,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -26561,6 +26600,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -26889,6 +26929,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -27205,6 +27246,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -27526,6 +27568,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -27850,6 +27893,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -28172,6 +28216,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -28497,6 +28542,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -28808,6 +28854,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -29101,6 +29148,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -30357,6 +30405,7 @@ components:
           type: string
           x-go-name: Profile
         token-exp:
+          default: 300
           description: Time in seconds of expiration of the Akeyless Kube Auth Method
             token
           format: int64
@@ -30694,6 +30743,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -31041,6 +31091,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -31377,6 +31428,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -31675,6 +31727,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -32022,6 +32075,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -32410,6 +32464,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -32702,6 +32757,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -33022,6 +33078,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -33317,6 +33374,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -33612,6 +33670,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -33923,6 +33982,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -34246,6 +34306,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -34555,6 +34616,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -34878,6 +34940,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -35219,6 +35282,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -35551,6 +35615,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -35871,6 +35936,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -36196,6 +36262,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -36524,6 +36591,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -36850,6 +36918,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -37179,6 +37248,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -37494,6 +37564,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -37791,6 +37862,7 @@ components:
           last_admin_rotation: 2
           chef_server_key: chef_server_key
           db_max_open_conns: db_max_open_conns
+          implementation_type: implementation_type
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
@@ -38399,7 +38471,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getSecretValue:
       properties:
-        item-accessibility:
+        accessibility:
           description: for personal password manager
           type: string
           x-go-name: ItemAccessibilityString
@@ -38934,14 +39006,14 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     listItems:
       properties:
+        accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         filter:
           description: Filter by item name or part of it
           type: string
           x-go-name: Filter
-        item-accessibility:
-          description: for personal password manager
-          type: string
-          x-go-name: ItemAccessibilityString
         minimal-view:
           type: boolean
           x-go-name: BasicData
@@ -39941,6 +40013,10 @@ components:
           description: Should create version by default
           type: string
           x-go-name: CreateVersionByDefault
+        dp-enable-classic-key-protection:
+          description: Enable classic key protection ["true"/"false"]
+          type: string
+          x-go-name: EnableClassicKeyProtection
         item-type:
           description: VersionSettingsObjectType defines object types for account
             version settings
@@ -41804,6 +41880,10 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateItem:
       properties:
+        accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         add-tag:
           description: List of the new tags that will be attached to this item
           items:
@@ -41818,10 +41898,6 @@ components:
         delete_protection:
           type: string
           x-go-name: ItemProtected
-        item-accessibility:
-          description: for personal password manager
-          type: string
-          x-go-name: ItemAccessibilityString
         name:
           description: Current item name
           type: string
@@ -42902,13 +42978,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateSecretVal:
       properties:
-        custom-fields:
-          additionalProperties:
-            type: string
-          description: For Password Management use, additional fields
-          type: object
-          x-go-name: CustomFields
-        item-accessibility:
+        accessibility:
           description: for personal password manager
           type: string
           x-go-name: ItemAccessibilityString
@@ -42933,6 +43003,24 @@ components:
           description: Deprecated
           type: boolean
           x-go-name: NewVersion
+        password-manager-custom-field:
+          additionalProperties:
+            type: string
+          description: For Password Management use, additional fields
+          type: object
+          x-go-name: CustomFields
+        password-manager-inject-url:
+          description: For Password Management use, reflect the website context
+          type: string
+          x-go-name: Website
+        password-manager-password:
+          description: For Password Management use, additional fields
+          type: string
+          x-go-name: Password
+        password-manager-username:
+          description: For Password Management use
+          type: string
+          x-go-name: Username
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -42943,18 +43031,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
-        username:
-          description: For Password Management use
-          type: string
-          x-go-name: Username
         value:
           description: The new secret value
           type: string
           x-go-name: Value
-        website:
-          description: For Password Management use, reflect the website context
-          type: string
-          x-go-name: Website
       required:
       - name
       - value

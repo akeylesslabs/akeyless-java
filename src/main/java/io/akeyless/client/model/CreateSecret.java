@@ -33,17 +33,13 @@ import java.util.Map;
  */
 
 public class CreateSecret {
-  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "custom-fields";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
-  private Map<String, String> customFields = null;
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility;
 
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
-
-  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
-  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
-  private String itemAccessibility;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -57,9 +53,21 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
-  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
-  private Long passwordLength;
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_CUSTOM_FIELD = "password-manager-custom-field";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_CUSTOM_FIELD)
+  private Map<String, String> passwordManagerCustomField = null;
+
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL = "password-manager-inject-url";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL)
+  private String passwordManagerInjectUrl;
+
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD = "password-manager-password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD)
+  private String passwordManagerPassword;
+
+  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_USERNAME = "password-manager-username";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_USERNAME)
+  private String passwordManagerUsername;
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
@@ -113,63 +121,31 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public static final String SERIALIZED_NAME_USE_LOWER_LETTERS = "use-lower-letters";
-  @SerializedName(SERIALIZED_NAME_USE_LOWER_LETTERS)
-  private String useLowerLetters;
-
-  public static final String SERIALIZED_NAME_USE_NUMBERS = "use-numbers";
-  @SerializedName(SERIALIZED_NAME_USE_NUMBERS)
-  private String useNumbers;
-
-  public static final String SERIALIZED_NAME_USE_SPECIAL_CHARACTERS = "use-special-characters";
-  @SerializedName(SERIALIZED_NAME_USE_SPECIAL_CHARACTERS)
-  private String useSpecialCharacters;
-
-  public static final String SERIALIZED_NAME_USE_CAPITAL_LETTERS = "use_capital-letters";
-  @SerializedName(SERIALIZED_NAME_USE_CAPITAL_LETTERS)
-  private String useCapitalLetters;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
-  public static final String SERIALIZED_NAME_WEBSITE = "website";
-  @SerializedName(SERIALIZED_NAME_WEBSITE)
-  private String website;
 
-
-  public CreateSecret customFields(Map<String, String> customFields) {
+  public CreateSecret accessibility(String accessibility) {
     
-    this.customFields = customFields;
-    return this;
-  }
-
-  public CreateSecret putCustomFieldsItem(String key, String customFieldsItem) {
-    if (this.customFields == null) {
-      this.customFields = new HashMap<String, String>();
-    }
-    this.customFields.put(key, customFieldsItem);
+    this.accessibility = accessibility;
     return this;
   }
 
    /**
-   * For Password Management use, additional fields
-   * @return customFields
+   * for personal password manager
+   * @return accessibility
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, additional fields")
+  @ApiModelProperty(value = "for personal password manager")
 
-  public Map<String, String> getCustomFields() {
-    return customFields;
+  public String getAccessibility() {
+    return accessibility;
   }
 
 
-  public void setCustomFields(Map<String, String> customFields) {
-    this.customFields = customFields;
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
   }
 
 
@@ -193,29 +169,6 @@ public class CreateSecret {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
-  }
-
-
-  public CreateSecret itemAccessibility(String itemAccessibility) {
-    
-    this.itemAccessibility = itemAccessibility;
-    return this;
-  }
-
-   /**
-   * for personal password manager
-   * @return itemAccessibility
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "for personal password manager")
-
-  public String getItemAccessibility() {
-    return itemAccessibility;
-  }
-
-
-  public void setItemAccessibility(String itemAccessibility) {
-    this.itemAccessibility = itemAccessibility;
   }
 
 
@@ -287,26 +240,103 @@ public class CreateSecret {
   }
 
 
-  public CreateSecret passwordLength(Long passwordLength) {
+  public CreateSecret passwordManagerCustomField(Map<String, String> passwordManagerCustomField) {
     
-    this.passwordLength = passwordLength;
+    this.passwordManagerCustomField = passwordManagerCustomField;
+    return this;
+  }
+
+  public CreateSecret putPasswordManagerCustomFieldItem(String key, String passwordManagerCustomFieldItem) {
+    if (this.passwordManagerCustomField == null) {
+      this.passwordManagerCustomField = new HashMap<String, String>();
+    }
+    this.passwordManagerCustomField.put(key, passwordManagerCustomFieldItem);
     return this;
   }
 
    /**
-   * For PasswordPolicy use
-   * @return passwordLength
+   * For Password Management use, additional fields
+   * @return passwordManagerCustomField
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
+  @ApiModelProperty(value = "For Password Management use, additional fields")
 
-  public Long getPasswordLength() {
-    return passwordLength;
+  public Map<String, String> getPasswordManagerCustomField() {
+    return passwordManagerCustomField;
   }
 
 
-  public void setPasswordLength(Long passwordLength) {
-    this.passwordLength = passwordLength;
+  public void setPasswordManagerCustomField(Map<String, String> passwordManagerCustomField) {
+    this.passwordManagerCustomField = passwordManagerCustomField;
+  }
+
+
+  public CreateSecret passwordManagerInjectUrl(String passwordManagerInjectUrl) {
+    
+    this.passwordManagerInjectUrl = passwordManagerInjectUrl;
+    return this;
+  }
+
+   /**
+   * For Password Management use, reflect the website context
+   * @return passwordManagerInjectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, reflect the website context")
+
+  public String getPasswordManagerInjectUrl() {
+    return passwordManagerInjectUrl;
+  }
+
+
+  public void setPasswordManagerInjectUrl(String passwordManagerInjectUrl) {
+    this.passwordManagerInjectUrl = passwordManagerInjectUrl;
+  }
+
+
+  public CreateSecret passwordManagerPassword(String passwordManagerPassword) {
+    
+    this.passwordManagerPassword = passwordManagerPassword;
+    return this;
+  }
+
+   /**
+   * For Password Management use, additional fields
+   * @return passwordManagerPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, additional fields")
+
+  public String getPasswordManagerPassword() {
+    return passwordManagerPassword;
+  }
+
+
+  public void setPasswordManagerPassword(String passwordManagerPassword) {
+    this.passwordManagerPassword = passwordManagerPassword;
+  }
+
+
+  public CreateSecret passwordManagerUsername(String passwordManagerUsername) {
+    
+    this.passwordManagerUsername = passwordManagerUsername;
+    return this;
+  }
+
+   /**
+   * For Password Management use
+   * @return passwordManagerUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use")
+
+  public String getPasswordManagerUsername() {
+    return passwordManagerUsername;
+  }
+
+
+  public void setPasswordManagerUsername(String passwordManagerUsername) {
+    this.passwordManagerUsername = passwordManagerUsername;
   }
 
 
@@ -625,121 +655,6 @@ public class CreateSecret {
   }
 
 
-  public CreateSecret useLowerLetters(String useLowerLetters) {
-    
-    this.useLowerLetters = useLowerLetters;
-    return this;
-  }
-
-   /**
-   * For PasswordPolicy use
-   * @return useLowerLetters
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
-
-  public String getUseLowerLetters() {
-    return useLowerLetters;
-  }
-
-
-  public void setUseLowerLetters(String useLowerLetters) {
-    this.useLowerLetters = useLowerLetters;
-  }
-
-
-  public CreateSecret useNumbers(String useNumbers) {
-    
-    this.useNumbers = useNumbers;
-    return this;
-  }
-
-   /**
-   * For PasswordPolicy use
-   * @return useNumbers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
-
-  public String getUseNumbers() {
-    return useNumbers;
-  }
-
-
-  public void setUseNumbers(String useNumbers) {
-    this.useNumbers = useNumbers;
-  }
-
-
-  public CreateSecret useSpecialCharacters(String useSpecialCharacters) {
-    
-    this.useSpecialCharacters = useSpecialCharacters;
-    return this;
-  }
-
-   /**
-   * For PasswordPolicy use
-   * @return useSpecialCharacters
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
-
-  public String getUseSpecialCharacters() {
-    return useSpecialCharacters;
-  }
-
-
-  public void setUseSpecialCharacters(String useSpecialCharacters) {
-    this.useSpecialCharacters = useSpecialCharacters;
-  }
-
-
-  public CreateSecret useCapitalLetters(String useCapitalLetters) {
-    
-    this.useCapitalLetters = useCapitalLetters;
-    return this;
-  }
-
-   /**
-   * For PasswordPolicy use
-   * @return useCapitalLetters
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
-
-  public String getUseCapitalLetters() {
-    return useCapitalLetters;
-  }
-
-
-  public void setUseCapitalLetters(String useCapitalLetters) {
-    this.useCapitalLetters = useCapitalLetters;
-  }
-
-
-  public CreateSecret username(String username) {
-    
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * For Password Management use
-   * @return username
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use")
-
-  public String getUsername() {
-    return username;
-  }
-
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
   public CreateSecret value(String value) {
     
     this.value = value;
@@ -762,29 +677,6 @@ public class CreateSecret {
   }
 
 
-  public CreateSecret website(String website) {
-    
-    this.website = website;
-    return this;
-  }
-
-   /**
-   * For Password Management use, reflect the website context
-   * @return website
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, reflect the website context")
-
-  public String getWebsite() {
-    return website;
-  }
-
-
-  public void setWebsite(String website) {
-    this.website = website;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -794,13 +686,15 @@ public class CreateSecret {
       return false;
     }
     CreateSecret createSecret = (CreateSecret) o;
-    return Objects.equals(this.customFields, createSecret.customFields) &&
+    return Objects.equals(this.accessibility, createSecret.accessibility) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
-        Objects.equals(this.itemAccessibility, createSecret.itemAccessibility) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
         Objects.equals(this.name, createSecret.name) &&
-        Objects.equals(this.passwordLength, createSecret.passwordLength) &&
+        Objects.equals(this.passwordManagerCustomField, createSecret.passwordManagerCustomField) &&
+        Objects.equals(this.passwordManagerInjectUrl, createSecret.passwordManagerInjectUrl) &&
+        Objects.equals(this.passwordManagerPassword, createSecret.passwordManagerPassword) &&
+        Objects.equals(this.passwordManagerUsername, createSecret.passwordManagerUsername) &&
         Objects.equals(this.protectionKey, createSecret.protectionKey) &&
         Objects.equals(this.secureAccessBastionIssuer, createSecret.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, createSecret.secureAccessEnable) &&
@@ -814,18 +708,12 @@ public class CreateSecret {
         Objects.equals(this.token, createSecret.token) &&
         Objects.equals(this.type, createSecret.type) &&
         Objects.equals(this.uidToken, createSecret.uidToken) &&
-        Objects.equals(this.useLowerLetters, createSecret.useLowerLetters) &&
-        Objects.equals(this.useNumbers, createSecret.useNumbers) &&
-        Objects.equals(this.useSpecialCharacters, createSecret.useSpecialCharacters) &&
-        Objects.equals(this.useCapitalLetters, createSecret.useCapitalLetters) &&
-        Objects.equals(this.username, createSecret.username) &&
-        Objects.equals(this.value, createSecret.value) &&
-        Objects.equals(this.website, createSecret.website);
+        Objects.equals(this.value, createSecret.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customFields, deleteProtection, itemAccessibility, metadata, multilineValue, name, passwordLength, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters, username, value, website);
+    return Objects.hash(accessibility, deleteProtection, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
   }
 
 
@@ -833,13 +721,15 @@ public class CreateSecret {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecret {\n");
-    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
-    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    passwordManagerCustomField: ").append(toIndentedString(passwordManagerCustomField)).append("\n");
+    sb.append("    passwordManagerInjectUrl: ").append(toIndentedString(passwordManagerInjectUrl)).append("\n");
+    sb.append("    passwordManagerPassword: ").append(toIndentedString(passwordManagerPassword)).append("\n");
+    sb.append("    passwordManagerUsername: ").append(toIndentedString(passwordManagerUsername)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
@@ -853,13 +743,7 @@ public class CreateSecret {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
-    sb.append("    useLowerLetters: ").append(toIndentedString(useLowerLetters)).append("\n");
-    sb.append("    useNumbers: ").append(toIndentedString(useNumbers)).append("\n");
-    sb.append("    useSpecialCharacters: ").append(toIndentedString(useSpecialCharacters)).append("\n");
-    sb.append("    useCapitalLetters: ").append(toIndentedString(useCapitalLetters)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    website: ").append(toIndentedString(website)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,9 +31,9 @@ import java.util.List;
  */
 
 public class GetSecretValue {
-  public static final String SERIALIZED_NAME_ITEM_ACCESSIBILITY = "item-accessibility";
-  @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
-  private String itemAccessibility;
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility;
 
   public static final String SERIALIZED_NAME_NAMES = "names";
   @SerializedName(SERIALIZED_NAME_NAMES)
@@ -56,26 +56,26 @@ public class GetSecretValue {
   private Integer version;
 
 
-  public GetSecretValue itemAccessibility(String itemAccessibility) {
+  public GetSecretValue accessibility(String accessibility) {
     
-    this.itemAccessibility = itemAccessibility;
+    this.accessibility = accessibility;
     return this;
   }
 
    /**
    * for personal password manager
-   * @return itemAccessibility
+   * @return accessibility
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "for personal password manager")
 
-  public String getItemAccessibility() {
-    return itemAccessibility;
+  public String getAccessibility() {
+    return accessibility;
   }
 
 
-  public void setItemAccessibility(String itemAccessibility) {
-    this.itemAccessibility = itemAccessibility;
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
   }
 
 
@@ -207,7 +207,7 @@ public class GetSecretValue {
       return false;
     }
     GetSecretValue getSecretValue = (GetSecretValue) o;
-    return Objects.equals(this.itemAccessibility, getSecretValue.itemAccessibility) &&
+    return Objects.equals(this.accessibility, getSecretValue.accessibility) &&
         Objects.equals(this.names, getSecretValue.names) &&
         Objects.equals(this.prettyPrint, getSecretValue.prettyPrint) &&
         Objects.equals(this.token, getSecretValue.token) &&
@@ -217,7 +217,7 @@ public class GetSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemAccessibility, names, prettyPrint, token, uidToken, version);
+    return Objects.hash(accessibility, names, prettyPrint, token, uidToken, version);
   }
 
 
@@ -225,7 +225,7 @@ public class GetSecretValue {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSecretValue {\n");
-    sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    prettyPrint: ").append(toIndentedString(prettyPrint)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

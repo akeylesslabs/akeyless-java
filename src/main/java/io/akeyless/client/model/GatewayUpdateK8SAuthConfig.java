@@ -68,7 +68,7 @@ public class GatewayUpdateK8SAuthConfig {
 
   public static final String SERIALIZED_NAME_TOKEN_EXP = "token-exp";
   @SerializedName(SERIALIZED_NAME_TOKEN_EXP)
-  private Long tokenExp;
+  private Long tokenExp = 300l;
 
   public static final String SERIALIZED_NAME_TOKEN_REVIEWER_JWT = "token-reviewer-jwt";
   @SerializedName(SERIALIZED_NAME_TOKEN_REVIEWER_JWT)

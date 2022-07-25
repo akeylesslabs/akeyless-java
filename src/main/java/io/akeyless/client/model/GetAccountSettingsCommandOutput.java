@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AccountGeneralSettings;
 import io.akeyless.client.model.AccountObjectVersionSettingsOutput;
 import io.akeyless.client.model.CustomerFullAddress;
 import io.akeyless.client.model.SmInfo;
@@ -49,6 +50,10 @@ public class GetAccountSettingsCommandOutput {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_GENERAL_SETTINGS = "general_settings";
+  @SerializedName(SERIALIZED_NAME_GENERAL_SETTINGS)
+  private AccountGeneralSettings generalSettings;
 
   public static final String SERIALIZED_NAME_OBJECT_VERSION_SETTINGS = "object_version_settings";
   @SerializedName(SERIALIZED_NAME_OBJECT_VERSION_SETTINGS)
@@ -160,6 +165,29 @@ public class GetAccountSettingsCommandOutput {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public GetAccountSettingsCommandOutput generalSettings(AccountGeneralSettings generalSettings) {
+    
+    this.generalSettings = generalSettings;
+    return this;
+  }
+
+   /**
+   * Get generalSettings
+   * @return generalSettings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AccountGeneralSettings getGeneralSettings() {
+    return generalSettings;
+  }
+
+
+  public void setGeneralSettings(AccountGeneralSettings generalSettings) {
+    this.generalSettings = generalSettings;
   }
 
 
@@ -291,6 +319,7 @@ public class GetAccountSettingsCommandOutput {
         Objects.equals(this.address, getAccountSettingsCommandOutput.address) &&
         Objects.equals(this.companyName, getAccountSettingsCommandOutput.companyName) &&
         Objects.equals(this.email, getAccountSettingsCommandOutput.email) &&
+        Objects.equals(this.generalSettings, getAccountSettingsCommandOutput.generalSettings) &&
         Objects.equals(this.objectVersionSettings, getAccountSettingsCommandOutput.objectVersionSettings) &&
         Objects.equals(this.phone, getAccountSettingsCommandOutput.phone) &&
         Objects.equals(this.secretManagement, getAccountSettingsCommandOutput.secretManagement) &&
@@ -300,7 +329,7 @@ public class GetAccountSettingsCommandOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, address, companyName, email, objectVersionSettings, phone, secretManagement, secureRemoteAccess, systemAccessCredsSettings);
+    return Objects.hash(accountId, address, companyName, email, generalSettings, objectVersionSettings, phone, secretManagement, secureRemoteAccess, systemAccessCredsSettings);
   }
 
 
@@ -312,6 +341,7 @@ public class GetAccountSettingsCommandOutput {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    generalSettings: ").append(toIndentedString(generalSettings)).append("\n");
     sb.append("    objectVersionSettings: ").append(toIndentedString(objectVersionSettings)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    secretManagement: ").append(toIndentedString(secretManagement)).append("\n");
