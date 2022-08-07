@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ldapUrl** | **String** |  |  [optional]
 **name** | **String** | Target name | 
 **newName** | **String** | New target name |  [optional]
+**serverType** | **String** | Set Ldap server type, Options:[OpenLDAP, ActiveDirectory] |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **tokenExpiration** | **String** |  |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

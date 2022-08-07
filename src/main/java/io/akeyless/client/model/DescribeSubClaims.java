@@ -25,22 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DecryptFile
+ * describe-sub-claims Get the sub-claims associated with the provided token or authentication profile
  */
+@ApiModel(description = "describe-sub-claims Get the sub-claims associated with the provided token or authentication profile")
 
-public class DecryptFile {
-  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
-  private String displayId;
-
-  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
-  @SerializedName(SERIALIZED_NAME_ITEM_ID)
-  private Long itemId;
-
-  public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
-  @SerializedName(SERIALIZED_NAME_KEY_NAME)
-  private String keyName;
-
+public class DescribeSubClaims {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -50,75 +39,7 @@ public class DecryptFile {
   private String uidToken;
 
 
-  public DecryptFile displayId(String displayId) {
-    
-    this.displayId = displayId;
-    return this;
-  }
-
-   /**
-   * The display id of the key to use in the decryption process
-   * @return displayId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The display id of the key to use in the decryption process")
-
-  public String getDisplayId() {
-    return displayId;
-  }
-
-
-  public void setDisplayId(String displayId) {
-    this.displayId = displayId;
-  }
-
-
-  public DecryptFile itemId(Long itemId) {
-    
-    this.itemId = itemId;
-    return this;
-  }
-
-   /**
-   * The item id of the key to use in the decryption process
-   * @return itemId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The item id of the key to use in the decryption process")
-
-  public Long getItemId() {
-    return itemId;
-  }
-
-
-  public void setItemId(Long itemId) {
-    this.itemId = itemId;
-  }
-
-
-  public DecryptFile keyName(String keyName) {
-    
-    this.keyName = keyName;
-    return this;
-  }
-
-   /**
-   * The name of the key to use in the decryption process
-   * @return keyName
-  **/
-  @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
-
-  public String getKeyName() {
-    return keyName;
-  }
-
-
-  public void setKeyName(String keyName) {
-    this.keyName = keyName;
-  }
-
-
-  public DecryptFile token(String token) {
+  public DescribeSubClaims token(String token) {
     
     this.token = token;
     return this;
@@ -141,7 +62,7 @@ public class DecryptFile {
   }
 
 
-  public DecryptFile uidToken(String uidToken) {
+  public DescribeSubClaims uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -172,27 +93,21 @@ public class DecryptFile {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DecryptFile decryptFile = (DecryptFile) o;
-    return Objects.equals(this.displayId, decryptFile.displayId) &&
-        Objects.equals(this.itemId, decryptFile.itemId) &&
-        Objects.equals(this.keyName, decryptFile.keyName) &&
-        Objects.equals(this.token, decryptFile.token) &&
-        Objects.equals(this.uidToken, decryptFile.uidToken);
+    DescribeSubClaims describeSubClaims = (DescribeSubClaims) o;
+    return Objects.equals(this.token, describeSubClaims.token) &&
+        Objects.equals(this.uidToken, describeSubClaims.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, keyName, token, uidToken);
+    return Objects.hash(token, uidToken);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DecryptFile {\n");
-    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
-    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
-    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("class DescribeSubClaims {\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

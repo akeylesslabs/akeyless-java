@@ -45,6 +45,10 @@ public class Decrypt {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_CONTEXT)
   private Map<String, String> encryptionContext = null;
 
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -135,6 +139,29 @@ public class Decrypt {
   }
 
 
+  public Decrypt itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * The item id of the key to use in the decryption process
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The item id of the key to use in the decryption process")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   public Decrypt keyName(String keyName) {
     
     this.keyName = keyName;
@@ -145,8 +172,7 @@ public class Decrypt {
    * The name of the key to use in the decryption process
    * @return keyName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the key to use in the decryption process")
+  @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
 
   public String getKeyName() {
     return keyName;
@@ -216,6 +242,7 @@ public class Decrypt {
     return Objects.equals(this.ciphertext, decrypt.ciphertext) &&
         Objects.equals(this.displayId, decrypt.displayId) &&
         Objects.equals(this.encryptionContext, decrypt.encryptionContext) &&
+        Objects.equals(this.itemId, decrypt.itemId) &&
         Objects.equals(this.keyName, decrypt.keyName) &&
         Objects.equals(this.token, decrypt.token) &&
         Objects.equals(this.uidToken, decrypt.uidToken);
@@ -223,7 +250,7 @@ public class Decrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, encryptionContext, keyName, token, uidToken);
+    return Objects.hash(ciphertext, displayId, encryptionContext, itemId, keyName, token, uidToken);
   }
 
 
@@ -234,6 +261,7 @@ public class Decrypt {
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

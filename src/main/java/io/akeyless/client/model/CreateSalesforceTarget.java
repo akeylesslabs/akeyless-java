@@ -29,6 +29,14 @@ import java.io.IOException;
  */
 
 public class CreateSalesforceTarget {
+  public static final String SERIALIZED_NAME_APP_PRIVATE_KEY_DATA = "app-private-key-data";
+  @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY_DATA)
+  private String appPrivateKeyData;
+
+  public static final String SERIALIZED_NAME_AUTH_FLOW = "auth-flow";
+  @SerializedName(SERIALIZED_NAME_AUTH_FLOW)
+  private String authFlow;
+
   public static final String SERIALIZED_NAME_CA_CERT_DATA = "ca-cert-data";
   @SerializedName(SERIALIZED_NAME_CA_CERT_DATA)
   private String caCertData;
@@ -80,6 +88,51 @@ public class CreateSalesforceTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public CreateSalesforceTarget appPrivateKeyData(String appPrivateKeyData) {
+    
+    this.appPrivateKeyData = appPrivateKeyData;
+    return this;
+  }
+
+   /**
+   * Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
+   * @return appPrivateKeyData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64 encoded PEM of the connected app private key (relevant for JWT auth only)")
+
+  public String getAppPrivateKeyData() {
+    return appPrivateKeyData;
+  }
+
+
+  public void setAppPrivateKeyData(String appPrivateKeyData) {
+    this.appPrivateKeyData = appPrivateKeyData;
+  }
+
+
+  public CreateSalesforceTarget authFlow(String authFlow) {
+    
+    this.authFlow = authFlow;
+    return this;
+  }
+
+   /**
+   * type of the auth flow (&#39;jwt&#39; / &#39;user-password&#39;)
+   * @return authFlow
+  **/
+  @ApiModelProperty(required = true, value = "type of the auth flow ('jwt' / 'user-password')")
+
+  public String getAuthFlow() {
+    return authFlow;
+  }
+
+
+  public void setAuthFlow(String authFlow) {
+    this.authFlow = authFlow;
+  }
 
 
   public CreateSalesforceTarget caCertData(String caCertData) {
@@ -157,10 +210,11 @@ public class CreateSalesforceTarget {
   }
 
    /**
-   * Client secret of the oauth2 app to use for connecting to Salesforce
+   * Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)
    * @return clientSecret
   **/
-  @ApiModelProperty(required = true, value = "Client secret of the oauth2 app to use for connecting to Salesforce")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)")
 
   public String getClientSecret() {
     return clientSecret;
@@ -269,10 +323,11 @@ public class CreateSalesforceTarget {
   }
 
    /**
-   * The password of the user attached to the oauth2 app used for connecting to Salesforce
+   * The password of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow)
    * @return password
   **/
-  @ApiModelProperty(required = true, value = "The password of the user attached to the oauth2 app used for connecting to Salesforce")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The password of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow)")
 
   public String getPassword() {
     return password;
@@ -291,10 +346,11 @@ public class CreateSalesforceTarget {
   }
 
    /**
-   * The security token of the user attached to the oauth2 app used for connecting to Salesforce
+   * The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
    * @return securityToken
   **/
-  @ApiModelProperty(required = true, value = "The security token of the user attached to the oauth2 app used for connecting to Salesforce")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)")
 
   public String getSecurityToken() {
     return securityToken;
@@ -383,7 +439,9 @@ public class CreateSalesforceTarget {
       return false;
     }
     CreateSalesforceTarget createSalesforceTarget = (CreateSalesforceTarget) o;
-    return Objects.equals(this.caCertData, createSalesforceTarget.caCertData) &&
+    return Objects.equals(this.appPrivateKeyData, createSalesforceTarget.appPrivateKeyData) &&
+        Objects.equals(this.authFlow, createSalesforceTarget.authFlow) &&
+        Objects.equals(this.caCertData, createSalesforceTarget.caCertData) &&
         Objects.equals(this.caCertName, createSalesforceTarget.caCertName) &&
         Objects.equals(this.clientId, createSalesforceTarget.clientId) &&
         Objects.equals(this.clientSecret, createSalesforceTarget.clientSecret) &&
@@ -400,7 +458,7 @@ public class CreateSalesforceTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertData, caCertName, clientId, clientSecret, comment, email, key, name, password, securityToken, tenantUrl, token, uidToken);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, email, key, name, password, securityToken, tenantUrl, token, uidToken);
   }
 
 
@@ -408,6 +466,8 @@ public class CreateSalesforceTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSalesforceTarget {\n");
+    sb.append("    appPrivateKeyData: ").append(toIndentedString(appPrivateKeyData)).append("\n");
+    sb.append("    authFlow: ").append(toIndentedString(authFlow)).append("\n");
     sb.append("    caCertData: ").append(toIndentedString(caCertData)).append("\n");
     sb.append("    caCertName: ").append(toIndentedString(caCertName)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");

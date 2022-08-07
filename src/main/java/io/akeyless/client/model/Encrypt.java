@@ -40,6 +40,10 @@ public class Encrypt {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_CONTEXT)
   private Map<String, String> encryptionContext = null;
 
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -111,6 +115,29 @@ public class Encrypt {
   }
 
 
+  public Encrypt itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * The item id of the key to use in the encryption process
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The item id of the key to use in the encryption process")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   public Encrypt keyName(String keyName) {
     
     this.keyName = keyName;
@@ -121,8 +148,7 @@ public class Encrypt {
    * The name of the key to use in the encryption process
    * @return keyName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the key to use in the encryption process")
+  @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
 
   public String getKeyName() {
     return keyName;
@@ -214,6 +240,7 @@ public class Encrypt {
     Encrypt encrypt = (Encrypt) o;
     return Objects.equals(this.displayId, encrypt.displayId) &&
         Objects.equals(this.encryptionContext, encrypt.encryptionContext) &&
+        Objects.equals(this.itemId, encrypt.itemId) &&
         Objects.equals(this.keyName, encrypt.keyName) &&
         Objects.equals(this.plaintext, encrypt.plaintext) &&
         Objects.equals(this.token, encrypt.token) &&
@@ -222,7 +249,7 @@ public class Encrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, encryptionContext, keyName, plaintext, token, uidToken);
+    return Objects.hash(displayId, encryptionContext, itemId, keyName, plaintext, token, uidToken);
   }
 
 
@@ -232,6 +259,7 @@ public class Encrypt {
     sb.append("class Encrypt {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

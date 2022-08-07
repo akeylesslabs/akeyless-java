@@ -29,6 +29,14 @@ import java.io.IOException;
  */
 
 public class DescribeItem {
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -44,6 +52,52 @@ public class DescribeItem {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DescribeItem displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the item
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the item")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
+  public DescribeItem itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * Item id of the item
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Item id of the item")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
 
 
   public DescribeItem name(String name) {
@@ -146,7 +200,9 @@ public class DescribeItem {
       return false;
     }
     DescribeItem describeItem = (DescribeItem) o;
-    return Objects.equals(this.name, describeItem.name) &&
+    return Objects.equals(this.displayId, describeItem.displayId) &&
+        Objects.equals(this.itemId, describeItem.itemId) &&
+        Objects.equals(this.name, describeItem.name) &&
         Objects.equals(this.showVersions, describeItem.showVersions) &&
         Objects.equals(this.token, describeItem.token) &&
         Objects.equals(this.uidToken, describeItem.uidToken);
@@ -154,7 +210,7 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, showVersions, token, uidToken);
+    return Objects.hash(displayId, itemId, name, showVersions, token, uidToken);
   }
 
 
@@ -162,6 +218,8 @@ public class DescribeItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeItem {\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

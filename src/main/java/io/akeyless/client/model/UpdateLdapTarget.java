@@ -65,6 +65,10 @@ public class UpdateLdapTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_SERVER_TYPE = "server-type";
+  @SerializedName(SERIALIZED_NAME_SERVER_TYPE)
+  private String serverType;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -288,6 +292,29 @@ public class UpdateLdapTarget {
   }
 
 
+  public UpdateLdapTarget serverType(String serverType) {
+    
+    this.serverType = serverType;
+    return this;
+  }
+
+   /**
+   * Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]
+   * @return serverType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]")
+
+  public String getServerType() {
+    return serverType;
+  }
+
+
+  public void setServerType(String serverType) {
+    this.serverType = serverType;
+  }
+
+
   public UpdateLdapTarget token(String token) {
     
     this.token = token;
@@ -398,6 +425,7 @@ public class UpdateLdapTarget {
         Objects.equals(this.ldapUrl, updateLdapTarget.ldapUrl) &&
         Objects.equals(this.name, updateLdapTarget.name) &&
         Objects.equals(this.newName, updateLdapTarget.newName) &&
+        Objects.equals(this.serverType, updateLdapTarget.serverType) &&
         Objects.equals(this.token, updateLdapTarget.token) &&
         Objects.equals(this.tokenExpiration, updateLdapTarget.tokenExpiration) &&
         Objects.equals(this.uidToken, updateLdapTarget.uidToken) &&
@@ -406,7 +434,7 @@ public class UpdateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, keepPrevVersion, key, ldapCaCert, ldapUrl, name, newName, token, tokenExpiration, uidToken, updateVersion);
+    return Objects.hash(bindDn, bindDnPassword, comment, keepPrevVersion, key, ldapCaCert, ldapUrl, name, newName, serverType, token, tokenExpiration, uidToken, updateVersion);
   }
 
 
@@ -423,6 +451,7 @@ public class UpdateLdapTarget {
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    serverType: ").append(toIndentedString(serverType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

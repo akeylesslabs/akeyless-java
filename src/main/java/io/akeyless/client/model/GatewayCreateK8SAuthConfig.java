@@ -34,6 +34,10 @@ public class GatewayCreateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
 
+  public static final String SERIALIZED_NAME_CLUSTER_API_TYPE = "cluster-api-type";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_API_TYPE)
+  private String clusterApiType = "native_k8s";
+
   public static final String SERIALIZED_NAME_CONFIG_ENCRYPTION_KEY_NAME = "config-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_CONFIG_ENCRYPTION_KEY_NAME)
   private String configEncryptionKeyName;
@@ -53,6 +57,14 @@ public class GatewayCreateK8SAuthConfig {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_RANCHER_API_KEY = "rancher-api-key";
+  @SerializedName(SERIALIZED_NAME_RANCHER_API_KEY)
+  private String rancherApiKey;
+
+  public static final String SERIALIZED_NAME_RANCHER_CLUSTER_ID = "rancher-cluster-id";
+  @SerializedName(SERIALIZED_NAME_RANCHER_CLUSTER_ID)
+  private String rancherClusterId;
 
   public static final String SERIALIZED_NAME_SIGNING_KEY = "signing-key";
   @SerializedName(SERIALIZED_NAME_SIGNING_KEY)
@@ -94,6 +106,29 @@ public class GatewayCreateK8SAuthConfig {
 
   public void setAccessId(String accessId) {
     this.accessId = accessId;
+  }
+
+
+  public GatewayCreateK8SAuthConfig clusterApiType(String clusterApiType) {
+    
+    this.clusterApiType = clusterApiType;
+    return this;
+  }
+
+   /**
+   * Cluster access type. options: [native_k8s, rancher]
+   * @return clusterApiType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Cluster access type. options: [native_k8s, rancher]")
+
+  public String getClusterApiType() {
+    return clusterApiType;
+  }
+
+
+  public void setClusterApiType(String clusterApiType) {
+    this.clusterApiType = clusterApiType;
   }
 
 
@@ -210,6 +245,52 @@ public class GatewayCreateK8SAuthConfig {
   }
 
 
+  public GatewayCreateK8SAuthConfig rancherApiKey(String rancherApiKey) {
+    
+    this.rancherApiKey = rancherApiKey;
+    return this;
+  }
+
+   /**
+   * The api key used to access the TokenReview API to validate other JWTs (relevant for \&quot;rancher\&quot; only)
+   * @return rancherApiKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The api key used to access the TokenReview API to validate other JWTs (relevant for \"rancher\" only)")
+
+  public String getRancherApiKey() {
+    return rancherApiKey;
+  }
+
+
+  public void setRancherApiKey(String rancherApiKey) {
+    this.rancherApiKey = rancherApiKey;
+  }
+
+
+  public GatewayCreateK8SAuthConfig rancherClusterId(String rancherClusterId) {
+    
+    this.rancherClusterId = rancherClusterId;
+    return this;
+  }
+
+   /**
+   * The cluster id as define in rancher (relevant for \&quot;rancher\&quot; only)
+   * @return rancherClusterId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The cluster id as define in rancher (relevant for \"rancher\" only)")
+
+  public String getRancherClusterId() {
+    return rancherClusterId;
+  }
+
+
+  public void setRancherClusterId(String rancherClusterId) {
+    this.rancherClusterId = rancherClusterId;
+  }
+
+
   public GatewayCreateK8SAuthConfig signingKey(String signingKey) {
     
     this.signingKey = signingKey;
@@ -285,11 +366,11 @@ public class GatewayCreateK8SAuthConfig {
   }
 
    /**
-   * A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs. If not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.
+   * A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \&quot;native_k8s\&quot; only). If not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.
    * @return tokenReviewerJwt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs. If not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.")
+  @ApiModelProperty(value = "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only). If not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.")
 
   public String getTokenReviewerJwt() {
     return tokenReviewerJwt;
@@ -334,11 +415,14 @@ public class GatewayCreateK8SAuthConfig {
     }
     GatewayCreateK8SAuthConfig gatewayCreateK8SAuthConfig = (GatewayCreateK8SAuthConfig) o;
     return Objects.equals(this.accessId, gatewayCreateK8SAuthConfig.accessId) &&
+        Objects.equals(this.clusterApiType, gatewayCreateK8SAuthConfig.clusterApiType) &&
         Objects.equals(this.configEncryptionKeyName, gatewayCreateK8SAuthConfig.configEncryptionKeyName) &&
         Objects.equals(this.k8sCaCert, gatewayCreateK8SAuthConfig.k8sCaCert) &&
         Objects.equals(this.k8sHost, gatewayCreateK8SAuthConfig.k8sHost) &&
         Objects.equals(this.k8sIssuer, gatewayCreateK8SAuthConfig.k8sIssuer) &&
         Objects.equals(this.name, gatewayCreateK8SAuthConfig.name) &&
+        Objects.equals(this.rancherApiKey, gatewayCreateK8SAuthConfig.rancherApiKey) &&
+        Objects.equals(this.rancherClusterId, gatewayCreateK8SAuthConfig.rancherClusterId) &&
         Objects.equals(this.signingKey, gatewayCreateK8SAuthConfig.signingKey) &&
         Objects.equals(this.token, gatewayCreateK8SAuthConfig.token) &&
         Objects.equals(this.tokenExp, gatewayCreateK8SAuthConfig.tokenExp) &&
@@ -348,7 +432,7 @@ public class GatewayCreateK8SAuthConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, configEncryptionKeyName, k8sCaCert, k8sHost, k8sIssuer, name, signingKey, token, tokenExp, tokenReviewerJwt, uidToken);
+    return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, k8sCaCert, k8sHost, k8sIssuer, name, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken);
   }
 
 
@@ -357,11 +441,14 @@ public class GatewayCreateK8SAuthConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateK8SAuthConfig {\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("    clusterApiType: ").append(toIndentedString(clusterApiType)).append("\n");
     sb.append("    configEncryptionKeyName: ").append(toIndentedString(configEncryptionKeyName)).append("\n");
     sb.append("    k8sCaCert: ").append(toIndentedString(k8sCaCert)).append("\n");
     sb.append("    k8sHost: ").append(toIndentedString(k8sHost)).append("\n");
     sb.append("    k8sIssuer: ").append(toIndentedString(k8sIssuer)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rancherApiKey: ").append(toIndentedString(rancherApiKey)).append("\n");
+    sb.append("    rancherClusterId: ").append(toIndentedString(rancherClusterId)).append("\n");
     sb.append("    signingKey: ").append(toIndentedString(signingKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExp: ").append(toIndentedString(tokenExp)).append("\n");

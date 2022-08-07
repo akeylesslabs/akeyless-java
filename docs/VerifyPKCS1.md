@@ -6,6 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**displayId** | **String** | The display id of the key to use in the verification process |  [optional]
+**itemId** | **Long** | The item id of the key to use in the verification process |  [optional]
 **keyName** | **String** | The name of the RSA key to use in the verification process | 
 **message** | **String** | The message to be verified | 
 **signature** | **String** | The message&#39;s signature | 

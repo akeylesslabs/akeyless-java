@@ -158,11 +158,11 @@ public class CreateArtifactoryTarget {
   }
 
    /**
-   * The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+   * The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
    * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
+  @ApiModelProperty(value = "The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)")
 
   public String getKey() {
     return key;

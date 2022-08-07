@@ -62,6 +62,7 @@ Method | HTTP request | Description
 [**deleteTargets**](V2Api.md#deleteTargets) | **POST** /delete-targets | 
 [**describeItem**](V2Api.md#describeItem) | **POST** /describe-item | 
 [**describePermissions**](V2Api.md#describePermissions) | **POST** /describe-permissions | 
+[**describeSubClaims**](V2Api.md#describeSubClaims) | **POST** /describe-sub-claims | 
 [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptPKCS1**](V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
@@ -84,7 +85,7 @@ Method | HTTP request | Description
 [**gatewayCreateProducerMSSQL**](V2Api.md#gatewayCreateProducerMSSQL) | **POST** /gateway-create-producer-mssql | 
 [**gatewayCreateProducerMongo**](V2Api.md#gatewayCreateProducerMongo) | **POST** /gateway-create-producer-mongo | 
 [**gatewayCreateProducerMySQL**](V2Api.md#gatewayCreateProducerMySQL) | **POST** /gateway-create-producer-mysql | 
-[**gatewayCreateProducerNativeK8S**](V2Api.md#gatewayCreateProducerNativeK8S) | **POST** /gateway-create-producer-k8s-native | 
+[**gatewayCreateProducerNativeK8S**](V2Api.md#gatewayCreateProducerNativeK8S) | **POST** /gateway-create-producer-k8s | 
 [**gatewayCreateProducerOracleDb**](V2Api.md#gatewayCreateProducerOracleDb) | **POST** /gateway-create-producer-oracle | 
 [**gatewayCreateProducerPostgreSQL**](V2Api.md#gatewayCreateProducerPostgreSQL) | **POST** /gateway-create-producer-postgresql | 
 [**gatewayCreateProducerRabbitMQ**](V2Api.md#gatewayCreateProducerRabbitMQ) | **POST** /gateway-create-producer-rabbitmq | 
@@ -230,7 +231,6 @@ Method | HTTP request | Description
 [**updateSecretVal**](V2Api.md#updateSecretVal) | **POST** /update-secret-val | 
 [**updateTarget**](V2Api.md#updateTarget) | **POST** /update-target | 
 [**updateTargetDetails**](V2Api.md#updateTargetDetails) | **POST** /update-target-details | 
-[**updateTokenizer**](V2Api.md#updateTokenizer) | **POST** /update-tokenizer | 
 [**updateWebTarget**](V2Api.md#updateWebTarget) | **POST** /update-web-target | 
 [**updateWebTargetDetails**](V2Api.md#updateWebTargetDetails) | **POST** /update-web-target-details | 
 [**uploadRSA**](V2Api.md#uploadRSA) | **POST** /upload-rsa | 
@@ -3777,6 +3777,68 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | DescribePermissionsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="describeSubClaims"></a>
+# **describeSubClaims**
+> DescribeSubClaimsOutput describeSubClaims(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DescribeSubClaims body = new DescribeSubClaims(); // DescribeSubClaims | 
+    try {
+      DescribeSubClaimsOutput result = apiInstance.describeSubClaims(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#describeSubClaims");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DescribeSubClaims**](DescribeSubClaims.md)|  |
+
+### Return type
+
+[**DescribeSubClaimsOutput**](DescribeSubClaimsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | describeSubClaimsResponse wraps response body. |  -  |
+**401** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="detokenize"></a>
@@ -14011,67 +14073,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateTargetResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="updateTokenizer"></a>
-# **updateTokenizer**
-> UpdateTokenizerOutput updateTokenizer(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    UpdateTokenizer body = new UpdateTokenizer(); // UpdateTokenizer | 
-    try {
-      UpdateTokenizerOutput result = apiInstance.updateTokenizer(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#updateTokenizer");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**UpdateTokenizer**](UpdateTokenizer.md)|  |
-
-### Return type
-
-[**UpdateTokenizerOutput**](UpdateTokenizerOutput.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | updateTokenizerResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateWebTarget"></a>

@@ -57,6 +57,10 @@ public class CreateLdapTarget {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_SERVER_TYPE = "server-type";
+  @SerializedName(SERIALIZED_NAME_SERVER_TYPE)
+  private String serverType = "OpenLDAP";
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -227,6 +231,29 @@ public class CreateLdapTarget {
   }
 
 
+  public CreateLdapTarget serverType(String serverType) {
+    
+    this.serverType = serverType;
+    return this;
+  }
+
+   /**
+   * Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
+   * @return serverType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP")
+
+  public String getServerType() {
+    return serverType;
+  }
+
+
+  public void setServerType(String serverType) {
+    this.serverType = serverType;
+  }
+
+
   public CreateLdapTarget token(String token) {
     
     this.token = token;
@@ -312,6 +339,7 @@ public class CreateLdapTarget {
         Objects.equals(this.ldapCaCert, createLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, createLdapTarget.ldapUrl) &&
         Objects.equals(this.name, createLdapTarget.name) &&
+        Objects.equals(this.serverType, createLdapTarget.serverType) &&
         Objects.equals(this.token, createLdapTarget.token) &&
         Objects.equals(this.tokenExpiration, createLdapTarget.tokenExpiration) &&
         Objects.equals(this.uidToken, createLdapTarget.uidToken);
@@ -319,7 +347,7 @@ public class CreateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, key, ldapCaCert, ldapUrl, name, token, tokenExpiration, uidToken);
+    return Objects.hash(bindDn, bindDnPassword, comment, key, ldapCaCert, ldapUrl, name, serverType, token, tokenExpiration, uidToken);
   }
 
 
@@ -334,6 +362,7 @@ public class CreateLdapTarget {
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    serverType: ").append(toIndentedString(serverType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -134,11 +134,11 @@ public class GatewayUpdateProducerDockerhub {
   }
 
    /**
-   * Access token scopes list (comma seperated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot;
+   * Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot;
    * @return dockerhubTokenScopes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access token scopes list (comma seperated) to give the dynamic secret valid options are in \"repo:admin\", \"repo:write\", \"repo:read\", \"repo:public_read\"")
+  @ApiModelProperty(value = "Access token scopes list (comma-separated) to give the dynamic secret valid options are in \"repo:admin\", \"repo:write\", \"repo:read\", \"repo:public_read\"")
 
   public String getDockerhubTokenScopes() {
     return dockerhubTokenScopes;

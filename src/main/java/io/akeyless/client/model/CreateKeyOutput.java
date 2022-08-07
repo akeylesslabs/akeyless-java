@@ -31,9 +31,40 @@ import java.util.List;
  */
 
 public class CreateKeyOutput {
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display_id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
   public static final String SERIALIZED_NAME_FRAGMENT_RESULTS = "fragment_results";
   @SerializedName(SERIALIZED_NAME_FRAGMENT_RESULTS)
   private List<Long> fragmentResults = null;
+
+  public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
+
+  public CreateKeyOutput displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * Get displayId
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
 
 
   public CreateKeyOutput fragmentResults(List<Long> fragmentResults) {
@@ -67,6 +98,29 @@ public class CreateKeyOutput {
   }
 
 
+  public CreateKeyOutput itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * Get itemId
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -76,12 +130,14 @@ public class CreateKeyOutput {
       return false;
     }
     CreateKeyOutput createKeyOutput = (CreateKeyOutput) o;
-    return Objects.equals(this.fragmentResults, createKeyOutput.fragmentResults);
+    return Objects.equals(this.displayId, createKeyOutput.displayId) &&
+        Objects.equals(this.fragmentResults, createKeyOutput.fragmentResults) &&
+        Objects.equals(this.itemId, createKeyOutput.itemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fragmentResults);
+    return Objects.hash(displayId, fragmentResults, itemId);
   }
 
 
@@ -89,7 +145,9 @@ public class CreateKeyOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKeyOutput {\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    fragmentResults: ").append(toIndentedString(fragmentResults)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

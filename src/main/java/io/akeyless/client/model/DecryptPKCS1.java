@@ -33,6 +33,14 @@ public class DecryptPKCS1 {
   @SerializedName(SERIALIZED_NAME_CIPHERTEXT)
   private String ciphertext;
 
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -68,6 +76,52 @@ public class DecryptPKCS1 {
   }
 
 
+  public DecryptPKCS1 displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the key to use in the decryption process
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the key to use in the decryption process")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
+  public DecryptPKCS1 itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * The item id of the key to use in the decryption process
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The item id of the key to use in the decryption process")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   public DecryptPKCS1 keyName(String keyName) {
     
     this.keyName = keyName;
@@ -75,10 +129,10 @@ public class DecryptPKCS1 {
   }
 
    /**
-   * The name of the RSA key to use in the decryption process
+   * The name of the key to use in the decryption process
    * @return keyName
   **/
-  @ApiModelProperty(required = true, value = "The name of the RSA key to use in the decryption process")
+  @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
 
   public String getKeyName() {
     return keyName;
@@ -146,6 +200,8 @@ public class DecryptPKCS1 {
     }
     DecryptPKCS1 decryptPKCS1 = (DecryptPKCS1) o;
     return Objects.equals(this.ciphertext, decryptPKCS1.ciphertext) &&
+        Objects.equals(this.displayId, decryptPKCS1.displayId) &&
+        Objects.equals(this.itemId, decryptPKCS1.itemId) &&
         Objects.equals(this.keyName, decryptPKCS1.keyName) &&
         Objects.equals(this.token, decryptPKCS1.token) &&
         Objects.equals(this.uidToken, decryptPKCS1.uidToken);
@@ -153,7 +209,7 @@ public class DecryptPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, keyName, token, uidToken);
+    return Objects.hash(ciphertext, displayId, itemId, keyName, token, uidToken);
   }
 
 
@@ -162,6 +218,8 @@ public class DecryptPKCS1 {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecryptPKCS1 {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

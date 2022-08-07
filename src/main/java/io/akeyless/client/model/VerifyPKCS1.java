@@ -29,6 +29,14 @@ import java.io.IOException;
  */
 
 public class VerifyPKCS1 {
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -48,6 +56,52 @@ public class VerifyPKCS1 {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public VerifyPKCS1 displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the key to use in the verification process
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the key to use in the verification process")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
+  public VerifyPKCS1 itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * The item id of the key to use in the verification process
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The item id of the key to use in the verification process")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
 
 
   public VerifyPKCS1 keyName(String keyName) {
@@ -171,7 +225,9 @@ public class VerifyPKCS1 {
       return false;
     }
     VerifyPKCS1 verifyPKCS1 = (VerifyPKCS1) o;
-    return Objects.equals(this.keyName, verifyPKCS1.keyName) &&
+    return Objects.equals(this.displayId, verifyPKCS1.displayId) &&
+        Objects.equals(this.itemId, verifyPKCS1.itemId) &&
+        Objects.equals(this.keyName, verifyPKCS1.keyName) &&
         Objects.equals(this.message, verifyPKCS1.message) &&
         Objects.equals(this.signature, verifyPKCS1.signature) &&
         Objects.equals(this.token, verifyPKCS1.token) &&
@@ -180,7 +236,7 @@ public class VerifyPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, message, signature, token, uidToken);
+    return Objects.hash(displayId, itemId, keyName, message, signature, token, uidToken);
   }
 
 
@@ -188,6 +244,8 @@ public class VerifyPKCS1 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerifyPKCS1 {\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");

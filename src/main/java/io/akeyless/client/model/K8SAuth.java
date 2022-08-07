@@ -43,6 +43,10 @@ public class K8SAuth {
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_PRV_KEY_PEM)
   private String authMethodPrvKeyPem;
 
+  public static final String SERIALIZED_NAME_CLUSTER_API_TYPE = "cluster_api_type";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_API_TYPE)
+  private String clusterApiType;
+
   public static final String SERIALIZED_NAME_DISABLE_ISS_VALIDATION = "disable_iss_validation";
   @SerializedName(SERIALIZED_NAME_DISABLE_ISS_VALIDATION)
   private Boolean disableIssValidation;
@@ -78,6 +82,14 @@ public class K8SAuth {
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
+
+  public static final String SERIALIZED_NAME_RANCHER_API_KEY = "rancher_api_key";
+  @SerializedName(SERIALIZED_NAME_RANCHER_API_KEY)
+  private String rancherApiKey;
+
+  public static final String SERIALIZED_NAME_RANCHER_CLUSTER_ID = "rancher_cluster_id";
+  @SerializedName(SERIALIZED_NAME_RANCHER_CLUSTER_ID)
+  private String rancherClusterId;
 
   public static final String SERIALIZED_NAME_USE_LOCAL_CA_JWT = "use_local_ca_jwt";
   @SerializedName(SERIALIZED_NAME_USE_LOCAL_CA_JWT)
@@ -150,6 +162,29 @@ public class K8SAuth {
 
   public void setAuthMethodPrvKeyPem(String authMethodPrvKeyPem) {
     this.authMethodPrvKeyPem = authMethodPrvKeyPem;
+  }
+
+
+  public K8SAuth clusterApiType(String clusterApiType) {
+    
+    this.clusterApiType = clusterApiType;
+    return this;
+  }
+
+   /**
+   * ClusterApiType defines types of API access to cluster
+   * @return clusterApiType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ClusterApiType defines types of API access to cluster")
+
+  public String getClusterApiType() {
+    return clusterApiType;
+  }
+
+
+  public void setClusterApiType(String clusterApiType) {
+    this.clusterApiType = clusterApiType;
   }
 
 
@@ -306,11 +341,11 @@ public class K8SAuth {
   }
 
    /**
-   * K8STokenReviewerJW\&quot;K8S Auth config %v successfully created\\n\&quot;, clictx.Color().Bold(c.K8SAuthConfigName)T is the bearer to use during the TokenReview API call
+   * K8STokenReviewerJWT is the bearer for clusterApiTypeK8s, used during TokenReview API call
    * @return k8sTokenReviewerJwt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8STokenReviewerJW\"K8S Auth config %v successfully created\\n\", clictx.Color().Bold(c.K8SAuthConfigName)T is the bearer to use during the TokenReview API call")
+  @ApiModelProperty(value = "K8STokenReviewerJWT is the bearer for clusterApiTypeK8s, used during TokenReview API call")
 
   public String getK8sTokenReviewerJwt() {
     return k8sTokenReviewerJwt;
@@ -368,6 +403,52 @@ public class K8SAuth {
   }
 
 
+  public K8SAuth rancherApiKey(String rancherApiKey) {
+    
+    this.rancherApiKey = rancherApiKey;
+    return this;
+  }
+
+   /**
+   * RancherApiKey the bear token for clusterApiTypeRancher
+   * @return rancherApiKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RancherApiKey the bear token for clusterApiTypeRancher")
+
+  public String getRancherApiKey() {
+    return rancherApiKey;
+  }
+
+
+  public void setRancherApiKey(String rancherApiKey) {
+    this.rancherApiKey = rancherApiKey;
+  }
+
+
+  public K8SAuth rancherClusterId(String rancherClusterId) {
+    
+    this.rancherClusterId = rancherClusterId;
+    return this;
+  }
+
+   /**
+   * RancherClusterId cluster id as define in rancher (in case of clusterApiTypeRancher)
+   * @return rancherClusterId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RancherClusterId cluster id as define in rancher (in case of clusterApiTypeRancher)")
+
+  public String getRancherClusterId() {
+    return rancherClusterId;
+  }
+
+
+  public void setRancherClusterId(String rancherClusterId) {
+    this.rancherClusterId = rancherClusterId;
+  }
+
+
   public K8SAuth useLocalCaJwt(Boolean useLocalCaJwt) {
     
     this.useLocalCaJwt = useLocalCaJwt;
@@ -403,6 +484,7 @@ public class K8SAuth {
     return Objects.equals(this.amTokenExpiration, k8SAuth.amTokenExpiration) &&
         Objects.equals(this.authMethodAccessId, k8SAuth.authMethodAccessId) &&
         Objects.equals(this.authMethodPrvKeyPem, k8SAuth.authMethodPrvKeyPem) &&
+        Objects.equals(this.clusterApiType, k8SAuth.clusterApiType) &&
         Objects.equals(this.disableIssValidation, k8SAuth.disableIssValidation) &&
         Objects.equals(this.id, k8SAuth.id) &&
         Objects.equals(this.k8sCaCert, k8SAuth.k8sCaCert) &&
@@ -412,12 +494,14 @@ public class K8SAuth {
         Objects.equals(this.k8sTokenReviewerJwt, k8SAuth.k8sTokenReviewerJwt) &&
         Objects.equals(this.name, k8SAuth.name) &&
         Objects.equals(this.protectionKey, k8SAuth.protectionKey) &&
+        Objects.equals(this.rancherApiKey, k8SAuth.rancherApiKey) &&
+        Objects.equals(this.rancherClusterId, k8SAuth.rancherClusterId) &&
         Objects.equals(this.useLocalCaJwt, k8SAuth.useLocalCaJwt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amTokenExpiration, authMethodAccessId, authMethodPrvKeyPem, disableIssValidation, id, k8sCaCert, k8sHost, k8sIssuer, k8sPubKeysPem, k8sTokenReviewerJwt, name, protectionKey, useLocalCaJwt);
+    return Objects.hash(amTokenExpiration, authMethodAccessId, authMethodPrvKeyPem, clusterApiType, disableIssValidation, id, k8sCaCert, k8sHost, k8sIssuer, k8sPubKeysPem, k8sTokenReviewerJwt, name, protectionKey, rancherApiKey, rancherClusterId, useLocalCaJwt);
   }
 
 
@@ -428,6 +512,7 @@ public class K8SAuth {
     sb.append("    amTokenExpiration: ").append(toIndentedString(amTokenExpiration)).append("\n");
     sb.append("    authMethodAccessId: ").append(toIndentedString(authMethodAccessId)).append("\n");
     sb.append("    authMethodPrvKeyPem: ").append(toIndentedString(authMethodPrvKeyPem)).append("\n");
+    sb.append("    clusterApiType: ").append(toIndentedString(clusterApiType)).append("\n");
     sb.append("    disableIssValidation: ").append(toIndentedString(disableIssValidation)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    k8sCaCert: ").append(toIndentedString(k8sCaCert)).append("\n");
@@ -437,6 +522,8 @@ public class K8SAuth {
     sb.append("    k8sTokenReviewerJwt: ").append(toIndentedString(k8sTokenReviewerJwt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    rancherApiKey: ").append(toIndentedString(rancherApiKey)).append("\n");
+    sb.append("    rancherClusterId: ").append(toIndentedString(rancherClusterId)).append("\n");
     sb.append("    useLocalCaJwt: ").append(toIndentedString(useLocalCaJwt)).append("\n");
     sb.append("}");
     return sb.toString();

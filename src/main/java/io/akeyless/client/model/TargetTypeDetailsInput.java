@@ -31,6 +31,10 @@ import java.util.List;
  */
 
 public class TargetTypeDetailsInput {
+  public static final String SERIALIZED_NAME_APP_PRIVATE_KEY = "app_private_key";
+  @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY)
+  private List<Integer> appPrivateKey = null;
+
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY = "artifactory_admin_apikey";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY)
   private String artifactoryAdminApikey;
@@ -398,6 +402,37 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_VENAFI_ZONE = "venafi_zone";
   @SerializedName(SERIALIZED_NAME_VENAFI_ZONE)
   private String venafiZone;
+
+
+  public TargetTypeDetailsInput appPrivateKey(List<Integer> appPrivateKey) {
+    
+    this.appPrivateKey = appPrivateKey;
+    return this;
+  }
+
+  public TargetTypeDetailsInput addAppPrivateKeyItem(Integer appPrivateKeyItem) {
+    if (this.appPrivateKey == null) {
+      this.appPrivateKey = new ArrayList<Integer>();
+    }
+    this.appPrivateKey.add(appPrivateKeyItem);
+    return this;
+  }
+
+   /**
+   * params needed for jwt auth AppPrivateKey is the rsa private key in PEM format
+   * @return appPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "params needed for jwt auth AppPrivateKey is the rsa private key in PEM format")
+
+  public List<Integer> getAppPrivateKey() {
+    return appPrivateKey;
+  }
+
+
+  public void setAppPrivateKey(List<Integer> appPrivateKey) {
+    this.appPrivateKey = appPrivateKey;
+  }
 
 
   public TargetTypeDetailsInput artifactoryAdminApikey(String artifactoryAdminApikey) {
@@ -944,11 +979,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * Get clientSecret
+   * params needed for password auth
    * @return clientSecret
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "params needed for password auth")
 
   public String getClientSecret() {
     return clientSecret;
@@ -2533,7 +2568,8 @@ public class TargetTypeDetailsInput {
       return false;
     }
     TargetTypeDetailsInput targetTypeDetailsInput = (TargetTypeDetailsInput) o;
-    return Objects.equals(this.artifactoryAdminApikey, targetTypeDetailsInput.artifactoryAdminApikey) &&
+    return Objects.equals(this.appPrivateKey, targetTypeDetailsInput.appPrivateKey) &&
+        Objects.equals(this.artifactoryAdminApikey, targetTypeDetailsInput.artifactoryAdminApikey) &&
         Objects.equals(this.artifactoryAdminUsername, targetTypeDetailsInput.artifactoryAdminUsername) &&
         Objects.equals(this.artifactoryBaseUrl, targetTypeDetailsInput.artifactoryBaseUrl) &&
         Objects.equals(this.authFlow, targetTypeDetailsInput.authFlow) &&
@@ -2629,7 +2665,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2637,6 +2673,7 @@ public class TargetTypeDetailsInput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetTypeDetailsInput {\n");
+    sb.append("    appPrivateKey: ").append(toIndentedString(appPrivateKey)).append("\n");
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
     sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
     sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");

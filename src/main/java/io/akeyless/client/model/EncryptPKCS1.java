@@ -29,6 +29,14 @@ import java.io.IOException;
  */
 
 public class EncryptPKCS1 {
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -46,6 +54,52 @@ public class EncryptPKCS1 {
   private String uidToken;
 
 
+  public EncryptPKCS1 displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the key to use in the encryption process
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the key to use in the encryption process")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
+  public EncryptPKCS1 itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * The item id of the key to use in the encryption process
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The item id of the key to use in the encryption process")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   public EncryptPKCS1 keyName(String keyName) {
     
     this.keyName = keyName;
@@ -53,10 +107,10 @@ public class EncryptPKCS1 {
   }
 
    /**
-   * The name of the RSA key to use in the encryption process
+   * The name of the key to use in the encryption process
    * @return keyName
   **/
-  @ApiModelProperty(required = true, value = "The name of the RSA key to use in the encryption process")
+  @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
 
   public String getKeyName() {
     return keyName;
@@ -145,7 +199,9 @@ public class EncryptPKCS1 {
       return false;
     }
     EncryptPKCS1 encryptPKCS1 = (EncryptPKCS1) o;
-    return Objects.equals(this.keyName, encryptPKCS1.keyName) &&
+    return Objects.equals(this.displayId, encryptPKCS1.displayId) &&
+        Objects.equals(this.itemId, encryptPKCS1.itemId) &&
+        Objects.equals(this.keyName, encryptPKCS1.keyName) &&
         Objects.equals(this.plaintext, encryptPKCS1.plaintext) &&
         Objects.equals(this.token, encryptPKCS1.token) &&
         Objects.equals(this.uidToken, encryptPKCS1.uidToken);
@@ -153,7 +209,7 @@ public class EncryptPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, plaintext, token, uidToken);
+    return Objects.hash(displayId, itemId, keyName, plaintext, token, uidToken);
   }
 
 
@@ -161,6 +217,8 @@ public class EncryptPKCS1 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptPKCS1 {\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -30,6 +30,14 @@ import java.io.IOException;
 @ApiModel(description = "signPKCS1 is a command that calculates the signature of hashed data using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5.")
 
 public class SignPKCS1 {
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
+  public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -47,6 +55,52 @@ public class SignPKCS1 {
   private String uidToken;
 
 
+  public SignPKCS1 displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * The display id of the key to use in the signing process
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display id of the key to use in the signing process")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
+  public SignPKCS1 itemId(Long itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * The item id of the key to use in the signing process
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The item id of the key to use in the signing process")
+
+  public Long getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   public SignPKCS1 keyName(String keyName) {
     
     this.keyName = keyName;
@@ -57,7 +111,8 @@ public class SignPKCS1 {
    * The name of the RSA key to use in the signing process
    * @return keyName
   **/
-  @ApiModelProperty(required = true, value = "The name of the RSA key to use in the signing process")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the RSA key to use in the signing process")
 
   public String getKeyName() {
     return keyName;
@@ -146,7 +201,9 @@ public class SignPKCS1 {
       return false;
     }
     SignPKCS1 signPKCS1 = (SignPKCS1) o;
-    return Objects.equals(this.keyName, signPKCS1.keyName) &&
+    return Objects.equals(this.displayId, signPKCS1.displayId) &&
+        Objects.equals(this.itemId, signPKCS1.itemId) &&
+        Objects.equals(this.keyName, signPKCS1.keyName) &&
         Objects.equals(this.message, signPKCS1.message) &&
         Objects.equals(this.token, signPKCS1.token) &&
         Objects.equals(this.uidToken, signPKCS1.uidToken);
@@ -154,7 +211,7 @@ public class SignPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, message, token, uidToken);
+    return Objects.hash(displayId, itemId, keyName, message, token, uidToken);
   }
 
 
@@ -162,6 +219,8 @@ public class SignPKCS1 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignPKCS1 {\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
