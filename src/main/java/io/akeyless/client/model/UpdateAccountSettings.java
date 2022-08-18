@@ -73,6 +73,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   private String maxVersions;
 
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private Long passwordLength;
+
   public static final String SERIALIZED_NAME_PHONE = "phone";
   @SerializedName(SERIALIZED_NAME_PHONE)
   private String phone;
@@ -88,6 +92,22 @@ public class UpdateAccountSettings {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USE_LOWER_LETTERS = "use-lower-letters";
+  @SerializedName(SERIALIZED_NAME_USE_LOWER_LETTERS)
+  private String useLowerLetters;
+
+  public static final String SERIALIZED_NAME_USE_NUMBERS = "use-numbers";
+  @SerializedName(SERIALIZED_NAME_USE_NUMBERS)
+  private String useNumbers;
+
+  public static final String SERIALIZED_NAME_USE_SPECIAL_CHARACTERS = "use-special-characters";
+  @SerializedName(SERIALIZED_NAME_USE_SPECIAL_CHARACTERS)
+  private String useSpecialCharacters;
+
+  public static final String SERIALIZED_NAME_USE_CAPITAL_LETTERS = "use_capital-letters";
+  @SerializedName(SERIALIZED_NAME_USE_CAPITAL_LETTERS)
+  private String useCapitalLetters;
 
 
   public UpdateAccountSettings address(String address) {
@@ -343,6 +363,29 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings passwordLength(Long passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * For PasswordPolicy use
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For PasswordPolicy use")
+
+  public Long getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(Long passwordLength) {
+    this.passwordLength = passwordLength;
+  }
+
+
   public UpdateAccountSettings phone(String phone) {
     
     this.phone = phone;
@@ -435,6 +478,98 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings useLowerLetters(String useLowerLetters) {
+    
+    this.useLowerLetters = useLowerLetters;
+    return this;
+  }
+
+   /**
+   * For PasswordPolicy use
+   * @return useLowerLetters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For PasswordPolicy use")
+
+  public String getUseLowerLetters() {
+    return useLowerLetters;
+  }
+
+
+  public void setUseLowerLetters(String useLowerLetters) {
+    this.useLowerLetters = useLowerLetters;
+  }
+
+
+  public UpdateAccountSettings useNumbers(String useNumbers) {
+    
+    this.useNumbers = useNumbers;
+    return this;
+  }
+
+   /**
+   * For PasswordPolicy use
+   * @return useNumbers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For PasswordPolicy use")
+
+  public String getUseNumbers() {
+    return useNumbers;
+  }
+
+
+  public void setUseNumbers(String useNumbers) {
+    this.useNumbers = useNumbers;
+  }
+
+
+  public UpdateAccountSettings useSpecialCharacters(String useSpecialCharacters) {
+    
+    this.useSpecialCharacters = useSpecialCharacters;
+    return this;
+  }
+
+   /**
+   * For PasswordPolicy use
+   * @return useSpecialCharacters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For PasswordPolicy use")
+
+  public String getUseSpecialCharacters() {
+    return useSpecialCharacters;
+  }
+
+
+  public void setUseSpecialCharacters(String useSpecialCharacters) {
+    this.useSpecialCharacters = useSpecialCharacters;
+  }
+
+
+  public UpdateAccountSettings useCapitalLetters(String useCapitalLetters) {
+    
+    this.useCapitalLetters = useCapitalLetters;
+    return this;
+  }
+
+   /**
+   * For PasswordPolicy use
+   * @return useCapitalLetters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For PasswordPolicy use")
+
+  public String getUseCapitalLetters() {
+    return useCapitalLetters;
+  }
+
+
+  public void setUseCapitalLetters(String useCapitalLetters) {
+    this.useCapitalLetters = useCapitalLetters;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -455,15 +590,20 @@ public class UpdateAccountSettings {
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
         Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
+        Objects.equals(this.passwordLength, updateAccountSettings.passwordLength) &&
         Objects.equals(this.phone, updateAccountSettings.phone) &&
         Objects.equals(this.postalCode, updateAccountSettings.postalCode) &&
         Objects.equals(this.token, updateAccountSettings.token) &&
-        Objects.equals(this.uidToken, updateAccountSettings.uidToken);
+        Objects.equals(this.uidToken, updateAccountSettings.uidToken) &&
+        Objects.equals(this.useLowerLetters, updateAccountSettings.useLowerLetters) &&
+        Objects.equals(this.useNumbers, updateAccountSettings.useNumbers) &&
+        Objects.equals(this.useSpecialCharacters, updateAccountSettings.useSpecialCharacters) &&
+        Objects.equals(this.useCapitalLetters, updateAccountSettings.useCapitalLetters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultVersioning, dpEnableClassicKeyProtection, itemType, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, phone, postalCode, token, uidToken);
+    return Objects.hash(address, city, companyName, country, defaultVersioning, dpEnableClassicKeyProtection, itemType, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
 
@@ -482,10 +622,15 @@ public class UpdateAccountSettings {
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useLowerLetters: ").append(toIndentedString(useLowerLetters)).append("\n");
+    sb.append("    useNumbers: ").append(toIndentedString(useNumbers)).append("\n");
+    sb.append("    useSpecialCharacters: ").append(toIndentedString(useSpecialCharacters)).append("\n");
+    sb.append("    useCapitalLetters: ").append(toIndentedString(useCapitalLetters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

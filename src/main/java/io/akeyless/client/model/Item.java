@@ -24,6 +24,7 @@ import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.ItemGeneralInfo;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemVersion;
+import io.akeyless.client.model.RuleAssigner;
 import io.akeyless.client.model.TargetItemVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -148,6 +149,10 @@ public class Item {
   public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation_interval";
   @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
   private Long rotationInterval;
+
+  public static final String SERIALIZED_NAME_SHARED_BY = "shared_by";
+  @SerializedName(SERIALIZED_NAME_SHARED_BY)
+  private RuleAssigner sharedBy;
 
   public static final String SERIALIZED_NAME_TARGET_VERSIONS = "target_versions";
   @SerializedName(SERIALIZED_NAME_TARGET_VERSIONS)
@@ -834,6 +839,29 @@ public class Item {
   }
 
 
+  public Item sharedBy(RuleAssigner sharedBy) {
+    
+    this.sharedBy = sharedBy;
+    return this;
+  }
+
+   /**
+   * Get sharedBy
+   * @return sharedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public RuleAssigner getSharedBy() {
+    return sharedBy;
+  }
+
+
+  public void setSharedBy(RuleAssigner sharedBy) {
+    this.sharedBy = sharedBy;
+  }
+
+
   public Item targetVersions(List<TargetItemVersion> targetVersions) {
     
     this.targetVersions = targetVersions;
@@ -925,13 +953,14 @@ public class Item {
         Objects.equals(this.protectionKeyType, item.protectionKeyType) &&
         Objects.equals(this.publicValue, item.publicValue) &&
         Objects.equals(this.rotationInterval, item.rotationInterval) &&
+        Objects.equals(this.sharedBy, item.sharedBy) &&
         Objects.equals(this.targetVersions, item.targetVersions) &&
         Objects.equals(this.withCustomerFragment, item.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, targetVersions, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
 
@@ -967,6 +996,7 @@ public class Item {
     sb.append("    protectionKeyType: ").append(toIndentedString(protectionKeyType)).append("\n");
     sb.append("    publicValue: ").append(toIndentedString(publicValue)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
+    sb.append("    sharedBy: ").append(toIndentedString(sharedBy)).append("\n");
     sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");

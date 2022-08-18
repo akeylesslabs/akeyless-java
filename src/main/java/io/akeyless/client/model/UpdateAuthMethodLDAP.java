@@ -44,6 +44,10 @@ public class UpdateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GEN_KEY = "gen-key";
+  @SerializedName(SERIALIZED_NAME_GEN_KEY)
+  private String genKey;
+
   public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
@@ -154,6 +158,29 @@ public class UpdateAuthMethodLDAP {
   }
 
 
+  public UpdateAuthMethodLDAP genKey(String genKey) {
+    
+    this.genKey = genKey;
+    return this;
+  }
+
+   /**
+   * Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
+   * @return genKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided")
+
+  public String getGenKey() {
+    return genKey;
+  }
+
+
+  public void setGenKey(String genKey) {
+    this.genKey = genKey;
+  }
+
+
   public UpdateAuthMethodLDAP gwBoundIps(List<String> gwBoundIps) {
     
     this.gwBoundIps = gwBoundIps;
@@ -260,11 +287,11 @@ public class UpdateAuthMethodLDAP {
   }
 
    /**
-   * A public key generated for LDAP authentication method on Akeyless in base64 format [RSA2048]
+   * A public key generated for LDAP authentication method on Akeyless in base64 or PEM format [RSA2048]
    * @return publicKeyData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A public key generated for LDAP authentication method on Akeyless in base64 format [RSA2048]")
+  @ApiModelProperty(value = "A public key generated for LDAP authentication method on Akeyless in base64 or PEM format [RSA2048]")
 
   public String getPublicKeyData() {
     return publicKeyData;
@@ -357,6 +384,7 @@ public class UpdateAuthMethodLDAP {
     return Objects.equals(this.accessExpires, updateAuthMethodLDAP.accessExpires) &&
         Objects.equals(this.boundIps, updateAuthMethodLDAP.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodLDAP.forceSubClaims) &&
+        Objects.equals(this.genKey, updateAuthMethodLDAP.genKey) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodLDAP.gwBoundIps) &&
         Objects.equals(this.jwtTtl, updateAuthMethodLDAP.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodLDAP.name) &&
@@ -369,7 +397,7 @@ public class UpdateAuthMethodLDAP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, gwBoundIps, jwtTtl, name, newName, publicKeyData, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, genKey, gwBoundIps, jwtTtl, name, newName, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -380,6 +408,7 @@ public class UpdateAuthMethodLDAP {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

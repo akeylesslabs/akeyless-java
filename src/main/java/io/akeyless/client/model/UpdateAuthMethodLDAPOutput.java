@@ -25,43 +25,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateAuthMethodLDAPOutput
+ * UpdateAuthMethodLDAPOutput
  */
 
-public class CreateAuthMethodLDAPOutput {
-  public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
-  @SerializedName(SERIALIZED_NAME_ACCESS_ID)
-  private String accessId;
-
+public class UpdateAuthMethodLDAPOutput {
   public static final String SERIALIZED_NAME_PRV_KEY = "prv_key";
   @SerializedName(SERIALIZED_NAME_PRV_KEY)
   private String prvKey;
 
 
-  public CreateAuthMethodLDAPOutput accessId(String accessId) {
-    
-    this.accessId = accessId;
-    return this;
-  }
-
-   /**
-   * Get accessId
-   * @return accessId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAccessId() {
-    return accessId;
-  }
-
-
-  public void setAccessId(String accessId) {
-    this.accessId = accessId;
-  }
-
-
-  public CreateAuthMethodLDAPOutput prvKey(String prvKey) {
+  public UpdateAuthMethodLDAPOutput prvKey(String prvKey) {
     
     this.prvKey = prvKey;
     return this;
@@ -92,22 +65,20 @@ public class CreateAuthMethodLDAPOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateAuthMethodLDAPOutput createAuthMethodLDAPOutput = (CreateAuthMethodLDAPOutput) o;
-    return Objects.equals(this.accessId, createAuthMethodLDAPOutput.accessId) &&
-        Objects.equals(this.prvKey, createAuthMethodLDAPOutput.prvKey);
+    UpdateAuthMethodLDAPOutput updateAuthMethodLDAPOutput = (UpdateAuthMethodLDAPOutput) o;
+    return Objects.equals(this.prvKey, updateAuthMethodLDAPOutput.prvKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, prvKey);
+    return Objects.hash(prvKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAuthMethodLDAPOutput {\n");
-    sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("class UpdateAuthMethodLDAPOutput {\n");
     sb.append("    prvKey: ").append(toIndentedString(prvKey)).append("\n");
     sb.append("}");
     return sb.toString();

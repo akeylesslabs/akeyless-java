@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **protectionKeyType** | **String** |  |  [optional]
 **publicValue** | **String** |  |  [optional]
 **rotationInterval** | **Long** |  |  [optional]
+**sharedBy** | [**RuleAssigner**](RuleAssigner.md) |  |  [optional]
 **targetVersions** | [**List&lt;TargetItemVersion&gt;**](TargetItemVersion.md) |  |  [optional]
 **withCustomerFragment** | **Boolean** |  |  [optional]
 

@@ -475,10 +475,10 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * he requested Time To Live for the certificate, in seconds
+   * The requested Time To Live for the certificate, in seconds
    * @return ttl
   **/
-  @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
+  @ApiModelProperty(required = true, value = "The requested Time To Live for the certificate, in seconds")
 
   public Long getTtl() {
     return ttl;

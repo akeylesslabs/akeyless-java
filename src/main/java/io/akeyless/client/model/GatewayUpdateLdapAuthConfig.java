@@ -236,11 +236,11 @@ public class GatewayUpdateLdapAuthConfig {
   }
 
    /**
-   * The CA Cert (in PEM format) to use to call into the ldap API server
+   * LDAP CA Certificate (base64 encoded)
    * @return ldapCaCert
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The CA Cert (in PEM format) to use to call into the ldap API server")
+  @ApiModelProperty(value = "LDAP CA Certificate (base64 encoded)")
 
   public String getLdapCaCert() {
     return ldapCaCert;
@@ -328,11 +328,11 @@ public class GatewayUpdateLdapAuthConfig {
   }
 
    /**
-   * The private key (in PEM format) associated with the public key defined in the Ldap auth
+   * The private key (base64 encoded), associated with the public key defined in the Ldap auth
    * @return signingKeyData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The private key (in PEM format) associated with the public key defined in the Ldap auth")
+  @ApiModelProperty(value = "The private key (base64 encoded), associated with the public key defined in the Ldap auth")
 
   public String getSigningKeyData() {
     return signingKeyData;

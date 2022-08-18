@@ -51,6 +51,10 @@ public class KubernetesAccessRules {
   @SerializedName(SERIALIZED_NAME_BOUND_SERVICE_ACCOUNT_NAMES)
   private List<String> boundServiceAccountNames = null;
 
+  public static final String SERIALIZED_NAME_GEN_KEY_PAIR = "gen_key_pair";
+  @SerializedName(SERIALIZED_NAME_GEN_KEY_PAIR)
+  private String genKeyPair;
+
   public static final String SERIALIZED_NAME_PUB_KEY = "pub_key";
   @SerializedName(SERIALIZED_NAME_PUB_KEY)
   private String pubKey;
@@ -195,6 +199,29 @@ public class KubernetesAccessRules {
   }
 
 
+  public KubernetesAccessRules genKeyPair(String genKeyPair) {
+    
+    this.genKeyPair = genKeyPair;
+    return this;
+  }
+
+   /**
+   * Generate public/private key (the private key is required for the K8S Auth Config in the Akeyless Gateway)
+   * @return genKeyPair
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Generate public/private key (the private key is required for the K8S Auth Config in the Akeyless Gateway)")
+
+  public String getGenKeyPair() {
+    return genKeyPair;
+  }
+
+
+  public void setGenKeyPair(String genKeyPair) {
+    this.genKeyPair = genKeyPair;
+  }
+
+
   public KubernetesAccessRules pubKey(String pubKey) {
     
     this.pubKey = pubKey;
@@ -232,12 +259,13 @@ public class KubernetesAccessRules {
         Objects.equals(this.boundNamespaces, kubernetesAccessRules.boundNamespaces) &&
         Objects.equals(this.boundPodNames, kubernetesAccessRules.boundPodNames) &&
         Objects.equals(this.boundServiceAccountNames, kubernetesAccessRules.boundServiceAccountNames) &&
+        Objects.equals(this.genKeyPair, kubernetesAccessRules.genKeyPair) &&
         Objects.equals(this.pubKey, kubernetesAccessRules.pubKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, audience, boundNamespaces, boundPodNames, boundServiceAccountNames, pubKey);
+    return Objects.hash(alg, audience, boundNamespaces, boundPodNames, boundServiceAccountNames, genKeyPair, pubKey);
   }
 
 
@@ -250,6 +278,7 @@ public class KubernetesAccessRules {
     sb.append("    boundNamespaces: ").append(toIndentedString(boundNamespaces)).append("\n");
     sb.append("    boundPodNames: ").append(toIndentedString(boundPodNames)).append("\n");
     sb.append("    boundServiceAccountNames: ").append(toIndentedString(boundServiceAccountNames)).append("\n");
+    sb.append("    genKeyPair: ").append(toIndentedString(genKeyPair)).append("\n");
     sb.append("    pubKey: ").append(toIndentedString(pubKey)).append("\n");
     sb.append("}");
     return sb.toString();

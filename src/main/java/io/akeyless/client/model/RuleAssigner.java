@@ -25,20 +25,20 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateAuthMethodLDAPOutput
+ * RuleAssigner
  */
 
-public class CreateAuthMethodLDAPOutput {
+public class RuleAssigner {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
 
-  public static final String SERIALIZED_NAME_PRV_KEY = "prv_key";
-  @SerializedName(SERIALIZED_NAME_PRV_KEY)
-  private String prvKey;
+  public static final String SERIALIZED_NAME_UNIQUE_ID = "unique_id";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_ID)
+  private String uniqueId;
 
 
-  public CreateAuthMethodLDAPOutput accessId(String accessId) {
+  public RuleAssigner accessId(String accessId) {
     
     this.accessId = accessId;
     return this;
@@ -61,26 +61,26 @@ public class CreateAuthMethodLDAPOutput {
   }
 
 
-  public CreateAuthMethodLDAPOutput prvKey(String prvKey) {
+  public RuleAssigner uniqueId(String uniqueId) {
     
-    this.prvKey = prvKey;
+    this.uniqueId = uniqueId;
     return this;
   }
 
    /**
-   * Get prvKey
-   * @return prvKey
+   * Get uniqueId
+   * @return uniqueId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getPrvKey() {
-    return prvKey;
+  public String getUniqueId() {
+    return uniqueId;
   }
 
 
-  public void setPrvKey(String prvKey) {
-    this.prvKey = prvKey;
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
   }
 
 
@@ -92,23 +92,23 @@ public class CreateAuthMethodLDAPOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateAuthMethodLDAPOutput createAuthMethodLDAPOutput = (CreateAuthMethodLDAPOutput) o;
-    return Objects.equals(this.accessId, createAuthMethodLDAPOutput.accessId) &&
-        Objects.equals(this.prvKey, createAuthMethodLDAPOutput.prvKey);
+    RuleAssigner ruleAssigner = (RuleAssigner) o;
+    return Objects.equals(this.accessId, ruleAssigner.accessId) &&
+        Objects.equals(this.uniqueId, ruleAssigner.uniqueId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, prvKey);
+    return Objects.hash(accessId, uniqueId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAuthMethodLDAPOutput {\n");
+    sb.append("class RuleAssigner {\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
-    sb.append("    prvKey: ").append(toIndentedString(prvKey)).append("\n");
+    sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

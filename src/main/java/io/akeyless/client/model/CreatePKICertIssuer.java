@@ -277,11 +277,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the country that will be set in the issued certificate
+   * A comma-separated list of countries that will be set in the issued certificate
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the country that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of countries that will be set in the issued certificate")
 
   public String getCountry() {
     return country;
@@ -346,11 +346,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the locality that will be set in the issued certificate
+   * A comma-separated list of localities that will be set in the issued certificate
    * @return locality
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the locality that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of localities that will be set in the issued certificate")
 
   public String getLocality() {
     return locality;
@@ -506,11 +506,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the postal code that will be set in the issued certificate
+   * A comma-separated list of postal codes that will be set in the issued certificate
    * @return postalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the postal code that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of postal codes that will be set in the issued certificate")
 
   public String getPostalCode() {
     return postalCode;
@@ -529,11 +529,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the province that will be set in the issued certificate
+   * A comma-separated list of provinces that will be set in the issued certificate
    * @return province
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the province that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of provinces that will be set in the issued certificate")
 
   public String getProvince() {
     return province;
@@ -597,11 +597,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the street address that will be set in the issued certificate
+   * A comma-separated list of street addresses that will be set in the issued certificate
    * @return streetAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the street address that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of street addresses that will be set in the issued certificate")
 
   public String getStreetAddress() {
     return streetAddress;

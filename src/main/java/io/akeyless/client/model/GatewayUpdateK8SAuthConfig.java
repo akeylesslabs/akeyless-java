@@ -166,11 +166,11 @@ public class GatewayUpdateK8SAuthConfig {
   }
 
    /**
-   * The CA Cert (in PEM format) to use to call into the kubernetes API server
+   * The CA Certificate (base64 encoded) to use to call into the kubernetes API server
    * @return k8sCaCert
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The CA Cert (in PEM format) to use to call into the kubernetes API server")
+  @ApiModelProperty(value = "The CA Certificate (base64 encoded) to use to call into the kubernetes API server")
 
   public String getK8sCaCert() {
     return k8sCaCert;
@@ -324,10 +324,10 @@ public class GatewayUpdateK8SAuthConfig {
   }
 
    /**
-   * The private key (in base64 encoded of the PEM format) associated with the public key defined in the Kubernetes auth
+   * The private key (base64 encoded) associated with the public key defined in the Kubernetes auth
    * @return signingKey
   **/
-  @ApiModelProperty(required = true, value = "The private key (in base64 encoded of the PEM format) associated with the public key defined in the Kubernetes auth")
+  @ApiModelProperty(required = true, value = "The private key (base64 encoded) associated with the public key defined in the Kubernetes auth")
 
   public String getSigningKey() {
     return signingKey;

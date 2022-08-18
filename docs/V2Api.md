@@ -65,7 +65,6 @@ Method | HTTP request | Description
 [**describeSubClaims**](V2Api.md#describeSubClaims) | **POST** /describe-sub-claims | 
 [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
-[**encryptPKCS1**](V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
 [**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 [**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
@@ -3961,67 +3960,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | encryptResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="encryptPKCS1"></a>
-# **encryptPKCS1**
-> EncryptPKCS1Output encryptPKCS1(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    EncryptPKCS1 body = new EncryptPKCS1(); // EncryptPKCS1 | 
-    try {
-      EncryptPKCS1Output result = apiInstance.encryptPKCS1(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#encryptPKCS1");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**EncryptPKCS1**](EncryptPKCS1.md)|  |
-
-### Return type
-
-[**EncryptPKCS1Output**](EncryptPKCS1Output.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | encryptPKCS1Response wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="encryptWithClassicKey"></a>
@@ -12190,7 +12128,7 @@ No authorization required
 
 <a name="updateAuthMethodLDAP"></a>
 # **updateAuthMethodLDAP**
-> Object updateAuthMethodLDAP(body)
+> UpdateAuthMethodLDAPOutput updateAuthMethodLDAP(body)
 
 
 
@@ -12211,7 +12149,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     UpdateAuthMethodLDAP body = new UpdateAuthMethodLDAP(); // UpdateAuthMethodLDAP | 
     try {
-      Object result = apiInstance.updateAuthMethodLDAP(body);
+      UpdateAuthMethodLDAPOutput result = apiInstance.updateAuthMethodLDAP(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#updateAuthMethodLDAP");
@@ -12232,7 +12170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**UpdateAuthMethodLDAPOutput**](UpdateAuthMethodLDAPOutput.md)
 
 ### Authorization
 

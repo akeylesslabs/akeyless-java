@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.DataProtectionSection;
+import io.akeyless.client.model.PasswordPolicyInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,6 +35,10 @@ public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_DATA_PROTECTION_SECTION = "data_protection_section";
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
   private DataProtectionSection dataProtectionSection;
+
+  public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
+  private PasswordPolicyInfo passwordPolicy;
 
 
   public AccountGeneralSettings dataProtectionSection(DataProtectionSection dataProtectionSection) {
@@ -59,6 +64,29 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings passwordPolicy(PasswordPolicyInfo passwordPolicy) {
+    
+    this.passwordPolicy = passwordPolicy;
+    return this;
+  }
+
+   /**
+   * Get passwordPolicy
+   * @return passwordPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PasswordPolicyInfo getPasswordPolicy() {
+    return passwordPolicy;
+  }
+
+
+  public void setPasswordPolicy(PasswordPolicyInfo passwordPolicy) {
+    this.passwordPolicy = passwordPolicy;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -68,12 +96,13 @@ public class AccountGeneralSettings {
       return false;
     }
     AccountGeneralSettings accountGeneralSettings = (AccountGeneralSettings) o;
-    return Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection);
+    return Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
+        Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataProtectionSection);
+    return Objects.hash(dataProtectionSection, passwordPolicy);
   }
 
 
@@ -82,6 +111,7 @@ public class AccountGeneralSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountGeneralSettings {\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
+    sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

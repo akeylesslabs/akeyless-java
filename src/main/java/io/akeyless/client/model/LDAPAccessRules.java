@@ -33,6 +33,10 @@ public class LDAPAccessRules {
   @SerializedName(SERIALIZED_NAME_ALG)
   private String alg;
 
+  public static final String SERIALIZED_NAME_GEN_KEY_PAIR = "gen_key_pair";
+  @SerializedName(SERIALIZED_NAME_GEN_KEY_PAIR)
+  private String genKeyPair;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -62,6 +66,29 @@ public class LDAPAccessRules {
 
   public void setAlg(String alg) {
     this.alg = alg;
+  }
+
+
+  public LDAPAccessRules genKeyPair(String genKeyPair) {
+    
+    this.genKeyPair = genKeyPair;
+    return this;
+  }
+
+   /**
+   * Generate public/private key (the private key is required for the LDAP Auth Config in the Akeyless Gateway)
+   * @return genKeyPair
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Generate public/private key (the private key is required for the LDAP Auth Config in the Akeyless Gateway)")
+
+  public String getGenKeyPair() {
+    return genKeyPair;
+  }
+
+
+  public void setGenKeyPair(String genKeyPair) {
+    this.genKeyPair = genKeyPair;
   }
 
 
@@ -121,13 +148,14 @@ public class LDAPAccessRules {
     }
     LDAPAccessRules ldAPAccessRules = (LDAPAccessRules) o;
     return Objects.equals(this.alg, ldAPAccessRules.alg) &&
+        Objects.equals(this.genKeyPair, ldAPAccessRules.genKeyPair) &&
         Objects.equals(this.key, ldAPAccessRules.key) &&
         Objects.equals(this.uniqueIdentifier, ldAPAccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, key, uniqueIdentifier);
+    return Objects.hash(alg, genKeyPair, key, uniqueIdentifier);
   }
 
 
@@ -136,6 +164,7 @@ public class LDAPAccessRules {
     StringBuilder sb = new StringBuilder();
     sb.append("class LDAPAccessRules {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
+    sb.append("    genKeyPair: ").append(toIndentedString(genKeyPair)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");

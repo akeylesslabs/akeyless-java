@@ -62,7 +62,7 @@ public class UpdateAuthMethodK8S {
 
   public static final String SERIALIZED_NAME_GEN_KEY = "gen-key";
   @SerializedName(SERIALIZED_NAME_GEN_KEY)
-  private String genKey = "true";
+  private String genKey;
 
   public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
@@ -293,11 +293,11 @@ public class UpdateAuthMethodK8S {
   }
 
    /**
-   * If this flag is set to true, there is no need to manually provide a public key for the Kubernetes Auth Method, and instead, a key pair, will be generated as part of the command and the private part of the key will be returned (the private key is required for the K8S Auth Config in the Akeyless Gateway)
+   * Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided
    * @return genKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If this flag is set to true, there is no need to manually provide a public key for the Kubernetes Auth Method, and instead, a key pair, will be generated as part of the command and the private part of the key will be returned (the private key is required for the K8S Auth Config in the Akeyless Gateway)")
+  @ApiModelProperty(value = "Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided")
 
   public String getGenKey() {
     return genKey;
@@ -415,11 +415,11 @@ public class UpdateAuthMethodK8S {
   }
 
    /**
-   * Base64-encoded public key text for K8S authentication method is required [RSA2048]
+   * Base64-encoded or PEM formatted public key data for K8S authentication method is required [RSA2048]
    * @return publicKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Base64-encoded public key text for K8S authentication method is required [RSA2048]")
+  @ApiModelProperty(value = "Base64-encoded or PEM formatted public key data for K8S authentication method is required [RSA2048]")
 
   public String getPublicKey() {
     return publicKey;

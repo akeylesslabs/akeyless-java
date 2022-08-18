@@ -38,13 +38,17 @@ public class GatewayRevokeTmpUsers {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_REVOKE_ALL = "revoke-all";
+  @SerializedName(SERIALIZED_NAME_REVOKE_ALL)
+  private Boolean revokeAll;
+
   public static final String SERIALIZED_NAME_SOFT_DELETE = "soft-delete";
   @SerializedName(SERIALIZED_NAME_SOFT_DELETE)
   private Boolean softDelete;
 
   public static final String SERIALIZED_NAME_TMP_CREDS_ID = "tmp-creds-id";
   @SerializedName(SERIALIZED_NAME_TMP_CREDS_ID)
-  private String tmpCredsId;
+  private String tmpCredsId = "demo_default_tmp_creds_id_for_sdk_bc";
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -62,11 +66,11 @@ public class GatewayRevokeTmpUsers {
   }
 
    /**
-   * Host
+   * Deprecated: has no effect
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host")
+  @ApiModelProperty(value = "Deprecated: has no effect")
 
   public String getHost() {
     return host;
@@ -97,6 +101,29 @@ public class GatewayRevokeTmpUsers {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayRevokeTmpUsers revokeAll(Boolean revokeAll) {
+    
+    this.revokeAll = revokeAll;
+    return this;
+  }
+
+   /**
+   * Revoke All Temp Creds
+   * @return revokeAll
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Revoke All Temp Creds")
+
+  public Boolean getRevokeAll() {
+    return revokeAll;
+  }
+
+
+  public void setRevokeAll(Boolean revokeAll) {
+    this.revokeAll = revokeAll;
   }
 
 
@@ -202,6 +229,7 @@ public class GatewayRevokeTmpUsers {
     GatewayRevokeTmpUsers gatewayRevokeTmpUsers = (GatewayRevokeTmpUsers) o;
     return Objects.equals(this.host, gatewayRevokeTmpUsers.host) &&
         Objects.equals(this.name, gatewayRevokeTmpUsers.name) &&
+        Objects.equals(this.revokeAll, gatewayRevokeTmpUsers.revokeAll) &&
         Objects.equals(this.softDelete, gatewayRevokeTmpUsers.softDelete) &&
         Objects.equals(this.tmpCredsId, gatewayRevokeTmpUsers.tmpCredsId) &&
         Objects.equals(this.token, gatewayRevokeTmpUsers.token) &&
@@ -210,7 +238,7 @@ public class GatewayRevokeTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, name, softDelete, tmpCredsId, token, uidToken);
+    return Objects.hash(host, name, revokeAll, softDelete, tmpCredsId, token, uidToken);
   }
 
 
@@ -220,6 +248,7 @@ public class GatewayRevokeTmpUsers {
     sb.append("class GatewayRevokeTmpUsers {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    revokeAll: ").append(toIndentedString(revokeAll)).append("\n");
     sb.append("    softDelete: ").append(toIndentedString(softDelete)).append("\n");
     sb.append("    tmpCredsId: ").append(toIndentedString(tmpCredsId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
