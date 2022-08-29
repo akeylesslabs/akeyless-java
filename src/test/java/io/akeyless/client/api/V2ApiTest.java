@@ -14,179 +14,8 @@
 package io.akeyless.client.api;
 
 import io.akeyless.client.ApiException;
-import io.akeyless.client.model.AkeylessGatewayConfig;
-import io.akeyless.client.model.AssocRoleAuthMethod;
-import io.akeyless.client.model.AssocTargetItem;
-import io.akeyless.client.model.Auth;
-import io.akeyless.client.model.AuthMethod;
-import io.akeyless.client.model.AuthOutput;
-import io.akeyless.client.model.Configure;
-import io.akeyless.client.model.ConfigureOutput;
-import io.akeyless.client.model.CreateAuthMethod;
-import io.akeyless.client.model.CreateAuthMethodAWSIAM;
-import io.akeyless.client.model.CreateAuthMethodAWSIAMOutput;
-import io.akeyless.client.model.CreateAuthMethodAzureAD;
-import io.akeyless.client.model.CreateAuthMethodAzureADOutput;
-import io.akeyless.client.model.CreateAuthMethodHuawei;
-import io.akeyless.client.model.CreateAuthMethodHuaweiOutput;
-import io.akeyless.client.model.CreateAuthMethodOAuth2;
-import io.akeyless.client.model.CreateAuthMethodOAuth2Output;
-import io.akeyless.client.model.CreateAuthMethodOutput;
-import io.akeyless.client.model.CreateAuthMethodSAML;
-import io.akeyless.client.model.CreateAuthMethodSAMLOutput;
-import io.akeyless.client.model.CreateAuthMethodUniversalIdentity;
-import io.akeyless.client.model.CreateAuthMethodUniversalIdentityOutput;
-import io.akeyless.client.model.CreateAwsTarget;
-import io.akeyless.client.model.CreateDBTarget;
-import io.akeyless.client.model.CreateDynamicSecret;
-import io.akeyless.client.model.CreateKey;
-import io.akeyless.client.model.CreateKeyOutput;
-import io.akeyless.client.model.CreatePKICertIssuer;
-import io.akeyless.client.model.CreatePKICertIssuerOutput;
-import io.akeyless.client.model.CreateRabbitMQTarget;
-import io.akeyless.client.model.CreateRdpTarget;
-import io.akeyless.client.model.CreateRole;
-import io.akeyless.client.model.CreateRoleAuthMethodAssocOutput;
-import io.akeyless.client.model.CreateSSHCertIssuer;
-import io.akeyless.client.model.CreateSSHCertIssuerOutput;
-import io.akeyless.client.model.CreateSSHTarget;
-import io.akeyless.client.model.CreateSecret;
-import io.akeyless.client.model.CreateSecretOutput;
-import io.akeyless.client.model.CreateTargetItemAssocOutput;
-import io.akeyless.client.model.CreateWebTarget;
-import io.akeyless.client.model.DSProducerDetails;
-import io.akeyless.client.model.Decrypt;
-import io.akeyless.client.model.DecryptOutput;
-import io.akeyless.client.model.DecryptPKCS1;
-import io.akeyless.client.model.DecryptPKCS1Output;
-import io.akeyless.client.model.DeleteAuthMethod;
-import io.akeyless.client.model.DeleteAuthMethodOutput;
-import io.akeyless.client.model.DeleteAuthMethods;
-import io.akeyless.client.model.DeleteAuthMethodsOutput;
-import io.akeyless.client.model.DeleteItem;
-import io.akeyless.client.model.DeleteItemOutput;
-import io.akeyless.client.model.DeleteItems;
-import io.akeyless.client.model.DeleteItemsOutput;
-import io.akeyless.client.model.DeleteRole;
-import io.akeyless.client.model.DeleteRoleAssociation;
-import io.akeyless.client.model.DeleteRoleRule;
-import io.akeyless.client.model.DeleteRoleRuleOutput;
-import io.akeyless.client.model.DeleteRoles;
-import io.akeyless.client.model.DeleteTarget;
-import io.akeyless.client.model.DeleteTargetAssociation;
-import io.akeyless.client.model.DeleteTargets;
-import io.akeyless.client.model.DescribeItem;
-import io.akeyless.client.model.Encrypt;
-import io.akeyless.client.model.EncryptOutput;
-import io.akeyless.client.model.EncryptPKCS1;
-import io.akeyless.client.model.EncryptPKCS1Output;
-import io.akeyless.client.model.GatewayAddSubAdmins;
-import io.akeyless.client.model.GatewayAddSubAdminsOutput;
-import io.akeyless.client.model.GatewayCreateProducerArtifactory;
-import io.akeyless.client.model.GatewayCreateProducerArtifactoryOutput;
-import io.akeyless.client.model.GatewayCreateProducerAws;
-import io.akeyless.client.model.GatewayCreateProducerAwsOutput;
-import io.akeyless.client.model.GatewayCreateProducerAzure;
-import io.akeyless.client.model.GatewayCreateProducerAzureOutput;
-import io.akeyless.client.model.GatewayCreateProducerEks;
-import io.akeyless.client.model.GatewayCreateProducerEksOutput;
-import io.akeyless.client.model.GatewayCreateProducerGke;
-import io.akeyless.client.model.GatewayCreateProducerGkeOutput;
-import io.akeyless.client.model.GatewayCreateProducerMSSQL;
-import io.akeyless.client.model.GatewayCreateProducerMSSQLOutput;
-import io.akeyless.client.model.GatewayCreateProducerMongo;
-import io.akeyless.client.model.GatewayCreateProducerMongoOutput;
-import io.akeyless.client.model.GatewayCreateProducerMySQL;
-import io.akeyless.client.model.GatewayCreateProducerMySQLOutput;
-import io.akeyless.client.model.GatewayCreateProducerPostgreSQL;
-import io.akeyless.client.model.GatewayCreateProducerPostgreSQLOutput;
-import io.akeyless.client.model.GatewayCreateProducerRabbitMQ;
-import io.akeyless.client.model.GatewayCreateProducerRabbitMQOutput;
-import io.akeyless.client.model.GatewayCreateProducerRdp;
-import io.akeyless.client.model.GatewayCreateProducerRdpOutput;
-import io.akeyless.client.model.GatewayDeleteProducer;
-import io.akeyless.client.model.GatewayDeleteProducerOutput;
-import io.akeyless.client.model.GatewayDeleteSubAdmins;
-import io.akeyless.client.model.GatewayDeleteSubAdminsOutput;
-import io.akeyless.client.model.GatewayGetConfig;
-import io.akeyless.client.model.GatewayGetProducer;
-import io.akeyless.client.model.GatewayGetTmpUsers;
-import io.akeyless.client.model.GatewayListProducers;
-import io.akeyless.client.model.GatewayListSubAdmins;
-import io.akeyless.client.model.GatewayRevokeTmpUsers;
-import io.akeyless.client.model.GatewayStartProducer;
-import io.akeyless.client.model.GatewayStartProducerOutput;
-import io.akeyless.client.model.GatewayStopProducer;
-import io.akeyless.client.model.GatewayStopProducerOutput;
-import io.akeyless.client.model.GatewayUpdateTmpUsers;
-import io.akeyless.client.model.GetAuthMethod;
-import io.akeyless.client.model.GetDynamicSecretValue;
-import io.akeyless.client.model.GetProducersListReplyObj;
-import io.akeyless.client.model.GetRSAPublic;
-import io.akeyless.client.model.GetRSAPublicOutput;
-import io.akeyless.client.model.GetRole;
-import io.akeyless.client.model.GetSSHCertificate;
-import io.akeyless.client.model.GetSSHCertificateOutput;
-import io.akeyless.client.model.GetSecretValue;
-import io.akeyless.client.model.GetSubAdminsListReplyObj;
-import io.akeyless.client.model.GetTarget;
-import io.akeyless.client.model.GetTargetDetails;
-import io.akeyless.client.model.GetTargetDetailsOutput;
-import io.akeyless.client.model.Item;
-import io.akeyless.client.model.JSONError;
-import io.akeyless.client.model.ListAuthMethods;
-import io.akeyless.client.model.ListAuthMethodsOutput;
-import io.akeyless.client.model.ListItems;
-import io.akeyless.client.model.ListItemsInPathOutput;
-import io.akeyless.client.model.ListRoles;
-import io.akeyless.client.model.ListRolesOutput;
-import io.akeyless.client.model.ListTargets;
-import io.akeyless.client.model.ListTargetsOutput;
-import io.akeyless.client.model.MoveObjects;
-import io.akeyless.client.model.RawCreds;
-import io.akeyless.client.model.RefreshKey;
-import io.akeyless.client.model.RefreshKeyOutput;
-import io.akeyless.client.model.ReverseRBAC;
-import io.akeyless.client.model.ReverseRBACOutput;
-import io.akeyless.client.model.Role;
-import io.akeyless.client.model.RollbackSecret;
-import io.akeyless.client.model.RollbackSecretOutput;
-import io.akeyless.client.model.RotateKey;
-import io.akeyless.client.model.RotateKeyOutput;
-import io.akeyless.client.model.SetItemState;
-import io.akeyless.client.model.SetRoleRule;
-import io.akeyless.client.model.SignPKCS1;
-import io.akeyless.client.model.SignPKCS1Output;
-import io.akeyless.client.model.StaticCredsAuth;
-import io.akeyless.client.model.StaticCredsAuthOutput;
-import io.akeyless.client.model.SystemAccessCredentialsReplyObj;
-import io.akeyless.client.model.Target;
-import io.akeyless.client.model.TmpUserData;
-import io.akeyless.client.model.UidCreateChildToken;
-import io.akeyless.client.model.UidCreateChildTokenOutput;
-import io.akeyless.client.model.UidGenerateToken;
-import io.akeyless.client.model.UidGenerateTokenOutput;
-import io.akeyless.client.model.UidListChildren;
-import io.akeyless.client.model.UidRevokeToken;
-import io.akeyless.client.model.UidRotateToken;
-import io.akeyless.client.model.UidRotateTokenOutput;
-import io.akeyless.client.model.UniversalIdentityDetails;
-import io.akeyless.client.model.UpdateAWSTargetDetails;
-import io.akeyless.client.model.UpdateDBTargetDetails;
-import io.akeyless.client.model.UpdateItem;
-import io.akeyless.client.model.UpdateItemOutput;
-import io.akeyless.client.model.UpdateRDPTargetDetails;
-import io.akeyless.client.model.UpdateRabbitMQTargetDetails;
-import io.akeyless.client.model.UpdateRole;
-import io.akeyless.client.model.UpdateRoleOutput;
-import io.akeyless.client.model.UpdateSSHTargetDetails;
-import io.akeyless.client.model.UpdateSecretVal;
-import io.akeyless.client.model.UpdateSecretValOutput;
-import io.akeyless.client.model.UpdateTarget;
-import io.akeyless.client.model.UpdateTargetOutput;
-import io.akeyless.client.model.UpdateWebTargetDetails;
-import io.akeyless.client.model.UploadRSA;
-import io.akeyless.client.model.VerifyPKCS1;
+import io.akeyless.client.model.*;
+//import io.akeyless.client.model.CreateAwsTarget;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -390,8 +219,8 @@ public class V2ApiTest {
      */
     @Test
     public void createAwsTargetTest() throws ApiException {
-        CreateAwsTarget body = null;
-        Object response = api.createAwsTarget(body);
+        CreateAWSTarget body = null;
+        Object response = api.createAWSTarget(body);
 
         // TODO: test validations
     }
@@ -475,23 +304,7 @@ public class V2ApiTest {
 
         // TODO: test validations
     }
-    
-    /**
-     * 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createRdpTargetTest() throws ApiException {
-        CreateRdpTarget body = null;
-        Object response = api.createRdpTarget(body);
 
-        // TODO: test validations
-    }
-    
     /**
      * 
      *
@@ -556,22 +369,7 @@ public class V2ApiTest {
         // TODO: test validations
     }
     
-    /**
-     * 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createTargetTest() throws ApiException {
-        Object body = null;
-        Object response = api.createTarget(body);
 
-        // TODO: test validations
-    }
-    
     /**
      * 
      *
@@ -828,22 +626,7 @@ public class V2ApiTest {
         // TODO: test validations
     }
     
-    /**
-     * 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void encryptPKCS1Test() throws ApiException {
-        EncryptPKCS1 body = null;
-        EncryptPKCS1Output response = api.encryptPKCS1(body);
 
-        // TODO: test validations
-    }
-    
     /**
      * 
      *
@@ -854,9 +637,8 @@ public class V2ApiTest {
      */
     @Test
     public void gatewayAddSubAdminsTest() throws ApiException {
-        GatewayAddSubAdmins body = null;
-        GatewayAddSubAdminsOutput response = api.gatewayAddSubAdmins(body);
-
+        GatewayAddAllowedManagementAccess body = null;
+        GatewayAddSubAdminsResponse response = api.gatewayAddAllowedManagementAccess(body);
         // TODO: test validations
     }
     
@@ -1046,9 +828,8 @@ public class V2ApiTest {
      */
     @Test
     public void gatewayCreateProducerVenafiTest() throws ApiException {
-        GatewayCreateProducerAws body = null;
-        GatewayCreateProducerAwsOutput response = api.gatewayCreateProducerVenafi(body);
-
+        GatewayCreateProducerCertificateAutomation body = null;
+        GatewayCreateProducerCertificateAutomationOutput response = api.gatewayCreateProducerCertificateAutomation(body);
         // TODO: test validations
     }
     
@@ -1078,8 +859,8 @@ public class V2ApiTest {
      */
     @Test
     public void gatewayDeleteSubAdminsTest() throws ApiException {
-        GatewayDeleteSubAdmins body = null;
-        GatewayDeleteSubAdminsOutput response = api.gatewayDeleteSubAdmins(body);
+        GatewayDeleteAllowedManagementAccess body = null;
+        api.gatewayDeleteAllowedManagementAccess(body);
 
         // TODO: test validations
     }
@@ -1158,9 +939,8 @@ public class V2ApiTest {
      */
     @Test
     public void gatewayListSubAdminsTest() throws ApiException {
-        GatewayListSubAdmins body = null;
-        GetSubAdminsListReplyObj response = api.gatewayListSubAdmins(body);
-
+        GatewayListAllowedManagementAccess body = null;
+        GetSubAdminsListReplyObj response = api.gatewayListAllowedManagementAccess(body);
         // TODO: test validations
     }
     
@@ -1268,8 +1048,9 @@ public class V2ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getDynamicPkiCertificateTest() throws ApiException {
-        Map<String, String> response = api.getDynamicPkiCertificate();
+    public void getPkiCertificateTest() throws ApiException {
+        GetPKICertificate body = null;
+        GetPKICertificateOutput response = api.getPKICertificate(body);
 
         // TODO: test validations
     }
@@ -1540,7 +1321,7 @@ public class V2ApiTest {
      */
     @Test
     public void rotateKeyTest() throws ApiException {
-        RotateKey body = null;
+        UpdateRotationSettings body = null;
         RotateKeyOutput response = api.rotateKey(body);
 
         // TODO: test validations
