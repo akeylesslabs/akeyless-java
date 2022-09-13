@@ -37,6 +37,10 @@ public class UpdateLdapTargetDetails {
   @SerializedName(SERIALIZED_NAME_BIND_DN_PASSWORD)
   private String bindDnPassword;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -121,6 +125,29 @@ public class UpdateLdapTargetDetails {
 
   public void setBindDnPassword(String bindDnPassword) {
     this.bindDnPassword = bindDnPassword;
+  }
+
+
+  public UpdateLdapTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -364,6 +391,7 @@ public class UpdateLdapTargetDetails {
     UpdateLdapTargetDetails updateLdapTargetDetails = (UpdateLdapTargetDetails) o;
     return Objects.equals(this.bindDn, updateLdapTargetDetails.bindDn) &&
         Objects.equals(this.bindDnPassword, updateLdapTargetDetails.bindDnPassword) &&
+        Objects.equals(this.json, updateLdapTargetDetails.json) &&
         Objects.equals(this.keepPrevVersion, updateLdapTargetDetails.keepPrevVersion) &&
         Objects.equals(this.key, updateLdapTargetDetails.key) &&
         Objects.equals(this.ldapCaCert, updateLdapTargetDetails.ldapCaCert) &&
@@ -378,7 +406,7 @@ public class UpdateLdapTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, keepPrevVersion, key, ldapCaCert, ldapUrl, name, newVersion, protectionKey, token, tokenExpiration, uidToken);
+    return Objects.hash(bindDn, bindDnPassword, json, keepPrevVersion, key, ldapCaCert, ldapUrl, name, newVersion, protectionKey, token, tokenExpiration, uidToken);
   }
 
 
@@ -388,6 +416,7 @@ public class UpdateLdapTargetDetails {
     sb.append("class UpdateLdapTargetDetails {\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");

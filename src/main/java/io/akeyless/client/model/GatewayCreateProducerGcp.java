@@ -56,6 +56,10 @@ public class GatewayCreateProducerGcp {
   @SerializedName(SERIALIZED_NAME_GCP_TOKEN_SCOPES)
   private String gcpTokenScopes;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -220,6 +224,29 @@ public class GatewayCreateProducerGcp {
 
   public void setGcpTokenScopes(String gcpTokenScopes) {
     this.gcpTokenScopes = gcpTokenScopes;
+  }
+
+
+  public GatewayCreateProducerGcp json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -406,6 +433,7 @@ public class GatewayCreateProducerGcp {
         Objects.equals(this.gcpKeyAlgo, gatewayCreateProducerGcp.gcpKeyAlgo) &&
         Objects.equals(this.gcpSaEmail, gatewayCreateProducerGcp.gcpSaEmail) &&
         Objects.equals(this.gcpTokenScopes, gatewayCreateProducerGcp.gcpTokenScopes) &&
+        Objects.equals(this.json, gatewayCreateProducerGcp.json) &&
         Objects.equals(this.name, gatewayCreateProducerGcp.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGcp.producerEncryptionKeyName) &&
         Objects.equals(this.tags, gatewayCreateProducerGcp.tags) &&
@@ -417,7 +445,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, json, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -431,6 +459,7 @@ public class GatewayCreateProducerGcp {
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");
     sb.append("    gcpSaEmail: ").append(toIndentedString(gcpSaEmail)).append("\n");
     sb.append("    gcpTokenScopes: ").append(toIndentedString(gcpTokenScopes)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

@@ -53,6 +53,10 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -268,6 +272,29 @@ public class UpdateDBTarget {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public UpdateDBTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -745,6 +772,7 @@ public class UpdateDBTarget {
         Objects.equals(this.dbServerName, updateDBTarget.dbServerName) &&
         Objects.equals(this.dbType, updateDBTarget.dbType) &&
         Objects.equals(this.host, updateDBTarget.host) &&
+        Objects.equals(this.json, updateDBTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDBTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDBTarget.key) &&
         Objects.equals(this.mongodbAtlas, updateDBTarget.mongodbAtlas) &&
@@ -769,7 +797,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
 
@@ -783,6 +811,7 @@ public class UpdateDBTarget {
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");

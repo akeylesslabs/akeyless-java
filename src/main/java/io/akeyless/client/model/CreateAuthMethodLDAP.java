@@ -52,6 +52,10 @@ public class CreateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -208,6 +212,29 @@ public class CreateAuthMethodLDAP {
   }
 
 
+  public CreateAuthMethodLDAP json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodLDAP jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -359,6 +386,7 @@ public class CreateAuthMethodLDAP {
         Objects.equals(this.forceSubClaims, createAuthMethodLDAP.forceSubClaims) &&
         Objects.equals(this.genKey, createAuthMethodLDAP.genKey) &&
         Objects.equals(this.gwBoundIps, createAuthMethodLDAP.gwBoundIps) &&
+        Objects.equals(this.json, createAuthMethodLDAP.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodLDAP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodLDAP.name) &&
         Objects.equals(this.publicKeyData, createAuthMethodLDAP.publicKeyData) &&
@@ -369,7 +397,7 @@ public class CreateAuthMethodLDAP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, genKey, gwBoundIps, jwtTtl, name, publicKeyData, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -382,6 +410,7 @@ public class CreateAuthMethodLDAP {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");

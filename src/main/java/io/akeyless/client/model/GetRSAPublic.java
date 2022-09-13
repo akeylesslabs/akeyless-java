@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "getRSAPublic is a command that obtains the public key from a specific RSA private key.")
 
 public class GetRSAPublic {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -41,6 +45,29 @@ public class GetRSAPublic {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GetRSAPublic json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GetRSAPublic name(String name) {
@@ -120,14 +147,15 @@ public class GetRSAPublic {
       return false;
     }
     GetRSAPublic getRSAPublic = (GetRSAPublic) o;
-    return Objects.equals(this.name, getRSAPublic.name) &&
+    return Objects.equals(this.json, getRSAPublic.json) &&
+        Objects.equals(this.name, getRSAPublic.name) &&
         Objects.equals(this.token, getRSAPublic.token) &&
         Objects.equals(this.uidToken, getRSAPublic.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(json, name, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class GetRSAPublic {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRSAPublic {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

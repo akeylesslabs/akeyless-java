@@ -41,6 +41,10 @@ public class UpdateRole {
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
   private String gwAnalyticsAccess;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -132,6 +136,29 @@ public class UpdateRole {
 
   public void setGwAnalyticsAccess(String gwAnalyticsAccess) {
     this.gwAnalyticsAccess = gwAnalyticsAccess;
+  }
+
+
+  public UpdateRole json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -284,6 +311,7 @@ public class UpdateRole {
     return Objects.equals(this.analyticsAccess, updateRole.analyticsAccess) &&
         Objects.equals(this.auditAccess, updateRole.auditAccess) &&
         Objects.equals(this.gwAnalyticsAccess, updateRole.gwAnalyticsAccess) &&
+        Objects.equals(this.json, updateRole.json) &&
         Objects.equals(this.name, updateRole.name) &&
         Objects.equals(this.newComment, updateRole.newComment) &&
         Objects.equals(this.newName, updateRole.newName) &&
@@ -294,7 +322,7 @@ public class UpdateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, gwAnalyticsAccess, name, newComment, newName, sraReportsAccess, token, uidToken);
+    return Objects.hash(analyticsAccess, auditAccess, gwAnalyticsAccess, json, name, newComment, newName, sraReportsAccess, token, uidToken);
   }
 
 
@@ -305,6 +333,7 @@ public class UpdateRole {
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

@@ -60,6 +60,10 @@ public class GatewayUpdateProducerAzure {
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private Boolean fixedUserOnly = false;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -287,6 +291,29 @@ public class GatewayUpdateProducerAzure {
 
   public void setFixedUserOnly(Boolean fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
+  }
+
+
+  public GatewayUpdateProducerAzure json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -704,6 +731,7 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.deleteProtection, gatewayUpdateProducerAzure.deleteProtection) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerAzure.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, gatewayUpdateProducerAzure.fixedUserOnly) &&
+        Objects.equals(this.json, gatewayUpdateProducerAzure.json) &&
         Objects.equals(this.name, gatewayUpdateProducerAzure.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerAzure.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerAzure.producerEncryptionKeyName) &&
@@ -725,7 +753,7 @@ public class GatewayUpdateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
 
@@ -740,6 +768,7 @@ public class GatewayUpdateProducerAzure {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

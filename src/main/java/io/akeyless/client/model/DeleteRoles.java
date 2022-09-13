@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class DeleteRoles {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -40,6 +44,29 @@ public class DeleteRoles {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DeleteRoles json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public DeleteRoles path(String path) {
@@ -119,14 +146,15 @@ public class DeleteRoles {
       return false;
     }
     DeleteRoles deleteRoles = (DeleteRoles) o;
-    return Objects.equals(this.path, deleteRoles.path) &&
+    return Objects.equals(this.json, deleteRoles.json) &&
+        Objects.equals(this.path, deleteRoles.path) &&
         Objects.equals(this.token, deleteRoles.token) &&
         Objects.equals(this.uidToken, deleteRoles.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, token, uidToken);
+    return Objects.hash(json, path, token, uidToken);
   }
 
 
@@ -134,6 +162,7 @@ public class DeleteRoles {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRoles {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -48,6 +48,10 @@ public class EncryptFile {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -164,6 +168,29 @@ public class EncryptFile {
   }
 
 
+  public EncryptFile json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public EncryptFile keyName(String keyName) {
     
     this.keyName = keyName;
@@ -268,6 +295,7 @@ public class EncryptFile {
         Objects.equals(this.encryptionContext, encryptFile.encryptionContext) &&
         Objects.equals(this.in, encryptFile.in) &&
         Objects.equals(this.itemId, encryptFile.itemId) &&
+        Objects.equals(this.json, encryptFile.json) &&
         Objects.equals(this.keyName, encryptFile.keyName) &&
         Objects.equals(this.out, encryptFile.out) &&
         Objects.equals(this.token, encryptFile.token) &&
@@ -276,7 +304,7 @@ public class EncryptFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, encryptionContext, in, itemId, keyName, out, token, uidToken);
+    return Objects.hash(displayId, encryptionContext, in, itemId, json, keyName, out, token, uidToken);
   }
 
 
@@ -288,6 +316,7 @@ public class EncryptFile {
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    out: ").append(toIndentedString(out)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

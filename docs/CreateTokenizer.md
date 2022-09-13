@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
 **encodingTemplate** | **String** | The Encoding output template to use in regexp vaultless tokenization |  [optional]
 **encryptionKeyName** | **String** | AES key name to use in vaultless tokenization |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **metadata** | **String** | A metadata about the tokenizer |  [optional]
 **name** | **String** | Tokenizer name | 
 **pattern** | **String** | Pattern to use in regexp vaultless tokenization |  [optional]

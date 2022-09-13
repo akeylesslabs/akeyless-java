@@ -47,6 +47,10 @@ public class GatewayUpdateProducerCustom {
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation = false;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -180,6 +184,29 @@ public class GatewayUpdateProducerCustom {
 
   public void setEnableAdminRotation(Boolean enableAdminRotation) {
     this.enableAdminRotation = enableAdminRotation;
+  }
+
+
+  public GatewayUpdateProducerCustom json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -455,6 +482,7 @@ public class GatewayUpdateProducerCustom {
         Objects.equals(this.createSyncUrl, gatewayUpdateProducerCustom.createSyncUrl) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerCustom.deleteProtection) &&
         Objects.equals(this.enableAdminRotation, gatewayUpdateProducerCustom.enableAdminRotation) &&
+        Objects.equals(this.json, gatewayUpdateProducerCustom.json) &&
         Objects.equals(this.name, gatewayUpdateProducerCustom.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCustom.newName) &&
         Objects.equals(this.payload, gatewayUpdateProducerCustom.payload) &&
@@ -470,7 +498,7 @@ public class GatewayUpdateProducerCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, enableAdminRotation, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
+    return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, enableAdminRotation, json, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
   }
 
 
@@ -482,6 +510,7 @@ public class GatewayUpdateProducerCustom {
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");

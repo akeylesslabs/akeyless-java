@@ -30,9 +30,36 @@ import java.io.IOException;
 @ApiModel(description = "validate-token is a command that validaties token")
 
 public class ValidateToken {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+
+  public ValidateToken json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public ValidateToken token(String token) {
@@ -67,12 +94,13 @@ public class ValidateToken {
       return false;
     }
     ValidateToken validateToken = (ValidateToken) o;
-    return Objects.equals(this.token, validateToken.token);
+    return Objects.equals(this.json, validateToken.json) &&
+        Objects.equals(this.token, validateToken.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(json, token);
   }
 
 
@@ -80,6 +108,7 @@ public class ValidateToken {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateToken {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();

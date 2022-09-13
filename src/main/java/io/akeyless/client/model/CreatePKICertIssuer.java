@@ -63,6 +63,10 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_USAGE = "key-usage";
   @SerializedName(SERIALIZED_NAME_KEY_USAGE)
   private String keyUsage = "DigitalSignature,KeyAgreement,KeyEncipherment";
@@ -313,6 +317,29 @@ public class CreatePKICertIssuer {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public CreatePKICertIssuer json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -729,6 +756,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.codeSigningFlag, createPKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, createPKICertIssuer.country) &&
         Objects.equals(this.deleteProtection, createPKICertIssuer.deleteProtection) &&
+        Objects.equals(this.json, createPKICertIssuer.json) &&
         Objects.equals(this.keyUsage, createPKICertIssuer.keyUsage) &&
         Objects.equals(this.locality, createPKICertIssuer.locality) &&
         Objects.equals(this.metadata, createPKICertIssuer.metadata) &&
@@ -750,7 +778,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
 
@@ -766,6 +794,7 @@ public class CreatePKICertIssuer {
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

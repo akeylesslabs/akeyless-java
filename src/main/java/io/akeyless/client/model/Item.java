@@ -58,6 +58,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   private List<String> clientPermissions = null;
 
+  public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
+  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
+  private OffsetDateTime creationDate;
+
   public static final String SERIALIZED_NAME_CUSTOMER_FRAGMENT_ID = "customer_fragment_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRAGMENT_ID)
   private String customerFragmentId;
@@ -130,6 +134,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
   private Integer lastVersion;
 
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
+
   public static final String SERIALIZED_NAME_NEXT_ROTATION_DATE = "next_rotation_date";
   @SerializedName(SERIALIZED_NAME_NEXT_ROTATION_DATE)
   private OffsetDateTime nextRotationDate;
@@ -157,6 +165,10 @@ public class Item {
   public static final String SERIALIZED_NAME_TARGET_VERSIONS = "target_versions";
   @SerializedName(SERIALIZED_NAME_TARGET_VERSIONS)
   private List<TargetItemVersion> targetVersions = null;
+
+  public static final String SERIALIZED_NAME_USAGE_DATE = "usage_date";
+  @SerializedName(SERIALIZED_NAME_USAGE_DATE)
+  private OffsetDateTime usageDate;
 
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
@@ -283,6 +295,29 @@ public class Item {
 
   public void setClientPermissions(List<String> clientPermissions) {
     this.clientPermissions = clientPermissions;
+  }
+
+
+  public Item creationDate(OffsetDateTime creationDate) {
+    
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * Get creationDate
+   * @return creationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
   }
 
 
@@ -724,6 +759,29 @@ public class Item {
   }
 
 
+  public Item modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * Get modificationDate
+   * @return modificationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
+  }
+
+
   public Item nextRotationDate(OffsetDateTime nextRotationDate) {
     
     this.nextRotationDate = nextRotationDate;
@@ -893,6 +951,29 @@ public class Item {
   }
 
 
+  public Item usageDate(OffsetDateTime usageDate) {
+    
+    this.usageDate = usageDate;
+    return this;
+  }
+
+   /**
+   * Get usageDate
+   * @return usageDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getUsageDate() {
+    return usageDate;
+  }
+
+
+  public void setUsageDate(OffsetDateTime usageDate) {
+    this.usageDate = usageDate;
+  }
+
+
   public Item withCustomerFragment(Boolean withCustomerFragment) {
     
     this.withCustomerFragment = withCustomerFragment;
@@ -930,6 +1011,7 @@ public class Item {
         Objects.equals(this.certificateIssueDetails, item.certificateIssueDetails) &&
         Objects.equals(this.certificates, item.certificates) &&
         Objects.equals(this.clientPermissions, item.clientPermissions) &&
+        Objects.equals(this.creationDate, item.creationDate) &&
         Objects.equals(this.customerFragmentId, item.customerFragmentId) &&
         Objects.equals(this.deleteProtection, item.deleteProtection) &&
         Objects.equals(this.deletionDate, item.deletionDate) &&
@@ -948,6 +1030,7 @@ public class Item {
         Objects.equals(this.itemType, item.itemType) &&
         Objects.equals(this.itemVersions, item.itemVersions) &&
         Objects.equals(this.lastVersion, item.lastVersion) &&
+        Objects.equals(this.modificationDate, item.modificationDate) &&
         Objects.equals(this.nextRotationDate, item.nextRotationDate) &&
         Objects.equals(this.protectionKeyName, item.protectionKeyName) &&
         Objects.equals(this.protectionKeyType, item.protectionKeyType) &&
@@ -955,12 +1038,13 @@ public class Item {
         Objects.equals(this.rotationInterval, item.rotationInterval) &&
         Objects.equals(this.sharedBy, item.sharedBy) &&
         Objects.equals(this.targetVersions, item.targetVersions) &&
+        Objects.equals(this.usageDate, item.usageDate) &&
         Objects.equals(this.withCustomerFragment, item.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, usageDate, withCustomerFragment);
   }
 
 
@@ -973,6 +1057,7 @@ public class Item {
     sb.append("    certificateIssueDetails: ").append(toIndentedString(certificateIssueDetails)).append("\n");
     sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
@@ -991,6 +1076,7 @@ public class Item {
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemVersions: ").append(toIndentedString(itemVersions)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    nextRotationDate: ").append(toIndentedString(nextRotationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    protectionKeyType: ").append(toIndentedString(protectionKeyType)).append("\n");
@@ -998,6 +1084,7 @@ public class Item {
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    sharedBy: ").append(toIndentedString(sharedBy)).append("\n");
     sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
+    sb.append("    usageDate: ").append(toIndentedString(usageDate)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");
     return sb.toString();

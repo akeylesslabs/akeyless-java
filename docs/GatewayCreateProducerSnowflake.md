@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **accountUsername** | **String** | Database Username |  [optional]
 **dbName** | **String** | Database name |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **role** | **String** | User role |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]

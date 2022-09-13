@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class GetTargetDetails {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -48,6 +52,29 @@ public class GetTargetDetails {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GetTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GetTargetDetails name(String name) {
@@ -173,7 +200,8 @@ public class GetTargetDetails {
       return false;
     }
     GetTargetDetails getTargetDetails = (GetTargetDetails) o;
-    return Objects.equals(this.name, getTargetDetails.name) &&
+    return Objects.equals(this.json, getTargetDetails.json) &&
+        Objects.equals(this.name, getTargetDetails.name) &&
         Objects.equals(this.showVersions, getTargetDetails.showVersions) &&
         Objects.equals(this.targetVersion, getTargetDetails.targetVersion) &&
         Objects.equals(this.token, getTargetDetails.token) &&
@@ -182,7 +210,7 @@ public class GetTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, showVersions, targetVersion, token, uidToken);
+    return Objects.hash(json, name, showVersions, targetVersion, token, uidToken);
   }
 
 
@@ -190,6 +218,7 @@ public class GetTargetDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTargetDetails {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
     sb.append("    targetVersion: ").append(toIndentedString(targetVersion)).append("\n");

@@ -34,6 +34,10 @@ public class DeleteRoleAssociation {
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -62,6 +66,29 @@ public class DeleteRoleAssociation {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public DeleteRoleAssociation json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -121,13 +148,14 @@ public class DeleteRoleAssociation {
     }
     DeleteRoleAssociation deleteRoleAssociation = (DeleteRoleAssociation) o;
     return Objects.equals(this.assocId, deleteRoleAssociation.assocId) &&
+        Objects.equals(this.json, deleteRoleAssociation.json) &&
         Objects.equals(this.token, deleteRoleAssociation.token) &&
         Objects.equals(this.uidToken, deleteRoleAssociation.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, token, uidToken);
+    return Objects.hash(assocId, json, token, uidToken);
   }
 
 
@@ -136,6 +164,7 @@ public class DeleteRoleAssociation {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRoleAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

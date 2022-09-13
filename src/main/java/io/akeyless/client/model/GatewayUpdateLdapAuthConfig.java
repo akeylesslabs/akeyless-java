@@ -54,6 +54,10 @@ public class GatewayUpdateLdapAuthConfig {
   @SerializedName(SERIALIZED_NAME_GROUP_FILTER)
   private String groupFilter;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_LDAP_CA_CERT = "ldap-ca-cert";
   @SerializedName(SERIALIZED_NAME_LDAP_CA_CERT)
   private String ldapCaCert;
@@ -226,6 +230,29 @@ public class GatewayUpdateLdapAuthConfig {
 
   public void setGroupFilter(String groupFilter) {
     this.groupFilter = groupFilter;
+  }
+
+
+  public GatewayUpdateLdapAuthConfig json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -451,6 +478,7 @@ public class GatewayUpdateLdapAuthConfig {
         Objects.equals(this.groupAttr, gatewayUpdateLdapAuthConfig.groupAttr) &&
         Objects.equals(this.groupDn, gatewayUpdateLdapAuthConfig.groupDn) &&
         Objects.equals(this.groupFilter, gatewayUpdateLdapAuthConfig.groupFilter) &&
+        Objects.equals(this.json, gatewayUpdateLdapAuthConfig.json) &&
         Objects.equals(this.ldapCaCert, gatewayUpdateLdapAuthConfig.ldapCaCert) &&
         Objects.equals(this.ldapEnable, gatewayUpdateLdapAuthConfig.ldapEnable) &&
         Objects.equals(this.ldapUrl, gatewayUpdateLdapAuthConfig.ldapUrl) &&
@@ -464,7 +492,7 @@ public class GatewayUpdateLdapAuthConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, bindDn, bindDnPassword, groupAttr, groupDn, groupFilter, ldapCaCert, ldapEnable, ldapUrl, ldapAnonymousSearch, signingKeyData, token, uidToken, userAttribute, userDn);
+    return Objects.hash(accessId, bindDn, bindDnPassword, groupAttr, groupDn, groupFilter, json, ldapCaCert, ldapEnable, ldapUrl, ldapAnonymousSearch, signingKeyData, token, uidToken, userAttribute, userDn);
   }
 
 
@@ -478,6 +506,7 @@ public class GatewayUpdateLdapAuthConfig {
     sb.append("    groupAttr: ").append(toIndentedString(groupAttr)).append("\n");
     sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
     sb.append("    groupFilter: ").append(toIndentedString(groupFilter)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapEnable: ").append(toIndentedString(ldapEnable)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");

@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class UpdateTarget {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -48,6 +52,29 @@ public class UpdateTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public UpdateTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public UpdateTarget name(String name) {
@@ -173,7 +200,8 @@ public class UpdateTarget {
       return false;
     }
     UpdateTarget updateTarget = (UpdateTarget) o;
-    return Objects.equals(this.name, updateTarget.name) &&
+    return Objects.equals(this.json, updateTarget.json) &&
+        Objects.equals(this.name, updateTarget.name) &&
         Objects.equals(this.newComment, updateTarget.newComment) &&
         Objects.equals(this.newName, updateTarget.newName) &&
         Objects.equals(this.token, updateTarget.token) &&
@@ -182,7 +210,7 @@ public class UpdateTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, newComment, newName, token, uidToken);
+    return Objects.hash(json, name, newComment, newName, token, uidToken);
   }
 
 
@@ -190,6 +218,7 @@ public class UpdateTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateTarget {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

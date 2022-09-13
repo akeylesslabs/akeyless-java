@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "of it.")
 
 public class RotateKey {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -45,6 +49,29 @@ public class RotateKey {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public RotateKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public RotateKey name(String name) {
@@ -147,7 +174,8 @@ public class RotateKey {
       return false;
     }
     RotateKey rotateKey = (RotateKey) o;
-    return Objects.equals(this.name, rotateKey.name) &&
+    return Objects.equals(this.json, rotateKey.json) &&
+        Objects.equals(this.name, rotateKey.name) &&
         Objects.equals(this.newKeyData, rotateKey.newKeyData) &&
         Objects.equals(this.token, rotateKey.token) &&
         Objects.equals(this.uidToken, rotateKey.uidToken);
@@ -155,7 +183,7 @@ public class RotateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, newKeyData, token, uidToken);
+    return Objects.hash(json, name, newKeyData, token, uidToken);
   }
 
 
@@ -163,6 +191,7 @@ public class RotateKey {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateKey {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newKeyData: ").append(toIndentedString(newKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

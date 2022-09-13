@@ -37,6 +37,10 @@ public class UpdateSSHTarget {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -129,6 +133,29 @@ public class UpdateSSHTarget {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public UpdateSSHTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -418,6 +445,7 @@ public class UpdateSSHTarget {
     UpdateSSHTarget updateSSHTarget = (UpdateSSHTarget) o;
     return Objects.equals(this.comment, updateSSHTarget.comment) &&
         Objects.equals(this.host, updateSSHTarget.host) &&
+        Objects.equals(this.json, updateSSHTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateSSHTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateSSHTarget.key) &&
         Objects.equals(this.name, updateSSHTarget.name) &&
@@ -434,7 +462,7 @@ public class UpdateSSHTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, host, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
+    return Objects.hash(comment, host, json, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
   }
 
 
@@ -444,6 +472,7 @@ public class UpdateSSHTarget {
     sb.append("class UpdateSSHTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

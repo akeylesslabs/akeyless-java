@@ -39,6 +39,10 @@ public class GetDynamicSecretValue {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -111,6 +115,29 @@ public class GetDynamicSecretValue {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public GetDynamicSecretValue json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -239,6 +266,7 @@ public class GetDynamicSecretValue {
     GetDynamicSecretValue getDynamicSecretValue = (GetDynamicSecretValue) o;
     return Objects.equals(this.args, getDynamicSecretValue.args) &&
         Objects.equals(this.host, getDynamicSecretValue.host) &&
+        Objects.equals(this.json, getDynamicSecretValue.json) &&
         Objects.equals(this.name, getDynamicSecretValue.name) &&
         Objects.equals(this.target, getDynamicSecretValue.target) &&
         Objects.equals(this.timeout, getDynamicSecretValue.timeout) &&
@@ -248,7 +276,7 @@ public class GetDynamicSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, host, name, target, timeout, token, uidToken);
+    return Objects.hash(args, host, json, name, target, timeout, token, uidToken);
   }
 
 
@@ -258,6 +286,7 @@ public class GetDynamicSecretValue {
     sb.append("class GetDynamicSecretValue {\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");

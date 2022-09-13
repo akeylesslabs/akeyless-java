@@ -33,6 +33,10 @@ public class VerifyPKICertWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PKI_CERT = "pki-cert";
   @SerializedName(SERIALIZED_NAME_PKI_CERT)
   private String pkiCert;
@@ -69,6 +73,29 @@ public class VerifyPKICertWithClassicKey {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public VerifyPKICertWithClassicKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -172,6 +199,7 @@ public class VerifyPKICertWithClassicKey {
     }
     VerifyPKICertWithClassicKey verifyPKICertWithClassicKey = (VerifyPKICertWithClassicKey) o;
     return Objects.equals(this.displayId, verifyPKICertWithClassicKey.displayId) &&
+        Objects.equals(this.json, verifyPKICertWithClassicKey.json) &&
         Objects.equals(this.pkiCert, verifyPKICertWithClassicKey.pkiCert) &&
         Objects.equals(this.token, verifyPKICertWithClassicKey.token) &&
         Objects.equals(this.uidToken, verifyPKICertWithClassicKey.uidToken) &&
@@ -180,7 +208,7 @@ public class VerifyPKICertWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, pkiCert, token, uidToken, version);
+    return Objects.hash(displayId, json, pkiCert, token, uidToken, version);
   }
 
 
@@ -189,6 +217,7 @@ public class VerifyPKICertWithClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerifyPKICertWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    pkiCert: ").append(toIndentedString(pkiCert)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

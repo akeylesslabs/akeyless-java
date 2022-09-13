@@ -38,6 +38,10 @@ public class SignPKCS1 {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -98,6 +102,29 @@ public class SignPKCS1 {
 
   public void setItemId(Long itemId) {
     this.itemId = itemId;
+  }
+
+
+  public SignPKCS1 json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -203,6 +230,7 @@ public class SignPKCS1 {
     SignPKCS1 signPKCS1 = (SignPKCS1) o;
     return Objects.equals(this.displayId, signPKCS1.displayId) &&
         Objects.equals(this.itemId, signPKCS1.itemId) &&
+        Objects.equals(this.json, signPKCS1.json) &&
         Objects.equals(this.keyName, signPKCS1.keyName) &&
         Objects.equals(this.message, signPKCS1.message) &&
         Objects.equals(this.token, signPKCS1.token) &&
@@ -211,7 +239,7 @@ public class SignPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, keyName, message, token, uidToken);
+    return Objects.hash(displayId, itemId, json, keyName, message, token, uidToken);
   }
 
 
@@ -221,6 +249,7 @@ public class SignPKCS1 {
     sb.append("class SignPKCS1 {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

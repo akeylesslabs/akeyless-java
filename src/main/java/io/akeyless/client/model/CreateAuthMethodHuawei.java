@@ -76,6 +76,10 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -410,6 +414,29 @@ public class CreateAuthMethodHuawei {
   }
 
 
+  public CreateAuthMethodHuawei json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodHuawei jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -521,6 +548,7 @@ public class CreateAuthMethodHuawei {
         Objects.equals(this.boundUserName, createAuthMethodHuawei.boundUserName) &&
         Objects.equals(this.forceSubClaims, createAuthMethodHuawei.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodHuawei.gwBoundIps) &&
+        Objects.equals(this.json, createAuthMethodHuawei.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodHuawei.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodHuawei.name) &&
         Objects.equals(this.token, createAuthMethodHuawei.token) &&
@@ -529,7 +557,7 @@ public class CreateAuthMethodHuawei {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, jwtTtl, name, token, uidToken);
+    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
   }
 
 
@@ -548,6 +576,7 @@ public class CreateAuthMethodHuawei {
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

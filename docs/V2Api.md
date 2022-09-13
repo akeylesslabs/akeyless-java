@@ -66,6 +66,7 @@ Method | HTTP request | Description
 [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
+[**gatewayAddAllowedManagementAccess**](V2Api.md#gatewayAddAllowedManagementAccess) | **POST** /gateway-add-allow-management-access | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 [**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
@@ -165,8 +166,10 @@ Method | HTTP request | Description
 [**kmipServerSetup**](V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
 [**kmipSetServerState**](V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
 [**listAuthMethods**](V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
+[**listGateways**](V2Api.md#listGateways) | **POST** /list-gateways | 
 [**listItems**](V2Api.md#listItems) | **POST** /list-items | 
 [**listRoles**](V2Api.md#listRoles) | **POST** /list-roles | 
+[**listSRABastions**](V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
 [**listTargets**](V2Api.md#listTargets) | **POST** /list-targets | 
 [**moveObjects**](V2Api.md#moveObjects) | **POST** /move-objects | 
 [**rawCreds**](V2Api.md#rawCreds) | **POST** /raw-creds | 
@@ -4021,6 +4024,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | encryptResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayAddAllowedManagementAccess"></a>
+# **gatewayAddAllowedManagementAccess**
+> Object gatewayAddAllowedManagementAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayAddAllowedManagementAccess body = new GatewayAddAllowedManagementAccess(); // GatewayAddAllowedManagementAccess | 
+    try {
+      Object result = apiInstance.gatewayAddAllowedManagementAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayAddAllowedManagementAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayAddAllowedManagementAccess**](GatewayAddAllowedManagementAccess.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayAddSubAdminsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateK8SAuthConfig"></a>
@@ -10056,6 +10120,67 @@ No authorization required
 **200** | listAuthMethodsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="listGateways"></a>
+# **listGateways**
+> GatewaysListResponse listGateways(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ListGateways body = new ListGateways(); // ListGateways | 
+    try {
+      GatewaysListResponse result = apiInstance.listGateways(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#listGateways");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ListGateways**](ListGateways.md)|  |
+
+### Return type
+
+[**GatewaysListResponse**](GatewaysListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | listGatewaysResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="listItems"></a>
 # **listItems**
 > ListItemsInPathOutput listItems(body)
@@ -10176,6 +10301,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | listRolesResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="listSRABastions"></a>
+# **listSRABastions**
+> BastionsList listSRABastions(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ListSRABastions body = new ListSRABastions(); // ListSRABastions | 
+    try {
+      BastionsList result = apiInstance.listSRABastions(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#listSRABastions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ListSRABastions**](ListSRABastions.md)|  |
+
+### Return type
+
+[**BastionsList**](BastionsList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | listSRABastionsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="listTargets"></a>
@@ -13104,7 +13290,7 @@ No authorization required
 
 <a name="updateNativeK8STarget"></a>
 # **updateNativeK8STarget**
-> UpdateNativeK8STarget updateNativeK8STarget(body)
+> UpdateNativeK8STargetOutput updateNativeK8STarget(body)
 
 
 
@@ -13125,7 +13311,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     UpdateNativeK8STarget body = new UpdateNativeK8STarget(); // UpdateNativeK8STarget | 
     try {
-      UpdateNativeK8STarget result = apiInstance.updateNativeK8STarget(body);
+      UpdateNativeK8STargetOutput result = apiInstance.updateNativeK8STarget(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#updateNativeK8STarget");
@@ -13146,7 +13332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateNativeK8STarget**](UpdateNativeK8STarget.md)
+[**UpdateNativeK8STargetOutput**](UpdateNativeK8STargetOutput.md)
 
 ### Authorization
 
@@ -13160,7 +13346,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | updateNativeK8STarget |  -  |
+**200** | updateNativeK8STargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updatePKICertIssuer"></a>
@@ -13973,7 +14159,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    Object body = null; // Object | 
+    UpdateTargetDetails body = new UpdateTargetDetails(); // UpdateTargetDetails | 
     try {
       UpdateTargetOutput result = apiInstance.updateTargetDetails(body);
       System.out.println(result);
@@ -13992,7 +14178,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  |
+ **body** | [**UpdateTargetDetails**](UpdateTargetDetails.md)|  |
 
 ### Return type
 

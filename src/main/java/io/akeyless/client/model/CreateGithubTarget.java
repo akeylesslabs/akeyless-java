@@ -45,6 +45,10 @@ public class CreateGithubTarget {
   @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
   private String githubBaseUrl;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -154,6 +158,29 @@ public class CreateGithubTarget {
   }
 
 
+  public CreateGithubTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateGithubTarget key(String key) {
     
     this.key = key;
@@ -258,6 +285,7 @@ public class CreateGithubTarget {
         Objects.equals(this.githubAppId, createGithubTarget.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, createGithubTarget.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, createGithubTarget.githubBaseUrl) &&
+        Objects.equals(this.json, createGithubTarget.json) &&
         Objects.equals(this.key, createGithubTarget.key) &&
         Objects.equals(this.name, createGithubTarget.name) &&
         Objects.equals(this.token, createGithubTarget.token) &&
@@ -266,7 +294,7 @@ public class CreateGithubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, key, name, token, uidToken);
+    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, json, key, name, token, uidToken);
   }
 
 
@@ -278,6 +306,7 @@ public class CreateGithubTarget {
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

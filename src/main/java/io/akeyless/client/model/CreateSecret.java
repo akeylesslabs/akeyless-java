@@ -41,6 +41,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -59,7 +63,7 @@ public class CreateSecret {
 
   public static final String SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL = "password-manager-inject-url";
   @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL)
-  private String passwordManagerInjectUrl;
+  private List<String> passwordManagerInjectUrl = null;
 
   public static final String SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD = "password-manager-password";
   @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD)
@@ -172,6 +176,29 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateSecret metadata(String metadata) {
     
     this.metadata = metadata;
@@ -271,9 +298,17 @@ public class CreateSecret {
   }
 
 
-  public CreateSecret passwordManagerInjectUrl(String passwordManagerInjectUrl) {
+  public CreateSecret passwordManagerInjectUrl(List<String> passwordManagerInjectUrl) {
     
     this.passwordManagerInjectUrl = passwordManagerInjectUrl;
+    return this;
+  }
+
+  public CreateSecret addPasswordManagerInjectUrlItem(String passwordManagerInjectUrlItem) {
+    if (this.passwordManagerInjectUrl == null) {
+      this.passwordManagerInjectUrl = new ArrayList<String>();
+    }
+    this.passwordManagerInjectUrl.add(passwordManagerInjectUrlItem);
     return this;
   }
 
@@ -284,12 +319,12 @@ public class CreateSecret {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "For Password Management use, reflect the website context")
 
-  public String getPasswordManagerInjectUrl() {
+  public List<String> getPasswordManagerInjectUrl() {
     return passwordManagerInjectUrl;
   }
 
 
-  public void setPasswordManagerInjectUrl(String passwordManagerInjectUrl) {
+  public void setPasswordManagerInjectUrl(List<String> passwordManagerInjectUrl) {
     this.passwordManagerInjectUrl = passwordManagerInjectUrl;
   }
 
@@ -688,6 +723,7 @@ public class CreateSecret {
     CreateSecret createSecret = (CreateSecret) o;
     return Objects.equals(this.accessibility, createSecret.accessibility) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
+        Objects.equals(this.json, createSecret.json) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
         Objects.equals(this.name, createSecret.name) &&
@@ -713,7 +749,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteProtection, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
+    return Objects.hash(accessibility, deleteProtection, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
   }
 
 
@@ -723,6 +759,7 @@ public class CreateSecret {
     sb.append("class CreateSecret {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

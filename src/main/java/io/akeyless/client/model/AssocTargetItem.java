@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "assocTargetItem is a command that creates an association between target and item.")
 
 public class AssocTargetItem {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_OPERATIONS = "key-operations";
   @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
   private List<String> keyOperations = null;
@@ -79,6 +83,29 @@ public class AssocTargetItem {
   public static final String SERIALIZED_NAME_VAULT_NAME = "vault-name";
   @SerializedName(SERIALIZED_NAME_VAULT_NAME)
   private String vaultName;
+
+
+  public AssocTargetItem json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public AssocTargetItem keyOperations(List<String> keyOperations) {
@@ -372,7 +399,8 @@ public class AssocTargetItem {
       return false;
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
-    return Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
+    return Objects.equals(this.json, assocTargetItem.json) &&
+        Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
         Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
         Objects.equals(this.kmsAlgorithm, assocTargetItem.kmsAlgorithm) &&
         Objects.equals(this.locationId, assocTargetItem.locationId) &&
@@ -388,7 +416,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyOperations, keyringName, kmsAlgorithm, locationId, name, projectId, purpose, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(json, keyOperations, keyringName, kmsAlgorithm, locationId, name, projectId, purpose, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
 
@@ -396,6 +424,7 @@ public class AssocTargetItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    kmsAlgorithm: ").append(toIndentedString(kmsAlgorithm)).append("\n");

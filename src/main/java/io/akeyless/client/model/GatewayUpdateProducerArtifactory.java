@@ -56,6 +56,10 @@ public class GatewayUpdateProducerArtifactory {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -222,6 +226,29 @@ public class GatewayUpdateProducerArtifactory {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerArtifactory json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -431,6 +458,7 @@ public class GatewayUpdateProducerArtifactory {
         Objects.equals(this.artifactoryTokenScope, gatewayUpdateProducerArtifactory.artifactoryTokenScope) &&
         Objects.equals(this.baseUrl, gatewayUpdateProducerArtifactory.baseUrl) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerArtifactory.deleteProtection) &&
+        Objects.equals(this.json, gatewayUpdateProducerArtifactory.json) &&
         Objects.equals(this.name, gatewayUpdateProducerArtifactory.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerArtifactory.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerArtifactory.producerEncryptionKeyName) &&
@@ -443,7 +471,7 @@ public class GatewayUpdateProducerArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, deleteProtection, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, deleteProtection, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -457,6 +485,7 @@ public class GatewayUpdateProducerArtifactory {
     sb.append("    artifactoryTokenScope: ").append(toIndentedString(artifactoryTokenScope)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

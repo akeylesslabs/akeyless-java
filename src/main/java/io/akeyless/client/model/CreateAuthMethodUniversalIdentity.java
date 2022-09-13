@@ -56,6 +56,10 @@ public class CreateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -231,6 +235,29 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
+  public CreateAuthMethodUniversalIdentity json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodUniversalIdentity jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -360,6 +387,7 @@ public class CreateAuthMethodUniversalIdentity {
         Objects.equals(this.denyRotate, createAuthMethodUniversalIdentity.denyRotate) &&
         Objects.equals(this.forceSubClaims, createAuthMethodUniversalIdentity.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodUniversalIdentity.gwBoundIps) &&
+        Objects.equals(this.json, createAuthMethodUniversalIdentity.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodUniversalIdentity.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodUniversalIdentity.name) &&
         Objects.equals(this.token, createAuthMethodUniversalIdentity.token) &&
@@ -369,7 +397,7 @@ public class CreateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, gwBoundIps, jwtTtl, name, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, ttl, uidToken);
   }
 
 
@@ -383,6 +411,7 @@ public class CreateAuthMethodUniversalIdentity {
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

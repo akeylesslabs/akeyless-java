@@ -53,6 +53,10 @@ public class UpdateGKETarget {
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_EMAIL)
   private String gkeServiceAccountEmail;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -221,6 +225,29 @@ public class UpdateGKETarget {
 
   public void setGkeServiceAccountEmail(String gkeServiceAccountEmail) {
     this.gkeServiceAccountEmail = gkeServiceAccountEmail;
+  }
+
+
+  public UpdateGKETarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -422,6 +449,7 @@ public class UpdateGKETarget {
         Objects.equals(this.gkeClusterEndpoint, updateGKETarget.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, updateGKETarget.gkeClusterName) &&
         Objects.equals(this.gkeServiceAccountEmail, updateGKETarget.gkeServiceAccountEmail) &&
+        Objects.equals(this.json, updateGKETarget.json) &&
         Objects.equals(this.keepPrevVersion, updateGKETarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGKETarget.key) &&
         Objects.equals(this.name, updateGKETarget.name) &&
@@ -434,7 +462,7 @@ public class UpdateGKETarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -448,6 +476,7 @@ public class UpdateGKETarget {
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
     sb.append("    gkeServiceAccountEmail: ").append(toIndentedString(gkeServiceAccountEmail)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

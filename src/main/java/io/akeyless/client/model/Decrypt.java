@@ -49,9 +49,17 @@ public class Decrypt {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_FORMAT = "output-format";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_FORMAT)
+  private String outputFormat;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -162,6 +170,29 @@ public class Decrypt {
   }
 
 
+  public Decrypt json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public Decrypt keyName(String keyName) {
     
     this.keyName = keyName;
@@ -181,6 +212,29 @@ public class Decrypt {
 
   public void setKeyName(String keyName) {
     this.keyName = keyName;
+  }
+
+
+  public Decrypt outputFormat(String outputFormat) {
+    
+    this.outputFormat = outputFormat;
+    return this;
+  }
+
+   /**
+   * If specified, the output will be formatted accordingly. options: [base64]
+   * @return outputFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If specified, the output will be formatted accordingly. options: [base64]")
+
+  public String getOutputFormat() {
+    return outputFormat;
+  }
+
+
+  public void setOutputFormat(String outputFormat) {
+    this.outputFormat = outputFormat;
   }
 
 
@@ -243,14 +297,16 @@ public class Decrypt {
         Objects.equals(this.displayId, decrypt.displayId) &&
         Objects.equals(this.encryptionContext, decrypt.encryptionContext) &&
         Objects.equals(this.itemId, decrypt.itemId) &&
+        Objects.equals(this.json, decrypt.json) &&
         Objects.equals(this.keyName, decrypt.keyName) &&
+        Objects.equals(this.outputFormat, decrypt.outputFormat) &&
         Objects.equals(this.token, decrypt.token) &&
         Objects.equals(this.uidToken, decrypt.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, encryptionContext, itemId, keyName, token, uidToken);
+    return Objects.hash(ciphertext, displayId, encryptionContext, itemId, json, keyName, outputFormat, token, uidToken);
   }
 
 
@@ -262,7 +318,9 @@ public class Decrypt {
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

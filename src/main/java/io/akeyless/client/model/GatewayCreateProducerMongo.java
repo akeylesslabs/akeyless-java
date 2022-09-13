@@ -36,6 +36,10 @@ public class GatewayCreateProducerMongo {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb-atlas-api-private-key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
   private String mongodbAtlasApiPrivateKey;
@@ -149,6 +153,29 @@ public class GatewayCreateProducerMongo {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerMongo json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -706,6 +733,7 @@ public class GatewayCreateProducerMongo {
     }
     GatewayCreateProducerMongo gatewayCreateProducerMongo = (GatewayCreateProducerMongo) o;
     return Objects.equals(this.deleteProtection, gatewayCreateProducerMongo.deleteProtection) &&
+        Objects.equals(this.json, gatewayCreateProducerMongo.json) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayCreateProducerMongo.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, gatewayCreateProducerMongo.mongodbAtlasApiPublicKey) &&
         Objects.equals(this.mongodbAtlasProjectId, gatewayCreateProducerMongo.mongodbAtlasProjectId) &&
@@ -733,7 +761,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -742,6 +770,7 @@ public class GatewayCreateProducerMongo {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMongo {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
     sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");

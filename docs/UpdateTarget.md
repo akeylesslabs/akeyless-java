@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Target name | 
 **newComment** | **String** | New comment about the target |  [optional]
 **newName** | **String** | New Target name |  [optional]

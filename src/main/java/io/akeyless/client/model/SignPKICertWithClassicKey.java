@@ -45,6 +45,10 @@ public class SignPKICertWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DNS_NAMES)
   private String dnsNames;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_USAGE = "key-usage";
   @SerializedName(SERIALIZED_NAME_KEY_USAGE)
   private String keyUsage = "DigitalSignature,KeyAgreement,KeyEncipherment";
@@ -190,6 +194,29 @@ public class SignPKICertWithClassicKey {
 
   public void setDnsNames(String dnsNames) {
     this.dnsNames = dnsNames;
+  }
+
+
+  public SignPKICertWithClassicKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -525,6 +552,7 @@ public class SignPKICertWithClassicKey {
         Objects.equals(this.country, signPKICertWithClassicKey.country) &&
         Objects.equals(this.displayId, signPKICertWithClassicKey.displayId) &&
         Objects.equals(this.dnsNames, signPKICertWithClassicKey.dnsNames) &&
+        Objects.equals(this.json, signPKICertWithClassicKey.json) &&
         Objects.equals(this.keyUsage, signPKICertWithClassicKey.keyUsage) &&
         Objects.equals(this.locality, signPKICertWithClassicKey.locality) &&
         Objects.equals(this.organizationalUnits, signPKICertWithClassicKey.organizationalUnits) &&
@@ -543,7 +571,7 @@ public class SignPKICertWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonName, country, displayId, dnsNames, keyUsage, locality, organizationalUnits, organizations, postalCode, province, publicKeyPemData, signingMethod, streetAddress, token, ttl, uidToken, uriSans, version);
+    return Objects.hash(commonName, country, displayId, dnsNames, json, keyUsage, locality, organizationalUnits, organizations, postalCode, province, publicKeyPemData, signingMethod, streetAddress, token, ttl, uidToken, uriSans, version);
   }
 
 
@@ -555,6 +583,7 @@ public class SignPKICertWithClassicKey {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    dnsNames: ").append(toIndentedString(dnsNames)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    organizationalUnits: ").append(toIndentedString(organizationalUnits)).append("\n");

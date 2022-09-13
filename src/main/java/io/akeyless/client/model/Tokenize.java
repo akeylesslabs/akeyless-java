@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "tokenize is a command that encrypts text with a tokenizer")
 
 public class Tokenize {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PLAINTEXT = "plaintext";
   @SerializedName(SERIALIZED_NAME_PLAINTEXT)
   private String plaintext;
@@ -49,6 +53,29 @@ public class Tokenize {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public Tokenize json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public Tokenize plaintext(String plaintext) {
@@ -173,7 +200,8 @@ public class Tokenize {
       return false;
     }
     Tokenize tokenize = (Tokenize) o;
-    return Objects.equals(this.plaintext, tokenize.plaintext) &&
+    return Objects.equals(this.json, tokenize.json) &&
+        Objects.equals(this.plaintext, tokenize.plaintext) &&
         Objects.equals(this.token, tokenize.token) &&
         Objects.equals(this.tokenizerName, tokenize.tokenizerName) &&
         Objects.equals(this.tweak, tokenize.tweak) &&
@@ -182,7 +210,7 @@ public class Tokenize {
 
   @Override
   public int hashCode() {
-    return Objects.hash(plaintext, token, tokenizerName, tweak, uidToken);
+    return Objects.hash(json, plaintext, token, tokenizerName, tweak, uidToken);
   }
 
 
@@ -190,6 +218,7 @@ public class Tokenize {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Tokenize {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenizerName: ").append(toIndentedString(tokenizerName)).append("\n");

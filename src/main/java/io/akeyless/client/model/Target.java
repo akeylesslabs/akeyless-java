@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.ItemVersion;
 import io.akeyless.client.model.TargetItemAssociation;
+import io.akeyless.client.model.TargetObjectAssociation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -66,6 +67,10 @@ public class Target {
   public static final String SERIALIZED_NAME_TARGET_NAME = "target_name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
+
+  public static final String SERIALIZED_NAME_TARGET_OBJECTS_ASSOC = "target_objects_assoc";
+  @SerializedName(SERIALIZED_NAME_TARGET_OBJECTS_ASSOC)
+  private List<TargetObjectAssociation> targetObjectsAssoc = null;
 
   public static final String SERIALIZED_NAME_TARGET_TYPE = "target_type";
   @SerializedName(SERIALIZED_NAME_TARGET_TYPE)
@@ -288,6 +293,37 @@ public class Target {
   }
 
 
+  public Target targetObjectsAssoc(List<TargetObjectAssociation> targetObjectsAssoc) {
+    
+    this.targetObjectsAssoc = targetObjectsAssoc;
+    return this;
+  }
+
+  public Target addTargetObjectsAssocItem(TargetObjectAssociation targetObjectsAssocItem) {
+    if (this.targetObjectsAssoc == null) {
+      this.targetObjectsAssoc = new ArrayList<TargetObjectAssociation>();
+    }
+    this.targetObjectsAssoc.add(targetObjectsAssocItem);
+    return this;
+  }
+
+   /**
+   * Get targetObjectsAssoc
+   * @return targetObjectsAssoc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<TargetObjectAssociation> getTargetObjectsAssoc() {
+    return targetObjectsAssoc;
+  }
+
+
+  public void setTargetObjectsAssoc(List<TargetObjectAssociation> targetObjectsAssoc) {
+    this.targetObjectsAssoc = targetObjectsAssoc;
+  }
+
+
   public Target targetType(String targetType) {
     
     this.targetType = targetType;
@@ -382,6 +418,7 @@ public class Target {
         Objects.equals(this.targetId, target.targetId) &&
         Objects.equals(this.targetItemsAssoc, target.targetItemsAssoc) &&
         Objects.equals(this.targetName, target.targetName) &&
+        Objects.equals(this.targetObjectsAssoc, target.targetObjectsAssoc) &&
         Objects.equals(this.targetType, target.targetType) &&
         Objects.equals(this.targetVersions, target.targetVersions) &&
         Objects.equals(this.withCustomerFragment, target.withCustomerFragment);
@@ -389,7 +426,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, clientPermissions, comment, lastVersion, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(attributes, clientPermissions, comment, lastVersion, protectionKeyName, targetId, targetItemsAssoc, targetName, targetObjectsAssoc, targetType, targetVersions, withCustomerFragment);
   }
 
 
@@ -405,6 +442,7 @@ public class Target {
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetItemsAssoc: ").append(toIndentedString(targetItemsAssoc)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
+    sb.append("    targetObjectsAssoc: ").append(toIndentedString(targetObjectsAssoc)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");

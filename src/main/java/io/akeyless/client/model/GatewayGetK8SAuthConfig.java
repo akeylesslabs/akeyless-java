@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "gatewayGetK8SAuth is a command that gets k8s auth config")
 
 public class GatewayGetK8SAuthConfig {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -41,6 +45,29 @@ public class GatewayGetK8SAuthConfig {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GatewayGetK8SAuthConfig json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GatewayGetK8SAuthConfig name(String name) {
@@ -120,14 +147,15 @@ public class GatewayGetK8SAuthConfig {
       return false;
     }
     GatewayGetK8SAuthConfig gatewayGetK8SAuthConfig = (GatewayGetK8SAuthConfig) o;
-    return Objects.equals(this.name, gatewayGetK8SAuthConfig.name) &&
+    return Objects.equals(this.json, gatewayGetK8SAuthConfig.json) &&
+        Objects.equals(this.name, gatewayGetK8SAuthConfig.name) &&
         Objects.equals(this.token, gatewayGetK8SAuthConfig.token) &&
         Objects.equals(this.uidToken, gatewayGetK8SAuthConfig.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(json, name, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class GatewayGetK8SAuthConfig {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayGetK8SAuthConfig {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class GetRotatedSecretValue {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAMES = "names";
   @SerializedName(SERIALIZED_NAME_NAMES)
   private String names;
@@ -44,6 +48,29 @@ public class GetRotatedSecretValue {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
+
+
+  public GetRotatedSecretValue json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GetRotatedSecretValue names(String names) {
@@ -146,7 +173,8 @@ public class GetRotatedSecretValue {
       return false;
     }
     GetRotatedSecretValue getRotatedSecretValue = (GetRotatedSecretValue) o;
-    return Objects.equals(this.names, getRotatedSecretValue.names) &&
+    return Objects.equals(this.json, getRotatedSecretValue.json) &&
+        Objects.equals(this.names, getRotatedSecretValue.names) &&
         Objects.equals(this.token, getRotatedSecretValue.token) &&
         Objects.equals(this.uidToken, getRotatedSecretValue.uidToken) &&
         Objects.equals(this.version, getRotatedSecretValue.version);
@@ -154,7 +182,7 @@ public class GetRotatedSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, token, uidToken, version);
+    return Objects.hash(json, names, token, uidToken, version);
   }
 
 
@@ -162,6 +190,7 @@ public class GetRotatedSecretValue {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRotatedSecretValue {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

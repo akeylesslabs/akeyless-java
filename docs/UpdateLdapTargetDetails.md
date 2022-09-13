@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bindDn** | **String** |  |  [optional]
 **bindDnPassword** | **String** |  |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]
 **key** | **String** |  |  [optional]
 **ldapCaCert** | **String** |  |  [optional]

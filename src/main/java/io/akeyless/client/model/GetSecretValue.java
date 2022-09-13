@@ -35,6 +35,10 @@ public class GetSecretValue {
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAMES = "names";
   @SerializedName(SERIALIZED_NAME_NAMES)
   private List<String> names = new ArrayList<String>();
@@ -76,6 +80,29 @@ public class GetSecretValue {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public GetSecretValue json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -208,6 +235,7 @@ public class GetSecretValue {
     }
     GetSecretValue getSecretValue = (GetSecretValue) o;
     return Objects.equals(this.accessibility, getSecretValue.accessibility) &&
+        Objects.equals(this.json, getSecretValue.json) &&
         Objects.equals(this.names, getSecretValue.names) &&
         Objects.equals(this.prettyPrint, getSecretValue.prettyPrint) &&
         Objects.equals(this.token, getSecretValue.token) &&
@@ -217,7 +245,7 @@ public class GetSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, names, prettyPrint, token, uidToken, version);
+    return Objects.hash(accessibility, json, names, prettyPrint, token, uidToken, version);
   }
 
 
@@ -226,6 +254,7 @@ public class GetSecretValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSecretValue {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    prettyPrint: ").append(toIndentedString(prettyPrint)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

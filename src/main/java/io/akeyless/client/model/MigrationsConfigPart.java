@@ -25,6 +25,7 @@ import io.akeyless.client.model.AzureKeyVaultMigration;
 import io.akeyless.client.model.GCPSecretsMigration;
 import io.akeyless.client.model.HashiMigration;
 import io.akeyless.client.model.K8SMigration;
+import io.akeyless.client.model.OnePasswordMigration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -55,6 +56,10 @@ public class MigrationsConfigPart {
   public static final String SERIALIZED_NAME_K8S_MIGRATIONS = "k8s_migrations";
   @SerializedName(SERIALIZED_NAME_K8S_MIGRATIONS)
   private List<K8SMigration> k8sMigrations = null;
+
+  public static final String SERIALIZED_NAME_ONE_PASSWORD_MIGRATIONS = "one_password_migrations";
+  @SerializedName(SERIALIZED_NAME_ONE_PASSWORD_MIGRATIONS)
+  private List<OnePasswordMigration> onePasswordMigrations = null;
 
 
   public MigrationsConfigPart awsSecretsMigrations(List<AWSSecretsMigration> awsSecretsMigrations) {
@@ -212,6 +217,37 @@ public class MigrationsConfigPart {
   }
 
 
+  public MigrationsConfigPart onePasswordMigrations(List<OnePasswordMigration> onePasswordMigrations) {
+    
+    this.onePasswordMigrations = onePasswordMigrations;
+    return this;
+  }
+
+  public MigrationsConfigPart addOnePasswordMigrationsItem(OnePasswordMigration onePasswordMigrationsItem) {
+    if (this.onePasswordMigrations == null) {
+      this.onePasswordMigrations = new ArrayList<OnePasswordMigration>();
+    }
+    this.onePasswordMigrations.add(onePasswordMigrationsItem);
+    return this;
+  }
+
+   /**
+   * Get onePasswordMigrations
+   * @return onePasswordMigrations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<OnePasswordMigration> getOnePasswordMigrations() {
+    return onePasswordMigrations;
+  }
+
+
+  public void setOnePasswordMigrations(List<OnePasswordMigration> onePasswordMigrations) {
+    this.onePasswordMigrations = onePasswordMigrations;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -225,12 +261,13 @@ public class MigrationsConfigPart {
         Objects.equals(this.azureKvMigrations, migrationsConfigPart.azureKvMigrations) &&
         Objects.equals(this.gcpSecretsMigrations, migrationsConfigPart.gcpSecretsMigrations) &&
         Objects.equals(this.hashiMigrations, migrationsConfigPart.hashiMigrations) &&
-        Objects.equals(this.k8sMigrations, migrationsConfigPart.k8sMigrations);
+        Objects.equals(this.k8sMigrations, migrationsConfigPart.k8sMigrations) &&
+        Objects.equals(this.onePasswordMigrations, migrationsConfigPart.onePasswordMigrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations);
+    return Objects.hash(awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, onePasswordMigrations);
   }
 
 
@@ -243,6 +280,7 @@ public class MigrationsConfigPart {
     sb.append("    gcpSecretsMigrations: ").append(toIndentedString(gcpSecretsMigrations)).append("\n");
     sb.append("    hashiMigrations: ").append(toIndentedString(hashiMigrations)).append("\n");
     sb.append("    k8sMigrations: ").append(toIndentedString(k8sMigrations)).append("\n");
+    sb.append("    onePasswordMigrations: ").append(toIndentedString(onePasswordMigrations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

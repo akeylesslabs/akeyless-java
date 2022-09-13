@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **country** | **String** | A comma-separated list of the country that will be set in the issued certificate |  [optional]
 **displayId** | **String** | The name of the key to use in the sign PKI Cert process | 
 **dnsNames** | **String** | DNS Names to be included in the PKI certificate (in a comma-delimited list) |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keyUsage** | **String** | key-usage |  [optional]
 **locality** | **String** | A comma-separated list of the locality that will be set in the issued certificate |  [optional]
 **organizationalUnits** | **String** | A comma-separated list of organizational units (OU) that will be set in the issued certificate |  [optional]

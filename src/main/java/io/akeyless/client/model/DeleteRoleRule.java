@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class DeleteRoleRule {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -48,6 +52,29 @@ public class DeleteRoleRule {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DeleteRoleRule json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public DeleteRoleRule path(String path) {
@@ -172,7 +199,8 @@ public class DeleteRoleRule {
       return false;
     }
     DeleteRoleRule deleteRoleRule = (DeleteRoleRule) o;
-    return Objects.equals(this.path, deleteRoleRule.path) &&
+    return Objects.equals(this.json, deleteRoleRule.json) &&
+        Objects.equals(this.path, deleteRoleRule.path) &&
         Objects.equals(this.roleName, deleteRoleRule.roleName) &&
         Objects.equals(this.ruleType, deleteRoleRule.ruleType) &&
         Objects.equals(this.token, deleteRoleRule.token) &&
@@ -181,7 +209,7 @@ public class DeleteRoleRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, roleName, ruleType, token, uidToken);
+    return Objects.hash(json, path, roleName, ruleType, token, uidToken);
   }
 
 
@@ -189,6 +217,7 @@ public class DeleteRoleRule {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteRoleRule {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");

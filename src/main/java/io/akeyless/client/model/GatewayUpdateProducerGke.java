@@ -56,6 +56,10 @@ public class GatewayUpdateProducerGke {
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_EMAIL)
   private String gkeServiceAccountEmail;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -244,6 +248,29 @@ public class GatewayUpdateProducerGke {
 
   public void setGkeServiceAccountEmail(String gkeServiceAccountEmail) {
     this.gkeServiceAccountEmail = gkeServiceAccountEmail;
+  }
+
+
+  public GatewayUpdateProducerGke json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -568,6 +595,7 @@ public class GatewayUpdateProducerGke {
         Objects.equals(this.gkeClusterEndpoint, gatewayUpdateProducerGke.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, gatewayUpdateProducerGke.gkeClusterName) &&
         Objects.equals(this.gkeServiceAccountEmail, gatewayUpdateProducerGke.gkeServiceAccountEmail) &&
+        Objects.equals(this.json, gatewayUpdateProducerGke.json) &&
         Objects.equals(this.name, gatewayUpdateProducerGke.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerGke.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerGke.producerEncryptionKeyName) &&
@@ -585,7 +613,7 @@ public class GatewayUpdateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -599,6 +627,7 @@ public class GatewayUpdateProducerGke {
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
     sb.append("    gkeServiceAccountEmail: ").append(toIndentedString(gkeServiceAccountEmail)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

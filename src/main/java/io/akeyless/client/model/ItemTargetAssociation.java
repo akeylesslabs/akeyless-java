@@ -42,6 +42,10 @@ public class ItemTargetAssociation {
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
 
+  public static final String SERIALIZED_NAME_TARGET_TYPE = "target_type";
+  @SerializedName(SERIALIZED_NAME_TARGET_TYPE)
+  private String targetType;
+
 
   public ItemTargetAssociation assocId(String assocId) {
     
@@ -112,6 +116,29 @@ public class ItemTargetAssociation {
   }
 
 
+  public ItemTargetAssociation targetType(String targetType) {
+    
+    this.targetType = targetType;
+    return this;
+  }
+
+   /**
+   * Get targetType
+   * @return targetType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTargetType() {
+    return targetType;
+  }
+
+
+  public void setTargetType(String targetType) {
+    this.targetType = targetType;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -123,12 +150,13 @@ public class ItemTargetAssociation {
     ItemTargetAssociation itemTargetAssociation = (ItemTargetAssociation) o;
     return Objects.equals(this.assocId, itemTargetAssociation.assocId) &&
         Objects.equals(this.targetId, itemTargetAssociation.targetId) &&
-        Objects.equals(this.targetName, itemTargetAssociation.targetName);
+        Objects.equals(this.targetName, itemTargetAssociation.targetName) &&
+        Objects.equals(this.targetType, itemTargetAssociation.targetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, targetId, targetName);
+    return Objects.hash(assocId, targetId, targetName, targetType);
   }
 
 
@@ -139,6 +167,7 @@ public class ItemTargetAssociation {
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
+    sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

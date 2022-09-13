@@ -33,6 +33,10 @@ public class GenCustomerFragment {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
 
   public GenCustomerFragment description(String description) {
     
@@ -57,6 +61,29 @@ public class GenCustomerFragment {
   }
 
 
+  public GenCustomerFragment json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -66,12 +93,13 @@ public class GenCustomerFragment {
       return false;
     }
     GenCustomerFragment genCustomerFragment = (GenCustomerFragment) o;
-    return Objects.equals(this.description, genCustomerFragment.description);
+    return Objects.equals(this.description, genCustomerFragment.description) &&
+        Objects.equals(this.json, genCustomerFragment.json);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description);
+    return Objects.hash(description, json);
   }
 
 
@@ -80,6 +108,7 @@ public class GenCustomerFragment {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenCustomerFragment {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("}");
     return sb.toString();
   }

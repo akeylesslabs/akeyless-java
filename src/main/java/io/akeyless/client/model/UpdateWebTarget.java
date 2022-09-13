@@ -33,6 +33,10 @@ public class UpdateWebTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -86,6 +90,29 @@ public class UpdateWebTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateWebTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -282,6 +309,7 @@ public class UpdateWebTarget {
     }
     UpdateWebTarget updateWebTarget = (UpdateWebTarget) o;
     return Objects.equals(this.comment, updateWebTarget.comment) &&
+        Objects.equals(this.json, updateWebTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateWebTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateWebTarget.key) &&
         Objects.equals(this.name, updateWebTarget.name) &&
@@ -294,7 +322,7 @@ public class UpdateWebTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, url);
+    return Objects.hash(comment, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, url);
   }
 
 
@@ -303,6 +331,7 @@ public class UpdateWebTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWebTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

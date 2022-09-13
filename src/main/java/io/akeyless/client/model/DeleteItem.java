@@ -41,6 +41,10 @@ public class DeleteItem {
   @SerializedName(SERIALIZED_NAME_DELETE_IN_DAYS)
   private Long deleteInDays = 7l;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -124,6 +128,29 @@ public class DeleteItem {
 
   public void setDeleteInDays(Long deleteInDays) {
     this.deleteInDays = deleteInDays;
+  }
+
+
+  public DeleteItem json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -230,6 +257,7 @@ public class DeleteItem {
     return Objects.equals(this.accessibility, deleteItem.accessibility) &&
         Objects.equals(this.deleteImmediately, deleteItem.deleteImmediately) &&
         Objects.equals(this.deleteInDays, deleteItem.deleteInDays) &&
+        Objects.equals(this.json, deleteItem.json) &&
         Objects.equals(this.name, deleteItem.name) &&
         Objects.equals(this.token, deleteItem.token) &&
         Objects.equals(this.uidToken, deleteItem.uidToken) &&
@@ -238,7 +266,7 @@ public class DeleteItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteImmediately, deleteInDays, name, token, uidToken, version);
+    return Objects.hash(accessibility, deleteImmediately, deleteInDays, json, name, token, uidToken, version);
   }
 
 
@@ -249,6 +277,7 @@ public class DeleteItem {
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    deleteImmediately: ").append(toIndentedString(deleteImmediately)).append("\n");
     sb.append("    deleteInDays: ").append(toIndentedString(deleteInDays)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

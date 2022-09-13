@@ -63,6 +63,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -373,6 +377,29 @@ public class CreateRotatedSecret {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public CreateRotatedSecret json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -1142,6 +1169,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.awsRegion, createRotatedSecret.awsRegion) &&
         Objects.equals(this.customPayload, createRotatedSecret.customPayload) &&
         Objects.equals(this.deleteProtection, createRotatedSecret.deleteProtection) &&
+        Objects.equals(this.json, createRotatedSecret.json) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
@@ -1178,7 +1206,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, json, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
 
@@ -1194,6 +1222,7 @@ public class CreateRotatedSecret {
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

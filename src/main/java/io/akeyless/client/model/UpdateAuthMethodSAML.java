@@ -60,6 +60,10 @@ public class UpdateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_IDP_METADATA_XML_DATA)
   private String idpMetadataXmlData;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -270,6 +274,29 @@ public class UpdateAuthMethodSAML {
   }
 
 
+  public UpdateAuthMethodSAML json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public UpdateAuthMethodSAML jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -422,6 +449,7 @@ public class UpdateAuthMethodSAML {
         Objects.equals(this.gwBoundIps, updateAuthMethodSAML.gwBoundIps) &&
         Objects.equals(this.idpMetadataUrl, updateAuthMethodSAML.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXmlData, updateAuthMethodSAML.idpMetadataXmlData) &&
+        Objects.equals(this.json, updateAuthMethodSAML.json) &&
         Objects.equals(this.jwtTtl, updateAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodSAML.name) &&
         Objects.equals(this.newName, updateAuthMethodSAML.newName) &&
@@ -432,7 +460,7 @@ public class UpdateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -447,6 +475,7 @@ public class UpdateAuthMethodSAML {
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXmlData: ").append(toIndentedString(idpMetadataXmlData)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

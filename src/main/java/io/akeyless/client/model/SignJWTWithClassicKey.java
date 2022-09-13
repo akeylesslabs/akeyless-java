@@ -33,6 +33,10 @@ public class SignJWTWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_CLAIMS = "jwt-claims";
   @SerializedName(SERIALIZED_NAME_JWT_CLAIMS)
   private String jwtClaims;
@@ -73,6 +77,29 @@ public class SignJWTWithClassicKey {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public SignJWTWithClassicKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -198,6 +225,7 @@ public class SignJWTWithClassicKey {
     }
     SignJWTWithClassicKey signJWTWithClassicKey = (SignJWTWithClassicKey) o;
     return Objects.equals(this.displayId, signJWTWithClassicKey.displayId) &&
+        Objects.equals(this.json, signJWTWithClassicKey.json) &&
         Objects.equals(this.jwtClaims, signJWTWithClassicKey.jwtClaims) &&
         Objects.equals(this.signingMethod, signJWTWithClassicKey.signingMethod) &&
         Objects.equals(this.token, signJWTWithClassicKey.token) &&
@@ -207,7 +235,7 @@ public class SignJWTWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, jwtClaims, signingMethod, token, uidToken, version);
+    return Objects.hash(displayId, json, jwtClaims, signingMethod, token, uidToken, version);
   }
 
 
@@ -216,6 +244,7 @@ public class SignJWTWithClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignJWTWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtClaims: ").append(toIndentedString(jwtClaims)).append("\n");
     sb.append("    signingMethod: ").append(toIndentedString(signingMethod)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

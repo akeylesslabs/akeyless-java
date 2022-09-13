@@ -57,6 +57,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
   private String itemType;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL_DEFAULT = "jwt-ttl-default";
   @SerializedName(SERIALIZED_NAME_JWT_TTL_DEFAULT)
   private Long jwtTtlDefault;
@@ -268,6 +272,29 @@ public class UpdateAccountSettings {
 
   public void setItemType(String itemType) {
     this.itemType = itemType;
+  }
+
+
+  public UpdateAccountSettings json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -586,6 +613,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
+        Objects.equals(this.json, updateAccountSettings.json) &&
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
@@ -603,7 +631,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultVersioning, dpEnableClassicKeyProtection, itemType, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultVersioning, dpEnableClassicKeyProtection, itemType, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
 
@@ -618,6 +646,7 @@ public class UpdateAccountSettings {
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");

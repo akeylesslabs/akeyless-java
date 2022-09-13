@@ -64,6 +64,10 @@ public class GatewayCreateProducerEks {
   @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
   private String eksSecretAccessKey;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -294,6 +298,29 @@ public class GatewayCreateProducerEks {
 
   public void setEksSecretAccessKey(String eksSecretAccessKey) {
     this.eksSecretAccessKey = eksSecretAccessKey;
+  }
+
+
+  public GatewayCreateProducerEks json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -597,6 +624,7 @@ public class GatewayCreateProducerEks {
         Objects.equals(this.eksClusterName, gatewayCreateProducerEks.eksClusterName) &&
         Objects.equals(this.eksRegion, gatewayCreateProducerEks.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, gatewayCreateProducerEks.eksSecretAccessKey) &&
+        Objects.equals(this.json, gatewayCreateProducerEks.json) &&
         Objects.equals(this.name, gatewayCreateProducerEks.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerEks.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerEks.secureAccessAllowPortForwading) &&
@@ -613,7 +641,7 @@ public class GatewayCreateProducerEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -629,6 +657,7 @@ public class GatewayCreateProducerEks {
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");

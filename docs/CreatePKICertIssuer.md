@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **codeSigningFlag** | **Boolean** | If set, certificates will be flagged for code signing use |  [optional]
 **country** | **String** | A comma-separated list of countries that will be set in the issued certificate |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keyUsage** | **String** | key-usage |  [optional]
 **locality** | **String** | A comma-separated list of localities that will be set in the issued certificate |  [optional]
 **metadata** | **String** | A metadata about the issuer |  [optional]

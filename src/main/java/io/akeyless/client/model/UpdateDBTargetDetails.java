@@ -37,6 +37,10 @@ public class UpdateDBTargetDetails {
   @SerializedName(SERIALIZED_NAME_HOST_NAME)
   private String hostName;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -125,6 +129,29 @@ public class UpdateDBTargetDetails {
 
   public void setHostName(String hostName) {
     this.hostName = hostName;
+  }
+
+
+  public UpdateDBTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -391,6 +418,7 @@ public class UpdateDBTargetDetails {
     UpdateDBTargetDetails updateDBTargetDetails = (UpdateDBTargetDetails) o;
     return Objects.equals(this.dbType, updateDBTargetDetails.dbType) &&
         Objects.equals(this.hostName, updateDBTargetDetails.hostName) &&
+        Objects.equals(this.json, updateDBTargetDetails.json) &&
         Objects.equals(this.keepPrevVersion, updateDBTargetDetails.keepPrevVersion) &&
         Objects.equals(this.mongoDbName, updateDBTargetDetails.mongoDbName) &&
         Objects.equals(this.mongoUri, updateDBTargetDetails.mongoUri) &&
@@ -406,7 +434,7 @@ public class UpdateDBTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbType, hostName, keepPrevVersion, mongoDbName, mongoUri, name, newVersion, port, protectionKey, pwd, token, uidToken, userName);
+    return Objects.hash(dbType, hostName, json, keepPrevVersion, mongoDbName, mongoUri, name, newVersion, port, protectionKey, pwd, token, uidToken, userName);
   }
 
 
@@ -416,6 +444,7 @@ public class UpdateDBTargetDetails {
     sb.append("class UpdateDBTargetDetails {\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    mongoDbName: ").append(toIndentedString(mongoDbName)).append("\n");
     sb.append("    mongoUri: ").append(toIndentedString(mongoUri)).append("\n");

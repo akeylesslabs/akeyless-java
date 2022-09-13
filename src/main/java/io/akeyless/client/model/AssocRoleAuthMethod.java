@@ -41,6 +41,10 @@ public class AssocRoleAuthMethod {
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
   private String caseSensitive;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_ROLE_NAME = "role-name";
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)
   private String roleName;
@@ -100,6 +104,29 @@ public class AssocRoleAuthMethod {
 
   public void setCaseSensitive(String caseSensitive) {
     this.caseSensitive = caseSensitive;
+  }
+
+
+  public AssocRoleAuthMethod json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -213,6 +240,7 @@ public class AssocRoleAuthMethod {
     AssocRoleAuthMethod assocRoleAuthMethod = (AssocRoleAuthMethod) o;
     return Objects.equals(this.amName, assocRoleAuthMethod.amName) &&
         Objects.equals(this.caseSensitive, assocRoleAuthMethod.caseSensitive) &&
+        Objects.equals(this.json, assocRoleAuthMethod.json) &&
         Objects.equals(this.roleName, assocRoleAuthMethod.roleName) &&
         Objects.equals(this.subClaims, assocRoleAuthMethod.subClaims) &&
         Objects.equals(this.token, assocRoleAuthMethod.token) &&
@@ -221,7 +249,7 @@ public class AssocRoleAuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amName, caseSensitive, roleName, subClaims, token, uidToken);
+    return Objects.hash(amName, caseSensitive, json, roleName, subClaims, token, uidToken);
   }
 
 
@@ -231,6 +259,7 @@ public class AssocRoleAuthMethod {
     sb.append("class AssocRoleAuthMethod {\n");
     sb.append("    amName: ").append(toIndentedString(amName)).append("\n");
     sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

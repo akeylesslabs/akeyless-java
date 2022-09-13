@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class GetRole {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -40,6 +44,29 @@ public class GetRole {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GetRole json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GetRole name(String name) {
@@ -119,14 +146,15 @@ public class GetRole {
       return false;
     }
     GetRole getRole = (GetRole) o;
-    return Objects.equals(this.name, getRole.name) &&
+    return Objects.equals(this.json, getRole.json) &&
+        Objects.equals(this.name, getRole.name) &&
         Objects.equals(this.token, getRole.token) &&
         Objects.equals(this.uidToken, getRole.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(json, name, token, uidToken);
   }
 
 
@@ -134,6 +162,7 @@ public class GetRole {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRole {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

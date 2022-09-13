@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **issuer** | **String** | Issuer URL |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
 **requiredScopes** | **List&lt;String&gt;** | RequiredScopes is a list of required scopes that the oidc method will request from the oidc provider and the user must approve |  [optional]

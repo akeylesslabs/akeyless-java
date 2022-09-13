@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * StaticSecretDetailsInfo
@@ -36,6 +38,10 @@ public class StaticSecretDetailsInfo {
   public static final String SERIALIZED_NAME_WEBSITE = "website";
   @SerializedName(SERIALIZED_NAME_WEBSITE)
   private String website;
+
+  public static final String SERIALIZED_NAME_WEBSITES = "websites";
+  @SerializedName(SERIALIZED_NAME_WEBSITES)
+  private List<String> websites = null;
 
 
   public StaticSecretDetailsInfo username(String username) {
@@ -68,11 +74,11 @@ public class StaticSecretDetailsInfo {
   }
 
    /**
-   * Get website
+   * deprecated
    * @return website
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "deprecated")
 
   public String getWebsite() {
     return website;
@@ -81,6 +87,37 @@ public class StaticSecretDetailsInfo {
 
   public void setWebsite(String website) {
     this.website = website;
+  }
+
+
+  public StaticSecretDetailsInfo websites(List<String> websites) {
+    
+    this.websites = websites;
+    return this;
+  }
+
+  public StaticSecretDetailsInfo addWebsitesItem(String websitesItem) {
+    if (this.websites == null) {
+      this.websites = new ArrayList<String>();
+    }
+    this.websites.add(websitesItem);
+    return this;
+  }
+
+   /**
+   * Get websites
+   * @return websites
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getWebsites() {
+    return websites;
+  }
+
+
+  public void setWebsites(List<String> websites) {
+    this.websites = websites;
   }
 
 
@@ -94,12 +131,13 @@ public class StaticSecretDetailsInfo {
     }
     StaticSecretDetailsInfo staticSecretDetailsInfo = (StaticSecretDetailsInfo) o;
     return Objects.equals(this.username, staticSecretDetailsInfo.username) &&
-        Objects.equals(this.website, staticSecretDetailsInfo.website);
+        Objects.equals(this.website, staticSecretDetailsInfo.website) &&
+        Objects.equals(this.websites, staticSecretDetailsInfo.websites);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, website);
+    return Objects.hash(username, website, websites);
   }
 
 
@@ -109,6 +147,7 @@ public class StaticSecretDetailsInfo {
     sb.append("class StaticSecretDetailsInfo {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");
+    sb.append("    websites: ").append(toIndentedString(websites)).append("\n");
     sb.append("}");
     return sb.toString();
   }

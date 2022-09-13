@@ -57,6 +57,10 @@ public class UpdateEKSTarget {
   @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
   private String eksSecretAccessKey;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -243,6 +247,29 @@ public class UpdateEKSTarget {
 
   public void setEksSecretAccessKey(String eksSecretAccessKey) {
     this.eksSecretAccessKey = eksSecretAccessKey;
+  }
+
+
+  public UpdateEKSTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -445,6 +472,7 @@ public class UpdateEKSTarget {
         Objects.equals(this.eksClusterName, updateEKSTarget.eksClusterName) &&
         Objects.equals(this.eksRegion, updateEKSTarget.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, updateEKSTarget.eksSecretAccessKey) &&
+        Objects.equals(this.json, updateEKSTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateEKSTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateEKSTarget.key) &&
         Objects.equals(this.name, updateEKSTarget.name) &&
@@ -457,7 +485,7 @@ public class UpdateEKSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -472,6 +500,7 @@ public class UpdateEKSTarget {
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

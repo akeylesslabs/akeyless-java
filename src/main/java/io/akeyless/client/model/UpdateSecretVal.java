@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,10 @@ public class UpdateSecretVal {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility;
+
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -62,7 +67,7 @@ public class UpdateSecretVal {
 
   public static final String SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL = "password-manager-inject-url";
   @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL)
-  private String passwordManagerInjectUrl;
+  private List<String> passwordManagerInjectUrl = null;
 
   public static final String SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD = "password-manager-password";
   @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD)
@@ -105,6 +110,29 @@ public class UpdateSecretVal {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public UpdateSecretVal json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -253,9 +281,17 @@ public class UpdateSecretVal {
   }
 
 
-  public UpdateSecretVal passwordManagerInjectUrl(String passwordManagerInjectUrl) {
+  public UpdateSecretVal passwordManagerInjectUrl(List<String> passwordManagerInjectUrl) {
     
     this.passwordManagerInjectUrl = passwordManagerInjectUrl;
+    return this;
+  }
+
+  public UpdateSecretVal addPasswordManagerInjectUrlItem(String passwordManagerInjectUrlItem) {
+    if (this.passwordManagerInjectUrl == null) {
+      this.passwordManagerInjectUrl = new ArrayList<String>();
+    }
+    this.passwordManagerInjectUrl.add(passwordManagerInjectUrlItem);
     return this;
   }
 
@@ -266,12 +302,12 @@ public class UpdateSecretVal {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "For Password Management use, reflect the website context")
 
-  public String getPasswordManagerInjectUrl() {
+  public List<String> getPasswordManagerInjectUrl() {
     return passwordManagerInjectUrl;
   }
 
 
-  public void setPasswordManagerInjectUrl(String passwordManagerInjectUrl) {
+  public void setPasswordManagerInjectUrl(List<String> passwordManagerInjectUrl) {
     this.passwordManagerInjectUrl = passwordManagerInjectUrl;
   }
 
@@ -400,6 +436,7 @@ public class UpdateSecretVal {
     }
     UpdateSecretVal updateSecretVal = (UpdateSecretVal) o;
     return Objects.equals(this.accessibility, updateSecretVal.accessibility) &&
+        Objects.equals(this.json, updateSecretVal.json) &&
         Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
         Objects.equals(this.key, updateSecretVal.key) &&
         Objects.equals(this.multiline, updateSecretVal.multiline) &&
@@ -416,7 +453,7 @@ public class UpdateSecretVal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, keepPrevVersion, key, multiline, name, newVersion, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, token, uidToken, value);
+    return Objects.hash(accessibility, json, keepPrevVersion, key, multiline, name, newVersion, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, token, uidToken, value);
   }
 
 
@@ -425,6 +462,7 @@ public class UpdateSecretVal {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSecretVal {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    multiline: ").append(toIndentedString(multiline)).append("\n");

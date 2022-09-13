@@ -42,6 +42,10 @@ public class StaticCredsAuth {
   @SerializedName(SERIALIZED_NAME_CREDS)
   private String creds;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
 
   public StaticCredsAuth accessId(String accessId) {
     
@@ -112,6 +116,29 @@ public class StaticCredsAuth {
   }
 
 
+  public StaticCredsAuth json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -123,12 +150,13 @@ public class StaticCredsAuth {
     StaticCredsAuth staticCredsAuth = (StaticCredsAuth) o;
     return Objects.equals(this.accessId, staticCredsAuth.accessId) &&
         Objects.equals(this.adminEmail, staticCredsAuth.adminEmail) &&
-        Objects.equals(this.creds, staticCredsAuth.creds);
+        Objects.equals(this.creds, staticCredsAuth.creds) &&
+        Objects.equals(this.json, staticCredsAuth.json);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, adminEmail, creds);
+    return Objects.hash(accessId, adminEmail, creds, json);
   }
 
 
@@ -139,6 +167,7 @@ public class StaticCredsAuth {
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    creds: ").append(toIndentedString(creds)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("}");
     return sb.toString();
   }

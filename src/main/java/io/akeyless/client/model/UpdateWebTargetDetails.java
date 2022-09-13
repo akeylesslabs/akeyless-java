@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class UpdateWebTargetDetails {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -56,6 +60,29 @@ public class UpdateWebTargetDetails {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+
+
+  public UpdateWebTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public UpdateWebTargetDetails keepPrevVersion(String keepPrevVersion) {
@@ -227,7 +254,8 @@ public class UpdateWebTargetDetails {
       return false;
     }
     UpdateWebTargetDetails updateWebTargetDetails = (UpdateWebTargetDetails) o;
-    return Objects.equals(this.keepPrevVersion, updateWebTargetDetails.keepPrevVersion) &&
+    return Objects.equals(this.json, updateWebTargetDetails.json) &&
+        Objects.equals(this.keepPrevVersion, updateWebTargetDetails.keepPrevVersion) &&
         Objects.equals(this.name, updateWebTargetDetails.name) &&
         Objects.equals(this.newVersion, updateWebTargetDetails.newVersion) &&
         Objects.equals(this.protectionKey, updateWebTargetDetails.protectionKey) &&
@@ -238,7 +266,7 @@ public class UpdateWebTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keepPrevVersion, name, newVersion, protectionKey, token, uidToken, url);
+    return Objects.hash(json, keepPrevVersion, name, newVersion, protectionKey, token, uidToken, url);
   }
 
 
@@ -246,6 +274,7 @@ public class UpdateWebTargetDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWebTargetDetails {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");

@@ -44,6 +44,10 @@ public class CreateKey {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -76,10 +80,10 @@ public class CreateKey {
   }
 
    /**
-   * Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096]
+   * Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
    * @return alg
   **/
-  @ApiModelProperty(required = true, value = "Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096]")
+  @ApiModelProperty(required = true, value = "Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]")
 
   public String getAlg() {
     return alg;
@@ -134,6 +138,29 @@ public class CreateKey {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public CreateKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -294,6 +321,7 @@ public class CreateKey {
     return Objects.equals(this.alg, createKey.alg) &&
         Objects.equals(this.customerFrgId, createKey.customerFrgId) &&
         Objects.equals(this.deleteProtection, createKey.deleteProtection) &&
+        Objects.equals(this.json, createKey.json) &&
         Objects.equals(this.metadata, createKey.metadata) &&
         Objects.equals(this.name, createKey.name) &&
         Objects.equals(this.splitLevel, createKey.splitLevel) &&
@@ -304,7 +332,7 @@ public class CreateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, deleteProtection, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, customerFrgId, deleteProtection, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
 
@@ -315,6 +343,7 @@ public class CreateKey {
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");

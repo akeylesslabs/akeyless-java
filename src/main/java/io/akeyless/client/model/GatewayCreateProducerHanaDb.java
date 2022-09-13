@@ -64,6 +64,10 @@ public class GatewayCreateProducerHanaDb {
   @SerializedName(SERIALIZED_NAME_HANADB_USERNAME)
   private String hanadbUsername;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -294,6 +298,29 @@ public class GatewayCreateProducerHanaDb {
 
   public void setHanadbUsername(String hanadbUsername) {
     this.hanadbUsername = hanadbUsername;
+  }
+
+
+  public GatewayCreateProducerHanaDb json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -605,6 +632,7 @@ public class GatewayCreateProducerHanaDb {
         Objects.equals(this.hanadbPort, gatewayCreateProducerHanaDb.hanadbPort) &&
         Objects.equals(this.hanadbRevocationStatements, gatewayCreateProducerHanaDb.hanadbRevocationStatements) &&
         Objects.equals(this.hanadbUsername, gatewayCreateProducerHanaDb.hanadbUsername) &&
+        Objects.equals(this.json, gatewayCreateProducerHanaDb.json) &&
         Objects.equals(this.name, gatewayCreateProducerHanaDb.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerHanaDb.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerHanaDb.secureAccessBastionIssuer) &&
@@ -621,7 +649,7 @@ public class GatewayCreateProducerHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, json, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -637,6 +665,7 @@ public class GatewayCreateProducerHanaDb {
     sb.append("    hanadbPort: ").append(toIndentedString(hanadbPort)).append("\n");
     sb.append("    hanadbRevocationStatements: ").append(toIndentedString(hanadbRevocationStatements)).append("\n");
     sb.append("    hanadbUsername: ").append(toIndentedString(hanadbUsername)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");

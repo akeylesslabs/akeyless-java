@@ -41,6 +41,10 @@ public class CreateLdapTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -138,6 +142,29 @@ public class CreateLdapTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateLdapTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -335,6 +362,7 @@ public class CreateLdapTarget {
     return Objects.equals(this.bindDn, createLdapTarget.bindDn) &&
         Objects.equals(this.bindDnPassword, createLdapTarget.bindDnPassword) &&
         Objects.equals(this.comment, createLdapTarget.comment) &&
+        Objects.equals(this.json, createLdapTarget.json) &&
         Objects.equals(this.key, createLdapTarget.key) &&
         Objects.equals(this.ldapCaCert, createLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, createLdapTarget.ldapUrl) &&
@@ -347,7 +375,7 @@ public class CreateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, key, ldapCaCert, ldapUrl, name, serverType, token, tokenExpiration, uidToken);
+    return Objects.hash(bindDn, bindDnPassword, comment, json, key, ldapCaCert, ldapUrl, name, serverType, token, tokenExpiration, uidToken);
   }
 
 
@@ -358,6 +386,7 @@ public class CreateLdapTarget {
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");

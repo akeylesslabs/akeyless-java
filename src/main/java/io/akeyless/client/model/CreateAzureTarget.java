@@ -41,6 +41,10 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -144,6 +148,29 @@ public class CreateAzureTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateAzureTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -365,6 +392,7 @@ public class CreateAzureTarget {
     return Objects.equals(this.clientId, createAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, createAzureTarget.clientSecret) &&
         Objects.equals(this.comment, createAzureTarget.comment) &&
+        Objects.equals(this.json, createAzureTarget.json) &&
         Objects.equals(this.key, createAzureTarget.key) &&
         Objects.equals(this.name, createAzureTarget.name) &&
         Objects.equals(this.resourceGroupName, createAzureTarget.resourceGroupName) &&
@@ -378,7 +406,7 @@ public class CreateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, key, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(clientId, clientSecret, comment, json, key, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -389,6 +417,7 @@ public class CreateAzureTarget {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");

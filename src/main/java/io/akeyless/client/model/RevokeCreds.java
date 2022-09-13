@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "revokeCreds will permanently revoke the credentials associated with the provided token or profile.")
 
 public class RevokeCreds {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -37,6 +41,29 @@ public class RevokeCreds {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public RevokeCreds json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public RevokeCreds token(String token) {
@@ -94,13 +121,14 @@ public class RevokeCreds {
       return false;
     }
     RevokeCreds revokeCreds = (RevokeCreds) o;
-    return Objects.equals(this.token, revokeCreds.token) &&
+    return Objects.equals(this.json, revokeCreds.json) &&
+        Objects.equals(this.token, revokeCreds.token) &&
         Objects.equals(this.uidToken, revokeCreds.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token, uidToken);
+    return Objects.hash(json, token, uidToken);
   }
 
 
@@ -108,6 +136,7 @@ public class RevokeCreds {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RevokeCreds {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

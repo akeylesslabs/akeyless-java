@@ -62,6 +62,10 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_IDENTITY_FILE)
   private String identityFile;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -275,6 +279,29 @@ public class Connect {
   }
 
 
+  public Connect json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public Connect name(String name) {
     
     this.name = name;
@@ -453,6 +480,7 @@ public class Connect {
         Objects.equals(this.bastionCtrlSubdomain, connect.bastionCtrlSubdomain) &&
         Objects.equals(this.certIssuerName, connect.certIssuerName) &&
         Objects.equals(this.identityFile, connect.identityFile) &&
+        Objects.equals(this.json, connect.json) &&
         Objects.equals(this.name, connect.name) &&
         Objects.equals(this.sshExtraArgs, connect.sshExtraArgs) &&
         Objects.equals(this.sshLegacySigningAlg, connect.sshLegacySigningAlg) &&
@@ -464,7 +492,7 @@ public class Connect {
 
   @Override
   public int hashCode() {
-    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, name, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, viaBastion);
+    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, viaBastion);
   }
 
 
@@ -480,6 +508,7 @@ public class Connect {
     sb.append("    bastionCtrlSubdomain: ").append(toIndentedString(bastionCtrlSubdomain)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    identityFile: ").append(toIndentedString(identityFile)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sshExtraArgs: ").append(toIndentedString(sshExtraArgs)).append("\n");
     sb.append("    sshLegacySigningAlg: ").append(toIndentedString(sshLegacySigningAlg)).append("\n");

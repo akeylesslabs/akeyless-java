@@ -41,6 +41,10 @@ public class UpdateDockerhubTarget {
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_USERNAME)
   private String dockerhubUsername;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -136,6 +140,29 @@ public class UpdateDockerhubTarget {
 
   public void setDockerhubUsername(String dockerhubUsername) {
     this.dockerhubUsername = dockerhubUsername;
+  }
+
+
+  public UpdateDockerhubTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -311,6 +338,7 @@ public class UpdateDockerhubTarget {
     return Objects.equals(this.comment, updateDockerhubTarget.comment) &&
         Objects.equals(this.dockerhubPassword, updateDockerhubTarget.dockerhubPassword) &&
         Objects.equals(this.dockerhubUsername, updateDockerhubTarget.dockerhubUsername) &&
+        Objects.equals(this.json, updateDockerhubTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDockerhubTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDockerhubTarget.key) &&
         Objects.equals(this.name, updateDockerhubTarget.name) &&
@@ -322,7 +350,7 @@ public class UpdateDockerhubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dockerhubPassword, dockerhubUsername, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -333,6 +361,7 @@ public class UpdateDockerhubTarget {
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

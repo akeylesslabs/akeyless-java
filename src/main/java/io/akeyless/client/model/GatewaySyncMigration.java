@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "gatewaySyncMigration is a command that sync migration")
 
 public class GatewaySyncMigration {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -45,6 +49,29 @@ public class GatewaySyncMigration {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GatewaySyncMigration json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GatewaySyncMigration name(String name) {
@@ -147,7 +174,8 @@ public class GatewaySyncMigration {
       return false;
     }
     GatewaySyncMigration gatewaySyncMigration = (GatewaySyncMigration) o;
-    return Objects.equals(this.name, gatewaySyncMigration.name) &&
+    return Objects.equals(this.json, gatewaySyncMigration.json) &&
+        Objects.equals(this.name, gatewaySyncMigration.name) &&
         Objects.equals(this.startSync, gatewaySyncMigration.startSync) &&
         Objects.equals(this.token, gatewaySyncMigration.token) &&
         Objects.equals(this.uidToken, gatewaySyncMigration.uidToken);
@@ -155,7 +183,7 @@ public class GatewaySyncMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, startSync, token, uidToken);
+    return Objects.hash(json, name, startSync, token, uidToken);
   }
 
 
@@ -163,6 +191,7 @@ public class GatewaySyncMigration {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewaySyncMigration {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    startSync: ").append(toIndentedString(startSync)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

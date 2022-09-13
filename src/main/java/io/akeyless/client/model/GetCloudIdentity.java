@@ -42,6 +42,10 @@ public class GetCloudIdentity {
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_URL_SAFE = "url_safe";
   @SerializedName(SERIALIZED_NAME_URL_SAFE)
   private Boolean urlSafe;
@@ -116,6 +120,29 @@ public class GetCloudIdentity {
   }
 
 
+  public GetCloudIdentity json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public GetCloudIdentity urlSafe(Boolean urlSafe) {
     
     this.urlSafe = urlSafe;
@@ -151,12 +178,13 @@ public class GetCloudIdentity {
     return Objects.equals(this.azureAdObjectId, getCloudIdentity.azureAdObjectId) &&
         Objects.equals(this.debug, getCloudIdentity.debug) &&
         Objects.equals(this.gcpAudience, getCloudIdentity.gcpAudience) &&
+        Objects.equals(this.json, getCloudIdentity.json) &&
         Objects.equals(this.urlSafe, getCloudIdentity.urlSafe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureAdObjectId, debug, gcpAudience, urlSafe);
+    return Objects.hash(azureAdObjectId, debug, gcpAudience, json, urlSafe);
   }
 
 
@@ -167,6 +195,7 @@ public class GetCloudIdentity {
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    urlSafe: ").append(toIndentedString(urlSafe)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -44,6 +44,10 @@ public class GatewayCreateProducerRdp {
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   private String fixedUserOnly = "false";
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -183,6 +187,29 @@ public class GatewayCreateProducerRdp {
 
   public void setFixedUserOnly(String fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
+  }
+
+
+  public GatewayCreateProducerRdp json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -627,6 +654,7 @@ public class GatewayCreateProducerRdp {
     return Objects.equals(this.allowUserExtendSession, gatewayCreateProducerRdp.allowUserExtendSession) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerRdp.deleteProtection) &&
         Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
+        Objects.equals(this.json, gatewayCreateProducerRdp.json) &&
         Objects.equals(this.name, gatewayCreateProducerRdp.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, gatewayCreateProducerRdp.rdpAdminName) &&
@@ -649,7 +677,7 @@ public class GatewayCreateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
 
@@ -660,6 +688,7 @@ public class GatewayCreateProducerRdp {
     sb.append("    allowUserExtendSession: ").append(toIndentedString(allowUserExtendSession)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");

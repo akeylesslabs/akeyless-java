@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **targetId** | **Long** |  |  [optional]
 **targetItemsAssoc** | [**List&lt;TargetItemAssociation&gt;**](TargetItemAssociation.md) |  |  [optional]
 **targetName** | **String** |  |  [optional]
+**targetObjectsAssoc** | [**List&lt;TargetObjectAssociation&gt;**](TargetObjectAssociation.md) |  |  [optional]
 **targetType** | **String** |  |  [optional]
 **targetVersions** | [**List&lt;ItemVersion&gt;**](ItemVersion.md) |  |  [optional]
 **withCustomerFragment** | **Boolean** |  |  [optional]

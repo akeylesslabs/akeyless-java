@@ -61,6 +61,10 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME = "k8s-auth-config-name";
   @SerializedName(SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME)
   private String k8sAuthConfigName;
@@ -254,6 +258,29 @@ public class Configure {
   }
 
 
+  public Configure json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public Configure k8sAuthConfigName(String k8sAuthConfigName) {
     
     this.k8sAuthConfigName = k8sAuthConfigName;
@@ -317,13 +344,14 @@ public class Configure {
         Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
         Objects.equals(this.certData, configure.certData) &&
         Objects.equals(this.gcpAudience, configure.gcpAudience) &&
+        Objects.equals(this.json, configure.json) &&
         Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName) &&
         Objects.equals(this.keyData, configure.keyData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, k8sAuthConfigName, keyData);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData);
   }
 
 
@@ -339,6 +367,7 @@ public class Configure {
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("}");

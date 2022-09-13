@@ -41,6 +41,10 @@ public class GatewayAddAllowedManagementAccess {
   @SerializedName(SERIALIZED_NAME_ALLOW_GW_LOGIN)
   private Boolean allowGwLogin;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_SUB_ADMIN_ACCESS_ID = "sub-admin-access-id";
   @SerializedName(SERIALIZED_NAME_SUB_ADMIN_ACCESS_ID)
   private String subAdminAccessId;
@@ -101,6 +105,29 @@ public class GatewayAddAllowedManagementAccess {
 
   public void setAllowGwLogin(Boolean allowGwLogin) {
     this.allowGwLogin = allowGwLogin;
+  }
+
+
+  public GatewayAddAllowedManagementAccess json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -214,6 +241,7 @@ public class GatewayAddAllowedManagementAccess {
     GatewayAddAllowedManagementAccess gatewayAddAllowedManagementAccess = (GatewayAddAllowedManagementAccess) o;
     return Objects.equals(this.allowGwApi, gatewayAddAllowedManagementAccess.allowGwApi) &&
         Objects.equals(this.allowGwLogin, gatewayAddAllowedManagementAccess.allowGwLogin) &&
+        Objects.equals(this.json, gatewayAddAllowedManagementAccess.json) &&
         Objects.equals(this.subAdminAccessId, gatewayAddAllowedManagementAccess.subAdminAccessId) &&
         Objects.equals(this.subClaims, gatewayAddAllowedManagementAccess.subClaims) &&
         Objects.equals(this.token, gatewayAddAllowedManagementAccess.token) &&
@@ -222,7 +250,7 @@ public class GatewayAddAllowedManagementAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowGwApi, allowGwLogin, subAdminAccessId, subClaims, token, uidToken);
+    return Objects.hash(allowGwApi, allowGwLogin, json, subAdminAccessId, subClaims, token, uidToken);
   }
 
 
@@ -232,6 +260,7 @@ public class GatewayAddAllowedManagementAccess {
     sb.append("class GatewayAddAllowedManagementAccess {\n");
     sb.append("    allowGwApi: ").append(toIndentedString(allowGwApi)).append("\n");
     sb.append("    allowGwLogin: ").append(toIndentedString(allowGwLogin)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    subAdminAccessId: ").append(toIndentedString(subAdminAccessId)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

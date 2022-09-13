@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **githubBaseUrl** | **String** | Base URL |  [optional]
 **installationId** | **Long** | Github app installation id |  [optional]
 **installationRepository** | **String** | Repository that the app installation has access to |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **targetName** | **String** | Target name |  [optional]

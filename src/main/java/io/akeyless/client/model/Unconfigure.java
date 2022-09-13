@@ -29,9 +29,36 @@ import java.io.IOException;
  */
 
 public class Unconfigure {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
   private String profile = "default";
+
+
+  public Unconfigure json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public Unconfigure profile(String profile) {
@@ -66,12 +93,13 @@ public class Unconfigure {
       return false;
     }
     Unconfigure unconfigure = (Unconfigure) o;
-    return Objects.equals(this.profile, unconfigure.profile);
+    return Objects.equals(this.json, unconfigure.json) &&
+        Objects.equals(this.profile, unconfigure.profile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profile);
+    return Objects.hash(json, profile);
   }
 
 
@@ -79,6 +107,7 @@ public class Unconfigure {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Unconfigure {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");
     return sb.toString();

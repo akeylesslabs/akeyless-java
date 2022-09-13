@@ -76,6 +76,10 @@ public class CreateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -418,6 +422,29 @@ public class CreateAuthMethodAWSIAM {
   }
 
 
+  public CreateAuthMethodAWSIAM json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodAWSIAM jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -552,6 +579,7 @@ public class CreateAuthMethodAWSIAM {
         Objects.equals(this.boundUserName, createAuthMethodAWSIAM.boundUserName) &&
         Objects.equals(this.forceSubClaims, createAuthMethodAWSIAM.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodAWSIAM.gwBoundIps) &&
+        Objects.equals(this.json, createAuthMethodAWSIAM.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodAWSIAM.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodAWSIAM.name) &&
         Objects.equals(this.stsUrl, createAuthMethodAWSIAM.stsUrl) &&
@@ -561,7 +589,7 @@ public class CreateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, jwtTtl, name, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, stsUrl, token, uidToken);
   }
 
 
@@ -580,6 +608,7 @@ public class CreateAuthMethodAWSIAM {
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    stsUrl: ").append(toIndentedString(stsUrl)).append("\n");

@@ -37,6 +37,10 @@ public class DescribeItem {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -97,6 +101,29 @@ public class DescribeItem {
 
   public void setItemId(Long itemId) {
     this.itemId = itemId;
+  }
+
+
+  public DescribeItem json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -202,6 +229,7 @@ public class DescribeItem {
     DescribeItem describeItem = (DescribeItem) o;
     return Objects.equals(this.displayId, describeItem.displayId) &&
         Objects.equals(this.itemId, describeItem.itemId) &&
+        Objects.equals(this.json, describeItem.json) &&
         Objects.equals(this.name, describeItem.name) &&
         Objects.equals(this.showVersions, describeItem.showVersions) &&
         Objects.equals(this.token, describeItem.token) &&
@@ -210,7 +238,7 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, name, showVersions, token, uidToken);
+    return Objects.hash(displayId, itemId, json, name, showVersions, token, uidToken);
   }
 
 
@@ -220,6 +248,7 @@ public class DescribeItem {
     sb.append("class DescribeItem {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -44,6 +44,10 @@ public class GatewayCreateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_MYSQL_DBNAME = "mysql-dbname";
   @SerializedName(SERIALIZED_NAME_MYSQL_DBNAME)
   private String mysqlDbname;
@@ -187,6 +191,29 @@ public class GatewayCreateProducerMySQL {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerMySQL json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -654,6 +681,7 @@ public class GatewayCreateProducerMySQL {
     return Objects.equals(this.dbServerCertificates, gatewayCreateProducerMySQL.dbServerCertificates) &&
         Objects.equals(this.dbServerName, gatewayCreateProducerMySQL.dbServerName) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerMySQL.deleteProtection) &&
+        Objects.equals(this.json, gatewayCreateProducerMySQL.json) &&
         Objects.equals(this.mysqlDbname, gatewayCreateProducerMySQL.mysqlDbname) &&
         Objects.equals(this.mysqlHost, gatewayCreateProducerMySQL.mysqlHost) &&
         Objects.equals(this.mysqlPassword, gatewayCreateProducerMySQL.mysqlPassword) &&
@@ -677,7 +705,7 @@ public class GatewayCreateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -688,6 +716,7 @@ public class GatewayCreateProducerMySQL {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    mysqlDbname: ").append(toIndentedString(mysqlDbname)).append("\n");
     sb.append("    mysqlHost: ").append(toIndentedString(mysqlHost)).append("\n");
     sb.append("    mysqlPassword: ").append(toIndentedString(mysqlPassword)).append("\n");

@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **names** | **List&lt;String&gt;** | Secret name | 
 **prettyPrint** | **Boolean** |  |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

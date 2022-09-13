@@ -7,6 +7,7 @@ assocTargetItem is a command that creates an association between target and item
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keyOperations** | **List&lt;String&gt;** | A list of allowed operations for the key (required for azure targets) |  [optional]
 **keyringName** | **String** | Keyring name of the GCP KMS (required for gcp targets) |  [optional]
 **kmsAlgorithm** | **String** | Algorithm of the key in GCP KMS (required for gcp targets) |  [optional]

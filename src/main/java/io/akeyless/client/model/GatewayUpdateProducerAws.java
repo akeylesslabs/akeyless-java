@@ -76,6 +76,10 @@ public class GatewayUpdateProducerAws {
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation = false;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -391,6 +395,29 @@ public class GatewayUpdateProducerAws {
 
   public void setEnableAdminRotation(Boolean enableAdminRotation) {
     this.enableAdminRotation = enableAdminRotation;
+  }
+
+
+  public GatewayUpdateProducerAws json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -789,6 +816,7 @@ public class GatewayUpdateProducerAws {
         Objects.equals(this.awsUserProgrammaticAccess, gatewayUpdateProducerAws.awsUserProgrammaticAccess) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerAws.deleteProtection) &&
         Objects.equals(this.enableAdminRotation, gatewayUpdateProducerAws.enableAdminRotation) &&
+        Objects.equals(this.json, gatewayUpdateProducerAws.json) &&
         Objects.equals(this.name, gatewayUpdateProducerAws.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerAws.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerAws.producerEncryptionKeyName) &&
@@ -809,7 +837,7 @@ public class GatewayUpdateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, name, newName, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, json, name, newName, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -828,6 +856,7 @@ public class GatewayUpdateProducerAws {
     sb.append("    awsUserProgrammaticAccess: ").append(toIndentedString(awsUserProgrammaticAccess)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

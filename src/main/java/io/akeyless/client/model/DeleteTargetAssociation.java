@@ -34,6 +34,10 @@ public class DeleteTargetAssociation {
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -71,6 +75,29 @@ public class DeleteTargetAssociation {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public DeleteTargetAssociation json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -175,6 +202,7 @@ public class DeleteTargetAssociation {
     }
     DeleteTargetAssociation deleteTargetAssociation = (DeleteTargetAssociation) o;
     return Objects.equals(this.assocId, deleteTargetAssociation.assocId) &&
+        Objects.equals(this.json, deleteTargetAssociation.json) &&
         Objects.equals(this.name, deleteTargetAssociation.name) &&
         Objects.equals(this.targetName, deleteTargetAssociation.targetName) &&
         Objects.equals(this.token, deleteTargetAssociation.token) &&
@@ -183,7 +211,7 @@ public class DeleteTargetAssociation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, name, targetName, token, uidToken);
+    return Objects.hash(assocId, json, name, targetName, token, uidToken);
   }
 
 
@@ -192,6 +220,7 @@ public class DeleteTargetAssociation {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTargetAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

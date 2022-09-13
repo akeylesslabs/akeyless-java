@@ -52,6 +52,10 @@ public class GatewayCreateProducerChef {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -197,6 +201,29 @@ public class GatewayCreateProducerChef {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerChef json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -405,6 +432,7 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.chefServerUrl, gatewayCreateProducerChef.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, gatewayCreateProducerChef.chefServerUsername) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerChef.deleteProtection) &&
+        Objects.equals(this.json, gatewayCreateProducerChef.json) &&
         Objects.equals(this.name, gatewayCreateProducerChef.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerChef.producerEncryptionKeyName) &&
         Objects.equals(this.skipSsl, gatewayCreateProducerChef.skipSsl) &&
@@ -417,7 +445,7 @@ public class GatewayCreateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, name, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, json, name, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -430,6 +458,7 @@ public class GatewayCreateProducerChef {
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");

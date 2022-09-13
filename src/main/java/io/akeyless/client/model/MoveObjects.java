@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class MoveObjects {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_OBJECTS_TYPE = "objects-type";
   @SerializedName(SERIALIZED_NAME_OBJECTS_TYPE)
   private String objectsType = "item";
@@ -48,6 +52,29 @@ public class MoveObjects {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public MoveObjects json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public MoveObjects objectsType(String objectsType) {
@@ -172,7 +199,8 @@ public class MoveObjects {
       return false;
     }
     MoveObjects moveObjects = (MoveObjects) o;
-    return Objects.equals(this.objectsType, moveObjects.objectsType) &&
+    return Objects.equals(this.json, moveObjects.json) &&
+        Objects.equals(this.objectsType, moveObjects.objectsType) &&
         Objects.equals(this.source, moveObjects.source) &&
         Objects.equals(this.target, moveObjects.target) &&
         Objects.equals(this.token, moveObjects.token) &&
@@ -181,7 +209,7 @@ public class MoveObjects {
 
   @Override
   public int hashCode() {
-    return Objects.hash(objectsType, source, target, token, uidToken);
+    return Objects.hash(json, objectsType, source, target, token, uidToken);
   }
 
 
@@ -189,6 +217,7 @@ public class MoveObjects {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MoveObjects {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    objectsType: ").append(toIndentedString(objectsType)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");

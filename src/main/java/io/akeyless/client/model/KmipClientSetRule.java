@@ -39,6 +39,10 @@ public class KmipClientSetRule {
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
   private String clientId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -103,6 +107,29 @@ public class KmipClientSetRule {
 
   public void setClientId(String clientId) {
     this.clientId = clientId;
+  }
+
+
+  public KmipClientSetRule json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -208,6 +235,7 @@ public class KmipClientSetRule {
     KmipClientSetRule kmipClientSetRule = (KmipClientSetRule) o;
     return Objects.equals(this.capability, kmipClientSetRule.capability) &&
         Objects.equals(this.clientId, kmipClientSetRule.clientId) &&
+        Objects.equals(this.json, kmipClientSetRule.json) &&
         Objects.equals(this.name, kmipClientSetRule.name) &&
         Objects.equals(this.path, kmipClientSetRule.path) &&
         Objects.equals(this.token, kmipClientSetRule.token) &&
@@ -216,7 +244,7 @@ public class KmipClientSetRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, clientId, name, path, token, uidToken);
+    return Objects.hash(capability, clientId, json, name, path, token, uidToken);
   }
 
 
@@ -226,6 +254,7 @@ public class KmipClientSetRule {
     sb.append("class KmipClientSetRule {\n");
     sb.append("    capability: ").append(toIndentedString(capability)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **creationStatements** | **String** | PostgreSQL Creation statements |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **postgresqlDbName** | **String** | PostgreSQL DB Name |  [optional]
 **postgresqlHost** | **String** | PostgreSQL Host |  [optional]

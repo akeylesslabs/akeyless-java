@@ -45,6 +45,10 @@ public class UpdateRDPTargetDetails {
   @SerializedName(SERIALIZED_NAME_HOST_PORT)
   private String hostPort;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -159,6 +163,29 @@ public class UpdateRDPTargetDetails {
 
   public void setHostPort(String hostPort) {
     this.hostPort = hostPort;
+  }
+
+
+  public UpdateRDPTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -312,6 +339,7 @@ public class UpdateRDPTargetDetails {
         Objects.equals(this.adminPwd, updateRDPTargetDetails.adminPwd) &&
         Objects.equals(this.hostName, updateRDPTargetDetails.hostName) &&
         Objects.equals(this.hostPort, updateRDPTargetDetails.hostPort) &&
+        Objects.equals(this.json, updateRDPTargetDetails.json) &&
         Objects.equals(this.keepPrevVersion, updateRDPTargetDetails.keepPrevVersion) &&
         Objects.equals(this.name, updateRDPTargetDetails.name) &&
         Objects.equals(this.newVersion, updateRDPTargetDetails.newVersion) &&
@@ -322,7 +350,7 @@ public class UpdateRDPTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, adminPwd, hostName, hostPort, keepPrevVersion, name, newVersion, protectionKey, token, uidToken);
+    return Objects.hash(adminName, adminPwd, hostName, hostPort, json, keepPrevVersion, name, newVersion, protectionKey, token, uidToken);
   }
 
 
@@ -334,6 +362,7 @@ public class UpdateRDPTargetDetails {
     sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");

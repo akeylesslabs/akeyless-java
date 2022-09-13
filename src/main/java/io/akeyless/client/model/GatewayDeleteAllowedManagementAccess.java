@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "gatewayDeleteAllowedManagementAccess is a command that deletes sub-admins")
 
 public class GatewayDeleteAllowedManagementAccess {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_SUB_ADMIN_ID = "sub-admin-id";
   @SerializedName(SERIALIZED_NAME_SUB_ADMIN_ID)
   private String subAdminId;
@@ -41,6 +45,29 @@ public class GatewayDeleteAllowedManagementAccess {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GatewayDeleteAllowedManagementAccess json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GatewayDeleteAllowedManagementAccess subAdminId(String subAdminId) {
@@ -120,14 +147,15 @@ public class GatewayDeleteAllowedManagementAccess {
       return false;
     }
     GatewayDeleteAllowedManagementAccess gatewayDeleteAllowedManagementAccess = (GatewayDeleteAllowedManagementAccess) o;
-    return Objects.equals(this.subAdminId, gatewayDeleteAllowedManagementAccess.subAdminId) &&
+    return Objects.equals(this.json, gatewayDeleteAllowedManagementAccess.json) &&
+        Objects.equals(this.subAdminId, gatewayDeleteAllowedManagementAccess.subAdminId) &&
         Objects.equals(this.token, gatewayDeleteAllowedManagementAccess.token) &&
         Objects.equals(this.uidToken, gatewayDeleteAllowedManagementAccess.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subAdminId, token, uidToken);
+    return Objects.hash(json, subAdminId, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class GatewayDeleteAllowedManagementAccess {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayDeleteAllowedManagementAccess {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    subAdminId: ").append(toIndentedString(subAdminId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

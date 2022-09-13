@@ -34,6 +34,10 @@ public class UidRotateToken {
   @SerializedName(SERIALIZED_NAME_FORK)
   private Boolean fork;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_SEND_MANUAL_ACK_TOKEN = "send-manual-ack-token";
   @SerializedName(SERIALIZED_NAME_SEND_MANUAL_ACK_TOKEN)
   private String sendManualAckToken;
@@ -67,6 +71,29 @@ public class UidRotateToken {
 
   public void setFork(Boolean fork) {
     this.fork = fork;
+  }
+
+
+  public UidRotateToken json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -149,6 +176,7 @@ public class UidRotateToken {
     }
     UidRotateToken uidRotateToken = (UidRotateToken) o;
     return Objects.equals(this.fork, uidRotateToken.fork) &&
+        Objects.equals(this.json, uidRotateToken.json) &&
         Objects.equals(this.sendManualAckToken, uidRotateToken.sendManualAckToken) &&
         Objects.equals(this.uidToken, uidRotateToken.uidToken) &&
         Objects.equals(this.withManualAck, uidRotateToken.withManualAck);
@@ -156,7 +184,7 @@ public class UidRotateToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fork, sendManualAckToken, uidToken, withManualAck);
+    return Objects.hash(fork, json, sendManualAckToken, uidToken, withManualAck);
   }
 
 
@@ -165,6 +193,7 @@ public class UidRotateToken {
     StringBuilder sb = new StringBuilder();
     sb.append("class UidRotateToken {\n");
     sb.append("    fork: ").append(toIndentedString(fork)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    sendManualAckToken: ").append(toIndentedString(sendManualAckToken)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    withManualAck: ").append(toIndentedString(withManualAck)).append("\n");

@@ -52,6 +52,10 @@ public class CreateTokenizer {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY_NAME)
   private String encryptionKeyName;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -201,6 +205,29 @@ public class CreateTokenizer {
 
   public void setEncryptionKeyName(String encryptionKeyName) {
     this.encryptionKeyName = encryptionKeyName;
+  }
+
+
+  public CreateTokenizer json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -430,6 +457,7 @@ public class CreateTokenizer {
         Objects.equals(this.deleteProtection, createTokenizer.deleteProtection) &&
         Objects.equals(this.encodingTemplate, createTokenizer.encodingTemplate) &&
         Objects.equals(this.encryptionKeyName, createTokenizer.encryptionKeyName) &&
+        Objects.equals(this.json, createTokenizer.json) &&
         Objects.equals(this.metadata, createTokenizer.metadata) &&
         Objects.equals(this.name, createTokenizer.name) &&
         Objects.equals(this.pattern, createTokenizer.pattern) &&
@@ -443,7 +471,7 @@ public class CreateTokenizer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alphabet, decodingTemplate, deleteProtection, encodingTemplate, encryptionKeyName, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
+    return Objects.hash(alphabet, decodingTemplate, deleteProtection, encodingTemplate, encryptionKeyName, json, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
   }
 
 
@@ -456,6 +484,7 @@ public class CreateTokenizer {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    encodingTemplate: ").append(toIndentedString(encodingTemplate)).append("\n");
     sb.append("    encryptionKeyName: ").append(toIndentedString(encryptionKeyName)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");

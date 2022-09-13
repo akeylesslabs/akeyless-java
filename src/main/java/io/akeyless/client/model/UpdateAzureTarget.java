@@ -41,6 +41,10 @@ public class UpdateAzureTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -156,6 +160,29 @@ public class UpdateAzureTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateAzureTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -446,6 +473,7 @@ public class UpdateAzureTarget {
     return Objects.equals(this.clientId, updateAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, updateAzureTarget.clientSecret) &&
         Objects.equals(this.comment, updateAzureTarget.comment) &&
+        Objects.equals(this.json, updateAzureTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateAzureTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateAzureTarget.key) &&
         Objects.equals(this.name, updateAzureTarget.name) &&
@@ -462,7 +490,7 @@ public class UpdateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, keepPrevVersion, key, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(clientId, clientSecret, comment, json, keepPrevVersion, key, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -473,6 +501,7 @@ public class UpdateAzureTarget {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

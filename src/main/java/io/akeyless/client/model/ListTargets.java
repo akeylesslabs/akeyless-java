@@ -35,6 +35,10 @@ public class ListTargets {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
@@ -72,6 +76,29 @@ public class ListTargets {
 
   public void setFilter(String filter) {
     this.filter = filter;
+  }
+
+
+  public ListTargets json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -185,6 +212,7 @@ public class ListTargets {
     }
     ListTargets listTargets = (ListTargets) o;
     return Objects.equals(this.filter, listTargets.filter) &&
+        Objects.equals(this.json, listTargets.json) &&
         Objects.equals(this.paginationToken, listTargets.paginationToken) &&
         Objects.equals(this.token, listTargets.token) &&
         Objects.equals(this.type, listTargets.type) &&
@@ -193,7 +221,7 @@ public class ListTargets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, paginationToken, token, type, uidToken);
+    return Objects.hash(filter, json, paginationToken, token, type, uidToken);
   }
 
 
@@ -202,6 +230,7 @@ public class ListTargets {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListTargets {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

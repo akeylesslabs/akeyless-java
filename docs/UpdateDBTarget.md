@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
 **dbType** | **String** |  | 
 **host** | **String** |  |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **mongodbAtlas** | **Boolean** |  |  [optional]

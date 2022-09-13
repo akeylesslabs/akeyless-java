@@ -61,6 +61,10 @@ public class UpdateSalesforceTarget {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -280,6 +284,29 @@ public class UpdateSalesforceTarget {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public UpdateSalesforceTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -528,6 +555,7 @@ public class UpdateSalesforceTarget {
         Objects.equals(this.clientSecret, updateSalesforceTarget.clientSecret) &&
         Objects.equals(this.comment, updateSalesforceTarget.comment) &&
         Objects.equals(this.email, updateSalesforceTarget.email) &&
+        Objects.equals(this.json, updateSalesforceTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateSalesforceTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateSalesforceTarget.key) &&
         Objects.equals(this.name, updateSalesforceTarget.name) &&
@@ -542,7 +570,7 @@ public class UpdateSalesforceTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, email, keepPrevVersion, key, name, newName, password, securityToken, tenantUrl, token, uidToken, updateVersion);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, email, json, keepPrevVersion, key, name, newName, password, securityToken, tenantUrl, token, uidToken, updateVersion);
   }
 
 
@@ -558,6 +586,7 @@ public class UpdateSalesforceTarget {
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

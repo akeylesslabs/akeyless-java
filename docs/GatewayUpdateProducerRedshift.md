@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **creationStatements** | **String** | Redshift Creation statements |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKey** | **String** | Dynamic producer encryption key |  [optional]

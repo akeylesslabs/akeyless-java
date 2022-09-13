@@ -40,9 +40,17 @@ public class Encrypt {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_CONTEXT)
   private Map<String, String> encryptionContext = null;
 
+  public static final String SERIALIZED_NAME_INPUT_FORMAT = "input-format";
+  @SerializedName(SERIALIZED_NAME_INPUT_FORMAT)
+  private String inputFormat;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
+
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
 
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
@@ -115,6 +123,29 @@ public class Encrypt {
   }
 
 
+  public Encrypt inputFormat(String inputFormat) {
+    
+    this.inputFormat = inputFormat;
+    return this;
+  }
+
+   /**
+   * If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
+   * @return inputFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]")
+
+  public String getInputFormat() {
+    return inputFormat;
+  }
+
+
+  public void setInputFormat(String inputFormat) {
+    this.inputFormat = inputFormat;
+  }
+
+
   public Encrypt itemId(Long itemId) {
     
     this.itemId = itemId;
@@ -135,6 +166,29 @@ public class Encrypt {
 
   public void setItemId(Long itemId) {
     this.itemId = itemId;
+  }
+
+
+  public Encrypt json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -240,7 +294,9 @@ public class Encrypt {
     Encrypt encrypt = (Encrypt) o;
     return Objects.equals(this.displayId, encrypt.displayId) &&
         Objects.equals(this.encryptionContext, encrypt.encryptionContext) &&
+        Objects.equals(this.inputFormat, encrypt.inputFormat) &&
         Objects.equals(this.itemId, encrypt.itemId) &&
+        Objects.equals(this.json, encrypt.json) &&
         Objects.equals(this.keyName, encrypt.keyName) &&
         Objects.equals(this.plaintext, encrypt.plaintext) &&
         Objects.equals(this.token, encrypt.token) &&
@@ -249,7 +305,7 @@ public class Encrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, encryptionContext, itemId, keyName, plaintext, token, uidToken);
+    return Objects.hash(displayId, encryptionContext, inputFormat, itemId, json, keyName, plaintext, token, uidToken);
   }
 
 
@@ -259,7 +315,9 @@ public class Encrypt {
     sb.append("class Encrypt {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
+    sb.append("    inputFormat: ").append(toIndentedString(inputFormat)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

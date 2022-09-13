@@ -36,6 +36,10 @@ public class GatewayUpdateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
   private String k8sClusterCaCert;
@@ -141,6 +145,29 @@ public class GatewayUpdateProducerNativeK8S {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerNativeK8S json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -644,6 +671,7 @@ public class GatewayUpdateProducerNativeK8S {
     }
     GatewayUpdateProducerNativeK8S gatewayUpdateProducerNativeK8S = (GatewayUpdateProducerNativeK8S) o;
     return Objects.equals(this.deleteProtection, gatewayUpdateProducerNativeK8S.deleteProtection) &&
+        Objects.equals(this.json, gatewayUpdateProducerNativeK8S.json) &&
         Objects.equals(this.k8sClusterCaCert, gatewayUpdateProducerNativeK8S.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, gatewayUpdateProducerNativeK8S.k8sClusterEndpoint) &&
         Objects.equals(this.k8sClusterToken, gatewayUpdateProducerNativeK8S.k8sClusterToken) &&
@@ -669,7 +697,7 @@ public class GatewayUpdateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -678,6 +706,7 @@ public class GatewayUpdateProducerNativeK8S {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerNativeK8S {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");

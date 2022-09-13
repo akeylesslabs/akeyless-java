@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "gatewayUpdateTmpUsers is a command that returns gateway configuration")
 
 public class GatewayUpdateTmpUsers {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -49,6 +53,29 @@ public class GatewayUpdateTmpUsers {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GatewayUpdateTmpUsers json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public GatewayUpdateTmpUsers name(String name) {
@@ -172,7 +199,8 @@ public class GatewayUpdateTmpUsers {
       return false;
     }
     GatewayUpdateTmpUsers gatewayUpdateTmpUsers = (GatewayUpdateTmpUsers) o;
-    return Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
+    return Objects.equals(this.json, gatewayUpdateTmpUsers.json) &&
+        Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
         Objects.equals(this.newTtlMin, gatewayUpdateTmpUsers.newTtlMin) &&
         Objects.equals(this.tmpCredsId, gatewayUpdateTmpUsers.tmpCredsId) &&
         Objects.equals(this.token, gatewayUpdateTmpUsers.token) &&
@@ -181,7 +209,7 @@ public class GatewayUpdateTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, newTtlMin, tmpCredsId, token, uidToken);
+    return Objects.hash(json, name, newTtlMin, tmpCredsId, token, uidToken);
   }
 
 
@@ -189,6 +217,7 @@ public class GatewayUpdateTmpUsers {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateTmpUsers {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newTtlMin: ").append(toIndentedString(newTtlMin)).append("\n");
     sb.append("    tmpCredsId: ").append(toIndentedString(tmpCredsId)).append("\n");

@@ -41,6 +41,10 @@ public class UpdateAssoc {
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
   private String caseSensitive;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub-claims";
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
   private Map<String, String> subClaims = null;
@@ -96,6 +100,29 @@ public class UpdateAssoc {
 
   public void setCaseSensitive(String caseSensitive) {
     this.caseSensitive = caseSensitive;
+  }
+
+
+  public UpdateAssoc json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -187,6 +214,7 @@ public class UpdateAssoc {
     UpdateAssoc updateAssoc = (UpdateAssoc) o;
     return Objects.equals(this.assocId, updateAssoc.assocId) &&
         Objects.equals(this.caseSensitive, updateAssoc.caseSensitive) &&
+        Objects.equals(this.json, updateAssoc.json) &&
         Objects.equals(this.subClaims, updateAssoc.subClaims) &&
         Objects.equals(this.token, updateAssoc.token) &&
         Objects.equals(this.uidToken, updateAssoc.uidToken);
@@ -194,7 +222,7 @@ public class UpdateAssoc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, caseSensitive, subClaims, token, uidToken);
+    return Objects.hash(assocId, caseSensitive, json, subClaims, token, uidToken);
   }
 
 
@@ -204,6 +232,7 @@ public class UpdateAssoc {
     sb.append("class UpdateAssoc {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

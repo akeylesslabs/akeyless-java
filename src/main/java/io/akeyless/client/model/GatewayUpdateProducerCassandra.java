@@ -56,6 +56,10 @@ public class GatewayUpdateProducerCassandra {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -224,6 +228,29 @@ public class GatewayUpdateProducerCassandra {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerCassandra json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -433,6 +460,7 @@ public class GatewayUpdateProducerCassandra {
         Objects.equals(this.cassandraPort, gatewayUpdateProducerCassandra.cassandraPort) &&
         Objects.equals(this.cassandraUsername, gatewayUpdateProducerCassandra.cassandraUsername) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerCassandra.deleteProtection) &&
+        Objects.equals(this.json, gatewayUpdateProducerCassandra.json) &&
         Objects.equals(this.name, gatewayUpdateProducerCassandra.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCassandra.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerCassandra.producerEncryptionKeyName) &&
@@ -445,7 +473,7 @@ public class GatewayUpdateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -459,6 +487,7 @@ public class GatewayUpdateProducerCassandra {
     sb.append("    cassandraPort: ").append(toIndentedString(cassandraPort)).append("\n");
     sb.append("    cassandraUsername: ").append(toIndentedString(cassandraUsername)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

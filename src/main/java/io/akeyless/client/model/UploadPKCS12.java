@@ -43,6 +43,10 @@ public class UploadPKCS12 {
   @SerializedName(SERIALIZED_NAME_IN)
   private String in;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -137,6 +141,29 @@ public class UploadPKCS12 {
 
   public void setIn(String in) {
     this.in = in;
+  }
+
+
+  public UploadPKCS12 json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -319,6 +346,7 @@ public class UploadPKCS12 {
     return Objects.equals(this.customerFrgId, uploadPKCS12.customerFrgId) &&
         Objects.equals(this.deleteProtection, uploadPKCS12.deleteProtection) &&
         Objects.equals(this.in, uploadPKCS12.in) &&
+        Objects.equals(this.json, uploadPKCS12.json) &&
         Objects.equals(this.metadata, uploadPKCS12.metadata) &&
         Objects.equals(this.name, uploadPKCS12.name) &&
         Objects.equals(this.passphrase, uploadPKCS12.passphrase) &&
@@ -330,7 +358,7 @@ public class UploadPKCS12 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerFrgId, deleteProtection, in, metadata, name, passphrase, splitLevel, tag, token, uidToken);
+    return Objects.hash(customerFrgId, deleteProtection, in, json, metadata, name, passphrase, splitLevel, tag, token, uidToken);
   }
 
 
@@ -341,6 +369,7 @@ public class UploadPKCS12 {
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passphrase: ").append(toIndentedString(passphrase)).append("\n");

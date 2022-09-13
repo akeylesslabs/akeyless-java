@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class RollbackSecret {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -44,6 +48,29 @@ public class RollbackSecret {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public RollbackSecret json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public RollbackSecret name(String name) {
@@ -145,7 +172,8 @@ public class RollbackSecret {
       return false;
     }
     RollbackSecret rollbackSecret = (RollbackSecret) o;
-    return Objects.equals(this.name, rollbackSecret.name) &&
+    return Objects.equals(this.json, rollbackSecret.json) &&
+        Objects.equals(this.name, rollbackSecret.name) &&
         Objects.equals(this.oldVersion, rollbackSecret.oldVersion) &&
         Objects.equals(this.token, rollbackSecret.token) &&
         Objects.equals(this.uidToken, rollbackSecret.uidToken);
@@ -153,7 +181,7 @@ public class RollbackSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, oldVersion, token, uidToken);
+    return Objects.hash(json, name, oldVersion, token, uidToken);
   }
 
 
@@ -161,6 +189,7 @@ public class RollbackSecret {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RollbackSecret {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oldVersion: ").append(toIndentedString(oldVersion)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

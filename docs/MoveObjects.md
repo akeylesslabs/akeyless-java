@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **objectsType** | **String** | The objects type to move (item/auth_method/role) |  [optional]
 **source** | **String** | Source path to move the objects from | 
 **target** | **String** | Target path to move the objects to | 

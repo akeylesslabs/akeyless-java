@@ -34,6 +34,10 @@ public class UidListChildren {
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
   private String authMethodName;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -63,6 +67,29 @@ public class UidListChildren {
 
   public void setAuthMethodName(String authMethodName) {
     this.authMethodName = authMethodName;
+  }
+
+
+  public UidListChildren json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -122,13 +149,14 @@ public class UidListChildren {
     }
     UidListChildren uidListChildren = (UidListChildren) o;
     return Objects.equals(this.authMethodName, uidListChildren.authMethodName) &&
+        Objects.equals(this.json, uidListChildren.json) &&
         Objects.equals(this.token, uidListChildren.token) &&
         Objects.equals(this.uidToken, uidListChildren.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodName, token, uidToken);
+    return Objects.hash(authMethodName, json, token, uidToken);
   }
 
 
@@ -137,6 +165,7 @@ public class UidListChildren {
     StringBuilder sb = new StringBuilder();
     sb.append("class UidListChildren {\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

@@ -45,6 +45,10 @@ public class GetPKICertificate {
   @SerializedName(SERIALIZED_NAME_EXTENDED_KEY_USAGE)
   private String extendedKeyUsage;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
   private String keyDataBase64;
@@ -154,6 +158,29 @@ public class GetPKICertificate {
 
   public void setExtendedKeyUsage(String extendedKeyUsage) {
     this.extendedKeyUsage = extendedKeyUsage;
+  }
+
+
+  public GetPKICertificate json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -285,6 +312,7 @@ public class GetPKICertificate {
         Objects.equals(this.certIssuerName, getPKICertificate.certIssuerName) &&
         Objects.equals(this.commonName, getPKICertificate.commonName) &&
         Objects.equals(this.extendedKeyUsage, getPKICertificate.extendedKeyUsage) &&
+        Objects.equals(this.json, getPKICertificate.json) &&
         Objects.equals(this.keyDataBase64, getPKICertificate.keyDataBase64) &&
         Objects.equals(this.token, getPKICertificate.token) &&
         Objects.equals(this.ttl, getPKICertificate.ttl) &&
@@ -294,7 +322,7 @@ public class GetPKICertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, extendedKeyUsage, keyDataBase64, token, ttl, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
 
@@ -306,6 +334,7 @@ public class GetPKICertificate {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    extendedKeyUsage: ").append(toIndentedString(extendedKeyUsage)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");

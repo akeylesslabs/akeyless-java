@@ -29,9 +29,36 @@ import java.io.IOException;
  */
 
 public class Update {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version;
+
+
+  public Update json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public Update version(String version) {
@@ -66,12 +93,13 @@ public class Update {
       return false;
     }
     Update update = (Update) o;
-    return Objects.equals(this.version, update.version);
+    return Objects.equals(this.json, update.json) &&
+        Objects.equals(this.version, update.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version);
+    return Objects.hash(json, version);
   }
 
 
@@ -79,6 +107,7 @@ public class Update {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Update {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

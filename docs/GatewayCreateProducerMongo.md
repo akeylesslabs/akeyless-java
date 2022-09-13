@@ -8,6 +8,7 @@ gatewayCreateProducerMongo is a command that creates either mongodb  producer or
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **mongodbAtlasApiPrivateKey** | **String** | MongoDB Atlas private key |  [optional]
 **mongodbAtlasApiPublicKey** | **String** | MongoDB Atlas public key |  [optional]
 **mongodbAtlasProjectId** | **String** | MongoDB Atlas project ID |  [optional]

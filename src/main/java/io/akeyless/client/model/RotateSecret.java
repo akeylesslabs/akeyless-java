@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class RotateSecret {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -40,6 +44,29 @@ public class RotateSecret {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public RotateSecret json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public RotateSecret name(String name) {
@@ -119,14 +146,15 @@ public class RotateSecret {
       return false;
     }
     RotateSecret rotateSecret = (RotateSecret) o;
-    return Objects.equals(this.name, rotateSecret.name) &&
+    return Objects.equals(this.json, rotateSecret.json) &&
+        Objects.equals(this.name, rotateSecret.name) &&
         Objects.equals(this.token, rotateSecret.token) &&
         Objects.equals(this.uidToken, rotateSecret.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, token, uidToken);
+    return Objects.hash(json, name, token, uidToken);
   }
 
 
@@ -134,6 +162,7 @@ public class RotateSecret {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateSecret {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

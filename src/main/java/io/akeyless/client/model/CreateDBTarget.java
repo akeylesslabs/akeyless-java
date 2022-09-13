@@ -53,6 +53,10 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -256,6 +260,29 @@ public class CreateDBTarget {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public CreateDBTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -664,6 +691,7 @@ public class CreateDBTarget {
         Objects.equals(this.dbServerName, createDBTarget.dbServerName) &&
         Objects.equals(this.dbType, createDBTarget.dbType) &&
         Objects.equals(this.host, createDBTarget.host) &&
+        Objects.equals(this.json, createDBTarget.json) &&
         Objects.equals(this.key, createDBTarget.key) &&
         Objects.equals(this.mongodbAtlas, createDBTarget.mongodbAtlas) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, createDBTarget.mongodbAtlasApiPrivateKey) &&
@@ -685,7 +713,7 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, userName);
   }
 
 
@@ -699,6 +727,7 @@ public class CreateDBTarget {
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");

@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "kmipSetServerState is a command that sets the environment state to active/inactive.")
 
 public class KmipSetServerState {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
@@ -41,6 +45,29 @@ public class KmipSetServerState {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public KmipSetServerState json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public KmipSetServerState state(String state) {
@@ -120,14 +147,15 @@ public class KmipSetServerState {
       return false;
     }
     KmipSetServerState kmipSetServerState = (KmipSetServerState) o;
-    return Objects.equals(this.state, kmipSetServerState.state) &&
+    return Objects.equals(this.json, kmipSetServerState.json) &&
+        Objects.equals(this.state, kmipSetServerState.state) &&
         Objects.equals(this.token, kmipSetServerState.token) &&
         Objects.equals(this.uidToken, kmipSetServerState.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(state, token, uidToken);
+    return Objects.hash(json, state, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class KmipSetServerState {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KmipSetServerState {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

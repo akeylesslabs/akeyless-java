@@ -33,6 +33,10 @@ public class DeleteTargets {
   @SerializedName(SERIALIZED_NAME_FORCE_DELETION)
   private Boolean forceDeletion = false;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -66,6 +70,29 @@ public class DeleteTargets {
 
   public void setForceDeletion(Boolean forceDeletion) {
     this.forceDeletion = forceDeletion;
+  }
+
+
+  public DeleteTargets json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -147,6 +174,7 @@ public class DeleteTargets {
     }
     DeleteTargets deleteTargets = (DeleteTargets) o;
     return Objects.equals(this.forceDeletion, deleteTargets.forceDeletion) &&
+        Objects.equals(this.json, deleteTargets.json) &&
         Objects.equals(this.path, deleteTargets.path) &&
         Objects.equals(this.token, deleteTargets.token) &&
         Objects.equals(this.uidToken, deleteTargets.uidToken);
@@ -154,7 +182,7 @@ public class DeleteTargets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceDeletion, path, token, uidToken);
+    return Objects.hash(forceDeletion, json, path, token, uidToken);
   }
 
 
@@ -163,6 +191,7 @@ public class DeleteTargets {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTargets {\n");
     sb.append("    forceDeletion: ").append(toIndentedString(forceDeletion)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

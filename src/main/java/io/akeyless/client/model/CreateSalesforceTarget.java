@@ -61,6 +61,10 @@ public class CreateSalesforceTarget {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -271,6 +275,29 @@ public class CreateSalesforceTarget {
   }
 
 
+  public CreateSalesforceTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateSalesforceTarget key(String key) {
     
     this.key = key;
@@ -447,6 +474,7 @@ public class CreateSalesforceTarget {
         Objects.equals(this.clientSecret, createSalesforceTarget.clientSecret) &&
         Objects.equals(this.comment, createSalesforceTarget.comment) &&
         Objects.equals(this.email, createSalesforceTarget.email) &&
+        Objects.equals(this.json, createSalesforceTarget.json) &&
         Objects.equals(this.key, createSalesforceTarget.key) &&
         Objects.equals(this.name, createSalesforceTarget.name) &&
         Objects.equals(this.password, createSalesforceTarget.password) &&
@@ -458,7 +486,7 @@ public class CreateSalesforceTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, email, key, name, password, securityToken, tenantUrl, token, uidToken);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, email, json, key, name, password, securityToken, tenantUrl, token, uidToken);
   }
 
 
@@ -474,6 +502,7 @@ public class CreateSalesforceTarget {
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

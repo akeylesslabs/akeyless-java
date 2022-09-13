@@ -48,6 +48,10 @@ public class GatewayUpdateProducerDockerhub {
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_USERNAME)
   private String dockerhubUsername;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -170,6 +174,29 @@ public class GatewayUpdateProducerDockerhub {
 
   public void setDockerhubUsername(String dockerhubUsername) {
     this.dockerhubUsername = dockerhubUsername;
+  }
+
+
+  public GatewayUpdateProducerDockerhub json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -377,6 +404,7 @@ public class GatewayUpdateProducerDockerhub {
         Objects.equals(this.dockerhubPassword, gatewayUpdateProducerDockerhub.dockerhubPassword) &&
         Objects.equals(this.dockerhubTokenScopes, gatewayUpdateProducerDockerhub.dockerhubTokenScopes) &&
         Objects.equals(this.dockerhubUsername, gatewayUpdateProducerDockerhub.dockerhubUsername) &&
+        Objects.equals(this.json, gatewayUpdateProducerDockerhub.json) &&
         Objects.equals(this.name, gatewayUpdateProducerDockerhub.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerDockerhub.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerDockerhub.producerEncryptionKeyName) &&
@@ -389,7 +417,7 @@ public class GatewayUpdateProducerDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -401,6 +429,7 @@ public class GatewayUpdateProducerDockerhub {
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubTokenScopes: ").append(toIndentedString(dockerhubTokenScopes)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

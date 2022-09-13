@@ -7,6 +7,7 @@ gatewayUpdateTmpUsers is a command that returns gateway configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer Name | 
 **newTtlMin** | **Long** | New TTL in Minutes | 
 **tmpCredsId** | **String** | Tmp Creds ID | 

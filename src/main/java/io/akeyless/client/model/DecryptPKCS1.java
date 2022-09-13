@@ -41,6 +41,10 @@ public class DecryptPKCS1 {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -119,6 +123,29 @@ public class DecryptPKCS1 {
 
   public void setItemId(Long itemId) {
     this.itemId = itemId;
+  }
+
+
+  public DecryptPKCS1 json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -202,6 +229,7 @@ public class DecryptPKCS1 {
     return Objects.equals(this.ciphertext, decryptPKCS1.ciphertext) &&
         Objects.equals(this.displayId, decryptPKCS1.displayId) &&
         Objects.equals(this.itemId, decryptPKCS1.itemId) &&
+        Objects.equals(this.json, decryptPKCS1.json) &&
         Objects.equals(this.keyName, decryptPKCS1.keyName) &&
         Objects.equals(this.token, decryptPKCS1.token) &&
         Objects.equals(this.uidToken, decryptPKCS1.uidToken);
@@ -209,7 +237,7 @@ public class DecryptPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, itemId, keyName, token, uidToken);
+    return Objects.hash(ciphertext, displayId, itemId, json, keyName, token, uidToken);
   }
 
 
@@ -220,6 +248,7 @@ public class DecryptPKCS1 {
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

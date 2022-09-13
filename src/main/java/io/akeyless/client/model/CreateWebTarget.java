@@ -33,6 +33,10 @@ public class CreateWebTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -74,6 +78,29 @@ public class CreateWebTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateWebTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -201,6 +228,7 @@ public class CreateWebTarget {
     }
     CreateWebTarget createWebTarget = (CreateWebTarget) o;
     return Objects.equals(this.comment, createWebTarget.comment) &&
+        Objects.equals(this.json, createWebTarget.json) &&
         Objects.equals(this.key, createWebTarget.key) &&
         Objects.equals(this.name, createWebTarget.name) &&
         Objects.equals(this.token, createWebTarget.token) &&
@@ -210,7 +238,7 @@ public class CreateWebTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, key, name, token, uidToken, url);
+    return Objects.hash(comment, json, key, name, token, uidToken, url);
   }
 
 
@@ -219,6 +247,7 @@ public class CreateWebTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWebTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

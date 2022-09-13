@@ -57,6 +57,10 @@ public class CreateEKSTarget {
   @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
   private String eksSecretAccessKey;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -234,6 +238,29 @@ public class CreateEKSTarget {
   }
 
 
+  public CreateEKSTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateEKSTarget key(String key) {
     
     this.key = key;
@@ -364,6 +391,7 @@ public class CreateEKSTarget {
         Objects.equals(this.eksClusterName, createEKSTarget.eksClusterName) &&
         Objects.equals(this.eksRegion, createEKSTarget.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, createEKSTarget.eksSecretAccessKey) &&
+        Objects.equals(this.json, createEKSTarget.json) &&
         Objects.equals(this.key, createEKSTarget.key) &&
         Objects.equals(this.name, createEKSTarget.name) &&
         Objects.equals(this.token, createEKSTarget.token) &&
@@ -373,7 +401,7 @@ public class CreateEKSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -388,6 +416,7 @@ public class CreateEKSTarget {
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

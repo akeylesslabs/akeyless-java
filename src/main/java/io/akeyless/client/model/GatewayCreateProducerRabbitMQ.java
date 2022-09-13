@@ -36,6 +36,10 @@ public class GatewayCreateProducerRabbitMQ {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -137,6 +141,29 @@ public class GatewayCreateProducerRabbitMQ {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerRabbitMQ json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -617,6 +644,7 @@ public class GatewayCreateProducerRabbitMQ {
     }
     GatewayCreateProducerRabbitMQ gatewayCreateProducerRabbitMQ = (GatewayCreateProducerRabbitMQ) o;
     return Objects.equals(this.deleteProtection, gatewayCreateProducerRabbitMQ.deleteProtection) &&
+        Objects.equals(this.json, gatewayCreateProducerRabbitMQ.json) &&
         Objects.equals(this.name, gatewayCreateProducerRabbitMQ.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRabbitMQ.producerEncryptionKeyName) &&
         Objects.equals(this.rabbitmqAdminPwd, gatewayCreateProducerRabbitMQ.rabbitmqAdminPwd) &&
@@ -641,7 +669,7 @@ public class GatewayCreateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, name, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -650,6 +678,7 @@ public class GatewayCreateProducerRabbitMQ {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerRabbitMQ {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rabbitmqAdminPwd: ").append(toIndentedString(rabbitmqAdminPwd)).append("\n");

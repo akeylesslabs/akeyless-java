@@ -35,6 +35,10 @@ public class CreateDynamicSecret {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -80,6 +84,29 @@ public class CreateDynamicSecret {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public CreateDynamicSecret json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -238,6 +265,7 @@ public class CreateDynamicSecret {
     }
     CreateDynamicSecret createDynamicSecret = (CreateDynamicSecret) o;
     return Objects.equals(this.deleteProtection, createDynamicSecret.deleteProtection) &&
+        Objects.equals(this.json, createDynamicSecret.json) &&
         Objects.equals(this.key, createDynamicSecret.key) &&
         Objects.equals(this.metadata, createDynamicSecret.metadata) &&
         Objects.equals(this.name, createDynamicSecret.name) &&
@@ -248,7 +276,7 @@ public class CreateDynamicSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, key, metadata, name, tags, token, uidToken);
+    return Objects.hash(deleteProtection, json, key, metadata, name, tags, token, uidToken);
   }
 
 
@@ -257,6 +285,7 @@ public class CreateDynamicSecret {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDynamicSecret {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

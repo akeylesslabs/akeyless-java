@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **bastionCtrlSubdomain** | **String** | The Bastion API prefix |  [optional]
 **certIssuerName** | **String** | The Akeyless certificate issuer name |  [optional]
 **identityFile** | **String** | The file from which the identity (private key) for public key authentication is read |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | The Secret name (for database and AWS producers - producer name) |  [optional]
 **sshExtraArgs** | **String** | The Use to add offical SSH arguments (except -i) |  [optional]
 **sshLegacySigningAlg** | **Boolean** | Set this option to output legacy (&#39;ssh-rsa-cert-v01@openssh.com&#39;) signing algorithm name in the ssh certificate. |  [optional]

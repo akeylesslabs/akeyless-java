@@ -34,6 +34,10 @@ public class GatewayStatusMigration {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -67,6 +71,29 @@ public class GatewayStatusMigration {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public GatewayStatusMigration json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -149,6 +176,7 @@ public class GatewayStatusMigration {
     }
     GatewayStatusMigration gatewayStatusMigration = (GatewayStatusMigration) o;
     return Objects.equals(this.id, gatewayStatusMigration.id) &&
+        Objects.equals(this.json, gatewayStatusMigration.json) &&
         Objects.equals(this.name, gatewayStatusMigration.name) &&
         Objects.equals(this.token, gatewayStatusMigration.token) &&
         Objects.equals(this.uidToken, gatewayStatusMigration.uidToken);
@@ -156,7 +184,7 @@ public class GatewayStatusMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, token, uidToken);
+    return Objects.hash(id, json, name, token, uidToken);
   }
 
 
@@ -165,6 +193,7 @@ public class GatewayStatusMigration {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayStatusMigration {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

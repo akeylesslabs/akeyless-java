@@ -37,6 +37,10 @@ public class UpdateAWSTargetDetails {
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
   private String accessKeyId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -113,6 +117,29 @@ public class UpdateAWSTargetDetails {
 
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
+  }
+
+
+  public UpdateAWSTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -310,6 +337,7 @@ public class UpdateAWSTargetDetails {
     UpdateAWSTargetDetails updateAWSTargetDetails = (UpdateAWSTargetDetails) o;
     return Objects.equals(this.accessKey, updateAWSTargetDetails.accessKey) &&
         Objects.equals(this.accessKeyId, updateAWSTargetDetails.accessKeyId) &&
+        Objects.equals(this.json, updateAWSTargetDetails.json) &&
         Objects.equals(this.keepPrevVersion, updateAWSTargetDetails.keepPrevVersion) &&
         Objects.equals(this.name, updateAWSTargetDetails.name) &&
         Objects.equals(this.newVersion, updateAWSTargetDetails.newVersion) &&
@@ -322,7 +350,7 @@ public class UpdateAWSTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, keepPrevVersion, name, newVersion, protectionKey, region, sessionToken, token, uidToken);
+    return Objects.hash(accessKey, accessKeyId, json, keepPrevVersion, name, newVersion, protectionKey, region, sessionToken, token, uidToken);
   }
 
 
@@ -332,6 +360,7 @@ public class UpdateAWSTargetDetails {
     sb.append("class UpdateAWSTargetDetails {\n");
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");

@@ -8,6 +8,7 @@ gatewayUpdateProducerNativeK8S is a command that updates k8s producer
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **k8sClusterCaCert** | **String** | K8S cluster CA certificate |  [optional]
 **k8sClusterEndpoint** | **String** | K8S cluster URL endpoint |  [optional]
 **k8sClusterToken** | **String** | K8S cluster Bearer token |  [optional]

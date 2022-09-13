@@ -33,6 +33,10 @@ public class UpdateSSHTargetDetails {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -98,6 +102,29 @@ public class UpdateSSHTargetDetails {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public UpdateSSHTargetDetails json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -363,6 +390,7 @@ public class UpdateSSHTargetDetails {
     }
     UpdateSSHTargetDetails updateSSHTargetDetails = (UpdateSSHTargetDetails) o;
     return Objects.equals(this.host, updateSSHTargetDetails.host) &&
+        Objects.equals(this.json, updateSSHTargetDetails.json) &&
         Objects.equals(this.keepPrevVersion, updateSSHTargetDetails.keepPrevVersion) &&
         Objects.equals(this.name, updateSSHTargetDetails.name) &&
         Objects.equals(this.newVersion, updateSSHTargetDetails.newVersion) &&
@@ -378,7 +406,7 @@ public class UpdateSSHTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, keepPrevVersion, name, newVersion, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken);
+    return Objects.hash(host, json, keepPrevVersion, name, newVersion, port, privateKey, privateKeyPassword, protectionKey, sshPassword, sshUsername, token, uidToken);
   }
 
 
@@ -387,6 +415,7 @@ public class UpdateSSHTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHTargetDetails {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");

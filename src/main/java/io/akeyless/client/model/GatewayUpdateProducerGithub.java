@@ -56,6 +56,10 @@ public class GatewayUpdateProducerGithub {
   @SerializedName(SERIALIZED_NAME_INSTALLATION_REPOSITORY)
   private String installationRepository;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -220,6 +224,29 @@ public class GatewayUpdateProducerGithub {
 
   public void setInstallationRepository(String installationRepository) {
     this.installationRepository = installationRepository;
+  }
+
+
+  public GatewayUpdateProducerGithub json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -414,6 +441,7 @@ public class GatewayUpdateProducerGithub {
         Objects.equals(this.githubBaseUrl, gatewayUpdateProducerGithub.githubBaseUrl) &&
         Objects.equals(this.installationId, gatewayUpdateProducerGithub.installationId) &&
         Objects.equals(this.installationRepository, gatewayUpdateProducerGithub.installationRepository) &&
+        Objects.equals(this.json, gatewayUpdateProducerGithub.json) &&
         Objects.equals(this.name, gatewayUpdateProducerGithub.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerGithub.newName) &&
         Objects.equals(this.targetName, gatewayUpdateProducerGithub.targetName) &&
@@ -425,7 +453,7 @@ public class GatewayUpdateProducerGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, name, newName, targetName, token, tokenPermissions, tokenRepositories, uidToken);
+    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, json, name, newName, targetName, token, tokenPermissions, tokenRepositories, uidToken);
   }
 
 
@@ -439,6 +467,7 @@ public class GatewayUpdateProducerGithub {
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
     sb.append("    installationId: ").append(toIndentedString(installationId)).append("\n");
     sb.append("    installationRepository: ").append(toIndentedString(installationRepository)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");

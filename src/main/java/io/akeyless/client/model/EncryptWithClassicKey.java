@@ -33,6 +33,10 @@ public class EncryptWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PLAINTEXT = "plaintext";
   @SerializedName(SERIALIZED_NAME_PLAINTEXT)
   private String plaintext;
@@ -69,6 +73,29 @@ public class EncryptWithClassicKey {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public EncryptWithClassicKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -172,6 +199,7 @@ public class EncryptWithClassicKey {
     }
     EncryptWithClassicKey encryptWithClassicKey = (EncryptWithClassicKey) o;
     return Objects.equals(this.displayId, encryptWithClassicKey.displayId) &&
+        Objects.equals(this.json, encryptWithClassicKey.json) &&
         Objects.equals(this.plaintext, encryptWithClassicKey.plaintext) &&
         Objects.equals(this.token, encryptWithClassicKey.token) &&
         Objects.equals(this.uidToken, encryptWithClassicKey.uidToken) &&
@@ -180,7 +208,7 @@ public class EncryptWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, plaintext, token, uidToken, version);
+    return Objects.hash(displayId, json, plaintext, token, uidToken, version);
   }
 
 
@@ -189,6 +217,7 @@ public class EncryptWithClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptWithClassicKey {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

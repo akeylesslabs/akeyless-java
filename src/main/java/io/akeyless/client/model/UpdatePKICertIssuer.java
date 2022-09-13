@@ -63,6 +63,10 @@ public class UpdatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_USAGE = "key-usage";
   @SerializedName(SERIALIZED_NAME_KEY_USAGE)
   private String keyUsage = "DigitalSignature,KeyAgreement,KeyEncipherment";
@@ -325,6 +329,29 @@ public class UpdatePKICertIssuer {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+
+  public UpdatePKICertIssuer json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -764,6 +791,7 @@ public class UpdatePKICertIssuer {
         Objects.equals(this.clientFlag, updatePKICertIssuer.clientFlag) &&
         Objects.equals(this.codeSigningFlag, updatePKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, updatePKICertIssuer.country) &&
+        Objects.equals(this.json, updatePKICertIssuer.json) &&
         Objects.equals(this.keyUsage, updatePKICertIssuer.keyUsage) &&
         Objects.equals(this.locality, updatePKICertIssuer.locality) &&
         Objects.equals(this.metadata, updatePKICertIssuer.metadata) &&
@@ -786,7 +814,7 @@ public class UpdatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
+    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
   }
 
 
@@ -802,6 +830,7 @@ public class UpdatePKICertIssuer {
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

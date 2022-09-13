@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "deleteAuthMethods is a command that deletes multiple auth methods from a given path.")
 
 public class DeleteAuthMethods {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -41,6 +45,29 @@ public class DeleteAuthMethods {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DeleteAuthMethods json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public DeleteAuthMethods path(String path) {
@@ -120,14 +147,15 @@ public class DeleteAuthMethods {
       return false;
     }
     DeleteAuthMethods deleteAuthMethods = (DeleteAuthMethods) o;
-    return Objects.equals(this.path, deleteAuthMethods.path) &&
+    return Objects.equals(this.json, deleteAuthMethods.json) &&
+        Objects.equals(this.path, deleteAuthMethods.path) &&
         Objects.equals(this.token, deleteAuthMethods.token) &&
         Objects.equals(this.uidToken, deleteAuthMethods.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, token, uidToken);
+    return Objects.hash(json, path, token, uidToken);
   }
 
 
@@ -135,6 +163,7 @@ public class DeleteAuthMethods {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteAuthMethods {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

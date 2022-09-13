@@ -60,6 +60,10 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_IDP_METADATA_XML_DATA)
   private String idpMetadataXmlData;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -266,6 +270,29 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodSAML jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -395,6 +422,7 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.gwBoundIps, createAuthMethodSAML.gwBoundIps) &&
         Objects.equals(this.idpMetadataUrl, createAuthMethodSAML.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXmlData, createAuthMethodSAML.idpMetadataXmlData) &&
+        Objects.equals(this.json, createAuthMethodSAML.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodSAML.name) &&
         Objects.equals(this.token, createAuthMethodSAML.token) &&
@@ -404,7 +432,7 @@ public class CreateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, jwtTtl, name, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -419,6 +447,7 @@ public class CreateAuthMethodSAML {
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXmlData: ").append(toIndentedString(idpMetadataXmlData)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

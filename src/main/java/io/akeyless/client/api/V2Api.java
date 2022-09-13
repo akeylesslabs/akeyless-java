@@ -33,6 +33,7 @@ import io.akeyless.client.model.AssocTargetItem;
 import io.akeyless.client.model.Auth;
 import io.akeyless.client.model.AuthMethod;
 import io.akeyless.client.model.AuthOutput;
+import io.akeyless.client.model.BastionsList;
 import io.akeyless.client.model.Configure;
 import io.akeyless.client.model.ConfigureOutput;
 import io.akeyless.client.model.Connect;
@@ -143,6 +144,7 @@ import io.akeyless.client.model.DetokenizeOutput;
 import io.akeyless.client.model.Encrypt;
 import io.akeyless.client.model.EncryptOutput;
 import io.akeyless.client.model.EncryptWithClassicKey;
+import io.akeyless.client.model.GatewayAddAllowedManagementAccess;
 import io.akeyless.client.model.GatewayCreateK8SAuthConfig;
 import io.akeyless.client.model.GatewayCreateK8SAuthConfigOutput;
 import io.akeyless.client.model.GatewayCreateMigration;
@@ -276,6 +278,7 @@ import io.akeyless.client.model.GatewayUpdateProducerRedshiftOutput;
 import io.akeyless.client.model.GatewayUpdateProducerSnowflake;
 import io.akeyless.client.model.GatewayUpdateProducerSnowflakeOutput;
 import io.akeyless.client.model.GatewayUpdateTmpUsers;
+import io.akeyless.client.model.GatewaysListResponse;
 import io.akeyless.client.model.GetAccountSettings;
 import io.akeyless.client.model.GetAccountSettingsCommandOutput;
 import io.akeyless.client.model.GetAuthMethod;
@@ -324,10 +327,12 @@ import io.akeyless.client.model.KmipSetServerState;
 import io.akeyless.client.model.KmipSetServerStateOutput;
 import io.akeyless.client.model.ListAuthMethods;
 import io.akeyless.client.model.ListAuthMethodsOutput;
+import io.akeyless.client.model.ListGateways;
 import io.akeyless.client.model.ListItems;
 import io.akeyless.client.model.ListItemsInPathOutput;
 import io.akeyless.client.model.ListRoles;
 import io.akeyless.client.model.ListRolesOutput;
+import io.akeyless.client.model.ListSRABastions;
 import io.akeyless.client.model.ListTargets;
 import io.akeyless.client.model.ListTargetsOutput;
 import io.akeyless.client.model.MigrationStatusReplyObj;
@@ -410,6 +415,7 @@ import io.akeyless.client.model.UpdateLdapTarget;
 import io.akeyless.client.model.UpdateLdapTargetDetails;
 import io.akeyless.client.model.UpdateLdapTargetOutput;
 import io.akeyless.client.model.UpdateNativeK8STarget;
+import io.akeyless.client.model.UpdateNativeK8STargetOutput;
 import io.akeyless.client.model.UpdatePKICertIssuer;
 import io.akeyless.client.model.UpdatePKICertIssuerOutput;
 import io.akeyless.client.model.UpdateRDPTargetDetails;
@@ -431,6 +437,7 @@ import io.akeyless.client.model.UpdateSalesforceTargetOutput;
 import io.akeyless.client.model.UpdateSecretVal;
 import io.akeyless.client.model.UpdateSecretValOutput;
 import io.akeyless.client.model.UpdateTarget;
+import io.akeyless.client.model.UpdateTargetDetails;
 import io.akeyless.client.model.UpdateTargetOutput;
 import io.akeyless.client.model.UpdateWebTarget;
 import io.akeyless.client.model.UpdateWebTargetDetails;
@@ -7542,6 +7549,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = encryptWithClassicKeyValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<EncryptOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for gatewayAddAllowedManagementAccess
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayAddAllowedManagementAccessCall(GatewayAddAllowedManagementAccess body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gateway-add-allow-management-access";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayAddAllowedManagementAccessValidateBeforeCall(GatewayAddAllowedManagementAccess body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling gatewayAddAllowedManagementAccess(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = gatewayAddAllowedManagementAccessCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object gatewayAddAllowedManagementAccess(GatewayAddAllowedManagementAccess body) throws ApiException {
+        ApiResponse<Object> localVarResp = gatewayAddAllowedManagementAccessWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> gatewayAddAllowedManagementAccessWithHttpInfo(GatewayAddAllowedManagementAccess body) throws ApiException {
+        okhttp3.Call localVarCall = gatewayAddAllowedManagementAccessValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayAddSubAdminsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayAddAllowedManagementAccessAsync(GatewayAddAllowedManagementAccess body, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayAddAllowedManagementAccessValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18740,6 +18861,120 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for listGateways
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listGatewaysResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listGatewaysCall(ListGateways body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/list-gateways";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listGatewaysValidateBeforeCall(ListGateways body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listGateways(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listGatewaysCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GatewaysListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listGatewaysResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GatewaysListResponse listGateways(ListGateways body) throws ApiException {
+        ApiResponse<GatewaysListResponse> localVarResp = listGatewaysWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GatewaysListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listGatewaysResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GatewaysListResponse> listGatewaysWithHttpInfo(ListGateways body) throws ApiException {
+        okhttp3.Call localVarCall = listGatewaysValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<GatewaysListResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listGatewaysResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listGatewaysAsync(ListGateways body, final ApiCallback<GatewaysListResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listGatewaysValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<GatewaysListResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listItems
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -18964,6 +19199,120 @@ public class V2Api {
 
         okhttp3.Call localVarCall = listRolesValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ListRolesOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSRABastions
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listSRABastionsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSRABastionsCall(ListSRABastions body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/list-sra-bastions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSRABastionsValidateBeforeCall(ListSRABastions body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listSRABastions(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSRABastionsCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return BastionsList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listSRABastionsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public BastionsList listSRABastions(ListSRABastions body) throws ApiException {
+        ApiResponse<BastionsList> localVarResp = listSRABastionsWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;BastionsList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listSRABastionsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BastionsList> listSRABastionsWithHttpInfo(ListSRABastions body) throws ApiException {
+        okhttp3.Call localVarCall = listSRABastionsValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<BastionsList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> listSRABastionsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSRABastionsAsync(ListSRABastions body, final ApiCallback<BastionsList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSRABastionsValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<BastionsList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -24434,7 +24783,7 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> updateNativeK8STarget </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> updateNativeK8STargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
@@ -24485,17 +24834,17 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return UpdateNativeK8STarget
+     * @return UpdateNativeK8STargetOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> updateNativeK8STarget </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> updateNativeK8STargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateNativeK8STarget updateNativeK8STarget(UpdateNativeK8STarget body) throws ApiException {
-        ApiResponse<UpdateNativeK8STarget> localVarResp = updateNativeK8STargetWithHttpInfo(body);
+    public UpdateNativeK8STargetOutput updateNativeK8STarget(UpdateNativeK8STarget body) throws ApiException {
+        ApiResponse<UpdateNativeK8STargetOutput> localVarResp = updateNativeK8STargetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -24503,18 +24852,18 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;UpdateNativeK8STarget&gt;
+     * @return ApiResponse&lt;UpdateNativeK8STargetOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> updateNativeK8STarget </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> updateNativeK8STargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateNativeK8STarget> updateNativeK8STargetWithHttpInfo(UpdateNativeK8STarget body) throws ApiException {
+    public ApiResponse<UpdateNativeK8STargetOutput> updateNativeK8STargetWithHttpInfo(UpdateNativeK8STarget body) throws ApiException {
         okhttp3.Call localVarCall = updateNativeK8STargetValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<UpdateNativeK8STarget>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateNativeK8STargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -24528,14 +24877,14 @@ public class V2Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> updateNativeK8STarget </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> updateNativeK8STargetResponse wraps response body. </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNativeK8STargetAsync(UpdateNativeK8STarget body, final ApiCallback<UpdateNativeK8STarget> _callback) throws ApiException {
+    public okhttp3.Call updateNativeK8STargetAsync(UpdateNativeK8STarget body, final ApiCallback<UpdateNativeK8STargetOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateNativeK8STargetValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<UpdateNativeK8STarget>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateNativeK8STargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -26025,7 +26374,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTargetDetailsCall(Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTargetDetailsCall(UpdateTargetDetails body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -26055,7 +26404,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTargetDetailsValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTargetDetailsValidateBeforeCall(UpdateTargetDetails body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -26081,7 +26430,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateTargetOutput updateTargetDetails(Object body) throws ApiException {
+    public UpdateTargetOutput updateTargetDetails(UpdateTargetDetails body) throws ApiException {
         ApiResponse<UpdateTargetOutput> localVarResp = updateTargetDetailsWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -26099,7 +26448,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateTargetOutput> updateTargetDetailsWithHttpInfo(Object body) throws ApiException {
+    public ApiResponse<UpdateTargetOutput> updateTargetDetailsWithHttpInfo(UpdateTargetDetails body) throws ApiException {
         okhttp3.Call localVarCall = updateTargetDetailsValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<UpdateTargetOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -26119,7 +26468,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTargetDetailsAsync(Object body, final ApiCallback<UpdateTargetOutput> _callback) throws ApiException {
+    public okhttp3.Call updateTargetDetailsAsync(UpdateTargetDetails body, final ApiCallback<UpdateTargetOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTargetDetailsValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<UpdateTargetOutput>(){}.getType();

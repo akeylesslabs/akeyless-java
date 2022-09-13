@@ -45,6 +45,10 @@ public class UpdateGithubTarget {
   @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
   private String githubBaseUrl;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -163,6 +167,29 @@ public class UpdateGithubTarget {
 
   public void setGithubBaseUrl(String githubBaseUrl) {
     this.githubBaseUrl = githubBaseUrl;
+  }
+
+
+  public UpdateGithubTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -339,6 +366,7 @@ public class UpdateGithubTarget {
         Objects.equals(this.githubAppId, updateGithubTarget.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, updateGithubTarget.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, updateGithubTarget.githubBaseUrl) &&
+        Objects.equals(this.json, updateGithubTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateGithubTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGithubTarget.key) &&
         Objects.equals(this.name, updateGithubTarget.name) &&
@@ -350,7 +378,7 @@ public class UpdateGithubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -362,6 +390,7 @@ public class UpdateGithubTarget {
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

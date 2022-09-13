@@ -33,6 +33,10 @@ public class SetItemState {
   @SerializedName(SERIALIZED_NAME_DESIRED_STATE)
   private String desiredState;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -69,6 +73,29 @@ public class SetItemState {
 
   public void setDesiredState(String desiredState) {
     this.desiredState = desiredState;
+  }
+
+
+  public SetItemState json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -173,6 +200,7 @@ public class SetItemState {
     }
     SetItemState setItemState = (SetItemState) o;
     return Objects.equals(this.desiredState, setItemState.desiredState) &&
+        Objects.equals(this.json, setItemState.json) &&
         Objects.equals(this.name, setItemState.name) &&
         Objects.equals(this.token, setItemState.token) &&
         Objects.equals(this.uidToken, setItemState.uidToken) &&
@@ -181,7 +209,7 @@ public class SetItemState {
 
   @Override
   public int hashCode() {
-    return Objects.hash(desiredState, name, token, uidToken, version);
+    return Objects.hash(desiredState, json, name, token, uidToken, version);
   }
 
 
@@ -190,6 +218,7 @@ public class SetItemState {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetItemState {\n");
     sb.append("    desiredState: ").append(toIndentedString(desiredState)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

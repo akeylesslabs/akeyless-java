@@ -33,6 +33,10 @@ public class ListRoles {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
@@ -66,6 +70,29 @@ public class ListRoles {
 
   public void setFilter(String filter) {
     this.filter = filter;
+  }
+
+
+  public ListRoles json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -148,6 +175,7 @@ public class ListRoles {
     }
     ListRoles listRoles = (ListRoles) o;
     return Objects.equals(this.filter, listRoles.filter) &&
+        Objects.equals(this.json, listRoles.json) &&
         Objects.equals(this.paginationToken, listRoles.paginationToken) &&
         Objects.equals(this.token, listRoles.token) &&
         Objects.equals(this.uidToken, listRoles.uidToken);
@@ -155,7 +183,7 @@ public class ListRoles {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, paginationToken, token, uidToken);
+    return Objects.hash(filter, json, paginationToken, token, uidToken);
   }
 
 
@@ -164,6 +192,7 @@ public class ListRoles {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListRoles {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

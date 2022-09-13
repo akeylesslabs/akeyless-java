@@ -33,6 +33,10 @@ public class CreateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
   private String k8sClusterCaCert;
@@ -82,6 +86,29 @@ public class CreateNativeK8STarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateNativeK8STarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -252,6 +279,7 @@ public class CreateNativeK8STarget {
     }
     CreateNativeK8STarget createNativeK8STarget = (CreateNativeK8STarget) o;
     return Objects.equals(this.comment, createNativeK8STarget.comment) &&
+        Objects.equals(this.json, createNativeK8STarget.json) &&
         Objects.equals(this.k8sClusterCaCert, createNativeK8STarget.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, createNativeK8STarget.k8sClusterEndpoint) &&
         Objects.equals(this.k8sClusterToken, createNativeK8STarget.k8sClusterToken) &&
@@ -263,7 +291,7 @@ public class CreateNativeK8STarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, key, name, token, uidToken);
+    return Objects.hash(comment, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, key, name, token, uidToken);
   }
 
 
@@ -272,6 +300,7 @@ public class CreateNativeK8STarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNativeK8STarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");

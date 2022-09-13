@@ -37,6 +37,10 @@ public class KmipServerSetup {
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
   private String hostname;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_ROOT = "root";
   @SerializedName(SERIALIZED_NAME_ROOT)
   private String root;
@@ -92,6 +96,29 @@ public class KmipServerSetup {
 
   public void setHostname(String hostname) {
     this.hostname = hostname;
+  }
+
+
+  public KmipServerSetup json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -175,6 +202,7 @@ public class KmipServerSetup {
     KmipServerSetup kmipServerSetup = (KmipServerSetup) o;
     return Objects.equals(this.certificateTtl, kmipServerSetup.certificateTtl) &&
         Objects.equals(this.hostname, kmipServerSetup.hostname) &&
+        Objects.equals(this.json, kmipServerSetup.json) &&
         Objects.equals(this.root, kmipServerSetup.root) &&
         Objects.equals(this.token, kmipServerSetup.token) &&
         Objects.equals(this.uidToken, kmipServerSetup.uidToken);
@@ -182,7 +210,7 @@ public class KmipServerSetup {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateTtl, hostname, root, token, uidToken);
+    return Objects.hash(certificateTtl, hostname, json, root, token, uidToken);
   }
 
 
@@ -192,6 +220,7 @@ public class KmipServerSetup {
     sb.append("class KmipServerSetup {\n");
     sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    root: ").append(toIndentedString(root)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

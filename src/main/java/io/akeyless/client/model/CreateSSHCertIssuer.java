@@ -45,6 +45,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
   private Map<String, String> extensions = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -175,6 +179,29 @@ public class CreateSSHCertIssuer {
 
   public void setExtensions(Map<String, String> extensions) {
     this.extensions = extensions;
+  }
+
+
+  public CreateSSHCertIssuer json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -525,6 +552,7 @@ public class CreateSSHCertIssuer {
     return Objects.equals(this.allowedUsers, createSSHCertIssuer.allowedUsers) &&
         Objects.equals(this.deleteProtection, createSSHCertIssuer.deleteProtection) &&
         Objects.equals(this.extensions, createSSHCertIssuer.extensions) &&
+        Objects.equals(this.json, createSSHCertIssuer.json) &&
         Objects.equals(this.metadata, createSSHCertIssuer.metadata) &&
         Objects.equals(this.name, createSSHCertIssuer.name) &&
         Objects.equals(this.principals, createSSHCertIssuer.principals) &&
@@ -543,7 +571,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, deleteProtection, extensions, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
+    return Objects.hash(allowedUsers, deleteProtection, extensions, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
   }
 
 
@@ -554,6 +582,7 @@ public class CreateSSHCertIssuer {
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principals: ").append(toIndentedString(principals)).append("\n");

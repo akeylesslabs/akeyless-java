@@ -47,6 +47,10 @@ public class UpdateAuthMethod {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -173,6 +177,29 @@ public class UpdateAuthMethod {
 
   public void setGwBoundIps(List<String> gwBoundIps) {
     this.gwBoundIps = gwBoundIps;
+  }
+
+
+  public UpdateAuthMethod json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -303,6 +330,7 @@ public class UpdateAuthMethod {
         Objects.equals(this.boundIps, updateAuthMethod.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethod.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethod.gwBoundIps) &&
+        Objects.equals(this.json, updateAuthMethod.json) &&
         Objects.equals(this.jwtTtl, updateAuthMethod.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethod.name) &&
         Objects.equals(this.newName, updateAuthMethod.newName) &&
@@ -312,7 +340,7 @@ public class UpdateAuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, gwBoundIps, jwtTtl, name, newName, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, token, uidToken);
   }
 
 
@@ -324,6 +352,7 @@ public class UpdateAuthMethod {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

@@ -37,6 +37,10 @@ public class DecryptWithClassicKey {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -91,6 +95,29 @@ public class DecryptWithClassicKey {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public DecryptWithClassicKey json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -173,6 +200,7 @@ public class DecryptWithClassicKey {
     DecryptWithClassicKey decryptWithClassicKey = (DecryptWithClassicKey) o;
     return Objects.equals(this.ciphertext, decryptWithClassicKey.ciphertext) &&
         Objects.equals(this.displayId, decryptWithClassicKey.displayId) &&
+        Objects.equals(this.json, decryptWithClassicKey.json) &&
         Objects.equals(this.token, decryptWithClassicKey.token) &&
         Objects.equals(this.uidToken, decryptWithClassicKey.uidToken) &&
         Objects.equals(this.version, decryptWithClassicKey.version);
@@ -180,7 +208,7 @@ public class DecryptWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, token, uidToken, version);
+    return Objects.hash(ciphertext, displayId, json, token, uidToken, version);
   }
 
 
@@ -190,6 +218,7 @@ public class DecryptWithClassicKey {
     sb.append("class DecryptWithClassicKey {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

@@ -39,6 +39,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_MINIMAL_VIEW = "minimal-view";
   @SerializedName(SERIALIZED_NAME_MINIMAL_VIEW)
   private Boolean minimalView;
@@ -115,6 +119,29 @@ public class ListItems {
 
   public void setFilter(String filter) {
     this.filter = filter;
+  }
+
+
+  public ListItems json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -329,6 +356,7 @@ public class ListItems {
     ListItems listItems = (ListItems) o;
     return Objects.equals(this.accessibility, listItems.accessibility) &&
         Objects.equals(this.filter, listItems.filter) &&
+        Objects.equals(this.json, listItems.json) &&
         Objects.equals(this.minimalView, listItems.minimalView) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
@@ -341,7 +369,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, filter, minimalView, paginationToken, path, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, filter, json, minimalView, paginationToken, path, subTypes, tag, token, type, uidToken);
   }
 
 
@@ -351,6 +379,7 @@ public class ListItems {
     sb.append("class ListItems {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");

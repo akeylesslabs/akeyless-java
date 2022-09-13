@@ -34,6 +34,10 @@ public class GatewayRevokeTmpUsers {
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -79,6 +83,29 @@ public class GatewayRevokeTmpUsers {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public GatewayRevokeTmpUsers json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -228,6 +255,7 @@ public class GatewayRevokeTmpUsers {
     }
     GatewayRevokeTmpUsers gatewayRevokeTmpUsers = (GatewayRevokeTmpUsers) o;
     return Objects.equals(this.host, gatewayRevokeTmpUsers.host) &&
+        Objects.equals(this.json, gatewayRevokeTmpUsers.json) &&
         Objects.equals(this.name, gatewayRevokeTmpUsers.name) &&
         Objects.equals(this.revokeAll, gatewayRevokeTmpUsers.revokeAll) &&
         Objects.equals(this.softDelete, gatewayRevokeTmpUsers.softDelete) &&
@@ -238,7 +266,7 @@ public class GatewayRevokeTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, name, revokeAll, softDelete, tmpCredsId, token, uidToken);
+    return Objects.hash(host, json, name, revokeAll, softDelete, tmpCredsId, token, uidToken);
   }
 
 
@@ -247,6 +275,7 @@ public class GatewayRevokeTmpUsers {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayRevokeTmpUsers {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    revokeAll: ").append(toIndentedString(revokeAll)).append("\n");
     sb.append("    softDelete: ").append(toIndentedString(softDelete)).append("\n");

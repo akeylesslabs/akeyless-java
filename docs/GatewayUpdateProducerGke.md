@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **gkeClusterEndpoint** | **String** | GKE cluster URL endpoint |  [optional]
 **gkeClusterName** | **String** | GKE cluster name |  [optional]
 **gkeServiceAccountEmail** | **String** | GKE service account email |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

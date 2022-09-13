@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **String** | Comment about the target |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **k8sClusterCaCert** | **String** | K8S cluster CA certificate | 
 **k8sClusterEndpoint** | **String** | K8S cluster URL endpoint | 
 **k8sClusterToken** | **String** | K8S cluster Bearer token | 

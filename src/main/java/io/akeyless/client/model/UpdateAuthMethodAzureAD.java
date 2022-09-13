@@ -92,6 +92,10 @@ public class UpdateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer = "https://sts.windows.net/---bound_tenant_id---";
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWKS_URI = "jwks-uri";
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
   private String jwksUri = "https://login.microsoftonline.com/common/discovery/keys";
@@ -541,6 +545,29 @@ public class UpdateAuthMethodAzureAD {
   }
 
 
+  public UpdateAuthMethodAzureAD json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public UpdateAuthMethodAzureAD jwksUri(String jwksUri) {
     
     this.jwksUri = jwksUri;
@@ -702,6 +729,7 @@ public class UpdateAuthMethodAzureAD {
         Objects.equals(this.forceSubClaims, updateAuthMethodAzureAD.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodAzureAD.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodAzureAD.issuer) &&
+        Objects.equals(this.json, updateAuthMethodAzureAD.json) &&
         Objects.equals(this.jwksUri, updateAuthMethodAzureAD.jwksUri) &&
         Objects.equals(this.jwtTtl, updateAuthMethodAzureAD.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodAzureAD.name) &&
@@ -712,7 +740,7 @@ public class UpdateAuthMethodAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, gwBoundIps, issuer, jwksUri, jwtTtl, name, newName, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, newName, token, uidToken);
   }
 
 
@@ -735,6 +763,7 @@ public class UpdateAuthMethodAzureAD {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

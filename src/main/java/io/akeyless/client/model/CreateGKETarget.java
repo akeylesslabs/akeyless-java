@@ -53,6 +53,10 @@ public class CreateGKETarget {
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_EMAIL)
   private String gkeServiceAccountEmail;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -212,6 +216,29 @@ public class CreateGKETarget {
   }
 
 
+  public CreateGKETarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateGKETarget key(String key) {
     
     this.key = key;
@@ -341,6 +368,7 @@ public class CreateGKETarget {
         Objects.equals(this.gkeClusterEndpoint, createGKETarget.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, createGKETarget.gkeClusterName) &&
         Objects.equals(this.gkeServiceAccountEmail, createGKETarget.gkeServiceAccountEmail) &&
+        Objects.equals(this.json, createGKETarget.json) &&
         Objects.equals(this.key, createGKETarget.key) &&
         Objects.equals(this.name, createGKETarget.name) &&
         Objects.equals(this.token, createGKETarget.token) &&
@@ -350,7 +378,7 @@ public class CreateGKETarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -364,6 +392,7 @@ public class CreateGKETarget {
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
     sb.append("    gkeServiceAccountEmail: ").append(toIndentedString(gkeServiceAccountEmail)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

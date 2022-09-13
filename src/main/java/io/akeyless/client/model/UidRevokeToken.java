@@ -33,6 +33,10 @@ public class UidRevokeToken {
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
   private String authMethodName;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_REVOKE_TOKEN = "revoke-token";
   @SerializedName(SERIALIZED_NAME_REVOKE_TOKEN)
   private String revokeToken;
@@ -70,6 +74,29 @@ public class UidRevokeToken {
 
   public void setAuthMethodName(String authMethodName) {
     this.authMethodName = authMethodName;
+  }
+
+
+  public UidRevokeToken json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -173,6 +200,7 @@ public class UidRevokeToken {
     }
     UidRevokeToken uidRevokeToken = (UidRevokeToken) o;
     return Objects.equals(this.authMethodName, uidRevokeToken.authMethodName) &&
+        Objects.equals(this.json, uidRevokeToken.json) &&
         Objects.equals(this.revokeToken, uidRevokeToken.revokeToken) &&
         Objects.equals(this.revokeType, uidRevokeToken.revokeType) &&
         Objects.equals(this.token, uidRevokeToken.token) &&
@@ -181,7 +209,7 @@ public class UidRevokeToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodName, revokeToken, revokeType, token, uidToken);
+    return Objects.hash(authMethodName, json, revokeToken, revokeType, token, uidToken);
   }
 
 
@@ -190,6 +218,7 @@ public class UidRevokeToken {
     StringBuilder sb = new StringBuilder();
     sb.append("class UidRevokeToken {\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    revokeToken: ").append(toIndentedString(revokeToken)).append("\n");
     sb.append("    revokeType: ").append(toIndentedString(revokeType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

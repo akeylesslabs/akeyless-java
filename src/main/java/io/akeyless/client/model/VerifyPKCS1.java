@@ -37,6 +37,10 @@ public class VerifyPKCS1 {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
@@ -101,6 +105,29 @@ public class VerifyPKCS1 {
 
   public void setItemId(Long itemId) {
     this.itemId = itemId;
+  }
+
+
+  public VerifyPKCS1 json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -227,6 +254,7 @@ public class VerifyPKCS1 {
     VerifyPKCS1 verifyPKCS1 = (VerifyPKCS1) o;
     return Objects.equals(this.displayId, verifyPKCS1.displayId) &&
         Objects.equals(this.itemId, verifyPKCS1.itemId) &&
+        Objects.equals(this.json, verifyPKCS1.json) &&
         Objects.equals(this.keyName, verifyPKCS1.keyName) &&
         Objects.equals(this.message, verifyPKCS1.message) &&
         Objects.equals(this.signature, verifyPKCS1.signature) &&
@@ -236,7 +264,7 @@ public class VerifyPKCS1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, keyName, message, signature, token, uidToken);
+    return Objects.hash(displayId, itemId, json, keyName, message, signature, token, uidToken);
   }
 
 
@@ -246,6 +274,7 @@ public class VerifyPKCS1 {
     sb.append("class VerifyPKCS1 {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");

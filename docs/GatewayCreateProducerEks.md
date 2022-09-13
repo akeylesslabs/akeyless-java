@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **eksClusterName** | **String** | EKS cluster name |  [optional]
 **eksRegion** | **String** | Region |  [optional]
 **eksSecretAccessKey** | **String** | Secret Access Key |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** |  |  [optional]

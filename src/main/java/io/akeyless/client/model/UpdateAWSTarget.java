@@ -41,6 +41,10 @@ public class UpdateAWSTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -148,6 +152,29 @@ public class UpdateAWSTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateAWSTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -392,6 +419,7 @@ public class UpdateAWSTarget {
     return Objects.equals(this.accessKey, updateAWSTarget.accessKey) &&
         Objects.equals(this.accessKeyId, updateAWSTarget.accessKeyId) &&
         Objects.equals(this.comment, updateAWSTarget.comment) &&
+        Objects.equals(this.json, updateAWSTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateAWSTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateAWSTarget.key) &&
         Objects.equals(this.name, updateAWSTarget.name) &&
@@ -406,7 +434,7 @@ public class UpdateAWSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, comment, keepPrevVersion, key, name, newName, region, sessionToken, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(accessKey, accessKeyId, comment, json, keepPrevVersion, key, name, newName, region, sessionToken, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -417,6 +445,7 @@ public class UpdateAWSTarget {
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

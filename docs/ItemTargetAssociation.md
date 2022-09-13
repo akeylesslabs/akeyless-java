@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **assocId** | **String** |  |  [optional]
 **targetId** | **Long** |  |  [optional]
 **targetName** | **String** |  |  [optional]
+**targetType** | **String** |  |  [optional]
 
 
 

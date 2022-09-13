@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **groupAttr** | **String** | Group Attr |  [optional]
 **groupDn** | **String** | Group Dn |  [optional]
 **groupFilter** | **String** | Group Filter |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **ldapCaCert** | **String** | LDAP CA Certificate (base64 encoded) |  [optional]
 **ldapEnable** | **String** | Enable Ldap |  [optional]
 **ldapUrl** | **String** | LDAP Server URL, e.g. ldap://planetexpress.com:389 |  [optional]

@@ -76,6 +76,10 @@ public class CreateAuthMethodCert {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -418,6 +422,29 @@ public class CreateAuthMethodCert {
   }
 
 
+  public CreateAuthMethodCert json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodCert jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -582,6 +609,7 @@ public class CreateAuthMethodCert {
         Objects.equals(this.certificateData, createAuthMethodCert.certificateData) &&
         Objects.equals(this.forceSubClaims, createAuthMethodCert.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodCert.gwBoundIps) &&
+        Objects.equals(this.json, createAuthMethodCert.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodCert.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodCert.name) &&
         Objects.equals(this.revokedCertIds, createAuthMethodCert.revokedCertIds) &&
@@ -592,7 +620,7 @@ public class CreateAuthMethodCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, gwBoundIps, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, gwBoundIps, json, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -611,6 +639,7 @@ public class CreateAuthMethodCert {
     sb.append("    certificateData: ").append(toIndentedString(certificateData)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    revokedCertIds: ").append(toIndentedString(revokedCertIds)).append("\n");

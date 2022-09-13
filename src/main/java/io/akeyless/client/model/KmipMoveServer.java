@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "kmipMoveServer is a command that Moves the root location of the kmip server and all associated items to a new root location")
 
 public class KmipMoveServer {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NEW_ROOT = "new-root";
   @SerializedName(SERIALIZED_NAME_NEW_ROOT)
   private String newRoot;
@@ -41,6 +45,29 @@ public class KmipMoveServer {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public KmipMoveServer json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public KmipMoveServer newRoot(String newRoot) {
@@ -121,14 +148,15 @@ public class KmipMoveServer {
       return false;
     }
     KmipMoveServer kmipMoveServer = (KmipMoveServer) o;
-    return Objects.equals(this.newRoot, kmipMoveServer.newRoot) &&
+    return Objects.equals(this.json, kmipMoveServer.json) &&
+        Objects.equals(this.newRoot, kmipMoveServer.newRoot) &&
         Objects.equals(this.token, kmipMoveServer.token) &&
         Objects.equals(this.uidToken, kmipMoveServer.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newRoot, token, uidToken);
+    return Objects.hash(json, newRoot, token, uidToken);
   }
 
 
@@ -136,6 +164,7 @@ public class KmipMoveServer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KmipMoveServer {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    newRoot: ").append(toIndentedString(newRoot)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

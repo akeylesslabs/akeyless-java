@@ -45,6 +45,10 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
   private String gwAnalyticsAccess;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -154,6 +158,29 @@ public class CreateRole {
   }
 
 
+  public CreateRole json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateRole name(String name) {
     
     this.name = name;
@@ -258,6 +285,7 @@ public class CreateRole {
         Objects.equals(this.auditAccess, createRole.auditAccess) &&
         Objects.equals(this.comment, createRole.comment) &&
         Objects.equals(this.gwAnalyticsAccess, createRole.gwAnalyticsAccess) &&
+        Objects.equals(this.json, createRole.json) &&
         Objects.equals(this.name, createRole.name) &&
         Objects.equals(this.sraReportsAccess, createRole.sraReportsAccess) &&
         Objects.equals(this.token, createRole.token) &&
@@ -266,7 +294,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, gwAnalyticsAccess, name, sraReportsAccess, token, uidToken);
+    return Objects.hash(analyticsAccess, auditAccess, comment, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken);
   }
 
 
@@ -278,6 +306,7 @@ public class CreateRole {
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sraReportsAccess: ").append(toIndentedString(sraReportsAccess)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

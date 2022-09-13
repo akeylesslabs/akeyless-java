@@ -37,6 +37,10 @@ public class GetSSHCertificate {
   @SerializedName(SERIALIZED_NAME_CERT_USERNAME)
   private String certUsername;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME = "legacy-signing-alg-name";
   @SerializedName(SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME)
   private Boolean legacySigningAlgName;
@@ -99,6 +103,29 @@ public class GetSSHCertificate {
 
   public void setCertUsername(String certUsername) {
     this.certUsername = certUsername;
+  }
+
+
+  public GetSSHCertificate json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -228,6 +255,7 @@ public class GetSSHCertificate {
     GetSSHCertificate getSSHCertificate = (GetSSHCertificate) o;
     return Objects.equals(this.certIssuerName, getSSHCertificate.certIssuerName) &&
         Objects.equals(this.certUsername, getSSHCertificate.certUsername) &&
+        Objects.equals(this.json, getSSHCertificate.json) &&
         Objects.equals(this.legacySigningAlgName, getSSHCertificate.legacySigningAlgName) &&
         Objects.equals(this.publicKeyData, getSSHCertificate.publicKeyData) &&
         Objects.equals(this.token, getSSHCertificate.token) &&
@@ -237,7 +265,7 @@ public class GetSSHCertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssuerName, certUsername, legacySigningAlgName, publicKeyData, token, ttl, uidToken);
+    return Objects.hash(certIssuerName, certUsername, json, legacySigningAlgName, publicKeyData, token, ttl, uidToken);
   }
 
 
@@ -247,6 +275,7 @@ public class GetSSHCertificate {
     sb.append("class GetSSHCertificate {\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    certUsername: ").append(toIndentedString(certUsername)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    legacySigningAlgName: ").append(toIndentedString(legacySigningAlgName)).append("\n");
     sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -41,6 +41,10 @@ public class CreateAWSTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -136,6 +140,29 @@ public class CreateAWSTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateAWSTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -311,6 +338,7 @@ public class CreateAWSTarget {
     return Objects.equals(this.accessKey, createAWSTarget.accessKey) &&
         Objects.equals(this.accessKeyId, createAWSTarget.accessKeyId) &&
         Objects.equals(this.comment, createAWSTarget.comment) &&
+        Objects.equals(this.json, createAWSTarget.json) &&
         Objects.equals(this.key, createAWSTarget.key) &&
         Objects.equals(this.name, createAWSTarget.name) &&
         Objects.equals(this.region, createAWSTarget.region) &&
@@ -322,7 +350,7 @@ public class CreateAWSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, comment, key, name, region, sessionToken, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(accessKey, accessKeyId, comment, json, key, name, region, sessionToken, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -333,6 +361,7 @@ public class CreateAWSTarget {
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");

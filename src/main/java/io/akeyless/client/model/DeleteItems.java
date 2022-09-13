@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class DeleteItems {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -40,6 +44,29 @@ public class DeleteItems {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DeleteItems json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public DeleteItems path(String path) {
@@ -119,14 +146,15 @@ public class DeleteItems {
       return false;
     }
     DeleteItems deleteItems = (DeleteItems) o;
-    return Objects.equals(this.path, deleteItems.path) &&
+    return Objects.equals(this.json, deleteItems.json) &&
+        Objects.equals(this.path, deleteItems.path) &&
         Objects.equals(this.token, deleteItems.token) &&
         Objects.equals(this.uidToken, deleteItems.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, token, uidToken);
+    return Objects.hash(json, path, token, uidToken);
   }
 
 
@@ -134,6 +162,7 @@ public class DeleteItems {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteItems {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

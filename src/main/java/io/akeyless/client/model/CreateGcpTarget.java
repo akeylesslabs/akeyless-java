@@ -41,6 +41,10 @@ public class CreateGcpTarget {
   @SerializedName(SERIALIZED_NAME_GCP_SA_EMAIL)
   private String gcpSaEmail;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -128,6 +132,29 @@ public class CreateGcpTarget {
 
   public void setGcpSaEmail(String gcpSaEmail) {
     this.gcpSaEmail = gcpSaEmail;
+  }
+
+
+  public CreateGcpTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -257,6 +284,7 @@ public class CreateGcpTarget {
     return Objects.equals(this.comment, createGcpTarget.comment) &&
         Objects.equals(this.gcpKey, createGcpTarget.gcpKey) &&
         Objects.equals(this.gcpSaEmail, createGcpTarget.gcpSaEmail) &&
+        Objects.equals(this.json, createGcpTarget.json) &&
         Objects.equals(this.key, createGcpTarget.key) &&
         Objects.equals(this.name, createGcpTarget.name) &&
         Objects.equals(this.token, createGcpTarget.token) &&
@@ -266,7 +294,7 @@ public class CreateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gcpKey, gcpSaEmail, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, gcpKey, gcpSaEmail, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -277,6 +305,7 @@ public class CreateGcpTarget {
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpSaEmail: ").append(toIndentedString(gcpSaEmail)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

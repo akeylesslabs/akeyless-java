@@ -35,6 +35,10 @@ public class SetRoleRule {
   @SerializedName(SERIALIZED_NAME_CAPABILITY)
   private List<String> capability = new ArrayList<String>();
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -80,6 +84,29 @@ public class SetRoleRule {
 
   public void setCapability(List<String> capability) {
     this.capability = capability;
+  }
+
+
+  public SetRoleRule json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -206,6 +233,7 @@ public class SetRoleRule {
     }
     SetRoleRule setRoleRule = (SetRoleRule) o;
     return Objects.equals(this.capability, setRoleRule.capability) &&
+        Objects.equals(this.json, setRoleRule.json) &&
         Objects.equals(this.path, setRoleRule.path) &&
         Objects.equals(this.roleName, setRoleRule.roleName) &&
         Objects.equals(this.ruleType, setRoleRule.ruleType) &&
@@ -215,7 +243,7 @@ public class SetRoleRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, path, roleName, ruleType, token, uidToken);
+    return Objects.hash(capability, json, path, roleName, ruleType, token, uidToken);
   }
 
 
@@ -224,6 +252,7 @@ public class SetRoleRule {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetRoleRule {\n");
     sb.append("    capability: ").append(toIndentedString(capability)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");

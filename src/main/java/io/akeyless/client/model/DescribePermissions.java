@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "describePermissions is a command that shows which permissions your have to a particular path.")
 
 public class DescribePermissions {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -45,6 +49,29 @@ public class DescribePermissions {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DescribePermissions json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public DescribePermissions path(String path) {
@@ -146,7 +173,8 @@ public class DescribePermissions {
       return false;
     }
     DescribePermissions describePermissions = (DescribePermissions) o;
-    return Objects.equals(this.path, describePermissions.path) &&
+    return Objects.equals(this.json, describePermissions.json) &&
+        Objects.equals(this.path, describePermissions.path) &&
         Objects.equals(this.token, describePermissions.token) &&
         Objects.equals(this.type, describePermissions.type) &&
         Objects.equals(this.uidToken, describePermissions.uidToken);
@@ -154,7 +182,7 @@ public class DescribePermissions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, token, type, uidToken);
+    return Objects.hash(json, path, token, type, uidToken);
   }
 
 
@@ -162,6 +190,7 @@ public class DescribePermissions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePermissions {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

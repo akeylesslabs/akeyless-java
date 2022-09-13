@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **hanadbPort** | **String** | HanaDb Port |  [optional]
 **hanadbRevocationStatements** | **String** | HanaDb Revocation statements |  [optional]
 **hanadbUsername** | **String** | HanaDb Username |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

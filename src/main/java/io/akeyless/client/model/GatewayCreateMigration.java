@@ -80,6 +80,10 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_HASHI_URL)
   private String hashiUrl;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_K8S_CA_CERTIFICATE = "k8s-ca-certificate";
   @SerializedName(SERIALIZED_NAME_K8S_CA_CERTIFICATE)
   private List<Integer> k8sCaCertificate = null;
@@ -119,6 +123,26 @@ public class GatewayCreateMigration {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_OP_EMAIL = "op-email";
+  @SerializedName(SERIALIZED_NAME_OP_EMAIL)
+  private String opEmail;
+
+  public static final String SERIALIZED_NAME_OP_PASSWORD = "op-password";
+  @SerializedName(SERIALIZED_NAME_OP_PASSWORD)
+  private String opPassword;
+
+  public static final String SERIALIZED_NAME_OP_SECRET_KEY = "op-secret-key";
+  @SerializedName(SERIALIZED_NAME_OP_SECRET_KEY)
+  private String opSecretKey;
+
+  public static final String SERIALIZED_NAME_OP_URL = "op-url";
+  @SerializedName(SERIALIZED_NAME_OP_URL)
+  private String opUrl;
+
+  public static final String SERIALIZED_NAME_OP_VAULTS = "op-vaults";
+  @SerializedName(SERIALIZED_NAME_OP_VAULTS)
+  private List<String> opVaults = null;
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection-key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
@@ -425,6 +449,29 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public GatewayCreateMigration k8sCaCertificate(List<Integer> k8sCaCertificate) {
     
     this.k8sCaCertificate = k8sCaCertificate;
@@ -678,6 +725,129 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration opEmail(String opEmail) {
+    
+    this.opEmail = opEmail;
+    return this;
+  }
+
+   /**
+   * 1Password user email to connect to the API
+   * @return opEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password user email to connect to the API")
+
+  public String getOpEmail() {
+    return opEmail;
+  }
+
+
+  public void setOpEmail(String opEmail) {
+    this.opEmail = opEmail;
+  }
+
+
+  public GatewayCreateMigration opPassword(String opPassword) {
+    
+    this.opPassword = opPassword;
+    return this;
+  }
+
+   /**
+   * 1Password user password to connect to the API
+   * @return opPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password user password to connect to the API")
+
+  public String getOpPassword() {
+    return opPassword;
+  }
+
+
+  public void setOpPassword(String opPassword) {
+    this.opPassword = opPassword;
+  }
+
+
+  public GatewayCreateMigration opSecretKey(String opSecretKey) {
+    
+    this.opSecretKey = opSecretKey;
+    return this;
+  }
+
+   /**
+   * 1Password user secret key to connect to the API
+   * @return opSecretKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password user secret key to connect to the API")
+
+  public String getOpSecretKey() {
+    return opSecretKey;
+  }
+
+
+  public void setOpSecretKey(String opSecretKey) {
+    this.opSecretKey = opSecretKey;
+  }
+
+
+  public GatewayCreateMigration opUrl(String opUrl) {
+    
+    this.opUrl = opUrl;
+    return this;
+  }
+
+   /**
+   * 1Password api container url
+   * @return opUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password api container url")
+
+  public String getOpUrl() {
+    return opUrl;
+  }
+
+
+  public void setOpUrl(String opUrl) {
+    this.opUrl = opUrl;
+  }
+
+
+  public GatewayCreateMigration opVaults(List<String> opVaults) {
+    
+    this.opVaults = opVaults;
+    return this;
+  }
+
+  public GatewayCreateMigration addOpVaultsItem(String opVaultsItem) {
+    if (this.opVaults == null) {
+      this.opVaults = new ArrayList<String>();
+    }
+    this.opVaults.add(opVaultsItem);
+    return this;
+  }
+
+   /**
+   * 1Password list of vault to get the items from
+   * @return opVaults
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password list of vault to get the items from")
+
+  public List<String> getOpVaults() {
+    return opVaults;
+  }
+
+
+  public void setOpVaults(List<String> opVaults) {
+    this.opVaults = opVaults;
+  }
+
+
   public GatewayCreateMigration protectionKey(String protectionKey) {
     
     this.protectionKey = protectionKey;
@@ -754,11 +924,11 @@ public class GatewayCreateMigration {
   }
 
    /**
-   * Migration type (hashi/aws/gcp/k8s/azure_kv)
+   * Migration type (hashi/aws/gcp/k8s/azure_kv/1password)
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Migration type (hashi/aws/gcp/k8s/azure_kv)")
+  @ApiModelProperty(value = "Migration type (hashi/aws/gcp/k8s/azure_kv/1password)")
 
   public String getType() {
     return type;
@@ -814,6 +984,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.hashiNs, gatewayCreateMigration.hashiNs) &&
         Objects.equals(this.hashiToken, gatewayCreateMigration.hashiToken) &&
         Objects.equals(this.hashiUrl, gatewayCreateMigration.hashiUrl) &&
+        Objects.equals(this.json, gatewayCreateMigration.json) &&
         Objects.equals(this.k8sCaCertificate, gatewayCreateMigration.k8sCaCertificate) &&
         Objects.equals(this.k8sClientCertificate, gatewayCreateMigration.k8sClientCertificate) &&
         Objects.equals(this.k8sClientKey, gatewayCreateMigration.k8sClientKey) &&
@@ -824,6 +995,11 @@ public class GatewayCreateMigration {
         Objects.equals(this.k8sUrl, gatewayCreateMigration.k8sUrl) &&
         Objects.equals(this.k8sUsername, gatewayCreateMigration.k8sUsername) &&
         Objects.equals(this.name, gatewayCreateMigration.name) &&
+        Objects.equals(this.opEmail, gatewayCreateMigration.opEmail) &&
+        Objects.equals(this.opPassword, gatewayCreateMigration.opPassword) &&
+        Objects.equals(this.opSecretKey, gatewayCreateMigration.opSecretKey) &&
+        Objects.equals(this.opUrl, gatewayCreateMigration.opUrl) &&
+        Objects.equals(this.opVaults, gatewayCreateMigration.opVaults) &&
         Objects.equals(this.protectionKey, gatewayCreateMigration.protectionKey) &&
         Objects.equals(this.targetLocation, gatewayCreateMigration.targetLocation) &&
         Objects.equals(this.token, gatewayCreateMigration.token) &&
@@ -833,7 +1009,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, targetLocation, token, type, uidToken);
+    return Objects.hash(awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, opEmail, opPassword, opSecretKey, opUrl, opVaults, protectionKey, targetLocation, token, type, uidToken);
   }
 
 
@@ -853,6 +1029,7 @@ public class GatewayCreateMigration {
     sb.append("    hashiNs: ").append(toIndentedString(hashiNs)).append("\n");
     sb.append("    hashiToken: ").append(toIndentedString(hashiToken)).append("\n");
     sb.append("    hashiUrl: ").append(toIndentedString(hashiUrl)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sCaCertificate: ").append(toIndentedString(k8sCaCertificate)).append("\n");
     sb.append("    k8sClientCertificate: ").append(toIndentedString(k8sClientCertificate)).append("\n");
     sb.append("    k8sClientKey: ").append(toIndentedString(k8sClientKey)).append("\n");
@@ -863,6 +1040,11 @@ public class GatewayCreateMigration {
     sb.append("    k8sUrl: ").append(toIndentedString(k8sUrl)).append("\n");
     sb.append("    k8sUsername: ").append(toIndentedString(k8sUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    opEmail: ").append(toIndentedString(opEmail)).append("\n");
+    sb.append("    opPassword: ").append(toIndentedString(opPassword)).append("\n");
+    sb.append("    opSecretKey: ").append(toIndentedString(opSecretKey)).append("\n");
+    sb.append("    opUrl: ").append(toIndentedString(opUrl)).append("\n");
+    sb.append("    opVaults: ").append(toIndentedString(opVaults)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

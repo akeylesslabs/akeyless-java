@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **adminPwd** | **String** |  |  [optional]
 **hostName** | **String** |  |  [optional]
 **hostPort** | **String** |  |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]
 **name** | **String** | Target name | 
 **newVersion** | **Boolean** | Deprecated |  [optional]

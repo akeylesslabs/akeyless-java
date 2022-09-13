@@ -34,6 +34,10 @@ public class GatewayDeleteMigration {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -62,6 +66,29 @@ public class GatewayDeleteMigration {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public GatewayDeleteMigration json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -121,13 +148,14 @@ public class GatewayDeleteMigration {
     }
     GatewayDeleteMigration gatewayDeleteMigration = (GatewayDeleteMigration) o;
     return Objects.equals(this.id, gatewayDeleteMigration.id) &&
+        Objects.equals(this.json, gatewayDeleteMigration.json) &&
         Objects.equals(this.token, gatewayDeleteMigration.token) &&
         Objects.equals(this.uidToken, gatewayDeleteMigration.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, token, uidToken);
+    return Objects.hash(id, json, token, uidToken);
   }
 
 
@@ -136,6 +164,7 @@ public class GatewayDeleteMigration {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayDeleteMigration {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

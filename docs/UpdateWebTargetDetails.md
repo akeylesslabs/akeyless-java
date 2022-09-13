@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]
 **name** | **String** | Target name | 
 **newVersion** | **Boolean** | Deprecated |  [optional]

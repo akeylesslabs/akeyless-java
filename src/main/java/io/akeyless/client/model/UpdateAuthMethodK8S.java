@@ -68,6 +68,10 @@ public class UpdateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -340,6 +344,29 @@ public class UpdateAuthMethodK8S {
   }
 
 
+  public UpdateAuthMethodK8S json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public UpdateAuthMethodK8S jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -495,6 +522,7 @@ public class UpdateAuthMethodK8S {
         Objects.equals(this.forceSubClaims, updateAuthMethodK8S.forceSubClaims) &&
         Objects.equals(this.genKey, updateAuthMethodK8S.genKey) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodK8S.gwBoundIps) &&
+        Objects.equals(this.json, updateAuthMethodK8S.json) &&
         Objects.equals(this.jwtTtl, updateAuthMethodK8S.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodK8S.name) &&
         Objects.equals(this.newName, updateAuthMethodK8S.newName) &&
@@ -505,7 +533,7 @@ public class UpdateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, gwBoundIps, jwtTtl, name, newName, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, publicKey, token, uidToken);
   }
 
 
@@ -522,6 +550,7 @@ public class UpdateAuthMethodK8S {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

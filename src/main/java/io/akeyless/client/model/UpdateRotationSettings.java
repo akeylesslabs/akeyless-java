@@ -34,6 +34,10 @@ public class UpdateRotationSettings {
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private Boolean autoRotate;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -70,6 +74,29 @@ public class UpdateRotationSettings {
 
   public void setAutoRotate(Boolean autoRotate) {
     this.autoRotate = autoRotate;
+  }
+
+
+  public UpdateRotationSettings json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -174,6 +201,7 @@ public class UpdateRotationSettings {
     }
     UpdateRotationSettings updateRotationSettings = (UpdateRotationSettings) o;
     return Objects.equals(this.autoRotate, updateRotationSettings.autoRotate) &&
+        Objects.equals(this.json, updateRotationSettings.json) &&
         Objects.equals(this.name, updateRotationSettings.name) &&
         Objects.equals(this.rotationInterval, updateRotationSettings.rotationInterval) &&
         Objects.equals(this.token, updateRotationSettings.token) &&
@@ -182,7 +210,7 @@ public class UpdateRotationSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, name, rotationInterval, token, uidToken);
+    return Objects.hash(autoRotate, json, name, rotationInterval, token, uidToken);
   }
 
 
@@ -191,6 +219,7 @@ public class UpdateRotationSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateRotationSettings {\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

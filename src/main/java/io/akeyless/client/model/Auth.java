@@ -65,6 +65,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT = "jwt";
   @SerializedName(SERIALIZED_NAME_JWT)
   private String jwt;
@@ -301,6 +305,29 @@ public class Auth {
   }
 
 
+  public Auth json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public Auth jwt(String jwt) {
     
     this.jwt = jwt;
@@ -480,6 +507,7 @@ public class Auth {
         Objects.equals(this.cloudId, auth.cloudId) &&
         Objects.equals(this.debug, auth.debug) &&
         Objects.equals(this.gcpAudience, auth.gcpAudience) &&
+        Objects.equals(this.json, auth.json) &&
         Objects.equals(this.jwt, auth.jwt) &&
         Objects.equals(this.k8sAuthConfigName, auth.k8sAuthConfigName) &&
         Objects.equals(this.k8sServiceAccountToken, auth.k8sServiceAccountToken) &&
@@ -491,7 +519,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, certData, cloudId, debug, gcpAudience, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, certData, cloudId, debug, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -508,6 +536,7 @@ public class Auth {
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("    k8sServiceAccountToken: ").append(toIndentedString(k8sServiceAccountToken)).append("\n");

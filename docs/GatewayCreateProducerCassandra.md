@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **cassandraPort** | **String** | Cassandra port |  [optional]
 **cassandraUsername** | **String** | Cassandra superuser username |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]

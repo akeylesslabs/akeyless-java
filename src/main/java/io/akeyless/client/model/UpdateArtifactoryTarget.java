@@ -45,6 +45,10 @@ public class UpdateArtifactoryTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
   private String keepPrevVersion;
@@ -160,6 +164,29 @@ public class UpdateArtifactoryTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateArtifactoryTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -336,6 +363,7 @@ public class UpdateArtifactoryTarget {
         Objects.equals(this.artifactoryAdminPwd, updateArtifactoryTarget.artifactoryAdminPwd) &&
         Objects.equals(this.baseUrl, updateArtifactoryTarget.baseUrl) &&
         Objects.equals(this.comment, updateArtifactoryTarget.comment) &&
+        Objects.equals(this.json, updateArtifactoryTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateArtifactoryTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateArtifactoryTarget.key) &&
         Objects.equals(this.name, updateArtifactoryTarget.name) &&
@@ -347,7 +375,7 @@ public class UpdateArtifactoryTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -359,6 +387,7 @@ public class UpdateArtifactoryTarget {
     sb.append("    artifactoryAdminPwd: ").append(toIndentedString(artifactoryAdminPwd)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

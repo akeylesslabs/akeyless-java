@@ -47,6 +47,10 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -168,6 +172,29 @@ public class UploadRSA {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public UploadRSA json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -375,6 +402,7 @@ public class UploadRSA {
         Objects.equals(this.certFileData, uploadRSA.certFileData) &&
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
         Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
+        Objects.equals(this.json, uploadRSA.json) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
         Objects.equals(this.overwrite, uploadRSA.overwrite) &&
@@ -387,7 +415,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
 
@@ -399,6 +427,7 @@ public class UploadRSA {
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overwrite: ").append(toIndentedString(overwrite)).append("\n");

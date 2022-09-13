@@ -45,6 +45,10 @@ public class CreateArtifactoryTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -148,6 +152,29 @@ public class CreateArtifactoryTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateArtifactoryTarget json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -255,6 +282,7 @@ public class CreateArtifactoryTarget {
         Objects.equals(this.artifactoryAdminPwd, createArtifactoryTarget.artifactoryAdminPwd) &&
         Objects.equals(this.baseUrl, createArtifactoryTarget.baseUrl) &&
         Objects.equals(this.comment, createArtifactoryTarget.comment) &&
+        Objects.equals(this.json, createArtifactoryTarget.json) &&
         Objects.equals(this.key, createArtifactoryTarget.key) &&
         Objects.equals(this.name, createArtifactoryTarget.name) &&
         Objects.equals(this.token, createArtifactoryTarget.token) &&
@@ -263,7 +291,7 @@ public class CreateArtifactoryTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, key, name, token, uidToken);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, json, key, name, token, uidToken);
   }
 
 
@@ -275,6 +303,7 @@ public class CreateArtifactoryTarget {
     sb.append("    artifactoryAdminPwd: ").append(toIndentedString(artifactoryAdminPwd)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

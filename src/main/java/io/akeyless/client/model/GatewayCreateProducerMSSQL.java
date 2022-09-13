@@ -36,6 +36,10 @@ public class GatewayCreateProducerMSSQL {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS = "mssql-create-statements";
   @SerializedName(SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS)
   private String mssqlCreateStatements;
@@ -133,6 +137,29 @@ public class GatewayCreateProducerMSSQL {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerMSSQL json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -598,6 +625,7 @@ public class GatewayCreateProducerMSSQL {
     }
     GatewayCreateProducerMSSQL gatewayCreateProducerMSSQL = (GatewayCreateProducerMSSQL) o;
     return Objects.equals(this.deleteProtection, gatewayCreateProducerMSSQL.deleteProtection) &&
+        Objects.equals(this.json, gatewayCreateProducerMSSQL.json) &&
         Objects.equals(this.mssqlCreateStatements, gatewayCreateProducerMSSQL.mssqlCreateStatements) &&
         Objects.equals(this.mssqlDbname, gatewayCreateProducerMSSQL.mssqlDbname) &&
         Objects.equals(this.mssqlHost, gatewayCreateProducerMSSQL.mssqlHost) &&
@@ -621,7 +649,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -630,6 +658,7 @@ public class GatewayCreateProducerMSSQL {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerMSSQL {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    mssqlCreateStatements: ").append(toIndentedString(mssqlCreateStatements)).append("\n");
     sb.append("    mssqlDbname: ").append(toIndentedString(mssqlDbname)).append("\n");
     sb.append("    mssqlHost: ").append(toIndentedString(mssqlHost)).append("\n");

@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "reverseRBAC is a command that shows which auth methods have access to a particular object.")
 
 public class ReverseRBAC {
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -45,6 +49,29 @@ public class ReverseRBAC {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public ReverseRBAC json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
 
 
   public ReverseRBAC path(String path) {
@@ -146,7 +173,8 @@ public class ReverseRBAC {
       return false;
     }
     ReverseRBAC reverseRBAC = (ReverseRBAC) o;
-    return Objects.equals(this.path, reverseRBAC.path) &&
+    return Objects.equals(this.json, reverseRBAC.json) &&
+        Objects.equals(this.path, reverseRBAC.path) &&
         Objects.equals(this.token, reverseRBAC.token) &&
         Objects.equals(this.type, reverseRBAC.type) &&
         Objects.equals(this.uidToken, reverseRBAC.uidToken);
@@ -154,7 +182,7 @@ public class ReverseRBAC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, token, type, uidToken);
+    return Objects.hash(json, path, token, type, uidToken);
   }
 
 
@@ -162,6 +190,7 @@ public class ReverseRBAC {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReverseRBAC {\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

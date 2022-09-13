@@ -56,6 +56,10 @@ public class GatewayCreateProducerGithub {
   @SerializedName(SERIALIZED_NAME_INSTALLATION_REPOSITORY)
   private String installationRepository;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -216,6 +220,29 @@ public class GatewayCreateProducerGithub {
 
   public void setInstallationRepository(String installationRepository) {
     this.installationRepository = installationRepository;
+  }
+
+
+  public GatewayCreateProducerGithub json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
   }
 
 
@@ -387,6 +414,7 @@ public class GatewayCreateProducerGithub {
         Objects.equals(this.githubBaseUrl, gatewayCreateProducerGithub.githubBaseUrl) &&
         Objects.equals(this.installationId, gatewayCreateProducerGithub.installationId) &&
         Objects.equals(this.installationRepository, gatewayCreateProducerGithub.installationRepository) &&
+        Objects.equals(this.json, gatewayCreateProducerGithub.json) &&
         Objects.equals(this.name, gatewayCreateProducerGithub.name) &&
         Objects.equals(this.targetName, gatewayCreateProducerGithub.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGithub.token) &&
@@ -397,7 +425,7 @@ public class GatewayCreateProducerGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, name, targetName, token, tokenPermissions, tokenRepositories, uidToken);
+    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, json, name, targetName, token, tokenPermissions, tokenRepositories, uidToken);
   }
 
 
@@ -411,6 +439,7 @@ public class GatewayCreateProducerGithub {
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
     sb.append("    installationId: ").append(toIndentedString(installationId)).append("\n");
     sb.append("    installationRepository: ").append(toIndentedString(installationRepository)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

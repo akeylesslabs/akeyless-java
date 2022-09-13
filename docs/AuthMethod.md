@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **authMethodName** | **String** |  |  [optional]
 **authMethodRolesAssoc** | [**List&lt;AuthMethodRoleAssociation&gt;**](AuthMethodRoleAssociation.md) |  |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
+**creationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**usageDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 
 
 

@@ -64,6 +64,10 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
 
+  public static final String SERIALIZED_NAME_JSON = "json";
+  @SerializedName(SERIALIZED_NAME_JSON)
+  private Boolean json;
+
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
   private Long jwtTtl;
@@ -301,6 +305,29 @@ public class CreateAuthMethodOIDC {
   }
 
 
+  public CreateAuthMethodOIDC json(Boolean json) {
+    
+    this.json = json;
+    return this;
+  }
+
+   /**
+   * Set output format to JSON
+   * @return json
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set output format to JSON")
+
+  public Boolean getJson() {
+    return json;
+  }
+
+
+  public void setJson(Boolean json) {
+    this.json = json;
+  }
+
+
   public CreateAuthMethodOIDC jwtTtl(Long jwtTtl) {
     
     this.jwtTtl = jwtTtl;
@@ -485,6 +512,7 @@ public class CreateAuthMethodOIDC {
         Objects.equals(this.forceSubClaims, createAuthMethodOIDC.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodOIDC.gwBoundIps) &&
         Objects.equals(this.issuer, createAuthMethodOIDC.issuer) &&
+        Objects.equals(this.json, createAuthMethodOIDC.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodOIDC.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOIDC.name) &&
         Objects.equals(this.requiredScopes, createAuthMethodOIDC.requiredScopes) &&
@@ -496,7 +524,7 @@ public class CreateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, jwtTtl, name, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -512,6 +540,7 @@ public class CreateAuthMethodOIDC {
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    requiredScopes: ").append(toIndentedString(requiredScopes)).append("\n");
