@@ -638,7 +638,7 @@ public class V2ApiTest {
     @Test
     public void gatewayAddSubAdminsTest() throws ApiException {
         GatewayAddAllowedManagementAccess body = null;
-        GatewayAddSubAdminsResponse response = api.gatewayAddAllowedManagementAccess(body);
+        Object response = api.gatewayAddAllowedManagementAccess(body);
         // TODO: test validations
     }
     
@@ -1625,7 +1625,7 @@ public class V2ApiTest {
      */
     @Test
     public void updateTargetDetailsTest() throws ApiException {
-        Object body = null;
+        UpdateTargetDetails body = null;
         UpdateTargetOutput response = api.updateTargetDetails(body);
 
         // TODO: test validations
