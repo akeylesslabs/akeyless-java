@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AWSSecretsMigration;
+import io.akeyless.client.model.ActiveDirectoryMigration;
 import io.akeyless.client.model.AzureKeyVaultMigration;
 import io.akeyless.client.model.GCPSecretsMigration;
 import io.akeyless.client.model.HashiMigration;
@@ -37,6 +38,10 @@ import java.util.List;
  */
 
 public class MigrationsConfigPart {
+  public static final String SERIALIZED_NAME_ACTIVE_DIRECTORY_MIGRATIONS = "active_directory_migrations";
+  @SerializedName(SERIALIZED_NAME_ACTIVE_DIRECTORY_MIGRATIONS)
+  private List<ActiveDirectoryMigration> activeDirectoryMigrations = null;
+
   public static final String SERIALIZED_NAME_AWS_SECRETS_MIGRATIONS = "aws_secrets_migrations";
   @SerializedName(SERIALIZED_NAME_AWS_SECRETS_MIGRATIONS)
   private List<AWSSecretsMigration> awsSecretsMigrations = null;
@@ -60,6 +65,37 @@ public class MigrationsConfigPart {
   public static final String SERIALIZED_NAME_ONE_PASSWORD_MIGRATIONS = "one_password_migrations";
   @SerializedName(SERIALIZED_NAME_ONE_PASSWORD_MIGRATIONS)
   private List<OnePasswordMigration> onePasswordMigrations = null;
+
+
+  public MigrationsConfigPart activeDirectoryMigrations(List<ActiveDirectoryMigration> activeDirectoryMigrations) {
+    
+    this.activeDirectoryMigrations = activeDirectoryMigrations;
+    return this;
+  }
+
+  public MigrationsConfigPart addActiveDirectoryMigrationsItem(ActiveDirectoryMigration activeDirectoryMigrationsItem) {
+    if (this.activeDirectoryMigrations == null) {
+      this.activeDirectoryMigrations = new ArrayList<ActiveDirectoryMigration>();
+    }
+    this.activeDirectoryMigrations.add(activeDirectoryMigrationsItem);
+    return this;
+  }
+
+   /**
+   * Get activeDirectoryMigrations
+   * @return activeDirectoryMigrations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ActiveDirectoryMigration> getActiveDirectoryMigrations() {
+    return activeDirectoryMigrations;
+  }
+
+
+  public void setActiveDirectoryMigrations(List<ActiveDirectoryMigration> activeDirectoryMigrations) {
+    this.activeDirectoryMigrations = activeDirectoryMigrations;
+  }
 
 
   public MigrationsConfigPart awsSecretsMigrations(List<AWSSecretsMigration> awsSecretsMigrations) {
@@ -257,7 +293,8 @@ public class MigrationsConfigPart {
       return false;
     }
     MigrationsConfigPart migrationsConfigPart = (MigrationsConfigPart) o;
-    return Objects.equals(this.awsSecretsMigrations, migrationsConfigPart.awsSecretsMigrations) &&
+    return Objects.equals(this.activeDirectoryMigrations, migrationsConfigPart.activeDirectoryMigrations) &&
+        Objects.equals(this.awsSecretsMigrations, migrationsConfigPart.awsSecretsMigrations) &&
         Objects.equals(this.azureKvMigrations, migrationsConfigPart.azureKvMigrations) &&
         Objects.equals(this.gcpSecretsMigrations, migrationsConfigPart.gcpSecretsMigrations) &&
         Objects.equals(this.hashiMigrations, migrationsConfigPart.hashiMigrations) &&
@@ -267,7 +304,7 @@ public class MigrationsConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, onePasswordMigrations);
+    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, onePasswordMigrations);
   }
 
 
@@ -275,6 +312,7 @@ public class MigrationsConfigPart {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationsConfigPart {\n");
+    sb.append("    activeDirectoryMigrations: ").append(toIndentedString(activeDirectoryMigrations)).append("\n");
     sb.append("    awsSecretsMigrations: ").append(toIndentedString(awsSecretsMigrations)).append("\n");
     sb.append("    azureKvMigrations: ").append(toIndentedString(azureKvMigrations)).append("\n");
     sb.append("    gcpSecretsMigrations: ").append(toIndentedString(gcpSecretsMigrations)).append("\n");

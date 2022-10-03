@@ -24,7 +24,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * gatewayUpdateMigration is a command that update migration
@@ -32,6 +34,102 @@ import java.util.List;
 @ApiModel(description = "gatewayUpdateMigration is a command that update migration")
 
 public class GatewayUpdateMigration {
+  public static final String SERIALIZED_NAME_1PASSWORD_EMAIL = "1password-email";
+  @SerializedName(SERIALIZED_NAME_1PASSWORD_EMAIL)
+  private String _1passwordEmail;
+
+  public static final String SERIALIZED_NAME_1PASSWORD_PASSWORD = "1password-password";
+  @SerializedName(SERIALIZED_NAME_1PASSWORD_PASSWORD)
+  private String _1passwordPassword;
+
+  public static final String SERIALIZED_NAME_1PASSWORD_SECRET_KEY = "1password-secret-key";
+  @SerializedName(SERIALIZED_NAME_1PASSWORD_SECRET_KEY)
+  private String _1passwordSecretKey;
+
+  public static final String SERIALIZED_NAME_1PASSWORD_URL = "1password-url";
+  @SerializedName(SERIALIZED_NAME_1PASSWORD_URL)
+  private String _1passwordUrl;
+
+  public static final String SERIALIZED_NAME_1PASSWORD_VAULTS = "1password-vaults";
+  @SerializedName(SERIALIZED_NAME_1PASSWORD_VAULTS)
+  private List<String> _1passwordVaults = null;
+
+  public static final String SERIALIZED_NAME_AD_AUTO_ROTATE_BOOLEAN = "AdAutoRotateBoolean";
+  @SerializedName(SERIALIZED_NAME_AD_AUTO_ROTATE_BOOLEAN)
+  private Boolean adAutoRotateBoolean;
+
+  public static final String SERIALIZED_NAME_AD_DISCOVER_LOCAL_USERS_BOOLEAN = "AdDiscoverLocalUsersBoolean";
+  @SerializedName(SERIALIZED_NAME_AD_DISCOVER_LOCAL_USERS_BOOLEAN)
+  private Boolean adDiscoverLocalUsersBoolean;
+
+  public static final String SERIALIZED_NAME_AD_LOCAL_USERS_IGNORE_LIST = "AdLocalUsersIgnoreList";
+  @SerializedName(SERIALIZED_NAME_AD_LOCAL_USERS_IGNORE_LIST)
+  private Map<String, Boolean> adLocalUsersIgnoreList = null;
+
+  public static final String SERIALIZED_NAME_AD_S_R_A_ENABLE_R_D_P_BOOLEAN = "AdSRAEnableRDPBoolean";
+  @SerializedName(SERIALIZED_NAME_AD_S_R_A_ENABLE_R_D_P_BOOLEAN)
+  private Boolean adSRAEnableRDPBoolean;
+
+  public static final String SERIALIZED_NAME_AD_AUTO_ROTATE = "ad_auto_rotate";
+  @SerializedName(SERIALIZED_NAME_AD_AUTO_ROTATE)
+  private String adAutoRotate;
+
+  public static final String SERIALIZED_NAME_AD_COMPUTER_BASE_DN = "ad_computer_base_dn";
+  @SerializedName(SERIALIZED_NAME_AD_COMPUTER_BASE_DN)
+  private String adComputerBaseDn;
+
+  public static final String SERIALIZED_NAME_AD_DISCOVER_LOCAL_USERS = "ad_discover_local_users";
+  @SerializedName(SERIALIZED_NAME_AD_DISCOVER_LOCAL_USERS)
+  private String adDiscoverLocalUsers;
+
+  public static final String SERIALIZED_NAME_AD_DOMAIN_NAME = "ad_domain_name";
+  @SerializedName(SERIALIZED_NAME_AD_DOMAIN_NAME)
+  private String adDomainName;
+
+  public static final String SERIALIZED_NAME_AD_DOMAIN_USERS_PATH_TEMPLATE = "ad_domain_users_path_template";
+  @SerializedName(SERIALIZED_NAME_AD_DOMAIN_USERS_PATH_TEMPLATE)
+  private String adDomainUsersPathTemplate;
+
+  public static final String SERIALIZED_NAME_AD_LOCAL_USERS_IGNORE = "ad_local_users_ignore";
+  @SerializedName(SERIALIZED_NAME_AD_LOCAL_USERS_IGNORE)
+  private String adLocalUsersIgnore;
+
+  public static final String SERIALIZED_NAME_AD_LOCAL_USERS_PATH_TEMPLATE = "ad_local_users_path_template";
+  @SerializedName(SERIALIZED_NAME_AD_LOCAL_USERS_PATH_TEMPLATE)
+  private String adLocalUsersPathTemplate;
+
+  public static final String SERIALIZED_NAME_AD_ROTATION_HOUR = "ad_rotation_hour";
+  @SerializedName(SERIALIZED_NAME_AD_ROTATION_HOUR)
+  private Integer adRotationHour;
+
+  public static final String SERIALIZED_NAME_AD_ROTATION_INTERVAL = "ad_rotation_interval";
+  @SerializedName(SERIALIZED_NAME_AD_ROTATION_INTERVAL)
+  private Integer adRotationInterval;
+
+  public static final String SERIALIZED_NAME_AD_SRA_ENABLE_RDP = "ad_sra_enable_rdp";
+  @SerializedName(SERIALIZED_NAME_AD_SRA_ENABLE_RDP)
+  private String adSraEnableRdp;
+
+  public static final String SERIALIZED_NAME_AD_TARGET_NAME = "ad_target_name";
+  @SerializedName(SERIALIZED_NAME_AD_TARGET_NAME)
+  private String adTargetName;
+
+  public static final String SERIALIZED_NAME_AD_TARGETS_PATH_TEMPLATE = "ad_targets_path_template";
+  @SerializedName(SERIALIZED_NAME_AD_TARGETS_PATH_TEMPLATE)
+  private String adTargetsPathTemplate;
+
+  public static final String SERIALIZED_NAME_AD_USER_BASE_DN = "ad_user_base_dn";
+  @SerializedName(SERIALIZED_NAME_AD_USER_BASE_DN)
+  private String adUserBaseDn;
+
+  public static final String SERIALIZED_NAME_AD_USER_GROUPS = "ad_user_groups";
+  @SerializedName(SERIALIZED_NAME_AD_USER_GROUPS)
+  private String adUserGroups;
+
+  public static final String SERIALIZED_NAME_AS_SSH_PORT = "as_ssh_port";
+  @SerializedName(SERIALIZED_NAME_AS_SSH_PORT)
+  private String asSshPort;
+
   public static final String SERIALIZED_NAME_AWS_KEY = "aws-key";
   @SerializedName(SERIALIZED_NAME_AWS_KEY)
   private String awsKey;
@@ -132,26 +230,6 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
-  public static final String SERIALIZED_NAME_OP_EMAIL = "op-email";
-  @SerializedName(SERIALIZED_NAME_OP_EMAIL)
-  private String opEmail;
-
-  public static final String SERIALIZED_NAME_OP_PASSWORD = "op-password";
-  @SerializedName(SERIALIZED_NAME_OP_PASSWORD)
-  private String opPassword;
-
-  public static final String SERIALIZED_NAME_OP_SECRET_KEY = "op-secret-key";
-  @SerializedName(SERIALIZED_NAME_OP_SECRET_KEY)
-  private String opSecretKey;
-
-  public static final String SERIALIZED_NAME_OP_URL = "op-url";
-  @SerializedName(SERIALIZED_NAME_OP_URL)
-  private String opUrl;
-
-  public static final String SERIALIZED_NAME_OP_VAULTS = "op-vaults";
-  @SerializedName(SERIALIZED_NAME_OP_VAULTS)
-  private List<String> opVaults = null;
-
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection-key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
@@ -167,6 +245,574 @@ public class GatewayUpdateMigration {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public GatewayUpdateMigration _1passwordEmail(String _1passwordEmail) {
+    
+    this._1passwordEmail = _1passwordEmail;
+    return this;
+  }
+
+   /**
+   * 1Password user email to connect to the API
+   * @return _1passwordEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password user email to connect to the API")
+
+  public String get1passwordEmail() {
+    return _1passwordEmail;
+  }
+
+
+  public void set1passwordEmail(String _1passwordEmail) {
+    this._1passwordEmail = _1passwordEmail;
+  }
+
+
+  public GatewayUpdateMigration _1passwordPassword(String _1passwordPassword) {
+    
+    this._1passwordPassword = _1passwordPassword;
+    return this;
+  }
+
+   /**
+   * 1Password user password to connect to the API
+   * @return _1passwordPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password user password to connect to the API")
+
+  public String get1passwordPassword() {
+    return _1passwordPassword;
+  }
+
+
+  public void set1passwordPassword(String _1passwordPassword) {
+    this._1passwordPassword = _1passwordPassword;
+  }
+
+
+  public GatewayUpdateMigration _1passwordSecretKey(String _1passwordSecretKey) {
+    
+    this._1passwordSecretKey = _1passwordSecretKey;
+    return this;
+  }
+
+   /**
+   * 1Password user secret key to connect to the API
+   * @return _1passwordSecretKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password user secret key to connect to the API")
+
+  public String get1passwordSecretKey() {
+    return _1passwordSecretKey;
+  }
+
+
+  public void set1passwordSecretKey(String _1passwordSecretKey) {
+    this._1passwordSecretKey = _1passwordSecretKey;
+  }
+
+
+  public GatewayUpdateMigration _1passwordUrl(String _1passwordUrl) {
+    
+    this._1passwordUrl = _1passwordUrl;
+    return this;
+  }
+
+   /**
+   * 1Password api container url
+   * @return _1passwordUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password api container url")
+
+  public String get1passwordUrl() {
+    return _1passwordUrl;
+  }
+
+
+  public void set1passwordUrl(String _1passwordUrl) {
+    this._1passwordUrl = _1passwordUrl;
+  }
+
+
+  public GatewayUpdateMigration _1passwordVaults(List<String> _1passwordVaults) {
+    
+    this._1passwordVaults = _1passwordVaults;
+    return this;
+  }
+
+  public GatewayUpdateMigration add1passwordVaultsItem(String _1passwordVaultsItem) {
+    if (this._1passwordVaults == null) {
+      this._1passwordVaults = new ArrayList<String>();
+    }
+    this._1passwordVaults.add(_1passwordVaultsItem);
+    return this;
+  }
+
+   /**
+   * 1Password list of vault to get the items from
+   * @return _1passwordVaults
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "1Password list of vault to get the items from")
+
+  public List<String> get1passwordVaults() {
+    return _1passwordVaults;
+  }
+
+
+  public void set1passwordVaults(List<String> _1passwordVaults) {
+    this._1passwordVaults = _1passwordVaults;
+  }
+
+
+  public GatewayUpdateMigration adAutoRotateBoolean(Boolean adAutoRotateBoolean) {
+    
+    this.adAutoRotateBoolean = adAutoRotateBoolean;
+    return this;
+  }
+
+   /**
+   * Get adAutoRotateBoolean
+   * @return adAutoRotateBoolean
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAdAutoRotateBoolean() {
+    return adAutoRotateBoolean;
+  }
+
+
+  public void setAdAutoRotateBoolean(Boolean adAutoRotateBoolean) {
+    this.adAutoRotateBoolean = adAutoRotateBoolean;
+  }
+
+
+  public GatewayUpdateMigration adDiscoverLocalUsersBoolean(Boolean adDiscoverLocalUsersBoolean) {
+    
+    this.adDiscoverLocalUsersBoolean = adDiscoverLocalUsersBoolean;
+    return this;
+  }
+
+   /**
+   * Get adDiscoverLocalUsersBoolean
+   * @return adDiscoverLocalUsersBoolean
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAdDiscoverLocalUsersBoolean() {
+    return adDiscoverLocalUsersBoolean;
+  }
+
+
+  public void setAdDiscoverLocalUsersBoolean(Boolean adDiscoverLocalUsersBoolean) {
+    this.adDiscoverLocalUsersBoolean = adDiscoverLocalUsersBoolean;
+  }
+
+
+  public GatewayUpdateMigration adLocalUsersIgnoreList(Map<String, Boolean> adLocalUsersIgnoreList) {
+    
+    this.adLocalUsersIgnoreList = adLocalUsersIgnoreList;
+    return this;
+  }
+
+  public GatewayUpdateMigration putAdLocalUsersIgnoreListItem(String key, Boolean adLocalUsersIgnoreListItem) {
+    if (this.adLocalUsersIgnoreList == null) {
+      this.adLocalUsersIgnoreList = new HashMap<String, Boolean>();
+    }
+    this.adLocalUsersIgnoreList.put(key, adLocalUsersIgnoreListItem);
+    return this;
+  }
+
+   /**
+   * Get adLocalUsersIgnoreList
+   * @return adLocalUsersIgnoreList
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, Boolean> getAdLocalUsersIgnoreList() {
+    return adLocalUsersIgnoreList;
+  }
+
+
+  public void setAdLocalUsersIgnoreList(Map<String, Boolean> adLocalUsersIgnoreList) {
+    this.adLocalUsersIgnoreList = adLocalUsersIgnoreList;
+  }
+
+
+  public GatewayUpdateMigration adSRAEnableRDPBoolean(Boolean adSRAEnableRDPBoolean) {
+    
+    this.adSRAEnableRDPBoolean = adSRAEnableRDPBoolean;
+    return this;
+  }
+
+   /**
+   * Get adSRAEnableRDPBoolean
+   * @return adSRAEnableRDPBoolean
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAdSRAEnableRDPBoolean() {
+    return adSRAEnableRDPBoolean;
+  }
+
+
+  public void setAdSRAEnableRDPBoolean(Boolean adSRAEnableRDPBoolean) {
+    this.adSRAEnableRDPBoolean = adSRAEnableRDPBoolean;
+  }
+
+
+  public GatewayUpdateMigration adAutoRotate(String adAutoRotate) {
+    
+    this.adAutoRotate = adAutoRotate;
+    return this;
+  }
+
+   /**
+   * Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration)
+   * @return adAutoRotate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration)")
+
+  public String getAdAutoRotate() {
+    return adAutoRotate;
+  }
+
+
+  public void setAdAutoRotate(String adAutoRotate) {
+    this.adAutoRotate = adAutoRotate;
+  }
+
+
+  public GatewayUpdateMigration adComputerBaseDn(String adComputerBaseDn) {
+    
+    this.adComputerBaseDn = adComputerBaseDn;
+    return this;
+  }
+
+   /**
+   * Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN&#x3D;Computers,DC&#x3D;example,DC&#x3D;com (Relevant only for Active Directory migration)
+   * @return adComputerBaseDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)")
+
+  public String getAdComputerBaseDn() {
+    return adComputerBaseDn;
+  }
+
+
+  public void setAdComputerBaseDn(String adComputerBaseDn) {
+    this.adComputerBaseDn = adComputerBaseDn;
+  }
+
+
+  public GatewayUpdateMigration adDiscoverLocalUsers(String adDiscoverLocalUsers) {
+    
+    this.adDiscoverLocalUsers = adDiscoverLocalUsers;
+    return this;
+  }
+
+   /**
+   * Enable/Disable discovery of local users from each domain server and migrate them as SSH Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
+   * @return adDiscoverLocalUsers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable discovery of local users from each domain server and migrate them as SSH Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)")
+
+  public String getAdDiscoverLocalUsers() {
+    return adDiscoverLocalUsers;
+  }
+
+
+  public void setAdDiscoverLocalUsers(String adDiscoverLocalUsers) {
+    this.adDiscoverLocalUsers = adDiscoverLocalUsers;
+  }
+
+
+  public GatewayUpdateMigration adDomainName(String adDomainName) {
+    
+    this.adDomainName = adDomainName;
+    return this;
+  }
+
+   /**
+   * Active Directory Domain Name (Relevant only for Active Directory migration)
+   * @return adDomainName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Active Directory Domain Name (Relevant only for Active Directory migration)")
+
+  public String getAdDomainName() {
+    return adDomainName;
+  }
+
+
+  public void setAdDomainName(String adDomainName) {
+    this.adDomainName = adDomainName;
+  }
+
+
+  public GatewayUpdateMigration adDomainUsersPathTemplate(String adDomainUsersPathTemplate) {
+    
+    this.adDomainUsersPathTemplate = adDomainUsersPathTemplate;
+    return this;
+  }
+
+   /**
+   * Path location template for migrating domain users as Rotated Secrets e.g.: .../DomainUsers/{{USERNAME}} (Relevant only for Active Directory migration)
+   * @return adDomainUsersPathTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Path location template for migrating domain users as Rotated Secrets e.g.: .../DomainUsers/{{USERNAME}} (Relevant only for Active Directory migration)")
+
+  public String getAdDomainUsersPathTemplate() {
+    return adDomainUsersPathTemplate;
+  }
+
+
+  public void setAdDomainUsersPathTemplate(String adDomainUsersPathTemplate) {
+    this.adDomainUsersPathTemplate = adDomainUsersPathTemplate;
+  }
+
+
+  public GatewayUpdateMigration adLocalUsersIgnore(String adLocalUsersIgnore) {
+    
+    this.adLocalUsersIgnore = adLocalUsersIgnore;
+    return this;
+  }
+
+   /**
+   * Comma-separated list of Local Users which should not be migrated (Relevant only for Active Directory migration)
+   * @return adLocalUsersIgnore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comma-separated list of Local Users which should not be migrated (Relevant only for Active Directory migration)")
+
+  public String getAdLocalUsersIgnore() {
+    return adLocalUsersIgnore;
+  }
+
+
+  public void setAdLocalUsersIgnore(String adLocalUsersIgnore) {
+    this.adLocalUsersIgnore = adLocalUsersIgnore;
+  }
+
+
+  public GatewayUpdateMigration adLocalUsersPathTemplate(String adLocalUsersPathTemplate) {
+    
+    this.adLocalUsersPathTemplate = adLocalUsersPathTemplate;
+    return this;
+  }
+
+   /**
+   * Path location template for migrating domain users as Rotated Secrets e.g.: .../LocalUsers/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Active Directory migration)
+   * @return adLocalUsersPathTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Path location template for migrating domain users as Rotated Secrets e.g.: .../LocalUsers/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Active Directory migration)")
+
+  public String getAdLocalUsersPathTemplate() {
+    return adLocalUsersPathTemplate;
+  }
+
+
+  public void setAdLocalUsersPathTemplate(String adLocalUsersPathTemplate) {
+    this.adLocalUsersPathTemplate = adLocalUsersPathTemplate;
+  }
+
+
+  public GatewayUpdateMigration adRotationHour(Integer adRotationHour) {
+    
+    this.adRotationHour = adRotationHour;
+    return this;
+  }
+
+   /**
+   * The hour of the scheduled rotation in UTC (Relevant only for Active Directory migration)
+   * @return adRotationHour
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hour of the scheduled rotation in UTC (Relevant only for Active Directory migration)")
+
+  public Integer getAdRotationHour() {
+    return adRotationHour;
+  }
+
+
+  public void setAdRotationHour(Integer adRotationHour) {
+    this.adRotationHour = adRotationHour;
+  }
+
+
+  public GatewayUpdateMigration adRotationInterval(Integer adRotationInterval) {
+    
+    this.adRotationInterval = adRotationInterval;
+    return this;
+  }
+
+   /**
+   * The number of days to wait between every automatic rotation [1-365] (Relevant only for Active Directory migration)
+   * @return adRotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of days to wait between every automatic rotation [1-365] (Relevant only for Active Directory migration)")
+
+  public Integer getAdRotationInterval() {
+    return adRotationInterval;
+  }
+
+
+  public void setAdRotationInterval(Integer adRotationInterval) {
+    this.adRotationInterval = adRotationInterval;
+  }
+
+
+  public GatewayUpdateMigration adSraEnableRdp(String adSraEnableRdp) {
+    
+    this.adSraEnableRdp = adSraEnableRdp;
+    return this;
+  }
+
+   /**
+   * Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Active Directory migration)
+   * @return adSraEnableRdp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Active Directory migration)")
+
+  public String getAdSraEnableRdp() {
+    return adSraEnableRdp;
+  }
+
+
+  public void setAdSraEnableRdp(String adSraEnableRdp) {
+    this.adSraEnableRdp = adSraEnableRdp;
+  }
+
+
+  public GatewayUpdateMigration adTargetName(String adTargetName) {
+    
+    this.adTargetName = adTargetName;
+    return this;
+  }
+
+   /**
+   * Active Directory LDAP Target Name. Server type should be Active Directory (Relevant only for Active Directory migration)
+   * @return adTargetName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Active Directory LDAP Target Name. Server type should be Active Directory (Relevant only for Active Directory migration)")
+
+  public String getAdTargetName() {
+    return adTargetName;
+  }
+
+
+  public void setAdTargetName(String adTargetName) {
+    this.adTargetName = adTargetName;
+  }
+
+
+  public GatewayUpdateMigration adTargetsPathTemplate(String adTargetsPathTemplate) {
+    
+    this.adTargetsPathTemplate = adTargetsPathTemplate;
+    return this;
+  }
+
+   /**
+   * Path location template for migrating domain servers as SSH Targets e.g.: .../Servers/{{COMPUTER_NAME}} (Relevant only for Active Directory migration)
+   * @return adTargetsPathTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Path location template for migrating domain servers as SSH Targets e.g.: .../Servers/{{COMPUTER_NAME}} (Relevant only for Active Directory migration)")
+
+  public String getAdTargetsPathTemplate() {
+    return adTargetsPathTemplate;
+  }
+
+
+  public void setAdTargetsPathTemplate(String adTargetsPathTemplate) {
+    this.adTargetsPathTemplate = adTargetsPathTemplate;
+  }
+
+
+  public GatewayUpdateMigration adUserBaseDn(String adUserBaseDn) {
+    
+    this.adUserBaseDn = adUserBaseDn;
+    return this;
+  }
+
+   /**
+   * Distinguished Name of User objects to search in Active Directory, e.g.: CN&#x3D;Users,DC&#x3D;example,DC&#x3D;com (Relevant only for Active Directory migration)
+   * @return adUserBaseDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Distinguished Name of User objects to search in Active Directory, e.g.: CN=Users,DC=example,DC=com (Relevant only for Active Directory migration)")
+
+  public String getAdUserBaseDn() {
+    return adUserBaseDn;
+  }
+
+
+  public void setAdUserBaseDn(String adUserBaseDn) {
+    this.adUserBaseDn = adUserBaseDn;
+  }
+
+
+  public GatewayUpdateMigration adUserGroups(String adUserGroups) {
+    
+    this.adUserGroups = adUserGroups;
+    return this;
+  }
+
+   /**
+   * Comma-separated list of domain groups from which privileged domain users will be migrated (Relevant only for Active Directory migration)
+   * @return adUserGroups
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comma-separated list of domain groups from which privileged domain users will be migrated (Relevant only for Active Directory migration)")
+
+  public String getAdUserGroups() {
+    return adUserGroups;
+  }
+
+
+  public void setAdUserGroups(String adUserGroups) {
+    this.adUserGroups = adUserGroups;
+  }
+
+
+  public GatewayUpdateMigration asSshPort(String asSshPort) {
+    
+    this.asSshPort = asSshPort;
+    return this;
+  }
+
+   /**
+   * Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration)
+   * @return asSshPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration)")
+
+  public String getAsSshPort() {
+    return asSshPort;
+  }
+
+
+  public void setAsSshPort(String asSshPort) {
+    this.asSshPort = asSshPort;
+  }
 
 
   public GatewayUpdateMigration awsKey(String awsKey) {
@@ -776,129 +1422,6 @@ public class GatewayUpdateMigration {
   }
 
 
-  public GatewayUpdateMigration opEmail(String opEmail) {
-    
-    this.opEmail = opEmail;
-    return this;
-  }
-
-   /**
-   * 1Password user email to connect to the API
-   * @return opEmail
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "1Password user email to connect to the API")
-
-  public String getOpEmail() {
-    return opEmail;
-  }
-
-
-  public void setOpEmail(String opEmail) {
-    this.opEmail = opEmail;
-  }
-
-
-  public GatewayUpdateMigration opPassword(String opPassword) {
-    
-    this.opPassword = opPassword;
-    return this;
-  }
-
-   /**
-   * 1Password user password to connect to the API
-   * @return opPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "1Password user password to connect to the API")
-
-  public String getOpPassword() {
-    return opPassword;
-  }
-
-
-  public void setOpPassword(String opPassword) {
-    this.opPassword = opPassword;
-  }
-
-
-  public GatewayUpdateMigration opSecretKey(String opSecretKey) {
-    
-    this.opSecretKey = opSecretKey;
-    return this;
-  }
-
-   /**
-   * 1Password user secret key to connect to the API
-   * @return opSecretKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "1Password user secret key to connect to the API")
-
-  public String getOpSecretKey() {
-    return opSecretKey;
-  }
-
-
-  public void setOpSecretKey(String opSecretKey) {
-    this.opSecretKey = opSecretKey;
-  }
-
-
-  public GatewayUpdateMigration opUrl(String opUrl) {
-    
-    this.opUrl = opUrl;
-    return this;
-  }
-
-   /**
-   * 1Password api container url
-   * @return opUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "1Password api container url")
-
-  public String getOpUrl() {
-    return opUrl;
-  }
-
-
-  public void setOpUrl(String opUrl) {
-    this.opUrl = opUrl;
-  }
-
-
-  public GatewayUpdateMigration opVaults(List<String> opVaults) {
-    
-    this.opVaults = opVaults;
-    return this;
-  }
-
-  public GatewayUpdateMigration addOpVaultsItem(String opVaultsItem) {
-    if (this.opVaults == null) {
-      this.opVaults = new ArrayList<String>();
-    }
-    this.opVaults.add(opVaultsItem);
-    return this;
-  }
-
-   /**
-   * 1Password list of vault to get the items from
-   * @return opVaults
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "1Password list of vault to get the items from")
-
-  public List<String> getOpVaults() {
-    return opVaults;
-  }
-
-
-  public void setOpVaults(List<String> opVaults) {
-    this.opVaults = opVaults;
-  }
-
-
   public GatewayUpdateMigration protectionKey(String protectionKey) {
     
     this.protectionKey = protectionKey;
@@ -932,8 +1455,7 @@ public class GatewayUpdateMigration {
    * Target location in Akeyless for imported secrets
    * @return targetLocation
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Target location in Akeyless for imported secrets")
+  @ApiModelProperty(required = true, value = "Target location in Akeyless for imported secrets")
 
   public String getTargetLocation() {
     return targetLocation;
@@ -1000,7 +1522,31 @@ public class GatewayUpdateMigration {
       return false;
     }
     GatewayUpdateMigration gatewayUpdateMigration = (GatewayUpdateMigration) o;
-    return Objects.equals(this.awsKey, gatewayUpdateMigration.awsKey) &&
+    return Objects.equals(this._1passwordEmail, gatewayUpdateMigration._1passwordEmail) &&
+        Objects.equals(this._1passwordPassword, gatewayUpdateMigration._1passwordPassword) &&
+        Objects.equals(this._1passwordSecretKey, gatewayUpdateMigration._1passwordSecretKey) &&
+        Objects.equals(this._1passwordUrl, gatewayUpdateMigration._1passwordUrl) &&
+        Objects.equals(this._1passwordVaults, gatewayUpdateMigration._1passwordVaults) &&
+        Objects.equals(this.adAutoRotateBoolean, gatewayUpdateMigration.adAutoRotateBoolean) &&
+        Objects.equals(this.adDiscoverLocalUsersBoolean, gatewayUpdateMigration.adDiscoverLocalUsersBoolean) &&
+        Objects.equals(this.adLocalUsersIgnoreList, gatewayUpdateMigration.adLocalUsersIgnoreList) &&
+        Objects.equals(this.adSRAEnableRDPBoolean, gatewayUpdateMigration.adSRAEnableRDPBoolean) &&
+        Objects.equals(this.adAutoRotate, gatewayUpdateMigration.adAutoRotate) &&
+        Objects.equals(this.adComputerBaseDn, gatewayUpdateMigration.adComputerBaseDn) &&
+        Objects.equals(this.adDiscoverLocalUsers, gatewayUpdateMigration.adDiscoverLocalUsers) &&
+        Objects.equals(this.adDomainName, gatewayUpdateMigration.adDomainName) &&
+        Objects.equals(this.adDomainUsersPathTemplate, gatewayUpdateMigration.adDomainUsersPathTemplate) &&
+        Objects.equals(this.adLocalUsersIgnore, gatewayUpdateMigration.adLocalUsersIgnore) &&
+        Objects.equals(this.adLocalUsersPathTemplate, gatewayUpdateMigration.adLocalUsersPathTemplate) &&
+        Objects.equals(this.adRotationHour, gatewayUpdateMigration.adRotationHour) &&
+        Objects.equals(this.adRotationInterval, gatewayUpdateMigration.adRotationInterval) &&
+        Objects.equals(this.adSraEnableRdp, gatewayUpdateMigration.adSraEnableRdp) &&
+        Objects.equals(this.adTargetName, gatewayUpdateMigration.adTargetName) &&
+        Objects.equals(this.adTargetsPathTemplate, gatewayUpdateMigration.adTargetsPathTemplate) &&
+        Objects.equals(this.adUserBaseDn, gatewayUpdateMigration.adUserBaseDn) &&
+        Objects.equals(this.adUserGroups, gatewayUpdateMigration.adUserGroups) &&
+        Objects.equals(this.asSshPort, gatewayUpdateMigration.asSshPort) &&
+        Objects.equals(this.awsKey, gatewayUpdateMigration.awsKey) &&
         Objects.equals(this.awsKeyId, gatewayUpdateMigration.awsKeyId) &&
         Objects.equals(this.awsRegion, gatewayUpdateMigration.awsRegion) &&
         Objects.equals(this.azureClientId, gatewayUpdateMigration.azureClientId) &&
@@ -1025,11 +1571,6 @@ public class GatewayUpdateMigration {
         Objects.equals(this.k8sUsername, gatewayUpdateMigration.k8sUsername) &&
         Objects.equals(this.name, gatewayUpdateMigration.name) &&
         Objects.equals(this.newName, gatewayUpdateMigration.newName) &&
-        Objects.equals(this.opEmail, gatewayUpdateMigration.opEmail) &&
-        Objects.equals(this.opPassword, gatewayUpdateMigration.opPassword) &&
-        Objects.equals(this.opSecretKey, gatewayUpdateMigration.opSecretKey) &&
-        Objects.equals(this.opUrl, gatewayUpdateMigration.opUrl) &&
-        Objects.equals(this.opVaults, gatewayUpdateMigration.opVaults) &&
         Objects.equals(this.protectionKey, gatewayUpdateMigration.protectionKey) &&
         Objects.equals(this.targetLocation, gatewayUpdateMigration.targetLocation) &&
         Objects.equals(this.token, gatewayUpdateMigration.token) &&
@@ -1038,7 +1579,7 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, opEmail, opPassword, opSecretKey, opUrl, opVaults, protectionKey, targetLocation, token, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adAutoRotateBoolean, adDiscoverLocalUsersBoolean, adLocalUsersIgnoreList, adSRAEnableRDPBoolean, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, asSshPort, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, targetLocation, token, uidToken);
   }
 
 
@@ -1046,6 +1587,30 @@ public class GatewayUpdateMigration {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateMigration {\n");
+    sb.append("    _1passwordEmail: ").append(toIndentedString(_1passwordEmail)).append("\n");
+    sb.append("    _1passwordPassword: ").append(toIndentedString(_1passwordPassword)).append("\n");
+    sb.append("    _1passwordSecretKey: ").append(toIndentedString(_1passwordSecretKey)).append("\n");
+    sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
+    sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
+    sb.append("    adAutoRotateBoolean: ").append(toIndentedString(adAutoRotateBoolean)).append("\n");
+    sb.append("    adDiscoverLocalUsersBoolean: ").append(toIndentedString(adDiscoverLocalUsersBoolean)).append("\n");
+    sb.append("    adLocalUsersIgnoreList: ").append(toIndentedString(adLocalUsersIgnoreList)).append("\n");
+    sb.append("    adSRAEnableRDPBoolean: ").append(toIndentedString(adSRAEnableRDPBoolean)).append("\n");
+    sb.append("    adAutoRotate: ").append(toIndentedString(adAutoRotate)).append("\n");
+    sb.append("    adComputerBaseDn: ").append(toIndentedString(adComputerBaseDn)).append("\n");
+    sb.append("    adDiscoverLocalUsers: ").append(toIndentedString(adDiscoverLocalUsers)).append("\n");
+    sb.append("    adDomainName: ").append(toIndentedString(adDomainName)).append("\n");
+    sb.append("    adDomainUsersPathTemplate: ").append(toIndentedString(adDomainUsersPathTemplate)).append("\n");
+    sb.append("    adLocalUsersIgnore: ").append(toIndentedString(adLocalUsersIgnore)).append("\n");
+    sb.append("    adLocalUsersPathTemplate: ").append(toIndentedString(adLocalUsersPathTemplate)).append("\n");
+    sb.append("    adRotationHour: ").append(toIndentedString(adRotationHour)).append("\n");
+    sb.append("    adRotationInterval: ").append(toIndentedString(adRotationInterval)).append("\n");
+    sb.append("    adSraEnableRdp: ").append(toIndentedString(adSraEnableRdp)).append("\n");
+    sb.append("    adTargetName: ").append(toIndentedString(adTargetName)).append("\n");
+    sb.append("    adTargetsPathTemplate: ").append(toIndentedString(adTargetsPathTemplate)).append("\n");
+    sb.append("    adUserBaseDn: ").append(toIndentedString(adUserBaseDn)).append("\n");
+    sb.append("    adUserGroups: ").append(toIndentedString(adUserGroups)).append("\n");
+    sb.append("    asSshPort: ").append(toIndentedString(asSshPort)).append("\n");
     sb.append("    awsKey: ").append(toIndentedString(awsKey)).append("\n");
     sb.append("    awsKeyId: ").append(toIndentedString(awsKeyId)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
@@ -1071,11 +1636,6 @@ public class GatewayUpdateMigration {
     sb.append("    k8sUsername: ").append(toIndentedString(k8sUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    opEmail: ").append(toIndentedString(opEmail)).append("\n");
-    sb.append("    opPassword: ").append(toIndentedString(opPassword)).append("\n");
-    sb.append("    opSecretKey: ").append(toIndentedString(opSecretKey)).append("\n");
-    sb.append("    opUrl: ").append(toIndentedString(opUrl)).append("\n");
-    sb.append("    opVaults: ").append(toIndentedString(opVaults)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

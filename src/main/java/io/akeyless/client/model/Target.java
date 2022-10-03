@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.ItemVersion;
 import io.akeyless.client.model.TargetItemAssociation;
-import io.akeyless.client.model.TargetObjectAssociation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,12 +29,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Target
  */
 
 public class Target {
+  public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
+  private OffsetDateTime accessDate;
+
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Map<String, Object> attributes = null;
@@ -48,9 +52,21 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
+  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
+  private OffsetDateTime creationDate;
+
+  public static final String SERIALIZED_NAME_CREDENTIALS_LESS = "credentials_less";
+  @SerializedName(SERIALIZED_NAME_CREDENTIALS_LESS)
+  private Boolean credentialsLess;
+
   public static final String SERIALIZED_NAME_LAST_VERSION = "last_version";
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
   private Integer lastVersion;
+
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection_key_name";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
@@ -68,10 +84,6 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
 
-  public static final String SERIALIZED_NAME_TARGET_OBJECTS_ASSOC = "target_objects_assoc";
-  @SerializedName(SERIALIZED_NAME_TARGET_OBJECTS_ASSOC)
-  private List<TargetObjectAssociation> targetObjectsAssoc = null;
-
   public static final String SERIALIZED_NAME_TARGET_TYPE = "target_type";
   @SerializedName(SERIALIZED_NAME_TARGET_TYPE)
   private String targetType;
@@ -83,6 +95,29 @@ public class Target {
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
+
+
+  public Target accessDate(OffsetDateTime accessDate) {
+    
+    this.accessDate = accessDate;
+    return this;
+  }
+
+   /**
+   * Get accessDate
+   * @return accessDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getAccessDate() {
+    return accessDate;
+  }
+
+
+  public void setAccessDate(OffsetDateTime accessDate) {
+    this.accessDate = accessDate;
+  }
 
 
   public Target attributes(Map<String, Object> attributes) {
@@ -170,6 +205,52 @@ public class Target {
   }
 
 
+  public Target creationDate(OffsetDateTime creationDate) {
+    
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * Get creationDate
+   * @return creationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+
+  public Target credentialsLess(Boolean credentialsLess) {
+    
+    this.credentialsLess = credentialsLess;
+    return this;
+  }
+
+   /**
+   * Get credentialsLess
+   * @return credentialsLess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCredentialsLess() {
+    return credentialsLess;
+  }
+
+
+  public void setCredentialsLess(Boolean credentialsLess) {
+    this.credentialsLess = credentialsLess;
+  }
+
+
   public Target lastVersion(Integer lastVersion) {
     
     this.lastVersion = lastVersion;
@@ -190,6 +271,29 @@ public class Target {
 
   public void setLastVersion(Integer lastVersion) {
     this.lastVersion = lastVersion;
+  }
+
+
+  public Target modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * Get modificationDate
+   * @return modificationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
   }
 
 
@@ -293,37 +397,6 @@ public class Target {
   }
 
 
-  public Target targetObjectsAssoc(List<TargetObjectAssociation> targetObjectsAssoc) {
-    
-    this.targetObjectsAssoc = targetObjectsAssoc;
-    return this;
-  }
-
-  public Target addTargetObjectsAssocItem(TargetObjectAssociation targetObjectsAssocItem) {
-    if (this.targetObjectsAssoc == null) {
-      this.targetObjectsAssoc = new ArrayList<TargetObjectAssociation>();
-    }
-    this.targetObjectsAssoc.add(targetObjectsAssocItem);
-    return this;
-  }
-
-   /**
-   * Get targetObjectsAssoc
-   * @return targetObjectsAssoc
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<TargetObjectAssociation> getTargetObjectsAssoc() {
-    return targetObjectsAssoc;
-  }
-
-
-  public void setTargetObjectsAssoc(List<TargetObjectAssociation> targetObjectsAssoc) {
-    this.targetObjectsAssoc = targetObjectsAssoc;
-  }
-
-
   public Target targetType(String targetType) {
     
     this.targetType = targetType;
@@ -410,15 +483,18 @@ public class Target {
       return false;
     }
     Target target = (Target) o;
-    return Objects.equals(this.attributes, target.attributes) &&
+    return Objects.equals(this.accessDate, target.accessDate) &&
+        Objects.equals(this.attributes, target.attributes) &&
         Objects.equals(this.clientPermissions, target.clientPermissions) &&
         Objects.equals(this.comment, target.comment) &&
+        Objects.equals(this.creationDate, target.creationDate) &&
+        Objects.equals(this.credentialsLess, target.credentialsLess) &&
         Objects.equals(this.lastVersion, target.lastVersion) &&
+        Objects.equals(this.modificationDate, target.modificationDate) &&
         Objects.equals(this.protectionKeyName, target.protectionKeyName) &&
         Objects.equals(this.targetId, target.targetId) &&
         Objects.equals(this.targetItemsAssoc, target.targetItemsAssoc) &&
         Objects.equals(this.targetName, target.targetName) &&
-        Objects.equals(this.targetObjectsAssoc, target.targetObjectsAssoc) &&
         Objects.equals(this.targetType, target.targetType) &&
         Objects.equals(this.targetVersions, target.targetVersions) &&
         Objects.equals(this.withCustomerFragment, target.withCustomerFragment);
@@ -426,7 +502,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, clientPermissions, comment, lastVersion, protectionKeyName, targetId, targetItemsAssoc, targetName, targetObjectsAssoc, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, attributes, clientPermissions, comment, creationDate, credentialsLess, lastVersion, modificationDate, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
   }
 
 
@@ -434,15 +510,18 @@ public class Target {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Target {\n");
+    sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    credentialsLess: ").append(toIndentedString(credentialsLess)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetItemsAssoc: ").append(toIndentedString(targetItemsAssoc)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
-    sb.append("    targetObjectsAssoc: ").append(toIndentedString(targetObjectsAssoc)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");

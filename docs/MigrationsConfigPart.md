@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**activeDirectoryMigrations** | [**List&lt;ActiveDirectoryMigration&gt;**](ActiveDirectoryMigration.md) |  |  [optional]
 **awsSecretsMigrations** | [**List&lt;AWSSecretsMigration&gt;**](AWSSecretsMigration.md) |  |  [optional]
 **azureKvMigrations** | [**List&lt;AzureKeyVaultMigration&gt;**](AzureKeyVaultMigration.md) |  |  [optional]
 **gcpSecretsMigrations** | [**List&lt;GCPSecretsMigration&gt;**](GCPSecretsMigration.md) |  |  [optional]

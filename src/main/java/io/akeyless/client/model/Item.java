@@ -38,6 +38,10 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class Item {
+  public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
+  private OffsetDateTime accessDate;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto_rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private Boolean autoRotate;
@@ -166,13 +170,32 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_TARGET_VERSIONS)
   private List<TargetItemVersion> targetVersions = null;
 
-  public static final String SERIALIZED_NAME_USAGE_DATE = "usage_date";
-  @SerializedName(SERIALIZED_NAME_USAGE_DATE)
-  private OffsetDateTime usageDate;
-
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
+
+
+  public Item accessDate(OffsetDateTime accessDate) {
+    
+    this.accessDate = accessDate;
+    return this;
+  }
+
+   /**
+   * Get accessDate
+   * @return accessDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getAccessDate() {
+    return accessDate;
+  }
+
+
+  public void setAccessDate(OffsetDateTime accessDate) {
+    this.accessDate = accessDate;
+  }
 
 
   public Item autoRotate(Boolean autoRotate) {
@@ -951,29 +974,6 @@ public class Item {
   }
 
 
-  public Item usageDate(OffsetDateTime usageDate) {
-    
-    this.usageDate = usageDate;
-    return this;
-  }
-
-   /**
-   * Get usageDate
-   * @return usageDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getUsageDate() {
-    return usageDate;
-  }
-
-
-  public void setUsageDate(OffsetDateTime usageDate) {
-    this.usageDate = usageDate;
-  }
-
-
   public Item withCustomerFragment(Boolean withCustomerFragment) {
     
     this.withCustomerFragment = withCustomerFragment;
@@ -1006,7 +1006,8 @@ public class Item {
       return false;
     }
     Item item = (Item) o;
-    return Objects.equals(this.autoRotate, item.autoRotate) &&
+    return Objects.equals(this.accessDate, item.accessDate) &&
+        Objects.equals(this.autoRotate, item.autoRotate) &&
         Objects.equals(this.certIssuerSignerKeyName, item.certIssuerSignerKeyName) &&
         Objects.equals(this.certificateIssueDetails, item.certificateIssueDetails) &&
         Objects.equals(this.certificates, item.certificates) &&
@@ -1038,13 +1039,12 @@ public class Item {
         Objects.equals(this.rotationInterval, item.rotationInterval) &&
         Objects.equals(this.sharedBy, item.sharedBy) &&
         Objects.equals(this.targetVersions, item.targetVersions) &&
-        Objects.equals(this.usageDate, item.usageDate) &&
         Objects.equals(this.withCustomerFragment, item.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, usageDate, withCustomerFragment);
+    return Objects.hash(accessDate, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
 
@@ -1052,6 +1052,7 @@ public class Item {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Item {\n");
+    sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    certIssuerSignerKeyName: ").append(toIndentedString(certIssuerSignerKeyName)).append("\n");
     sb.append("    certificateIssueDetails: ").append(toIndentedString(certificateIssueDetails)).append("\n");
@@ -1084,7 +1085,6 @@ public class Item {
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    sharedBy: ").append(toIndentedString(sharedBy)).append("\n");
     sb.append("    targetVersions: ").append(toIndentedString(targetVersions)).append("\n");
-    sb.append("    usageDate: ").append(toIndentedString(usageDate)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");
     return sb.toString();

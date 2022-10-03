@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **accessInfo** | [**AuthMethodAccessInfo**](AuthMethodAccessInfo.md) |  |  [optional]
 **accountId** | **String** |  |  [optional]
 **authMethodAccessId** | **String** |  |  [optional]
@@ -14,7 +15,6 @@ Name | Type | Description | Notes
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **creationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**usageDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 
 
 

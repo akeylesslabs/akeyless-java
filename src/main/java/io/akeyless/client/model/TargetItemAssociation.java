@@ -23,6 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * TargetItemAssociation includes details of an association between a target and an item.
@@ -33,6 +36,10 @@ public class TargetItemAssociation {
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc_id";
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, String> attributes = null;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
@@ -45,6 +52,10 @@ public class TargetItemAssociation {
   public static final String SERIALIZED_NAME_ITEM_TYPE = "item_type";
   @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
   private String itemType;
+
+  public static final String SERIALIZED_NAME_RELATIONSHIP = "relationship";
+  @SerializedName(SERIALIZED_NAME_RELATIONSHIP)
+  private String relationship;
 
 
   public TargetItemAssociation assocId(String assocId) {
@@ -67,6 +78,37 @@ public class TargetItemAssociation {
 
   public void setAssocId(String assocId) {
     this.assocId = assocId;
+  }
+
+
+  public TargetItemAssociation attributes(Map<String, String> attributes) {
+    
+    this.attributes = attributes;
+    return this;
+  }
+
+  public TargetItemAssociation putAttributesItem(String key, String attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<String, String>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+   /**
+   * Get attributes
+   * @return attributes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getAttributes() {
+    return attributes;
+  }
+
+
+  public void setAttributes(Map<String, String> attributes) {
+    this.attributes = attributes;
   }
 
 
@@ -139,6 +181,29 @@ public class TargetItemAssociation {
   }
 
 
+  public TargetItemAssociation relationship(String relationship) {
+    
+    this.relationship = relationship;
+    return this;
+  }
+
+   /**
+   * Get relationship
+   * @return relationship
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRelationship() {
+    return relationship;
+  }
+
+
+  public void setRelationship(String relationship) {
+    this.relationship = relationship;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -149,14 +214,16 @@ public class TargetItemAssociation {
     }
     TargetItemAssociation targetItemAssociation = (TargetItemAssociation) o;
     return Objects.equals(this.assocId, targetItemAssociation.assocId) &&
+        Objects.equals(this.attributes, targetItemAssociation.attributes) &&
         Objects.equals(this.clusterId, targetItemAssociation.clusterId) &&
         Objects.equals(this.itemName, targetItemAssociation.itemName) &&
-        Objects.equals(this.itemType, targetItemAssociation.itemType);
+        Objects.equals(this.itemType, targetItemAssociation.itemType) &&
+        Objects.equals(this.relationship, targetItemAssociation.relationship);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, clusterId, itemName, itemType);
+    return Objects.hash(assocId, attributes, clusterId, itemName, itemType, relationship);
   }
 
 
@@ -165,9 +232,11 @@ public class TargetItemAssociation {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetItemAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
+    sb.append("    relationship: ").append(toIndentedString(relationship)).append("\n");
     sb.append("}");
     return sb.toString();
   }

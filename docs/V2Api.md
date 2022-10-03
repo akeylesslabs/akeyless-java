@@ -105,6 +105,7 @@ Method | HTTP request | Description
 [**gatewayListAllowedManagementAccess**](V2Api.md#gatewayListAllowedManagementAccess) | **POST** /gateway-list-allowed-management-access | 
 [**gatewayListMigration**](V2Api.md#gatewayListMigration) | **POST** /gateway-list-migration | 
 [**gatewayListProducers**](V2Api.md#gatewayListProducers) | **POST** /gateway-list-producers | 
+[**gatewayMigratePersonalItems**](V2Api.md#gatewayMigratePersonalItems) | **POST** /gateway-migrate-personal-items | 
 [**gatewayRevokeTmpUsers**](V2Api.md#gatewayRevokeTmpUsers) | **POST** /gateway-revoke-producer-tmp-creds | 
 [**gatewayStartProducer**](V2Api.md#gatewayStartProducer) | **POST** /gateway-start-producer | 
 [**gatewayStatusMigration**](V2Api.md#gatewayStatusMigration) | **POST** /gateway-migration-status | 
@@ -6403,6 +6404,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayListProducersResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayMigratePersonalItems"></a>
+# **gatewayMigratePersonalItems**
+> GatewayMigratePersonalItemsOutput gatewayMigratePersonalItems(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayMigratePersonalItems body = new GatewayMigratePersonalItems(); // GatewayMigratePersonalItems | 
+    try {
+      GatewayMigratePersonalItemsOutput result = apiInstance.gatewayMigratePersonalItems(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayMigratePersonalItems");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayMigratePersonalItems**](GatewayMigratePersonalItems.md)|  | [optional]
+
+### Return type
+
+[**GatewayMigratePersonalItemsOutput**](GatewayMigratePersonalItemsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayMigratePersonalItemsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayRevokeTmpUsers"></a>

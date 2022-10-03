@@ -34,6 +34,10 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class AuthMethod {
+  public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
+  private OffsetDateTime accessDate;
+
   public static final String SERIALIZED_NAME_ACCESS_INFO = "access_info";
   @SerializedName(SERIALIZED_NAME_ACCESS_INFO)
   private AuthMethodAccessInfo accessInfo;
@@ -66,9 +70,28 @@ public class AuthMethod {
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
   private OffsetDateTime modificationDate;
 
-  public static final String SERIALIZED_NAME_USAGE_DATE = "usage_date";
-  @SerializedName(SERIALIZED_NAME_USAGE_DATE)
-  private OffsetDateTime usageDate;
+
+  public AuthMethod accessDate(OffsetDateTime accessDate) {
+    
+    this.accessDate = accessDate;
+    return this;
+  }
+
+   /**
+   * Get accessDate
+   * @return accessDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getAccessDate() {
+    return accessDate;
+  }
+
+
+  public void setAccessDate(OffsetDateTime accessDate) {
+    this.accessDate = accessDate;
+  }
 
 
   public AuthMethod accessInfo(AuthMethodAccessInfo accessInfo) {
@@ -271,29 +294,6 @@ public class AuthMethod {
   }
 
 
-  public AuthMethod usageDate(OffsetDateTime usageDate) {
-    
-    this.usageDate = usageDate;
-    return this;
-  }
-
-   /**
-   * Get usageDate
-   * @return usageDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getUsageDate() {
-    return usageDate;
-  }
-
-
-  public void setUsageDate(OffsetDateTime usageDate) {
-    this.usageDate = usageDate;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -303,20 +303,20 @@ public class AuthMethod {
       return false;
     }
     AuthMethod authMethod = (AuthMethod) o;
-    return Objects.equals(this.accessInfo, authMethod.accessInfo) &&
+    return Objects.equals(this.accessDate, authMethod.accessDate) &&
+        Objects.equals(this.accessInfo, authMethod.accessInfo) &&
         Objects.equals(this.accountId, authMethod.accountId) &&
         Objects.equals(this.authMethodAccessId, authMethod.authMethodAccessId) &&
         Objects.equals(this.authMethodName, authMethod.authMethodName) &&
         Objects.equals(this.authMethodRolesAssoc, authMethod.authMethodRolesAssoc) &&
         Objects.equals(this.clientPermissions, authMethod.clientPermissions) &&
         Objects.equals(this.creationDate, authMethod.creationDate) &&
-        Objects.equals(this.modificationDate, authMethod.modificationDate) &&
-        Objects.equals(this.usageDate, authMethod.usageDate);
+        Objects.equals(this.modificationDate, authMethod.modificationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessInfo, accountId, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, modificationDate, usageDate);
+    return Objects.hash(accessDate, accessInfo, accountId, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, modificationDate);
   }
 
 
@@ -324,6 +324,7 @@ public class AuthMethod {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethod {\n");
+    sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    accessInfo: ").append(toIndentedString(accessInfo)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    authMethodAccessId: ").append(toIndentedString(authMethodAccessId)).append("\n");
@@ -332,7 +333,6 @@ public class AuthMethod {
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
-    sb.append("    usageDate: ").append(toIndentedString(usageDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **autoRotate** | **Boolean** |  |  [optional]
 **certIssuerSignerKeyName** | **String** |  |  [optional]
 **certificateIssueDetails** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  |  [optional]
@@ -38,7 +39,6 @@ Name | Type | Description | Notes
 **rotationInterval** | **Long** |  |  [optional]
 **sharedBy** | [**RuleAssigner**](RuleAssigner.md) |  |  [optional]
 **targetVersions** | [**List&lt;TargetItemVersion&gt;**](TargetItemVersion.md) |  |  [optional]
-**usageDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **withCustomerFragment** | **Boolean** |  |  [optional]
 
 
