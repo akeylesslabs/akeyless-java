@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**activateKeysOnCreation** | **Boolean** |  |  [optional]
 **certificateIssueDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **certificateTtlInSeconds** | **Long** |  |  [optional]
 **id** | **String** |  |  [optional]

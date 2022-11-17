@@ -8,6 +8,7 @@ ItemTargetAssociation includes details of an association between an item and a t
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assocId** | **String** |  |  [optional]
+**attributes** | **Map&lt;String, String&gt;** |  |  [optional]
 **targetId** | **Long** |  |  [optional]
 **targetName** | **String** |  |  [optional]
 **targetType** | **String** |  |  [optional]

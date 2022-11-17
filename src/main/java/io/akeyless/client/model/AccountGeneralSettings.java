@@ -36,6 +36,10 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
   private DataProtectionSection dataProtectionSection;
 
+  public static final String SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS = "enable_request_for_access";
+  @SerializedName(SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS)
+  private Boolean enableRequestForAccess;
+
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
   private PasswordPolicyInfo passwordPolicy;
@@ -61,6 +65,29 @@ public class AccountGeneralSettings {
 
   public void setDataProtectionSection(DataProtectionSection dataProtectionSection) {
     this.dataProtectionSection = dataProtectionSection;
+  }
+
+
+  public AccountGeneralSettings enableRequestForAccess(Boolean enableRequestForAccess) {
+    
+    this.enableRequestForAccess = enableRequestForAccess;
+    return this;
+  }
+
+   /**
+   * Get enableRequestForAccess
+   * @return enableRequestForAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getEnableRequestForAccess() {
+    return enableRequestForAccess;
+  }
+
+
+  public void setEnableRequestForAccess(Boolean enableRequestForAccess) {
+    this.enableRequestForAccess = enableRequestForAccess;
   }
 
 
@@ -97,12 +124,13 @@ public class AccountGeneralSettings {
     }
     AccountGeneralSettings accountGeneralSettings = (AccountGeneralSettings) o;
     return Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
+        Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataProtectionSection, passwordPolicy);
+    return Objects.hash(dataProtectionSection, enableRequestForAccess, passwordPolicy);
   }
 
 
@@ -111,6 +139,7 @@ public class AccountGeneralSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountGeneralSettings {\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
+    sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("}");
     return sb.toString();

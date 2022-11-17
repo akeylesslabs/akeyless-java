@@ -30,6 +30,10 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class TargetItemVersion {
+  public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
+  private OffsetDateTime accessDate;
+
   public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
@@ -50,6 +54,10 @@ public class TargetItemVersion {
   @SerializedName(SERIALIZED_NAME_LATEST_VERSION)
   private Boolean latestVersion;
 
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
+
   public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection_key_name";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
   private String protectionKeyName;
@@ -65,6 +73,29 @@ public class TargetItemVersion {
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
+
+
+  public TargetItemVersion accessDate(OffsetDateTime accessDate) {
+    
+    this.accessDate = accessDate;
+    return this;
+  }
+
+   /**
+   * Get accessDate
+   * @return accessDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getAccessDate() {
+    return accessDate;
+  }
+
+
+  public void setAccessDate(OffsetDateTime accessDate) {
+    this.accessDate = accessDate;
+  }
 
 
   public TargetItemVersion creationDate(OffsetDateTime creationDate) {
@@ -182,6 +213,29 @@ public class TargetItemVersion {
   }
 
 
+  public TargetItemVersion modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * Get modificationDate
+   * @return modificationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
+  }
+
+
   public TargetItemVersion protectionKeyName(String protectionKeyName) {
     
     this.protectionKeyName = protectionKeyName;
@@ -283,11 +337,13 @@ public class TargetItemVersion {
       return false;
     }
     TargetItemVersion targetItemVersion = (TargetItemVersion) o;
-    return Objects.equals(this.creationDate, targetItemVersion.creationDate) &&
+    return Objects.equals(this.accessDate, targetItemVersion.accessDate) &&
+        Objects.equals(this.creationDate, targetItemVersion.creationDate) &&
         Objects.equals(this.customerFragmentId, targetItemVersion.customerFragmentId) &&
         Objects.equals(this.deletionDate, targetItemVersion.deletionDate) &&
         Objects.equals(this.itemVersionState, targetItemVersion.itemVersionState) &&
         Objects.equals(this.latestVersion, targetItemVersion.latestVersion) &&
+        Objects.equals(this.modificationDate, targetItemVersion.modificationDate) &&
         Objects.equals(this.protectionKeyName, targetItemVersion.protectionKeyName) &&
         Objects.equals(this.targetName, targetItemVersion.targetName) &&
         Objects.equals(this.version, targetItemVersion.version) &&
@@ -296,7 +352,7 @@ public class TargetItemVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, customerFragmentId, deletionDate, itemVersionState, latestVersion, protectionKeyName, targetName, version, withCustomerFragment);
+    return Objects.hash(accessDate, creationDate, customerFragmentId, deletionDate, itemVersionState, latestVersion, modificationDate, protectionKeyName, targetName, version, withCustomerFragment);
   }
 
 
@@ -304,11 +360,13 @@ public class TargetItemVersion {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetItemVersion {\n");
+    sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    itemVersionState: ").append(toIndentedString(itemVersionState)).append("\n");
     sb.append("    latestVersion: ").append(toIndentedString(latestVersion)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

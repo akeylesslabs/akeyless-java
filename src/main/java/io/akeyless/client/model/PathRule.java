@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.RuleAssigner;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,13 +32,33 @@ import java.util.List;
  */
 
 public class PathRule {
+  public static final String SERIALIZED_NAME_ASSIGNERS = "assigners";
+  @SerializedName(SERIALIZED_NAME_ASSIGNERS)
+  private List<RuleAssigner> assigners = null;
+
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   private List<String> capabilities = null;
 
+  public static final String SERIALIZED_NAME_IS_LIMIT_ACCESS = "is_limit_access";
+  @SerializedName(SERIALIZED_NAME_IS_LIMIT_ACCESS)
+  private Boolean isLimitAccess;
+
+  public static final String SERIALIZED_NAME_NUMBER_OF_ACCESS_USED = "number_of_access_used";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_ACCESS_USED)
+  private Long numberOfAccessUsed;
+
+  public static final String SERIALIZED_NAME_NUMBER_OF_ALLOWED_ACCESS = "number_of_allowed_access";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_ALLOWED_ACCESS)
+  private Long numberOfAllowedAccess;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_START_TIME = "start_time";
+  @SerializedName(SERIALIZED_NAME_START_TIME)
+  private Long startTime;
 
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
@@ -46,6 +67,37 @@ public class PathRule {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+
+  public PathRule assigners(List<RuleAssigner> assigners) {
+    
+    this.assigners = assigners;
+    return this;
+  }
+
+  public PathRule addAssignersItem(RuleAssigner assignersItem) {
+    if (this.assigners == null) {
+      this.assigners = new ArrayList<RuleAssigner>();
+    }
+    this.assigners.add(assignersItem);
+    return this;
+  }
+
+   /**
+   * Get assigners
+   * @return assigners
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<RuleAssigner> getAssigners() {
+    return assigners;
+  }
+
+
+  public void setAssigners(List<RuleAssigner> assigners) {
+    this.assigners = assigners;
+  }
 
 
   public PathRule capabilities(List<String> capabilities) {
@@ -79,6 +131,75 @@ public class PathRule {
   }
 
 
+  public PathRule isLimitAccess(Boolean isLimitAccess) {
+    
+    this.isLimitAccess = isLimitAccess;
+    return this;
+  }
+
+   /**
+   * flag that indicate that this rule is allowed to be access RemainingAccess of times.
+   * @return isLimitAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "flag that indicate that this rule is allowed to be access RemainingAccess of times.")
+
+  public Boolean getIsLimitAccess() {
+    return isLimitAccess;
+  }
+
+
+  public void setIsLimitAccess(Boolean isLimitAccess) {
+    this.isLimitAccess = isLimitAccess;
+  }
+
+
+  public PathRule numberOfAccessUsed(Long numberOfAccessUsed) {
+    
+    this.numberOfAccessUsed = numberOfAccessUsed;
+    return this;
+  }
+
+   /**
+   * Get numberOfAccessUsed
+   * @return numberOfAccessUsed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getNumberOfAccessUsed() {
+    return numberOfAccessUsed;
+  }
+
+
+  public void setNumberOfAccessUsed(Long numberOfAccessUsed) {
+    this.numberOfAccessUsed = numberOfAccessUsed;
+  }
+
+
+  public PathRule numberOfAllowedAccess(Long numberOfAllowedAccess) {
+    
+    this.numberOfAllowedAccess = numberOfAllowedAccess;
+    return this;
+  }
+
+   /**
+   * Get numberOfAllowedAccess
+   * @return numberOfAllowedAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getNumberOfAllowedAccess() {
+    return numberOfAllowedAccess;
+  }
+
+
+  public void setNumberOfAllowedAccess(Long numberOfAllowedAccess) {
+    this.numberOfAllowedAccess = numberOfAllowedAccess;
+  }
+
+
   public PathRule path(String path) {
     
     this.path = path;
@@ -99,6 +220,29 @@ public class PathRule {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+
+  public PathRule startTime(Long startTime) {
+    
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * Get startTime
+   * @return startTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getStartTime() {
+    return startTime;
+  }
+
+
+  public void setStartTime(Long startTime) {
+    this.startTime = startTime;
   }
 
 
@@ -157,15 +301,20 @@ public class PathRule {
       return false;
     }
     PathRule pathRule = (PathRule) o;
-    return Objects.equals(this.capabilities, pathRule.capabilities) &&
+    return Objects.equals(this.assigners, pathRule.assigners) &&
+        Objects.equals(this.capabilities, pathRule.capabilities) &&
+        Objects.equals(this.isLimitAccess, pathRule.isLimitAccess) &&
+        Objects.equals(this.numberOfAccessUsed, pathRule.numberOfAccessUsed) &&
+        Objects.equals(this.numberOfAllowedAccess, pathRule.numberOfAllowedAccess) &&
         Objects.equals(this.path, pathRule.path) &&
+        Objects.equals(this.startTime, pathRule.startTime) &&
         Objects.equals(this.ttl, pathRule.ttl) &&
         Objects.equals(this.type, pathRule.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, path, ttl, type);
+    return Objects.hash(assigners, capabilities, isLimitAccess, numberOfAccessUsed, numberOfAllowedAccess, path, startTime, ttl, type);
   }
 
 
@@ -173,8 +322,13 @@ public class PathRule {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PathRule {\n");
+    sb.append("    assigners: ").append(toIndentedString(assigners)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    isLimitAccess: ").append(toIndentedString(isLimitAccess)).append("\n");
+    sb.append("    numberOfAccessUsed: ").append(toIndentedString(numberOfAccessUsed)).append("\n");
+    sb.append("    numberOfAllowedAccess: ").append(toIndentedString(numberOfAllowedAccess)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

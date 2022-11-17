@@ -131,7 +131,7 @@ Method | HTTP request | Description
 [**gatewayUpdateProducerMSSQL**](V2Api.md#gatewayUpdateProducerMSSQL) | **POST** /gateway-update-producer-mssql | 
 [**gatewayUpdateProducerMongo**](V2Api.md#gatewayUpdateProducerMongo) | **POST** /gateway-update-producer-mongo | 
 [**gatewayUpdateProducerMySQL**](V2Api.md#gatewayUpdateProducerMySQL) | **POST** /gateway-update-producer-mysql | 
-[**gatewayUpdateProducerNativeK8S**](V2Api.md#gatewayUpdateProducerNativeK8S) | **POST** /gateway-update-producer-k8s-native | 
+[**gatewayUpdateProducerNativeK8S**](V2Api.md#gatewayUpdateProducerNativeK8S) | **POST** /gateway-update-producer-k8s | 
 [**gatewayUpdateProducerOracleDb**](V2Api.md#gatewayUpdateProducerOracleDb) | **POST** /gateway-update-producer-oracle | 
 [**gatewayUpdateProducerPostgreSQL**](V2Api.md#gatewayUpdateProducerPostgreSQL) | **POST** /gateway-update-producer-postgresql | 
 [**gatewayUpdateProducerRabbitMQ**](V2Api.md#gatewayUpdateProducerRabbitMQ) | **POST** /gateway-update-producer-rabbitmq | 

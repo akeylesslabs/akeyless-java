@@ -37,10 +37,6 @@ public class CreateGcpTarget {
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
 
-  public static final String SERIALIZED_NAME_GCP_SA_EMAIL = "gcp-sa-email";
-  @SerializedName(SERIALIZED_NAME_GCP_SA_EMAIL)
-  private String gcpSaEmail;
-
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -109,29 +105,6 @@ public class CreateGcpTarget {
 
   public void setGcpKey(String gcpKey) {
     this.gcpKey = gcpKey;
-  }
-
-
-  public CreateGcpTarget gcpSaEmail(String gcpSaEmail) {
-    
-    this.gcpSaEmail = gcpSaEmail;
-    return this;
-  }
-
-   /**
-   * GCP service account email
-   * @return gcpSaEmail
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "GCP service account email")
-
-  public String getGcpSaEmail() {
-    return gcpSaEmail;
-  }
-
-
-  public void setGcpSaEmail(String gcpSaEmail) {
-    this.gcpSaEmail = gcpSaEmail;
   }
 
 
@@ -283,7 +256,6 @@ public class CreateGcpTarget {
     CreateGcpTarget createGcpTarget = (CreateGcpTarget) o;
     return Objects.equals(this.comment, createGcpTarget.comment) &&
         Objects.equals(this.gcpKey, createGcpTarget.gcpKey) &&
-        Objects.equals(this.gcpSaEmail, createGcpTarget.gcpSaEmail) &&
         Objects.equals(this.json, createGcpTarget.json) &&
         Objects.equals(this.key, createGcpTarget.key) &&
         Objects.equals(this.name, createGcpTarget.name) &&
@@ -294,7 +266,7 @@ public class CreateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gcpKey, gcpSaEmail, json, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, gcpKey, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -304,7 +276,6 @@ public class CreateGcpTarget {
     sb.append("class CreateGcpTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
-    sb.append("    gcpSaEmail: ").append(toIndentedString(gcpSaEmail)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

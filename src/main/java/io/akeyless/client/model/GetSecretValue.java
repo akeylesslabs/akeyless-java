@@ -31,9 +31,17 @@ import java.util.List;
  */
 
 public class GetSecretValue {
+  public static final String SERIALIZED_NAME_IGNORE_CACHE_BOOLEAN = "IgnoreCacheBoolean";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE_BOOLEAN)
+  private Boolean ignoreCacheBoolean;
+
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility;
+
+  public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
+  private String ignoreCache;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -60,6 +68,29 @@ public class GetSecretValue {
   private Integer version;
 
 
+  public GetSecretValue ignoreCacheBoolean(Boolean ignoreCacheBoolean) {
+    
+    this.ignoreCacheBoolean = ignoreCacheBoolean;
+    return this;
+  }
+
+   /**
+   * Get ignoreCacheBoolean
+   * @return ignoreCacheBoolean
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIgnoreCacheBoolean() {
+    return ignoreCacheBoolean;
+  }
+
+
+  public void setIgnoreCacheBoolean(Boolean ignoreCacheBoolean) {
+    this.ignoreCacheBoolean = ignoreCacheBoolean;
+  }
+
+
   public GetSecretValue accessibility(String accessibility) {
     
     this.accessibility = accessibility;
@@ -80,6 +111,29 @@ public class GetSecretValue {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public GetSecretValue ignoreCache(String ignoreCache) {
+    
+    this.ignoreCache = ignoreCache;
+    return this;
+  }
+
+   /**
+   * Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache. This flag is only relevant when using the RestAPI
+   * @return ignoreCache
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ignore Cache Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI")
+
+  public String getIgnoreCache() {
+    return ignoreCache;
+  }
+
+
+  public void setIgnoreCache(String ignoreCache) {
+    this.ignoreCache = ignoreCache;
   }
 
 
@@ -140,11 +194,11 @@ public class GetSecretValue {
   }
 
    /**
-   * Get prettyPrint
+   * Print the secret value with json-pretty-print (not relevent to SDK)
    * @return prettyPrint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Print the secret value with json-pretty-print (not relevent to SDK)")
 
   public Boolean getPrettyPrint() {
     return prettyPrint;
@@ -234,7 +288,9 @@ public class GetSecretValue {
       return false;
     }
     GetSecretValue getSecretValue = (GetSecretValue) o;
-    return Objects.equals(this.accessibility, getSecretValue.accessibility) &&
+    return Objects.equals(this.ignoreCacheBoolean, getSecretValue.ignoreCacheBoolean) &&
+        Objects.equals(this.accessibility, getSecretValue.accessibility) &&
+        Objects.equals(this.ignoreCache, getSecretValue.ignoreCache) &&
         Objects.equals(this.json, getSecretValue.json) &&
         Objects.equals(this.names, getSecretValue.names) &&
         Objects.equals(this.prettyPrint, getSecretValue.prettyPrint) &&
@@ -245,7 +301,7 @@ public class GetSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, json, names, prettyPrint, token, uidToken, version);
+    return Objects.hash(ignoreCacheBoolean, accessibility, ignoreCache, json, names, prettyPrint, token, uidToken, version);
   }
 
 
@@ -253,7 +309,9 @@ public class GetSecretValue {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSecretValue {\n");
+    sb.append("    ignoreCacheBoolean: ").append(toIndentedString(ignoreCacheBoolean)).append("\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    prettyPrint: ").append(toIndentedString(prettyPrint)).append("\n");

@@ -24,7 +24,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -43,6 +45,10 @@ public class BastionListEntry {
   public static final String SERIALIZED_NAME_ALLOWED_URLS = "allowed_urls";
   @SerializedName(SERIALIZED_NAME_ALLOWED_URLS)
   private List<String> allowedUrls = null;
+
+  public static final String SERIALIZED_NAME_ALLOWED_URLS_PER_INSTANCE = "allowed_urls_per_instance";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_URLS_PER_INSTANCE)
+  private Map<String, List<String>> allowedUrlsPerInstance = null;
 
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "cluster_name";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)
@@ -142,6 +148,37 @@ public class BastionListEntry {
   }
 
 
+  public BastionListEntry allowedUrlsPerInstance(Map<String, List<String>> allowedUrlsPerInstance) {
+    
+    this.allowedUrlsPerInstance = allowedUrlsPerInstance;
+    return this;
+  }
+
+  public BastionListEntry putAllowedUrlsPerInstanceItem(String key, List<String> allowedUrlsPerInstanceItem) {
+    if (this.allowedUrlsPerInstance == null) {
+      this.allowedUrlsPerInstance = new HashMap<String, List<String>>();
+    }
+    this.allowedUrlsPerInstance.put(key, allowedUrlsPerInstanceItem);
+    return this;
+  }
+
+   /**
+   * Get allowedUrlsPerInstance
+   * @return allowedUrlsPerInstance
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, List<String>> getAllowedUrlsPerInstance() {
+    return allowedUrlsPerInstance;
+  }
+
+
+  public void setAllowedUrlsPerInstance(Map<String, List<String>> allowedUrlsPerInstance) {
+    this.allowedUrlsPerInstance = allowedUrlsPerInstance;
+  }
+
+
   public BastionListEntry clusterName(String clusterName) {
     
     this.clusterName = clusterName;
@@ -223,6 +260,7 @@ public class BastionListEntry {
     return Objects.equals(this.accessId, bastionListEntry.accessId) &&
         Objects.equals(this.allowedAccessIds, bastionListEntry.allowedAccessIds) &&
         Objects.equals(this.allowedUrls, bastionListEntry.allowedUrls) &&
+        Objects.equals(this.allowedUrlsPerInstance, bastionListEntry.allowedUrlsPerInstance) &&
         Objects.equals(this.clusterName, bastionListEntry.clusterName) &&
         Objects.equals(this.displayName, bastionListEntry.displayName) &&
         Objects.equals(this.lastReport, bastionListEntry.lastReport);
@@ -230,7 +268,7 @@ public class BastionListEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, allowedAccessIds, allowedUrls, clusterName, displayName, lastReport);
+    return Objects.hash(accessId, allowedAccessIds, allowedUrls, allowedUrlsPerInstance, clusterName, displayName, lastReport);
   }
 
 
@@ -241,6 +279,7 @@ public class BastionListEntry {
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    allowedAccessIds: ").append(toIndentedString(allowedAccessIds)).append("\n");
     sb.append("    allowedUrls: ").append(toIndentedString(allowedUrls)).append("\n");
+    sb.append("    allowedUrlsPerInstance: ").append(toIndentedString(allowedUrlsPerInstance)).append("\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    lastReport: ").append(toIndentedString(lastReport)).append("\n");

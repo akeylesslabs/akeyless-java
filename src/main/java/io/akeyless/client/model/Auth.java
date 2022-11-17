@@ -61,6 +61,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_DEBUG)
   private Boolean debug;
 
+  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
+  private String gatewayUrl;
+
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience;
@@ -279,6 +283,29 @@ public class Auth {
 
   public void setDebug(Boolean debug) {
     this.debug = debug;
+  }
+
+
+  public Auth gatewayUrl(String gatewayUrl) {
+    
+    this.gatewayUrl = gatewayUrl;
+    return this;
+  }
+
+   /**
+   * Gateway URL for the K8S authenticated (relevant only for access-type&#x3D;k8s)
+   * @return gatewayUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Gateway URL for the K8S authenticated (relevant only for access-type=k8s)")
+
+  public String getGatewayUrl() {
+    return gatewayUrl;
+  }
+
+
+  public void setGatewayUrl(String gatewayUrl) {
+    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -506,6 +533,7 @@ public class Auth {
         Objects.equals(this.certData, auth.certData) &&
         Objects.equals(this.cloudId, auth.cloudId) &&
         Objects.equals(this.debug, auth.debug) &&
+        Objects.equals(this.gatewayUrl, auth.gatewayUrl) &&
         Objects.equals(this.gcpAudience, auth.gcpAudience) &&
         Objects.equals(this.json, auth.json) &&
         Objects.equals(this.jwt, auth.jwt) &&
@@ -519,7 +547,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, certData, cloudId, debug, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, certData, cloudId, debug, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -535,6 +563,7 @@ public class Auth {
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");

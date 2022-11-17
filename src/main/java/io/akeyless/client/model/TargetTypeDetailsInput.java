@@ -1301,11 +1301,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * Get gcpServiceAccountEmail
+   * deprecated
    * @return gcpServiceAccountEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "deprecated")
 
   public String getGcpServiceAccountEmail() {
     return gcpServiceAccountEmail;

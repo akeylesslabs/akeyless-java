@@ -68,6 +68,14 @@ public class GatewayCreateProducerGcp {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_ROLE_BINDING = "role-binding";
+  @SerializedName(SERIALIZED_NAME_ROLE_BINDING)
+  private String roleBinding;
+
+  public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_TYPE = "service-account-type";
+  @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_TYPE)
+  private String serviceAccountType = "fixed";
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -188,11 +196,11 @@ public class GatewayCreateProducerGcp {
   }
 
    /**
-   * GCP service account email
+   * The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type&#x3D;fixed)
    * @return gcpSaEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "GCP service account email")
+  @ApiModelProperty(value = "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)")
 
   public String getGcpSaEmail() {
     return gcpSaEmail;
@@ -292,6 +300,51 @@ public class GatewayCreateProducerGcp {
 
   public void setProducerEncryptionKeyName(String producerEncryptionKeyName) {
     this.producerEncryptionKeyName = producerEncryptionKeyName;
+  }
+
+
+  public GatewayCreateProducerGcp roleBinding(String roleBinding) {
+    
+    this.roleBinding = roleBinding;
+    return this;
+  }
+
+   /**
+   * Role binding definitions in json format
+   * @return roleBinding
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Role binding definitions in json format")
+
+  public String getRoleBinding() {
+    return roleBinding;
+  }
+
+
+  public void setRoleBinding(String roleBinding) {
+    this.roleBinding = roleBinding;
+  }
+
+
+  public GatewayCreateProducerGcp serviceAccountType(String serviceAccountType) {
+    
+    this.serviceAccountType = serviceAccountType;
+    return this;
+  }
+
+   /**
+   * The type of the gcp dynamic secret. Options[fixed, dynamic]
+   * @return serviceAccountType
+  **/
+  @ApiModelProperty(required = true, value = "The type of the gcp dynamic secret. Options[fixed, dynamic]")
+
+  public String getServiceAccountType() {
+    return serviceAccountType;
+  }
+
+
+  public void setServiceAccountType(String serviceAccountType) {
+    this.serviceAccountType = serviceAccountType;
   }
 
 
@@ -436,6 +489,8 @@ public class GatewayCreateProducerGcp {
         Objects.equals(this.json, gatewayCreateProducerGcp.json) &&
         Objects.equals(this.name, gatewayCreateProducerGcp.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGcp.producerEncryptionKeyName) &&
+        Objects.equals(this.roleBinding, gatewayCreateProducerGcp.roleBinding) &&
+        Objects.equals(this.serviceAccountType, gatewayCreateProducerGcp.serviceAccountType) &&
         Objects.equals(this.tags, gatewayCreateProducerGcp.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerGcp.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGcp.token) &&
@@ -445,7 +500,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, json, name, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, json, name, producerEncryptionKeyName, roleBinding, serviceAccountType, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -462,6 +517,8 @@ public class GatewayCreateProducerGcp {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    roleBinding: ").append(toIndentedString(roleBinding)).append("\n");
+    sb.append("    serviceAccountType: ").append(toIndentedString(serviceAccountType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

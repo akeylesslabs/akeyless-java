@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **gcpSecretsMigrations** | [**List&lt;GCPSecretsMigration&gt;**](GCPSecretsMigration.md) |  |  [optional]
 **hashiMigrations** | [**List&lt;HashiMigration&gt;**](HashiMigration.md) |  |  [optional]
 **k8sMigrations** | [**List&lt;K8SMigration&gt;**](K8SMigration.md) |  |  [optional]
+**mockMigrations** | [**List&lt;MockMigration&gt;**](MockMigration.md) |  |  [optional]
 **onePasswordMigrations** | [**List&lt;OnePasswordMigration&gt;**](OnePasswordMigration.md) |  |  [optional]
 
 

@@ -52,6 +52,10 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_LOCATION_ID)
   private String locationId;
 
+  public static final String SERIALIZED_NAME_MULTI_REGION = "multi-region";
+  @SerializedName(SERIALIZED_NAME_MULTI_REGION)
+  private String multiRegion = "false";
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -63,6 +67,10 @@ public class AssocTargetItem {
   public static final String SERIALIZED_NAME_PURPOSE = "purpose";
   @SerializedName(SERIALIZED_NAME_PURPOSE)
   private String purpose;
+
+  public static final String SERIALIZED_NAME_REGIONS = "regions";
+  @SerializedName(SERIALIZED_NAME_REGIONS)
+  private List<String> regions = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -208,6 +216,29 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem multiRegion(String multiRegion) {
+    
+    this.multiRegion = multiRegion;
+    return this;
+  }
+
+   /**
+   * Set to &#39;true&#39; to create a multi region managed key (relevant for aws targets)
+   * @return multiRegion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to 'true' to create a multi region managed key (relevant for aws targets)")
+
+  public String getMultiRegion() {
+    return multiRegion;
+  }
+
+
+  public void setMultiRegion(String multiRegion) {
+    this.multiRegion = multiRegion;
+  }
+
+
   public AssocTargetItem name(String name) {
     
     this.name = name;
@@ -273,6 +304,37 @@ public class AssocTargetItem {
 
   public void setPurpose(String purpose) {
     this.purpose = purpose;
+  }
+
+
+  public AssocTargetItem regions(List<String> regions) {
+    
+    this.regions = regions;
+    return this;
+  }
+
+  public AssocTargetItem addRegionsItem(String regionsItem) {
+    if (this.regions == null) {
+      this.regions = new ArrayList<String>();
+    }
+    this.regions.add(regionsItem);
+    return this;
+  }
+
+   /**
+   * The list of regions to create a copy of the key in (relevant for aws targets)
+   * @return regions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The list of regions to create a copy of the key in (relevant for aws targets)")
+
+  public List<String> getRegions() {
+    return regions;
+  }
+
+
+  public void setRegions(List<String> regions) {
+    this.regions = regions;
   }
 
 
@@ -404,9 +466,11 @@ public class AssocTargetItem {
         Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
         Objects.equals(this.kmsAlgorithm, assocTargetItem.kmsAlgorithm) &&
         Objects.equals(this.locationId, assocTargetItem.locationId) &&
+        Objects.equals(this.multiRegion, assocTargetItem.multiRegion) &&
         Objects.equals(this.name, assocTargetItem.name) &&
         Objects.equals(this.projectId, assocTargetItem.projectId) &&
         Objects.equals(this.purpose, assocTargetItem.purpose) &&
+        Objects.equals(this.regions, assocTargetItem.regions) &&
         Objects.equals(this.targetName, assocTargetItem.targetName) &&
         Objects.equals(this.tenantSecretType, assocTargetItem.tenantSecretType) &&
         Objects.equals(this.token, assocTargetItem.token) &&
@@ -416,7 +480,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, keyOperations, keyringName, kmsAlgorithm, locationId, name, projectId, purpose, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, projectId, purpose, regions, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
 
@@ -429,9 +493,11 @@ public class AssocTargetItem {
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    kmsAlgorithm: ").append(toIndentedString(kmsAlgorithm)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
+    sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
+    sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    tenantSecretType: ").append(toIndentedString(tenantSecretType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

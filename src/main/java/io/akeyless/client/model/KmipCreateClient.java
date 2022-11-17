@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class KmipCreateClient {
+  public static final String SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION = "activate-keys-on-creation";
+  @SerializedName(SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION)
+  private String activateKeysOnCreation;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_TTL = "certificate-ttl";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
   private Long certificateTtl;
@@ -48,6 +52,29 @@ public class KmipCreateClient {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public KmipCreateClient activateKeysOnCreation(String activateKeysOnCreation) {
+    
+    this.activateKeysOnCreation = activateKeysOnCreation;
+    return this;
+  }
+
+   /**
+   * Get activateKeysOnCreation
+   * @return activateKeysOnCreation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getActivateKeysOnCreation() {
+    return activateKeysOnCreation;
+  }
+
+
+  public void setActivateKeysOnCreation(String activateKeysOnCreation) {
+    this.activateKeysOnCreation = activateKeysOnCreation;
+  }
 
 
   public KmipCreateClient certificateTtl(Long certificateTtl) {
@@ -173,7 +200,8 @@ public class KmipCreateClient {
       return false;
     }
     KmipCreateClient kmipCreateClient = (KmipCreateClient) o;
-    return Objects.equals(this.certificateTtl, kmipCreateClient.certificateTtl) &&
+    return Objects.equals(this.activateKeysOnCreation, kmipCreateClient.activateKeysOnCreation) &&
+        Objects.equals(this.certificateTtl, kmipCreateClient.certificateTtl) &&
         Objects.equals(this.json, kmipCreateClient.json) &&
         Objects.equals(this.name, kmipCreateClient.name) &&
         Objects.equals(this.token, kmipCreateClient.token) &&
@@ -182,7 +210,7 @@ public class KmipCreateClient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateTtl, json, name, token, uidToken);
+    return Objects.hash(activateKeysOnCreation, certificateTtl, json, name, token, uidToken);
   }
 
 
@@ -190,6 +218,7 @@ public class KmipCreateClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KmipCreateClient {\n");
+    sb.append("    activateKeysOnCreation: ").append(toIndentedString(activateKeysOnCreation)).append("\n");
     sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

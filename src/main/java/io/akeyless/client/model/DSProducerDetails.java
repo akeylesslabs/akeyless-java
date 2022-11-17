@@ -311,6 +311,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GCP_KEY_ALGO)
   private String gcpKeyAlgo;
 
+  public static final String SERIALIZED_NAME_GCP_ROLE_BINDINGS = "gcp_role_bindings";
+  @SerializedName(SERIALIZED_NAME_GCP_ROLE_BINDINGS)
+  private Map<String, List<String>> gcpRoleBindings = null;
+
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp_service_account_email";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
   private String gcpServiceAccountEmail;
@@ -318,6 +322,14 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY = "gcp_service_account_key";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
   private String gcpServiceAccountKey;
+
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_TYPE = "gcp_service_account_type";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_TYPE)
+  private String gcpServiceAccountType;
+
+  public static final String SERIALIZED_NAME_GCP_TMP_SERVICE_ACCOUNT_NAME = "gcp_tmp_service_account_name";
+  @SerializedName(SERIALIZED_NAME_GCP_TMP_SERVICE_ACCOUNT_NAME)
+  private String gcpTmpServiceAccountName;
 
   public static final String SERIALIZED_NAME_GCP_TOKEN_LIFETIME = "gcp_token_lifetime";
   @SerializedName(SERIALIZED_NAME_GCP_TOKEN_LIFETIME)
@@ -2323,6 +2335,37 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails gcpRoleBindings(Map<String, List<String>> gcpRoleBindings) {
+    
+    this.gcpRoleBindings = gcpRoleBindings;
+    return this;
+  }
+
+  public DSProducerDetails putGcpRoleBindingsItem(String key, List<String> gcpRoleBindingsItem) {
+    if (this.gcpRoleBindings == null) {
+      this.gcpRoleBindings = new HashMap<String, List<String>>();
+    }
+    this.gcpRoleBindings.put(key, gcpRoleBindingsItem);
+    return this;
+  }
+
+   /**
+   * Get gcpRoleBindings
+   * @return gcpRoleBindings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, List<String>> getGcpRoleBindings() {
+    return gcpRoleBindings;
+  }
+
+
+  public void setGcpRoleBindings(Map<String, List<String>> gcpRoleBindings) {
+    this.gcpRoleBindings = gcpRoleBindings;
+  }
+
+
   public DSProducerDetails gcpServiceAccountEmail(String gcpServiceAccountEmail) {
     
     this.gcpServiceAccountEmail = gcpServiceAccountEmail;
@@ -2330,11 +2373,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get gcpServiceAccountEmail
+   * GCPServiceAccountEmail overrides the deprecated field from the target
    * @return gcpServiceAccountEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "GCPServiceAccountEmail overrides the deprecated field from the target")
 
   public String getGcpServiceAccountEmail() {
     return gcpServiceAccountEmail;
@@ -2366,6 +2409,52 @@ public class DSProducerDetails {
 
   public void setGcpServiceAccountKey(String gcpServiceAccountKey) {
     this.gcpServiceAccountKey = gcpServiceAccountKey;
+  }
+
+
+  public DSProducerDetails gcpServiceAccountType(String gcpServiceAccountType) {
+    
+    this.gcpServiceAccountType = gcpServiceAccountType;
+    return this;
+  }
+
+   /**
+   * Get gcpServiceAccountType
+   * @return gcpServiceAccountType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpServiceAccountType() {
+    return gcpServiceAccountType;
+  }
+
+
+  public void setGcpServiceAccountType(String gcpServiceAccountType) {
+    this.gcpServiceAccountType = gcpServiceAccountType;
+  }
+
+
+  public DSProducerDetails gcpTmpServiceAccountName(String gcpTmpServiceAccountName) {
+    
+    this.gcpTmpServiceAccountName = gcpTmpServiceAccountName;
+    return this;
+  }
+
+   /**
+   * Get gcpTmpServiceAccountName
+   * @return gcpTmpServiceAccountName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpTmpServiceAccountName() {
+    return gcpTmpServiceAccountName;
+  }
+
+
+  public void setGcpTmpServiceAccountName(String gcpTmpServiceAccountName) {
+    this.gcpTmpServiceAccountName = gcpTmpServiceAccountName;
   }
 
 
@@ -4895,8 +4984,11 @@ public class DSProducerDetails {
         Objects.equals(this.failureMessage, dsProducerDetails.failureMessage) &&
         Objects.equals(this.fixedUserOnly, dsProducerDetails.fixedUserOnly) &&
         Objects.equals(this.gcpKeyAlgo, dsProducerDetails.gcpKeyAlgo) &&
+        Objects.equals(this.gcpRoleBindings, dsProducerDetails.gcpRoleBindings) &&
         Objects.equals(this.gcpServiceAccountEmail, dsProducerDetails.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKey, dsProducerDetails.gcpServiceAccountKey) &&
+        Objects.equals(this.gcpServiceAccountType, dsProducerDetails.gcpServiceAccountType) &&
+        Objects.equals(this.gcpTmpServiceAccountName, dsProducerDetails.gcpTmpServiceAccountName) &&
         Objects.equals(this.gcpTokenLifetime, dsProducerDetails.gcpTokenLifetime) &&
         Objects.equals(this.gcpTokenScope, dsProducerDetails.gcpTokenScope) &&
         Objects.equals(this.gcpTokenType, dsProducerDetails.gcpTokenType) &&
@@ -5005,7 +5097,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpServiceAccountEmail, gcpServiceAccountKey, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -5082,8 +5174,11 @@ public class DSProducerDetails {
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");
+    sb.append("    gcpRoleBindings: ").append(toIndentedString(gcpRoleBindings)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
+    sb.append("    gcpServiceAccountType: ").append(toIndentedString(gcpServiceAccountType)).append("\n");
+    sb.append("    gcpTmpServiceAccountName: ").append(toIndentedString(gcpTmpServiceAccountName)).append("\n");
     sb.append("    gcpTokenLifetime: ").append(toIndentedString(gcpTokenLifetime)).append("\n");
     sb.append("    gcpTokenScope: ").append(toIndentedString(gcpTokenScope)).append("\n");
     sb.append("    gcpTokenType: ").append(toIndentedString(gcpTokenType)).append("\n");

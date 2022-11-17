@@ -33,6 +33,10 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class KMIPClient {
+  public static final String SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION = "activate_keys_on_creation";
+  @SerializedName(SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION)
+  private Boolean activateKeysOnCreation;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE = "certificate_issue_date";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUE_DATE)
   private OffsetDateTime certificateIssueDate;
@@ -52,6 +56,29 @@ public class KMIPClient {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
   private List<PathRule> rules = null;
+
+
+  public KMIPClient activateKeysOnCreation(Boolean activateKeysOnCreation) {
+    
+    this.activateKeysOnCreation = activateKeysOnCreation;
+    return this;
+  }
+
+   /**
+   * Get activateKeysOnCreation
+   * @return activateKeysOnCreation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getActivateKeysOnCreation() {
+    return activateKeysOnCreation;
+  }
+
+
+  public void setActivateKeysOnCreation(Boolean activateKeysOnCreation) {
+    this.activateKeysOnCreation = activateKeysOnCreation;
+  }
 
 
   public KMIPClient certificateIssueDate(OffsetDateTime certificateIssueDate) {
@@ -186,7 +213,8 @@ public class KMIPClient {
       return false;
     }
     KMIPClient kmIPClient = (KMIPClient) o;
-    return Objects.equals(this.certificateIssueDate, kmIPClient.certificateIssueDate) &&
+    return Objects.equals(this.activateKeysOnCreation, kmIPClient.activateKeysOnCreation) &&
+        Objects.equals(this.certificateIssueDate, kmIPClient.certificateIssueDate) &&
         Objects.equals(this.certificateTtlInSeconds, kmIPClient.certificateTtlInSeconds) &&
         Objects.equals(this.id, kmIPClient.id) &&
         Objects.equals(this.name, kmIPClient.name) &&
@@ -195,7 +223,7 @@ public class KMIPClient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateIssueDate, certificateTtlInSeconds, id, name, rules);
+    return Objects.hash(activateKeysOnCreation, certificateIssueDate, certificateTtlInSeconds, id, name, rules);
   }
 
 
@@ -203,6 +231,7 @@ public class KMIPClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KMIPClient {\n");
+    sb.append("    activateKeysOnCreation: ").append(toIndentedString(activateKeysOnCreation)).append("\n");
     sb.append("    certificateIssueDate: ").append(toIndentedString(certificateIssueDate)).append("\n");
     sb.append("    certificateTtlInSeconds: ").append(toIndentedString(certificateTtlInSeconds)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

@@ -14962,7 +14962,7 @@ public class V2Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/gateway-update-producer-k8s-native";
+        String localVarPath = "/gateway-update-producer-k8s";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

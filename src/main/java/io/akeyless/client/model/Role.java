@@ -27,12 +27,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Role
  */
 
 public class Role {
+  public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
+  private OffsetDateTime accessDate;
+
   public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   private List<String> clientPermissions = null;
@@ -40,6 +45,14 @@ public class Role {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
+
+  public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
+  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
+  private OffsetDateTime creationDate;
+
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
 
   public static final String SERIALIZED_NAME_ROLE_AUTH_METHODS_ASSOC = "role_auth_methods_assoc";
   @SerializedName(SERIALIZED_NAME_ROLE_AUTH_METHODS_ASSOC)
@@ -52,6 +65,29 @@ public class Role {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
   private Rules rules;
+
+
+  public Role accessDate(OffsetDateTime accessDate) {
+    
+    this.accessDate = accessDate;
+    return this;
+  }
+
+   /**
+   * Get accessDate
+   * @return accessDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getAccessDate() {
+    return accessDate;
+  }
+
+
+  public void setAccessDate(OffsetDateTime accessDate) {
+    this.accessDate = accessDate;
+  }
 
 
   public Role clientPermissions(List<String> clientPermissions) {
@@ -105,6 +141,52 @@ public class Role {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public Role creationDate(OffsetDateTime creationDate) {
+    
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * Get creationDate
+   * @return creationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+
+  public Role modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * Get modificationDate
+   * @return modificationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
   }
 
 
@@ -194,8 +276,11 @@ public class Role {
       return false;
     }
     Role role = (Role) o;
-    return Objects.equals(this.clientPermissions, role.clientPermissions) &&
+    return Objects.equals(this.accessDate, role.accessDate) &&
+        Objects.equals(this.clientPermissions, role.clientPermissions) &&
         Objects.equals(this.comment, role.comment) &&
+        Objects.equals(this.creationDate, role.creationDate) &&
+        Objects.equals(this.modificationDate, role.modificationDate) &&
         Objects.equals(this.roleAuthMethodsAssoc, role.roleAuthMethodsAssoc) &&
         Objects.equals(this.roleName, role.roleName) &&
         Objects.equals(this.rules, role.rules);
@@ -203,7 +288,7 @@ public class Role {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientPermissions, comment, roleAuthMethodsAssoc, roleName, rules);
+    return Objects.hash(accessDate, clientPermissions, comment, creationDate, modificationDate, roleAuthMethodsAssoc, roleName, rules);
   }
 
 
@@ -211,8 +296,11 @@ public class Role {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Role {\n");
+    sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    roleAuthMethodsAssoc: ").append(toIndentedString(roleAuthMethodsAssoc)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");

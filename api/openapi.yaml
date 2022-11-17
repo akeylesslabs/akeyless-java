@@ -82,7 +82,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/authOutput'
+                $ref: '#/components/schemas/AuthOutput'
           description: authResponse wraps response body.
         "401":
           content:
@@ -1105,7 +1105,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createSecretOutput'
+                $ref: '#/components/schemas/CreateSecretOutput'
           description: createSecretResponse wraps response body.
         default:
           content:
@@ -3623,7 +3623,7 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /gateway-update-producer-k8s-native:
+  /gateway-update-producer-k8s:
     post:
       operationId: gatewayUpdateProducerNativeK8S
       requestBody:
@@ -4229,12 +4229,12 @@ paths:
       x-accepts: application/json
   /get-secret-value:
     post:
-      operationId: getSecretValue
+      operationId: GetSecretValue
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/getSecretValue'
+              $ref: '#/components/schemas/GetSecretValue'
         required: true
       responses:
         "200":
@@ -6520,7 +6520,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/updateSecretValOutput'
+                $ref: '#/components/schemas/UpdateSecretValOutput'
           description: updateSecretValResponse wraps response body.
         default:
           content:
@@ -6927,7 +6927,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/authOutput'
+            $ref: '#/components/schemas/AuthOutput'
       description: authResponse wraps response body.
     configureResponse:
       content:
@@ -7137,7 +7137,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/createSecretOutput'
+            $ref: '#/components/schemas/CreateSecretOutput'
       description: createSecretResponse wraps response body.
     createTokenizerResponse:
       content:
@@ -8281,7 +8281,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/updateSecretValOutput'
+            $ref: '#/components/schemas/UpdateSecretValOutput'
       description: updateSecretValResponse wraps response body.
     updateTargetDetailsResponse:
       content:
@@ -8456,6 +8456,7 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           secret: secret
           region: region
@@ -8478,9 +8479,13 @@ components:
           password_length: 2
         data_protection_section:
           enable_classic_key_protection: true
+        enable_request_for_access: true
       properties:
         data_protection_section:
           $ref: '#/components/schemas/DataProtectionSection'
+        enable_request_for_access:
+          type: boolean
+          x-go-name: EnableRequestForAccess
         password_policy:
           $ref: '#/components/schemas/PasswordPolicyInfo'
       type: object
@@ -8512,14 +8517,15 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           auto_rotate: true
           ssh_port: ssh_port
           discover_local_users: true
-          auto_rotate_interval_in_days: 4
-          active_directory_target_id: 2
+          auto_rotate_interval_in_days: 1
+          active_directory_target_id: 1
           local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-          auto_rotate_rotation_hour: 7
+          auto_rotate_rotation_hour: 1
           domain_name: domain_name
           enable_rdp_sra: true
           domain_server_targets_path_template: domain_server_targets_path_template
@@ -8543,10 +8549,10 @@ components:
         auto_rotate: true
         ssh_port: ssh_port
         discover_local_users: true
-        auto_rotate_interval_in_days: 4
-        active_directory_target_id: 2
+        auto_rotate_interval_in_days: 1
+        active_directory_target_id: 1
         local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-        auto_rotate_rotation_hour: 7
+        auto_rotate_rotation_hour: 1
         domain_name: domain_name
         enable_rdp_sra: true
         domain_server_targets_path_template: domain_server_targets_path_template
@@ -8690,20 +8696,20 @@ components:
         cf:
           customer_fragements:
             key: customer_fragements
-        version: 5
+        version: 6
         producers:
           producers:
           - init: true
             name: name
             active: true
             failure_message: failure_message
-            id: 6
+            id: 4
             type: type
           - init: true
             name: name
             active: true
             failure_message: failure_message
-            id: 6
+            id: 4
             type: type
         general:
           tcp_port: tcp_port
@@ -8740,6 +8746,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               import_as_json: true
               url: url
@@ -8753,6 +8760,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               import_as_json: true
               url: url
@@ -8767,6 +8775,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               name: name
               client: client
@@ -8778,6 +8787,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               name: name
               client: client
@@ -8790,6 +8800,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               client_key:
               - 1
@@ -8797,12 +8808,12 @@ components:
               server: server
               password: password
               client_cert:
-              - 1
-              - 1
+              - 7
+              - 7
               namespace: namespace
               ca:
-              - 1
-              - 1
+              - 6
+              - 6
               skip_system: true
               token: token
               username: username
@@ -8812,6 +8823,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               client_key:
               - 1
@@ -8819,12 +8831,12 @@ components:
               server: server
               password: password
               client_cert:
-              - 1
-              - 1
+              - 7
+              - 7
               namespace: namespace
               ca:
-              - 1
-              - 1
+              - 6
+              - 6
               skip_system: true
               token: token
               username: username
@@ -8835,6 +8847,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret: secret
               region: region
@@ -8845,10 +8858,34 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret: secret
               region: region
               key: key
+          mock_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              vaults:
+              - vaults
+              - vaults
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              vaults:
+              - vaults
+              - vaults
           one_password_migrations:
           - general:
               prefix: prefix
@@ -8856,6 +8893,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret_key: secret_key
               password: password
@@ -8870,6 +8908,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret_key: secret_key
               password: password
@@ -8885,14 +8924,15 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
-              auto_rotate_interval_in_days: 4
-              active_directory_target_id: 2
+              auto_rotate_interval_in_days: 1
+              active_directory_target_id: 1
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-              auto_rotate_rotation_hour: 7
+              auto_rotate_rotation_hour: 1
               domain_name: domain_name
               enable_rdp_sra: true
               domain_server_targets_path_template: domain_server_targets_path_template
@@ -8910,14 +8950,15 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
-              auto_rotate_interval_in_days: 4
-              active_directory_target_id: 2
+              auto_rotate_interval_in_days: 1
+              active_directory_target_id: 1
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-              auto_rotate_rotation_hour: 7
+              auto_rotate_rotation_hour: 1
               domain_name: domain_name
               enable_rdp_sra: true
               domain_server_targets_path_template: domain_server_targets_path_template
@@ -8936,6 +8977,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               gcp_credentials_json: gcp_credentials_json
           - general:
@@ -8944,12 +8986,13 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               gcp_credentials_json: gcp_credentials_json
         leadership:
           open_leadership:
-          - 3
-          - 3
+          - 7
+          - 7
         log_forwarding:
           aws_s3_config:
             aws_access_id: aws_access_id
@@ -9000,46 +9043,65 @@ components:
             elasticsearch_nodes: elasticsearch_nodes
         saml:
           saml_access_id: saml_access_id
-          default_protection_key_id: 4
+          default_protection_key_id: 9
           oidc_access_id: oidc_access_id
           default_secret_location: default_secret_location
         kmip_clients:
           key_enc:
-          - 5
-          - 5
+          - 7
+          - 7
           server:
             hostname: hostname
             root: root
             certificate:
-            - 2
-            - 2
+            - 3
+            - 3
             active: true
             certificate_issue_date: 2000-01-23T04:56:07.000+00:00
             ca:
-            - 5
-            - 5
-            certificate_ttl_in_seconds: 7
+            - 9
+            - 9
+            certificate_ttl_in_seconds: 2
           server_enc:
-          - 9
-          - 9
+          - 4
+          - 4
           clients:
             key:
               name: name
               certificate_issue_date: 2000-01-23T04:56:07.000+00:00
               rules:
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               id: id
+              activate_keys_on_creation: true
               certificate_ttl_in_seconds: 6
         config_protection_key_name: config_protection_key_name
         admins:
@@ -9059,14 +9121,14 @@ components:
               hash: hash
         rotators:
           rotators:
-          - rotation_interval: 1
+          - rotation_interval: 9
             name: name
-            id: 7
+            id: 5
             last_error: last_error
             type: type
-          - rotation_interval: 1
+          - rotation_interval: 9
             name: name
-            id: 7
+            id: 5
             last_error: last_error
             type: type
       properties:
@@ -9171,17 +9233,35 @@ components:
           rules:
             path_rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             admin: true
           auth_method_sub_claims:
             key:
@@ -9192,17 +9272,35 @@ components:
           rules:
             path_rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             admin: true
           auth_method_sub_claims:
             key:
@@ -9736,17 +9834,35 @@ components:
         rules:
           path_rules:
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           admin: true
         auth_method_sub_claims:
           key:
@@ -9770,6 +9886,23 @@ components:
           $ref: '#/components/schemas/Rules'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    AuthOutput:
+      example:
+        creds:
+          auth_creds: auth_creds
+          uam_creds: uam_creds
+          kfm_creds: kfm_creds
+          expiry: 0
+          token: token
+        token: token
+      properties:
+        creds:
+          $ref: '#/components/schemas/SystemAccessCredentialsReplyObj'
+        token:
+          type: string
+          x-go-name: Token
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     AwsS3LogForwardingConfig:
       example:
         aws_access_id: aws_access_id
@@ -9918,6 +10051,7 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           name: name
           client: client
@@ -9970,6 +10104,10 @@ components:
         - allowed_urls
         - allowed_urls
         cluster_name: cluster_name
+        allowed_urls_per_instance:
+          key:
+          - allowed_urls_per_instance
+          - allowed_urls_per_instance
         access_id: access_id
         allowed_access_ids:
         - allowed_access_ids
@@ -9990,6 +10128,13 @@ components:
             type: string
           type: array
           x-go-name: AllowedUrls
+        allowed_urls_per_instance:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+          x-go-name: AllowedUrlsPerInstance
         cluster_name:
           type: string
           x-go-name: ClusterName
@@ -10009,6 +10154,10 @@ components:
           - allowed_urls
           - allowed_urls
           cluster_name: cluster_name
+          allowed_urls_per_instance:
+            key:
+            - allowed_urls_per_instance
+            - allowed_urls_per_instance
           access_id: access_id
           allowed_access_ids:
           - allowed_access_ids
@@ -10019,6 +10168,10 @@ components:
           - allowed_urls
           - allowed_urls
           cluster_name: cluster_name
+          allowed_urls_per_instance:
+            key:
+            - allowed_urls_per_instance
+            - allowed_urls_per_instance
           access_id: access_id
           allowed_access_ids:
           - allowed_access_ids
@@ -10916,6 +11069,15 @@ components:
           x-go-name: AssociationID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    CreateSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreateTargetItemAssocOutput:
       description: |-
         CreateTargetItemAssocOutput defines output of CreateTargetItemAssoc
@@ -10986,11 +11148,16 @@ components:
         admin_rotation_interval_days: 0
         ssl_connection_certificate: ssl_connection_certificate
         oracle_creation_statements: oracle_creation_statements
+        gcp_tmp_service_account_name: gcp_tmp_service_account_name
         github_app_id: 1
         mssql_creation_statements: mssql_creation_statements
         password: password
         sf_user_role: sf_user_role
         ldap_certificate: ldap_certificate
+        gcp_role_bindings:
+          key:
+          - gcp_role_bindings
+          - gcp_role_bindings
         ldap_bind_dn: ldap_bind_dn
         ldap_url: ldap_url
         username_policy: username_policy
@@ -11013,10 +11180,14 @@ components:
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
+          attributes:
+            key: attributes
           target_id: 9
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
+          attributes:
+            key: attributes
           target_id: 9
         chef_server_username: chef_server_username
         db_host_name: db_host_name
@@ -11112,6 +11283,7 @@ components:
         - github_installation_token_repositories
         - github_installation_token_repositories
         gcp_service_account_key: gcp_service_account_key
+        gcp_service_account_type: gcp_service_account_type
         session_extension_warn_interval_min: 9
         venafi_store_private_key: true
         venafi_tpp_username: venafi_tpp_username
@@ -11415,12 +11587,27 @@ components:
         gcp_key_algo:
           type: string
           x-go-name: GCPKeyAlgorithm
+        gcp_role_bindings:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+          x-go-name: GCPRoleBindings
         gcp_service_account_email:
+          description: GCPServiceAccountEmail overrides the deprecated field from
+            the target
           type: string
           x-go-name: GCPServiceAccountEmail
         gcp_service_account_key:
           type: string
           x-go-name: GCPServiceAccountKey
+        gcp_service_account_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+        gcp_tmp_service_account_name:
+          type: string
+          x-go-name: GCPTmpServiceAccountName
         gcp_token_lifetime:
           type: string
           x-go-name: GCPTokenLifetime
@@ -11808,7 +11995,7 @@ components:
     DefaultConfigPart:
       example:
         saml_access_id: saml_access_id
-        default_protection_key_id: 4
+        default_protection_key_id: 9
         oidc_access_id: oidc_access_id
         default_secret_location: default_secret_location
       properties:
@@ -12113,6 +12300,7 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           gcp_credentials_json: gcp_credentials_json
       properties:
@@ -12122,6 +12310,9 @@ components:
           $ref: '#/components/schemas/GCPPayload'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    GCPServiceAccountType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
     GWClusterStatus:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -12405,6 +12596,7 @@ components:
             password_length: 2
           data_protection_section:
             enable_classic_key_protection: true
+          enable_request_for_access: true
         secret_management:
           package: package
           tier: tier
@@ -12520,13 +12712,13 @@ components:
           name: name
           active: true
           failure_message: failure_message
-          id: 6
+          id: 4
           type: type
         - init: true
           name: name
           active: true
           failure_message: failure_message
-          id: 6
+          id: 4
           type: type
       properties:
         producers:
@@ -12539,6 +12731,67 @@ components:
           x-go-name: ProducersErrors
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    GetSecretValue:
+      example:
+        names:
+        - names
+        - names
+        IgnoreCacheBoolean: true
+        accessibility: accessibility
+        ignore-cache: ignore-cache
+        json: true
+        pretty-print: true
+        version: 0
+        uid-token: uid-token
+        token: token
+      properties:
+        IgnoreCacheBoolean:
+          type: boolean
+        accessibility:
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
+        ignore-cache:
+          description: |-
+            Ignore Cache
+            Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI
+          type: string
+          x-go-name: IgnoreCache
+        json:
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        names:
+          description: Secret name
+          items:
+            type: string
+          type: array
+          x-go-name: Names
+        pretty-print:
+          description: Print the secret value with json-pretty-print (not relevent
+            to SDK)
+          type: boolean
+          x-go-name: PrettyPrint
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: |-
+            The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        version:
+          description: Secret version
+          format: int32
+          type: integer
+          x-go-name: Version
+      required:
+      - names
+      title: GetSecretValue is a command that gets a static secret value.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     GetSubAdminsListReplyObj:
       example:
         allowed_access:
@@ -12693,14 +12946,18 @@ components:
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -12793,6 +13050,7 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           import_as_json: true
           url: url
@@ -12908,14 +13166,18 @@ components:
         item_versions:
         - item_version_state: item_version_state
           with_customer_fragment: true
+          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           version: 9
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
+          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           version: 9
@@ -12932,7 +13194,9 @@ components:
           with_customer_fragment: true
           latest_version: true
           target_name: target_name
+          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           version: 9
@@ -12941,7 +13205,9 @@ components:
           with_customer_fragment: true
           latest_version: true
           target_name: target_name
+          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           version: 9
@@ -13023,10 +13289,14 @@ components:
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
+          attributes:
+            key: attributes
           target_id: 9
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
+          attributes:
+            key: attributes
           target_id: 9
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
@@ -13591,11 +13861,18 @@ components:
         assoc_id: assoc_id
         target_name: target_name
         target_type: target_type
+        attributes:
+          key: attributes
         target_id: 9
       properties:
         assoc_id:
           type: string
           x-go-name: AssociationID
+        attributes:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Attributes
         target_id:
           format: int64
           type: integer
@@ -13616,12 +13893,18 @@ components:
       example:
         item_version_state: item_version_state
         with_customer_fragment: true
+        access_date: 2000-01-23T04:56:07.000+00:00
         deletion_date: 2000-01-23T04:56:07.000+00:00
+        modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         version: 9
         customer_fragment_id: customer_fragment_id
       properties:
+        access_date:
+          format: date-time
+          type: string
+          x-go-name: AccessDate
         creation_date:
           format: date-time
           type: string
@@ -13637,6 +13920,10 @@ components:
           description: ItemState defines the different states an Item can be in
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        modification_date:
+          format: date-time
+          type: string
+          x-go-name: ModificationDate
         protection_key_name:
           type: string
           x-go-name: ProtectionKeyName
@@ -13839,6 +14126,7 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           client_key:
           - 1
@@ -13846,12 +14134,12 @@ components:
           server: server
           password: password
           client_cert:
-          - 1
-          - 1
+          - 7
+          - 7
           namespace: namespace
           ca:
-          - 1
-          - 1
+          - 6
+          - 6
           skip_system: true
           token: token
           username: username
@@ -13870,12 +14158,12 @@ components:
         server: server
         password: password
         client_cert:
-        - 1
-        - 1
+        - 7
+        - 7
         namespace: namespace
         ca:
-        - 1
-        - 1
+        - 6
+        - 6
         skip_system: true
         token: token
         username: username
@@ -13924,20 +14212,42 @@ components:
         certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         rules:
         - path: path
+          start_time: 5
           capabilities:
           - capabilities
           - capabilities
+          number_of_allowed_access: 5
+          is_limit_access: true
+          assigners:
+          - unique_id: unique_id
+            access_id: access_id
+          - unique_id: unique_id
+            access_id: access_id
+          number_of_access_used: 1
           type: type
-          ttl: 1
+          ttl: 2
         - path: path
+          start_time: 5
           capabilities:
           - capabilities
           - capabilities
+          number_of_allowed_access: 5
+          is_limit_access: true
+          assigners:
+          - unique_id: unique_id
+            access_id: access_id
+          - unique_id: unique_id
+            access_id: access_id
+          number_of_access_used: 1
           type: type
-          ttl: 1
+          ttl: 2
         id: id
+        activate_keys_on_creation: true
         certificate_ttl_in_seconds: 6
       properties:
+        activate_keys_on_creation:
+          type: boolean
+          x-go-name: ActivateKeysOnCreation
         certificate_issue_date:
           format: date-time
           type: string
@@ -13966,18 +14276,37 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           id: id
+          activate_keys_on_creation: true
           certificate_ttl_in_seconds: 6
       properties:
         client:
@@ -13991,35 +14320,73 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           id: id
+          activate_keys_on_creation: true
           certificate_ttl_in_seconds: 6
         - name: name
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           id: id
+          activate_keys_on_creation: true
           certificate_ttl_in_seconds: 6
       properties:
         clients:
@@ -14036,18 +14403,37 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           id: id
+          activate_keys_on_creation: true
           certificate_ttl_in_seconds: 6
       properties:
         client:
@@ -14057,41 +14443,60 @@ components:
     KMIPConfigPart:
       example:
         key_enc:
-        - 5
-        - 5
+        - 7
+        - 7
         server:
           hostname: hostname
           root: root
           certificate:
-          - 2
-          - 2
+          - 3
+          - 3
           active: true
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           ca:
-          - 5
-          - 5
-          certificate_ttl_in_seconds: 7
+          - 9
+          - 9
+          certificate_ttl_in_seconds: 2
         server_enc:
-        - 9
-        - 9
+        - 4
+        - 4
         clients:
           key:
             name: name
             certificate_issue_date: 2000-01-23T04:56:07.000+00:00
             rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             id: id
+            activate_keys_on_creation: true
             certificate_ttl_in_seconds: 6
       properties:
         clients:
@@ -14142,14 +14547,14 @@ components:
         hostname: hostname
         root: root
         certificate:
-        - 2
-        - 2
+        - 3
+        - 3
         active: true
         certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         ca:
-        - 5
-        - 5
-        certificate_ttl_in_seconds: 7
+        - 9
+        - 9
+        certificate_ttl_in_seconds: 2
       properties:
         active:
           type: boolean
@@ -14379,8 +14784,8 @@ components:
     LeadershipConfigPart:
       example:
         open_leadership:
-        - 3
-        - 3
+        - 7
+        - 7
       properties:
         open_leadership:
           items:
@@ -14401,17 +14806,35 @@ components:
             rules:
               path_rules:
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               admin: true
             auth_method_sub_claims:
               key:
@@ -14422,17 +14845,35 @@ components:
             rules:
               path_rules:
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               admin: true
             auth_method_sub_claims:
               key:
@@ -14660,17 +15101,35 @@ components:
             rules:
               path_rules:
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               admin: true
             auth_method_sub_claims:
               key:
@@ -14681,17 +15140,35 @@ components:
             rules:
               path_rules:
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               - path: path
+                start_time: 5
                 capabilities:
                 - capabilities
                 - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 1
                 type: type
-                ttl: 1
+                ttl: 2
               admin: true
             auth_method_sub_claims:
               key:
@@ -14940,14 +15417,18 @@ components:
           item_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -14964,7 +15445,9 @@ components:
             with_customer_fragment: true
             latest_version: true
             target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -14973,7 +15456,9 @@ components:
             with_customer_fragment: true
             latest_version: true
             target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -15055,10 +15540,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
@@ -15269,14 +15758,18 @@ components:
           item_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -15293,7 +15786,9 @@ components:
             with_customer_fragment: true
             latest_version: true
             target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -15302,7 +15797,9 @@ components:
             with_customer_fragment: true
             latest_version: true
             target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -15384,10 +15881,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
@@ -15632,22 +16133,43 @@ components:
               - auth_method_sub_claims
             auth_method_access_id: auth_method_access_id
             sub_claims_case_sensitive: true
+          access_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           comment: comment
           rules:
             path_rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             admin: true
+          creation_date: 2000-01-23T04:56:07.000+00:00
         - role_name: role_name
           client_permissions:
           - client_permissions
@@ -15669,22 +16191,43 @@ components:
               - auth_method_sub_claims
             auth_method_access_id: auth_method_access_id
             sub_claims_case_sensitive: true
+          access_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           comment: comment
           rules:
             path_rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             admin: true
+          creation_date: 2000-01-23T04:56:07.000+00:00
       properties:
         next_page:
           type: string
@@ -15730,14 +16273,18 @@ components:
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -15776,14 +16323,18 @@ components:
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
+            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
+            modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             version: 9
@@ -15921,6 +16472,7 @@ components:
         id: id
         protection_key: protection_key
         new_name: new_name
+        status: status
       properties:
         id:
           type: string
@@ -15937,6 +16489,9 @@ components:
         protection_key:
           type: string
           x-go-name: ProtectionKey
+        status:
+          type: string
+          x-go-name: Status
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     MigrationItems:
@@ -16078,6 +16633,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             import_as_json: true
             url: url
@@ -16091,6 +16647,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             import_as_json: true
             url: url
@@ -16105,6 +16662,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             name: name
             client: client
@@ -16116,6 +16674,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             name: name
             client: client
@@ -16128,6 +16687,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             client_key:
             - 1
@@ -16135,12 +16695,12 @@ components:
             server: server
             password: password
             client_cert:
-            - 1
-            - 1
+            - 7
+            - 7
             namespace: namespace
             ca:
-            - 1
-            - 1
+            - 6
+            - 6
             skip_system: true
             token: token
             username: username
@@ -16150,6 +16710,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             client_key:
             - 1
@@ -16157,12 +16718,12 @@ components:
             server: server
             password: password
             client_cert:
-            - 1
-            - 1
+            - 7
+            - 7
             namespace: namespace
             ca:
-            - 1
-            - 1
+            - 6
+            - 6
             skip_system: true
             token: token
             username: username
@@ -16173,6 +16734,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             secret: secret
             region: region
@@ -16183,10 +16745,34 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             secret: secret
             region: region
             key: key
+        mock_migrations:
+        - general:
+            prefix: prefix
+            name: name
+            id: id
+            protection_key: protection_key
+            new_name: new_name
+            status: status
+          payload:
+            vaults:
+            - vaults
+            - vaults
+        - general:
+            prefix: prefix
+            name: name
+            id: id
+            protection_key: protection_key
+            new_name: new_name
+            status: status
+          payload:
+            vaults:
+            - vaults
+            - vaults
         one_password_migrations:
         - general:
             prefix: prefix
@@ -16194,6 +16780,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             secret_key: secret_key
             password: password
@@ -16208,6 +16795,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             secret_key: secret_key
             password: password
@@ -16223,14 +16811,15 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             auto_rotate: true
             ssh_port: ssh_port
             discover_local_users: true
-            auto_rotate_interval_in_days: 4
-            active_directory_target_id: 2
+            auto_rotate_interval_in_days: 1
+            active_directory_target_id: 1
             local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-            auto_rotate_rotation_hour: 7
+            auto_rotate_rotation_hour: 1
             domain_name: domain_name
             enable_rdp_sra: true
             domain_server_targets_path_template: domain_server_targets_path_template
@@ -16248,14 +16837,15 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             auto_rotate: true
             ssh_port: ssh_port
             discover_local_users: true
-            auto_rotate_interval_in_days: 4
-            active_directory_target_id: 2
+            auto_rotate_interval_in_days: 1
+            active_directory_target_id: 1
             local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-            auto_rotate_rotation_hour: 7
+            auto_rotate_rotation_hour: 1
             domain_name: domain_name
             enable_rdp_sra: true
             domain_server_targets_path_template: domain_server_targets_path_template
@@ -16274,6 +16864,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             gcp_credentials_json: gcp_credentials_json
         - general:
@@ -16282,6 +16873,7 @@ components:
             id: id
             protection_key: protection_key
             new_name: new_name
+            status: status
           payload:
             gcp_credentials_json: gcp_credentials_json
       properties:
@@ -16315,11 +16907,49 @@ components:
             $ref: '#/components/schemas/K8SMigration'
           type: array
           x-go-name: K8SMigrations
+        mock_migrations:
+          items:
+            $ref: '#/components/schemas/MockMigration'
+          type: array
+          x-go-name: MockMigrations
         one_password_migrations:
           items:
             $ref: '#/components/schemas/OnePasswordMigration'
           type: array
           x-go-name: OnePasswordMigrations
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    MockMigration:
+      example:
+        general:
+          prefix: prefix
+          name: name
+          id: id
+          protection_key: protection_key
+          new_name: new_name
+          status: status
+        payload:
+          vaults:
+          - vaults
+          - vaults
+      properties:
+        general:
+          $ref: '#/components/schemas/MigrationGeneral'
+        payload:
+          $ref: '#/components/schemas/MockPayload'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    MockPayload:
+      example:
+        vaults:
+        - vaults
+        - vaults
+      properties:
+        vaults:
+          items:
+            type: string
+          type: array
+          x-go-name: Vaults
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     OAuth2AccessRules:
@@ -16516,6 +17146,7 @@ components:
           id: id
           protection_key: protection_key
           new_name: new_name
+          status: status
         payload:
           secret_key: secret_key
           password: password
@@ -16729,22 +17360,53 @@ components:
     PathRule:
       example:
         path: path
+        start_time: 5
         capabilities:
         - capabilities
         - capabilities
+        number_of_allowed_access: 5
+        is_limit_access: true
+        assigners:
+        - unique_id: unique_id
+          access_id: access_id
+        - unique_id: unique_id
+          access_id: access_id
+        number_of_access_used: 1
         type: type
-        ttl: 1
+        ttl: 2
       properties:
+        assigners:
+          items:
+            $ref: '#/components/schemas/RuleAssigner'
+          type: array
+          x-go-name: Assigners
         capabilities:
           description: The approved/denied capabilities in the path
           items:
             type: string
           type: array
           x-go-name: Capabilities
+        is_limit_access:
+          description: flag that indicate that this rule is allowed to be access RemainingAccess
+            of times.
+          type: boolean
+          x-go-name: IsLimitAccess
+        number_of_access_used:
+          format: int64
+          type: integer
+          x-go-name: NumberOfAccessUsed
+        number_of_allowed_access:
+          format: int64
+          type: integer
+          x-go-name: NumberOfAllowedAccess
         path:
           description: The path the rule refers to
           type: string
           x-go-name: Path
+        start_time:
+          format: int64
+          type: integer
+          x-go-name: StartTime
         ttl:
           format: int64
           type: integer
@@ -16766,7 +17428,7 @@ components:
         name: name
         active: true
         failure_message: failure_message
-        id: 6
+        id: 4
         type: type
       properties:
         active:
@@ -16802,13 +17464,13 @@ components:
           name: name
           active: true
           failure_message: failure_message
-          id: 6
+          id: 4
           type: type
         - init: true
           name: name
           active: true
           failure_message: failure_message
-          id: 6
+          id: 4
           type: type
       properties:
         producers:
@@ -16871,17 +17533,35 @@ components:
           rules:
             path_rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             admin: true
           auth_method_sub_claims:
             key:
@@ -16892,17 +17572,35 @@ components:
           rules:
             path_rules:
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             - path: path
+              start_time: 5
               capabilities:
               - capabilities
               - capabilities
+              number_of_allowed_access: 5
+              is_limit_access: true
+              assigners:
+              - unique_id: unique_id
+                access_id: access_id
+              - unique_id: unique_id
+                access_id: access_id
+              number_of_access_used: 1
               type: type
-              ttl: 1
+              ttl: 2
             admin: true
           auth_method_sub_claims:
             key:
@@ -16939,17 +17637,35 @@ components:
               rules:
                 path_rules:
                 - path: path
+                  start_time: 5
                   capabilities:
                   - capabilities
                   - capabilities
+                  number_of_allowed_access: 5
+                  is_limit_access: true
+                  assigners:
+                  - unique_id: unique_id
+                    access_id: access_id
+                  - unique_id: unique_id
+                    access_id: access_id
+                  number_of_access_used: 1
                   type: type
-                  ttl: 1
+                  ttl: 2
                 - path: path
+                  start_time: 5
                   capabilities:
                   - capabilities
                   - capabilities
+                  number_of_allowed_access: 5
+                  is_limit_access: true
+                  assigners:
+                  - unique_id: unique_id
+                    access_id: access_id
+                  - unique_id: unique_id
+                    access_id: access_id
+                  number_of_access_used: 1
                   type: type
-                  ttl: 1
+                  ttl: 2
                 admin: true
               auth_method_sub_claims:
                 key:
@@ -16960,17 +17676,35 @@ components:
               rules:
                 path_rules:
                 - path: path
+                  start_time: 5
                   capabilities:
                   - capabilities
                   - capabilities
+                  number_of_allowed_access: 5
+                  is_limit_access: true
+                  assigners:
+                  - unique_id: unique_id
+                    access_id: access_id
+                  - unique_id: unique_id
+                    access_id: access_id
+                  number_of_access_used: 1
                   type: type
-                  ttl: 1
+                  ttl: 2
                 - path: path
+                  start_time: 5
                   capabilities:
                   - capabilities
                   - capabilities
+                  number_of_allowed_access: 5
+                  is_limit_access: true
+                  assigners:
+                  - unique_id: unique_id
+                    access_id: access_id
+                  - unique_id: unique_id
+                    access_id: access_id
+                  number_of_access_used: 1
                   type: type
-                  ttl: 1
+                  ttl: 2
                 admin: true
               auth_method_sub_claims:
                 key:
@@ -17008,23 +17742,48 @@ components:
             - auth_method_sub_claims
           auth_method_access_id: auth_method_access_id
           sub_claims_case_sensitive: true
+        access_date: 2000-01-23T04:56:07.000+00:00
+        modification_date: 2000-01-23T04:56:07.000+00:00
         comment: comment
         rules:
           path_rules:
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           - path: path
+            start_time: 5
             capabilities:
             - capabilities
             - capabilities
+            number_of_allowed_access: 5
+            is_limit_access: true
+            assigners:
+            - unique_id: unique_id
+              access_id: access_id
+            - unique_id: unique_id
+              access_id: access_id
+            number_of_access_used: 1
             type: type
-            ttl: 1
+            ttl: 2
           admin: true
+        creation_date: 2000-01-23T04:56:07.000+00:00
       properties:
+        access_date:
+          format: date-time
+          type: string
+          x-go-name: AccessDate
         client_permissions:
           items:
             type: string
@@ -17033,6 +17792,14 @@ components:
         comment:
           type: string
           x-go-name: Comment
+        creation_date:
+          format: date-time
+          type: string
+          x-go-name: CreationDate
+        modification_date:
+          format: date-time
+          type: string
+          x-go-name: ModificationDate
         role_auth_methods_assoc:
           items:
             $ref: '#/components/schemas/RoleAuthMethodAssociation'
@@ -17162,9 +17929,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     Rotator:
       example:
-        rotation_interval: 1
+        rotation_interval: 9
         name: name
-        id: 7
+        id: 5
         last_error: last_error
         type: type
       properties:
@@ -17198,14 +17965,14 @@ components:
     RotatorsConfigPart:
       example:
         rotators:
-        - rotation_interval: 1
+        - rotation_interval: 9
           name: name
-          id: 7
+          id: 5
           last_error: last_error
           type: type
-        - rotation_interval: 1
+        - rotation_interval: 9
           name: name
-          id: 7
+          id: 5
           last_error: last_error
           type: type
       properties:
@@ -17233,17 +18000,35 @@ components:
       example:
         path_rules:
         - path: path
+          start_time: 5
           capabilities:
           - capabilities
           - capabilities
+          number_of_allowed_access: 5
+          is_limit_access: true
+          assigners:
+          - unique_id: unique_id
+            access_id: access_id
+          - unique_id: unique_id
+            access_id: access_id
+          number_of_access_used: 1
           type: type
-          ttl: 1
+          ttl: 2
         - path: path
+          start_time: 5
           capabilities:
           - capabilities
           - capabilities
+          number_of_allowed_access: 5
+          is_limit_access: true
+          assigners:
+          - unique_id: unique_id
+            access_id: access_id
+          - unique_id: unique_id
+            access_id: access_id
+          number_of_access_used: 1
           type: type
-          ttl: 1
+          ttl: 2
         admin: true
       properties:
         admin:
@@ -17699,14 +18484,18 @@ components:
         target_versions:
         - item_version_state: item_version_state
           with_customer_fragment: true
+          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           version: 9
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
+          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           version: 9
@@ -17825,12 +18614,18 @@ components:
         with_customer_fragment: true
         latest_version: true
         target_name: target_name
+        access_date: 2000-01-23T04:56:07.000+00:00
         deletion_date: 2000-01-23T04:56:07.000+00:00
+        modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         version: 9
         customer_fragment_id: customer_fragment_id
       properties:
+        access_date:
+          format: date-time
+          type: string
+          x-go-name: AccessDate
         creation_date:
           format: date-time
           type: string
@@ -17849,6 +18644,10 @@ components:
         latest_version:
           type: boolean
           x-go-name: IsLatestVersion
+        modification_date:
+          format: date-time
+          type: string
+          x-go-name: ModificationDate
         protection_key_name:
           type: string
           x-go-name: ProtectionKeyName
@@ -18105,6 +18904,7 @@ components:
           type: string
           x-go-name: EKSSecretAccessKey
         gcp_service_account_email:
+          description: deprecated
           type: string
           x-go-name: GCPServiceAccountEmail
         gcp_service_account_key:
@@ -18631,6 +19431,15 @@ components:
       title: UpdatePKICertIssuer is a command that updates a new PKI certificate issuer.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UpdateSecretValOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     VaultlessTokenizerInfo:
       example:
         key_name: key_name
@@ -18745,6 +19554,12 @@ components:
           description: Location id of the GCP KMS (required for gcp targets)
           type: string
           x-go-name: LocationId
+        multi-region:
+          default: "false"
+          description: Set to 'true' to create a multi region managed key (relevant
+            for aws targets)
+          type: string
+          x-go-name: MultiRegion
         name:
           description: The item to associate
           type: string
@@ -18757,6 +19572,13 @@ components:
           description: Purpose of the key in GCP KMS (required for gcp targets)
           type: string
           x-go-name: Purpose
+        regions:
+          description: The list of regions to create a copy of the key in (relevant
+            for aws targets)
+          items:
+            type: string
+          type: array
+          x-go-name: Regions
         target-name:
           description: The target to associate
           type: string
@@ -18822,6 +19644,10 @@ components:
         debug:
           type: boolean
           x-go-name: Debug
+        gateway-url:
+          description: Gateway URL for the K8S authenticated (relevant only for access-type=k8s)
+          type: string
+          x-go-name: GatewayURL
         gcp-audience:
           description: GCP JWT audience
           type: string
@@ -18862,23 +19688,6 @@ components:
           type: string
           x-go-name: UIDToken
       title: auth is a command that creates temporary access credentials.
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    authOutput:
-      example:
-        creds:
-          auth_creds: auth_creds
-          uam_creds: uam_creds
-          kfm_creds: kfm_creds
-          expiry: 0
-          token: token
-        token: token
-      properties:
-        creds:
-          $ref: '#/components/schemas/SystemAccessCredentialsReplyObj'
-        token:
-          type: string
-          x-go-name: Token
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     clientData:
@@ -20580,7 +21389,7 @@ components:
           type: string
           x-go-name: DFCKeyName
         split-level:
-          default: 2
+          default: 3
           description: |-
             The number of fragments that the item will be split into (not includes
             customer fragment)
@@ -20881,10 +21690,6 @@ components:
           description: Base64-encoded service account private key text
           type: string
           x-go-name: ServiceAccountKey
-        gcp-sa-email:
-          description: GCP service account email
-          type: string
-          x-go-name: ServiceAccountEmail
         json:
           description: Set output format to JSON
           type: boolean
@@ -21874,15 +22679,6 @@ components:
       - name
       - value
       title: createSecret is a command that creates a static secret.
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    createSecretOutput:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createTokenizer:
@@ -23502,11 +24298,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -23529,10 +24330,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -23628,6 +24433,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -23852,11 +24658,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -23879,10 +24690,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -23978,6 +24793,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -24191,11 +25007,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -24218,10 +25039,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -24317,6 +25142,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -24492,11 +25318,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -24519,10 +25350,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -24618,6 +25453,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -24842,11 +25678,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -24869,10 +25710,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -24968,6 +25813,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -25233,11 +26079,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -25260,10 +26111,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -25359,6 +26214,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -25528,11 +26384,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -25555,10 +26416,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -25654,6 +26519,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -25851,11 +26717,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -25878,10 +26749,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -25977,6 +26852,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -26085,7 +26961,8 @@ components:
           type: string
           x-go-name: KeyAlgorithm
         gcp-sa-email:
-          description: GCP service account email
+          description: The email of the fixed service acocunt to generate keys or
+            tokens for. (revelant for service-account-type=fixed)
           type: string
           x-go-name: ServiceAccountEmail
         gcp-token-scopes:
@@ -26104,6 +26981,15 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        role-binding:
+          description: Role binding definitions in json format
+          type: string
+          x-go-name: RoleBindingJson
+        service-account-type:
+          default: fixed
+          description: The type of the gcp dynamic secret. Options[fixed, dynamic]
+          type: string
+          x-go-name: ServiceAccountType
         tags:
           description: List of the tags attached to this secret
           items:
@@ -26131,6 +27017,7 @@ components:
           x-go-name: UserTtl
       required:
       - name
+      - service-account-type
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateProducerGcpOutput:
@@ -26149,11 +27036,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -26176,10 +27068,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -26275,6 +27171,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -26447,11 +27344,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -26474,10 +27376,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -26573,6 +27479,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -26761,11 +27668,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -26788,10 +27700,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -26887,6 +27803,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -27087,11 +28004,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -27114,10 +28036,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -27213,6 +28139,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -27399,11 +28326,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -27426,10 +28358,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -27525,6 +28461,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -27725,11 +28662,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -27752,10 +28694,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -27851,6 +28797,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -28069,11 +29016,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -28096,10 +29048,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -28195,6 +29151,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -28404,11 +29361,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -28431,10 +29393,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -28530,6 +29496,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -28727,11 +29694,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -28754,10 +29726,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -28853,6 +29829,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29055,11 +30032,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -29082,10 +30064,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -29181,6 +30167,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29386,11 +30373,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -29413,10 +30405,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -29512,6 +30508,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -29715,11 +30712,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -29742,10 +30744,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -29841,6 +30847,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -30047,11 +31054,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -30074,10 +31086,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -30173,6 +31189,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -30365,11 +31382,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -30392,10 +31414,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -30491,6 +31517,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -30665,11 +31692,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -30692,10 +31724,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -30791,6 +31827,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -31490,6 +32527,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               import_as_json: true
               url: url
@@ -31503,6 +32541,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               import_as_json: true
               url: url
@@ -31517,6 +32556,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               name: name
               client: client
@@ -31528,6 +32568,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               name: name
               client: client
@@ -31540,6 +32581,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               client_key:
               - 1
@@ -31547,12 +32589,12 @@ components:
               server: server
               password: password
               client_cert:
-              - 1
-              - 1
+              - 7
+              - 7
               namespace: namespace
               ca:
-              - 1
-              - 1
+              - 6
+              - 6
               skip_system: true
               token: token
               username: username
@@ -31562,6 +32604,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               client_key:
               - 1
@@ -31569,12 +32612,12 @@ components:
               server: server
               password: password
               client_cert:
-              - 1
-              - 1
+              - 7
+              - 7
               namespace: namespace
               ca:
-              - 1
-              - 1
+              - 6
+              - 6
               skip_system: true
               token: token
               username: username
@@ -31585,6 +32628,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret: secret
               region: region
@@ -31595,10 +32639,34 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret: secret
               region: region
               key: key
+          mock_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              vaults:
+              - vaults
+              - vaults
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              vaults:
+              - vaults
+              - vaults
           one_password_migrations:
           - general:
               prefix: prefix
@@ -31606,6 +32674,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret_key: secret_key
               password: password
@@ -31620,6 +32689,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret_key: secret_key
               password: password
@@ -31635,14 +32705,15 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
-              auto_rotate_interval_in_days: 4
-              active_directory_target_id: 2
+              auto_rotate_interval_in_days: 1
+              active_directory_target_id: 1
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-              auto_rotate_rotation_hour: 7
+              auto_rotate_rotation_hour: 1
               domain_name: domain_name
               enable_rdp_sra: true
               domain_server_targets_path_template: domain_server_targets_path_template
@@ -31660,14 +32731,15 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
-              auto_rotate_interval_in_days: 4
-              active_directory_target_id: 2
+              auto_rotate_interval_in_days: 1
+              active_directory_target_id: 1
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-              auto_rotate_rotation_hour: 7
+              auto_rotate_rotation_hour: 1
               domain_name: domain_name
               enable_rdp_sra: true
               domain_server_targets_path_template: domain_server_targets_path_template
@@ -31686,6 +32758,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               gcp_credentials_json: gcp_credentials_json
           - general:
@@ -31694,6 +32767,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               gcp_credentials_json: gcp_credentials_json
       properties:
@@ -31711,6 +32785,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               import_as_json: true
               url: url
@@ -31724,6 +32799,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               import_as_json: true
               url: url
@@ -31738,6 +32814,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               name: name
               client: client
@@ -31749,6 +32826,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               name: name
               client: client
@@ -31761,6 +32839,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               client_key:
               - 1
@@ -31768,12 +32847,12 @@ components:
               server: server
               password: password
               client_cert:
-              - 1
-              - 1
+              - 7
+              - 7
               namespace: namespace
               ca:
-              - 1
-              - 1
+              - 6
+              - 6
               skip_system: true
               token: token
               username: username
@@ -31783,6 +32862,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               client_key:
               - 1
@@ -31790,12 +32870,12 @@ components:
               server: server
               password: password
               client_cert:
-              - 1
-              - 1
+              - 7
+              - 7
               namespace: namespace
               ca:
-              - 1
-              - 1
+              - 6
+              - 6
               skip_system: true
               token: token
               username: username
@@ -31806,6 +32886,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret: secret
               region: region
@@ -31816,10 +32897,34 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret: secret
               region: region
               key: key
+          mock_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              vaults:
+              - vaults
+              - vaults
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              vaults:
+              - vaults
+              - vaults
           one_password_migrations:
           - general:
               prefix: prefix
@@ -31827,6 +32932,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret_key: secret_key
               password: password
@@ -31841,6 +32947,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               secret_key: secret_key
               password: password
@@ -31856,14 +32963,15 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
-              auto_rotate_interval_in_days: 4
-              active_directory_target_id: 2
+              auto_rotate_interval_in_days: 1
+              active_directory_target_id: 1
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-              auto_rotate_rotation_hour: 7
+              auto_rotate_rotation_hour: 1
               domain_name: domain_name
               enable_rdp_sra: true
               domain_server_targets_path_template: domain_server_targets_path_template
@@ -31881,14 +32989,15 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
-              auto_rotate_interval_in_days: 4
-              active_directory_target_id: 2
+              auto_rotate_interval_in_days: 1
+              active_directory_target_id: 1
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
-              auto_rotate_rotation_hour: 7
+              auto_rotate_rotation_hour: 1
               domain_name: domain_name
               enable_rdp_sra: true
               domain_server_targets_path_template: domain_server_targets_path_template
@@ -31907,6 +33016,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               gcp_credentials_json: gcp_credentials_json
           - general:
@@ -31915,6 +33025,7 @@ components:
               id: id
               protection_key: protection_key
               new_name: new_name
+              status: status
             payload:
               gcp_credentials_json: gcp_credentials_json
       properties:
@@ -32739,11 +33850,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -32766,10 +33882,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -32865,6 +33985,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -33093,11 +34214,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -33120,10 +34246,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -33219,6 +34349,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -33436,11 +34567,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -33463,10 +34599,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -33562,6 +34702,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -33741,11 +34882,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -33768,10 +34914,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -33867,6 +35017,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -34095,11 +35246,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -34122,10 +35278,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -34221,6 +35381,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -34494,11 +35655,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -34521,10 +35687,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -34620,6 +35790,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -34793,11 +35964,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -34820,10 +35996,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -34919,6 +36099,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -35120,11 +36301,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -35147,10 +36333,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -35246,6 +36436,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -35354,7 +36545,8 @@ components:
           type: string
           x-go-name: KeyAlgorithm
         gcp-sa-email:
-          description: GCP service account email
+          description: The email of the fixed service acocunt to generate keys or
+            tokens for. (revelant for service-account-type=fixed)
           type: string
           x-go-name: ServiceAccountEmail
         gcp-token-scopes:
@@ -35377,6 +36569,15 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        role-binding:
+          description: Role binding definitions in json format
+          type: string
+          x-go-name: RoleBindingJson
+        service-account-type:
+          default: fixed
+          description: The type of the gcp dynamic secret. Options[fixed, dynamic]
+          type: string
+          x-go-name: ServiceAccountType
         tags:
           description: List of the tags attached to this secret
           items:
@@ -35404,6 +36605,7 @@ components:
           x-go-name: UserTtl
       required:
       - name
+      - service-account-type
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayUpdateProducerGcpOutput:
@@ -35422,11 +36624,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -35449,10 +36656,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -35548,6 +36759,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -35724,11 +36936,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -35751,10 +36968,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -35850,6 +37071,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -36042,11 +37264,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -36069,10 +37296,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -36168,6 +37399,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -36372,11 +37604,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -36399,10 +37636,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -36498,6 +37739,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -36688,11 +37930,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -36715,10 +37962,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -36814,6 +38065,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -37018,11 +38270,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -37045,10 +38302,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -37144,6 +38405,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -37366,11 +38628,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -37393,10 +38660,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -37492,6 +38763,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -37705,11 +38977,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -37732,10 +39009,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -37831,6 +39112,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -38032,11 +39314,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -38059,10 +39346,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -38158,6 +39449,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -38364,11 +39656,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -38391,10 +39688,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -38490,6 +39791,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -38699,11 +40001,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -38726,10 +40033,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -38825,6 +40136,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -39032,11 +40344,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -39059,10 +40376,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -39158,6 +40479,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -39368,11 +40690,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -39395,10 +40722,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -39494,6 +40825,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -39690,11 +41022,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -39717,10 +41054,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -39816,6 +41157,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -39994,11 +41336,16 @@ components:
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
           oracle_creation_statements: oracle_creation_statements
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
           github_app_id: 1
           mssql_creation_statements: mssql_creation_statements
           password: password
           sf_user_role: sf_user_role
           ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           username_policy: username_policy
@@ -40021,10 +41368,14 @@ components:
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
+            attributes:
+              key: attributes
             target_id: 9
           chef_server_username: chef_server_username
           db_host_name: db_host_name
@@ -40120,6 +41471,7 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 9
           venafi_store_private_key: true
           venafi_tpp_username: venafi_tpp_username
@@ -40643,45 +41995,6 @@ components:
           x-go-name: Path
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    getSecretValue:
-      properties:
-        accessibility:
-          description: for personal password manager
-          type: string
-          x-go-name: ItemAccessibilityString
-        json:
-          description: Set output format to JSON
-          type: boolean
-          x-go-name: Json
-        names:
-          description: Secret name
-          items:
-            type: string
-          type: array
-          x-go-name: Names
-        pretty-print:
-          type: boolean
-          x-go-name: PrettyPrint
-        token:
-          description: Authentication token (see `/auth` and `/configure`)
-          type: string
-          x-go-name: Profile
-        uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
-            authentication
-          type: string
-          x-go-name: UIDToken
-        version:
-          description: Secret version
-          format: int32
-          type: integer
-          x-go-name: Version
-      required:
-      - names
-      title: getSecretValue is a command that gets a static secret value.
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getTags:
       properties:
         json:
@@ -40843,6 +42156,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     kmipCreateClient:
       properties:
+        activate-keys-on-creation:
+          type: string
+          x-go-name: ActivateKeysOnCreation
         certificate-ttl:
           format: int64
           type: integer
@@ -44263,10 +45579,6 @@ components:
           description: Base64-encoded service account private key text
           type: string
           x-go-name: ServiceAccountKey
-        gcp-sa-email:
-          description: GCP service account email
-          type: string
-          x-go-name: ServiceAccountEmail
         json:
           description: Set output format to JSON
           type: boolean
@@ -44306,7 +45618,6 @@ components:
           type: boolean
           x-go-name: GCPUseDefaultIdentity
       required:
-      - gcp-sa-email
       - name
       title: updateGcpTarget is a command that updates an existing target.
       type: object
@@ -45615,15 +46926,6 @@ components:
       - name
       - value
       title: updateSecretVal is a command that updates static secret value.
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    updateSecretValOutput:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateTarget:
