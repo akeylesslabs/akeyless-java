@@ -24,9 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * gatewayCreateMigration is a command that create migration
@@ -53,22 +51,6 @@ public class GatewayCreateMigration {
   public static final String SERIALIZED_NAME_1PASSWORD_VAULTS = "1password-vaults";
   @SerializedName(SERIALIZED_NAME_1PASSWORD_VAULTS)
   private List<String> _1passwordVaults = null;
-
-  public static final String SERIALIZED_NAME_AD_AUTO_ROTATE_BOOLEAN = "AdAutoRotateBoolean";
-  @SerializedName(SERIALIZED_NAME_AD_AUTO_ROTATE_BOOLEAN)
-  private Boolean adAutoRotateBoolean;
-
-  public static final String SERIALIZED_NAME_AD_DISCOVER_LOCAL_USERS_BOOLEAN = "AdDiscoverLocalUsersBoolean";
-  @SerializedName(SERIALIZED_NAME_AD_DISCOVER_LOCAL_USERS_BOOLEAN)
-  private Boolean adDiscoverLocalUsersBoolean;
-
-  public static final String SERIALIZED_NAME_AD_LOCAL_USERS_IGNORE_LIST = "AdLocalUsersIgnoreList";
-  @SerializedName(SERIALIZED_NAME_AD_LOCAL_USERS_IGNORE_LIST)
-  private Map<String, Boolean> adLocalUsersIgnoreList = null;
-
-  public static final String SERIALIZED_NAME_AD_S_R_A_ENABLE_R_D_P_BOOLEAN = "AdSRAEnableRDPBoolean";
-  @SerializedName(SERIALIZED_NAME_AD_S_R_A_ENABLE_R_D_P_BOOLEAN)
-  private Boolean adSRAEnableRDPBoolean;
 
   public static final String SERIALIZED_NAME_AD_AUTO_ROTATE = "ad_auto_rotate";
   @SerializedName(SERIALIZED_NAME_AD_AUTO_ROTATE)
@@ -363,106 +345,6 @@ public class GatewayCreateMigration {
 
   public void set1passwordVaults(List<String> _1passwordVaults) {
     this._1passwordVaults = _1passwordVaults;
-  }
-
-
-  public GatewayCreateMigration adAutoRotateBoolean(Boolean adAutoRotateBoolean) {
-    
-    this.adAutoRotateBoolean = adAutoRotateBoolean;
-    return this;
-  }
-
-   /**
-   * Get adAutoRotateBoolean
-   * @return adAutoRotateBoolean
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getAdAutoRotateBoolean() {
-    return adAutoRotateBoolean;
-  }
-
-
-  public void setAdAutoRotateBoolean(Boolean adAutoRotateBoolean) {
-    this.adAutoRotateBoolean = adAutoRotateBoolean;
-  }
-
-
-  public GatewayCreateMigration adDiscoverLocalUsersBoolean(Boolean adDiscoverLocalUsersBoolean) {
-    
-    this.adDiscoverLocalUsersBoolean = adDiscoverLocalUsersBoolean;
-    return this;
-  }
-
-   /**
-   * Get adDiscoverLocalUsersBoolean
-   * @return adDiscoverLocalUsersBoolean
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getAdDiscoverLocalUsersBoolean() {
-    return adDiscoverLocalUsersBoolean;
-  }
-
-
-  public void setAdDiscoverLocalUsersBoolean(Boolean adDiscoverLocalUsersBoolean) {
-    this.adDiscoverLocalUsersBoolean = adDiscoverLocalUsersBoolean;
-  }
-
-
-  public GatewayCreateMigration adLocalUsersIgnoreList(Map<String, Boolean> adLocalUsersIgnoreList) {
-    
-    this.adLocalUsersIgnoreList = adLocalUsersIgnoreList;
-    return this;
-  }
-
-  public GatewayCreateMigration putAdLocalUsersIgnoreListItem(String key, Boolean adLocalUsersIgnoreListItem) {
-    if (this.adLocalUsersIgnoreList == null) {
-      this.adLocalUsersIgnoreList = new HashMap<String, Boolean>();
-    }
-    this.adLocalUsersIgnoreList.put(key, adLocalUsersIgnoreListItem);
-    return this;
-  }
-
-   /**
-   * Get adLocalUsersIgnoreList
-   * @return adLocalUsersIgnoreList
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Map<String, Boolean> getAdLocalUsersIgnoreList() {
-    return adLocalUsersIgnoreList;
-  }
-
-
-  public void setAdLocalUsersIgnoreList(Map<String, Boolean> adLocalUsersIgnoreList) {
-    this.adLocalUsersIgnoreList = adLocalUsersIgnoreList;
-  }
-
-
-  public GatewayCreateMigration adSRAEnableRDPBoolean(Boolean adSRAEnableRDPBoolean) {
-    
-    this.adSRAEnableRDPBoolean = adSRAEnableRDPBoolean;
-    return this;
-  }
-
-   /**
-   * Get adSRAEnableRDPBoolean
-   * @return adSRAEnableRDPBoolean
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getAdSRAEnableRDPBoolean() {
-    return adSRAEnableRDPBoolean;
-  }
-
-
-  public void setAdSRAEnableRDPBoolean(Boolean adSRAEnableRDPBoolean) {
-    this.adSRAEnableRDPBoolean = adSRAEnableRDPBoolean;
   }
 
 
@@ -1499,10 +1381,6 @@ public class GatewayCreateMigration {
         Objects.equals(this._1passwordSecretKey, gatewayCreateMigration._1passwordSecretKey) &&
         Objects.equals(this._1passwordUrl, gatewayCreateMigration._1passwordUrl) &&
         Objects.equals(this._1passwordVaults, gatewayCreateMigration._1passwordVaults) &&
-        Objects.equals(this.adAutoRotateBoolean, gatewayCreateMigration.adAutoRotateBoolean) &&
-        Objects.equals(this.adDiscoverLocalUsersBoolean, gatewayCreateMigration.adDiscoverLocalUsersBoolean) &&
-        Objects.equals(this.adLocalUsersIgnoreList, gatewayCreateMigration.adLocalUsersIgnoreList) &&
-        Objects.equals(this.adSRAEnableRDPBoolean, gatewayCreateMigration.adSRAEnableRDPBoolean) &&
         Objects.equals(this.adAutoRotate, gatewayCreateMigration.adAutoRotate) &&
         Objects.equals(this.adComputerBaseDn, gatewayCreateMigration.adComputerBaseDn) &&
         Objects.equals(this.adDiscoverLocalUsers, gatewayCreateMigration.adDiscoverLocalUsers) &&
@@ -1550,7 +1428,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adAutoRotateBoolean, adDiscoverLocalUsersBoolean, adLocalUsersIgnoreList, adSRAEnableRDPBoolean, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, asSshPort, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, targetLocation, token, type, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, asSshPort, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, targetLocation, token, type, uidToken);
   }
 
 
@@ -1563,10 +1441,6 @@ public class GatewayCreateMigration {
     sb.append("    _1passwordSecretKey: ").append(toIndentedString(_1passwordSecretKey)).append("\n");
     sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
     sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
-    sb.append("    adAutoRotateBoolean: ").append(toIndentedString(adAutoRotateBoolean)).append("\n");
-    sb.append("    adDiscoverLocalUsersBoolean: ").append(toIndentedString(adDiscoverLocalUsersBoolean)).append("\n");
-    sb.append("    adLocalUsersIgnoreList: ").append(toIndentedString(adLocalUsersIgnoreList)).append("\n");
-    sb.append("    adSRAEnableRDPBoolean: ").append(toIndentedString(adSRAEnableRDPBoolean)).append("\n");
     sb.append("    adAutoRotate: ").append(toIndentedString(adAutoRotate)).append("\n");
     sb.append("    adComputerBaseDn: ").append(toIndentedString(adComputerBaseDn)).append("\n");
     sb.append("    adDiscoverLocalUsers: ").append(toIndentedString(adDiscoverLocalUsers)).append("\n");

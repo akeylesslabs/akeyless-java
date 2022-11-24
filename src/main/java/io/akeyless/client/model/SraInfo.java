@@ -29,9 +29,9 @@ import java.io.IOException;
  */
 
 public class SraInfo {
-  public static final String SERIALIZED_NAME_PACKAGE = "package";
-  @SerializedName(SERIALIZED_NAME_PACKAGE)
-  private String _package;
+  public static final String SERIALIZED_NAME_SLA = "sla";
+  @SerializedName(SERIALIZED_NAME_SLA)
+  private String sla;
 
   public static final String SERIALIZED_NAME_TIER = "tier";
   @SerializedName(SERIALIZED_NAME_TIER)
@@ -42,26 +42,26 @@ public class SraInfo {
   private String userType;
 
 
-  public SraInfo _package(String _package) {
+  public SraInfo sla(String sla) {
     
-    this._package = _package;
+    this.sla = sla;
     return this;
   }
 
    /**
-   * Get _package
-   * @return _package
+   * Get sla
+   * @return sla
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getPackage() {
-    return _package;
+  public String getSla() {
+    return sla;
   }
 
 
-  public void setPackage(String _package) {
-    this._package = _package;
+  public void setSla(String sla) {
+    this.sla = sla;
   }
 
 
@@ -72,11 +72,11 @@ public class SraInfo {
   }
 
    /**
-   * Get tier
+   * Tier represents a level of extensibility the account will have, defined by various limits for different resources of Akeyless e.g - A StarterTier may have a limit of 3 Client resources and 50 Secret resources
    * @return tier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Tier represents a level of extensibility the account will have, defined by various limits for different resources of Akeyless e.g - A StarterTier may have a limit of 3 Client resources and 50 Secret resources")
 
   public String getTier() {
     return tier;
@@ -120,14 +120,14 @@ public class SraInfo {
       return false;
     }
     SraInfo sraInfo = (SraInfo) o;
-    return Objects.equals(this._package, sraInfo._package) &&
+    return Objects.equals(this.sla, sraInfo.sla) &&
         Objects.equals(this.tier, sraInfo.tier) &&
         Objects.equals(this.userType, sraInfo.userType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_package, tier, userType);
+    return Objects.hash(sla, tier, userType);
   }
 
 
@@ -135,7 +135,7 @@ public class SraInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SraInfo {\n");
-    sb.append("    _package: ").append(toIndentedString(_package)).append("\n");
+    sb.append("    sla: ").append(toIndentedString(sla)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
     sb.append("}");

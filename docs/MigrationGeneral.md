@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **prefix** | **String** |  |  [optional]
 **protectionKey** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
 
 
 

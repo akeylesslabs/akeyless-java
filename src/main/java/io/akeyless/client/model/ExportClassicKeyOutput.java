@@ -25,62 +25,62 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SmInfo
+ * ExportClassicKeyOutput
  */
 
-public class SmInfo {
-  public static final String SERIALIZED_NAME_SLA = "sla";
-  @SerializedName(SERIALIZED_NAME_SLA)
-  private String sla;
+public class ExportClassicKeyOutput {
+  public static final String SERIALIZED_NAME_CERTIFICATE_PEM = "certificatePem";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_PEM)
+  private String certificatePem;
 
-  public static final String SERIALIZED_NAME_TIER = "tier";
-  @SerializedName(SERIALIZED_NAME_TIER)
-  private String tier;
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
 
 
-  public SmInfo sla(String sla) {
+  public ExportClassicKeyOutput certificatePem(String certificatePem) {
     
-    this.sla = sla;
+    this.certificatePem = certificatePem;
     return this;
   }
 
    /**
-   * Get sla
-   * @return sla
+   * Get certificatePem
+   * @return certificatePem
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSla() {
-    return sla;
+  public String getCertificatePem() {
+    return certificatePem;
   }
 
 
-  public void setSla(String sla) {
-    this.sla = sla;
+  public void setCertificatePem(String certificatePem) {
+    this.certificatePem = certificatePem;
   }
 
 
-  public SmInfo tier(String tier) {
+  public ExportClassicKeyOutput key(String key) {
     
-    this.tier = tier;
+    this.key = key;
     return this;
   }
 
    /**
-   * Tier represents a level of extensibility the account will have, defined by various limits for different resources of Akeyless e.g - A StarterTier may have a limit of 3 Client resources and 50 Secret resources
-   * @return tier
+   * Get key
+   * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tier represents a level of extensibility the account will have, defined by various limits for different resources of Akeyless e.g - A StarterTier may have a limit of 3 Client resources and 50 Secret resources")
+  @ApiModelProperty(value = "")
 
-  public String getTier() {
-    return tier;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setTier(String tier) {
-    this.tier = tier;
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
@@ -92,23 +92,23 @@ public class SmInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SmInfo smInfo = (SmInfo) o;
-    return Objects.equals(this.sla, smInfo.sla) &&
-        Objects.equals(this.tier, smInfo.tier);
+    ExportClassicKeyOutput exportClassicKeyOutput = (ExportClassicKeyOutput) o;
+    return Objects.equals(this.certificatePem, exportClassicKeyOutput.certificatePem) &&
+        Objects.equals(this.key, exportClassicKeyOutput.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sla, tier);
+    return Objects.hash(certificatePem, key);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SmInfo {\n");
-    sb.append("    sla: ").append(toIndentedString(sla)).append("\n");
-    sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
+    sb.append("class ExportClassicKeyOutput {\n");
+    sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -76,10 +76,10 @@ public class RotateSecret {
   }
 
    /**
-   * Rotated Secret name
+   * Secret name (Rotated Secret or Custom Dynamic Secret)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Rotated Secret name")
+  @ApiModelProperty(required = true, value = "Secret name (Rotated Secret or Custom Dynamic Secret)")
 
   public String getName() {
     return name;

@@ -32,10 +32,6 @@ import java.util.List;
  */
 
 public class ReverseRBACClient {
-  public static final String SERIALIZED_NAME_ALLOWED_OPS = "allowed_ops";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_OPS)
-  private List<String> allowedOps = null;
-
   public static final String SERIALIZED_NAME_ASSOCS = "assocs";
   @SerializedName(SERIALIZED_NAME_ASSOCS)
   private List<AuthMethodRoleAssociation> assocs = null;
@@ -43,37 +39,6 @@ public class ReverseRBACClient {
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth_method_name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
   private String authMethodName;
-
-
-  public ReverseRBACClient allowedOps(List<String> allowedOps) {
-    
-    this.allowedOps = allowedOps;
-    return this;
-  }
-
-  public ReverseRBACClient addAllowedOpsItem(String allowedOpsItem) {
-    if (this.allowedOps == null) {
-      this.allowedOps = new ArrayList<String>();
-    }
-    this.allowedOps.add(allowedOpsItem);
-    return this;
-  }
-
-   /**
-   * Get allowedOps
-   * @return allowedOps
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getAllowedOps() {
-    return allowedOps;
-  }
-
-
-  public void setAllowedOps(List<String> allowedOps) {
-    this.allowedOps = allowedOps;
-  }
 
 
   public ReverseRBACClient assocs(List<AuthMethodRoleAssociation> assocs) {
@@ -139,14 +104,13 @@ public class ReverseRBACClient {
       return false;
     }
     ReverseRBACClient reverseRBACClient = (ReverseRBACClient) o;
-    return Objects.equals(this.allowedOps, reverseRBACClient.allowedOps) &&
-        Objects.equals(this.assocs, reverseRBACClient.assocs) &&
+    return Objects.equals(this.assocs, reverseRBACClient.assocs) &&
         Objects.equals(this.authMethodName, reverseRBACClient.authMethodName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedOps, assocs, authMethodName);
+    return Objects.hash(assocs, authMethodName);
   }
 
 
@@ -154,7 +118,6 @@ public class ReverseRBACClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReverseRBACClient {\n");
-    sb.append("    allowedOps: ").append(toIndentedString(allowedOps)).append("\n");
     sb.append("    assocs: ").append(toIndentedString(assocs)).append("\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
     sb.append("}");

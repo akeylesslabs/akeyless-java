@@ -35,7 +35,7 @@ import java.util.Map;
 public class UpdateSecretVal {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
-  private String accessibility;
+  private String accessibility = "regular";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)

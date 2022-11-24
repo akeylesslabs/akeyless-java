@@ -33,7 +33,7 @@ import java.util.List;
 public class ListItems {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
-  private String accessibility;
+  private String accessibility = "regular";
 
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)

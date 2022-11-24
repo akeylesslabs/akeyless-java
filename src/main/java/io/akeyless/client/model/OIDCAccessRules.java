@@ -37,6 +37,10 @@ public class OIDCAccessRules {
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS)
   private List<String> allowedRedirectURIs = null;
 
+  public static final String SERIALIZED_NAME_AUDIENCE = "audience";
+  @SerializedName(SERIALIZED_NAME_AUDIENCE)
+  private String audience;
+
   public static final String SERIALIZED_NAME_BOUND_CLAIMS = "bound_claims";
   @SerializedName(SERIALIZED_NAME_BOUND_CLAIMS)
   private List<OIDCCustomClaim> boundClaims = null;
@@ -98,6 +102,29 @@ public class OIDCAccessRules {
 
   public void setAllowedRedirectURIs(List<String> allowedRedirectURIs) {
     this.allowedRedirectURIs = allowedRedirectURIs;
+  }
+
+
+  public OIDCAccessRules audience(String audience) {
+    
+    this.audience = audience;
+    return this;
+  }
+
+   /**
+   * Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider&#39;s Application
+   * @return audience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application")
+
+  public String getAudience() {
+    return audience;
+  }
+
+
+  public void setAudience(String audience) {
+    this.audience = audience;
   }
 
 
@@ -311,6 +338,7 @@ public class OIDCAccessRules {
     }
     OIDCAccessRules oiDCAccessRules = (OIDCAccessRules) o;
     return Objects.equals(this.allowedRedirectURIs, oiDCAccessRules.allowedRedirectURIs) &&
+        Objects.equals(this.audience, oiDCAccessRules.audience) &&
         Objects.equals(this.boundClaims, oiDCAccessRules.boundClaims) &&
         Objects.equals(this.clientId, oiDCAccessRules.clientId) &&
         Objects.equals(this.clientSecret, oiDCAccessRules.clientSecret) &&
@@ -323,7 +351,7 @@ public class OIDCAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedRedirectURIs, boundClaims, clientId, clientSecret, isInternal, issuer, requiredScopes, requiredScopesPrefix, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, audience, boundClaims, clientId, clientSecret, isInternal, issuer, requiredScopes, requiredScopesPrefix, uniqueIdentifier);
   }
 
 
@@ -332,6 +360,7 @@ public class OIDCAccessRules {
     StringBuilder sb = new StringBuilder();
     sb.append("class OIDCAccessRules {\n");
     sb.append("    allowedRedirectURIs: ").append(toIndentedString(allowedRedirectURIs)).append("\n");
+    sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");

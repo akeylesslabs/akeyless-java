@@ -40,6 +40,10 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_URI)
   private List<String> allowedRedirectUri = null;
 
+  public static final String SERIALIZED_NAME_AUDIENCE = "audience";
+  @SerializedName(SERIALIZED_NAME_AUDIENCE)
+  private String audience;
+
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
@@ -148,6 +152,29 @@ public class CreateAuthMethodOIDC {
 
   public void setAllowedRedirectUri(List<String> allowedRedirectUri) {
     this.allowedRedirectUri = allowedRedirectUri;
+  }
+
+
+  public CreateAuthMethodOIDC audience(String audience) {
+    
+    this.audience = audience;
+    return this;
+  }
+
+   /**
+   * Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider&#39;s Application
+   * @return audience
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application")
+
+  public String getAudience() {
+    return audience;
+  }
+
+
+  public void setAudience(String audience) {
+    this.audience = audience;
   }
 
 
@@ -506,6 +533,7 @@ public class CreateAuthMethodOIDC {
     CreateAuthMethodOIDC createAuthMethodOIDC = (CreateAuthMethodOIDC) o;
     return Objects.equals(this.accessExpires, createAuthMethodOIDC.accessExpires) &&
         Objects.equals(this.allowedRedirectUri, createAuthMethodOIDC.allowedRedirectUri) &&
+        Objects.equals(this.audience, createAuthMethodOIDC.audience) &&
         Objects.equals(this.boundIps, createAuthMethodOIDC.boundIps) &&
         Objects.equals(this.clientId, createAuthMethodOIDC.clientId) &&
         Objects.equals(this.clientSecret, createAuthMethodOIDC.clientSecret) &&
@@ -524,7 +552,7 @@ public class CreateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -534,6 +562,7 @@ public class CreateAuthMethodOIDC {
     sb.append("class CreateAuthMethodOIDC {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
+    sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");

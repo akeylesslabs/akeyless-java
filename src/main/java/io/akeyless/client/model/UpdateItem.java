@@ -33,7 +33,7 @@ import java.util.List;
 public class UpdateItem {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
-  private String accessibility;
+  private String accessibility = "regular";
 
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)

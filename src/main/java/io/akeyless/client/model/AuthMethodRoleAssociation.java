@@ -24,6 +24,7 @@ import io.akeyless.client.model.Rules;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,10 @@ import java.util.Map;
 @ApiModel(description = "AuthMethodRoleAssociation includes details of an association between an auth method and a role.")
 
 public class AuthMethodRoleAssociation {
+  public static final String SERIALIZED_NAME_ALLOWED_OPS = "allowed_ops";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_OPS)
+  private List<String> allowedOps = null;
+
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc_id";
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
   private String assocId;
@@ -49,6 +54,37 @@ public class AuthMethodRoleAssociation {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
   private Rules rules;
+
+
+  public AuthMethodRoleAssociation allowedOps(List<String> allowedOps) {
+    
+    this.allowedOps = allowedOps;
+    return this;
+  }
+
+  public AuthMethodRoleAssociation addAllowedOpsItem(String allowedOpsItem) {
+    if (this.allowedOps == null) {
+      this.allowedOps = new ArrayList<String>();
+    }
+    this.allowedOps.add(allowedOpsItem);
+    return this;
+  }
+
+   /**
+   * Get allowedOps
+   * @return allowedOps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getAllowedOps() {
+    return allowedOps;
+  }
+
+
+  public void setAllowedOps(List<String> allowedOps) {
+    this.allowedOps = allowedOps;
+  }
 
 
   public AuthMethodRoleAssociation assocId(String assocId) {
@@ -160,7 +196,8 @@ public class AuthMethodRoleAssociation {
       return false;
     }
     AuthMethodRoleAssociation authMethodRoleAssociation = (AuthMethodRoleAssociation) o;
-    return Objects.equals(this.assocId, authMethodRoleAssociation.assocId) &&
+    return Objects.equals(this.allowedOps, authMethodRoleAssociation.allowedOps) &&
+        Objects.equals(this.assocId, authMethodRoleAssociation.assocId) &&
         Objects.equals(this.authMethodSubClaims, authMethodRoleAssociation.authMethodSubClaims) &&
         Objects.equals(this.roleName, authMethodRoleAssociation.roleName) &&
         Objects.equals(this.rules, authMethodRoleAssociation.rules);
@@ -168,7 +205,7 @@ public class AuthMethodRoleAssociation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, authMethodSubClaims, roleName, rules);
+    return Objects.hash(allowedOps, assocId, authMethodSubClaims, roleName, rules);
   }
 
 
@@ -176,6 +213,7 @@ public class AuthMethodRoleAssociation {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethodRoleAssociation {\n");
+    sb.append("    allowedOps: ").append(toIndentedString(allowedOps)).append("\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    authMethodSubClaims: ").append(toIndentedString(authMethodSubClaims)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");

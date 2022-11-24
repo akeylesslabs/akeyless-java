@@ -25,22 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DeleteItem
+ * ExportClassicKey is a command that returns the classic key material
  */
+@ApiModel(description = "ExportClassicKey is a command that returns the classic key material")
 
-public class DeleteItem {
-  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
-  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
-  private String accessibility = "regular";
-
-  public static final String SERIALIZED_NAME_DELETE_IMMEDIATELY = "delete-immediately";
-  @SerializedName(SERIALIZED_NAME_DELETE_IMMEDIATELY)
-  private Boolean deleteImmediately = false;
-
-  public static final String SERIALIZED_NAME_DELETE_IN_DAYS = "delete-in-days";
-  @SerializedName(SERIALIZED_NAME_DELETE_IN_DAYS)
-  private Long deleteInDays = 7l;
-
+public class ExportClassicKey {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -59,79 +48,10 @@ public class DeleteItem {
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version = -1;
+  private Integer version;
 
 
-  public DeleteItem accessibility(String accessibility) {
-    
-    this.accessibility = accessibility;
-    return this;
-  }
-
-   /**
-   * for personal password manager
-   * @return accessibility
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "for personal password manager")
-
-  public String getAccessibility() {
-    return accessibility;
-  }
-
-
-  public void setAccessibility(String accessibility) {
-    this.accessibility = accessibility;
-  }
-
-
-  public DeleteItem deleteImmediately(Boolean deleteImmediately) {
-    
-    this.deleteImmediately = deleteImmediately;
-    return this;
-  }
-
-   /**
-   * When delete-in-days&#x3D;-1, must be set
-   * @return deleteImmediately
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "When delete-in-days=-1, must be set")
-
-  public Boolean getDeleteImmediately() {
-    return deleteImmediately;
-  }
-
-
-  public void setDeleteImmediately(Boolean deleteImmediately) {
-    this.deleteImmediately = deleteImmediately;
-  }
-
-
-  public DeleteItem deleteInDays(Long deleteInDays) {
-    
-    this.deleteInDays = deleteInDays;
-    return this;
-  }
-
-   /**
-   * The number of days to wait before deleting the item (relevant for keys only)
-   * @return deleteInDays
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days to wait before deleting the item (relevant for keys only)")
-
-  public Long getDeleteInDays() {
-    return deleteInDays;
-  }
-
-
-  public void setDeleteInDays(Long deleteInDays) {
-    this.deleteInDays = deleteInDays;
-  }
-
-
-  public DeleteItem json(Boolean json) {
+  public ExportClassicKey json(Boolean json) {
     
     this.json = json;
     return this;
@@ -154,17 +74,17 @@ public class DeleteItem {
   }
 
 
-  public DeleteItem name(String name) {
+  public ExportClassicKey name(String name) {
     
     this.name = name;
     return this;
   }
 
    /**
-   * Item name
+   * ClassicKey name
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Item name")
+  @ApiModelProperty(required = true, value = "ClassicKey name")
 
   public String getName() {
     return name;
@@ -176,7 +96,7 @@ public class DeleteItem {
   }
 
 
-  public DeleteItem token(String token) {
+  public ExportClassicKey token(String token) {
     
     this.token = token;
     return this;
@@ -199,7 +119,7 @@ public class DeleteItem {
   }
 
 
-  public DeleteItem uidToken(String uidToken) {
+  public ExportClassicKey uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -222,18 +142,18 @@ public class DeleteItem {
   }
 
 
-  public DeleteItem version(Integer version) {
+  public ExportClassicKey version(Integer version) {
     
     this.version = version;
     return this;
   }
 
    /**
-   * The specific version you want to delete - 0&#x3D;last version, -1&#x3D;entire item with all versions (default)
+   * Classic key version
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The specific version you want to delete - 0=last version, -1=entire item with all versions (default)")
+  @ApiModelProperty(value = "Classic key version")
 
   public Integer getVersion() {
     return version;
@@ -253,30 +173,24 @@ public class DeleteItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteItem deleteItem = (DeleteItem) o;
-    return Objects.equals(this.accessibility, deleteItem.accessibility) &&
-        Objects.equals(this.deleteImmediately, deleteItem.deleteImmediately) &&
-        Objects.equals(this.deleteInDays, deleteItem.deleteInDays) &&
-        Objects.equals(this.json, deleteItem.json) &&
-        Objects.equals(this.name, deleteItem.name) &&
-        Objects.equals(this.token, deleteItem.token) &&
-        Objects.equals(this.uidToken, deleteItem.uidToken) &&
-        Objects.equals(this.version, deleteItem.version);
+    ExportClassicKey exportClassicKey = (ExportClassicKey) o;
+    return Objects.equals(this.json, exportClassicKey.json) &&
+        Objects.equals(this.name, exportClassicKey.name) &&
+        Objects.equals(this.token, exportClassicKey.token) &&
+        Objects.equals(this.uidToken, exportClassicKey.uidToken) &&
+        Objects.equals(this.version, exportClassicKey.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteImmediately, deleteInDays, json, name, token, uidToken, version);
+    return Objects.hash(json, name, token, uidToken, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteItem {\n");
-    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
-    sb.append("    deleteImmediately: ").append(toIndentedString(deleteImmediately)).append("\n");
-    sb.append("    deleteInDays: ").append(toIndentedString(deleteInDays)).append("\n");
+    sb.append("class ExportClassicKey {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

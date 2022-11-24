@@ -1,19 +1,20 @@
 
 
-# GetSecretValue
+# ShareItem
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
-**ignoreCache** | **String** | Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache. This flag is only relevant when using the RestAPI |  [optional]
+**action** | **String** | Action to be performed on the item [start/stop/describe] | 
+**emails** | **List&lt;String&gt;** | For Password Management use, reflect the website context |  [optional]
+**itemName** | **String** | Item name | 
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**names** | **List&lt;String&gt;** | Secret name | 
-**prettyPrint** | **Boolean** | Print the secret value with json-pretty-print (not relevent to SDK) |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
+**ttl** | **Integer** | TTL of the Availability of the shared secret in seconds |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**version** | **Integer** | Secret version |  [optional]
+**viewOnce** | **Boolean** | ViewOnlyOnce Shared secrets can only be viewed once [true/false] |  [optional]
 
 
 

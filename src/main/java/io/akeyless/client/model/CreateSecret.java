@@ -35,7 +35,7 @@ import java.util.Map;
 public class CreateSecret {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
-  private String accessibility;
+  private String accessibility = "regular";
 
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)

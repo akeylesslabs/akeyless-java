@@ -25,8 +25,6 @@ import io.akeyless.client.model.RegexpTokenizerInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * VaultlessTokenizerInfo
@@ -51,7 +49,7 @@ public class VaultlessTokenizerInfo {
 
   public static final String SERIALIZED_NAME_TWEAK = "tweak";
   @SerializedName(SERIALIZED_NAME_TWEAK)
-  private List<Integer> tweak = null;
+  private String tweak;
 
   public static final String SERIALIZED_NAME_TWEAK_TYPE = "tweak_type";
   @SerializedName(SERIALIZED_NAME_TWEAK_TYPE)
@@ -150,17 +148,9 @@ public class VaultlessTokenizerInfo {
   }
 
 
-  public VaultlessTokenizerInfo tweak(List<Integer> tweak) {
+  public VaultlessTokenizerInfo tweak(String tweak) {
     
     this.tweak = tweak;
-    return this;
-  }
-
-  public VaultlessTokenizerInfo addTweakItem(Integer tweakItem) {
-    if (this.tweak == null) {
-      this.tweak = new ArrayList<Integer>();
-    }
-    this.tweak.add(tweakItem);
     return this;
   }
 
@@ -171,12 +161,12 @@ public class VaultlessTokenizerInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Tweak used in the case of internal tweak type")
 
-  public List<Integer> getTweak() {
+  public String getTweak() {
     return tweak;
   }
 
 
-  public void setTweak(List<Integer> tweak) {
+  public void setTweak(String tweak) {
     this.tweak = tweak;
   }
 

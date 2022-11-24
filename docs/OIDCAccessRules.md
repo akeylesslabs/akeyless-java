@@ -8,6 +8,7 @@ OIDCAccessRules contains access rules specific to Open Id Connect authentication
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowedRedirectURIs** | **List&lt;String&gt;** | Allowed redirect URIs after the authentication |  [optional]
+**audience** | **String** | Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider&#39;s Application |  [optional]
 **boundClaims** | [**List&lt;OIDCCustomClaim&gt;**](OIDCCustomClaim.md) | The claims that login is restricted to. |  [optional]
 **clientId** | **String** | Client ID |  [optional]
 **clientSecret** | **String** | Client Secret |  [optional]

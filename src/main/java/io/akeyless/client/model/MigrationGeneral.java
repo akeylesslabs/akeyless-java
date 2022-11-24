@@ -53,6 +53,10 @@ public class MigrationGeneral {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
 
   public MigrationGeneral id(String id) {
     
@@ -192,6 +196,29 @@ public class MigrationGeneral {
   }
 
 
+  public MigrationGeneral type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -206,12 +233,13 @@ public class MigrationGeneral {
         Objects.equals(this.newName, migrationGeneral.newName) &&
         Objects.equals(this.prefix, migrationGeneral.prefix) &&
         Objects.equals(this.protectionKey, migrationGeneral.protectionKey) &&
-        Objects.equals(this.status, migrationGeneral.status);
+        Objects.equals(this.status, migrationGeneral.status) &&
+        Objects.equals(this.type, migrationGeneral.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, newName, prefix, protectionKey, status);
+    return Objects.hash(id, name, newName, prefix, protectionKey, status, type);
   }
 
 
@@ -225,6 +253,7 @@ public class MigrationGeneral {
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
