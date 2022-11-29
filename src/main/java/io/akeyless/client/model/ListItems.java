@@ -306,11 +306,11 @@ public class ListItems {
   }
 
    /**
-   * The item types list of the requested items. In case it is empty, all types of items will be returned. options: [key, static-secret, dynamic-secret]
+   * The item types list of the requested items. In case it is empty, all types of items will be returned. options: [key, static-secret, dynamic-secret, classic-key]
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The item types list of the requested items. In case it is empty, all types of items will be returned. options: [key, static-secret, dynamic-secret]")
+  @ApiModelProperty(value = "The item types list of the requested items. In case it is empty, all types of items will be returned. options: [key, static-secret, dynamic-secret, classic-key]")
 
   public List<String> getType() {
     return type;

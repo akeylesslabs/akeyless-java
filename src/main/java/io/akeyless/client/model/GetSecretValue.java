@@ -94,11 +94,11 @@ public class GetSecretValue {
   }
 
    /**
-   * Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache. This flag is only relevant when using the RestAPI
+   * Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
    * @return ignoreCache
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ignore Cache Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI")
+  @ApiModelProperty(value = "Ignore Cache Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI")
 
   public String getIgnoreCache() {
     return ignoreCache;

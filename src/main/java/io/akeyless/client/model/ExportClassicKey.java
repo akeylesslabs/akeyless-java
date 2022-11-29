@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "ExportClassicKey is a command that returns the classic key material")
 
 public class ExportClassicKey {
+  public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
+  private String ignoreCache = "false";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -49,6 +53,29 @@ public class ExportClassicKey {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
+
+
+  public ExportClassicKey ignoreCache(String ignoreCache) {
+    
+    this.ignoreCache = ignoreCache;
+    return this;
+  }
+
+   /**
+   * Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache. This flag is only relevant when using the RestAPI
+   * @return ignoreCache
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ignore Cache Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI")
+
+  public String getIgnoreCache() {
+    return ignoreCache;
+  }
+
+
+  public void setIgnoreCache(String ignoreCache) {
+    this.ignoreCache = ignoreCache;
+  }
 
 
   public ExportClassicKey json(Boolean json) {
@@ -174,7 +201,8 @@ public class ExportClassicKey {
       return false;
     }
     ExportClassicKey exportClassicKey = (ExportClassicKey) o;
-    return Objects.equals(this.json, exportClassicKey.json) &&
+    return Objects.equals(this.ignoreCache, exportClassicKey.ignoreCache) &&
+        Objects.equals(this.json, exportClassicKey.json) &&
         Objects.equals(this.name, exportClassicKey.name) &&
         Objects.equals(this.token, exportClassicKey.token) &&
         Objects.equals(this.uidToken, exportClassicKey.uidToken) &&
@@ -183,7 +211,7 @@ public class ExportClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, token, uidToken, version);
+    return Objects.hash(ignoreCache, json, name, token, uidToken, version);
   }
 
 
@@ -191,6 +219,7 @@ public class ExportClassicKey {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportClassicKey {\n");
+    sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class GetRotatedSecretValue {
+  public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
+  private String ignoreCache;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -48,6 +52,29 @@ public class GetRotatedSecretValue {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
+
+
+  public GetRotatedSecretValue ignoreCache(String ignoreCache) {
+    
+    this.ignoreCache = ignoreCache;
+    return this;
+  }
+
+   /**
+   * Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
+   * @return ignoreCache
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ignore Cache Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI")
+
+  public String getIgnoreCache() {
+    return ignoreCache;
+  }
+
+
+  public void setIgnoreCache(String ignoreCache) {
+    this.ignoreCache = ignoreCache;
+  }
 
 
   public GetRotatedSecretValue json(Boolean json) {
@@ -173,7 +200,8 @@ public class GetRotatedSecretValue {
       return false;
     }
     GetRotatedSecretValue getRotatedSecretValue = (GetRotatedSecretValue) o;
-    return Objects.equals(this.json, getRotatedSecretValue.json) &&
+    return Objects.equals(this.ignoreCache, getRotatedSecretValue.ignoreCache) &&
+        Objects.equals(this.json, getRotatedSecretValue.json) &&
         Objects.equals(this.names, getRotatedSecretValue.names) &&
         Objects.equals(this.token, getRotatedSecretValue.token) &&
         Objects.equals(this.uidToken, getRotatedSecretValue.uidToken) &&
@@ -182,7 +210,7 @@ public class GetRotatedSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, names, token, uidToken, version);
+    return Objects.hash(ignoreCache, json, names, token, uidToken, version);
   }
 
 
@@ -190,6 +218,7 @@ public class GetRotatedSecretValue {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRotatedSecretValue {\n");
+    sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

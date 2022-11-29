@@ -1047,7 +1047,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createRotatedSecretOutput'
+                $ref: '#/components/schemas/CreateRotatedSecretOutput'
           description: createRotatedSecretResponse wraps response body.
         default:
           content:
@@ -3085,7 +3085,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rotatedSecretOutput'
+                $ref: '#/components/schemas/RotatedSecretOutput'
           description: rotateSecretResponse wraps response body.
         default:
           content:
@@ -7174,7 +7174,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/createRotatedSecretOutput'
+            $ref: '#/components/schemas/CreateRotatedSecretOutput'
       description: createRotatedSecretResponse wraps response body.
     createSSHCertIssuerResponse:
       content:
@@ -8054,7 +8054,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/rotatedSecretOutput'
+            $ref: '#/components/schemas/RotatedSecretOutput'
       description: rotateSecretResponse wraps response body.
     setItemStateResponse:
       content:
@@ -10882,8 +10882,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -10958,8 +10957,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -11141,8 +11139,7 @@ components:
           type: integer
           x-go-name: TTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -11165,6 +11162,15 @@ components:
           x-go-name: AssociationID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    CreateRotatedSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreateSecretOutput:
       example:
         name: name
@@ -12284,12 +12290,20 @@ components:
     ExportClassicKey:
       description: ExportClassicKey is a command that returns the classic key material
       example:
+        ignore-cache: "false"
         name: name
         json: true
         version: 0
         uid-token: uid-token
         token: token
       properties:
+        ignore-cache:
+          default: "false"
+          description: |-
+            Ignore Cache
+            Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI
+          type: string
+          x-go-name: IgnoreCache
         json:
           description: Set output format to JSON
           type: boolean
@@ -12303,8 +12317,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -12589,8 +12602,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -12834,8 +12846,7 @@ components:
           type: integer
           x-go-name: Ttl
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -12898,7 +12909,7 @@ components:
         ignore-cache:
           description: |-
             Ignore Cache
-            Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI
+            Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
           type: string
           x-go-name: IgnoreCache
         json:
@@ -12921,8 +12932,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -18109,6 +18119,15 @@ components:
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RotatedSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     Rotator:
       example:
         rotation_interval: 9
@@ -19617,8 +19636,7 @@ components:
           type: integer
           x-go-name: TTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -19709,8 +19727,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -19786,8 +19803,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20005,8 +20021,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20065,8 +20080,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20134,8 +20148,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20240,8 +20253,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20385,8 +20397,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20506,8 +20517,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20639,8 +20649,7 @@ components:
           type: string
           x-go-name: Type
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20749,8 +20758,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20851,8 +20859,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -20934,8 +20941,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21038,8 +21044,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21156,8 +21161,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21267,8 +21271,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21361,8 +21364,7 @@ components:
           type: integer
           x-go-name: BoundTTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21425,8 +21427,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21534,8 +21535,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21606,8 +21606,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21664,8 +21663,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21720,8 +21718,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21783,8 +21780,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21856,8 +21852,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21908,8 +21903,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -21969,8 +21963,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22040,8 +22033,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22123,8 +22115,7 @@ components:
           type: string
           x-go-name: TokenExpiration
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22183,8 +22174,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22249,8 +22239,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22315,8 +22304,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22490,8 +22478,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22508,15 +22495,6 @@ components:
       - rotator-type
       - target-name
       title: createRotatedSecret is a command that creates a rotated secret.
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    createRotatedSecretOutput:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createSSHCertIssuer:
@@ -22591,8 +22569,7 @@ components:
           type: integer
           x-go-name: TTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22656,8 +22633,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22748,8 +22724,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22866,8 +22841,7 @@ components:
           type: string
           x-go-name: SecretType
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22944,8 +22918,7 @@ components:
           type: string
           x-go-name: TweakType
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -22989,8 +22962,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23057,8 +23029,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23090,8 +23061,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23147,8 +23117,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23187,8 +23156,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23229,8 +23197,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23266,8 +23233,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23317,8 +23283,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23350,8 +23315,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23384,8 +23348,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23412,8 +23375,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23452,8 +23414,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23491,8 +23452,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23529,8 +23489,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23565,8 +23524,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23600,8 +23558,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23643,8 +23600,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23675,8 +23631,7 @@ components:
           type: string
           x-go-name: Type
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23698,8 +23653,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23745,8 +23699,7 @@ components:
           type: string
           x-go-name: Tweak
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23806,8 +23759,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23862,8 +23814,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23908,8 +23859,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -23961,8 +23911,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -24048,8 +23997,7 @@ components:
           type: string
           x-go-name: K8STokenReviewerJWT
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -24392,8 +24340,7 @@ components:
           type: string
           x-go-name: MigrationType
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -24457,8 +24404,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -24819,8 +24765,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -25146,8 +25091,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -25479,8 +25423,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -25812,8 +25755,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -26149,8 +26091,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -26237,8 +26178,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -26545,8 +26485,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -26878,8 +26817,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -27196,8 +27134,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -27510,8 +27447,7 @@ components:
           type: array
           x-go-name: TokenRepositories
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -27829,8 +27765,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -28165,8 +28100,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -28479,8 +28413,7 @@ components:
           type: string
           x-go-name: TokenExpiration
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -28823,8 +28756,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -29177,8 +29109,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -29522,8 +29453,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -29855,8 +29785,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -30193,8 +30122,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -30534,8 +30462,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -30873,8 +30800,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -31210,8 +31136,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -31543,8 +31468,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -31849,8 +31773,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32125,8 +32048,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32150,8 +32072,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32243,8 +32164,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32268,8 +32188,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32301,8 +32220,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32324,8 +32242,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32442,8 +32359,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32526,8 +32442,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32549,8 +32464,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32574,8 +32488,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32596,8 +32509,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32615,8 +32527,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32634,8 +32545,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -32689,8 +32599,7 @@ components:
           type: string
           x-go-name: MigrationType
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33289,8 +33198,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33315,8 +33223,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33353,8 +33260,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33376,8 +33282,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33414,8 +33319,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33515,8 +33419,7 @@ components:
           type: string
           x-go-name: ItemType
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33613,8 +33516,7 @@ components:
           type: string
           x-go-name: K8STokenReviewerJWT
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -33963,8 +33865,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -34031,8 +33932,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -34397,8 +34297,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -34728,8 +34627,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -35065,8 +34963,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -35402,8 +35299,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -35743,8 +35639,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -35835,8 +35730,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -36147,8 +36041,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -36484,8 +36377,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -36806,8 +36698,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -37124,8 +37015,7 @@ components:
           type: array
           x-go-name: TokenRepositories
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -37447,8 +37337,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -37787,8 +37676,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -38105,8 +37993,7 @@ components:
           type: string
           x-go-name: TokenExpiration
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -38453,8 +38340,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -38811,8 +38697,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -39160,8 +39045,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -39497,8 +39381,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -39839,8 +39722,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -40184,8 +40066,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -40527,8 +40408,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -40868,8 +40748,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41205,8 +41084,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41515,8 +41393,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41799,8 +41676,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41834,8 +41710,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41857,8 +41732,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41906,8 +41780,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -41962,8 +41835,7 @@ components:
           type: integer
           x-go-name: Ttl
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42031,8 +41903,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42072,8 +41943,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42084,6 +41954,12 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getRotatedSecretValue:
       properties:
+        ignore-cache:
+          description: |-
+            Ignore Cache
+            Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
+          type: string
+          x-go-name: IgnoreCache
         json:
           description: Set output format to JSON
           type: boolean
@@ -42097,8 +41973,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42148,8 +42023,7 @@ components:
           type: integer
           x-go-name: Ttl
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42187,8 +42061,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42217,8 +42090,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42252,8 +42124,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42283,8 +42154,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42320,8 +42190,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42353,8 +42222,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42397,8 +42265,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42422,8 +42289,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42449,8 +42315,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42468,8 +42333,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42523,8 +42387,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42548,8 +42411,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42585,8 +42447,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42621,8 +42482,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42660,8 +42520,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42687,8 +42546,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42736,8 +42594,7 @@ components:
           type: array
           x-go-name: Types
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42754,8 +42611,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42805,14 +42661,13 @@ components:
           description: |-
             The item types list of the requested items. In case it is empty, all
             types of items will be returned. options: [key, static-secret,
-            dynamic-secret]
+            dynamic-secret, classic-key]
           items:
             type: string
           type: array
           x-go-name: Types
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42838,8 +42693,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42857,8 +42711,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42892,8 +42745,7 @@ components:
           type: array
           x-go-name: Types
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42924,8 +42776,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -42964,8 +42815,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43005,8 +42855,7 @@ components:
           type: string
           x-go-name: Type
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43029,8 +42878,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43059,8 +42907,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43106,8 +42953,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43132,8 +42978,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43141,15 +42986,6 @@ components:
       - name
       title: rotateSecret is a command that trigger a rotate operation for a Rotated
         Secret..
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    rotatedSecretOutput:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     setItemState:
@@ -43171,8 +43007,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43225,8 +43060,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43275,8 +43109,7 @@ components:
           type: integer
           x-go-name: TTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43324,8 +43157,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43374,8 +43206,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43490,8 +43321,7 @@ components:
           type: integer
           x-go-name: TTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43570,8 +43400,7 @@ components:
           type: string
           x-go-name: Tweak
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43629,8 +43458,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43668,8 +43496,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43705,8 +43532,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43737,8 +43563,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43863,8 +43688,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -43920,8 +43744,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44005,8 +43828,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44082,8 +43904,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44136,8 +43957,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44198,8 +44018,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44308,8 +44127,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44451,8 +44269,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44570,8 +44387,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44707,8 +44523,7 @@ components:
           type: string
           x-go-name: Type
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44808,8 +44623,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44890,8 +44704,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -44994,8 +44807,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45110,8 +44922,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45211,8 +45022,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45303,8 +45113,7 @@ components:
           type: integer
           x-go-name: BoundTTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45368,8 +45177,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45488,8 +45296,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45552,8 +45359,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45613,8 +45419,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45694,8 +45499,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45778,8 +45582,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45841,8 +45644,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -45913,8 +45715,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46064,8 +45865,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46134,8 +45934,7 @@ components:
           type: string
           x-go-name: TokenExpiration
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46194,8 +45993,7 @@ components:
           type: string
           x-go-name: TokenExpiration
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46258,8 +46056,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46347,8 +46144,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46398,8 +46194,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46449,8 +46244,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46520,8 +46314,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46701,8 +46494,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46747,8 +46539,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46835,8 +46626,7 @@ components:
           type: integer
           x-go-name: TTL
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46907,8 +46697,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -46967,8 +46756,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47066,8 +46854,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47151,8 +46938,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47190,8 +46976,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47257,8 +47042,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47303,8 +47087,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47375,8 +47158,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47448,8 +47230,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47524,8 +47305,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47575,8 +47355,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
@@ -47618,8 +47397,7 @@ components:
           type: string
           x-go-name: Profile
         uid-token:
-          description: |-
-            The universal identity token, Required only for universal_identity
+          description: The universal identity token, Required only for universal_identity
             authentication
           type: string
           x-go-name: UIDToken
