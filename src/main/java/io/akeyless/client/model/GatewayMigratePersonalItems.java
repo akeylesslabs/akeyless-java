@@ -253,11 +253,11 @@ public class GatewayMigratePersonalItems {
   }
 
    /**
-   * Target location in Akeyless for migrated secrets
+   * Target location in your Akeyless personal folder for migrated secrets
    * @return targetLocation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Target location in Akeyless for migrated secrets")
+  @ApiModelProperty(value = "Target location in your Akeyless personal folder for migrated secrets")
 
   public String getTargetLocation() {
     return targetLocation;

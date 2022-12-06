@@ -55,6 +55,10 @@ public class SetRoleRule {
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
 
+  public static final String SERIALIZED_NAME_TTL = "ttl";
+  @SerializedName(SERIALIZED_NAME_TTL)
+  private Integer ttl;
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
@@ -200,6 +204,29 @@ public class SetRoleRule {
   }
 
 
+  public SetRoleRule ttl(Integer ttl) {
+    
+    this.ttl = ttl;
+    return this;
+  }
+
+   /**
+   * RoleRule ttl
+   * @return ttl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RoleRule ttl")
+
+  public Integer getTtl() {
+    return ttl;
+  }
+
+
+  public void setTtl(Integer ttl) {
+    this.ttl = ttl;
+  }
+
+
   public SetRoleRule uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -238,12 +265,13 @@ public class SetRoleRule {
         Objects.equals(this.roleName, setRoleRule.roleName) &&
         Objects.equals(this.ruleType, setRoleRule.ruleType) &&
         Objects.equals(this.token, setRoleRule.token) &&
+        Objects.equals(this.ttl, setRoleRule.ttl) &&
         Objects.equals(this.uidToken, setRoleRule.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, json, path, roleName, ruleType, token, uidToken);
+    return Objects.hash(capability, json, path, roleName, ruleType, token, ttl, uidToken);
   }
 
 
@@ -257,6 +285,7 @@ public class SetRoleRule {
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

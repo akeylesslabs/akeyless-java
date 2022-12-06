@@ -66,7 +66,7 @@ Method | HTTP request | Description
 [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
-[**exportClassicKey**](V2Api.md#exportClassicKey) | **GET** /export-classic-key | 
+[**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 [**gatewayAddAllowedManagementAccess**](V2Api.md#gatewayAddAllowedManagementAccess) | **POST** /gateway-add-allow-management-access | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 [**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
