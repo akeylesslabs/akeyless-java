@@ -56,6 +56,10 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
+  @SerializedName(SERIALIZED_NAME_GCP_KEY)
+  private String gcpKey;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -264,6 +268,29 @@ public class GatewayUpdateItem {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateItem gcpKey(String gcpKey) {
+    
+    this.gcpKey = gcpKey;
+    return this;
+  }
+
+   /**
+   * Base64-encoded service account private key text
+   * @return gcpKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded service account private key text")
+
+  public String getGcpKey() {
+    return gcpKey;
+  }
+
+
+  public void setGcpKey(String gcpKey) {
+    this.gcpKey = gcpKey;
   }
 
 
@@ -656,6 +683,7 @@ public class GatewayUpdateItem {
         Objects.equals(this.autoRotate, gatewayUpdateItem.autoRotate) &&
         Objects.equals(this.customPayload, gatewayUpdateItem.customPayload) &&
         Objects.equals(this.deleteProtection, gatewayUpdateItem.deleteProtection) &&
+        Objects.equals(this.gcpKey, gatewayUpdateItem.gcpKey) &&
         Objects.equals(this.json, gatewayUpdateItem.json) &&
         Objects.equals(this.keepPrevVersion, gatewayUpdateItem.keepPrevVersion) &&
         Objects.equals(this.key, gatewayUpdateItem.key) &&
@@ -676,7 +704,7 @@ public class GatewayUpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
 
@@ -690,6 +718,7 @@ public class GatewayUpdateItem {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **awsRegion** | **String** | Region (used in aws) |  [optional]
 **customPayload** | **String** |  |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
 **metadata** | **String** | Metadata about the secret |  [optional]

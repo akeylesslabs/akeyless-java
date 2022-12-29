@@ -42,6 +42,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_REQUEST_STATUS = "access_request_status";
+  @SerializedName(SERIALIZED_NAME_ACCESS_REQUEST_STATUS)
+  private String accessRequestStatus;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto_rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private Boolean autoRotate;
@@ -81,6 +85,10 @@ public class Item {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display_id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
+
+  public static final String SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED = "is_access_request_enabled";
+  @SerializedName(SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED)
+  private Boolean isAccessRequestEnabled;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "is_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -195,6 +203,29 @@ public class Item {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public Item accessRequestStatus(String accessRequestStatus) {
+    
+    this.accessRequestStatus = accessRequestStatus;
+    return this;
+  }
+
+   /**
+   * Get accessRequestStatus
+   * @return accessRequestStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessRequestStatus() {
+    return accessRequestStatus;
+  }
+
+
+  public void setAccessRequestStatus(String accessRequestStatus) {
+    this.accessRequestStatus = accessRequestStatus;
   }
 
 
@@ -433,6 +464,29 @@ public class Item {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public Item isAccessRequestEnabled(Boolean isAccessRequestEnabled) {
+    
+    this.isAccessRequestEnabled = isAccessRequestEnabled;
+    return this;
+  }
+
+   /**
+   * Get isAccessRequestEnabled
+   * @return isAccessRequestEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIsAccessRequestEnabled() {
+    return isAccessRequestEnabled;
+  }
+
+
+  public void setIsAccessRequestEnabled(Boolean isAccessRequestEnabled) {
+    this.isAccessRequestEnabled = isAccessRequestEnabled;
   }
 
 
@@ -1007,6 +1061,7 @@ public class Item {
     }
     Item item = (Item) o;
     return Objects.equals(this.accessDate, item.accessDate) &&
+        Objects.equals(this.accessRequestStatus, item.accessRequestStatus) &&
         Objects.equals(this.autoRotate, item.autoRotate) &&
         Objects.equals(this.certIssuerSignerKeyName, item.certIssuerSignerKeyName) &&
         Objects.equals(this.certificateIssueDetails, item.certificateIssueDetails) &&
@@ -1017,6 +1072,7 @@ public class Item {
         Objects.equals(this.deleteProtection, item.deleteProtection) &&
         Objects.equals(this.deletionDate, item.deletionDate) &&
         Objects.equals(this.displayId, item.displayId) &&
+        Objects.equals(this.isAccessRequestEnabled, item.isAccessRequestEnabled) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
         Objects.equals(this.itemAccessibility, item.itemAccessibility) &&
         Objects.equals(this.itemGeneralInfo, item.itemGeneralInfo) &&
@@ -1044,7 +1100,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessRequestStatus, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
 
@@ -1053,6 +1109,7 @@ public class Item {
     StringBuilder sb = new StringBuilder();
     sb.append("class Item {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessRequestStatus: ").append(toIndentedString(accessRequestStatus)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    certIssuerSignerKeyName: ").append(toIndentedString(certIssuerSignerKeyName)).append("\n");
     sb.append("    certificateIssueDetails: ").append(toIndentedString(certificateIssueDetails)).append("\n");
@@ -1063,6 +1120,7 @@ public class Item {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
     sb.append("    itemGeneralInfo: ").append(toIndentedString(itemGeneralInfo)).append("\n");

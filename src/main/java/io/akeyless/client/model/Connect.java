@@ -70,6 +70,10 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_SSH_COMMAND = "ssh-command";
+  @SerializedName(SERIALIZED_NAME_SSH_COMMAND)
+  private String sshCommand;
+
   public static final String SERIALIZED_NAME_SSH_EXTRA_ARGS = "ssh-extra-args";
   @SerializedName(SERIALIZED_NAME_SSH_EXTRA_ARGS)
   private String sshExtraArgs;
@@ -325,6 +329,29 @@ public class Connect {
   }
 
 
+  public Connect sshCommand(String sshCommand) {
+    
+    this.sshCommand = sshCommand;
+    return this;
+  }
+
+   /**
+   * Path to SSH executable. e.g. /usr/bin/ssh
+   * @return sshCommand
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Path to SSH executable. e.g. /usr/bin/ssh")
+
+  public String getSshCommand() {
+    return sshCommand;
+  }
+
+
+  public void setSshCommand(String sshCommand) {
+    this.sshCommand = sshCommand;
+  }
+
+
   public Connect sshExtraArgs(String sshExtraArgs) {
     
     this.sshExtraArgs = sshExtraArgs;
@@ -482,6 +509,7 @@ public class Connect {
         Objects.equals(this.identityFile, connect.identityFile) &&
         Objects.equals(this.json, connect.json) &&
         Objects.equals(this.name, connect.name) &&
+        Objects.equals(this.sshCommand, connect.sshCommand) &&
         Objects.equals(this.sshExtraArgs, connect.sshExtraArgs) &&
         Objects.equals(this.sshLegacySigningAlg, connect.sshLegacySigningAlg) &&
         Objects.equals(this.target, connect.target) &&
@@ -492,7 +520,7 @@ public class Connect {
 
   @Override
   public int hashCode() {
-    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, viaBastion);
+    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, viaBastion);
   }
 
 
@@ -510,6 +538,7 @@ public class Connect {
     sb.append("    identityFile: ").append(toIndentedString(identityFile)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sshCommand: ").append(toIndentedString(sshCommand)).append("\n");
     sb.append("    sshExtraArgs: ").append(toIndentedString(sshExtraArgs)).append("\n");
     sb.append("    sshLegacySigningAlg: ").append(toIndentedString(sshLegacySigningAlg)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");

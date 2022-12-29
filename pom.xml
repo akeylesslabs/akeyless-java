@@ -5,7 +5,7 @@
     <artifactId>akeyless-java</artifactId>
     <packaging>jar</packaging>
     <name>akeyless-java</name>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
     <url>https://github.com/akeylesslabs/akeyless-java</url>
     <description>Akeyless Java SDK</description>
     <scm>

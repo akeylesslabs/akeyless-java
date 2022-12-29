@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**createDockerhubTarget**](V2Api.md#createDockerhubTarget) | **POST** /create-dockerhub-target | 
 [**createDynamicSecret**](V2Api.md#createDynamicSecret) | **POST** /create-dynamic-secret | 
 [**createEKSTarget**](V2Api.md#createEKSTarget) | **POST** /create-eks-target | 
+[**createEventForwarder**](V2Api.md#createEventForwarder) | **POST** /create-event-forwarder | 
 [**createGKETarget**](V2Api.md#createGKETarget) | **POST** /create-gke-target | 
 [**createGcpTarget**](V2Api.md#createGcpTarget) | **POST** /create-gcp-target | 
 [**createGithubTarget**](V2Api.md#createGithubTarget) | **POST** /create-github-target | 
@@ -51,6 +52,7 @@ Method | HTTP request | Description
 [**decryptWithClassicKey**](V2Api.md#decryptWithClassicKey) | **POST** /decrypt-with-classic-key | 
 [**deleteAuthMethod**](V2Api.md#deleteAuthMethod) | **POST** /delete-auth-method | 
 [**deleteAuthMethods**](V2Api.md#deleteAuthMethods) | **POST** /delete-auth-methods | 
+[**deleteEventForwarder**](V2Api.md#deleteEventForwarder) | **POST** /delete-event-forwarder | 
 [**deleteItem**](V2Api.md#deleteItem) | **POST** /delete-item | 
 [**deleteItems**](V2Api.md#deleteItems) | **POST** /delete-items | 
 [**deleteRole**](V2Api.md#deleteRole) | **POST** /delete-role | 
@@ -67,7 +69,6 @@ Method | HTTP request | Description
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
 [**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
 [**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
-[**gatewayAddAllowedManagementAccess**](V2Api.md#gatewayAddAllowedManagementAccess) | **POST** /gateway-add-allow-management-access | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 [**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
@@ -144,6 +145,7 @@ Method | HTTP request | Description
 [**getAccountSettings**](V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
 [**getAuthMethod**](V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
 [**getDynamicSecretValue**](V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
+[**getEventForwarder**](V2Api.md#getEventForwarder) | **POST** /get-event-forwarder | 
 [**getKubeExecCreds**](V2Api.md#getKubeExecCreds) | **POST** /get-kube-exec-creds | 
 [**getPKICertificate**](V2Api.md#getPKICertificate) | **POST** /get-pki-certificate | 
 [**getRSAPublic**](V2Api.md#getRSAPublic) | **POST** /get-rsa-public | 
@@ -172,10 +174,12 @@ Method | HTTP request | Description
 [**listItems**](V2Api.md#listItems) | **POST** /list-items | 
 [**listRoles**](V2Api.md#listRoles) | **POST** /list-roles | 
 [**listSRABastions**](V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
+[**listSharedItems**](V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 [**listTargets**](V2Api.md#listTargets) | **POST** /list-targets | 
 [**moveObjects**](V2Api.md#moveObjects) | **POST** /move-objects | 
 [**rawCreds**](V2Api.md#rawCreds) | **POST** /raw-creds | 
 [**refreshKey**](V2Api.md#refreshKey) | **POST** /refresh-key | 
+[**requestAccess**](V2Api.md#requestAccess) | **POST** /request-access | 
 [**reverseRBAC**](V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
 [**revokeCreds**](V2Api.md#revokeCreds) | **POST** /revoke-creds | 
 [**rollbackSecret**](V2Api.md#rollbackSecret) | **POST** /rollback-secret | 
@@ -215,6 +219,7 @@ Method | HTTP request | Description
 [**updateDBTargetDetails**](V2Api.md#updateDBTargetDetails) | **POST** /update-db-target-details | 
 [**updateDockerhubTarget**](V2Api.md#updateDockerhubTarget) | **POST** /update-dockerhub-target | 
 [**updateEKSTarget**](V2Api.md#updateEKSTarget) | **POST** /update-eks-target | 
+[**updateEventForwarder**](V2Api.md#updateEventForwarder) | **POST** /update-event-forwarder | 
 [**updateGKETarget**](V2Api.md#updateGKETarget) | **POST** /update-gke-target | 
 [**updateGcpTarget**](V2Api.md#updateGcpTarget) | **POST** /update-gcp-target | 
 [**updateGithubTarget**](V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
@@ -1832,6 +1837,67 @@ No authorization required
 **200** | createEKSTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="createEventForwarder"></a>
+# **createEventForwarder**
+> CreateEventForwarderOutput createEventForwarder(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateEventForwarder body = new CreateEventForwarder(); // CreateEventForwarder | 
+    try {
+      CreateEventForwarderOutput result = apiInstance.createEventForwarder(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createEventForwarder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateEventForwarder**](CreateEventForwarder.md)|  |
+
+### Return type
+
+[**CreateEventForwarderOutput**](CreateEventForwarderOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createEventForwarderResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="createGKETarget"></a>
 # **createGKETarget**
 > CreateGKETargetOutput createGKETarget(body)
@@ -3113,6 +3179,67 @@ No authorization required
 **200** | deleteAuthMethodsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="deleteEventForwarder"></a>
+# **deleteEventForwarder**
+> Object deleteEventForwarder(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DeleteEventForwarder body = new DeleteEventForwarder(); // DeleteEventForwarder | 
+    try {
+      Object result = apiInstance.deleteEventForwarder(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#deleteEventForwarder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeleteEventForwarder**](DeleteEventForwarder.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | deleteEventForwarderResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="deleteItem"></a>
 # **deleteItem**
 > DeleteItemOutput deleteItem(body)
@@ -4088,67 +4215,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | ExportClassicKeyResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="gatewayAddAllowedManagementAccess"></a>
-# **gatewayAddAllowedManagementAccess**
-> Object gatewayAddAllowedManagementAccess(body)
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    GatewayAddAllowedManagementAccess body = new GatewayAddAllowedManagementAccess(); // GatewayAddAllowedManagementAccess | 
-    try {
-      Object result = apiInstance.gatewayAddAllowedManagementAccess(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#gatewayAddAllowedManagementAccess");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GatewayAddAllowedManagementAccess**](GatewayAddAllowedManagementAccess.md)|  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | gatewayAddSubAdminsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateK8SAuthConfig"></a>
@@ -8781,6 +8847,67 @@ No authorization required
 **200** | getDynamicSecretValueResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="getEventForwarder"></a>
+# **getEventForwarder**
+> GetEventForwarderOutput getEventForwarder(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GetEventForwarder body = new GetEventForwarder(); // GetEventForwarder | 
+    try {
+      GetEventForwarderOutput result = apiInstance.getEventForwarder(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getEventForwarder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GetEventForwarder**](GetEventForwarder.md)|  |
+
+### Return type
+
+[**GetEventForwarderOutput**](GetEventForwarderOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | getEventForwarderResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="getKubeExecCreds"></a>
 # **getKubeExecCreds**
 > GetKubeExecCredsOutput getKubeExecCreds(body)
@@ -10489,6 +10616,66 @@ No authorization required
 **200** | listSRABastionsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="listSharedItems"></a>
+# **listSharedItems**
+> listSharedItems(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ListSharedItems body = new ListSharedItems(); // ListSharedItems | 
+    try {
+      apiInstance.listSharedItems(body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#listSharedItems");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ListSharedItems**](ListSharedItems.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="listTargets"></a>
 # **listTargets**
 > ListTargetsOutput listTargets(body)
@@ -10731,6 +10918,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | refreshKeyResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="requestAccess"></a>
+# **requestAccess**
+> RequestAccessOutput requestAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RequestAccess body = new RequestAccess(); // RequestAccess | 
+    try {
+      RequestAccessOutput result = apiInstance.requestAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#requestAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**RequestAccess**](RequestAccess.md)|  |
+
+### Return type
+
+[**RequestAccessOutput**](RequestAccessOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | requestAccessResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="reverseRBAC"></a>
@@ -13105,6 +13353,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateEKSTargetResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateEventForwarder"></a>
+# **updateEventForwarder**
+> Object updateEventForwarder(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateEventForwarder body = new UpdateEventForwarder(); // UpdateEventForwarder | 
+    try {
+      Object result = apiInstance.updateEventForwarder(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateEventForwarder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateEventForwarder**](UpdateEventForwarder.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateEventForwarderResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateGKETarget"></a>

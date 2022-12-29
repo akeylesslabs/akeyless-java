@@ -56,6 +56,10 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
   private String customPayload;
 
+  public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
+  @SerializedName(SERIALIZED_NAME_GCP_KEY)
+  private String gcpKey;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -328,6 +332,29 @@ public class UpdateRotatedSecret {
 
   public void setCustomPayload(String customPayload) {
     this.customPayload = customPayload;
+  }
+
+
+  public UpdateRotatedSecret gcpKey(String gcpKey) {
+    
+    this.gcpKey = gcpKey;
+    return this;
+  }
+
+   /**
+   * Base64-encoded service account private key text
+   * @return gcpKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded service account private key text")
+
+  public String getGcpKey() {
+    return gcpKey;
+  }
+
+
+  public void setGcpKey(String gcpKey) {
+    this.gcpKey = gcpKey;
   }
 
 
@@ -1097,6 +1124,7 @@ public class UpdateRotatedSecret {
         Objects.equals(this.autoRotate, updateRotatedSecret.autoRotate) &&
         Objects.equals(this.awsRegion, updateRotatedSecret.awsRegion) &&
         Objects.equals(this.customPayload, updateRotatedSecret.customPayload) &&
+        Objects.equals(this.gcpKey, updateRotatedSecret.gcpKey) &&
         Objects.equals(this.json, updateRotatedSecret.json) &&
         Objects.equals(this.keepPrevVersion, updateRotatedSecret.keepPrevVersion) &&
         Objects.equals(this.key, updateRotatedSecret.key) &&
@@ -1133,7 +1161,7 @@ public class UpdateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
   }
 
 
@@ -1147,6 +1175,7 @@ public class UpdateRotatedSecret {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
+    sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

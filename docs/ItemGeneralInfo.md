@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **certIssueDetails** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  |  [optional]
+**certificateChainInfo** | [**CertificateChainInfo**](CertificateChainInfo.md) |  |  [optional]
 **classicKeyDetails** | [**ClassicKeyDetailsInfo**](ClassicKeyDetailsInfo.md) |  |  [optional]
 **clusterGwUrl** | **String** |  |  [optional]
 **displayMetadata** | **String** |  |  [optional]

@@ -40,6 +40,10 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_REQUEST_STATUS = "access_request_status";
+  @SerializedName(SERIALIZED_NAME_ACCESS_REQUEST_STATUS)
+  private String accessRequestStatus;
+
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Map<String, Object> attributes = null;
@@ -59,6 +63,10 @@ public class Target {
   public static final String SERIALIZED_NAME_CREDENTIALS_LESS = "credentials_less";
   @SerializedName(SERIALIZED_NAME_CREDENTIALS_LESS)
   private Boolean credentialsLess;
+
+  public static final String SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED = "is_access_request_enabled";
+  @SerializedName(SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED)
+  private Boolean isAccessRequestEnabled;
 
   public static final String SERIALIZED_NAME_LAST_VERSION = "last_version";
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
@@ -117,6 +125,29 @@ public class Target {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public Target accessRequestStatus(String accessRequestStatus) {
+    
+    this.accessRequestStatus = accessRequestStatus;
+    return this;
+  }
+
+   /**
+   * Get accessRequestStatus
+   * @return accessRequestStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessRequestStatus() {
+    return accessRequestStatus;
+  }
+
+
+  public void setAccessRequestStatus(String accessRequestStatus) {
+    this.accessRequestStatus = accessRequestStatus;
   }
 
 
@@ -248,6 +279,29 @@ public class Target {
 
   public void setCredentialsLess(Boolean credentialsLess) {
     this.credentialsLess = credentialsLess;
+  }
+
+
+  public Target isAccessRequestEnabled(Boolean isAccessRequestEnabled) {
+    
+    this.isAccessRequestEnabled = isAccessRequestEnabled;
+    return this;
+  }
+
+   /**
+   * Get isAccessRequestEnabled
+   * @return isAccessRequestEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIsAccessRequestEnabled() {
+    return isAccessRequestEnabled;
+  }
+
+
+  public void setIsAccessRequestEnabled(Boolean isAccessRequestEnabled) {
+    this.isAccessRequestEnabled = isAccessRequestEnabled;
   }
 
 
@@ -484,11 +538,13 @@ public class Target {
     }
     Target target = (Target) o;
     return Objects.equals(this.accessDate, target.accessDate) &&
+        Objects.equals(this.accessRequestStatus, target.accessRequestStatus) &&
         Objects.equals(this.attributes, target.attributes) &&
         Objects.equals(this.clientPermissions, target.clientPermissions) &&
         Objects.equals(this.comment, target.comment) &&
         Objects.equals(this.creationDate, target.creationDate) &&
         Objects.equals(this.credentialsLess, target.credentialsLess) &&
+        Objects.equals(this.isAccessRequestEnabled, target.isAccessRequestEnabled) &&
         Objects.equals(this.lastVersion, target.lastVersion) &&
         Objects.equals(this.modificationDate, target.modificationDate) &&
         Objects.equals(this.protectionKeyName, target.protectionKeyName) &&
@@ -502,7 +558,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, attributes, clientPermissions, comment, creationDate, credentialsLess, lastVersion, modificationDate, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessRequestStatus, attributes, clientPermissions, comment, creationDate, credentialsLess, isAccessRequestEnabled, lastVersion, modificationDate, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
   }
 
 
@@ -511,11 +567,13 @@ public class Target {
     StringBuilder sb = new StringBuilder();
     sb.append("class Target {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessRequestStatus: ").append(toIndentedString(accessRequestStatus)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    credentialsLess: ").append(toIndentedString(credentialsLess)).append("\n");
+    sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");

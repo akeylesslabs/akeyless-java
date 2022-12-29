@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**accessRequestStatus** | **String** |  |  [optional]
 **autoRotate** | **Boolean** |  |  [optional]
 **certIssuerSignerKeyName** | **String** |  |  [optional]
 **certificateIssueDetails** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  |  [optional]
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **deleteProtection** | **Boolean** |  |  [optional]
 **deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **displayId** | **String** |  |  [optional]
+**isAccessRequestEnabled** | **Boolean** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]
 **itemAccessibility** | **Long** |  |  [optional]
 **itemGeneralInfo** | [**ItemGeneralInfo**](ItemGeneralInfo.md) |  |  [optional]
