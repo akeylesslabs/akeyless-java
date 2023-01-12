@@ -38,6 +38,10 @@ public class RotateKey {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NEW_CERT_PEM_DATA = "new-cert-pem-data";
+  @SerializedName(SERIALIZED_NAME_NEW_CERT_PEM_DATA)
+  private String newCertPemData;
+
   public static final String SERIALIZED_NAME_NEW_KEY_DATA = "new-key-data";
   @SerializedName(SERIALIZED_NAME_NEW_KEY_DATA)
   private String newKeyData;
@@ -93,6 +97,29 @@ public class RotateKey {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public RotateKey newCertPemData(String newCertPemData) {
+    
+    this.newCertPemData = newCertPemData;
+    return this;
+  }
+
+   /**
+   * The new pem encoded certificate for the classic key. relevant only for keys provided by user (&#39;bring-your-own-key&#39;)
+   * @return newCertPemData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The new pem encoded certificate for the classic key. relevant only for keys provided by user ('bring-your-own-key')")
+
+  public String getNewCertPemData() {
+    return newCertPemData;
+  }
+
+
+  public void setNewCertPemData(String newCertPemData) {
+    this.newCertPemData = newCertPemData;
   }
 
 
@@ -176,6 +203,7 @@ public class RotateKey {
     RotateKey rotateKey = (RotateKey) o;
     return Objects.equals(this.json, rotateKey.json) &&
         Objects.equals(this.name, rotateKey.name) &&
+        Objects.equals(this.newCertPemData, rotateKey.newCertPemData) &&
         Objects.equals(this.newKeyData, rotateKey.newKeyData) &&
         Objects.equals(this.token, rotateKey.token) &&
         Objects.equals(this.uidToken, rotateKey.uidToken);
@@ -183,7 +211,7 @@ public class RotateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, newKeyData, token, uidToken);
+    return Objects.hash(json, name, newCertPemData, newKeyData, token, uidToken);
   }
 
 
@@ -193,6 +221,7 @@ public class RotateKey {
     sb.append("class RotateKey {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newCertPemData: ").append(toIndentedString(newCertPemData)).append("\n");
     sb.append("    newKeyData: ").append(toIndentedString(newKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

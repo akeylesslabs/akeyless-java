@@ -25,17 +25,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ListSRABastions
+ * GetCertificateValue
  */
 
-public class ListSRABastions {
-  public static final String SERIALIZED_NAME_ALLOWED_URLS_ONLY = "allowed-urls-only";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_URLS_ONLY)
-  private Boolean allowedUrlsOnly;
-
+public class GetCertificateValue {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -45,31 +45,12 @@ public class ListSRABastions {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-
-  public ListSRABastions allowedUrlsOnly(Boolean allowedUrlsOnly) {
-    
-    this.allowedUrlsOnly = allowedUrlsOnly;
-    return this;
-  }
-
-   /**
-   * Get allowedUrlsOnly
-   * @return allowedUrlsOnly
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getAllowedUrlsOnly() {
-    return allowedUrlsOnly;
-  }
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
 
-  public void setAllowedUrlsOnly(Boolean allowedUrlsOnly) {
-    this.allowedUrlsOnly = allowedUrlsOnly;
-  }
-
-
-  public ListSRABastions json(Boolean json) {
+  public GetCertificateValue json(Boolean json) {
     
     this.json = json;
     return this;
@@ -92,7 +73,29 @@ public class ListSRABastions {
   }
 
 
-  public ListSRABastions token(String token) {
+  public GetCertificateValue name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Certificate name
+   * @return name
+  **/
+  @ApiModelProperty(required = true, value = "Certificate name")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public GetCertificateValue token(String token) {
     
     this.token = token;
     return this;
@@ -115,7 +118,7 @@ public class ListSRABastions {
   }
 
 
-  public ListSRABastions uidToken(String uidToken) {
+  public GetCertificateValue uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -138,6 +141,29 @@ public class ListSRABastions {
   }
 
 
+  public GetCertificateValue version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Certificate version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate version")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -146,27 +172,29 @@ public class ListSRABastions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListSRABastions listSRABastions = (ListSRABastions) o;
-    return Objects.equals(this.allowedUrlsOnly, listSRABastions.allowedUrlsOnly) &&
-        Objects.equals(this.json, listSRABastions.json) &&
-        Objects.equals(this.token, listSRABastions.token) &&
-        Objects.equals(this.uidToken, listSRABastions.uidToken);
+    GetCertificateValue getCertificateValue = (GetCertificateValue) o;
+    return Objects.equals(this.json, getCertificateValue.json) &&
+        Objects.equals(this.name, getCertificateValue.name) &&
+        Objects.equals(this.token, getCertificateValue.token) &&
+        Objects.equals(this.uidToken, getCertificateValue.uidToken) &&
+        Objects.equals(this.version, getCertificateValue.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUrlsOnly, json, token, uidToken);
+    return Objects.hash(json, name, token, uidToken, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListSRABastions {\n");
-    sb.append("    allowedUrlsOnly: ").append(toIndentedString(allowedUrlsOnly)).append("\n");
+    sb.append("class GetCertificateValue {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

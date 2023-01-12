@@ -25,17 +25,22 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ListSRABastions
+ * gatewayUpdateTlsCert is a command that updates Gateway TLS certificate
  */
+@ApiModel(description = "gatewayUpdateTlsCert is a command that updates Gateway TLS certificate")
 
-public class ListSRABastions {
-  public static final String SERIALIZED_NAME_ALLOWED_URLS_ONLY = "allowed-urls-only";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_URLS_ONLY)
-  private Boolean allowedUrlsOnly;
+public class GatewayUpdateTlsCert {
+  public static final String SERIALIZED_NAME_CERT_DATA = "cert-data";
+  @SerializedName(SERIALIZED_NAME_CERT_DATA)
+  private String certData;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
+
+  public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
+  @SerializedName(SERIALIZED_NAME_KEY_DATA)
+  private String keyData;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -46,30 +51,30 @@ public class ListSRABastions {
   private String uidToken;
 
 
-  public ListSRABastions allowedUrlsOnly(Boolean allowedUrlsOnly) {
+  public GatewayUpdateTlsCert certData(String certData) {
     
-    this.allowedUrlsOnly = allowedUrlsOnly;
+    this.certData = certData;
     return this;
   }
 
    /**
-   * Get allowedUrlsOnly
-   * @return allowedUrlsOnly
+   * TLS Certificate (base64 encoded)
+   * @return certData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TLS Certificate (base64 encoded)")
 
-  public Boolean getAllowedUrlsOnly() {
-    return allowedUrlsOnly;
+  public String getCertData() {
+    return certData;
   }
 
 
-  public void setAllowedUrlsOnly(Boolean allowedUrlsOnly) {
-    this.allowedUrlsOnly = allowedUrlsOnly;
+  public void setCertData(String certData) {
+    this.certData = certData;
   }
 
 
-  public ListSRABastions json(Boolean json) {
+  public GatewayUpdateTlsCert json(Boolean json) {
     
     this.json = json;
     return this;
@@ -92,7 +97,30 @@ public class ListSRABastions {
   }
 
 
-  public ListSRABastions token(String token) {
+  public GatewayUpdateTlsCert keyData(String keyData) {
+    
+    this.keyData = keyData;
+    return this;
+  }
+
+   /**
+   * TLS Private Key (base64 encoded)
+   * @return keyData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TLS Private Key (base64 encoded)")
+
+  public String getKeyData() {
+    return keyData;
+  }
+
+
+  public void setKeyData(String keyData) {
+    this.keyData = keyData;
+  }
+
+
+  public GatewayUpdateTlsCert token(String token) {
     
     this.token = token;
     return this;
@@ -115,7 +143,7 @@ public class ListSRABastions {
   }
 
 
-  public ListSRABastions uidToken(String uidToken) {
+  public GatewayUpdateTlsCert uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -146,25 +174,27 @@ public class ListSRABastions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListSRABastions listSRABastions = (ListSRABastions) o;
-    return Objects.equals(this.allowedUrlsOnly, listSRABastions.allowedUrlsOnly) &&
-        Objects.equals(this.json, listSRABastions.json) &&
-        Objects.equals(this.token, listSRABastions.token) &&
-        Objects.equals(this.uidToken, listSRABastions.uidToken);
+    GatewayUpdateTlsCert gatewayUpdateTlsCert = (GatewayUpdateTlsCert) o;
+    return Objects.equals(this.certData, gatewayUpdateTlsCert.certData) &&
+        Objects.equals(this.json, gatewayUpdateTlsCert.json) &&
+        Objects.equals(this.keyData, gatewayUpdateTlsCert.keyData) &&
+        Objects.equals(this.token, gatewayUpdateTlsCert.token) &&
+        Objects.equals(this.uidToken, gatewayUpdateTlsCert.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUrlsOnly, json, token, uidToken);
+    return Objects.hash(certData, json, keyData, token, uidToken);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListSRABastions {\n");
-    sb.append("    allowedUrlsOnly: ").append(toIndentedString(allowedUrlsOnly)).append("\n");
+    sb.append("class GatewayUpdateTlsCert {\n");
+    sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
