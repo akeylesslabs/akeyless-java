@@ -14,10 +14,11 @@ Name | Type | Description | Notes
 **codeSigningFlag** | **Boolean** | If set, certificates will be flagged for code signing use |  [optional]
 **country** | **String** | A comma-separated list of countries that will be set in the issued certificate |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keyUsage** | **String** | key-usage |  [optional]
 **locality** | **String** | A comma-separated list of localities that will be set in the issued certificate |  [optional]
-**metadata** | **String** | A metadata about the issuer |  [optional]
+**metadata** | **String** | Deprecated - use description |  [optional]
 **name** | **String** | PKI certificate issuer name | 
 **notEnforceHostnames** | **Boolean** | If set, any names are allowed for CN and SANs in the certificate and not only a valid host name |  [optional]
 **notRequireCn** | **Boolean** | If set, clients can request certificates without a CN |  [optional]

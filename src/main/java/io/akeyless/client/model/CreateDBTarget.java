@@ -105,6 +105,14 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_SNOWFLAKE_ACCOUNT)
   private String snowflakeAccount;
 
+  public static final String SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY = "snowflake-api-private-key";
+  @SerializedName(SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY)
+  private String snowflakeApiPrivateKey;
+
+  public static final String SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY_PASSWORD = "snowflake-api-private-key-password";
+  @SerializedName(SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY_PASSWORD)
+  private String snowflakeApiPrivateKeyPassword;
+
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   private Boolean ssl;
@@ -561,6 +569,52 @@ public class CreateDBTarget {
   }
 
 
+  public CreateDBTarget snowflakeApiPrivateKey(String snowflakeApiPrivateKey) {
+    
+    this.snowflakeApiPrivateKey = snowflakeApiPrivateKey;
+    return this;
+  }
+
+   /**
+   * RSA Private key (base64 encoded)
+   * @return snowflakeApiPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RSA Private key (base64 encoded)")
+
+  public String getSnowflakeApiPrivateKey() {
+    return snowflakeApiPrivateKey;
+  }
+
+
+  public void setSnowflakeApiPrivateKey(String snowflakeApiPrivateKey) {
+    this.snowflakeApiPrivateKey = snowflakeApiPrivateKey;
+  }
+
+
+  public CreateDBTarget snowflakeApiPrivateKeyPassword(String snowflakeApiPrivateKeyPassword) {
+    
+    this.snowflakeApiPrivateKeyPassword = snowflakeApiPrivateKeyPassword;
+    return this;
+  }
+
+   /**
+   * The Private key passphrase
+   * @return snowflakeApiPrivateKeyPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Private key passphrase")
+
+  public String getSnowflakeApiPrivateKeyPassword() {
+    return snowflakeApiPrivateKeyPassword;
+  }
+
+
+  public void setSnowflakeApiPrivateKeyPassword(String snowflakeApiPrivateKeyPassword) {
+    this.snowflakeApiPrivateKeyPassword = snowflakeApiPrivateKeyPassword;
+  }
+
+
   public CreateDBTarget ssl(Boolean ssl) {
     
     this.ssl = ssl;
@@ -704,6 +758,8 @@ public class CreateDBTarget {
         Objects.equals(this.port, createDBTarget.port) &&
         Objects.equals(this.pwd, createDBTarget.pwd) &&
         Objects.equals(this.snowflakeAccount, createDBTarget.snowflakeAccount) &&
+        Objects.equals(this.snowflakeApiPrivateKey, createDBTarget.snowflakeApiPrivateKey) &&
+        Objects.equals(this.snowflakeApiPrivateKeyPassword, createDBTarget.snowflakeApiPrivateKeyPassword) &&
         Objects.equals(this.ssl, createDBTarget.ssl) &&
         Objects.equals(this.sslCertificate, createDBTarget.sslCertificate) &&
         Objects.equals(this.token, createDBTarget.token) &&
@@ -713,7 +769,7 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
 
@@ -740,6 +796,8 @@ public class CreateDBTarget {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
+    sb.append("    snowflakeApiPrivateKey: ").append(toIndentedString(snowflakeApiPrivateKey)).append("\n");
+    sb.append("    snowflakeApiPrivateKeyPassword: ").append(toIndentedString(snowflakeApiPrivateKeyPassword)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -44,6 +44,10 @@ public class CreateKey {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -141,6 +145,29 @@ public class CreateKey {
   }
 
 
+  public CreateKey description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreateKey json(Boolean json) {
     
     this.json = json;
@@ -171,11 +198,11 @@ public class CreateKey {
   }
 
    /**
-   * Metadata about the key
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata about the key")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -321,6 +348,7 @@ public class CreateKey {
     return Objects.equals(this.alg, createKey.alg) &&
         Objects.equals(this.customerFrgId, createKey.customerFrgId) &&
         Objects.equals(this.deleteProtection, createKey.deleteProtection) &&
+        Objects.equals(this.description, createKey.description) &&
         Objects.equals(this.json, createKey.json) &&
         Objects.equals(this.metadata, createKey.metadata) &&
         Objects.equals(this.name, createKey.name) &&
@@ -332,7 +360,7 @@ public class CreateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, deleteProtection, json, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, customerFrgId, deleteProtection, description, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
 
@@ -343,6 +371,7 @@ public class CreateKey {
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -44,6 +44,10 @@ public class CreateTokenizer {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_ENCODING_TEMPLATE = "encoding-template";
   @SerializedName(SERIALIZED_NAME_ENCODING_TEMPLATE)
   private String encodingTemplate;
@@ -162,6 +166,29 @@ public class CreateTokenizer {
   }
 
 
+  public CreateTokenizer description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreateTokenizer encodingTemplate(String encodingTemplate) {
     
     this.encodingTemplate = encodingTemplate;
@@ -238,11 +265,11 @@ public class CreateTokenizer {
   }
 
    /**
-   * A metadata about the tokenizer
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A metadata about the tokenizer")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -455,6 +482,7 @@ public class CreateTokenizer {
     return Objects.equals(this.alphabet, createTokenizer.alphabet) &&
         Objects.equals(this.decodingTemplate, createTokenizer.decodingTemplate) &&
         Objects.equals(this.deleteProtection, createTokenizer.deleteProtection) &&
+        Objects.equals(this.description, createTokenizer.description) &&
         Objects.equals(this.encodingTemplate, createTokenizer.encodingTemplate) &&
         Objects.equals(this.encryptionKeyName, createTokenizer.encryptionKeyName) &&
         Objects.equals(this.json, createTokenizer.json) &&
@@ -471,7 +499,7 @@ public class CreateTokenizer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alphabet, decodingTemplate, deleteProtection, encodingTemplate, encryptionKeyName, json, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
+    return Objects.hash(alphabet, decodingTemplate, deleteProtection, description, encodingTemplate, encryptionKeyName, json, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
   }
 
 
@@ -482,6 +510,7 @@ public class CreateTokenizer {
     sb.append("    alphabet: ").append(toIndentedString(alphabet)).append("\n");
     sb.append("    decodingTemplate: ").append(toIndentedString(decodingTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    encodingTemplate: ").append(toIndentedString(encodingTemplate)).append("\n");
     sb.append("    encryptionKeyName: ").append(toIndentedString(encryptionKeyName)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

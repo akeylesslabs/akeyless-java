@@ -37,6 +37,10 @@ public class GenCustomerFragment {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
 
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private String metadata;
+
 
   public GenCustomerFragment description(String description) {
     
@@ -45,11 +49,11 @@ public class GenCustomerFragment {
   }
 
    /**
-   * The Customer Fragment Description
+   * Description of the object
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Customer Fragment Description")
+  @ApiModelProperty(value = "Description of the object")
 
   public String getDescription() {
     return description;
@@ -84,6 +88,29 @@ public class GenCustomerFragment {
   }
 
 
+  public GenCustomerFragment metadata(String metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Deprecated - use description
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Deprecated - use description")
+
+  public String getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -94,12 +121,13 @@ public class GenCustomerFragment {
     }
     GenCustomerFragment genCustomerFragment = (GenCustomerFragment) o;
     return Objects.equals(this.description, genCustomerFragment.description) &&
-        Objects.equals(this.json, genCustomerFragment.json);
+        Objects.equals(this.json, genCustomerFragment.json) &&
+        Objects.equals(this.metadata, genCustomerFragment.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, json);
+    return Objects.hash(description, json, metadata);
   }
 
 
@@ -109,6 +137,7 @@ public class GenCustomerFragment {
     sb.append("class GenCustomerFragment {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

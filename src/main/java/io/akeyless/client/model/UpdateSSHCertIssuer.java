@@ -41,6 +41,10 @@ public class UpdateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_ALLOWED_USERS)
   private String allowedUsers;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
   private Map<String, String> extensions = null;
@@ -163,6 +167,29 @@ public class UpdateSSHCertIssuer {
   }
 
 
+  public UpdateSSHCertIssuer description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateSSHCertIssuer extensions(Map<String, String> extensions) {
     
     this.extensions = extensions;
@@ -224,11 +251,11 @@ public class UpdateSSHCertIssuer {
   }
 
    /**
-   * A metadata about the issuer
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A metadata about the issuer")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -586,6 +613,7 @@ public class UpdateSSHCertIssuer {
     UpdateSSHCertIssuer updateSSHCertIssuer = (UpdateSSHCertIssuer) o;
     return Objects.equals(this.addTag, updateSSHCertIssuer.addTag) &&
         Objects.equals(this.allowedUsers, updateSSHCertIssuer.allowedUsers) &&
+        Objects.equals(this.description, updateSSHCertIssuer.description) &&
         Objects.equals(this.extensions, updateSSHCertIssuer.extensions) &&
         Objects.equals(this.json, updateSSHCertIssuer.json) &&
         Objects.equals(this.metadata, updateSSHCertIssuer.metadata) &&
@@ -607,7 +635,7 @@ public class UpdateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowedUsers, extensions, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
+    return Objects.hash(addTag, allowedUsers, description, extensions, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
   }
 
 
@@ -617,6 +645,7 @@ public class UpdateSSHCertIssuer {
     sb.append("class UpdateSSHCertIssuer {\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

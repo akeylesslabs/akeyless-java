@@ -41,6 +41,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
   private Map<String, String> extensions = null;
@@ -151,6 +155,29 @@ public class CreateSSHCertIssuer {
   }
 
 
+  public CreateSSHCertIssuer description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreateSSHCertIssuer extensions(Map<String, String> extensions) {
     
     this.extensions = extensions;
@@ -212,11 +239,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * A metadata about the issuer
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A metadata about the issuer")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -551,6 +578,7 @@ public class CreateSSHCertIssuer {
     CreateSSHCertIssuer createSSHCertIssuer = (CreateSSHCertIssuer) o;
     return Objects.equals(this.allowedUsers, createSSHCertIssuer.allowedUsers) &&
         Objects.equals(this.deleteProtection, createSSHCertIssuer.deleteProtection) &&
+        Objects.equals(this.description, createSSHCertIssuer.description) &&
         Objects.equals(this.extensions, createSSHCertIssuer.extensions) &&
         Objects.equals(this.json, createSSHCertIssuer.json) &&
         Objects.equals(this.metadata, createSSHCertIssuer.metadata) &&
@@ -571,7 +599,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, deleteProtection, extensions, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
+    return Objects.hash(allowedUsers, deleteProtection, description, extensions, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
   }
 
 
@@ -581,6 +609,7 @@ public class CreateSSHCertIssuer {
     sb.append("class CreateSSHCertIssuer {\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

@@ -47,6 +47,10 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -175,6 +179,29 @@ public class UploadRSA {
   }
 
 
+  public UploadRSA description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UploadRSA json(Boolean json) {
     
     this.json = json;
@@ -205,11 +232,11 @@ public class UploadRSA {
   }
 
    /**
-   * A metadata about the key
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A metadata about the key")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -402,6 +429,7 @@ public class UploadRSA {
         Objects.equals(this.certFileData, uploadRSA.certFileData) &&
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
         Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
+        Objects.equals(this.description, uploadRSA.description) &&
         Objects.equals(this.json, uploadRSA.json) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
@@ -415,7 +443,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, description, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
 
@@ -427,6 +455,7 @@ public class UploadRSA {
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

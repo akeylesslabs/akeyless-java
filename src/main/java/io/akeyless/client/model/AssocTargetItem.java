@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "assocTargetItem is a command that creates an association between target and item.")
 
 public class AssocTargetItem {
+  public static final String SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION = "disable-previous-key-version";
+  @SerializedName(SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION)
+  private Boolean disablePreviousKeyVersion;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -91,6 +95,29 @@ public class AssocTargetItem {
   public static final String SERIALIZED_NAME_VAULT_NAME = "vault-name";
   @SerializedName(SERIALIZED_NAME_VAULT_NAME)
   private String vaultName;
+
+
+  public AssocTargetItem disablePreviousKeyVersion(Boolean disablePreviousKeyVersion) {
+    
+    this.disablePreviousKeyVersion = disablePreviousKeyVersion;
+    return this;
+  }
+
+   /**
+   * Automatically disable previous key version (required for azure targets)
+   * @return disablePreviousKeyVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Automatically disable previous key version (required for azure targets)")
+
+  public Boolean getDisablePreviousKeyVersion() {
+    return disablePreviousKeyVersion;
+  }
+
+
+  public void setDisablePreviousKeyVersion(Boolean disablePreviousKeyVersion) {
+    this.disablePreviousKeyVersion = disablePreviousKeyVersion;
+  }
 
 
   public AssocTargetItem json(Boolean json) {
@@ -461,7 +488,8 @@ public class AssocTargetItem {
       return false;
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
-    return Objects.equals(this.json, assocTargetItem.json) &&
+    return Objects.equals(this.disablePreviousKeyVersion, assocTargetItem.disablePreviousKeyVersion) &&
+        Objects.equals(this.json, assocTargetItem.json) &&
         Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
         Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
         Objects.equals(this.kmsAlgorithm, assocTargetItem.kmsAlgorithm) &&
@@ -480,7 +508,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, projectId, purpose, regions, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, projectId, purpose, regions, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
 
@@ -488,6 +516,7 @@ public class AssocTargetItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
+    sb.append("    disablePreviousKeyVersion: ").append(toIndentedString(disablePreviousKeyVersion)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");

@@ -39,6 +39,10 @@ public class CreateCertificate {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   private List<String> expirationEventIn = null;
@@ -119,6 +123,29 @@ public class CreateCertificate {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public CreateCertificate description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -229,11 +256,11 @@ public class CreateCertificate {
   }
 
    /**
-   * Metadata about the certificate
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata about the certificate")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -355,6 +382,7 @@ public class CreateCertificate {
     CreateCertificate createCertificate = (CreateCertificate) o;
     return Objects.equals(this.certificateData, createCertificate.certificateData) &&
         Objects.equals(this.deleteProtection, createCertificate.deleteProtection) &&
+        Objects.equals(this.description, createCertificate.description) &&
         Objects.equals(this.expirationEventIn, createCertificate.expirationEventIn) &&
         Objects.equals(this.json, createCertificate.json) &&
         Objects.equals(this.key, createCertificate.key) &&
@@ -368,7 +396,7 @@ public class CreateCertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateData, deleteProtection, expirationEventIn, json, key, keyData, metadata, name, tags, token, uidToken);
+    return Objects.hash(certificateData, deleteProtection, description, expirationEventIn, json, key, keyData, metadata, name, tags, token, uidToken);
   }
 
 
@@ -378,6 +406,7 @@ public class CreateCertificate {
     sb.append("class CreateCertificate {\n");
     sb.append("    certificateData: ").append(toIndentedString(certificateData)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

@@ -35,6 +35,10 @@ public class CreateDynamicSecret {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -45,7 +49,7 @@ public class CreateDynamicSecret {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private String metadata = "None";
+  private String metadata;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -84,6 +88,29 @@ public class CreateDynamicSecret {
 
   public void setDeleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public CreateDynamicSecret description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -140,11 +167,11 @@ public class CreateDynamicSecret {
   }
 
    /**
-   * Metadata about the dynamic secret
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata about the dynamic secret")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -265,6 +292,7 @@ public class CreateDynamicSecret {
     }
     CreateDynamicSecret createDynamicSecret = (CreateDynamicSecret) o;
     return Objects.equals(this.deleteProtection, createDynamicSecret.deleteProtection) &&
+        Objects.equals(this.description, createDynamicSecret.description) &&
         Objects.equals(this.json, createDynamicSecret.json) &&
         Objects.equals(this.key, createDynamicSecret.key) &&
         Objects.equals(this.metadata, createDynamicSecret.metadata) &&
@@ -276,7 +304,7 @@ public class CreateDynamicSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, key, metadata, name, tags, token, uidToken);
+    return Objects.hash(deleteProtection, description, json, key, metadata, name, tags, token, uidToken);
   }
 
 
@@ -285,6 +313,7 @@ public class CreateDynamicSecret {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDynamicSecret {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

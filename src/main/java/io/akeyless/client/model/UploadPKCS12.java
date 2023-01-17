@@ -39,6 +39,10 @@ public class UploadPKCS12 {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_IN = "in";
   @SerializedName(SERIALIZED_NAME_IN)
   private String in;
@@ -122,6 +126,29 @@ public class UploadPKCS12 {
   }
 
 
+  public UploadPKCS12 description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UploadPKCS12 in(String in) {
     
     this.in = in;
@@ -174,11 +201,11 @@ public class UploadPKCS12 {
   }
 
    /**
-   * A metadata about the key
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A metadata about the key")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -345,6 +372,7 @@ public class UploadPKCS12 {
     UploadPKCS12 uploadPKCS12 = (UploadPKCS12) o;
     return Objects.equals(this.customerFrgId, uploadPKCS12.customerFrgId) &&
         Objects.equals(this.deleteProtection, uploadPKCS12.deleteProtection) &&
+        Objects.equals(this.description, uploadPKCS12.description) &&
         Objects.equals(this.in, uploadPKCS12.in) &&
         Objects.equals(this.json, uploadPKCS12.json) &&
         Objects.equals(this.metadata, uploadPKCS12.metadata) &&
@@ -358,7 +386,7 @@ public class UploadPKCS12 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerFrgId, deleteProtection, in, json, metadata, name, passphrase, splitLevel, tag, token, uidToken);
+    return Objects.hash(customerFrgId, deleteProtection, description, in, json, metadata, name, passphrase, splitLevel, tag, token, uidToken);
   }
 
 
@@ -368,6 +396,7 @@ public class UploadPKCS12 {
     sb.append("class UploadPKCS12 {\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

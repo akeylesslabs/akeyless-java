@@ -227,6 +227,14 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_DB_PORT)
   private String dbPort;
 
+  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY = "db_private_key";
+  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY)
+  private String dbPrivateKey;
+
+  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE = "db_private_key_passphrase";
+  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE)
+  private String dbPrivateKeyPassphrase;
+
   public static final String SERIALIZED_NAME_DB_PWD = "db_pwd";
   @SerializedName(SERIALIZED_NAME_DB_PWD)
   private String dbPwd;
@@ -427,6 +435,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ITEM_TARGETS_ASSOC)
   private List<ItemTargetAssociation> itemTargetsAssoc = null;
 
+  public static final String SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES = "k8s_allowed_namespaces";
+  @SerializedName(SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES)
+  private String k8sAllowedNamespaces;
+
   public static final String SERIALIZED_NAME_K8S_BEARER_TOKEN = "k8s_bearer_token";
   @SerializedName(SERIALIZED_NAME_K8S_BEARER_TOKEN)
   private String k8sBearerToken;
@@ -438,6 +450,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s_cluster_endpoint";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_K8S_DYNAMIC_MODE = "k8s_dynamic_mode";
+  @SerializedName(SERIALIZED_NAME_K8S_DYNAMIC_MODE)
+  private Boolean k8sDynamicMode;
 
   public static final String SERIALIZED_NAME_K8S_NAMESPACE = "k8s_namespace";
   @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
@@ -1852,6 +1868,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails dbPrivateKey(String dbPrivateKey) {
+    
+    this.dbPrivateKey = dbPrivateKey;
+    return this;
+  }
+
+   /**
+   * (Optional) Private Key in PEM format
+   * @return dbPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Private Key in PEM format")
+
+  public String getDbPrivateKey() {
+    return dbPrivateKey;
+  }
+
+
+  public void setDbPrivateKey(String dbPrivateKey) {
+    this.dbPrivateKey = dbPrivateKey;
+  }
+
+
+  public DSProducerDetails dbPrivateKeyPassphrase(String dbPrivateKeyPassphrase) {
+    
+    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
+    return this;
+  }
+
+   /**
+   * Get dbPrivateKeyPassphrase
+   * @return dbPrivateKeyPassphrase
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbPrivateKeyPassphrase() {
+    return dbPrivateKeyPassphrase;
+  }
+
+
+  public void setDbPrivateKeyPassphrase(String dbPrivateKeyPassphrase) {
+    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
+  }
+
+
   public DSProducerDetails dbPwd(String dbPwd) {
     
     this.dbPwd = dbPwd;
@@ -3042,6 +3104,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails k8sAllowedNamespaces(String k8sAllowedNamespaces) {
+    
+    this.k8sAllowedNamespaces = k8sAllowedNamespaces;
+    return this;
+  }
+
+   /**
+   * comma-separated list of allowed namespaces. Can hold just * which signifies that any namespace is allowed
+   * @return k8sAllowedNamespaces
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "comma-separated list of allowed namespaces. Can hold just * which signifies that any namespace is allowed")
+
+  public String getK8sAllowedNamespaces() {
+    return k8sAllowedNamespaces;
+  }
+
+
+  public void setK8sAllowedNamespaces(String k8sAllowedNamespaces) {
+    this.k8sAllowedNamespaces = k8sAllowedNamespaces;
+  }
+
+
   public DSProducerDetails k8sBearerToken(String k8sBearerToken) {
     
     this.k8sBearerToken = k8sBearerToken;
@@ -3108,6 +3193,29 @@ public class DSProducerDetails {
 
   public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
     this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public DSProducerDetails k8sDynamicMode(Boolean k8sDynamicMode) {
+    
+    this.k8sDynamicMode = k8sDynamicMode;
+    return this;
+  }
+
+   /**
+   * when native k8s is in dynamic mode, user can define allowed namespaces, K8sServiceAccount doesn&#39;t exist from the start and will only be created at time of getting dynamic secret value By default dynamic mode is false and producer behaves like it did before
+   * @return k8sDynamicMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "when native k8s is in dynamic mode, user can define allowed namespaces, K8sServiceAccount doesn't exist from the start and will only be created at time of getting dynamic secret value By default dynamic mode is false and producer behaves like it did before")
+
+  public Boolean getK8sDynamicMode() {
+    return k8sDynamicMode;
+  }
+
+
+  public void setK8sDynamicMode(Boolean k8sDynamicMode) {
+    this.k8sDynamicMode = k8sDynamicMode;
   }
 
 
@@ -4963,6 +5071,8 @@ public class DSProducerDetails {
         Objects.equals(this.dbMaxOpenConns, dsProducerDetails.dbMaxOpenConns) &&
         Objects.equals(this.dbName, dsProducerDetails.dbName) &&
         Objects.equals(this.dbPort, dsProducerDetails.dbPort) &&
+        Objects.equals(this.dbPrivateKey, dsProducerDetails.dbPrivateKey) &&
+        Objects.equals(this.dbPrivateKeyPassphrase, dsProducerDetails.dbPrivateKeyPassphrase) &&
         Objects.equals(this.dbPwd, dsProducerDetails.dbPwd) &&
         Objects.equals(this.dbServerCertificates, dsProducerDetails.dbServerCertificates) &&
         Objects.equals(this.dbServerName, dsProducerDetails.dbServerName) &&
@@ -5013,9 +5123,11 @@ public class DSProducerDetails {
         Objects.equals(this.implementationType, dsProducerDetails.implementationType) &&
         Objects.equals(this.isFixedUser, dsProducerDetails.isFixedUser) &&
         Objects.equals(this.itemTargetsAssoc, dsProducerDetails.itemTargetsAssoc) &&
+        Objects.equals(this.k8sAllowedNamespaces, dsProducerDetails.k8sAllowedNamespaces) &&
         Objects.equals(this.k8sBearerToken, dsProducerDetails.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, dsProducerDetails.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, dsProducerDetails.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sDynamicMode, dsProducerDetails.k8sDynamicMode) &&
         Objects.equals(this.k8sNamespace, dsProducerDetails.k8sNamespace) &&
         Objects.equals(this.k8sServiceAccount, dsProducerDetails.k8sServiceAccount) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
@@ -5097,7 +5209,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, itemTargetsAssoc, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, itemTargetsAssoc, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -5153,6 +5265,8 @@ public class DSProducerDetails {
     sb.append("    dbMaxOpenConns: ").append(toIndentedString(dbMaxOpenConns)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    dbPort: ").append(toIndentedString(dbPort)).append("\n");
+    sb.append("    dbPrivateKey: ").append(toIndentedString(dbPrivateKey)).append("\n");
+    sb.append("    dbPrivateKeyPassphrase: ").append(toIndentedString(dbPrivateKeyPassphrase)).append("\n");
     sb.append("    dbPwd: ").append(toIndentedString(dbPwd)).append("\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
@@ -5203,9 +5317,11 @@ public class DSProducerDetails {
     sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
     sb.append("    isFixedUser: ").append(toIndentedString(isFixedUser)).append("\n");
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
+    sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sDynamicMode: ").append(toIndentedString(k8sDynamicMode)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");

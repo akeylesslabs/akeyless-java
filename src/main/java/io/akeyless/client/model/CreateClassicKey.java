@@ -44,6 +44,14 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_GPG_ALG = "gpg-alg";
+  @SerializedName(SERIALIZED_NAME_GPG_ALG)
+  private String gpgAlg;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -84,10 +92,10 @@ public class CreateClassicKey {
   }
 
    /**
-   * Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384]
+   * Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]
    * @return alg
   **/
-  @ApiModelProperty(required = true, value = "Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384]")
+  @ApiModelProperty(required = true, value = "Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]")
 
   public String getAlg() {
     return alg;
@@ -145,6 +153,52 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public CreateClassicKey gpgAlg(String gpgAlg) {
+    
+    this.gpgAlg = gpgAlg;
+    return this;
+  }
+
+   /**
+   * gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]
+   * @return gpgAlg
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]")
+
+  public String getGpgAlg() {
+    return gpgAlg;
+  }
+
+
+  public void setGpgAlg(String gpgAlg) {
+    this.gpgAlg = gpgAlg;
+  }
+
+
   public CreateClassicKey json(Boolean json) {
     
     this.json = json;
@@ -198,11 +252,11 @@ public class CreateClassicKey {
   }
 
    /**
-   * Metadata about the classic key
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata about the classic key")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -348,6 +402,8 @@ public class CreateClassicKey {
     return Objects.equals(this.alg, createClassicKey.alg) &&
         Objects.equals(this.certFileData, createClassicKey.certFileData) &&
         Objects.equals(this.deleteProtection, createClassicKey.deleteProtection) &&
+        Objects.equals(this.description, createClassicKey.description) &&
+        Objects.equals(this.gpgAlg, createClassicKey.gpgAlg) &&
         Objects.equals(this.json, createClassicKey.json) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
@@ -360,7 +416,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, deleteProtection, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
+    return Objects.hash(alg, certFileData, deleteProtection, description, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
   }
 
 
@@ -371,6 +427,8 @@ public class CreateClassicKey {
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    gpgAlg: ").append(toIndentedString(gpgAlg)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

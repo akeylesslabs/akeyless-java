@@ -47,6 +47,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description = "default_metadata";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -272,6 +276,29 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateItem json(Boolean json) {
     
     this.json = json;
@@ -324,11 +351,11 @@ public class UpdateItem {
   }
 
    /**
-   * New item metadata
+   * Deprecated - use description
    * @return newMetadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New item metadata")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getNewMetadata() {
     return newMetadata;
@@ -1029,6 +1056,7 @@ public class UpdateItem {
         Objects.equals(this.addTag, updateItem.addTag) &&
         Objects.equals(this.certFileData, updateItem.certFileData) &&
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
+        Objects.equals(this.description, updateItem.description) &&
         Objects.equals(this.json, updateItem.json) &&
         Objects.equals(this.name, updateItem.name) &&
         Objects.equals(this.newMetadata, updateItem.newMetadata) &&
@@ -1064,7 +1092,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, json, name, newMetadata, newName, rmTag, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, description, json, name, newMetadata, newName, rmTag, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
 
@@ -1076,6 +1104,7 @@ public class UpdateItem {
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");

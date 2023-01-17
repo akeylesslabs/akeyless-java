@@ -10,9 +10,10 @@ Name | Type | Description | Notes
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
 **certFileData** | **String** | PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates. |  [optional]
 **deleteProtection** | **String** |  |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Current item name | 
-**newMetadata** | **String** | New item metadata |  [optional]
+**newMetadata** | **String** | Deprecated - use description |  [optional]
 **newName** | **String** | New item name |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
 **secureAccessAddHost** | **List&lt;String&gt;** |  |  [optional]

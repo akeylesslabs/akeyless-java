@@ -63,6 +63,10 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -320,6 +324,29 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreatePKICertIssuer json(Boolean json) {
     
     this.json = json;
@@ -396,11 +423,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * A metadata about the issuer
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A metadata about the issuer")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -756,6 +783,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.codeSigningFlag, createPKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, createPKICertIssuer.country) &&
         Objects.equals(this.deleteProtection, createPKICertIssuer.deleteProtection) &&
+        Objects.equals(this.description, createPKICertIssuer.description) &&
         Objects.equals(this.json, createPKICertIssuer.json) &&
         Objects.equals(this.keyUsage, createPKICertIssuer.keyUsage) &&
         Objects.equals(this.locality, createPKICertIssuer.locality) &&
@@ -778,7 +806,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, description, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
 
@@ -794,6 +822,7 @@ public class CreatePKICertIssuer {
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");

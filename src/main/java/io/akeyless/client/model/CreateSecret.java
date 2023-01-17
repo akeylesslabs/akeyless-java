@@ -41,6 +41,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -176,6 +180,29 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreateSecret json(Boolean json) {
     
     this.json = json;
@@ -206,11 +233,11 @@ public class CreateSecret {
   }
 
    /**
-   * Metadata about the secret
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata about the secret")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -723,6 +750,7 @@ public class CreateSecret {
     CreateSecret createSecret = (CreateSecret) o;
     return Objects.equals(this.accessibility, createSecret.accessibility) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
+        Objects.equals(this.description, createSecret.description) &&
         Objects.equals(this.json, createSecret.json) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
@@ -749,7 +777,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteProtection, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
+    return Objects.hash(accessibility, deleteProtection, description, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
   }
 
 
@@ -759,6 +787,7 @@ public class CreateSecret {
     sb.append("class CreateSecret {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");

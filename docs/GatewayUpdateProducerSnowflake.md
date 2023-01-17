@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerSnowflake
 
-gatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
+GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
+**privateKey** | **String** | RSA Private key (base64 encoded) |  [optional]
+**privateKeyPassphrase** | **String** | The Private key passphrase |  [optional]
 **role** | **String** | User role |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]

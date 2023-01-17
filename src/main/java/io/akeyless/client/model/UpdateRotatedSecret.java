@@ -56,6 +56,10 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
   private String customPayload;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description = "default_metadata";
+
   public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
@@ -335,6 +339,29 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateRotatedSecret gcpKey(String gcpKey) {
     
     this.gcpKey = gcpKey;
@@ -456,11 +483,11 @@ public class UpdateRotatedSecret {
   }
 
    /**
-   * New item metadata
+   * Deprecated - use description
    * @return newMetadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New item metadata")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getNewMetadata() {
     return newMetadata;
@@ -1124,6 +1151,7 @@ public class UpdateRotatedSecret {
         Objects.equals(this.autoRotate, updateRotatedSecret.autoRotate) &&
         Objects.equals(this.awsRegion, updateRotatedSecret.awsRegion) &&
         Objects.equals(this.customPayload, updateRotatedSecret.customPayload) &&
+        Objects.equals(this.description, updateRotatedSecret.description) &&
         Objects.equals(this.gcpKey, updateRotatedSecret.gcpKey) &&
         Objects.equals(this.json, updateRotatedSecret.json) &&
         Objects.equals(this.keepPrevVersion, updateRotatedSecret.keepPrevVersion) &&
@@ -1161,7 +1189,7 @@ public class UpdateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
   }
 
 
@@ -1175,6 +1203,7 @@ public class UpdateRotatedSecret {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

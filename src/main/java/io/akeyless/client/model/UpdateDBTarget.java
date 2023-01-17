@@ -113,6 +113,14 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_SNOWFLAKE_ACCOUNT)
   private String snowflakeAccount;
 
+  public static final String SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY = "snowflake-api-private-key";
+  @SerializedName(SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY)
+  private String snowflakeApiPrivateKey;
+
+  public static final String SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY_PASSWORD = "snowflake-api-private-key-password";
+  @SerializedName(SERIALIZED_NAME_SNOWFLAKE_API_PRIVATE_KEY_PASSWORD)
+  private String snowflakeApiPrivateKeyPassword;
+
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   private Boolean ssl;
@@ -619,6 +627,52 @@ public class UpdateDBTarget {
   }
 
 
+  public UpdateDBTarget snowflakeApiPrivateKey(String snowflakeApiPrivateKey) {
+    
+    this.snowflakeApiPrivateKey = snowflakeApiPrivateKey;
+    return this;
+  }
+
+   /**
+   * RSA Private key (base64 encoded)
+   * @return snowflakeApiPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RSA Private key (base64 encoded)")
+
+  public String getSnowflakeApiPrivateKey() {
+    return snowflakeApiPrivateKey;
+  }
+
+
+  public void setSnowflakeApiPrivateKey(String snowflakeApiPrivateKey) {
+    this.snowflakeApiPrivateKey = snowflakeApiPrivateKey;
+  }
+
+
+  public UpdateDBTarget snowflakeApiPrivateKeyPassword(String snowflakeApiPrivateKeyPassword) {
+    
+    this.snowflakeApiPrivateKeyPassword = snowflakeApiPrivateKeyPassword;
+    return this;
+  }
+
+   /**
+   * The Private key passphrase
+   * @return snowflakeApiPrivateKeyPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Private key passphrase")
+
+  public String getSnowflakeApiPrivateKeyPassword() {
+    return snowflakeApiPrivateKeyPassword;
+  }
+
+
+  public void setSnowflakeApiPrivateKeyPassword(String snowflakeApiPrivateKeyPassword) {
+    this.snowflakeApiPrivateKeyPassword = snowflakeApiPrivateKeyPassword;
+  }
+
+
   public UpdateDBTarget ssl(Boolean ssl) {
     
     this.ssl = ssl;
@@ -787,6 +841,8 @@ public class UpdateDBTarget {
         Objects.equals(this.port, updateDBTarget.port) &&
         Objects.equals(this.pwd, updateDBTarget.pwd) &&
         Objects.equals(this.snowflakeAccount, updateDBTarget.snowflakeAccount) &&
+        Objects.equals(this.snowflakeApiPrivateKey, updateDBTarget.snowflakeApiPrivateKey) &&
+        Objects.equals(this.snowflakeApiPrivateKeyPassword, updateDBTarget.snowflakeApiPrivateKeyPassword) &&
         Objects.equals(this.ssl, updateDBTarget.ssl) &&
         Objects.equals(this.sslCertificate, updateDBTarget.sslCertificate) &&
         Objects.equals(this.token, updateDBTarget.token) &&
@@ -797,7 +853,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
 
@@ -826,6 +882,8 @@ public class UpdateDBTarget {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
+    sb.append("    snowflakeApiPrivateKey: ").append(toIndentedString(snowflakeApiPrivateKey)).append("\n");
+    sb.append("    snowflakeApiPrivateKeyPassword: ").append(toIndentedString(snowflakeApiPrivateKeyPassword)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

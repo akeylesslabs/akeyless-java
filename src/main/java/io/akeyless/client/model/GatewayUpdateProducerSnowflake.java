@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
+ * GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
  */
-@ApiModel(description = "gatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer")
+@ApiModel(description = "GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer")
 
 public class GatewayUpdateProducerSnowflake {
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
@@ -63,6 +63,14 @@ public class GatewayUpdateProducerSnowflake {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+  private String privateKey;
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSPHRASE = "private-key-passphrase";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSPHRASE)
+  private String privateKeyPassphrase;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
@@ -276,6 +284,52 @@ public class GatewayUpdateProducerSnowflake {
   }
 
 
+  public GatewayUpdateProducerSnowflake privateKey(String privateKey) {
+    
+    this.privateKey = privateKey;
+    return this;
+  }
+
+   /**
+   * RSA Private key (base64 encoded)
+   * @return privateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RSA Private key (base64 encoded)")
+
+  public String getPrivateKey() {
+    return privateKey;
+  }
+
+
+  public void setPrivateKey(String privateKey) {
+    this.privateKey = privateKey;
+  }
+
+
+  public GatewayUpdateProducerSnowflake privateKeyPassphrase(String privateKeyPassphrase) {
+    
+    this.privateKeyPassphrase = privateKeyPassphrase;
+    return this;
+  }
+
+   /**
+   * The Private key passphrase
+   * @return privateKeyPassphrase
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Private key passphrase")
+
+  public String getPrivateKeyPassphrase() {
+    return privateKeyPassphrase;
+  }
+
+
+  public void setPrivateKeyPassphrase(String privateKeyPassphrase) {
+    this.privateKeyPassphrase = privateKeyPassphrase;
+  }
+
+
   public GatewayUpdateProducerSnowflake role(String role) {
     
     this.role = role;
@@ -462,6 +516,8 @@ public class GatewayUpdateProducerSnowflake {
         Objects.equals(this.json, gatewayUpdateProducerSnowflake.json) &&
         Objects.equals(this.name, gatewayUpdateProducerSnowflake.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerSnowflake.newName) &&
+        Objects.equals(this.privateKey, gatewayUpdateProducerSnowflake.privateKey) &&
+        Objects.equals(this.privateKeyPassphrase, gatewayUpdateProducerSnowflake.privateKeyPassphrase) &&
         Objects.equals(this.role, gatewayUpdateProducerSnowflake.role) &&
         Objects.equals(this.tags, gatewayUpdateProducerSnowflake.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerSnowflake.targetName) &&
@@ -473,7 +529,7 @@ public class GatewayUpdateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, json, name, newName, role, tags, targetName, token, uidToken, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, json, name, newName, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
 
@@ -489,6 +545,8 @@ public class GatewayUpdateProducerSnowflake {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    privateKeyPassphrase: ").append(toIndentedString(privateKeyPassphrase)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");

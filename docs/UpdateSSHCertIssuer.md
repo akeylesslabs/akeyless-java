@@ -8,9 +8,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
 **allowedUsers** | **String** | Users allowed to fetch the certificate, e.g root,ubuntu | 
+**description** | **String** | Description of the object |  [optional]
 **extensions** | **Map&lt;String, String&gt;** | Signed certificates with extensions, e.g permit-port-forwarding&#x3D;\\\&quot;\\\&quot; |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**metadata** | **String** | A metadata about the issuer |  [optional]
+**metadata** | **String** | Deprecated - use description |  [optional]
 **name** | **String** | SSH certificate issuer name | 
 **newName** | **String** | New item name |  [optional]
 **principals** | **String** | Signed certificates with principal, e.g example_role1,example_role2 |  [optional]

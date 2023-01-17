@@ -56,6 +56,10 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description = "default_metadata";
+
   public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
@@ -271,6 +275,29 @@ public class GatewayUpdateItem {
   }
 
 
+  public GatewayUpdateItem description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public GatewayUpdateItem gcpKey(String gcpKey) {
     
     this.gcpKey = gcpKey;
@@ -392,11 +419,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * New item metadata
+   * Deprecated - use description
    * @return newMetadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New item metadata")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getNewMetadata() {
     return newMetadata;
@@ -683,6 +710,7 @@ public class GatewayUpdateItem {
         Objects.equals(this.autoRotate, gatewayUpdateItem.autoRotate) &&
         Objects.equals(this.customPayload, gatewayUpdateItem.customPayload) &&
         Objects.equals(this.deleteProtection, gatewayUpdateItem.deleteProtection) &&
+        Objects.equals(this.description, gatewayUpdateItem.description) &&
         Objects.equals(this.gcpKey, gatewayUpdateItem.gcpKey) &&
         Objects.equals(this.json, gatewayUpdateItem.json) &&
         Objects.equals(this.keepPrevVersion, gatewayUpdateItem.keepPrevVersion) &&
@@ -704,7 +732,7 @@ public class GatewayUpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, description, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
 
@@ -718,6 +746,7 @@ public class GatewayUpdateItem {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

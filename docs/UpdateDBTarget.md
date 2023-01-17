@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **port** | **String** |  |  [optional]
 **pwd** | **String** |  |  [optional]
 **snowflakeAccount** | **String** |  |  [optional]
+**snowflakeApiPrivateKey** | **String** | RSA Private key (base64 encoded) |  [optional]
+**snowflakeApiPrivateKeyPassword** | **String** | The Private key passphrase |  [optional]
 **ssl** | **Boolean** | SSL connection mode |  [optional]
 **sslCertificate** | **String** | SSL connection certificate |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

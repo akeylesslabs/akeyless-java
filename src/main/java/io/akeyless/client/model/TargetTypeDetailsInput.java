@@ -143,6 +143,14 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_DB_PORT)
   private String dbPort;
 
+  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY = "db_private_key";
+  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY)
+  private String dbPrivateKey;
+
+  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE = "db_private_key_passphrase";
+  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE)
+  private String dbPrivateKeyPassphrase;
+
   public static final String SERIALIZED_NAME_DB_PWD = "db_pwd";
   @SerializedName(SERIALIZED_NAME_DB_PWD)
   private String dbPwd;
@@ -1061,6 +1069,52 @@ public class TargetTypeDetailsInput {
 
   public void setDbPort(String dbPort) {
     this.dbPort = dbPort;
+  }
+
+
+  public TargetTypeDetailsInput dbPrivateKey(String dbPrivateKey) {
+    
+    this.dbPrivateKey = dbPrivateKey;
+    return this;
+  }
+
+   /**
+   * (Optional) Private Key in PEM format
+   * @return dbPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Private Key in PEM format")
+
+  public String getDbPrivateKey() {
+    return dbPrivateKey;
+  }
+
+
+  public void setDbPrivateKey(String dbPrivateKey) {
+    this.dbPrivateKey = dbPrivateKey;
+  }
+
+
+  public TargetTypeDetailsInput dbPrivateKeyPassphrase(String dbPrivateKeyPassphrase) {
+    
+    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
+    return this;
+  }
+
+   /**
+   * Get dbPrivateKeyPassphrase
+   * @return dbPrivateKeyPassphrase
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbPrivateKeyPassphrase() {
+    return dbPrivateKeyPassphrase;
+  }
+
+
+  public void setDbPrivateKeyPassphrase(String dbPrivateKeyPassphrase) {
+    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
   }
 
 
@@ -2596,6 +2650,8 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.dbHostName, targetTypeDetailsInput.dbHostName) &&
         Objects.equals(this.dbName, targetTypeDetailsInput.dbName) &&
         Objects.equals(this.dbPort, targetTypeDetailsInput.dbPort) &&
+        Objects.equals(this.dbPrivateKey, targetTypeDetailsInput.dbPrivateKey) &&
+        Objects.equals(this.dbPrivateKeyPassphrase, targetTypeDetailsInput.dbPrivateKeyPassphrase) &&
         Objects.equals(this.dbPwd, targetTypeDetailsInput.dbPwd) &&
         Objects.equals(this.dbServerCertificates, targetTypeDetailsInput.dbServerCertificates) &&
         Objects.equals(this.dbServerName, targetTypeDetailsInput.dbServerName) &&
@@ -2665,7 +2721,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2701,6 +2757,8 @@ public class TargetTypeDetailsInput {
     sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    dbPort: ").append(toIndentedString(dbPort)).append("\n");
+    sb.append("    dbPrivateKey: ").append(toIndentedString(dbPrivateKey)).append("\n");
+    sb.append("    dbPrivateKeyPassphrase: ").append(toIndentedString(dbPrivateKeyPassphrase)).append("\n");
     sb.append("    dbPwd: ").append(toIndentedString(dbPwd)).append("\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");

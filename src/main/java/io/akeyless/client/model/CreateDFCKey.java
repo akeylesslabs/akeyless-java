@@ -43,6 +43,10 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -140,6 +144,29 @@ public class CreateDFCKey {
   }
 
 
+  public CreateDFCKey description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreateDFCKey json(Boolean json) {
     
     this.json = json;
@@ -170,11 +197,11 @@ public class CreateDFCKey {
   }
 
    /**
-   * Metadata about the DFC key
+   * Deprecated - use description
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata about the DFC key")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getMetadata() {
     return metadata;
@@ -320,6 +347,7 @@ public class CreateDFCKey {
     return Objects.equals(this.alg, createDFCKey.alg) &&
         Objects.equals(this.customerFrgId, createDFCKey.customerFrgId) &&
         Objects.equals(this.deleteProtection, createDFCKey.deleteProtection) &&
+        Objects.equals(this.description, createDFCKey.description) &&
         Objects.equals(this.json, createDFCKey.json) &&
         Objects.equals(this.metadata, createDFCKey.metadata) &&
         Objects.equals(this.name, createDFCKey.name) &&
@@ -331,7 +359,7 @@ public class CreateDFCKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, deleteProtection, json, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, customerFrgId, deleteProtection, description, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
 
@@ -342,6 +370,7 @@ public class CreateDFCKey {
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
