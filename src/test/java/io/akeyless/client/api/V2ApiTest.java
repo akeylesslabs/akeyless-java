@@ -626,22 +626,6 @@ public class V2ApiTest {
         // TODO: test validations
     }
     
-
-    /**
-     * 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void gatewayAddSubAdminsTest() throws ApiException {
-        GatewayAddAllowedManagementAccess body = null;
-        Object response = api.gatewayAddAllowedManagementAccess(body);
-        // TODO: test validations
-    }
-    
     /**
      * 
      *
