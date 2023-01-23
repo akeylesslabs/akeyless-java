@@ -42,6 +42,10 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_COMMON_NAME)
   private String commonName;
 
+  public static final String SERIALIZED_NAME_CSR_DATA_BASE64 = "csr-data-base64";
+  @SerializedName(SERIALIZED_NAME_CSR_DATA_BASE64)
+  private String csrDataBase64;
+
   public static final String SERIALIZED_NAME_EXTENDED_KEY_USAGE = "extended-key-usage";
   @SerializedName(SERIALIZED_NAME_EXTENDED_KEY_USAGE)
   private String extendedKeyUsage;
@@ -78,11 +82,11 @@ public class GetKubeExecCreds {
   }
 
    /**
-   * The Subject Alternative Names to be included in the PKI certificate (in a comma-delimited list)
+   * The Subject Alternative Names to be included in the PKI certificate (in a comma-separated list) (if CSR is supplied this flag is ignored and any DNS.* names are taken from it)
    * @return altNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Subject Alternative Names to be included in the PKI certificate (in a comma-delimited list)")
+  @ApiModelProperty(value = "The Subject Alternative Names to be included in the PKI certificate (in a comma-separated list) (if CSR is supplied this flag is ignored and any DNS.* names are taken from it)")
 
   public String getAltNames() {
     return altNames;
@@ -123,11 +127,11 @@ public class GetKubeExecCreds {
   }
 
    /**
-   * The common name to be included in the PKI certificate
+   * The common name to be included in the PKI certificate (if CSR is supplied this flag is ignored and the CSR subject CN is taken)
    * @return commonName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The common name to be included in the PKI certificate")
+  @ApiModelProperty(value = "The common name to be included in the PKI certificate (if CSR is supplied this flag is ignored and the CSR subject CN is taken)")
 
   public String getCommonName() {
     return commonName;
@@ -136,6 +140,29 @@ public class GetKubeExecCreds {
 
   public void setCommonName(String commonName) {
     this.commonName = commonName;
+  }
+
+
+  public GetKubeExecCreds csrDataBase64(String csrDataBase64) {
+    
+    this.csrDataBase64 = csrDataBase64;
+    return this;
+  }
+
+   /**
+   * Certificate Signing Request contents encoded in base64 to generate the certificate with
+   * @return csrDataBase64
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate Signing Request contents encoded in base64 to generate the certificate with")
+
+  public String getCsrDataBase64() {
+    return csrDataBase64;
+  }
+
+
+  public void setCsrDataBase64(String csrDataBase64) {
+    this.csrDataBase64 = csrDataBase64;
   }
 
 
@@ -284,11 +311,11 @@ public class GetKubeExecCreds {
   }
 
    /**
-   * The URI Subject Alternative Names to be included in the PKI certificate (in a comma-delimited list)
+   * The URI Subject Alternative Names to be included in the PKI certificate (in a comma-separated list) (if CSR is supplied this flag is ignored and any URI.* names are taken from it)
    * @return uriSans
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URI Subject Alternative Names to be included in the PKI certificate (in a comma-delimited list)")
+  @ApiModelProperty(value = "The URI Subject Alternative Names to be included in the PKI certificate (in a comma-separated list) (if CSR is supplied this flag is ignored and any URI.* names are taken from it)")
 
   public String getUriSans() {
     return uriSans;
@@ -312,6 +339,7 @@ public class GetKubeExecCreds {
     return Objects.equals(this.altNames, getKubeExecCreds.altNames) &&
         Objects.equals(this.certIssuerName, getKubeExecCreds.certIssuerName) &&
         Objects.equals(this.commonName, getKubeExecCreds.commonName) &&
+        Objects.equals(this.csrDataBase64, getKubeExecCreds.csrDataBase64) &&
         Objects.equals(this.extendedKeyUsage, getKubeExecCreds.extendedKeyUsage) &&
         Objects.equals(this.json, getKubeExecCreds.json) &&
         Objects.equals(this.keyDataBase64, getKubeExecCreds.keyDataBase64) &&
@@ -323,7 +351,7 @@ public class GetKubeExecCreds {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
 
@@ -334,6 +362,7 @@ public class GetKubeExecCreds {
     sb.append("    altNames: ").append(toIndentedString(altNames)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
+    sb.append("    csrDataBase64: ").append(toIndentedString(csrDataBase64)).append("\n");
     sb.append("    extendedKeyUsage: ").append(toIndentedString(extendedKeyUsage)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");

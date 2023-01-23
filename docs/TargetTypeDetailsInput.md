@@ -6,11 +6,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**administrativePort** | **String** |  |  [optional]
 **appPrivateKey** | **List&lt;Integer&gt;** | params needed for jwt auth AppPrivateKey is the rsa private key in PEM format |  [optional]
 **artifactoryAdminApikey** | **String** |  |  [optional]
 **artifactoryAdminUsername** | **String** |  |  [optional]
 **artifactoryBaseUrl** | **String** |  |  [optional]
 **authFlow** | **String** |  |  [optional]
+**authorizationPort** | **String** |  |  [optional]
 **awsAccessKeyId** | **String** |  |  [optional]
 **awsRegion** | **String** |  |  [optional]
 **awsSecretAccessKey** | **String** |  |  [optional]
@@ -80,9 +82,11 @@ Name | Type | Description | Notes
 **mongodbUsername** | **String** |  |  [optional]
 **password** | **String** |  |  [optional]
 **payload** | **String** |  |  [optional]
+**pingUrl** | **String** |  |  [optional]
 **port** | **String** |  |  [optional]
 **privateKey** | **String** |  |  [optional]
 **privateKeyPassword** | **String** |  |  [optional]
+**privilegedUser** | **String** |  |  [optional]
 **rabbitmqServerPassword** | **String** |  |  [optional]
 **rabbitmqServerUri** | **String** |  |  [optional]
 **rabbitmqServerUser** | **String** |  |  [optional]
@@ -94,6 +98,7 @@ Name | Type | Description | Notes
 **url** | **String** |  |  [optional]
 **useGwCloudIdentity** | **Boolean** |  |  [optional]
 **userName** | **String** |  |  [optional]
+**userPassword** | **String** |  |  [optional]
 **username** | **String** |  |  [optional]
 **venafiApiKey** | **String** |  |  [optional]
 **venafiBaseUrl** | **String** |  |  [optional]

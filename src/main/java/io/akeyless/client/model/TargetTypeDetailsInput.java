@@ -31,6 +31,10 @@ import java.util.List;
  */
 
 public class TargetTypeDetailsInput {
+  public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative_port";
+  @SerializedName(SERIALIZED_NAME_ADMINISTRATIVE_PORT)
+  private String administrativePort;
+
   public static final String SERIALIZED_NAME_APP_PRIVATE_KEY = "app_private_key";
   @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY)
   private List<Integer> appPrivateKey = null;
@@ -50,6 +54,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_AUTH_FLOW = "auth_flow";
   @SerializedName(SERIALIZED_NAME_AUTH_FLOW)
   private String authFlow;
+
+  public static final String SERIALIZED_NAME_AUTHORIZATION_PORT = "authorization_port";
+  @SerializedName(SERIALIZED_NAME_AUTHORIZATION_PORT)
+  private String authorizationPort;
 
   public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws_access_key_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
@@ -327,6 +335,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
 
+  public static final String SERIALIZED_NAME_PING_URL = "ping_url";
+  @SerializedName(SERIALIZED_NAME_PING_URL)
+  private String pingUrl;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   private String port;
@@ -338,6 +350,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSWORD = "private_key_password";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSWORD)
   private String privateKeyPassword;
+
+  public static final String SERIALIZED_NAME_PRIVILEGED_USER = "privileged_user";
+  @SerializedName(SERIALIZED_NAME_PRIVILEGED_USER)
+  private String privilegedUser;
 
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
@@ -383,6 +399,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
 
+  public static final String SERIALIZED_NAME_USER_PASSWORD = "user_password";
+  @SerializedName(SERIALIZED_NAME_USER_PASSWORD)
+  private String userPassword;
+
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
@@ -410,6 +430,29 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_VENAFI_ZONE = "venafi_zone";
   @SerializedName(SERIALIZED_NAME_VENAFI_ZONE)
   private String venafiZone;
+
+
+  public TargetTypeDetailsInput administrativePort(String administrativePort) {
+    
+    this.administrativePort = administrativePort;
+    return this;
+  }
+
+   /**
+   * Get administrativePort
+   * @return administrativePort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAdministrativePort() {
+    return administrativePort;
+  }
+
+
+  public void setAdministrativePort(String administrativePort) {
+    this.administrativePort = administrativePort;
+  }
 
 
   public TargetTypeDetailsInput appPrivateKey(List<Integer> appPrivateKey) {
@@ -532,6 +575,29 @@ public class TargetTypeDetailsInput {
 
   public void setAuthFlow(String authFlow) {
     this.authFlow = authFlow;
+  }
+
+
+  public TargetTypeDetailsInput authorizationPort(String authorizationPort) {
+    
+    this.authorizationPort = authorizationPort;
+    return this;
+  }
+
+   /**
+   * Get authorizationPort
+   * @return authorizationPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAuthorizationPort() {
+    return authorizationPort;
+  }
+
+
+  public void setAuthorizationPort(String authorizationPort) {
+    this.authorizationPort = authorizationPort;
   }
 
 
@@ -2130,6 +2196,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput pingUrl(String pingUrl) {
+    
+    this.pingUrl = pingUrl;
+    return this;
+  }
+
+   /**
+   * Get pingUrl
+   * @return pingUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPingUrl() {
+    return pingUrl;
+  }
+
+
+  public void setPingUrl(String pingUrl) {
+    this.pingUrl = pingUrl;
+  }
+
+
   public TargetTypeDetailsInput port(String port) {
     
     this.port = port;
@@ -2196,6 +2285,29 @@ public class TargetTypeDetailsInput {
 
   public void setPrivateKeyPassword(String privateKeyPassword) {
     this.privateKeyPassword = privateKeyPassword;
+  }
+
+
+  public TargetTypeDetailsInput privilegedUser(String privilegedUser) {
+    
+    this.privilegedUser = privilegedUser;
+    return this;
+  }
+
+   /**
+   * Get privilegedUser
+   * @return privilegedUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivilegedUser() {
+    return privilegedUser;
+  }
+
+
+  public void setPrivilegedUser(String privilegedUser) {
+    this.privilegedUser = privilegedUser;
   }
 
 
@@ -2452,6 +2564,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput userPassword(String userPassword) {
+    
+    this.userPassword = userPassword;
+    return this;
+  }
+
+   /**
+   * Get userPassword
+   * @return userPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUserPassword() {
+    return userPassword;
+  }
+
+
+  public void setUserPassword(String userPassword) {
+    this.userPassword = userPassword;
+  }
+
+
   public TargetTypeDetailsInput username(String username) {
     
     this.username = username;
@@ -2622,11 +2757,13 @@ public class TargetTypeDetailsInput {
       return false;
     }
     TargetTypeDetailsInput targetTypeDetailsInput = (TargetTypeDetailsInput) o;
-    return Objects.equals(this.appPrivateKey, targetTypeDetailsInput.appPrivateKey) &&
+    return Objects.equals(this.administrativePort, targetTypeDetailsInput.administrativePort) &&
+        Objects.equals(this.appPrivateKey, targetTypeDetailsInput.appPrivateKey) &&
         Objects.equals(this.artifactoryAdminApikey, targetTypeDetailsInput.artifactoryAdminApikey) &&
         Objects.equals(this.artifactoryAdminUsername, targetTypeDetailsInput.artifactoryAdminUsername) &&
         Objects.equals(this.artifactoryBaseUrl, targetTypeDetailsInput.artifactoryBaseUrl) &&
         Objects.equals(this.authFlow, targetTypeDetailsInput.authFlow) &&
+        Objects.equals(this.authorizationPort, targetTypeDetailsInput.authorizationPort) &&
         Objects.equals(this.awsAccessKeyId, targetTypeDetailsInput.awsAccessKeyId) &&
         Objects.equals(this.awsRegion, targetTypeDetailsInput.awsRegion) &&
         Objects.equals(this.awsSecretAccessKey, targetTypeDetailsInput.awsSecretAccessKey) &&
@@ -2696,9 +2833,11 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.mongodbUsername, targetTypeDetailsInput.mongodbUsername) &&
         Objects.equals(this.password, targetTypeDetailsInput.password) &&
         Objects.equals(this.payload, targetTypeDetailsInput.payload) &&
+        Objects.equals(this.pingUrl, targetTypeDetailsInput.pingUrl) &&
         Objects.equals(this.port, targetTypeDetailsInput.port) &&
         Objects.equals(this.privateKey, targetTypeDetailsInput.privateKey) &&
         Objects.equals(this.privateKeyPassword, targetTypeDetailsInput.privateKeyPassword) &&
+        Objects.equals(this.privilegedUser, targetTypeDetailsInput.privilegedUser) &&
         Objects.equals(this.rabbitmqServerPassword, targetTypeDetailsInput.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
@@ -2710,6 +2849,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.url, targetTypeDetailsInput.url) &&
         Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
         Objects.equals(this.userName, targetTypeDetailsInput.userName) &&
+        Objects.equals(this.userPassword, targetTypeDetailsInput.userPassword) &&
         Objects.equals(this.username, targetTypeDetailsInput.username) &&
         Objects.equals(this.venafiApiKey, targetTypeDetailsInput.venafiApiKey) &&
         Objects.equals(this.venafiBaseUrl, targetTypeDetailsInput.venafiBaseUrl) &&
@@ -2721,7 +2861,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, port, privateKey, privateKeyPassword, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2729,11 +2869,13 @@ public class TargetTypeDetailsInput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetTypeDetailsInput {\n");
+    sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
     sb.append("    appPrivateKey: ").append(toIndentedString(appPrivateKey)).append("\n");
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
     sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
     sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");
     sb.append("    authFlow: ").append(toIndentedString(authFlow)).append("\n");
+    sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");
@@ -2803,9 +2945,11 @@ public class TargetTypeDetailsInput {
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
+    sb.append("    pingUrl: ").append(toIndentedString(pingUrl)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
+    sb.append("    privilegedUser: ").append(toIndentedString(privilegedUser)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
@@ -2817,6 +2961,7 @@ public class TargetTypeDetailsInput {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
     sb.append("    venafiBaseUrl: ").append(toIndentedString(venafiBaseUrl)).append("\n");

@@ -87,6 +87,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT = "rotate-after-disconnect";
+  @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
+  private String rotateAfterDisconnect = "false";
+
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
   private String rotatedPassword;
@@ -522,6 +526,29 @@ public class CreateRotatedSecret {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateRotatedSecret rotateAfterDisconnect(String rotateAfterDisconnect) {
+    
+    this.rotateAfterDisconnect = rotateAfterDisconnect;
+    return this;
+  }
+
+   /**
+   * Rotate the value of the secret after SRA session ends
+   * @return rotateAfterDisconnect
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends")
+
+  public String getRotateAfterDisconnect() {
+    return rotateAfterDisconnect;
+  }
+
+
+  public void setRotateAfterDisconnect(String rotateAfterDisconnect) {
+    this.rotateAfterDisconnect = rotateAfterDisconnect;
   }
 
 
@@ -1229,6 +1256,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
+        Objects.equals(this.rotateAfterDisconnect, createRotatedSecret.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, createRotatedSecret.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, createRotatedSecret.rotatedUsername) &&
         Objects.equals(this.rotationHour, createRotatedSecret.rotationHour) &&
@@ -1262,7 +1290,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, json, key, metadata, name, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
 
@@ -1284,6 +1312,7 @@ public class CreateRotatedSecret {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");

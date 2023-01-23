@@ -35,6 +35,10 @@ import java.util.Map;
  */
 
 public class DSProducerDetails {
+  public static final String SERIALIZED_NAME_ACCESS_TOKEN_MANAGER_ID = "access_token_manager_id";
+  @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN_MANAGER_ID)
+  private String accessTokenManagerId;
+
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
@@ -50,6 +54,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin_rotation_interval_days";
   @SerializedName(SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS)
   private Long adminRotationIntervalDays;
+
+  public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative_port";
+  @SerializedName(SERIALIZED_NAME_ADMINISTRATIVE_PORT)
+  private String administrativePort;
 
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY = "artifactory_admin_apikey";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY)
@@ -70,6 +78,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_ARTIFACTORY_TOKEN_SCOPE = "artifactory_token_scope";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_TOKEN_SCOPE)
   private String artifactoryTokenScope;
+
+  public static final String SERIALIZED_NAME_AUTHORIZATION_PORT = "authorization_port";
+  @SerializedName(SERIALIZED_NAME_AUTHORIZATION_PORT)
+  private String authorizationPort;
 
   public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws_access_key_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
@@ -199,6 +211,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_CHEF_SKIP_SSL)
   private Boolean chefSkipSsl;
 
+  public static final String SERIALIZED_NAME_CLIENT_AUTHENTICATION_TYPE = "client_authentication_type";
+  @SerializedName(SERIALIZED_NAME_CLIENT_AUTHENTICATION_TYPE)
+  private String clientAuthenticationType;
+
   public static final String SERIALIZED_NAME_CREATE_SYNC_URL = "create_sync_url";
   @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
   private String createSyncUrl;
@@ -303,6 +319,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   private Boolean enableAdminRotation;
 
+  public static final String SERIALIZED_NAME_ENFORCE_REPLAY_PREVENTION = "enforce_replay_prevention";
+  @SerializedName(SERIALIZED_NAME_ENFORCE_REPLAY_PREVENTION)
+  private Boolean enforceReplayPrevention;
+
   public static final String SERIALIZED_NAME_EXTERNALLY_PROVIDED_USER = "externally_provided_user";
   @SerializedName(SERIALIZED_NAME_EXTERNALLY_PROVIDED_USER)
   private String externallyProvidedUser;
@@ -403,6 +423,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_NAME)
   private String gkeServiceAccountName;
 
+  public static final String SERIALIZED_NAME_GRANT_TYPES = "grant_types";
+  @SerializedName(SERIALIZED_NAME_GRANT_TYPES)
+  private List<String> grantTypes = null;
+
   public static final String SERIALIZED_NAME_GROUPS = "groups";
   @SerializedName(SERIALIZED_NAME_GROUPS)
   private String groups;
@@ -431,9 +455,21 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_IS_FIXED_USER)
   private String isFixedUser;
 
+  public static final String SERIALIZED_NAME_ISSUER = "issuer";
+  @SerializedName(SERIALIZED_NAME_ISSUER)
+  private String issuer;
+
   public static final String SERIALIZED_NAME_ITEM_TARGETS_ASSOC = "item_targets_assoc";
   @SerializedName(SERIALIZED_NAME_ITEM_TARGETS_ASSOC)
   private List<ItemTargetAssociation> itemTargetsAssoc = null;
+
+  public static final String SERIALIZED_NAME_JWKS = "jwks";
+  @SerializedName(SERIALIZED_NAME_JWKS)
+  private String jwks;
+
+  public static final String SERIALIZED_NAME_JWKS_URL = "jwks_url";
+  @SerializedName(SERIALIZED_NAME_JWKS_URL)
+  private String jwksUrl;
 
   public static final String SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES = "k8s_allowed_namespaces";
   @SerializedName(SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES)
@@ -459,9 +495,25 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
   private String k8sNamespace;
 
+  public static final String SERIALIZED_NAME_K8S_ROLE_NAME = "k8s_role_name";
+  @SerializedName(SERIALIZED_NAME_K8S_ROLE_NAME)
+  private String k8sRoleName;
+
+  public static final String SERIALIZED_NAME_K8S_ROLE_TYPE = "k8s_role_type";
+  @SerializedName(SERIALIZED_NAME_K8S_ROLE_TYPE)
+  private String k8sRoleType;
+
   public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT = "k8s_service_account";
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT)
   private String k8sServiceAccount;
+
+  public static final String SERIALIZED_NAME_K8S_TEMP_ROLE_BINDING_DEFINITION = "k8s_temp_role_binding_definition";
+  @SerializedName(SERIALIZED_NAME_K8S_TEMP_ROLE_BINDING_DEFINITION)
+  private List<Integer> k8sTempRoleBindingDefinition = null;
+
+  public static final String SERIALIZED_NAME_K8S_TEMP_ROLE_DEFINITION = "k8s_temp_role_definition";
+  @SerializedName(SERIALIZED_NAME_K8S_TEMP_ROLE_DEFINITION)
+  private List<Integer> k8sTempRoleDefinition = null;
 
   public static final String SERIALIZED_NAME_LAST_ADMIN_ROTATION = "last_admin_rotation";
   @SerializedName(SERIALIZED_NAME_LAST_ADMIN_ROTATION)
@@ -587,6 +639,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
 
+  public static final String SERIALIZED_NAME_PING_URL = "ping_url";
+  @SerializedName(SERIALIZED_NAME_PING_URL)
+  private String pingUrl;
+
   public static final String SERIALIZED_NAME_POSTGRES_CREATION_STATEMENTS = "postgres_creation_statements";
   @SerializedName(SERIALIZED_NAME_POSTGRES_CREATION_STATEMENTS)
   private String postgresCreationStatements;
@@ -594,6 +650,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_POSTGRES_REVOCATION_STATEMENTS = "postgres_revocation_statements";
   @SerializedName(SERIALIZED_NAME_POSTGRES_REVOCATION_STATEMENTS)
   private String postgresRevocationStatements;
+
+  public static final String SERIALIZED_NAME_PRIVILEGED_USER = "privileged_user";
+  @SerializedName(SERIALIZED_NAME_PRIVILEGED_USER)
+  private String privilegedUser;
 
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
@@ -627,9 +687,17 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_RABBITMQ_USER_WRITE_PERMISSION)
   private String rabbitmqUserWritePermission;
 
+  public static final String SERIALIZED_NAME_REDIRECT_URIS = "redirect_uris";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_URIS)
+  private List<String> redirectUris = null;
+
   public static final String SERIALIZED_NAME_REDSHIFT_CREATION_STATEMENTS = "redshift_creation_statements";
   @SerializedName(SERIALIZED_NAME_REDSHIFT_CREATION_STATEMENTS)
   private String redshiftCreationStatements;
+
+  public static final String SERIALIZED_NAME_RESTRICTED_SCOPES = "restricted_scopes";
+  @SerializedName(SERIALIZED_NAME_RESTRICTED_SCOPES)
+  private List<String> restrictedScopes = null;
 
   public static final String SERIALIZED_NAME_REVOKE_SYNC_URL = "revoke_sync_url";
   @SerializedName(SERIALIZED_NAME_REVOKE_SYNC_URL)
@@ -667,6 +735,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_SHOULD_STOP)
   private String shouldStop;
 
+  public static final String SERIALIZED_NAME_SIGNING_ALGORITHM = "signing_algorithm";
+  @SerializedName(SERIALIZED_NAME_SIGNING_ALGORITHM)
+  private String signingAlgorithm;
+
   public static final String SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE = "ssl_connection_certificate";
   @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE)
   private String sslConnectionCertificate;
@@ -674,6 +746,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_SSL_CONNECTION_MODE = "ssl_connection_mode";
   @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_MODE)
   private Boolean sslConnectionMode;
+
+  public static final String SERIALIZED_NAME_SUBJECT_DN = "subject_dn";
+  @SerializedName(SERIALIZED_NAME_SUBJECT_DN)
+  private String subjectDn;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -690,6 +766,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
+
+  public static final String SERIALIZED_NAME_USER_PASSWORD = "user_password";
+  @SerializedName(SERIALIZED_NAME_USER_PASSWORD)
+  private String userPassword;
 
   public static final String SERIALIZED_NAME_USER_PRINCIPAL_NAME = "user_principal_name";
   @SerializedName(SERIALIZED_NAME_USER_PRINCIPAL_NAME)
@@ -762,6 +842,29 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_WARN_BEFORE_USER_EXPIRATION_MIN = "warn_before_user_expiration_min";
   @SerializedName(SERIALIZED_NAME_WARN_BEFORE_USER_EXPIRATION_MIN)
   private Long warnBeforeUserExpirationMin;
+
+
+  public DSProducerDetails accessTokenManagerId(String accessTokenManagerId) {
+    
+    this.accessTokenManagerId = accessTokenManagerId;
+    return this;
+  }
+
+   /**
+   * Get accessTokenManagerId
+   * @return accessTokenManagerId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessTokenManagerId() {
+    return accessTokenManagerId;
+  }
+
+
+  public void setAccessTokenManagerId(String accessTokenManagerId) {
+    this.accessTokenManagerId = accessTokenManagerId;
+  }
 
 
   public DSProducerDetails active(Boolean active) {
@@ -853,6 +956,29 @@ public class DSProducerDetails {
 
   public void setAdminRotationIntervalDays(Long adminRotationIntervalDays) {
     this.adminRotationIntervalDays = adminRotationIntervalDays;
+  }
+
+
+  public DSProducerDetails administrativePort(String administrativePort) {
+    
+    this.administrativePort = administrativePort;
+    return this;
+  }
+
+   /**
+   * Get administrativePort
+   * @return administrativePort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAdministrativePort() {
+    return administrativePort;
+  }
+
+
+  public void setAdministrativePort(String administrativePort) {
+    this.administrativePort = administrativePort;
   }
 
 
@@ -968,6 +1094,29 @@ public class DSProducerDetails {
 
   public void setArtifactoryTokenScope(String artifactoryTokenScope) {
     this.artifactoryTokenScope = artifactoryTokenScope;
+  }
+
+
+  public DSProducerDetails authorizationPort(String authorizationPort) {
+    
+    this.authorizationPort = authorizationPort;
+    return this;
+  }
+
+   /**
+   * Get authorizationPort
+   * @return authorizationPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAuthorizationPort() {
+    return authorizationPort;
+  }
+
+
+  public void setAuthorizationPort(String authorizationPort) {
+    this.authorizationPort = authorizationPort;
   }
 
 
@@ -1707,6 +1856,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails clientAuthenticationType(String clientAuthenticationType) {
+    
+    this.clientAuthenticationType = clientAuthenticationType;
+    return this;
+  }
+
+   /**
+   * Get clientAuthenticationType
+   * @return clientAuthenticationType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getClientAuthenticationType() {
+    return clientAuthenticationType;
+  }
+
+
+  public void setClientAuthenticationType(String clientAuthenticationType) {
+    this.clientAuthenticationType = clientAuthenticationType;
+  }
+
+
   public DSProducerDetails createSyncUrl(String createSyncUrl) {
     
     this.createSyncUrl = createSyncUrl;
@@ -2302,6 +2474,29 @@ public class DSProducerDetails {
 
   public void setEnableAdminRotation(Boolean enableAdminRotation) {
     this.enableAdminRotation = enableAdminRotation;
+  }
+
+
+  public DSProducerDetails enforceReplayPrevention(Boolean enforceReplayPrevention) {
+    
+    this.enforceReplayPrevention = enforceReplayPrevention;
+    return this;
+  }
+
+   /**
+   * relevant for PRIVATE_KEY_JWT client authentication type
+   * @return enforceReplayPrevention
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "relevant for PRIVATE_KEY_JWT client authentication type")
+
+  public Boolean getEnforceReplayPrevention() {
+    return enforceReplayPrevention;
+  }
+
+
+  public void setEnforceReplayPrevention(Boolean enforceReplayPrevention) {
+    this.enforceReplayPrevention = enforceReplayPrevention;
   }
 
 
@@ -2912,6 +3107,37 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails grantTypes(List<String> grantTypes) {
+    
+    this.grantTypes = grantTypes;
+    return this;
+  }
+
+  public DSProducerDetails addGrantTypesItem(String grantTypesItem) {
+    if (this.grantTypes == null) {
+      this.grantTypes = new ArrayList<String>();
+    }
+    this.grantTypes.add(grantTypesItem);
+    return this;
+  }
+
+   /**
+   * Get grantTypes
+   * @return grantTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getGrantTypes() {
+    return grantTypes;
+  }
+
+
+  public void setGrantTypes(List<String> grantTypes) {
+    this.grantTypes = grantTypes;
+  }
+
+
   public DSProducerDetails groups(String groups) {
     
     this.groups = groups;
@@ -3073,6 +3299,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails issuer(String issuer) {
+    
+    this.issuer = issuer;
+    return this;
+  }
+
+   /**
+   * relevant for CLIENT_TLS_CERTIFICATE client authentication type
+   * @return issuer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "relevant for CLIENT_TLS_CERTIFICATE client authentication type")
+
+  public String getIssuer() {
+    return issuer;
+  }
+
+
+  public void setIssuer(String issuer) {
+    this.issuer = issuer;
+  }
+
+
   public DSProducerDetails itemTargetsAssoc(List<ItemTargetAssociation> itemTargetsAssoc) {
     
     this.itemTargetsAssoc = itemTargetsAssoc;
@@ -3101,6 +3350,52 @@ public class DSProducerDetails {
 
   public void setItemTargetsAssoc(List<ItemTargetAssociation> itemTargetsAssoc) {
     this.itemTargetsAssoc = itemTargetsAssoc;
+  }
+
+
+  public DSProducerDetails jwks(String jwks) {
+    
+    this.jwks = jwks;
+    return this;
+  }
+
+   /**
+   * Get jwks
+   * @return jwks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getJwks() {
+    return jwks;
+  }
+
+
+  public void setJwks(String jwks) {
+    this.jwks = jwks;
+  }
+
+
+  public DSProducerDetails jwksUrl(String jwksUrl) {
+    
+    this.jwksUrl = jwksUrl;
+    return this;
+  }
+
+   /**
+   * Get jwksUrl
+   * @return jwksUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getJwksUrl() {
+    return jwksUrl;
+  }
+
+
+  public void setJwksUrl(String jwksUrl) {
+    this.jwksUrl = jwksUrl;
   }
 
 
@@ -3242,6 +3537,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails k8sRoleName(String k8sRoleName) {
+    
+    this.k8sRoleName = k8sRoleName;
+    return this;
+  }
+
+   /**
+   * Name of the pre-existing Role or ClusterRole to bind a generated service account to.
+   * @return k8sRoleName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the pre-existing Role or ClusterRole to bind a generated service account to.")
+
+  public String getK8sRoleName() {
+    return k8sRoleName;
+  }
+
+
+  public void setK8sRoleName(String k8sRoleName) {
+    this.k8sRoleName = k8sRoleName;
+  }
+
+
+  public DSProducerDetails k8sRoleType(String k8sRoleType) {
+    
+    this.k8sRoleType = k8sRoleType;
+    return this;
+  }
+
+   /**
+   * Get k8sRoleType
+   * @return k8sRoleType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sRoleType() {
+    return k8sRoleType;
+  }
+
+
+  public void setK8sRoleType(String k8sRoleType) {
+    this.k8sRoleType = k8sRoleType;
+  }
+
+
   public DSProducerDetails k8sServiceAccount(String k8sServiceAccount) {
     
     this.k8sServiceAccount = k8sServiceAccount;
@@ -3262,6 +3603,68 @@ public class DSProducerDetails {
 
   public void setK8sServiceAccount(String k8sServiceAccount) {
     this.k8sServiceAccount = k8sServiceAccount;
+  }
+
+
+  public DSProducerDetails k8sTempRoleBindingDefinition(List<Integer> k8sTempRoleBindingDefinition) {
+    
+    this.k8sTempRoleBindingDefinition = k8sTempRoleBindingDefinition;
+    return this;
+  }
+
+  public DSProducerDetails addK8sTempRoleBindingDefinitionItem(Integer k8sTempRoleBindingDefinitionItem) {
+    if (this.k8sTempRoleBindingDefinition == null) {
+      this.k8sTempRoleBindingDefinition = new ArrayList<Integer>();
+    }
+    this.k8sTempRoleBindingDefinition.add(k8sTempRoleBindingDefinitionItem);
+    return this;
+  }
+
+   /**
+   * Yaml/Json definition of temporary role binding that will be created and deleted when TTL is due. Must have as subject name of Service Account specified in K8sServiceAccount field
+   * @return k8sTempRoleBindingDefinition
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Yaml/Json definition of temporary role binding that will be created and deleted when TTL is due. Must have as subject name of Service Account specified in K8sServiceAccount field")
+
+  public List<Integer> getK8sTempRoleBindingDefinition() {
+    return k8sTempRoleBindingDefinition;
+  }
+
+
+  public void setK8sTempRoleBindingDefinition(List<Integer> k8sTempRoleBindingDefinition) {
+    this.k8sTempRoleBindingDefinition = k8sTempRoleBindingDefinition;
+  }
+
+
+  public DSProducerDetails k8sTempRoleDefinition(List<Integer> k8sTempRoleDefinition) {
+    
+    this.k8sTempRoleDefinition = k8sTempRoleDefinition;
+    return this;
+  }
+
+  public DSProducerDetails addK8sTempRoleDefinitionItem(Integer k8sTempRoleDefinitionItem) {
+    if (this.k8sTempRoleDefinition == null) {
+      this.k8sTempRoleDefinition = new ArrayList<Integer>();
+    }
+    this.k8sTempRoleDefinition.add(k8sTempRoleDefinitionItem);
+    return this;
+  }
+
+   /**
+   * Yaml/Json definition of temporary role that will be created and deleted when TTL is due
+   * @return k8sTempRoleDefinition
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Yaml/Json definition of temporary role that will be created and deleted when TTL is due")
+
+  public List<Integer> getK8sTempRoleDefinition() {
+    return k8sTempRoleDefinition;
+  }
+
+
+  public void setK8sTempRoleDefinition(List<Integer> k8sTempRoleDefinition) {
+    this.k8sTempRoleDefinition = k8sTempRoleDefinition;
   }
 
 
@@ -3978,6 +4381,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails pingUrl(String pingUrl) {
+    
+    this.pingUrl = pingUrl;
+    return this;
+  }
+
+   /**
+   * Get pingUrl
+   * @return pingUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPingUrl() {
+    return pingUrl;
+  }
+
+
+  public void setPingUrl(String pingUrl) {
+    this.pingUrl = pingUrl;
+  }
+
+
   public DSProducerDetails postgresCreationStatements(String postgresCreationStatements) {
     
     this.postgresCreationStatements = postgresCreationStatements;
@@ -4021,6 +4447,29 @@ public class DSProducerDetails {
 
   public void setPostgresRevocationStatements(String postgresRevocationStatements) {
     this.postgresRevocationStatements = postgresRevocationStatements;
+  }
+
+
+  public DSProducerDetails privilegedUser(String privilegedUser) {
+    
+    this.privilegedUser = privilegedUser;
+    return this;
+  }
+
+   /**
+   * Get privilegedUser
+   * @return privilegedUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPrivilegedUser() {
+    return privilegedUser;
+  }
+
+
+  public void setPrivilegedUser(String privilegedUser) {
+    this.privilegedUser = privilegedUser;
   }
 
 
@@ -4208,6 +4657,37 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails redirectUris(List<String> redirectUris) {
+    
+    this.redirectUris = redirectUris;
+    return this;
+  }
+
+  public DSProducerDetails addRedirectUrisItem(String redirectUrisItem) {
+    if (this.redirectUris == null) {
+      this.redirectUris = new ArrayList<String>();
+    }
+    this.redirectUris.add(redirectUrisItem);
+    return this;
+  }
+
+   /**
+   * Get redirectUris
+   * @return redirectUris
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getRedirectUris() {
+    return redirectUris;
+  }
+
+
+  public void setRedirectUris(List<String> redirectUris) {
+    this.redirectUris = redirectUris;
+  }
+
+
   public DSProducerDetails redshiftCreationStatements(String redshiftCreationStatements) {
     
     this.redshiftCreationStatements = redshiftCreationStatements;
@@ -4228,6 +4708,37 @@ public class DSProducerDetails {
 
   public void setRedshiftCreationStatements(String redshiftCreationStatements) {
     this.redshiftCreationStatements = redshiftCreationStatements;
+  }
+
+
+  public DSProducerDetails restrictedScopes(List<String> restrictedScopes) {
+    
+    this.restrictedScopes = restrictedScopes;
+    return this;
+  }
+
+  public DSProducerDetails addRestrictedScopesItem(String restrictedScopesItem) {
+    if (this.restrictedScopes == null) {
+      this.restrictedScopes = new ArrayList<String>();
+    }
+    this.restrictedScopes.add(restrictedScopesItem);
+    return this;
+  }
+
+   /**
+   * Get restrictedScopes
+   * @return restrictedScopes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getRestrictedScopes() {
+    return restrictedScopes;
+  }
+
+
+  public void setRestrictedScopes(List<String> restrictedScopes) {
+    this.restrictedScopes = restrictedScopes;
   }
 
 
@@ -4446,6 +4957,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails signingAlgorithm(String signingAlgorithm) {
+    
+    this.signingAlgorithm = signingAlgorithm;
+    return this;
+  }
+
+   /**
+   * Get signingAlgorithm
+   * @return signingAlgorithm
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSigningAlgorithm() {
+    return signingAlgorithm;
+  }
+
+
+  public void setSigningAlgorithm(String signingAlgorithm) {
+    this.signingAlgorithm = signingAlgorithm;
+  }
+
+
   public DSProducerDetails sslConnectionCertificate(String sslConnectionCertificate) {
     
     this.sslConnectionCertificate = sslConnectionCertificate;
@@ -4489,6 +5023,29 @@ public class DSProducerDetails {
 
   public void setSslConnectionMode(Boolean sslConnectionMode) {
     this.sslConnectionMode = sslConnectionMode;
+  }
+
+
+  public DSProducerDetails subjectDn(String subjectDn) {
+    
+    this.subjectDn = subjectDn;
+    return this;
+  }
+
+   /**
+   * Get subjectDn
+   * @return subjectDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSubjectDn() {
+    return subjectDn;
+  }
+
+
+  public void setSubjectDn(String subjectDn) {
+    this.subjectDn = subjectDn;
   }
 
 
@@ -4589,6 +5146,29 @@ public class DSProducerDetails {
 
   public void setUserName(String userName) {
     this.userName = userName;
+  }
+
+
+  public DSProducerDetails userPassword(String userPassword) {
+    
+    this.userPassword = userPassword;
+    return this;
+  }
+
+   /**
+   * Get userPassword
+   * @return userPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUserPassword() {
+    return userPassword;
+  }
+
+
+  public void setUserPassword(String userPassword) {
+    this.userPassword = userPassword;
   }
 
 
@@ -5023,15 +5603,18 @@ public class DSProducerDetails {
       return false;
     }
     DSProducerDetails dsProducerDetails = (DSProducerDetails) o;
-    return Objects.equals(this.active, dsProducerDetails.active) &&
+    return Objects.equals(this.accessTokenManagerId, dsProducerDetails.accessTokenManagerId) &&
+        Objects.equals(this.active, dsProducerDetails.active) &&
         Objects.equals(this.adminName, dsProducerDetails.adminName) &&
         Objects.equals(this.adminPwd, dsProducerDetails.adminPwd) &&
         Objects.equals(this.adminRotationIntervalDays, dsProducerDetails.adminRotationIntervalDays) &&
+        Objects.equals(this.administrativePort, dsProducerDetails.administrativePort) &&
         Objects.equals(this.artifactoryAdminApikey, dsProducerDetails.artifactoryAdminApikey) &&
         Objects.equals(this.artifactoryAdminUsername, dsProducerDetails.artifactoryAdminUsername) &&
         Objects.equals(this.artifactoryBaseUrl, dsProducerDetails.artifactoryBaseUrl) &&
         Objects.equals(this.artifactoryTokenAudience, dsProducerDetails.artifactoryTokenAudience) &&
         Objects.equals(this.artifactoryTokenScope, dsProducerDetails.artifactoryTokenScope) &&
+        Objects.equals(this.authorizationPort, dsProducerDetails.authorizationPort) &&
         Objects.equals(this.awsAccessKeyId, dsProducerDetails.awsAccessKeyId) &&
         Objects.equals(this.awsAccessMode, dsProducerDetails.awsAccessMode) &&
         Objects.equals(this.awsRegion, dsProducerDetails.awsRegion) &&
@@ -5064,6 +5647,7 @@ public class DSProducerDetails {
         Objects.equals(this.chefServerUrl, dsProducerDetails.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, dsProducerDetails.chefServerUsername) &&
         Objects.equals(this.chefSkipSsl, dsProducerDetails.chefSkipSsl) &&
+        Objects.equals(this.clientAuthenticationType, dsProducerDetails.clientAuthenticationType) &&
         Objects.equals(this.createSyncUrl, dsProducerDetails.createSyncUrl) &&
         Objects.equals(this.dbHostName, dsProducerDetails.dbHostName) &&
         Objects.equals(this.dbIsolationLevel, dsProducerDetails.dbIsolationLevel) &&
@@ -5090,6 +5674,7 @@ public class DSProducerDetails {
         Objects.equals(this.eksRegion, dsProducerDetails.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, dsProducerDetails.eksSecretAccessKey) &&
         Objects.equals(this.enableAdminRotation, dsProducerDetails.enableAdminRotation) &&
+        Objects.equals(this.enforceReplayPrevention, dsProducerDetails.enforceReplayPrevention) &&
         Objects.equals(this.externallyProvidedUser, dsProducerDetails.externallyProvidedUser) &&
         Objects.equals(this.failureMessage, dsProducerDetails.failureMessage) &&
         Objects.equals(this.fixedUserOnly, dsProducerDetails.fixedUserOnly) &&
@@ -5115,6 +5700,7 @@ public class DSProducerDetails {
         Objects.equals(this.gkeClusterName, dsProducerDetails.gkeClusterName) &&
         Objects.equals(this.gkeServiceAccountKey, dsProducerDetails.gkeServiceAccountKey) &&
         Objects.equals(this.gkeServiceAccountName, dsProducerDetails.gkeServiceAccountName) &&
+        Objects.equals(this.grantTypes, dsProducerDetails.grantTypes) &&
         Objects.equals(this.groups, dsProducerDetails.groups) &&
         Objects.equals(this.hanadbCreationStatements, dsProducerDetails.hanadbCreationStatements) &&
         Objects.equals(this.hanadbRevocationStatements, dsProducerDetails.hanadbRevocationStatements) &&
@@ -5122,14 +5708,21 @@ public class DSProducerDetails {
         Objects.equals(this.hostPort, dsProducerDetails.hostPort) &&
         Objects.equals(this.implementationType, dsProducerDetails.implementationType) &&
         Objects.equals(this.isFixedUser, dsProducerDetails.isFixedUser) &&
+        Objects.equals(this.issuer, dsProducerDetails.issuer) &&
         Objects.equals(this.itemTargetsAssoc, dsProducerDetails.itemTargetsAssoc) &&
+        Objects.equals(this.jwks, dsProducerDetails.jwks) &&
+        Objects.equals(this.jwksUrl, dsProducerDetails.jwksUrl) &&
         Objects.equals(this.k8sAllowedNamespaces, dsProducerDetails.k8sAllowedNamespaces) &&
         Objects.equals(this.k8sBearerToken, dsProducerDetails.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, dsProducerDetails.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, dsProducerDetails.k8sClusterEndpoint) &&
         Objects.equals(this.k8sDynamicMode, dsProducerDetails.k8sDynamicMode) &&
         Objects.equals(this.k8sNamespace, dsProducerDetails.k8sNamespace) &&
+        Objects.equals(this.k8sRoleName, dsProducerDetails.k8sRoleName) &&
+        Objects.equals(this.k8sRoleType, dsProducerDetails.k8sRoleType) &&
         Objects.equals(this.k8sServiceAccount, dsProducerDetails.k8sServiceAccount) &&
+        Objects.equals(this.k8sTempRoleBindingDefinition, dsProducerDetails.k8sTempRoleBindingDefinition) &&
+        Objects.equals(this.k8sTempRoleDefinition, dsProducerDetails.k8sTempRoleDefinition) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
         Objects.equals(this.ldapAudience, dsProducerDetails.ldapAudience) &&
         Objects.equals(this.ldapBindDn, dsProducerDetails.ldapBindDn) &&
@@ -5161,8 +5754,10 @@ public class DSProducerDetails {
         Objects.equals(this.passwordLength, dsProducerDetails.passwordLength) &&
         Objects.equals(this.passwordPolicy, dsProducerDetails.passwordPolicy) &&
         Objects.equals(this.payload, dsProducerDetails.payload) &&
+        Objects.equals(this.pingUrl, dsProducerDetails.pingUrl) &&
         Objects.equals(this.postgresCreationStatements, dsProducerDetails.postgresCreationStatements) &&
         Objects.equals(this.postgresRevocationStatements, dsProducerDetails.postgresRevocationStatements) &&
+        Objects.equals(this.privilegedUser, dsProducerDetails.privilegedUser) &&
         Objects.equals(this.rabbitmqServerPassword, dsProducerDetails.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, dsProducerDetails.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, dsProducerDetails.rabbitmqServerUser) &&
@@ -5171,7 +5766,9 @@ public class DSProducerDetails {
         Objects.equals(this.rabbitmqUserTags, dsProducerDetails.rabbitmqUserTags) &&
         Objects.equals(this.rabbitmqUserVhost, dsProducerDetails.rabbitmqUserVhost) &&
         Objects.equals(this.rabbitmqUserWritePermission, dsProducerDetails.rabbitmqUserWritePermission) &&
+        Objects.equals(this.redirectUris, dsProducerDetails.redirectUris) &&
         Objects.equals(this.redshiftCreationStatements, dsProducerDetails.redshiftCreationStatements) &&
+        Objects.equals(this.restrictedScopes, dsProducerDetails.restrictedScopes) &&
         Objects.equals(this.revokeSyncUrl, dsProducerDetails.revokeSyncUrl) &&
         Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
         Objects.equals(this.scopes, dsProducerDetails.scopes) &&
@@ -5181,12 +5778,15 @@ public class DSProducerDetails {
         Objects.equals(this.sfUserRole, dsProducerDetails.sfUserRole) &&
         Objects.equals(this.sfWarehouseName, dsProducerDetails.sfWarehouseName) &&
         Objects.equals(this.shouldStop, dsProducerDetails.shouldStop) &&
+        Objects.equals(this.signingAlgorithm, dsProducerDetails.signingAlgorithm) &&
         Objects.equals(this.sslConnectionCertificate, dsProducerDetails.sslConnectionCertificate) &&
         Objects.equals(this.sslConnectionMode, dsProducerDetails.sslConnectionMode) &&
+        Objects.equals(this.subjectDn, dsProducerDetails.subjectDn) &&
         Objects.equals(this.tags, dsProducerDetails.tags) &&
         Objects.equals(this.timeoutSeconds, dsProducerDetails.timeoutSeconds) &&
         Objects.equals(this.useGwCloudIdentity, dsProducerDetails.useGwCloudIdentity) &&
         Objects.equals(this.userName, dsProducerDetails.userName) &&
+        Objects.equals(this.userPassword, dsProducerDetails.userPassword) &&
         Objects.equals(this.userPrincipalName, dsProducerDetails.userPrincipalName) &&
         Objects.equals(this.userTtl, dsProducerDetails.userTtl) &&
         Objects.equals(this.usernameLength, dsProducerDetails.usernameLength) &&
@@ -5209,7 +5809,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, adminName, adminPwd, adminRotationIntervalDays, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, itemTargetsAssoc, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sNamespace, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, postgresCreationStatements, postgresRevocationStatements, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redshiftCreationStatements, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, sslConnectionCertificate, sslConnectionMode, tags, timeoutSeconds, useGwCloudIdentity, userName, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, k8sTempRoleBindingDefinition, k8sTempRoleDefinition, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -5217,15 +5817,18 @@ public class DSProducerDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DSProducerDetails {\n");
+    sb.append("    accessTokenManagerId: ").append(toIndentedString(accessTokenManagerId)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
     sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
+    sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
     sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
     sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");
     sb.append("    artifactoryTokenAudience: ").append(toIndentedString(artifactoryTokenAudience)).append("\n");
     sb.append("    artifactoryTokenScope: ").append(toIndentedString(artifactoryTokenScope)).append("\n");
+    sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsAccessMode: ").append(toIndentedString(awsAccessMode)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
@@ -5258,6 +5861,7 @@ public class DSProducerDetails {
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
+    sb.append("    clientAuthenticationType: ").append(toIndentedString(clientAuthenticationType)).append("\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
     sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
     sb.append("    dbIsolationLevel: ").append(toIndentedString(dbIsolationLevel)).append("\n");
@@ -5284,6 +5888,7 @@ public class DSProducerDetails {
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
+    sb.append("    enforceReplayPrevention: ").append(toIndentedString(enforceReplayPrevention)).append("\n");
     sb.append("    externallyProvidedUser: ").append(toIndentedString(externallyProvidedUser)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
@@ -5309,6 +5914,7 @@ public class DSProducerDetails {
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
     sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
     sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
+    sb.append("    grantTypes: ").append(toIndentedString(grantTypes)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    hanadbCreationStatements: ").append(toIndentedString(hanadbCreationStatements)).append("\n");
     sb.append("    hanadbRevocationStatements: ").append(toIndentedString(hanadbRevocationStatements)).append("\n");
@@ -5316,14 +5922,21 @@ public class DSProducerDetails {
     sb.append("    hostPort: ").append(toIndentedString(hostPort)).append("\n");
     sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
     sb.append("    isFixedUser: ").append(toIndentedString(isFixedUser)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
+    sb.append("    jwks: ").append(toIndentedString(jwks)).append("\n");
+    sb.append("    jwksUrl: ").append(toIndentedString(jwksUrl)).append("\n");
     sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sDynamicMode: ").append(toIndentedString(k8sDynamicMode)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
+    sb.append("    k8sRoleName: ").append(toIndentedString(k8sRoleName)).append("\n");
+    sb.append("    k8sRoleType: ").append(toIndentedString(k8sRoleType)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
+    sb.append("    k8sTempRoleBindingDefinition: ").append(toIndentedString(k8sTempRoleBindingDefinition)).append("\n");
+    sb.append("    k8sTempRoleDefinition: ").append(toIndentedString(k8sTempRoleDefinition)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");
     sb.append("    ldapAudience: ").append(toIndentedString(ldapAudience)).append("\n");
     sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");
@@ -5355,8 +5968,10 @@ public class DSProducerDetails {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
+    sb.append("    pingUrl: ").append(toIndentedString(pingUrl)).append("\n");
     sb.append("    postgresCreationStatements: ").append(toIndentedString(postgresCreationStatements)).append("\n");
     sb.append("    postgresRevocationStatements: ").append(toIndentedString(postgresRevocationStatements)).append("\n");
+    sb.append("    privilegedUser: ").append(toIndentedString(privilegedUser)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
@@ -5365,7 +5980,9 @@ public class DSProducerDetails {
     sb.append("    rabbitmqUserTags: ").append(toIndentedString(rabbitmqUserTags)).append("\n");
     sb.append("    rabbitmqUserVhost: ").append(toIndentedString(rabbitmqUserVhost)).append("\n");
     sb.append("    rabbitmqUserWritePermission: ").append(toIndentedString(rabbitmqUserWritePermission)).append("\n");
+    sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
     sb.append("    redshiftCreationStatements: ").append(toIndentedString(redshiftCreationStatements)).append("\n");
+    sb.append("    restrictedScopes: ").append(toIndentedString(restrictedScopes)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
@@ -5375,12 +5992,15 @@ public class DSProducerDetails {
     sb.append("    sfUserRole: ").append(toIndentedString(sfUserRole)).append("\n");
     sb.append("    sfWarehouseName: ").append(toIndentedString(sfWarehouseName)).append("\n");
     sb.append("    shouldStop: ").append(toIndentedString(shouldStop)).append("\n");
+    sb.append("    signingAlgorithm: ").append(toIndentedString(signingAlgorithm)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
     sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
+    sb.append("    subjectDn: ").append(toIndentedString(subjectDn)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
     sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("    usernameLength: ").append(toIndentedString(usernameLength)).append("\n");

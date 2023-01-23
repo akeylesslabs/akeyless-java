@@ -38,6 +38,7 @@ Method | HTTP request | Description
 [**createKey**](V2Api.md#createKey) | **POST** /create-key | 
 [**createNativeK8STarget**](V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
 [**createPKICertIssuer**](V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
+[**createPingTarget**](V2Api.md#createPingTarget) | **POST** /create-ping-target | 
 [**createRabbitMQTarget**](V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitmq-target | 
 [**createRole**](V2Api.md#createRole) | **POST** /create-role | 
 [**createRotatedSecret**](V2Api.md#createRotatedSecret) | **POST** /create-rotated-secret | 
@@ -92,6 +93,7 @@ Method | HTTP request | Description
 [**gatewayCreateProducerMySQL**](V2Api.md#gatewayCreateProducerMySQL) | **POST** /gateway-create-producer-mysql | 
 [**gatewayCreateProducerNativeK8S**](V2Api.md#gatewayCreateProducerNativeK8S) | **POST** /gateway-create-producer-k8s | 
 [**gatewayCreateProducerOracleDb**](V2Api.md#gatewayCreateProducerOracleDb) | **POST** /gateway-create-producer-oracle | 
+[**gatewayCreateProducerPing**](V2Api.md#gatewayCreateProducerPing) | **POST** /gateway-create-producer-ping | 
 [**gatewayCreateProducerPostgreSQL**](V2Api.md#gatewayCreateProducerPostgreSQL) | **POST** /gateway-create-producer-postgresql | 
 [**gatewayCreateProducerRabbitMQ**](V2Api.md#gatewayCreateProducerRabbitMQ) | **POST** /gateway-create-producer-rabbitmq | 
 [**gatewayCreateProducerRdp**](V2Api.md#gatewayCreateProducerRdp) | **POST** /gateway-create-producer-rdp | 
@@ -138,6 +140,7 @@ Method | HTTP request | Description
 [**gatewayUpdateProducerMySQL**](V2Api.md#gatewayUpdateProducerMySQL) | **POST** /gateway-update-producer-mysql | 
 [**gatewayUpdateProducerNativeK8S**](V2Api.md#gatewayUpdateProducerNativeK8S) | **POST** /gateway-update-producer-k8s | 
 [**gatewayUpdateProducerOracleDb**](V2Api.md#gatewayUpdateProducerOracleDb) | **POST** /gateway-update-producer-oracle | 
+[**gatewayUpdateProducerPing**](V2Api.md#gatewayUpdateProducerPing) | **POST** /gateway-update-producer-ping | 
 [**gatewayUpdateProducerPostgreSQL**](V2Api.md#gatewayUpdateProducerPostgreSQL) | **POST** /gateway-update-producer-postgresql | 
 [**gatewayUpdateProducerRabbitMQ**](V2Api.md#gatewayUpdateProducerRabbitMQ) | **POST** /gateway-update-producer-rabbitmq | 
 [**gatewayUpdateProducerRdp**](V2Api.md#gatewayUpdateProducerRdp) | **POST** /gateway-update-producer-rdp | 
@@ -235,6 +238,7 @@ Method | HTTP request | Description
 [**updateLdapTargetDetails**](V2Api.md#updateLdapTargetDetails) | **POST** /update-ldap-target-details | 
 [**updateNativeK8STarget**](V2Api.md#updateNativeK8STarget) | **POST** /update-k8s-target | 
 [**updatePKICertIssuer**](V2Api.md#updatePKICertIssuer) | **POST** /update-pki-cert-issuer | 
+[**updatePingTarget**](V2Api.md#updatePingTarget) | **POST** /update-ping-target | 
 [**updateRDPTargetDetails**](V2Api.md#updateRDPTargetDetails) | **POST** /update-rdp-target-details | 
 [**updateRabbitMQTarget**](V2Api.md#updateRabbitMQTarget) | **POST** /update-rabbitmq-target | 
 [**updateRabbitMQTargetDetails**](V2Api.md#updateRabbitMQTargetDetails) | **POST** /update-rabbitmq-target-details | 
@@ -2331,6 +2335,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createPKICertIssuerResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createPingTarget"></a>
+# **createPingTarget**
+> CreatePingTargetOutput createPingTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreatePingTarget body = new CreatePingTarget(); // CreatePingTarget | 
+    try {
+      CreatePingTargetOutput result = apiInstance.createPingTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createPingTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreatePingTarget**](CreatePingTarget.md)|  |
+
+### Return type
+
+[**CreatePingTargetOutput**](CreatePingTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createPingTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createRabbitMQTarget"></a>
@@ -5628,6 +5693,67 @@ No authorization required
 **201** | gatewayCreateProducerOracleDbResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayCreateProducerPing"></a>
+# **gatewayCreateProducerPing**
+> GatewayCreateProducerPingOutput gatewayCreateProducerPing(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayCreateProducerPing body = new GatewayCreateProducerPing(); // GatewayCreateProducerPing | 
+    try {
+      GatewayCreateProducerPingOutput result = apiInstance.gatewayCreateProducerPing(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateProducerPing");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayCreateProducerPing**](GatewayCreateProducerPing.md)|  |
+
+### Return type
+
+[**GatewayCreateProducerPingOutput**](GatewayCreateProducerPingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayCreateProducerPingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayCreateProducerPostgreSQL"></a>
 # **gatewayCreateProducerPostgreSQL**
 > GatewayCreateProducerPostgreSQLOutput gatewayCreateProducerPostgreSQL(body)
@@ -8431,6 +8557,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayUpdateProducerOracleDbResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateProducerPing"></a>
+# **gatewayUpdateProducerPing**
+> GatewayUpdateProducerPingOutput gatewayUpdateProducerPing(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateProducerPing body = new GatewayUpdateProducerPing(); // GatewayUpdateProducerPing | 
+    try {
+      GatewayUpdateProducerPingOutput result = apiInstance.gatewayUpdateProducerPing(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateProducerPing");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateProducerPing**](GatewayUpdateProducerPing.md)|  |
+
+### Return type
+
+[**GatewayUpdateProducerPingOutput**](GatewayUpdateProducerPingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateProducerPingResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayUpdateProducerPostgreSQL"></a>
@@ -14337,6 +14524,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updatePKICertIssuerResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updatePingTarget"></a>
+# **updatePingTarget**
+> Object updatePingTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdatePingTarget body = new UpdatePingTarget(); // UpdatePingTarget | 
+    try {
+      Object result = apiInstance.updatePingTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updatePingTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdatePingTarget**](UpdatePingTarget.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updatePingTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateRDPTargetDetails"></a>

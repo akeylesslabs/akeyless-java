@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **newName** | **String** | New item name |  [optional]
 **newVersion** | **Boolean** | Deprecated |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
+**rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends |  [optional]
 **rotatedPassword** | **String** |  |  [optional]
 **rotatedUsername** | **String** |  |  [optional]
 **rotationHour** | **Integer** |  |  [optional]
