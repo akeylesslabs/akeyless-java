@@ -33,6 +33,10 @@ public class UpdateSSHTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
@@ -97,11 +101,11 @@ public class UpdateSSHTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -110,6 +114,29 @@ public class UpdateSSHTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateSSHTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -444,6 +471,7 @@ public class UpdateSSHTarget {
     }
     UpdateSSHTarget updateSSHTarget = (UpdateSSHTarget) o;
     return Objects.equals(this.comment, updateSSHTarget.comment) &&
+        Objects.equals(this.description, updateSSHTarget.description) &&
         Objects.equals(this.host, updateSSHTarget.host) &&
         Objects.equals(this.json, updateSSHTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateSSHTarget.keepPrevVersion) &&
@@ -462,7 +490,7 @@ public class UpdateSSHTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, host, json, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, host, json, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
   }
 
 
@@ -471,6 +499,7 @@ public class UpdateSSHTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

@@ -33,6 +33,10 @@ public class UpdateWebTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -77,11 +81,11 @@ public class UpdateWebTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -90,6 +94,29 @@ public class UpdateWebTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateWebTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -309,6 +336,7 @@ public class UpdateWebTarget {
     }
     UpdateWebTarget updateWebTarget = (UpdateWebTarget) o;
     return Objects.equals(this.comment, updateWebTarget.comment) &&
+        Objects.equals(this.description, updateWebTarget.description) &&
         Objects.equals(this.json, updateWebTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateWebTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateWebTarget.key) &&
@@ -322,7 +350,7 @@ public class UpdateWebTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, url);
+    return Objects.hash(comment, description, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, url);
   }
 
 
@@ -331,6 +359,7 @@ public class UpdateWebTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWebTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

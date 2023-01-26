@@ -33,6 +33,10 @@ public class UpdateDockerhubTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_DOCKERHUB_PASSWORD = "dockerhub-password";
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_PASSWORD)
   private String dockerhubPassword;
@@ -81,11 +85,11 @@ public class UpdateDockerhubTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -94,6 +98,29 @@ public class UpdateDockerhubTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateDockerhubTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -336,6 +363,7 @@ public class UpdateDockerhubTarget {
     }
     UpdateDockerhubTarget updateDockerhubTarget = (UpdateDockerhubTarget) o;
     return Objects.equals(this.comment, updateDockerhubTarget.comment) &&
+        Objects.equals(this.description, updateDockerhubTarget.description) &&
         Objects.equals(this.dockerhubPassword, updateDockerhubTarget.dockerhubPassword) &&
         Objects.equals(this.dockerhubUsername, updateDockerhubTarget.dockerhubUsername) &&
         Objects.equals(this.json, updateDockerhubTarget.json) &&
@@ -350,7 +378,7 @@ public class UpdateDockerhubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -359,6 +387,7 @@ public class UpdateDockerhubTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateDockerhubTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

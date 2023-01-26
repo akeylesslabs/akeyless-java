@@ -6,7 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **dockerhubPassword** | **String** | DockerhubPassword is either the user&#39;s password to manage the repository |  [optional]
 **dockerhubUsername** | **String** | DockerhubUsername is the name of the user in dockerhub |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

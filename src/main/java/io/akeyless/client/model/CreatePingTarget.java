@@ -41,6 +41,10 @@ public class CreatePingTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -127,11 +131,11 @@ public class CreatePingTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -140,6 +144,29 @@ public class CreatePingTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreatePingTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -338,6 +365,7 @@ public class CreatePingTarget {
     return Objects.equals(this.administrativePort, createPingTarget.administrativePort) &&
         Objects.equals(this.authorizationPort, createPingTarget.authorizationPort) &&
         Objects.equals(this.comment, createPingTarget.comment) &&
+        Objects.equals(this.description, createPingTarget.description) &&
         Objects.equals(this.json, createPingTarget.json) &&
         Objects.equals(this.key, createPingTarget.key) &&
         Objects.equals(this.name, createPingTarget.name) &&
@@ -350,7 +378,7 @@ public class CreatePingTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, authorizationPort, comment, json, key, name, password, pingUrl, privilegedUser, token, uidToken);
+    return Objects.hash(administrativePort, authorizationPort, comment, description, json, key, name, password, pingUrl, privilegedUser, token, uidToken);
   }
 
 
@@ -361,6 +389,7 @@ public class CreatePingTarget {
     sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
     sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

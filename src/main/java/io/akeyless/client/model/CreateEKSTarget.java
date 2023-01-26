@@ -33,6 +33,10 @@ public class CreateEKSTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks-access-key-id";
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
@@ -89,11 +93,11 @@ public class CreateEKSTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -102,6 +106,29 @@ public class CreateEKSTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateEKSTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -385,6 +412,7 @@ public class CreateEKSTarget {
     }
     CreateEKSTarget createEKSTarget = (CreateEKSTarget) o;
     return Objects.equals(this.comment, createEKSTarget.comment) &&
+        Objects.equals(this.description, createEKSTarget.description) &&
         Objects.equals(this.eksAccessKeyId, createEKSTarget.eksAccessKeyId) &&
         Objects.equals(this.eksClusterCaCert, createEKSTarget.eksClusterCaCert) &&
         Objects.equals(this.eksClusterEndpoint, createEKSTarget.eksClusterEndpoint) &&
@@ -401,7 +429,7 @@ public class CreateEKSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, description, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -410,6 +438,7 @@ public class CreateEKSTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateEKSTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
     sb.append("    eksClusterCaCert: ").append(toIndentedString(eksClusterCaCert)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");

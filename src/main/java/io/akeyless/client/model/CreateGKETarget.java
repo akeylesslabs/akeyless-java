@@ -33,6 +33,10 @@ public class CreateGKETarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_GKE_ACCOUNT_KEY = "gke-account-key";
   @SerializedName(SERIALIZED_NAME_GKE_ACCOUNT_KEY)
   private String gkeAccountKey;
@@ -85,11 +89,11 @@ public class CreateGKETarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -98,6 +102,29 @@ public class CreateGKETarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateGKETarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -363,6 +390,7 @@ public class CreateGKETarget {
     }
     CreateGKETarget createGKETarget = (CreateGKETarget) o;
     return Objects.equals(this.comment, createGKETarget.comment) &&
+        Objects.equals(this.description, createGKETarget.description) &&
         Objects.equals(this.gkeAccountKey, createGKETarget.gkeAccountKey) &&
         Objects.equals(this.gkeClusterCert, createGKETarget.gkeClusterCert) &&
         Objects.equals(this.gkeClusterEndpoint, createGKETarget.gkeClusterEndpoint) &&
@@ -378,7 +406,7 @@ public class CreateGKETarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, description, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -387,6 +415,7 @@ public class CreateGKETarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGKETarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gkeAccountKey: ").append(toIndentedString(gkeAccountKey)).append("\n");
     sb.append("    gkeClusterCert: ").append(toIndentedString(gkeClusterCert)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");

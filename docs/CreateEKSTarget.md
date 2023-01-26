@@ -6,7 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **eksAccessKeyId** | **String** | Access Key ID | 
 **eksClusterCaCert** | **String** | EKS cluster CA certificate | 
 **eksClusterEndpoint** | **String** | EKS cluster URL endpoint | 

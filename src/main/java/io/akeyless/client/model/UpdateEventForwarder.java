@@ -35,6 +35,10 @@ public class UpdateEventForwarder {
   @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
   private String adminName;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description = "default_comment";
+
   public static final String SERIALIZED_NAME_EMAIL_TO = "email-to";
   @SerializedName(SERIALIZED_NAME_EMAIL_TO)
   private String emailTo;
@@ -100,6 +104,29 @@ public class UpdateEventForwarder {
 
   public void setAdminName(String adminName) {
     this.adminName = adminName;
+  }
+
+
+  public UpdateEventForwarder description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -286,11 +313,11 @@ public class UpdateEventForwarder {
   }
 
    /**
-   * New comment about the Event Forwarder
+   * Deprecated - use description
    * @return newComment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New comment about the Event Forwarder")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getNewComment() {
     return newComment;
@@ -381,6 +408,7 @@ public class UpdateEventForwarder {
     }
     UpdateEventForwarder updateEventForwarder = (UpdateEventForwarder) o;
     return Objects.equals(this.adminName, updateEventForwarder.adminName) &&
+        Objects.equals(this.description, updateEventForwarder.description) &&
         Objects.equals(this.emailTo, updateEventForwarder.emailTo) &&
         Objects.equals(this.enable, updateEventForwarder.enable) &&
         Objects.equals(this.eventSourceLocations, updateEventForwarder.eventSourceLocations) &&
@@ -396,7 +424,7 @@ public class UpdateEventForwarder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, emailTo, enable, eventSourceLocations, eventTypes, host, json, name, newComment, newName, token, uidToken);
+    return Objects.hash(adminName, description, emailTo, enable, eventSourceLocations, eventTypes, host, json, name, newComment, newName, token, uidToken);
   }
 
 
@@ -405,6 +433,7 @@ public class UpdateEventForwarder {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateEventForwarder {\n");
     sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailTo: ").append(toIndentedString(emailTo)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    eventSourceLocations: ").append(toIndentedString(eventSourceLocations)).append("\n");

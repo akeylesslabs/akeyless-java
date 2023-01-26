@@ -33,6 +33,10 @@ public class CreateGcpTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
@@ -69,11 +73,11 @@ public class CreateGcpTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -82,6 +86,29 @@ public class CreateGcpTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateGcpTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -255,6 +282,7 @@ public class CreateGcpTarget {
     }
     CreateGcpTarget createGcpTarget = (CreateGcpTarget) o;
     return Objects.equals(this.comment, createGcpTarget.comment) &&
+        Objects.equals(this.description, createGcpTarget.description) &&
         Objects.equals(this.gcpKey, createGcpTarget.gcpKey) &&
         Objects.equals(this.json, createGcpTarget.json) &&
         Objects.equals(this.key, createGcpTarget.key) &&
@@ -266,7 +294,7 @@ public class CreateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gcpKey, json, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, description, gcpKey, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -275,6 +303,7 @@ public class CreateGcpTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGcpTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

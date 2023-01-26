@@ -49,6 +49,10 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_DB_TYPE)
   private String dbType;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
@@ -141,11 +145,11 @@ public class CreateDBTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -245,6 +249,29 @@ public class CreateDBTarget {
 
   public void setDbType(String dbType) {
     this.dbType = dbType;
+  }
+
+
+  public CreateDBTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -744,6 +771,7 @@ public class CreateDBTarget {
         Objects.equals(this.dbServerCertificates, createDBTarget.dbServerCertificates) &&
         Objects.equals(this.dbServerName, createDBTarget.dbServerName) &&
         Objects.equals(this.dbType, createDBTarget.dbType) &&
+        Objects.equals(this.description, createDBTarget.description) &&
         Objects.equals(this.host, createDBTarget.host) &&
         Objects.equals(this.json, createDBTarget.json) &&
         Objects.equals(this.key, createDBTarget.key) &&
@@ -769,7 +797,7 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
 
@@ -782,6 +810,7 @@ public class CreateDBTarget {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

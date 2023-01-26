@@ -33,6 +33,10 @@ public class UpdateGithubTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github-app-id";
   @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
   private Long githubAppId;
@@ -85,11 +89,11 @@ public class UpdateGithubTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -98,6 +102,29 @@ public class UpdateGithubTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateGithubTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -363,6 +390,7 @@ public class UpdateGithubTarget {
     }
     UpdateGithubTarget updateGithubTarget = (UpdateGithubTarget) o;
     return Objects.equals(this.comment, updateGithubTarget.comment) &&
+        Objects.equals(this.description, updateGithubTarget.description) &&
         Objects.equals(this.githubAppId, updateGithubTarget.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, updateGithubTarget.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, updateGithubTarget.githubBaseUrl) &&
@@ -378,7 +406,7 @@ public class UpdateGithubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, githubAppId, githubAppPrivateKey, githubBaseUrl, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -387,6 +415,7 @@ public class UpdateGithubTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateGithubTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");

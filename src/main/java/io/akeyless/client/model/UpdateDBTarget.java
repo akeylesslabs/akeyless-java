@@ -49,6 +49,10 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_DB_TYPE)
   private String dbType;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
@@ -153,11 +157,11 @@ public class UpdateDBTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -257,6 +261,29 @@ public class UpdateDBTarget {
 
   public void setDbType(String dbType) {
     this.dbType = dbType;
+  }
+
+
+  public UpdateDBTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -825,6 +852,7 @@ public class UpdateDBTarget {
         Objects.equals(this.dbServerCertificates, updateDBTarget.dbServerCertificates) &&
         Objects.equals(this.dbServerName, updateDBTarget.dbServerName) &&
         Objects.equals(this.dbType, updateDBTarget.dbType) &&
+        Objects.equals(this.description, updateDBTarget.description) &&
         Objects.equals(this.host, updateDBTarget.host) &&
         Objects.equals(this.json, updateDBTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDBTarget.keepPrevVersion) &&
@@ -853,7 +881,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
 
@@ -866,6 +894,7 @@ public class UpdateDBTarget {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

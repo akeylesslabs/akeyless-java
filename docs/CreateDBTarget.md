@@ -6,11 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
 **dbName** | **String** |  |  [optional]
 **dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional]
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
 **dbType** | **String** |  | 
+**description** | **String** | Description of the object |  [optional]
 **host** | **String** |  |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]

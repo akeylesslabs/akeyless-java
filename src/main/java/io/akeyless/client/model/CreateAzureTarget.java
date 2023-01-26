@@ -41,6 +41,10 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -135,11 +139,11 @@ public class CreateAzureTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -148,6 +152,29 @@ public class CreateAzureTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateAzureTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -392,6 +419,7 @@ public class CreateAzureTarget {
     return Objects.equals(this.clientId, createAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, createAzureTarget.clientSecret) &&
         Objects.equals(this.comment, createAzureTarget.comment) &&
+        Objects.equals(this.description, createAzureTarget.description) &&
         Objects.equals(this.json, createAzureTarget.json) &&
         Objects.equals(this.key, createAzureTarget.key) &&
         Objects.equals(this.name, createAzureTarget.name) &&
@@ -406,7 +434,7 @@ public class CreateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, json, key, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(clientId, clientSecret, comment, description, json, key, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -417,6 +445,7 @@ public class CreateAzureTarget {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

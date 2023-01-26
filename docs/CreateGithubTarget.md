@@ -6,7 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **githubAppId** | **Long** | Github app id |  [optional]
 **githubAppPrivateKey** | **String** | App private key |  [optional]
 **githubBaseUrl** | **String** | Base URL |  [optional]

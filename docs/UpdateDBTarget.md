@@ -6,11 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
 **dbName** | **String** |  |  [optional]
 **dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional]
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
 **dbType** | **String** |  | 
+**description** | **String** | Description of the object |  [optional]
 **host** | **String** |  |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]

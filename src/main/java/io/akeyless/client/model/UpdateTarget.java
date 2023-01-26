@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class UpdateTarget {
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description = "default_comment";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -52,6 +56,29 @@ public class UpdateTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public UpdateTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
 
   public UpdateTarget json(Boolean json) {
@@ -106,11 +133,11 @@ public class UpdateTarget {
   }
 
    /**
-   * New comment about the target
+   * Deprecated - use description
    * @return newComment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getNewComment() {
     return newComment;
@@ -200,7 +227,8 @@ public class UpdateTarget {
       return false;
     }
     UpdateTarget updateTarget = (UpdateTarget) o;
-    return Objects.equals(this.json, updateTarget.json) &&
+    return Objects.equals(this.description, updateTarget.description) &&
+        Objects.equals(this.json, updateTarget.json) &&
         Objects.equals(this.name, updateTarget.name) &&
         Objects.equals(this.newComment, updateTarget.newComment) &&
         Objects.equals(this.newName, updateTarget.newName) &&
@@ -210,7 +238,7 @@ public class UpdateTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, newComment, newName, token, uidToken);
+    return Objects.hash(description, json, name, newComment, newName, token, uidToken);
   }
 
 
@@ -218,6 +246,7 @@ public class UpdateTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateTarget {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");

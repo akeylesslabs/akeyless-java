@@ -41,6 +41,10 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
   private String gwAnalyticsAccess;
@@ -119,11 +123,11 @@ public class CreateRole {
   }
 
    /**
-   * Comment about the role
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the role")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -132,6 +136,29 @@ public class CreateRole {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateRole description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -284,6 +311,7 @@ public class CreateRole {
     return Objects.equals(this.analyticsAccess, createRole.analyticsAccess) &&
         Objects.equals(this.auditAccess, createRole.auditAccess) &&
         Objects.equals(this.comment, createRole.comment) &&
+        Objects.equals(this.description, createRole.description) &&
         Objects.equals(this.gwAnalyticsAccess, createRole.gwAnalyticsAccess) &&
         Objects.equals(this.json, createRole.json) &&
         Objects.equals(this.name, createRole.name) &&
@@ -294,7 +322,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken);
+    return Objects.hash(analyticsAccess, auditAccess, comment, description, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken);
   }
 
 
@@ -305,6 +333,7 @@ public class CreateRole {
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

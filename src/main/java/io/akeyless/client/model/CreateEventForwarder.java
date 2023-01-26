@@ -43,6 +43,10 @@ public class CreateEventForwarder {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EMAIL_TO = "email-to";
   @SerializedName(SERIALIZED_NAME_EMAIL_TO)
   private String emailTo;
@@ -149,11 +153,11 @@ public class CreateEventForwarder {
   }
 
    /**
-   * Comment about the EventForwarder
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the EventForwarder")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -162,6 +166,29 @@ public class CreateEventForwarder {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateEventForwarder description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -485,6 +512,7 @@ public class CreateEventForwarder {
     return Objects.equals(this.adminName, createEventForwarder.adminName) &&
         Objects.equals(this.adminPwd, createEventForwarder.adminPwd) &&
         Objects.equals(this.comment, createEventForwarder.comment) &&
+        Objects.equals(this.description, createEventForwarder.description) &&
         Objects.equals(this.emailTo, createEventForwarder.emailTo) &&
         Objects.equals(this.eventSourceLocations, createEventForwarder.eventSourceLocations) &&
         Objects.equals(this.eventSourceType, createEventForwarder.eventSourceType) &&
@@ -502,7 +530,7 @@ public class CreateEventForwarder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, adminPwd, comment, emailTo, eventSourceLocations, eventSourceType, eventTypes, every, forwarderType, host, json, key, name, runnerType, token, uidToken);
+    return Objects.hash(adminName, adminPwd, comment, description, emailTo, eventSourceLocations, eventSourceType, eventTypes, every, forwarderType, host, json, key, name, runnerType, token, uidToken);
   }
 
 
@@ -513,6 +541,7 @@ public class CreateEventForwarder {
     sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
     sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailTo: ").append(toIndentedString(emailTo)).append("\n");
     sb.append("    eventSourceLocations: ").append(toIndentedString(eventSourceLocations)).append("\n");
     sb.append("    eventSourceType: ").append(toIndentedString(eventSourceType)).append("\n");

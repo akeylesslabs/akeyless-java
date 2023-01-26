@@ -118,7 +118,7 @@ public class GatewayUpdateProducerEks {
 
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
-  private String userTtl = "60m";
+  private String userTtl = "15m";
 
 
   public GatewayUpdateProducerEks deleteProtection(String deleteProtection) {

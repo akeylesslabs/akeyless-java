@@ -41,6 +41,10 @@ public class UpdatePingTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -139,11 +143,11 @@ public class UpdatePingTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -152,6 +156,29 @@ public class UpdatePingTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdatePingTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -419,6 +446,7 @@ public class UpdatePingTarget {
     return Objects.equals(this.administrativePort, updatePingTarget.administrativePort) &&
         Objects.equals(this.authorizationPort, updatePingTarget.authorizationPort) &&
         Objects.equals(this.comment, updatePingTarget.comment) &&
+        Objects.equals(this.description, updatePingTarget.description) &&
         Objects.equals(this.json, updatePingTarget.json) &&
         Objects.equals(this.keepPrevVersion, updatePingTarget.keepPrevVersion) &&
         Objects.equals(this.key, updatePingTarget.key) &&
@@ -434,7 +462,7 @@ public class UpdatePingTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, authorizationPort, comment, json, keepPrevVersion, key, name, newName, password, pingUrl, privilegedUser, token, uidToken, updateVersion);
+    return Objects.hash(administrativePort, authorizationPort, comment, description, json, keepPrevVersion, key, name, newName, password, pingUrl, privilegedUser, token, uidToken, updateVersion);
   }
 
 
@@ -445,6 +473,7 @@ public class UpdatePingTarget {
     sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
     sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

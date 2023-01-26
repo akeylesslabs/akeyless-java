@@ -33,6 +33,10 @@ public class CreateDockerhubTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_DOCKERHUB_PASSWORD = "dockerhub-password";
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_PASSWORD)
   private String dockerhubPassword;
@@ -69,11 +73,11 @@ public class CreateDockerhubTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -82,6 +86,29 @@ public class CreateDockerhubTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateDockerhubTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -255,6 +282,7 @@ public class CreateDockerhubTarget {
     }
     CreateDockerhubTarget createDockerhubTarget = (CreateDockerhubTarget) o;
     return Objects.equals(this.comment, createDockerhubTarget.comment) &&
+        Objects.equals(this.description, createDockerhubTarget.description) &&
         Objects.equals(this.dockerhubPassword, createDockerhubTarget.dockerhubPassword) &&
         Objects.equals(this.dockerhubUsername, createDockerhubTarget.dockerhubUsername) &&
         Objects.equals(this.json, createDockerhubTarget.json) &&
@@ -266,7 +294,7 @@ public class CreateDockerhubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dockerhubPassword, dockerhubUsername, json, key, name, token, uidToken);
+    return Objects.hash(comment, description, dockerhubPassword, dockerhubUsername, json, key, name, token, uidToken);
   }
 
 
@@ -275,6 +303,7 @@ public class CreateDockerhubTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDockerhubTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

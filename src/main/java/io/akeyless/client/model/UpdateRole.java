@@ -37,6 +37,10 @@ public class UpdateRole {
   @SerializedName(SERIALIZED_NAME_AUDIT_ACCESS)
   private String auditAccess;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description = "default_comment";
+
   public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
   private String gwAnalyticsAccess;
@@ -116,6 +120,29 @@ public class UpdateRole {
   }
 
 
+  public UpdateRole description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateRole gwAnalyticsAccess(String gwAnalyticsAccess) {
     
     this.gwAnalyticsAccess = gwAnalyticsAccess;
@@ -191,11 +218,11 @@ public class UpdateRole {
   }
 
    /**
-   * New comment about the role
+   * Deprecated - use description
    * @return newComment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New comment about the role")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getNewComment() {
     return newComment;
@@ -310,6 +337,7 @@ public class UpdateRole {
     UpdateRole updateRole = (UpdateRole) o;
     return Objects.equals(this.analyticsAccess, updateRole.analyticsAccess) &&
         Objects.equals(this.auditAccess, updateRole.auditAccess) &&
+        Objects.equals(this.description, updateRole.description) &&
         Objects.equals(this.gwAnalyticsAccess, updateRole.gwAnalyticsAccess) &&
         Objects.equals(this.json, updateRole.json) &&
         Objects.equals(this.name, updateRole.name) &&
@@ -322,7 +350,7 @@ public class UpdateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, gwAnalyticsAccess, json, name, newComment, newName, sraReportsAccess, token, uidToken);
+    return Objects.hash(analyticsAccess, auditAccess, description, gwAnalyticsAccess, json, name, newComment, newName, sraReportsAccess, token, uidToken);
   }
 
 
@@ -332,6 +360,7 @@ public class UpdateRole {
     sb.append("class UpdateRole {\n");
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

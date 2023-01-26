@@ -33,6 +33,10 @@ public class UpdateEKSTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks-access-key-id";
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
@@ -101,11 +105,11 @@ public class UpdateEKSTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -114,6 +118,29 @@ public class UpdateEKSTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateEKSTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -466,6 +493,7 @@ public class UpdateEKSTarget {
     }
     UpdateEKSTarget updateEKSTarget = (UpdateEKSTarget) o;
     return Objects.equals(this.comment, updateEKSTarget.comment) &&
+        Objects.equals(this.description, updateEKSTarget.description) &&
         Objects.equals(this.eksAccessKeyId, updateEKSTarget.eksAccessKeyId) &&
         Objects.equals(this.eksClusterCaCert, updateEKSTarget.eksClusterCaCert) &&
         Objects.equals(this.eksClusterEndpoint, updateEKSTarget.eksClusterEndpoint) &&
@@ -485,7 +513,7 @@ public class UpdateEKSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(comment, description, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -494,6 +522,7 @@ public class UpdateEKSTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateEKSTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
     sb.append("    eksClusterCaCert: ").append(toIndentedString(eksClusterCaCert)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");

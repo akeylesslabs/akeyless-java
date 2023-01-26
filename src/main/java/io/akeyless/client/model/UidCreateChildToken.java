@@ -50,6 +50,10 @@ public class UidCreateChildToken {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -166,11 +170,11 @@ public class UidCreateChildToken {
   }
 
    /**
-   * New Token comment
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New Token comment")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -179,6 +183,29 @@ public class UidCreateChildToken {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UidCreateChildToken description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -288,6 +315,7 @@ public class UidCreateChildToken {
         Objects.equals(this.childDenyRotate, uidCreateChildToken.childDenyRotate) &&
         Objects.equals(this.childTtl, uidCreateChildToken.childTtl) &&
         Objects.equals(this.comment, uidCreateChildToken.comment) &&
+        Objects.equals(this.description, uidCreateChildToken.description) &&
         Objects.equals(this.json, uidCreateChildToken.json) &&
         Objects.equals(this.token, uidCreateChildToken.token) &&
         Objects.equals(this.uidToken, uidCreateChildToken.uidToken) &&
@@ -296,7 +324,7 @@ public class UidCreateChildToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodName, childDenyInheritance, childDenyRotate, childTtl, comment, json, token, uidToken, uidTokenId);
+    return Objects.hash(authMethodName, childDenyInheritance, childDenyRotate, childTtl, comment, description, json, token, uidToken, uidTokenId);
   }
 
 
@@ -309,6 +337,7 @@ public class UidCreateChildToken {
     sb.append("    childDenyRotate: ").append(toIndentedString(childDenyRotate)).append("\n");
     sb.append("    childTtl: ").append(toIndentedString(childTtl)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -33,6 +33,10 @@ public class CreateSSHTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
@@ -85,11 +89,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -98,6 +102,29 @@ public class CreateSSHTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateSSHTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -363,6 +390,7 @@ public class CreateSSHTarget {
     }
     CreateSSHTarget createSSHTarget = (CreateSSHTarget) o;
     return Objects.equals(this.comment, createSSHTarget.comment) &&
+        Objects.equals(this.description, createSSHTarget.description) &&
         Objects.equals(this.host, createSSHTarget.host) &&
         Objects.equals(this.json, createSSHTarget.json) &&
         Objects.equals(this.key, createSSHTarget.key) &&
@@ -378,7 +406,7 @@ public class CreateSSHTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, host, json, key, name, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken);
+    return Objects.hash(comment, description, host, json, key, name, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken);
   }
 
 
@@ -387,6 +415,7 @@ public class CreateSSHTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSSHTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

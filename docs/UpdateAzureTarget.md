@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **clientId** | **String** |  |  [optional]
 **clientSecret** | **String** |  |  [optional]
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** |  |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]

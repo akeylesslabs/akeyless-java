@@ -33,6 +33,10 @@ public class UpdateRabbitMQTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -85,11 +89,11 @@ public class UpdateRabbitMQTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -98,6 +102,29 @@ public class UpdateRabbitMQTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateRabbitMQTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -363,6 +390,7 @@ public class UpdateRabbitMQTarget {
     }
     UpdateRabbitMQTarget updateRabbitMQTarget = (UpdateRabbitMQTarget) o;
     return Objects.equals(this.comment, updateRabbitMQTarget.comment) &&
+        Objects.equals(this.description, updateRabbitMQTarget.description) &&
         Objects.equals(this.json, updateRabbitMQTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateRabbitMQTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateRabbitMQTarget.key) &&
@@ -378,7 +406,7 @@ public class UpdateRabbitMQTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, json, keepPrevVersion, key, name, newName, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, json, keepPrevVersion, key, name, newName, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken, updateVersion);
   }
 
 
@@ -387,6 +415,7 @@ public class UpdateRabbitMQTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateRabbitMQTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

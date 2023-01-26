@@ -45,6 +45,10 @@ public class CreateArtifactoryTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -139,11 +143,11 @@ public class CreateArtifactoryTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -152,6 +156,29 @@ public class CreateArtifactoryTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateArtifactoryTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -282,6 +309,7 @@ public class CreateArtifactoryTarget {
         Objects.equals(this.artifactoryAdminPwd, createArtifactoryTarget.artifactoryAdminPwd) &&
         Objects.equals(this.baseUrl, createArtifactoryTarget.baseUrl) &&
         Objects.equals(this.comment, createArtifactoryTarget.comment) &&
+        Objects.equals(this.description, createArtifactoryTarget.description) &&
         Objects.equals(this.json, createArtifactoryTarget.json) &&
         Objects.equals(this.key, createArtifactoryTarget.key) &&
         Objects.equals(this.name, createArtifactoryTarget.name) &&
@@ -291,7 +319,7 @@ public class CreateArtifactoryTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, json, key, name, token, uidToken);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, description, json, key, name, token, uidToken);
   }
 
 
@@ -303,6 +331,7 @@ public class CreateArtifactoryTarget {
     sb.append("    artifactoryAdminPwd: ").append(toIndentedString(artifactoryAdminPwd)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

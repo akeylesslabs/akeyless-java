@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **caCertName** | **String** | name of the certificate in Salesforce tenant to use when uploading new key |  [optional]
 **clientId** | **String** | Client ID of the oauth2 app to use for connecting to Salesforce | 
 **clientSecret** | **String** | Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow) |  [optional]
-**comment** | **String** | Comment about the target |  [optional]
+**comment** | **String** | Deprecated - use description |  [optional]
+**description** | **String** | Description of the object |  [optional]
 **email** | **String** | The email of the user attached to the oauth2 app used for connecting to Salesforce | 
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]

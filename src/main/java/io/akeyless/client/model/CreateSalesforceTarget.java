@@ -57,6 +57,10 @@ public class CreateSalesforceTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -237,11 +241,11 @@ public class CreateSalesforceTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -250,6 +254,29 @@ public class CreateSalesforceTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateSalesforceTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -473,6 +500,7 @@ public class CreateSalesforceTarget {
         Objects.equals(this.clientId, createSalesforceTarget.clientId) &&
         Objects.equals(this.clientSecret, createSalesforceTarget.clientSecret) &&
         Objects.equals(this.comment, createSalesforceTarget.comment) &&
+        Objects.equals(this.description, createSalesforceTarget.description) &&
         Objects.equals(this.email, createSalesforceTarget.email) &&
         Objects.equals(this.json, createSalesforceTarget.json) &&
         Objects.equals(this.key, createSalesforceTarget.key) &&
@@ -486,7 +514,7 @@ public class CreateSalesforceTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, email, json, key, name, password, securityToken, tenantUrl, token, uidToken);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, description, email, json, key, name, password, securityToken, tenantUrl, token, uidToken);
   }
 
 
@@ -501,6 +529,7 @@ public class CreateSalesforceTarget {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

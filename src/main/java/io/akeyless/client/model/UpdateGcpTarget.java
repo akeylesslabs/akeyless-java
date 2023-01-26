@@ -33,6 +33,10 @@ public class UpdateGcpTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
@@ -81,11 +85,11 @@ public class UpdateGcpTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -94,6 +98,29 @@ public class UpdateGcpTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateGcpTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -336,6 +363,7 @@ public class UpdateGcpTarget {
     }
     UpdateGcpTarget updateGcpTarget = (UpdateGcpTarget) o;
     return Objects.equals(this.comment, updateGcpTarget.comment) &&
+        Objects.equals(this.description, updateGcpTarget.description) &&
         Objects.equals(this.gcpKey, updateGcpTarget.gcpKey) &&
         Objects.equals(this.json, updateGcpTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateGcpTarget.keepPrevVersion) &&
@@ -350,7 +378,7 @@ public class UpdateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, gcpKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(comment, description, gcpKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -359,6 +387,7 @@ public class UpdateGcpTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateGcpTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

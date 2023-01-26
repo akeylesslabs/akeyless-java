@@ -33,6 +33,10 @@ public class CreateGithubTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github-app-id";
   @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
   private Long githubAppId;
@@ -73,11 +77,11 @@ public class CreateGithubTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -86,6 +90,29 @@ public class CreateGithubTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateGithubTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -282,6 +309,7 @@ public class CreateGithubTarget {
     }
     CreateGithubTarget createGithubTarget = (CreateGithubTarget) o;
     return Objects.equals(this.comment, createGithubTarget.comment) &&
+        Objects.equals(this.description, createGithubTarget.description) &&
         Objects.equals(this.githubAppId, createGithubTarget.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, createGithubTarget.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, createGithubTarget.githubBaseUrl) &&
@@ -294,7 +322,7 @@ public class CreateGithubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, githubAppId, githubAppPrivateKey, githubBaseUrl, json, key, name, token, uidToken);
+    return Objects.hash(comment, description, githubAppId, githubAppPrivateKey, githubBaseUrl, json, key, name, token, uidToken);
   }
 
 
@@ -303,6 +331,7 @@ public class CreateGithubTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGithubTarget {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");

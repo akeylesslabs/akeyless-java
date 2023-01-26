@@ -41,6 +41,10 @@ public class UpdateAWSTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -139,11 +143,11 @@ public class UpdateAWSTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -152,6 +156,29 @@ public class UpdateAWSTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateAWSTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -419,6 +446,7 @@ public class UpdateAWSTarget {
     return Objects.equals(this.accessKey, updateAWSTarget.accessKey) &&
         Objects.equals(this.accessKeyId, updateAWSTarget.accessKeyId) &&
         Objects.equals(this.comment, updateAWSTarget.comment) &&
+        Objects.equals(this.description, updateAWSTarget.description) &&
         Objects.equals(this.json, updateAWSTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateAWSTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateAWSTarget.key) &&
@@ -434,7 +462,7 @@ public class UpdateAWSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, comment, json, keepPrevVersion, key, name, newName, region, sessionToken, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(accessKey, accessKeyId, comment, description, json, keepPrevVersion, key, name, newName, region, sessionToken, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -445,6 +473,7 @@ public class UpdateAWSTarget {
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

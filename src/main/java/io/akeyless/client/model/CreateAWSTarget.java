@@ -41,6 +41,10 @@ public class CreateAWSTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -127,11 +131,11 @@ public class CreateAWSTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -140,6 +144,29 @@ public class CreateAWSTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateAWSTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -338,6 +365,7 @@ public class CreateAWSTarget {
     return Objects.equals(this.accessKey, createAWSTarget.accessKey) &&
         Objects.equals(this.accessKeyId, createAWSTarget.accessKeyId) &&
         Objects.equals(this.comment, createAWSTarget.comment) &&
+        Objects.equals(this.description, createAWSTarget.description) &&
         Objects.equals(this.json, createAWSTarget.json) &&
         Objects.equals(this.key, createAWSTarget.key) &&
         Objects.equals(this.name, createAWSTarget.name) &&
@@ -350,7 +378,7 @@ public class CreateAWSTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, comment, json, key, name, region, sessionToken, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(accessKey, accessKeyId, comment, description, json, key, name, region, sessionToken, token, uidToken, useGwCloudIdentity);
   }
 
 
@@ -361,6 +389,7 @@ public class CreateAWSTarget {
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

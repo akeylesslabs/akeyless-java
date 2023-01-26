@@ -9130,7 +9130,7 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 1
+          password_length: 6
         data_protection_section:
           enable_classic_key_protection: true
         enable_request_for_access: true
@@ -12332,13 +12332,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 9
+          target_id: 6
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 9
+          target_id: 6
         chef_server_username: chef_server_username
         tags:
         - tags
@@ -12443,7 +12443,7 @@ components:
           category: category
           region: region
           ssh_password: true
-          bastion_issuer_id: 5
+          bastion_issuer_id: 9
         chef_server_host_name: chef_server_host_name
         k8s_role_type: k8s_role_type
         mongodb_is_atlas: true
@@ -13472,7 +13472,7 @@ components:
         emails
       example:
         fixed_domain_suffix: fixed_domain_suffix
-        keep_prefix_length: 9
+        keep_prefix_length: 6
         domain_suffix_length: 9
       properties:
         domain_suffix_length:
@@ -14023,7 +14023,7 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 1
+            password_length: 6
           data_protection_section:
             enable_classic_key_protection: true
           enable_request_for_access: true
@@ -14405,7 +14405,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -14414,7 +14414,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -14611,6 +14611,20 @@ components:
       title: HuaweiAccessRules defines access rules specific to Huawei authentication.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ImporterInfo:
+      example:
+        version: 1
+        external_item_id: external_item_id
+      properties:
+        external_item_id:
+          type: string
+          x-go-name: ExternalItemId
+        version:
+          format: int64
+          type: integer
+          x-go-name: Version
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     Item:
       example:
         item_accessibility: 2
@@ -14627,7 +14641,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 3
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -14636,15 +14650,15 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 3
           customer_fragment_id: customer_fragment_id
         shared_by:
           unique_id: unique_id
           access_id: access_id
-        item_size: 8
+        item_size: 9
         protection_key_type: protection_key_type
         is_enabled: true
-        rotation_interval: 6
+        rotation_interval: 1
         target_versions:
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -14655,7 +14669,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -14666,13 +14680,13 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         item_metadata: item_metadata
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         cert_issuer_signer_key_name: cert_issuer_signer_key_name
-        item_id: 6
+        item_id: 8
         item_tags:
         - item_tags
         - item_tags
@@ -14747,13 +14761,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 9
+          target_id: 6
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 9
+          target_id: 6
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         customer_fragment_id: customer_fragment_id
@@ -14807,7 +14821,7 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 1
+            password_length: 6
           static_secret_info:
             website: website
             websites:
@@ -14816,22 +14830,22 @@ components:
             username: username
           rotated_secret_details:
             rotator_creds_type: rotator_creds_type
-            gw_cluster_id: 7
-            rotation_hour: 4
+            gw_cluster_id: 1
+            rotation_hour: 5
             rotation_statement: rotation_statement
             rotator_status: rotator_status
             rotation_interval_min: true
             rotator_type: rotator_type
-            delete_previous_version_in_days: 6
+            delete_previous_version_in_days: 7
             last_rotation_error: last_rotation_error
-            number_of_versions_to_save: 1
+            number_of_versions_to_save: 4
           tokenizer_info:
             vaultless_tokenizer_info:
               key_name: key_name
               tweak: tweak
               email_tokenizer_info:
                 fixed_domain_suffix: fixed_domain_suffix
-                keep_prefix_length: 9
+                keep_prefix_length: 6
                 domain_suffix_length: 9
               template_type: template_type
               tweak_type: tweak_type
@@ -14871,7 +14885,10 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
+          importer_info:
+            version: 1
+            external_item_id: external_item_id
           display_metadata: display_metadata
           dynamic_secret_producer_details:
             gw_cluster_id: 1
@@ -15148,7 +15165,7 @@ components:
               allowed_user_key_lengths:
                 key: 5
             cert_issuer_type: cert_issuer_type
-        last_version: 3
+        last_version: 6
         next_rotation_date: 2000-01-23T04:56:07.000+00:00
         delete_protection: true
         client_permissions:
@@ -15348,7 +15365,7 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 1
+          password_length: 6
         static_secret_info:
           website: website
           websites:
@@ -15357,22 +15374,22 @@ components:
           username: username
         rotated_secret_details:
           rotator_creds_type: rotator_creds_type
-          gw_cluster_id: 7
-          rotation_hour: 4
+          gw_cluster_id: 1
+          rotation_hour: 5
           rotation_statement: rotation_statement
           rotator_status: rotator_status
           rotation_interval_min: true
           rotator_type: rotator_type
-          delete_previous_version_in_days: 6
+          delete_previous_version_in_days: 7
           last_rotation_error: last_rotation_error
-          number_of_versions_to_save: 1
+          number_of_versions_to_save: 4
         tokenizer_info:
           vaultless_tokenizer_info:
             key_name: key_name
             tweak: tweak
             email_tokenizer_info:
               fixed_domain_suffix: fixed_domain_suffix
-              keep_prefix_length: 9
+              keep_prefix_length: 6
               domain_suffix_length: 9
             template_type: template_type
             tweak_type: tweak_type
@@ -15412,7 +15429,10 @@ components:
           category: category
           region: region
           ssh_password: true
-          bastion_issuer_id: 5
+          bastion_issuer_id: 9
+        importer_info:
+          version: 1
+          external_item_id: external_item_id
         display_metadata: display_metadata
         dynamic_secret_producer_details:
           gw_cluster_id: 1
@@ -15704,6 +15724,8 @@ components:
           x-go-name: DisplayMetadata
         dynamic_secret_producer_details:
           $ref: '#/components/schemas/DynamicSecretProducerInfo'
+        importer_info:
+          $ref: '#/components/schemas/ImporterInfo'
         password_policy:
           $ref: '#/components/schemas/PasswordPolicyInfo'
         rotated_secret_details:
@@ -15735,7 +15757,7 @@ components:
         target_type: target_type
         attributes:
           key: attributes
-        target_id: 9
+        target_id: 6
       properties:
         assoc_id:
           type: string
@@ -15770,7 +15792,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 6
+        version: 3
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -17319,7 +17341,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17328,15 +17350,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 8
+          item_size: 9
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 6
+          rotation_interval: 1
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17347,7 +17369,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17358,13 +17380,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 6
+          item_id: 8
           item_tags:
           - item_tags
           - item_tags
@@ -17439,13 +17461,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           customer_fragment_id: customer_fragment_id
@@ -17499,7 +17521,7 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 1
+              password_length: 6
             static_secret_info:
               website: website
               websites:
@@ -17508,22 +17530,22 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 7
-              rotation_hour: 4
+              gw_cluster_id: 1
+              rotation_hour: 5
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 6
+              delete_previous_version_in_days: 7
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 1
+              number_of_versions_to_save: 4
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 9
+                  keep_prefix_length: 6
                   domain_suffix_length: 9
                 template_type: template_type
                 tweak_type: tweak_type
@@ -17563,7 +17585,10 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 5
+              bastion_issuer_id: 9
+            importer_info:
+              version: 1
+              external_item_id: external_item_id
             display_metadata: display_metadata
             dynamic_secret_producer_details:
               gw_cluster_id: 1
@@ -17840,7 +17865,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 3
+          last_version: 6
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           client_permissions:
@@ -17865,7 +17890,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17874,15 +17899,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 8
+          item_size: 9
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 6
+          rotation_interval: 1
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17893,7 +17918,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17904,13 +17929,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 6
+          item_id: 8
           item_tags:
           - item_tags
           - item_tags
@@ -17985,13 +18010,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           customer_fragment_id: customer_fragment_id
@@ -18045,7 +18070,7 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 1
+              password_length: 6
             static_secret_info:
               website: website
               websites:
@@ -18054,22 +18079,22 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 7
-              rotation_hour: 4
+              gw_cluster_id: 1
+              rotation_hour: 5
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 6
+              delete_previous_version_in_days: 7
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 1
+              number_of_versions_to_save: 4
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 9
+                  keep_prefix_length: 6
                   domain_suffix_length: 9
                 template_type: template_type
                 tweak_type: tweak_type
@@ -18109,7 +18134,10 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 5
+              bastion_issuer_id: 9
+            importer_info:
+              version: 1
+              external_item_id: external_item_id
             display_metadata: display_metadata
             dynamic_secret_producer_details:
               gw_cluster_id: 1
@@ -18386,7 +18414,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 3
+          last_version: 6
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           client_permissions:
@@ -18586,7 +18614,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18595,7 +18623,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -18638,7 +18666,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18647,7 +18675,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -19377,7 +19405,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 3
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -19386,7 +19414,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 3
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
         is_enabled: true
@@ -19892,7 +19920,7 @@ components:
         use_capital_letters: true
         use_special_characters: true
         use_lower_letters: true
-        password_length: 1
+        password_length: 6
       properties:
         password_length:
           format: int64
@@ -20433,15 +20461,15 @@ components:
       description: RotatedSecretDetailsInfo The rotated secret rotator info
       example:
         rotator_creds_type: rotator_creds_type
-        gw_cluster_id: 7
-        rotation_hour: 4
+        gw_cluster_id: 1
+        rotation_hour: 5
         rotation_statement: rotation_statement
         rotator_status: rotator_status
         rotation_interval_min: true
         rotator_type: rotator_type
-        delete_previous_version_in_days: 6
+        delete_previous_version_in_days: 7
         last_rotation_error: last_rotation_error
-        number_of_versions_to_save: 1
+        number_of_versions_to_save: 4
       properties:
         delete_previous_version_in_days:
           format: int32
@@ -20778,7 +20806,7 @@ components:
         category: category
         region: region
         ssh_password: true
-        bastion_issuer_id: 5
+        bastion_issuer_id: 9
       properties:
         account_id:
           type: string
@@ -21070,7 +21098,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 3
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -21079,7 +21107,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 3
           customer_fragment_id: customer_fragment_id
         modification_date: 2000-01-23T04:56:07.000+00:00
         attributes:
@@ -21207,7 +21235,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 1
+        version: 2
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -21754,7 +21782,7 @@ components:
           tweak: tweak
           email_tokenizer_info:
             fixed_domain_suffix: fixed_domain_suffix
-            keep_prefix_length: 9
+            keep_prefix_length: 6
             domain_suffix_length: 9
           template_type: template_type
           tweak_type: tweak_type
@@ -22072,7 +22100,7 @@ components:
         tweak: tweak
         email_tokenizer_info:
           fixed_domain_suffix: fixed_domain_suffix
-          keep_prefix_length: 9
+          keep_prefix_length: 6
           domain_suffix_length: 9
         template_type: template_type
         tweak_type: tweak_type
@@ -22408,9 +22436,13 @@ components:
           type: string
           x-go-name: AWSAccessKeyID
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -22473,9 +22505,13 @@ components:
           type: string
           x-go-name: BaseUrl
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -23805,9 +23841,13 @@ components:
           type: string
           x-go-name: AzureClientSecret
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -23939,7 +23979,7 @@ components:
     createDBTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
         db-name:
@@ -23957,6 +23997,10 @@ components:
           title: TargetType ..
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         host:
           type: string
           x-go-name: DbHostName
@@ -24131,9 +24175,13 @@ components:
     createDockerhubTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         dockerhub-password:
           description: DockerhubPassword is either the user's password to manage the
             repository
@@ -24235,9 +24283,13 @@ components:
     createEKSTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         eks-access-key-id:
           description: Access Key ID
           type: string
@@ -24320,9 +24372,13 @@ components:
           type: string
           x-go-name: AdminPwd
         comment:
-          description: Comment about the EventForwarder
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         email-to:
           description: A comma seperated list of email addresses to send event to
             (relevant only for \"email\" Event Forwarder)
@@ -24402,9 +24458,13 @@ components:
     createGKETarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         gke-account-key:
           description: GKE Service Account key file path
           type: string
@@ -24469,9 +24529,13 @@ components:
     createGcpTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         gcp-key:
           description: Base64-encoded service account private key text
           type: string
@@ -24520,9 +24584,13 @@ components:
     createGithubTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         github-app-id:
           description: Github app id
           format: int64
@@ -24671,9 +24739,13 @@ components:
           type: string
           x-go-name: BindDnPassword
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -24736,9 +24808,13 @@ components:
     createNativeK8STarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -24814,9 +24890,13 @@ components:
           type: string
           x-go-name: AuthorizationPort
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -24870,9 +24950,13 @@ components:
     createRabbitMQTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -24937,9 +25021,13 @@ components:
           type: string
           x-go-name: AuditAccess
         comment:
-          description: Comment about the role
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         gw-analytics-access:
           description: |-
             Allow this role to view gw analytics. Currently only 'none', 'own', 'all'
@@ -25272,9 +25360,13 @@ components:
     createSSHTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         host:
           type: string
           x-go-name: HostName
@@ -25362,9 +25454,13 @@ components:
           type: string
           x-go-name: ClientSecret
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         email:
           description: The email of the user attached to the oauth2 app used for connecting
             to Salesforce
@@ -25627,9 +25723,13 @@ components:
     createWebTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -27242,13 +27342,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -27353,7 +27453,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -27636,13 +27736,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -27747,7 +27847,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -28019,13 +28119,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -28130,7 +28230,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -28364,13 +28464,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -28475,7 +28575,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -28758,13 +28858,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -28869,7 +28969,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -29192,13 +29292,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -29303,7 +29403,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -29531,13 +29631,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -29642,7 +29742,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -29851,7 +29951,7 @@ components:
           type: string
           x-go-name: UIDToken
         user-ttl:
-          default: 60m
+          default: 15m
           description: User TTL
           type: string
           x-go-name: UserTtl
@@ -29898,13 +29998,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -30009,7 +30109,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -30251,13 +30351,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -30362,7 +30462,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -30593,13 +30693,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -30704,7 +30804,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -30951,13 +31051,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31062,7 +31162,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -31321,13 +31421,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31432,7 +31532,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -31677,13 +31777,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31788,7 +31888,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -32047,13 +32147,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32158,7 +32258,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -32435,13 +32535,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32546,7 +32646,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -32814,13 +32914,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32925,7 +33025,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -33181,13 +33281,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33292,7 +33392,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -33553,13 +33653,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33664,7 +33764,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -33974,13 +34074,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34085,7 +34185,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -34349,13 +34449,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34460,7 +34560,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -34722,13 +34822,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34833,7 +34933,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -35098,13 +35198,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35209,7 +35309,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -35460,13 +35560,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35571,7 +35671,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -35812,13 +35912,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35923,7 +36023,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -38014,13 +38114,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38125,7 +38225,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -38412,13 +38512,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38523,7 +38623,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -38799,13 +38899,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38910,7 +39010,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -39148,13 +39248,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39259,7 +39359,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -39546,13 +39646,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39657,7 +39757,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -39988,13 +40088,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40099,7 +40199,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -40331,13 +40431,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40442,7 +40542,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -40655,7 +40755,7 @@ components:
           type: string
           x-go-name: UIDToken
         user-ttl:
-          default: 60m
+          default: 15m
           description: User TTL
           type: string
           x-go-name: UserTtl
@@ -40702,13 +40802,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40813,7 +40913,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -41059,13 +41159,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41170,7 +41270,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -41405,13 +41505,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41516,7 +41616,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -41767,13 +41867,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41878,7 +41978,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -42141,13 +42241,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -42252,7 +42352,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -42501,13 +42601,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -42612,7 +42712,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -42875,13 +42975,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -42986,7 +43086,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -43267,13 +43367,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43378,7 +43478,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -43650,13 +43750,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43761,7 +43861,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -44021,13 +44121,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44132,7 +44232,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -44397,13 +44497,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44508,7 +44608,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -44822,13 +44922,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44933,7 +45033,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -45201,13 +45301,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45312,7 +45412,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -45578,13 +45678,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45689,7 +45789,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -45958,13 +46058,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46069,7 +46169,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -46324,13 +46424,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46435,7 +46535,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -46680,13 +46780,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 9
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46791,7 +46891,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 5
+            bastion_issuer_id: 9
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -47133,7 +47233,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -47142,7 +47242,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 3
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
           is_enabled: true
@@ -48254,9 +48354,13 @@ components:
           type: array
           x-go-name: Capabilities
         comment:
-          description: Comment about this request
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -48447,7 +48551,7 @@ components:
       required:
       - name
       title: rotateSecret is a command that trigger a rotate operation for a Rotated
-        Secret..
+        Secret or Custom Dynamic Secret..
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     setItemState:
@@ -48965,9 +49069,13 @@ components:
           type: integer
           x-go-name: ChildTTL
         comment:
-          description: New Token comment
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -49172,9 +49280,13 @@ components:
           type: string
           x-go-name: AWSAccessKeyID
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -49394,9 +49506,13 @@ components:
           type: string
           x-go-name: BaseUrl
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -50652,9 +50768,13 @@ components:
           type: string
           x-go-name: AzureClientSecret
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -50779,7 +50899,7 @@ components:
     updateDBTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
         db-name:
@@ -50797,6 +50917,10 @@ components:
           title: TargetType ..
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         host:
           type: string
           x-go-name: DbHostName
@@ -50965,9 +51089,13 @@ components:
     updateDockerhubTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         dockerhub-password:
           type: string
           x-go-name: DockerhubPassword
@@ -51026,9 +51154,13 @@ components:
     updateEKSTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         eks-access-key-id:
           description: Access Key ID
           type: string
@@ -51117,6 +51249,11 @@ components:
           description: Workstation Admin Name
           type: string
           x-go-name: AdminName
+        description:
+          default: default_comment
+          description: Description of the object
+          type: string
+          x-go-name: Description
         email-to:
           description: A comma seperated list of email addresses to send event to
             (relevant only for \"email\" Event Forwarder)
@@ -51152,9 +51289,9 @@ components:
           x-go-name: EventForwarderName
         new-comment:
           default: default_comment
-          description: New comment about the Event Forwarder
+          description: Deprecated - use description
           type: string
-          x-go-name: Comment
+          x-go-name: NewComment
         new-name:
           description: New EventForwarder name
           type: string
@@ -51179,9 +51316,13 @@ components:
     updateGKETarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         gke-account-key:
           description: GKE Service Account key file path
           type: string
@@ -51257,9 +51398,13 @@ components:
     updateGcpTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         gcp-key:
           description: Base64-encoded service account private key text
           type: string
@@ -51319,9 +51464,13 @@ components:
     updateGithubTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         github-app-id:
           description: Github app id
           format: int64
@@ -51543,9 +51692,13 @@ components:
           type: string
           x-go-name: BindDnPassword
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -51666,9 +51819,13 @@ components:
     updateNativeK8STarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -51768,9 +51925,13 @@ components:
           type: string
           x-go-name: AuthorizationPort
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -51877,9 +52038,13 @@ components:
     updateRabbitMQTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -52000,6 +52165,11 @@ components:
             logs produced by the same auth methods.
           type: string
           x-go-name: AuditAccess
+        description:
+          default: default_comment
+          description: Description of the object
+          type: string
+          x-go-name: Description
         gw-analytics-access:
           description: |-
             Allow this role to view gw analytics. Currently only 'none', 'own', 'all'
@@ -52017,9 +52187,9 @@ components:
           x-go-name: RoleName
         new-comment:
           default: default_comment
-          description: New comment about the role
+          description: Deprecated - use description
           type: string
-          x-go-name: Comment
+          x-go-name: NewComment
         new-name:
           description: New Role name
           type: string
@@ -52389,9 +52559,13 @@ components:
     updateSSHTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         host:
           type: string
           x-go-name: HostName
@@ -52545,9 +52719,13 @@ components:
           type: string
           x-go-name: ClientSecret
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         email:
           description: The email of the user attached to the oauth2 app used for connecting
             to Salesforce
@@ -52693,6 +52871,11 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateTarget:
       properties:
+        description:
+          default: default_comment
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean
@@ -52703,9 +52886,9 @@ components:
           x-go-name: TargetName
         new-comment:
           default: default_comment
-          description: New comment about the target
+          description: Deprecated - use description
           type: string
-          x-go-name: Comment
+          x-go-name: NewComment
         new-name:
           description: New Target name
           type: string
@@ -52752,9 +52935,13 @@ components:
     updateWebTarget:
       properties:
         comment:
-          description: Comment about the target
+          description: Deprecated - use description
           type: string
           x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         json:
           description: Set output format to JSON
           type: boolean

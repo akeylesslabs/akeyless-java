@@ -39,6 +39,10 @@ public class RequestAccess {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -90,11 +94,11 @@ public class RequestAccess {
   }
 
    /**
-   * Comment about this request
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about this request")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -103,6 +107,29 @@ public class RequestAccess {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public RequestAccess description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -208,6 +235,7 @@ public class RequestAccess {
     RequestAccess requestAccess = (RequestAccess) o;
     return Objects.equals(this.capability, requestAccess.capability) &&
         Objects.equals(this.comment, requestAccess.comment) &&
+        Objects.equals(this.description, requestAccess.description) &&
         Objects.equals(this.json, requestAccess.json) &&
         Objects.equals(this.name, requestAccess.name) &&
         Objects.equals(this.token, requestAccess.token) &&
@@ -216,7 +244,7 @@ public class RequestAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, comment, json, name, token, uidToken);
+    return Objects.hash(capability, comment, description, json, name, token, uidToken);
   }
 
 
@@ -226,6 +254,7 @@ public class RequestAccess {
     sb.append("class RequestAccess {\n");
     sb.append("    capability: ").append(toIndentedString(capability)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

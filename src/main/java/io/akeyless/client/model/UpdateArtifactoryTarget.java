@@ -45,6 +45,10 @@ public class UpdateArtifactoryTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -151,11 +155,11 @@ public class UpdateArtifactoryTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -164,6 +168,29 @@ public class UpdateArtifactoryTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateArtifactoryTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -363,6 +390,7 @@ public class UpdateArtifactoryTarget {
         Objects.equals(this.artifactoryAdminPwd, updateArtifactoryTarget.artifactoryAdminPwd) &&
         Objects.equals(this.baseUrl, updateArtifactoryTarget.baseUrl) &&
         Objects.equals(this.comment, updateArtifactoryTarget.comment) &&
+        Objects.equals(this.description, updateArtifactoryTarget.description) &&
         Objects.equals(this.json, updateArtifactoryTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateArtifactoryTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateArtifactoryTarget.key) &&
@@ -375,7 +403,7 @@ public class UpdateArtifactoryTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, description, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
 
@@ -387,6 +415,7 @@ public class UpdateArtifactoryTarget {
     sb.append("    artifactoryAdminPwd: ").append(toIndentedString(artifactoryAdminPwd)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

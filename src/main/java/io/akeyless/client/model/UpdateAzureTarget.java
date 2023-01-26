@@ -41,6 +41,10 @@ public class UpdateAzureTarget {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json;
@@ -147,11 +151,11 @@ public class UpdateAzureTarget {
   }
 
    /**
-   * Comment about the target
+   * Deprecated - use description
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment about the target")
+  @ApiModelProperty(value = "Deprecated - use description")
 
   public String getComment() {
     return comment;
@@ -160,6 +164,29 @@ public class UpdateAzureTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateAzureTarget description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -473,6 +500,7 @@ public class UpdateAzureTarget {
     return Objects.equals(this.clientId, updateAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, updateAzureTarget.clientSecret) &&
         Objects.equals(this.comment, updateAzureTarget.comment) &&
+        Objects.equals(this.description, updateAzureTarget.description) &&
         Objects.equals(this.json, updateAzureTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateAzureTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateAzureTarget.key) &&
@@ -490,7 +518,7 @@ public class UpdateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, json, keepPrevVersion, key, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(clientId, clientSecret, comment, description, json, keepPrevVersion, key, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
 
@@ -501,6 +529,7 @@ public class UpdateAzureTarget {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
