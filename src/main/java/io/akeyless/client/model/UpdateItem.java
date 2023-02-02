@@ -71,6 +71,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   private List<String> rmTag = null;
 
+  public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT = "rotate-after-disconnect";
+  @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
+  private String rotateAfterDisconnect = "false";
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST = "secure-access-add-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST)
   private List<String> secureAccessAddHost = null;
@@ -418,6 +422,29 @@ public class UpdateItem {
 
   public void setRmTag(List<String> rmTag) {
     this.rmTag = rmTag;
+  }
+
+
+  public UpdateItem rotateAfterDisconnect(String rotateAfterDisconnect) {
+    
+    this.rotateAfterDisconnect = rotateAfterDisconnect;
+    return this;
+  }
+
+   /**
+   * Rotate the value of the secret after SRA session ends
+   * @return rotateAfterDisconnect
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends")
+
+  public String getRotateAfterDisconnect() {
+    return rotateAfterDisconnect;
+  }
+
+
+  public void setRotateAfterDisconnect(String rotateAfterDisconnect) {
+    this.rotateAfterDisconnect = rotateAfterDisconnect;
   }
 
 
@@ -1062,6 +1089,7 @@ public class UpdateItem {
         Objects.equals(this.newMetadata, updateItem.newMetadata) &&
         Objects.equals(this.newName, updateItem.newName) &&
         Objects.equals(this.rmTag, updateItem.rmTag) &&
+        Objects.equals(this.rotateAfterDisconnect, updateItem.rotateAfterDisconnect) &&
         Objects.equals(this.secureAccessAddHost, updateItem.secureAccessAddHost) &&
         Objects.equals(this.secureAccessAllowExternalUser, updateItem.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessAllowPortForwading, updateItem.secureAccessAllowPortForwading) &&
@@ -1092,7 +1120,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, description, json, name, newMetadata, newName, rmTag, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, description, json, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
 
@@ -1110,6 +1138,7 @@ public class UpdateItem {
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
+    sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    secureAccessAddHost: ").append(toIndentedString(secureAccessAddHost)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");

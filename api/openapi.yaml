@@ -12299,7 +12299,7 @@ components:
         gke_cluster_endpoint: gke_cluster_endpoint
         dynamic_secret_type: dynamic_secret_type
         metadata: metadata
-        last_admin_rotation: 9
+        last_admin_rotation: 7
         db_max_open_conns: db_max_open_conns
         admin_rotation_interval_days: 0
         ssl_connection_certificate: ssl_connection_certificate
@@ -12319,7 +12319,7 @@ components:
         venafi_allowed_domains:
         - venafi_allowed_domains
         - venafi_allowed_domains
-        warn_before_user_expiration_min: 1
+        warn_before_user_expiration_min: 7
         db_private_key: db_private_key
         fixed_user_only: fixed_user_only
         rabbitmq_server_password: rabbitmq_server_password
@@ -12362,7 +12362,7 @@ components:
         mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
         github_installation_token_permissions:
           key: github_installation_token_permissions
-        timeout_seconds: 4
+        timeout_seconds: 2
         eks_assume_role: eks_assume_role
         db_max_idle_conns: db_max_idle_conns
         admin_name: admin_name
@@ -12398,7 +12398,7 @@ components:
         - github_installation_token_repositories
         gcp_service_account_key: gcp_service_account_key
         gcp_service_account_type: gcp_service_account_type
-        session_extension_warn_interval_min: 2
+        session_extension_warn_interval_min: 3
         venafi_store_private_key: true
         eks_cluster_endpoint: eks_cluster_endpoint
         gke_service_account_key: gke_service_account_key
@@ -12462,15 +12462,15 @@ components:
         gcp_tmp_service_account_name: gcp_tmp_service_account_name
         issuer: issuer
         github_app_id: 1
+        k8s_multiple_doc_yaml_temp_definition:
+        - 2
+        - 2
         ldap_bind_dn: ldap_bind_dn
-        k8s_temp_role_definition:
-        - 7
-        - 7
         admin_pwd: admin_pwd
         azure_fixed_user_only: true
         azure_user_roles_template_id: azure_user_roles_template_id
         aws_access_mode: aws_access_mode
-        username_length: 7
+        username_length: 4
         authorization_port: authorization_port
         db_host_name: db_host_name
         ldap_user_dn: ldap_user_dn
@@ -12535,7 +12535,7 @@ components:
         - 5
         gcp_service_account_email: gcp_service_account_email
         hanadb_creation_statements: hanadb_creation_statements
-        password_length: 3
+        password_length: 9
         dynamic_secret_name: dynamic_secret_name
         aws_user_programmatic_access: true
         rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -12560,9 +12560,6 @@ components:
         aws_region: aws_region
         eks_cluster_name: eks_cluster_name
         gke_cluster_name: gke_cluster_name
-        k8s_temp_role_binding_definition:
-        - 2
-        - 2
         host_name: host_name
       properties:
         access_token_manager_id:
@@ -12946,6 +12943,15 @@ components:
             By default dynamic mode is false and producer behaves like it did before
           type: boolean
           x-go-name: DynamicMode
+        k8s_multiple_doc_yaml_temp_definition:
+          description: |-
+            Yaml definition for creation of temporary objects. Field that can hold multiple docs from which following will be extracted:
+            ServiceAccount, Role/ClusterRole and RoleBinding/ClusterRoleBinding. If ServiceAccount not specified - it will be generated automatically
+          items:
+            format: uint8
+            type: integer
+          type: array
+          x-go-name: K8sMultiDocYamlTempDefinition
         k8s_namespace:
           type: string
           x-go-name: K8sNamespace
@@ -12960,23 +12966,6 @@ components:
         k8s_service_account:
           type: string
           x-go-name: K8sServiceAccount
-        k8s_temp_role_binding_definition:
-          description: |-
-            Yaml/Json definition of temporary role binding that will be created and deleted when TTL is due.
-            Must have as subject name of Service Account specified in K8sServiceAccount field
-          items:
-            format: uint8
-            type: integer
-          type: array
-          x-go-name: K8sTempRoleBindingDefinition
-        k8s_temp_role_definition:
-          description: Yaml/Json definition of temporary role that will be created
-            and deleted when TTL is due
-          items:
-            format: uint8
-            type: integer
-          type: array
-          x-go-name: K8sTempRoleDefinition
         last_admin_rotation:
           format: int64
           type: integer
@@ -27309,7 +27298,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -27329,7 +27318,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -27372,7 +27361,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -27408,7 +27397,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -27472,15 +27461,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -27545,7 +27534,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -27570,9 +27559,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -27703,7 +27689,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -27723,7 +27709,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -27766,7 +27752,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -27802,7 +27788,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -27866,15 +27852,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -27939,7 +27925,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -27964,9 +27950,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -28086,7 +28069,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -28106,7 +28089,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -28149,7 +28132,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -28185,7 +28168,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -28249,15 +28232,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -28322,7 +28305,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -28347,9 +28330,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -28431,7 +28411,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -28451,7 +28431,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -28494,7 +28474,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -28530,7 +28510,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -28594,15 +28574,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -28667,7 +28647,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -28692,9 +28672,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -28825,7 +28802,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -28845,7 +28822,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -28888,7 +28865,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -28924,7 +28901,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -28988,15 +28965,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -29061,7 +29038,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -29086,9 +29063,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -29259,7 +29233,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -29279,7 +29253,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -29322,7 +29296,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -29358,7 +29332,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -29422,15 +29396,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -29495,7 +29469,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -29520,9 +29494,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -29598,7 +29569,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -29618,7 +29589,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -29661,7 +29632,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -29697,7 +29668,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -29761,15 +29732,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -29834,7 +29805,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -29859,9 +29830,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -29965,7 +29933,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -29985,7 +29953,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -30028,7 +29996,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -30064,7 +30032,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -30128,15 +30096,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -30201,7 +30169,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -30226,9 +30194,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -30318,7 +30283,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -30338,7 +30303,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -30381,7 +30346,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -30417,7 +30382,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -30481,15 +30446,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -30554,7 +30519,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -30579,9 +30544,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -30660,7 +30622,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -30680,7 +30642,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -30723,7 +30685,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -30759,7 +30721,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -30823,15 +30785,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -30896,7 +30858,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -30921,9 +30883,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -31018,7 +30977,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -31038,7 +30997,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -31081,7 +31040,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -31117,7 +31076,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -31181,15 +31140,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -31254,7 +31213,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -31279,9 +31238,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -31388,7 +31344,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -31408,7 +31364,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -31451,7 +31407,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -31487,7 +31443,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -31551,15 +31507,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -31624,7 +31580,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -31649,9 +31605,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -31744,7 +31697,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -31764,7 +31717,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -31807,7 +31760,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -31843,7 +31796,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -31907,15 +31860,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -31980,7 +31933,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -32005,9 +31958,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -32114,7 +32064,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -32134,7 +32084,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -32177,7 +32127,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -32213,7 +32163,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -32277,15 +32227,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -32350,7 +32300,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -32375,9 +32325,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -32502,7 +32449,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -32522,7 +32469,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -32565,7 +32512,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -32601,7 +32548,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -32665,15 +32612,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -32738,7 +32685,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -32763,9 +32710,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -32881,7 +32825,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -32901,7 +32845,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -32944,7 +32888,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -32980,7 +32924,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -33044,15 +32988,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -33117,7 +33061,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -33142,9 +33086,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -33248,7 +33189,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -33268,7 +33209,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -33311,7 +33252,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -33347,7 +33288,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -33411,15 +33352,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -33484,7 +33425,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -33509,9 +33450,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -33620,7 +33558,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -33640,7 +33578,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -33683,7 +33621,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -33719,7 +33657,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -33783,15 +33721,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -33856,7 +33794,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -33881,9 +33819,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -34041,7 +33976,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -34061,7 +33996,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -34104,7 +34039,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -34140,7 +34075,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -34204,15 +34139,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -34277,7 +34212,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -34302,9 +34237,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -34416,7 +34348,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -34436,7 +34368,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -34479,7 +34411,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -34515,7 +34447,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -34579,15 +34511,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -34652,7 +34584,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -34677,9 +34609,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -34789,7 +34718,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -34809,7 +34738,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -34852,7 +34781,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -34888,7 +34817,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -34952,15 +34881,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -35025,7 +34954,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -35050,9 +34979,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -35165,7 +35091,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -35185,7 +35111,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -35228,7 +35154,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -35264,7 +35190,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -35328,15 +35254,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -35401,7 +35327,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -35426,9 +35352,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -35527,7 +35450,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -35547,7 +35470,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -35590,7 +35513,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -35626,7 +35549,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -35690,15 +35613,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -35763,7 +35686,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -35788,9 +35711,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -35879,7 +35799,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -35899,7 +35819,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -35942,7 +35862,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -35978,7 +35898,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -36042,15 +35962,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -36115,7 +36035,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -36140,9 +36060,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -38081,7 +37998,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -38101,7 +38018,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -38144,7 +38061,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -38180,7 +38097,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -38244,15 +38161,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -38317,7 +38234,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -38342,9 +38259,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -38479,7 +38393,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -38499,7 +38413,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -38542,7 +38456,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -38578,7 +38492,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -38642,15 +38556,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -38715,7 +38629,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -38740,9 +38654,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -38866,7 +38777,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -38886,7 +38797,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -38929,7 +38840,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -38965,7 +38876,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -39029,15 +38940,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -39102,7 +39013,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -39127,9 +39038,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -39215,7 +39123,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -39235,7 +39143,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -39278,7 +39186,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -39314,7 +39222,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -39378,15 +39286,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -39451,7 +39359,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -39476,9 +39384,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -39613,7 +39518,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -39633,7 +39538,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -39676,7 +39581,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -39712,7 +39617,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -39776,15 +39681,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -39849,7 +39754,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -39874,9 +39779,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -40055,7 +39957,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -40075,7 +39977,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -40118,7 +40020,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -40154,7 +40056,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -40218,15 +40120,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -40291,7 +40193,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -40316,9 +40218,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -40398,7 +40297,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -40418,7 +40317,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -40461,7 +40360,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -40497,7 +40396,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -40561,15 +40460,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -40634,7 +40533,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -40659,9 +40558,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -40769,7 +40665,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -40789,7 +40685,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -40832,7 +40728,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -40868,7 +40764,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -40932,15 +40828,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -41005,7 +40901,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -41030,9 +40926,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -41126,7 +41019,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -41146,7 +41039,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -41189,7 +41082,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -41225,7 +41118,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -41289,15 +41182,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -41362,7 +41255,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -41387,9 +41280,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -41472,7 +41362,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -41492,7 +41382,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -41535,7 +41425,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -41571,7 +41461,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -41635,15 +41525,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -41708,7 +41598,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -41733,9 +41623,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -41834,7 +41721,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -41854,7 +41741,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -41897,7 +41784,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -41933,7 +41820,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -41997,15 +41884,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -42070,7 +41957,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -42095,9 +41982,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -42208,7 +42092,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -42228,7 +42112,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -42271,7 +42155,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -42307,7 +42191,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -42371,15 +42255,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -42444,7 +42328,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -42469,9 +42353,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -42568,7 +42449,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -42588,7 +42469,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -42631,7 +42512,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -42667,7 +42548,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -42731,15 +42612,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -42804,7 +42685,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -42829,9 +42710,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -42942,7 +42820,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -42962,7 +42840,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -43005,7 +42883,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -43041,7 +42919,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -43105,15 +42983,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -43178,7 +43056,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -43203,9 +43081,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -43334,7 +43209,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -43354,7 +43229,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -43397,7 +43272,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -43433,7 +43308,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -43497,15 +43372,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -43570,7 +43445,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -43595,9 +43470,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -43717,7 +43589,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -43737,7 +43609,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -43780,7 +43652,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -43816,7 +43688,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -43880,15 +43752,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -43953,7 +43825,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -43978,9 +43850,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -44088,7 +43957,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -44108,7 +43977,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -44151,7 +44020,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -44187,7 +44056,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -44251,15 +44120,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -44324,7 +44193,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -44349,9 +44218,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -44464,7 +44330,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -44484,7 +44350,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -44527,7 +44393,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -44563,7 +44429,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -44627,15 +44493,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -44700,7 +44566,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -44725,9 +44591,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -44889,7 +44752,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -44909,7 +44772,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -44952,7 +44815,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -44988,7 +44851,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -45052,15 +44915,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -45125,7 +44988,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -45150,9 +45013,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -45268,7 +45128,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -45288,7 +45148,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -45331,7 +45191,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -45367,7 +45227,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -45431,15 +45291,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -45504,7 +45364,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -45529,9 +45389,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -45645,7 +45502,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -45665,7 +45522,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -45708,7 +45565,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -45744,7 +45601,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -45808,15 +45665,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -45881,7 +45738,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -45906,9 +45763,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -46025,7 +45879,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -46045,7 +45899,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -46088,7 +45942,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -46124,7 +45978,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -46188,15 +46042,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -46261,7 +46115,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -46286,9 +46140,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -46391,7 +46242,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -46411,7 +46262,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -46454,7 +46305,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -46490,7 +46341,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -46554,15 +46405,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -46627,7 +46478,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -46652,9 +46503,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -46747,7 +46595,7 @@ components:
           gke_cluster_endpoint: gke_cluster_endpoint
           dynamic_secret_type: dynamic_secret_type
           metadata: metadata
-          last_admin_rotation: 9
+          last_admin_rotation: 7
           db_max_open_conns: db_max_open_conns
           admin_rotation_interval_days: 0
           ssl_connection_certificate: ssl_connection_certificate
@@ -46767,7 +46615,7 @@ components:
           venafi_allowed_domains:
           - venafi_allowed_domains
           - venafi_allowed_domains
-          warn_before_user_expiration_min: 1
+          warn_before_user_expiration_min: 7
           db_private_key: db_private_key
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
@@ -46810,7 +46658,7 @@ components:
           mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
           github_installation_token_permissions:
             key: github_installation_token_permissions
-          timeout_seconds: 4
+          timeout_seconds: 2
           eks_assume_role: eks_assume_role
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
@@ -46846,7 +46694,7 @@ components:
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
           gcp_service_account_type: gcp_service_account_type
-          session_extension_warn_interval_min: 2
+          session_extension_warn_interval_min: 3
           venafi_store_private_key: true
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
@@ -46910,15 +46758,15 @@ components:
           gcp_tmp_service_account_name: gcp_tmp_service_account_name
           issuer: issuer
           github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
           ldap_bind_dn: ldap_bind_dn
-          k8s_temp_role_definition:
-          - 7
-          - 7
           admin_pwd: admin_pwd
           azure_fixed_user_only: true
           azure_user_roles_template_id: azure_user_roles_template_id
           aws_access_mode: aws_access_mode
-          username_length: 7
+          username_length: 4
           authorization_port: authorization_port
           db_host_name: db_host_name
           ldap_user_dn: ldap_user_dn
@@ -46983,7 +46831,7 @@ components:
           - 5
           gcp_service_account_email: gcp_service_account_email
           hanadb_creation_statements: hanadb_creation_statements
-          password_length: 3
+          password_length: 9
           dynamic_secret_name: dynamic_secret_name
           aws_user_programmatic_access: true
           rabbitmq_user_write_permission: rabbitmq_user_write_permission
@@ -47008,9 +46856,6 @@ components:
           aws_region: aws_region
           eks_cluster_name: eks_cluster_name
           gke_cluster_name: gke_cluster_name
-          k8s_temp_role_binding_definition:
-          - 2
-          - 2
           host_name: host_name
       properties:
         producer_details:
@@ -51582,6 +51427,11 @@ components:
             type: string
           type: array
           x-go-name: RemoveTags
+        rotate-after-disconnect:
+          default: "false"
+          description: Rotate the value of the secret after SRA session ends
+          type: string
+          x-go-name: RotateAfterDisconnect
         secure-access-add-host:
           items:
             type: string

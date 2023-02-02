@@ -491,6 +491,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_K8S_DYNAMIC_MODE)
   private Boolean k8sDynamicMode;
 
+  public static final String SERIALIZED_NAME_K8S_MULTIPLE_DOC_YAML_TEMP_DEFINITION = "k8s_multiple_doc_yaml_temp_definition";
+  @SerializedName(SERIALIZED_NAME_K8S_MULTIPLE_DOC_YAML_TEMP_DEFINITION)
+  private List<Integer> k8sMultipleDocYamlTempDefinition = null;
+
   public static final String SERIALIZED_NAME_K8S_NAMESPACE = "k8s_namespace";
   @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
   private String k8sNamespace;
@@ -506,14 +510,6 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT = "k8s_service_account";
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT)
   private String k8sServiceAccount;
-
-  public static final String SERIALIZED_NAME_K8S_TEMP_ROLE_BINDING_DEFINITION = "k8s_temp_role_binding_definition";
-  @SerializedName(SERIALIZED_NAME_K8S_TEMP_ROLE_BINDING_DEFINITION)
-  private List<Integer> k8sTempRoleBindingDefinition = null;
-
-  public static final String SERIALIZED_NAME_K8S_TEMP_ROLE_DEFINITION = "k8s_temp_role_definition";
-  @SerializedName(SERIALIZED_NAME_K8S_TEMP_ROLE_DEFINITION)
-  private List<Integer> k8sTempRoleDefinition = null;
 
   public static final String SERIALIZED_NAME_LAST_ADMIN_ROTATION = "last_admin_rotation";
   @SerializedName(SERIALIZED_NAME_LAST_ADMIN_ROTATION)
@@ -3514,6 +3510,37 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails k8sMultipleDocYamlTempDefinition(List<Integer> k8sMultipleDocYamlTempDefinition) {
+    
+    this.k8sMultipleDocYamlTempDefinition = k8sMultipleDocYamlTempDefinition;
+    return this;
+  }
+
+  public DSProducerDetails addK8sMultipleDocYamlTempDefinitionItem(Integer k8sMultipleDocYamlTempDefinitionItem) {
+    if (this.k8sMultipleDocYamlTempDefinition == null) {
+      this.k8sMultipleDocYamlTempDefinition = new ArrayList<Integer>();
+    }
+    this.k8sMultipleDocYamlTempDefinition.add(k8sMultipleDocYamlTempDefinitionItem);
+    return this;
+  }
+
+   /**
+   * Yaml definition for creation of temporary objects. Field that can hold multiple docs from which following will be extracted: ServiceAccount, Role/ClusterRole and RoleBinding/ClusterRoleBinding. If ServiceAccount not specified - it will be generated automatically
+   * @return k8sMultipleDocYamlTempDefinition
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Yaml definition for creation of temporary objects. Field that can hold multiple docs from which following will be extracted: ServiceAccount, Role/ClusterRole and RoleBinding/ClusterRoleBinding. If ServiceAccount not specified - it will be generated automatically")
+
+  public List<Integer> getK8sMultipleDocYamlTempDefinition() {
+    return k8sMultipleDocYamlTempDefinition;
+  }
+
+
+  public void setK8sMultipleDocYamlTempDefinition(List<Integer> k8sMultipleDocYamlTempDefinition) {
+    this.k8sMultipleDocYamlTempDefinition = k8sMultipleDocYamlTempDefinition;
+  }
+
+
   public DSProducerDetails k8sNamespace(String k8sNamespace) {
     
     this.k8sNamespace = k8sNamespace;
@@ -3603,68 +3630,6 @@ public class DSProducerDetails {
 
   public void setK8sServiceAccount(String k8sServiceAccount) {
     this.k8sServiceAccount = k8sServiceAccount;
-  }
-
-
-  public DSProducerDetails k8sTempRoleBindingDefinition(List<Integer> k8sTempRoleBindingDefinition) {
-    
-    this.k8sTempRoleBindingDefinition = k8sTempRoleBindingDefinition;
-    return this;
-  }
-
-  public DSProducerDetails addK8sTempRoleBindingDefinitionItem(Integer k8sTempRoleBindingDefinitionItem) {
-    if (this.k8sTempRoleBindingDefinition == null) {
-      this.k8sTempRoleBindingDefinition = new ArrayList<Integer>();
-    }
-    this.k8sTempRoleBindingDefinition.add(k8sTempRoleBindingDefinitionItem);
-    return this;
-  }
-
-   /**
-   * Yaml/Json definition of temporary role binding that will be created and deleted when TTL is due. Must have as subject name of Service Account specified in K8sServiceAccount field
-   * @return k8sTempRoleBindingDefinition
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Yaml/Json definition of temporary role binding that will be created and deleted when TTL is due. Must have as subject name of Service Account specified in K8sServiceAccount field")
-
-  public List<Integer> getK8sTempRoleBindingDefinition() {
-    return k8sTempRoleBindingDefinition;
-  }
-
-
-  public void setK8sTempRoleBindingDefinition(List<Integer> k8sTempRoleBindingDefinition) {
-    this.k8sTempRoleBindingDefinition = k8sTempRoleBindingDefinition;
-  }
-
-
-  public DSProducerDetails k8sTempRoleDefinition(List<Integer> k8sTempRoleDefinition) {
-    
-    this.k8sTempRoleDefinition = k8sTempRoleDefinition;
-    return this;
-  }
-
-  public DSProducerDetails addK8sTempRoleDefinitionItem(Integer k8sTempRoleDefinitionItem) {
-    if (this.k8sTempRoleDefinition == null) {
-      this.k8sTempRoleDefinition = new ArrayList<Integer>();
-    }
-    this.k8sTempRoleDefinition.add(k8sTempRoleDefinitionItem);
-    return this;
-  }
-
-   /**
-   * Yaml/Json definition of temporary role that will be created and deleted when TTL is due
-   * @return k8sTempRoleDefinition
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Yaml/Json definition of temporary role that will be created and deleted when TTL is due")
-
-  public List<Integer> getK8sTempRoleDefinition() {
-    return k8sTempRoleDefinition;
-  }
-
-
-  public void setK8sTempRoleDefinition(List<Integer> k8sTempRoleDefinition) {
-    this.k8sTempRoleDefinition = k8sTempRoleDefinition;
   }
 
 
@@ -5717,12 +5682,11 @@ public class DSProducerDetails {
         Objects.equals(this.k8sClusterCaCertificate, dsProducerDetails.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, dsProducerDetails.k8sClusterEndpoint) &&
         Objects.equals(this.k8sDynamicMode, dsProducerDetails.k8sDynamicMode) &&
+        Objects.equals(this.k8sMultipleDocYamlTempDefinition, dsProducerDetails.k8sMultipleDocYamlTempDefinition) &&
         Objects.equals(this.k8sNamespace, dsProducerDetails.k8sNamespace) &&
         Objects.equals(this.k8sRoleName, dsProducerDetails.k8sRoleName) &&
         Objects.equals(this.k8sRoleType, dsProducerDetails.k8sRoleType) &&
         Objects.equals(this.k8sServiceAccount, dsProducerDetails.k8sServiceAccount) &&
-        Objects.equals(this.k8sTempRoleBindingDefinition, dsProducerDetails.k8sTempRoleBindingDefinition) &&
-        Objects.equals(this.k8sTempRoleDefinition, dsProducerDetails.k8sTempRoleDefinition) &&
         Objects.equals(this.lastAdminRotation, dsProducerDetails.lastAdminRotation) &&
         Objects.equals(this.ldapAudience, dsProducerDetails.ldapAudience) &&
         Objects.equals(this.ldapBindDn, dsProducerDetails.ldapBindDn) &&
@@ -5809,7 +5773,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, k8sTempRoleBindingDefinition, k8sTempRoleDefinition, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -5931,12 +5895,11 @@ public class DSProducerDetails {
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sDynamicMode: ").append(toIndentedString(k8sDynamicMode)).append("\n");
+    sb.append("    k8sMultipleDocYamlTempDefinition: ").append(toIndentedString(k8sMultipleDocYamlTempDefinition)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sRoleName: ").append(toIndentedString(k8sRoleName)).append("\n");
     sb.append("    k8sRoleType: ").append(toIndentedString(k8sRoleType)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
-    sb.append("    k8sTempRoleBindingDefinition: ").append(toIndentedString(k8sTempRoleBindingDefinition)).append("\n");
-    sb.append("    k8sTempRoleDefinition: ").append(toIndentedString(k8sTempRoleDefinition)).append("\n");
     sb.append("    lastAdminRotation: ").append(toIndentedString(lastAdminRotation)).append("\n");
     sb.append("    ldapAudience: ").append(toIndentedString(ldapAudience)).append("\n");
     sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");

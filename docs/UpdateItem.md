@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **newMetadata** | **String** | Deprecated - use description |  [optional]
 **newName** | **String** | New item name |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
+**rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends |  [optional]
 **secureAccessAddHost** | **List&lt;String&gt;** |  |  [optional]
 **secureAccessAllowExternalUser** | **String** |  |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** |  |  [optional]
