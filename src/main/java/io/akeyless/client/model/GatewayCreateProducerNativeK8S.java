@@ -38,7 +38,7 @@ public class GatewayCreateProducerNativeK8S {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
@@ -54,7 +54,7 @@ public class GatewayCreateProducerNativeK8S {
 
   public static final String SERIALIZED_NAME_K8S_NAMESPACE = "k8s-namespace";
   @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
-  private String k8sNamespace;
+  private String k8sNamespace = "default";
 
   public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT = "k8s-service-account";
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT)
@@ -90,15 +90,15 @@ public class GatewayCreateProducerNativeK8S {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
-  private Boolean secureAccessWeb;
+  private Boolean secureAccessWeb = false;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
-  private Boolean secureAccessWebBrowsing;
+  private Boolean secureAccessWebBrowsing = false;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
-  private Boolean secureAccessWebProxy;
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -128,11 +128,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -334,11 +334,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessAllowPortForwading
+   * Enable Port forwarding while using CLI access
    * @return secureAccessAllowPortForwading
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Port forwarding while using CLI access")
 
   public Boolean getSecureAccessAllowPortForwading() {
     return secureAccessAllowPortForwading;
@@ -357,11 +357,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessBastionIssuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -380,11 +380,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessClusterEndpoint
+   * The K8s cluster endpoint URL
    * @return secureAccessClusterEndpoint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The K8s cluster endpoint URL")
 
   public String getSecureAccessClusterEndpoint() {
     return secureAccessClusterEndpoint;
@@ -403,11 +403,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessDashboardUrl
+   * The K8s dashboard url
    * @return secureAccessDashboardUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The K8s dashboard url")
 
   public String getSecureAccessDashboardUrl() {
     return secureAccessDashboardUrl;
@@ -426,11 +426,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -449,11 +449,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessWeb
+   * Enable Web Secure Remote Access
    * @return secureAccessWeb
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
 
   public Boolean getSecureAccessWeb() {
     return secureAccessWeb;
@@ -472,11 +472,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessWebBrowsing
+   * Secure browser via Akeyless Web Access Bastion
    * @return secureAccessWebBrowsing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebBrowsing() {
     return secureAccessWebBrowsing;
@@ -495,11 +495,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Get secureAccessWebProxy
+   * Web-Proxy via Akeyless Web Access Bastion
    * @return secureAccessWebProxy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebProxy() {
     return secureAccessWebProxy;

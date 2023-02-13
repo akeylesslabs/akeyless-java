@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
-**genKey** | **String** | Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided |  [optional]
+**genKey** | **String** | Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided [true/false] |  [optional]
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]

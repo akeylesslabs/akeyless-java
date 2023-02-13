@@ -16,12 +16,12 @@ Name | Type | Description | Notes
 **newName** | **String** | New item name |  [optional]
 **principals** | **String** | Signed certificates with principal, e.g example_role1,example_role2 |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
-**secureAccessBastionApi** | **String** |  |  [optional]
-**secureAccessBastionSsh** | **String** |  |  [optional]
-**secureAccessEnable** | **String** |  |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
-**secureAccessSshCredsUser** | **String** |  |  [optional]
-**secureAccessUseInternalBastion** | **Boolean** |  |  [optional]
+**secureAccessBastionApi** | **String** | Bastion&#39;s SSH control API endpoint. E.g. https://my.bastion:9900 |  [optional]
+**secureAccessBastionSsh** | **String** | Bastion&#39;s SSH server. E.g. my.bastion:22 |  [optional]
+**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections |  [optional]
+**secureAccessSshCredsUser** | **String** | SSH username to connect to target server, must be in &#39;Allowed Users&#39; list |  [optional]
+**secureAccessUseInternalBastion** | **Boolean** | Use internal SSH Bastion |  [optional]
 **signerKeyName** | **String** | A key to sign the certificate with | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **ttl** | **Long** | he requested Time To Live for the certificate, in seconds | 

@@ -32,7 +32,7 @@ import java.io.IOException;
 public class KmipMoveServer {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NEW_ROOT = "new-root";
   @SerializedName(SERIALIZED_NAME_NEW_ROOT)
@@ -77,11 +77,10 @@ public class KmipMoveServer {
   }
 
    /**
-   * Get newRoot
+   * New root for the kmip server
    * @return newRoot
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "New root for the kmip server")
 
   public String getNewRoot() {
     return newRoot;

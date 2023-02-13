@@ -7,7 +7,7 @@ gatewayCreateProducerPing is a command that creates ping producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **pingAdministrativePort** | **String** | Ping Federate administrative port |  [optional]
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **pingAuthorizationPort** | **String** | Ping Federate authorization port |  [optional]
 **pingCertSubjectDn** | **String** | The subject DN of the client certificate. If no explicit value is given, the producer will create CA certificate and matched client certificate and return it as value. Used in conjunction with ping-issuer-dn (relevant for CLIENT_TLS_CERTIFICATE authentication method) |  [optional]
 **pingClientAuthenticationType** | **String** | OAuth Client Authentication Type [CLIENT_SECRET, PRIVATE_KEY_JWT, CLIENT_TLS_CERTIFICATE] |  [optional]
-**pingEnforceReplayPrevention** | **String** | Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method) |  [optional]
+**pingEnforceReplayPrevention** | **String** | Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method) [true/false] |  [optional]
 **pingGrantTypes** | **List&lt;String&gt;** | List of OAuth client grant types [IMPLICIT, AUTHORIZATION_CODE, CLIENT_CREDENTIALS, TOKEN_EXCHANGE, REFRESH_TOKEN, ASSERTION_GRANTS, PASSWORD, RESOURCE_OWNER_CREDENTIALS]. If no explicit value is given, AUTHORIZATION_CODE will be selected as default. |  [optional]
 **pingIssuerDn** | **String** | Issuer DN of trusted CA certificate that imported into Ping Federate server. You may select \\\&quot;Trust Any\\\&quot; to trust all the existing issuers in Ping Federate server. Used in conjunction with ping-cert-subject-dn (relevant for CLIENT_TLS_CERTIFICATE authentication method) |  [optional]
 **pingJwks** | **String** | Base64-encoded JSON Web Key Set (JWKS). If no explicit value is given, the producer will create JWKs and matched signed JWT (Sign Algo: RS256) and return it as value (relevant for PRIVATE_KEY_JWT authentication method) |  [optional]

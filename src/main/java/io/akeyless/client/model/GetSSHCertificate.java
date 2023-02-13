@@ -39,11 +39,11 @@ public class GetSSHCertificate {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME = "legacy-signing-alg-name";
   @SerializedName(SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME)
-  private Boolean legacySigningAlgName;
+  private Boolean legacySigningAlgName = false;
 
   public static final String SERIALIZED_NAME_PUBLIC_KEY_DATA = "public-key-data";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_DATA)

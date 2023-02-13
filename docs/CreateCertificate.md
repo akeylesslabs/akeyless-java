@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **certificateData** | **String** | Content of the certificate PEM in a Base64 format. |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

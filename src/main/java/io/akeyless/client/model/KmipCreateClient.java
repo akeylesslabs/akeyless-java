@@ -31,15 +31,15 @@ import java.io.IOException;
 public class KmipCreateClient {
   public static final String SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION = "activate-keys-on-creation";
   @SerializedName(SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION)
-  private String activateKeysOnCreation;
+  private String activateKeysOnCreation = "false";
 
   public static final String SERIALIZED_NAME_CERTIFICATE_TTL = "certificate-ttl";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
-  private Long certificateTtl;
+  private Long certificateTtl = 90l;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -61,11 +61,11 @@ public class KmipCreateClient {
   }
 
    /**
-   * Get activateKeysOnCreation
+   * If set to &#39;true&#39;, newly created keys on the client will be set to an &#39;active&#39; state
    * @return activateKeysOnCreation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "If set to 'true', newly created keys on the client will be set to an 'active' state")
 
   public String getActivateKeysOnCreation() {
     return activateKeysOnCreation;
@@ -84,11 +84,11 @@ public class KmipCreateClient {
   }
 
    /**
-   * Get certificateTtl
+   * Client certificate TTL in days
    * @return certificateTtl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Client certificate TTL in days")
 
   public Long getCertificateTtl() {
     return certificateTtl;

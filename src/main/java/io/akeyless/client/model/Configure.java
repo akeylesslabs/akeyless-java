@@ -59,11 +59,11 @@ public class Configure {
 
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
-  private String gcpAudience;
+  private String gcpAudience = "akeyless.io";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME = "k8s-auth-config-name";
   @SerializedName(SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME)

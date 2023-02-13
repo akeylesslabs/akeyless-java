@@ -49,7 +49,7 @@ public class CreateCertificate {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -110,11 +110,11 @@ public class CreateCertificate {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;

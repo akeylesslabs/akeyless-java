@@ -66,7 +66,7 @@ public class GatewayUpdateItem {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -114,7 +114,7 @@ public class GatewayUpdateItem {
 
   public static final String SERIALIZED_NAME_ROTATOR_CREDS_TYPE = "rotator-creds-type";
   @SerializedName(SERIALIZED_NAME_ROTATOR_CREDS_TYPE)
-  private String rotatorCredsType;
+  private String rotatorCredsType = "use-self-creds";
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -167,11 +167,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Get apiId
+   * API ID to rotate (relevant only for rotator-type&#x3D;api-key)
    * @return apiId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "API ID to rotate (relevant only for rotator-type=api-key)")
 
   public String getApiId() {
     return apiId;
@@ -190,11 +190,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Get apiKey
+   * API key to rotate (relevant only for rotator-type&#x3D;api-key)
    * @return apiKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "API key to rotate (relevant only for rotator-type=api-key)")
 
   public String getApiKey() {
     return apiKey;
@@ -213,11 +213,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation
+   * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
    * @return autoRotate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation")
+  @ApiModelProperty(value = "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]")
 
   public String getAutoRotate() {
     return autoRotate;
@@ -236,11 +236,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Get customPayload
+   * Secret payload to be sent with rotation request (relevant only for rotator-type&#x3D;custom)
    * @return customPayload
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secret payload to be sent with rotation request (relevant only for rotator-type=custom)")
 
   public String getCustomPayload() {
     return customPayload;
@@ -259,11 +259,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -351,11 +351,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Get keepPrevVersion
+   * Whether to keep previous version [true/false]. (relevant only for --type&#x3D;rotated-secret). If not set, use default according to account settings
    * @return keepPrevVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. (relevant only for --type=rotated-secret). If not set, use default according to account settings")
 
   public String getKeepPrevVersion() {
     return keepPrevVersion;
@@ -519,11 +519,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Get rotatedPassword
+   * rotated-username password (relevant only for rotator-type&#x3D;password)
    * @return rotatedPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "rotated-username password (relevant only for rotator-type=password)")
 
   public String getRotatedPassword() {
     return rotatedPassword;
@@ -542,11 +542,11 @@ public class GatewayUpdateItem {
   }
 
    /**
-   * Get rotatedUsername
+   * username to be rotated, if selected \\\&quot;use-self-creds\\\&quot; at rotator-creds-type, this username will try to rotate it&#39;s own password, if \\\&quot;use-target-creds\\\&quot; is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password)
    * @return rotatedUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "username to be rotated, if selected \\\"use-self-creds\\\" at rotator-creds-type, this username will try to rotate it's own password, if \\\"use-target-creds\\\" is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type=password)")
 
   public String getRotatedUsername() {
     return rotatedUsername;

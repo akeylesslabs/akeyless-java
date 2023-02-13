@@ -69,7 +69,7 @@ public class CreatePKICertIssuer {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY_USAGE = "key-usage";
   @SerializedName(SERIALIZED_NAME_KEY_USAGE)
@@ -308,11 +308,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;

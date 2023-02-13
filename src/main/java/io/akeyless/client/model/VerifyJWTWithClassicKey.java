@@ -35,7 +35,7 @@ public class VerifyJWTWithClassicKey {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_JWT = "jwt";
   @SerializedName(SERIALIZED_NAME_JWT)

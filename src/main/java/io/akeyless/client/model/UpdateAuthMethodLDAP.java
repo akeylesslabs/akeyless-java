@@ -54,11 +54,11 @@ public class UpdateAuthMethodLDAP {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
-  private Long jwtTtl;
+  private Long jwtTtl = 0l;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -82,7 +82,7 @@ public class UpdateAuthMethodLDAP {
 
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
-  private String uniqueIdentifier;
+  private String uniqueIdentifier = "users";
 
 
   public UpdateAuthMethodLDAP accessExpires(Long accessExpires) {
@@ -169,11 +169,11 @@ public class UpdateAuthMethodLDAP {
   }
 
    /**
-   * Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
+   * Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided [true/false]
    * @return genKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided")
+  @ApiModelProperty(value = "Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided [true/false]")
 
   public String getGenKey() {
     return genKey;

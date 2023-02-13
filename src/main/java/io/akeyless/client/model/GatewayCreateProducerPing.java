@@ -38,7 +38,7 @@ public class GatewayCreateProducerPing {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -66,7 +66,7 @@ public class GatewayCreateProducerPing {
 
   public static final String SERIALIZED_NAME_PING_ENFORCE_REPLAY_PREVENTION = "ping-enforce-replay-prevention";
   @SerializedName(SERIALIZED_NAME_PING_ENFORCE_REPLAY_PREVENTION)
-  private String pingEnforceReplayPrevention;
+  private String pingEnforceReplayPrevention = "false";
 
   public static final String SERIALIZED_NAME_PING_GRANT_TYPES = "ping-grant-types";
   @SerializedName(SERIALIZED_NAME_PING_GRANT_TYPES)
@@ -140,11 +140,11 @@ public class GatewayCreateProducerPing {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -323,11 +323,11 @@ public class GatewayCreateProducerPing {
   }
 
    /**
-   * Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method)
+   * Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method) [true/false]
    * @return pingEnforceReplayPrevention
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method)")
+  @ApiModelProperty(value = "Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method) [true/false]")
 
   public String getPingEnforceReplayPrevention() {
     return pingEnforceReplayPrevention;

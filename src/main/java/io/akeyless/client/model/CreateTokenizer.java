@@ -58,7 +58,7 @@ public class CreateTokenizer {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -86,7 +86,7 @@ public class CreateTokenizer {
 
   public static final String SERIALIZED_NAME_TOKENIZER_TYPE = "tokenizer-type";
   @SerializedName(SERIALIZED_NAME_TOKENIZER_TYPE)
-  private String tokenizerType;
+  private String tokenizerType = "vaultless";
 
   public static final String SERIALIZED_NAME_TWEAK_TYPE = "tweak-type";
   @SerializedName(SERIALIZED_NAME_TWEAK_TYPE)
@@ -150,11 +150,11 @@ public class CreateTokenizer {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;

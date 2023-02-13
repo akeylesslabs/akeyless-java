@@ -42,7 +42,7 @@ public class GatewayCreateProducerRedshift {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -82,7 +82,7 @@ public class GatewayCreateProducerRedshift {
 
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
-  private Boolean ssl;
+  private Boolean ssl = false;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -135,11 +135,11 @@ public class GatewayCreateProducerRedshift {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -341,11 +341,11 @@ public class GatewayCreateProducerRedshift {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -372,11 +372,11 @@ public class GatewayCreateProducerRedshift {
   }
 
    /**
-   * Get secureAccessHost
+   * Target DB servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target DB servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -395,11 +395,11 @@ public class GatewayCreateProducerRedshift {
   }
 
    /**
-   * SSL connection mode
+   * Enable/Disable SSL [true/false]
    * @return ssl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SSL connection mode")
+  @ApiModelProperty(value = "Enable/Disable SSL [true/false]")
 
   public Boolean getSsl() {
     return ssl;

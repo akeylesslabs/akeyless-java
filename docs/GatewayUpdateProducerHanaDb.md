@@ -7,7 +7,7 @@ gatewayUpdateProducerHanaDb is a command that updates hanadb producer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **hanaDbname** | **String** | HanaDb Name |  [optional]
 **hanadbCreateStatements** | **String** | HanaDb Creation statements |  [optional]
 **hanadbHost** | **String** | HanaDb Host |  [optional]
@@ -19,11 +19,11 @@ Name | Type | Description | Notes
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
-**secureAccessBastionIssuer** | **String** |  |  [optional]
-**secureAccessDbSchema** | **String** |  |  [optional]
-**secureAccessEnable** | **String** |  |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
-**secureAccessWeb** | **Boolean** |  |  [optional]
+**secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
+**secureAccessDbSchema** | **String** | The DB schema |  [optional]
+**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections |  [optional]
+**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

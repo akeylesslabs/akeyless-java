@@ -35,7 +35,7 @@ public class VerifyPKICertWithClassicKey {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_PKI_CERT = "pki-cert";
   @SerializedName(SERIALIZED_NAME_PKI_CERT)

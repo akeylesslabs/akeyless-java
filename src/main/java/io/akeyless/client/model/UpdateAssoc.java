@@ -39,11 +39,11 @@ public class UpdateAssoc {
 
   public static final String SERIALIZED_NAME_CASE_SENSITIVE = "case-sensitive";
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
-  private String caseSensitive;
+  private String caseSensitive = "true";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub-claims";
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
@@ -87,11 +87,11 @@ public class UpdateAssoc {
   }
 
    /**
-   * Get caseSensitive
+   * Treat sub claims as case-sensitive [true/false]
    * @return caseSensitive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Treat sub claims as case-sensitive [true/false]")
 
   public String getCaseSensitive() {
     return caseSensitive;

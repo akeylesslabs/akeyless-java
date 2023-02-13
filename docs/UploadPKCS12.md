@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customerFrgId** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **in** | **String** | PKCS#12 input file (private key and certificate only) | 
 **json** | **Boolean** | Set output format to JSON |  [optional]

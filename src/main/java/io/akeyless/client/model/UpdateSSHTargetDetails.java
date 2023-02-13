@@ -35,7 +35,7 @@ public class UpdateSSHTargetDetails {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -51,7 +51,7 @@ public class UpdateSSHTargetDetails {
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
-  private String port;
+  private String port = "22";
 
   public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
@@ -89,11 +89,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get host
+   * The ssh host name
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ssh host name")
 
   public String getHost() {
     return host;
@@ -135,11 +135,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get keepPrevVersion
+   * Whether to keep previous version [true/false]. If not set, use default according to account settings
    * @return keepPrevVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. If not set, use default according to account settings")
 
   public String getKeepPrevVersion() {
     return keepPrevVersion;
@@ -203,11 +203,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get port
+   * ssh port
    * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ssh port")
 
   public String getPort() {
     return port;
@@ -226,11 +226,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get privateKey
+   * ssh private key
    * @return privateKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ssh private key")
 
   public String getPrivateKey() {
     return privateKey;
@@ -249,11 +249,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get privateKeyPassword
+   * The ssh private key password
    * @return privateKeyPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ssh private key password")
 
   public String getPrivateKeyPassword() {
     return privateKeyPassword;
@@ -295,11 +295,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get sshPassword
+   * ssh pawssword to rotate
    * @return sshPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ssh pawssword to rotate")
 
   public String getSshPassword() {
     return sshPassword;
@@ -318,11 +318,11 @@ public class UpdateSSHTargetDetails {
   }
 
    /**
-   * Get sshUsername
+   * ssh username
    * @return sshUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ssh username")
 
   public String getSshUsername() {
     return sshUsername;

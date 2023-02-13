@@ -46,7 +46,7 @@ public class GatewayUpdateProducerRdp {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -82,7 +82,7 @@ public class GatewayUpdateProducerRdp {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER = "secure-access-allow-external-user";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER)
-  private Boolean secureAccessAllowExternalUser;
+  private Boolean secureAccessAllowExternalUser = false;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
@@ -155,11 +155,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -178,11 +178,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Fixed user
+   * Allow access using externally (IdP) provided username [true/false]
    * @return fixedUserOnly
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Fixed user")
+  @ApiModelProperty(value = "Allow access using externally (IdP) provided username [true/false]")
 
   public String getFixedUserOnly() {
     return fixedUserOnly;
@@ -407,11 +407,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Get secureAccessAllowExternalUser
+   * Allow providing external user for a domain users
    * @return secureAccessAllowExternalUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Allow providing external user for a domain users")
 
   public Boolean getSecureAccessAllowExternalUser() {
     return secureAccessAllowExternalUser;
@@ -430,11 +430,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -461,11 +461,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Get secureAccessHost
+   * Target servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -484,11 +484,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Get secureAccessRdpDomain
+   * Required when the Dynamic Secret is used for a domain user
    * @return secureAccessRdpDomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user")
 
   public String getSecureAccessRdpDomain() {
     return secureAccessRdpDomain;
@@ -507,11 +507,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Get secureAccessRdpUser
+   * Override the RDP Domain username
    * @return secureAccessRdpUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Override the RDP Domain username")
 
   public String getSecureAccessRdpUser() {
     return secureAccessRdpUser;

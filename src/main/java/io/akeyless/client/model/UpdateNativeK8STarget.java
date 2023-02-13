@@ -39,7 +39,7 @@ public class UpdateNativeK8STarget {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
@@ -224,11 +224,11 @@ public class UpdateNativeK8STarget {
   }
 
    /**
-   * Get keepPrevVersion
+   * Whether to keep previous version [true/false]. If not set, use default according to account settings
    * @return keepPrevVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. If not set, use default according to account settings")
 
   public String getKeepPrevVersion() {
     return keepPrevVersion;

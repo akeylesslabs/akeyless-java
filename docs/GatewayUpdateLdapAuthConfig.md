@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **groupFilter** | **String** | Group Filter |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **ldapCaCert** | **String** | LDAP CA Certificate (base64 encoded) |  [optional]
-**ldapEnable** | **String** | Enable Ldap |  [optional]
+**ldapEnable** | **String** | Enable Ldap [true/false] |  [optional]
 **ldapUrl** | **String** | LDAP Server URL, e.g. ldap://planetexpress.com:389 |  [optional]
 **ldapAnonymousSearch** | **Boolean** | Ldap Anonymous Search |  [optional]
 **signingKeyData** | **String** | The private key (base64 encoded), associated with the public key defined in the Ldap auth |  [optional]

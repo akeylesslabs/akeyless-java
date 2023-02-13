@@ -7,7 +7,7 @@ gatewayCreateProducerMongo is a command that creates either mongodb  producer or
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **mongodbAtlasApiPrivateKey** | **String** | MongoDB Atlas private key |  [optional]
 **mongodbAtlasApiPublicKey** | **String** | MongoDB Atlas public key |  [optional]
@@ -23,10 +23,10 @@ Name | Type | Description | Notes
 **mongodbUsername** | **String** | MongoDB server username |  [optional]
 **name** | **String** | Producer name | 
 **producerEncryptionKeyName** | **String** | Encrypt producer with following key |  [optional]
-**secureAccessBastionIssuer** | **String** |  |  [optional]
-**secureAccessEnable** | **String** |  |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
-**secureAccessWeb** | **Boolean** |  |  [optional]
+**secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
+**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections |  [optional]
+**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

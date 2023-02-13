@@ -31,7 +31,7 @@ import java.io.IOException;
 public class KmipServerSetup {
   public static final String SERIALIZED_NAME_CERTIFICATE_TTL = "certificate-ttl";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
-  private Long certificateTtl;
+  private Long certificateTtl = 90l;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -39,7 +39,7 @@ public class KmipServerSetup {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_ROOT = "root";
   @SerializedName(SERIALIZED_NAME_ROOT)
@@ -61,11 +61,11 @@ public class KmipServerSetup {
   }
 
    /**
-   * Get certificateTtl
+   * Server certificate TTL in days
    * @return certificateTtl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Server certificate TTL in days")
 
   public Long getCertificateTtl() {
     return certificateTtl;
@@ -129,11 +129,10 @@ public class KmipServerSetup {
   }
 
    /**
-   * Get root
+   * Root path of KMIP Resources
    * @return root
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "Root path of KMIP Resources")
 
   public String getRoot() {
     return root;

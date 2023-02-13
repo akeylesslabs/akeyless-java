@@ -45,7 +45,7 @@ public class UpdateEventForwarder {
 
   public static final String SERIALIZED_NAME_ENABLE = "enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)
-  private String enable;
+  private String enable = "true";
 
   public static final String SERIALIZED_NAME_EVENT_SOURCE_LOCATIONS = "event-source-locations";
   @SerializedName(SERIALIZED_NAME_EVENT_SOURCE_LOCATIONS)
@@ -61,7 +61,7 @@ public class UpdateEventForwarder {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -160,11 +160,11 @@ public class UpdateEventForwarder {
   }
 
    /**
-   * Enable
+   * Enable/Disable Event Forwarder [true/false]
    * @return enable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Enable")
+  @ApiModelProperty(value = "Enable/Disable Event Forwarder [true/false]")
 
   public String getEnable() {
     return enable;

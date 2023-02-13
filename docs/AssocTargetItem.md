@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **keyringName** | **String** | Keyring name of the GCP KMS (required for gcp targets) |  [optional]
 **kmsAlgorithm** | **String** | Algorithm of the key in GCP KMS (required for gcp targets) |  [optional]
 **locationId** | **String** | Location id of the GCP KMS (required for gcp targets) |  [optional]
-**multiRegion** | **String** | Set to &#39;true&#39; to create a multi region managed key (relevant for aws targets) |  [optional]
+**multiRegion** | **String** | Set to &#39;true&#39; to create a multi-region managed key. (Relevant only for Classic Key AWS targets) |  [optional]
 **name** | **String** | The item to associate | 
 **projectId** | **String** | Project id of the GCP KMS (required for gcp targets) |  [optional]
 **purpose** | **String** | Purpose of the key in GCP KMS (required for gcp targets) |  [optional]

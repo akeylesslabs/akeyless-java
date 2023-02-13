@@ -39,7 +39,7 @@ public class UpdateAWSTargetDetails {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -59,7 +59,7 @@ public class UpdateAWSTargetDetails {
 
   public static final String SERIALIZED_NAME_REGION = "region";
   @SerializedName(SERIALIZED_NAME_REGION)
-  private String region;
+  private String region = "us-east-2";
 
   public static final String SERIALIZED_NAME_SESSION_TOKEN = "session-token";
   @SerializedName(SERIALIZED_NAME_SESSION_TOKEN)
@@ -81,11 +81,11 @@ public class UpdateAWSTargetDetails {
   }
 
    /**
-   * Get accessKey
+   * The aws secret access key
    * @return accessKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The aws secret access key")
 
   public String getAccessKey() {
     return accessKey;
@@ -104,11 +104,11 @@ public class UpdateAWSTargetDetails {
   }
 
    /**
-   * Get accessKeyId
+   * The aws access key id
    * @return accessKeyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The aws access key id")
 
   public String getAccessKeyId() {
     return accessKeyId;
@@ -150,11 +150,11 @@ public class UpdateAWSTargetDetails {
   }
 
    /**
-   * Get keepPrevVersion
+   * Whether to keep previous version [true/false]. If not set, use default according to account settings
    * @return keepPrevVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. If not set, use default according to account settings")
 
   public String getKeepPrevVersion() {
     return keepPrevVersion;
@@ -241,11 +241,11 @@ public class UpdateAWSTargetDetails {
   }
 
    /**
-   * Get region
+   * The aws region
    * @return region
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The aws region")
 
   public String getRegion() {
     return region;
@@ -264,11 +264,11 @@ public class UpdateAWSTargetDetails {
   }
 
    /**
-   * Get sessionToken
+   * Required only for temporary security credentials retrieved via STS, otherwise it can be an empty string
    * @return sessionToken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Required only for temporary security credentials retrieved via STS, otherwise it can be an empty string")
 
   public String getSessionToken() {
     return sessionToken;

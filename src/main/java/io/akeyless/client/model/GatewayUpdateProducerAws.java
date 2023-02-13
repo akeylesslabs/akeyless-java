@@ -78,7 +78,7 @@ public class GatewayUpdateProducerAws {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -114,15 +114,15 @@ public class GatewayUpdateProducerAws {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
-  private Boolean secureAccessWeb;
+  private Boolean secureAccessWeb = true;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
-  private Boolean secureAccessWebBrowsing;
+  private Boolean secureAccessWebBrowsing = false;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
-  private Boolean secureAccessWebProxy;
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -336,11 +336,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * AWS User programmatic access
+   * Enable AWS User programmatic access
    * @return awsUserProgrammaticAccess
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AWS User programmatic access")
+  @ApiModelProperty(value = "Enable AWS User programmatic access")
 
   public Boolean getAwsUserProgrammaticAccess() {
     return awsUserProgrammaticAccess;
@@ -359,11 +359,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -519,11 +519,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessAwsAccountId
+   * The AWS account id
    * @return secureAccessAwsAccountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The AWS account id")
 
   public String getSecureAccessAwsAccountId() {
     return secureAccessAwsAccountId;
@@ -542,11 +542,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessAwsNativeCli
+   * The AWS native cli
    * @return secureAccessAwsNativeCli
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The AWS native cli")
 
   public Boolean getSecureAccessAwsNativeCli() {
     return secureAccessAwsNativeCli;
@@ -565,11 +565,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessBastionIssuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -588,11 +588,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -611,11 +611,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessWeb
+   * Enable Web Secure Remote Access
    * @return secureAccessWeb
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
 
   public Boolean getSecureAccessWeb() {
     return secureAccessWeb;
@@ -634,11 +634,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessWebBrowsing
+   * Secure browser via Akeyless Web Access Bastion
    * @return secureAccessWebBrowsing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebBrowsing() {
     return secureAccessWebBrowsing;
@@ -657,11 +657,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Get secureAccessWebProxy
+   * Web-Proxy via Akeyless Web Access Bastion
    * @return secureAccessWebProxy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebProxy() {
     return secureAccessWebProxy;

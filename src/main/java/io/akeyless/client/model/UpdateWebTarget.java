@@ -39,7 +39,7 @@ public class UpdateWebTarget {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -150,11 +150,11 @@ public class UpdateWebTarget {
   }
 
    /**
-   * Get keepPrevVersion
+   * Whether to keep previous version [true/false]. If not set, use default according to account settings
    * @return keepPrevVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. If not set, use default according to account settings")
 
   public String getKeepPrevVersion() {
     return keepPrevVersion;

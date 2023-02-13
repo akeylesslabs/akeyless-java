@@ -64,7 +64,7 @@ public class Connect {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -80,7 +80,7 @@ public class Connect {
 
   public static final String SERIALIZED_NAME_SSH_LEGACY_SIGNING_ALG = "ssh-legacy-signing-alg";
   @SerializedName(SERIALIZED_NAME_SSH_LEGACY_SIGNING_ALG)
-  private Boolean sshLegacySigningAlg;
+  private Boolean sshLegacySigningAlg = false;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)

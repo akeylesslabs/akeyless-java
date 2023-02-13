@@ -110,7 +110,7 @@ public class GatewayUpdateMigration {
 
   public static final String SERIALIZED_NAME_AS_SSH_PORT = "as_ssh_port";
   @SerializedName(SERIALIZED_NAME_AS_SSH_PORT)
-  private String asSshPort;
+  private String asSshPort = "22";
 
   public static final String SERIALIZED_NAME_AWS_KEY = "aws-key";
   @SerializedName(SERIALIZED_NAME_AWS_KEY)
@@ -122,7 +122,7 @@ public class GatewayUpdateMigration {
 
   public static final String SERIALIZED_NAME_AWS_REGION = "aws-region";
   @SerializedName(SERIALIZED_NAME_AWS_REGION)
-  private String awsRegion;
+  private String awsRegion = "us-east-2";
 
   public static final String SERIALIZED_NAME_AZURE_CLIENT_ID = "azure-client-id";
   @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_ID)
@@ -146,7 +146,7 @@ public class GatewayUpdateMigration {
 
   public static final String SERIALIZED_NAME_HASHI_JSON = "hashi-json";
   @SerializedName(SERIALIZED_NAME_HASHI_JSON)
-  private String hashiJson;
+  private String hashiJson = "true";
 
   public static final String SERIALIZED_NAME_HASHI_NS = "hashi-ns";
   @SerializedName(SERIALIZED_NAME_HASHI_NS)
@@ -166,7 +166,7 @@ public class GatewayUpdateMigration {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_K8S_CA_CERTIFICATE = "k8s-ca-certificate";
   @SerializedName(SERIALIZED_NAME_K8S_CA_CERTIFICATE)
@@ -888,11 +888,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration)
+   * Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false]
    * @return hashiJson
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration)")
+  @ApiModelProperty(value = "Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false]")
 
   public String getHashiJson() {
     return hashiJson;

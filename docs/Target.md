@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **lastVersion** | **Integer** |  |  [optional]
 **modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **protectionKeyName** | **String** |  |  [optional]
+**targetDetails** | **String** |  |  [optional]
 **targetId** | **Long** |  |  [optional]
 **targetItemsAssoc** | [**List&lt;TargetItemAssociation&gt;**](TargetItemAssociation.md) |  |  [optional]
 **targetName** | **String** |  |  [optional]

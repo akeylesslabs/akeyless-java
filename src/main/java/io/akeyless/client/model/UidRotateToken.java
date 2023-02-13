@@ -36,7 +36,7 @@ public class UidRotateToken {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_SEND_MANUAL_ACK_TOKEN = "send-manual-ack-token";
   @SerializedName(SERIALIZED_NAME_SEND_MANUAL_ACK_TOKEN)

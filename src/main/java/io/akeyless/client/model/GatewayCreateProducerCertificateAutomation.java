@@ -58,7 +58,7 @@ public class GatewayCreateProducerCertificateAutomation {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -102,7 +102,7 @@ public class GatewayCreateProducerCertificateAutomation {
 
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
-  private String userTtl;
+  private String userTtl = "2160h";
 
   public static final String SERIALIZED_NAME_VENAFI_API_KEY = "venafi-api-key";
   @SerializedName(SERIALIZED_NAME_VENAFI_API_KEY)
@@ -236,11 +236,11 @@ public class GatewayCreateProducerCertificateAutomation {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;

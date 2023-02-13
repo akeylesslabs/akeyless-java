@@ -37,11 +37,11 @@ public class GetSecretValue {
 
   public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
   @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
-  private String ignoreCache;
+  private String ignoreCache = "false";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAMES = "names";
   @SerializedName(SERIALIZED_NAME_NAMES)
@@ -94,11 +94,11 @@ public class GetSecretValue {
   }
 
    /**
-   * Ignore Cache Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
+   * Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
    * @return ignoreCache
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ignore Cache Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI")
+  @ApiModelProperty(value = "Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI")
 
   public String getIgnoreCache() {
     return ignoreCache;

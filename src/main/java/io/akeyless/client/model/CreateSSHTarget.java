@@ -43,7 +43,7 @@ public class CreateSSHTarget {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -55,7 +55,7 @@ public class CreateSSHTarget {
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
-  private String port;
+  private String port = "22";
 
   public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
@@ -135,11 +135,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Get host
+   * SSH host name
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH host name")
 
   public String getHost() {
     return host;
@@ -226,11 +226,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Get port
+   * SSH port
    * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH port")
 
   public String getPort() {
     return port;
@@ -249,11 +249,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Get privateKey
+   * SSH private key
    * @return privateKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH private key")
 
   public String getPrivateKey() {
     return privateKey;
@@ -272,11 +272,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Get privateKeyPassword
+   * SSH private key password
    * @return privateKeyPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH private key password")
 
   public String getPrivateKeyPassword() {
     return privateKeyPassword;
@@ -295,11 +295,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Get sshPassword
+   * SSH password to rotate
    * @return sshPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH password to rotate")
 
   public String getSshPassword() {
     return sshPassword;
@@ -318,11 +318,11 @@ public class CreateSSHTarget {
   }
 
    /**
-   * Get sshUsername
+   * SSH username
    * @return sshUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH username")
 
   public String getSshUsername() {
     return sshUsername;

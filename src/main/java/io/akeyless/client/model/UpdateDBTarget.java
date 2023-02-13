@@ -59,7 +59,7 @@ public class UpdateDBTarget {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -127,7 +127,7 @@ public class UpdateDBTarget {
 
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
-  private Boolean ssl;
+  private Boolean ssl = false;
 
   public static final String SERIALIZED_NAME_SSL_CERTIFICATE = "ssl-certificate";
   @SerializedName(SERIALIZED_NAME_SSL_CERTIFICATE)
@@ -340,11 +340,11 @@ public class UpdateDBTarget {
   }
 
    /**
-   * Get keepPrevVersion
+   * Whether to keep previous version [true/false]. If not set, use default according to account settings
    * @return keepPrevVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. If not set, use default according to account settings")
 
   public String getKeepPrevVersion() {
     return keepPrevVersion;
@@ -707,11 +707,11 @@ public class UpdateDBTarget {
   }
 
    /**
-   * SSL connection mode
+   * Enable/Disable SSL [true/false]
    * @return ssl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SSL connection mode")
+  @ApiModelProperty(value = "Enable/Disable SSL [true/false]")
 
   public Boolean getSsl() {
     return ssl;

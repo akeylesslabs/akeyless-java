@@ -59,7 +59,7 @@ public class CreateDBTarget {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -119,7 +119,7 @@ public class CreateDBTarget {
 
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
-  private Boolean ssl;
+  private Boolean ssl = false;
 
   public static final String SERIALIZED_NAME_SSL_CERTIFICATE = "ssl-certificate";
   @SerializedName(SERIALIZED_NAME_SSL_CERTIFICATE)
@@ -649,11 +649,11 @@ public class CreateDBTarget {
   }
 
    /**
-   * SSL connection mode
+   * Enable/Disable SSL [true/false]
    * @return ssl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SSL connection mode")
+  @ApiModelProperty(value = "Enable/Disable SSL [true/false]")
 
   public Boolean getSsl() {
     return ssl;

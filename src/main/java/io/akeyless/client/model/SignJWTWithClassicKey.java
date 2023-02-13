@@ -35,7 +35,7 @@ public class SignJWTWithClassicKey {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_JWT_CLAIMS = "jwt-claims";
   @SerializedName(SERIALIZED_NAME_JWT_CLAIMS)

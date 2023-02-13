@@ -45,7 +45,7 @@ public class CreateRotatedSecret {
 
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
-  private String authenticationCredentials;
+  private String authenticationCredentials = "use-user-creds";
 
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
@@ -73,7 +73,7 @@ public class CreateRotatedSecret {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -215,11 +215,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get apiId
+   * API ID to rotate (relevant only for rotator-type&#x3D;api-key)
    * @return apiId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "API ID to rotate (relevant only for rotator-type=api-key)")
 
   public String getApiId() {
     return apiId;
@@ -238,11 +238,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get apiKey
+   * API key to rotate (relevant only for rotator-type&#x3D;api-key)
    * @return apiKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "API key to rotate (relevant only for rotator-type=api-key)")
 
   public String getApiKey() {
     return apiKey;
@@ -284,11 +284,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get authenticationCredentials
+   * The credentials to connect with use-user-creds/use-target-creds
    * @return authenticationCredentials
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The credentials to connect with use-user-creds/use-target-creds")
 
   public String getAuthenticationCredentials() {
     return authenticationCredentials;
@@ -307,11 +307,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation
+   * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
    * @return autoRotate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation")
+  @ApiModelProperty(value = "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]")
 
   public String getAutoRotate() {
     return autoRotate;
@@ -353,11 +353,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get customPayload
+   * Secret payload to be sent with rotation request (relevant only for rotator-type&#x3D;custom)
    * @return customPayload
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secret payload to be sent with rotation request (relevant only for rotator-type=custom)")
 
   public String getCustomPayload() {
     return customPayload;
@@ -376,11 +376,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -536,11 +536,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Rotate the value of the secret after SRA session ends
+   * Rotate the value of the secret after SRA session ends [true/false]
    * @return rotateAfterDisconnect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends")
+  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends [true/false]")
 
   public String getRotateAfterDisconnect() {
     return rotateAfterDisconnect;
@@ -559,11 +559,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get rotatedPassword
+   * rotated-username password (relevant only for rotator-type&#x3D;password)
    * @return rotatedPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "rotated-username password (relevant only for rotator-type=password)")
 
   public String getRotatedPassword() {
     return rotatedPassword;
@@ -582,11 +582,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get rotatedUsername
+   * username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password)
    * @return rotatedUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it's own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type=password)")
 
   public String getRotatedUsername() {
     return rotatedUsername;
@@ -605,11 +605,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get rotationHour
+   * The Hour of the rotation in UTC
    * @return rotationHour
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The Hour of the rotation in UTC")
 
   public Integer getRotationHour() {
     return rotationHour;
@@ -674,11 +674,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Get rotatorCustomCmd
+   * Custom rotation command (relevant only for ssh target)
    * @return rotatorCustomCmd
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Custom rotation command (relevant only for ssh target)")
 
   public String getRotatorCustomCmd() {
     return rotatorCustomCmd;
@@ -719,11 +719,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Allow Providing External User (used in ssh)
+   * Allow providing external user for a domain users (relevant only for rdp)
    * @return secureAccessAllowExternalUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Allow Providing External User (used in ssh)")
+  @ApiModelProperty(value = "Allow providing external user for a domain users (relevant only for rdp)")
 
   public Boolean getSecureAccessAllowExternalUser() {
     return secureAccessAllowExternalUser;
@@ -742,11 +742,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Account Id (used in aws)
+   * The AWS account id (relevant only for aws)
    * @return secureAccessAwsAccountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Account Id (used in aws)")
+  @ApiModelProperty(value = "The AWS account id (relevant only for aws)")
 
   public String getSecureAccessAwsAccountId() {
     return secureAccessAwsAccountId;
@@ -765,11 +765,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Aws Native Cli (used in aws)
+   * The AWS native cli
    * @return secureAccessAwsNativeCli
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Aws Native Cli (used in aws)")
+  @ApiModelProperty(value = "The AWS native cli")
 
   public Boolean getSecureAccessAwsNativeCli() {
     return secureAccessAwsNativeCli;
@@ -788,11 +788,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Bastion Issuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Bastion Issuer")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -811,11 +811,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access DB Name (used in data bases)
+   * The DB name (relevant only for DB Dynamic-Secret)
    * @return secureAccessDbName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access DB Name (used in data bases)")
+  @ApiModelProperty(value = "The DB name (relevant only for DB Dynamic-Secret)")
 
   public String getSecureAccessDbName() {
     return secureAccessDbName;
@@ -834,11 +834,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Schema (used in mssql, postgresql)
+   * The db schema (relevant only for mssql or postgresql)
    * @return secureAccessDbSchema
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Schema (used in mssql, postgresql)")
+  @ApiModelProperty(value = "The db schema (relevant only for mssql or postgresql)")
 
   public String getSecureAccessDbSchema() {
     return secureAccessDbSchema;
@@ -857,11 +857,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Enabled
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Enabled")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -888,11 +888,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Host
+   * Target servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Host")
+  @ApiModelProperty(value = "Target servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -911,11 +911,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Domain (used in ssh)
+   * Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
    * @return secureAccessRdpDomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Domain (used in ssh)")
+  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)")
 
   public String getSecureAccessRdpDomain() {
     return secureAccessRdpDomain;
@@ -934,11 +934,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Override User (used in ssh)
+   * Override the RDP Domain username (relevant only for rdp)
    * @return secureAccessRdpUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Override User (used in ssh)")
+  @ApiModelProperty(value = "Override the RDP Domain username (relevant only for rdp)")
 
   public String getSecureAccessRdpUser() {
     return secureAccessRdpUser;
@@ -957,11 +957,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Web
+   * Enable Web Secure Remote Access
    * @return secureAccessWeb
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Web")
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
 
   public Boolean getSecureAccessWeb() {
     return secureAccessWeb;
@@ -980,11 +980,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Isolated (used in aws, azure)
+   * Secure browser via Akeyless Web Access Bastion (relevant only for aws or azure)
    * @return secureAccessWebBrowsing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Isolated (used in aws, azure)")
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion (relevant only for aws or azure)")
 
   public Boolean getSecureAccessWebBrowsing() {
     return secureAccessWebBrowsing;
@@ -1003,11 +1003,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Secure Access Web Proxy (used in aws, azure)
+   * Web-Proxy via Akeyless Web Access Bastion (relevant only for aws or azure)
    * @return secureAccessWebProxy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secure Access Web Proxy (used in aws, azure)")
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion (relevant only for aws or azure)")
 
   public Boolean getSecureAccessWebProxy() {
     return secureAccessWebProxy;

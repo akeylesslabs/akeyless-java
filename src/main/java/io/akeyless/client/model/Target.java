@@ -80,6 +80,10 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
   private String protectionKeyName;
 
+  public static final String SERIALIZED_NAME_TARGET_DETAILS = "target_details";
+  @SerializedName(SERIALIZED_NAME_TARGET_DETAILS)
+  private String targetDetails;
+
   public static final String SERIALIZED_NAME_TARGET_ID = "target_id";
   @SerializedName(SERIALIZED_NAME_TARGET_ID)
   private Long targetId;
@@ -374,6 +378,29 @@ public class Target {
   }
 
 
+  public Target targetDetails(String targetDetails) {
+    
+    this.targetDetails = targetDetails;
+    return this;
+  }
+
+   /**
+   * Get targetDetails
+   * @return targetDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTargetDetails() {
+    return targetDetails;
+  }
+
+
+  public void setTargetDetails(String targetDetails) {
+    this.targetDetails = targetDetails;
+  }
+
+
   public Target targetId(Long targetId) {
     
     this.targetId = targetId;
@@ -548,6 +575,7 @@ public class Target {
         Objects.equals(this.lastVersion, target.lastVersion) &&
         Objects.equals(this.modificationDate, target.modificationDate) &&
         Objects.equals(this.protectionKeyName, target.protectionKeyName) &&
+        Objects.equals(this.targetDetails, target.targetDetails) &&
         Objects.equals(this.targetId, target.targetId) &&
         Objects.equals(this.targetItemsAssoc, target.targetItemsAssoc) &&
         Objects.equals(this.targetName, target.targetName) &&
@@ -558,7 +586,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessRequestStatus, attributes, clientPermissions, comment, creationDate, credentialsLess, isAccessRequestEnabled, lastVersion, modificationDate, protectionKeyName, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessRequestStatus, attributes, clientPermissions, comment, creationDate, credentialsLess, isAccessRequestEnabled, lastVersion, modificationDate, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
   }
 
 
@@ -577,6 +605,7 @@ public class Target {
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
+    sb.append("    targetDetails: ").append(toIndentedString(targetDetails)).append("\n");
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetItemsAssoc: ").append(toIndentedString(targetItemsAssoc)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");

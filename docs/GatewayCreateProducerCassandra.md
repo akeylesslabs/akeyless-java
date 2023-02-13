@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **cassandraPassword** | **String** | Cassandra superuser password |  [optional]
 **cassandraPort** | **String** | Cassandra port |  [optional]
 **cassandraUsername** | **String** | Cassandra superuser username |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

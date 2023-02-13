@@ -45,6 +45,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL_MINUTES = "default-share-link-ttl-minutes";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL_MINUTES)
+  private String defaultShareLinkTtlMinutes;
+
   public static final String SERIALIZED_NAME_DEFAULT_VERSIONING = "default-versioning";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VERSIONING)
   private String defaultVersioning;
@@ -59,7 +63,7 @@ public class UpdateAccountSettings {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_JWT_TTL_DEFAULT = "jwt-ttl-default";
   @SerializedName(SERIALIZED_NAME_JWT_TTL_DEFAULT)
@@ -206,6 +210,29 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings defaultShareLinkTtlMinutes(String defaultShareLinkTtlMinutes) {
+    
+    this.defaultShareLinkTtlMinutes = defaultShareLinkTtlMinutes;
+    return this;
+  }
+
+   /**
+   * Set the default ttl in minutes for sharing item number between 60 and 43200
+   * @return defaultShareLinkTtlMinutes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the default ttl in minutes for sharing item number between 60 and 43200")
+
+  public String getDefaultShareLinkTtlMinutes() {
+    return defaultShareLinkTtlMinutes;
+  }
+
+
+  public void setDefaultShareLinkTtlMinutes(String defaultShareLinkTtlMinutes) {
+    this.defaultShareLinkTtlMinutes = defaultShareLinkTtlMinutes;
+  }
+
+
   public UpdateAccountSettings defaultVersioning(String defaultVersioning) {
     
     this.defaultVersioning = defaultVersioning;
@@ -213,11 +240,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * Should create version by default
+   * If set to true, new item version will be created on each update [true/false]
    * @return defaultVersioning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Should create version by default")
+  @ApiModelProperty(value = "If set to true, new item version will be created on each update [true/false]")
 
   public String getDefaultVersioning() {
     return defaultVersioning;
@@ -236,11 +263,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * Enable classic key protection [\&quot;true\&quot;/\&quot;false\&quot;]
+   * Set to update protection with classic keys state [true/false]
    * @return dpEnableClassicKeyProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Enable classic key protection [\"true\"/\"false\"]")
+  @ApiModelProperty(value = "Set to update protection with classic keys state [true/false]")
 
   public String getDpEnableClassicKeyProtection() {
     return dpEnableClassicKeyProtection;
@@ -397,11 +424,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * For PasswordPolicy use
+   * Password length between 5 - to 50 characters
    * @return passwordLength
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
+  @ApiModelProperty(value = "Password length between 5 - to 50 characters")
 
   public Long getPasswordLength() {
     return passwordLength;
@@ -512,11 +539,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * For PasswordPolicy use
+   * Password must contain lower case letters [true/false]
    * @return useLowerLetters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
+  @ApiModelProperty(value = "Password must contain lower case letters [true/false]")
 
   public String getUseLowerLetters() {
     return useLowerLetters;
@@ -535,11 +562,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * For PasswordPolicy use
+   * Password must contain numbers [true/false]
    * @return useNumbers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
+  @ApiModelProperty(value = "Password must contain numbers [true/false]")
 
   public String getUseNumbers() {
     return useNumbers;
@@ -558,11 +585,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * For PasswordPolicy use
+   * Password must contain special characters [true/false]
    * @return useSpecialCharacters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
+  @ApiModelProperty(value = "Password must contain special characters [true/false]")
 
   public String getUseSpecialCharacters() {
     return useSpecialCharacters;
@@ -581,11 +608,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * For PasswordPolicy use
+   * Password must contain capital letters [true/false]
    * @return useCapitalLetters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For PasswordPolicy use")
+  @ApiModelProperty(value = "Password must contain capital letters [true/false]")
 
   public String getUseCapitalLetters() {
     return useCapitalLetters;
@@ -610,6 +637,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.city, updateAccountSettings.city) &&
         Objects.equals(this.companyName, updateAccountSettings.companyName) &&
         Objects.equals(this.country, updateAccountSettings.country) &&
+        Objects.equals(this.defaultShareLinkTtlMinutes, updateAccountSettings.defaultShareLinkTtlMinutes) &&
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
@@ -631,7 +659,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultVersioning, dpEnableClassicKeyProtection, itemType, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
 
@@ -643,6 +671,7 @@ public class UpdateAccountSettings {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    defaultShareLinkTtlMinutes: ").append(toIndentedString(defaultShareLinkTtlMinutes)).append("\n");
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");

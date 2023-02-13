@@ -31,7 +31,7 @@ import java.io.IOException;
 public class UpdateTargetDetails {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
 
   public UpdateTargetDetails json(Boolean json) {

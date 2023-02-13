@@ -47,7 +47,7 @@ public class CreateSecret {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -107,11 +107,11 @@ public class CreateSecret {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
-  private Boolean secureAccessWebBrowsing;
+  private Boolean secureAccessWebBrowsing = false;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
-  private Boolean secureAccessWebProxy;
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -123,7 +123,7 @@ public class CreateSecret {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private String type = "generic";
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -164,11 +164,11 @@ public class CreateSecret {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -432,11 +432,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessBastionIssuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -455,11 +455,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -486,11 +486,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessHost
+   * Target servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -509,11 +509,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessSshCreds
+   * Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key]
    * @return secureAccessSshCreds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key]")
 
   public String getSecureAccessSshCreds() {
     return secureAccessSshCreds;
@@ -532,11 +532,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessSshUser
+   * Override the SSH username as indicated in SSH Certificate Issuer
    * @return secureAccessSshUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Override the SSH username as indicated in SSH Certificate Issuer")
 
   public String getSecureAccessSshUser() {
     return secureAccessSshUser;
@@ -555,11 +555,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessUrl
+   * Destination URL to inject secrets
    * @return secureAccessUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Destination URL to inject secrets")
 
   public String getSecureAccessUrl() {
     return secureAccessUrl;
@@ -578,11 +578,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessWebBrowsing
+   * Secure browser via Akeyless Web Access Bastion
    * @return secureAccessWebBrowsing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebBrowsing() {
     return secureAccessWebBrowsing;
@@ -601,11 +601,11 @@ public class CreateSecret {
   }
 
    /**
-   * Get secureAccessWebProxy
+   * Web-Proxy via Akeyless Web Access Bastion
    * @return secureAccessWebProxy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebProxy() {
     return secureAccessWebProxy;
@@ -678,11 +678,11 @@ public class CreateSecret {
   }
 
    /**
-   * For Password Management use, reflect the website context
+   * The secret sub type [generic/password]
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, reflect the website context")
+  @ApiModelProperty(value = "The secret sub type [generic/password]")
 
   public String getType() {
     return type;

@@ -6,12 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**adminName** | **String** |  |  [optional]
-**adminPwd** | **String** |  |  [optional]
-**hostName** | **String** |  |  [optional]
-**hostPort** | **String** |  |  [optional]
+**adminName** | **String** | The admin name |  [optional]
+**adminPwd** | **String** | The admin password |  [optional]
+**hostName** | **String** | The rdp host name |  [optional]
+**hostPort** | **String** | The rdp port |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**keepPrevVersion** | **String** |  |  [optional]
+**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
 **name** | **String** | Target name | 
 **newVersion** | **Boolean** | Deprecated |  [optional]
 **protectionKey** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]

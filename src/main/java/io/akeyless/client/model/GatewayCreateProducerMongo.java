@@ -38,7 +38,7 @@ public class GatewayCreateProducerMongo {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb-atlas-api-private-key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -110,7 +110,7 @@ public class GatewayCreateProducerMongo {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
-  private Boolean secureAccessWeb;
+  private Boolean secureAccessWeb = false;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -140,11 +140,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -507,11 +507,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Get secureAccessBastionIssuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -530,11 +530,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -561,11 +561,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Get secureAccessHost
+   * Target DB servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target DB servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -584,11 +584,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Get secureAccessWeb
+   * Enable Web Secure Remote Access
    * @return secureAccessWeb
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
 
   public Boolean getSecureAccessWeb() {
     return secureAccessWeb;

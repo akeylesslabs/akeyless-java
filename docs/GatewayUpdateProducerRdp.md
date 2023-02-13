@@ -8,8 +8,8 @@ gatewayUpdateProducerRdp is a command that updates rdp producer
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowUserExtendSession** | **Long** | AllowUserExtendSession |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
-**fixedUserOnly** | **String** | Fixed user |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**fixedUserOnly** | **String** | Allow access using externally (IdP) provided username [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
@@ -19,11 +19,11 @@ Name | Type | Description | Notes
 **rdpHostName** | **String** | Hostname |  [optional]
 **rdpHostPort** | **String** | Port |  [optional]
 **rdpUserGroups** | **String** | Groups |  [optional]
-**secureAccessAllowExternalUser** | **Boolean** |  |  [optional]
-**secureAccessEnable** | **String** |  |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
-**secureAccessRdpDomain** | **String** |  |  [optional]
-**secureAccessRdpUser** | **String** |  |  [optional]
+**secureAccessAllowExternalUser** | **Boolean** | Allow providing external user for a domain users |  [optional]
+**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections |  [optional]
+**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user |  [optional]
+**secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

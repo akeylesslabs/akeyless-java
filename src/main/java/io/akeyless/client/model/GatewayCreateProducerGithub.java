@@ -46,7 +46,7 @@ public class GatewayCreateProducerGithub {
 
   public static final String SERIALIZED_NAME_GITHUB_BASE_URL = "github-base-url";
   @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
-  private String githubBaseUrl;
+  private String githubBaseUrl = "https://api.github.com/";
 
   public static final String SERIALIZED_NAME_INSTALLATION_ID = "installation-id";
   @SerializedName(SERIALIZED_NAME_INSTALLATION_ID)
@@ -58,7 +58,7 @@ public class GatewayCreateProducerGithub {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -92,11 +92,11 @@ public class GatewayCreateProducerGithub {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;

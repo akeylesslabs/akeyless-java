@@ -34,11 +34,11 @@ import java.util.List;
 public class AssocTargetItem {
   public static final String SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION = "disable-previous-key-version";
   @SerializedName(SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION)
-  private Boolean disablePreviousKeyVersion;
+  private Boolean disablePreviousKeyVersion = false;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY_OPERATIONS = "key-operations";
   @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
@@ -250,11 +250,11 @@ public class AssocTargetItem {
   }
 
    /**
-   * Set to &#39;true&#39; to create a multi region managed key (relevant for aws targets)
+   * Set to &#39;true&#39; to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
    * @return multiRegion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to 'true' to create a multi region managed key (relevant for aws targets)")
+  @ApiModelProperty(value = "Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)")
 
   public String getMultiRegion() {
     return multiRegion;

@@ -53,7 +53,7 @@ public class UploadRSA {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -65,7 +65,7 @@ public class UploadRSA {
 
   public static final String SERIALIZED_NAME_OVERWRITE = "overwrite";
   @SerializedName(SERIALIZED_NAME_OVERWRITE)
-  private String overwrite;
+  private String overwrite = "false";
 
   public static final String SERIALIZED_NAME_RSA_FILE_DATA = "rsa-file-data";
   @SerializedName(SERIALIZED_NAME_RSA_FILE_DATA)
@@ -163,11 +163,11 @@ public class UploadRSA {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -277,11 +277,11 @@ public class UploadRSA {
   }
 
    /**
-   * When the overwrite flag is set, this command will only update an existing key. [true, false]
+   * When the overwrite flag is set, this command will only update an existing key [true/false]
    * @return overwrite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the overwrite flag is set, this command will only update an existing key. [true, false]")
+  @ApiModelProperty(value = "When the overwrite flag is set, this command will only update an existing key [true/false]")
 
   public String getOverwrite() {
     return overwrite;

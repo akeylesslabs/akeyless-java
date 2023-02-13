@@ -51,7 +51,7 @@ public class CreateSSHCertIssuer {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -139,11 +139,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -307,11 +307,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Get secureAccessBastionApi
+   * Bastion&#39;s SSH control API endpoint. E.g. https://my.bastion:9900
    * @return secureAccessBastionApi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Bastion's SSH control API endpoint. E.g. https://my.bastion:9900")
 
   public String getSecureAccessBastionApi() {
     return secureAccessBastionApi;
@@ -330,11 +330,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Get secureAccessBastionSsh
+   * Bastion&#39;s SSH server. E.g. my.bastion:22
    * @return secureAccessBastionSsh
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Bastion's SSH server. E.g. my.bastion:22")
 
   public String getSecureAccessBastionSsh() {
     return secureAccessBastionSsh;
@@ -353,11 +353,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -384,11 +384,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Get secureAccessHost
+   * Target servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -407,11 +407,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Get secureAccessSshCredsUser
+   * SSH username to connect to target server, must be in &#39;Allowed Users&#39; list
    * @return secureAccessSshCredsUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH username to connect to target server, must be in 'Allowed Users' list")
 
   public String getSecureAccessSshCredsUser() {
     return secureAccessSshCredsUser;
@@ -430,11 +430,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Get secureAccessUseInternalBastion
+   * Use internal SSH Bastion
    * @return secureAccessUseInternalBastion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Use internal SSH Bastion")
 
   public Boolean getSecureAccessUseInternalBastion() {
     return secureAccessUseInternalBastion;

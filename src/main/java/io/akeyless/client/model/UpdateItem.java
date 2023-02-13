@@ -53,7 +53,7 @@ public class UpdateItem {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -165,11 +165,11 @@ public class UpdateItem {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
-  private Boolean secureAccessWebBrowsing;
+  private Boolean secureAccessWebBrowsing = false;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
-  private Boolean secureAccessWebProxy;
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -264,11 +264,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get deleteProtection
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -432,11 +432,11 @@ public class UpdateItem {
   }
 
    /**
-   * Rotate the value of the secret after SRA session ends
+   * Rotate the value of the secret after SRA session ends [true/false] (relevant only for Rotated-secret)
    * @return rotateAfterDisconnect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends")
+  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends [true/false] (relevant only for Rotated-secret)")
 
   public String getRotateAfterDisconnect() {
     return rotateAfterDisconnect;
@@ -463,11 +463,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessAddHost
+   * List of the new hosts that will be attached to SRA servers host
    * @return secureAccessAddHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of the new hosts that will be attached to SRA servers host")
 
   public List<String> getSecureAccessAddHost() {
     return secureAccessAddHost;
@@ -486,11 +486,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessAllowExternalUser
+   * Allow providing external user for a domain users [true/false]
    * @return secureAccessAllowExternalUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Allow providing external user for a domain users [true/false]")
 
   public String getSecureAccessAllowExternalUser() {
     return secureAccessAllowExternalUser;
@@ -509,11 +509,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessAllowPortForwading
+   * Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
    * @return secureAccessAllowPortForwading
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)")
 
   public Boolean getSecureAccessAllowPortForwading() {
     return secureAccessAllowPortForwading;
@@ -532,11 +532,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessAwsAccountId
+   * The AWS account id (relevant only for aws)
    * @return secureAccessAwsAccountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The AWS account id (relevant only for aws)")
 
   public String getSecureAccessAwsAccountId() {
     return secureAccessAwsAccountId;
@@ -555,11 +555,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessAwsNativeCli
+   * The AWS native cli (relevant only for aws)
    * @return secureAccessAwsNativeCli
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The AWS native cli (relevant only for aws)")
 
   public Boolean getSecureAccessAwsNativeCli() {
     return secureAccessAwsNativeCli;
@@ -578,11 +578,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessAwsRegion
+   * The AWS region (relevant only for aws)
    * @return secureAccessAwsRegion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The AWS region (relevant only for aws)")
 
   public String getSecureAccessAwsRegion() {
     return secureAccessAwsRegion;
@@ -601,11 +601,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessBastionApi
+   * Bastion&#39;s SSH control API endpoint. E.g. https://my.bastion:9900 (relevant only for ssh cert issuer)
    * @return secureAccessBastionApi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Bastion's SSH control API endpoint. E.g. https://my.bastion:9900 (relevant only for ssh cert issuer)")
 
   public String getSecureAccessBastionApi() {
     return secureAccessBastionApi;
@@ -624,11 +624,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessBastionIssuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -647,11 +647,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessBastionSsh
+   * Bastion&#39;s SSH server. E.g. my.bastion:22 (relevant only for ssh cert issuer)
    * @return secureAccessBastionSsh
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Bastion's SSH server. E.g. my.bastion:22 (relevant only for ssh cert issuer)")
 
   public String getSecureAccessBastionSsh() {
     return secureAccessBastionSsh;
@@ -670,11 +670,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessClusterEndpoint
+   * The K8s cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)
    * @return secureAccessClusterEndpoint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The K8s cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)")
 
   public String getSecureAccessClusterEndpoint() {
     return secureAccessClusterEndpoint;
@@ -693,11 +693,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessDashboardUrl
+   * The K8s dashboard url (relevant only for k8s)
    * @return secureAccessDashboardUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The K8s dashboard url (relevant only for k8s)")
 
   public String getSecureAccessDashboardUrl() {
     return secureAccessDashboardUrl;
@@ -716,11 +716,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessDbName
+   * The DB name (relevant only for DB Dynamic-Secret)
    * @return secureAccessDbName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The DB name (relevant only for DB Dynamic-Secret)")
 
   public String getSecureAccessDbName() {
     return secureAccessDbName;
@@ -739,11 +739,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessDbSchema
+   * The DB schema (relevant only for DB Dynamic-Secret)
    * @return secureAccessDbSchema
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The DB schema (relevant only for DB Dynamic-Secret)")
 
   public String getSecureAccessDbSchema() {
     return secureAccessDbSchema;
@@ -762,11 +762,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -793,11 +793,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessHost
+   * Target servers for connections
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target servers for connections")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
@@ -816,11 +816,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessRdpDomain
+   * Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
    * @return secureAccessRdpDomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)")
 
   public String getSecureAccessRdpDomain() {
     return secureAccessRdpDomain;
@@ -839,11 +839,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessRdpUser
+   * Override the RDP Domain username
    * @return secureAccessRdpUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Override the RDP Domain username")
 
   public String getSecureAccessRdpUser() {
     return secureAccessRdpUser;
@@ -870,11 +870,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessRmHost
+   * List of the existent hosts that will be removed from SRA servers host
    * @return secureAccessRmHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of the existent hosts that will be removed from SRA servers host")
 
   public List<String> getSecureAccessRmHost() {
     return secureAccessRmHost;
@@ -893,11 +893,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessSshCreds
+   * Secret values contains SSH Credentials, either Private Key or Password [password/private-key] (relevant only for Static-Secret or Rotated-secret)
    * @return secureAccessSshCreds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secret values contains SSH Credentials, either Private Key or Password [password/private-key] (relevant only for Static-Secret or Rotated-secret)")
 
   public String getSecureAccessSshCreds() {
     return secureAccessSshCreds;
@@ -916,11 +916,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessSshCredsUser
+   * SSH username to connect to target server, must be in &#39;Allowed Users&#39; list (relevant only for ssh cert issuer)
    * @return secureAccessSshCredsUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for ssh cert issuer)")
 
   public String getSecureAccessSshCredsUser() {
     return secureAccessSshCredsUser;
@@ -939,11 +939,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessUrl
+   * Destination URL to inject secrets
    * @return secureAccessUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Destination URL to inject secrets")
 
   public String getSecureAccessUrl() {
     return secureAccessUrl;
@@ -962,11 +962,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessUseInternalBastion
+   * Use internal SSH Bastion
    * @return secureAccessUseInternalBastion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Use internal SSH Bastion")
 
   public Boolean getSecureAccessUseInternalBastion() {
     return secureAccessUseInternalBastion;
@@ -985,11 +985,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessWebBrowsing
+   * Secure browser via Akeyless Web Access Bastion
    * @return secureAccessWebBrowsing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebBrowsing() {
     return secureAccessWebBrowsing;
@@ -1008,11 +1008,11 @@ public class UpdateItem {
   }
 
    /**
-   * Get secureAccessWebProxy
+   * Web-Proxy via Akeyless Web Access Bastion
    * @return secureAccessWebProxy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
 
   public Boolean getSecureAccessWebProxy() {
     return secureAccessWebProxy;

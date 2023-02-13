@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **accessRulesType** | **String** |  |  [optional]
 **allowedApi** | **Boolean** |  |  [optional]
 **allowedsLogin** | **Boolean** |  |  [optional]
+**editable** | **Boolean** |  |  [optional]
 **errMsg** | **String** |  |  [optional]
 **hash** | **String** |  |  [optional]
 **isValid** | **Boolean** |  |  [optional]

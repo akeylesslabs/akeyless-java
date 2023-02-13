@@ -207,6 +207,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
   private String gcpServiceAccountKey;
 
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_BASE64 = "gcp_service_account_key_base64";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_BASE64)
+  private String gcpServiceAccountKeyBase64;
+
   public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github_app_id";
   @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
   private Long githubAppId;
@@ -242,6 +246,14 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
+
+  public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
+  @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  private String hostname;
+
+  public static final String SERIALIZED_NAME_HOSTS = "hosts";
+  @SerializedName(SERIALIZED_NAME_HOSTS)
+  private List<String> hosts = null;
 
   public static final String SERIALIZED_NAME_IMPLEMENTATION_TYPE = "implementation_type";
   @SerializedName(SERIALIZED_NAME_IMPLEMENTATION_TYPE)
@@ -366,6 +378,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_USER = "rabbitmq_server_user";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_USER)
   private String rabbitmqServerUser;
+
+  public static final String SERIALIZED_NAME_RDP_PORT = "rdp_port";
+  @SerializedName(SERIALIZED_NAME_RDP_PORT)
+  private String rdpPort;
 
   public static final String SERIALIZED_NAME_SECURITY_TOKEN = "security_token";
   @SerializedName(SERIALIZED_NAME_SECURITY_TOKEN)
@@ -1460,6 +1476,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput gcpServiceAccountKeyBase64(String gcpServiceAccountKeyBase64) {
+    
+    this.gcpServiceAccountKeyBase64 = gcpServiceAccountKeyBase64;
+    return this;
+  }
+
+   /**
+   * Get gcpServiceAccountKeyBase64
+   * @return gcpServiceAccountKeyBase64
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpServiceAccountKeyBase64() {
+    return gcpServiceAccountKeyBase64;
+  }
+
+
+  public void setGcpServiceAccountKeyBase64(String gcpServiceAccountKeyBase64) {
+    this.gcpServiceAccountKeyBase64 = gcpServiceAccountKeyBase64;
+  }
+
+
   public TargetTypeDetailsInput githubAppId(Long githubAppId) {
     
     this.githubAppId = githubAppId;
@@ -1664,6 +1703,60 @@ public class TargetTypeDetailsInput {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+
+  public TargetTypeDetailsInput hostname(String hostname) {
+    
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getHostname() {
+    return hostname;
+  }
+
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
+  }
+
+
+  public TargetTypeDetailsInput hosts(List<String> hosts) {
+    
+    this.hosts = hosts;
+    return this;
+  }
+
+  public TargetTypeDetailsInput addHostsItem(String hostsItem) {
+    if (this.hosts == null) {
+      this.hosts = new ArrayList<String>();
+    }
+    this.hosts.add(hostsItem);
+    return this;
+  }
+
+   /**
+   * Get hosts
+   * @return hosts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getHosts() {
+    return hosts;
+  }
+
+
+  public void setHosts(List<String> hosts) {
+    this.hosts = hosts;
   }
 
 
@@ -2380,6 +2473,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput rdpPort(String rdpPort) {
+    
+    this.rdpPort = rdpPort;
+    return this;
+  }
+
+   /**
+   * Get rdpPort
+   * @return rdpPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRdpPort() {
+    return rdpPort;
+  }
+
+
+  public void setRdpPort(String rdpPort) {
+    this.rdpPort = rdpPort;
+  }
+
+
   public TargetTypeDetailsInput securityToken(String securityToken) {
     
     this.securityToken = securityToken;
@@ -2801,6 +2917,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.eksSecretAccessKey, targetTypeDetailsInput.eksSecretAccessKey) &&
         Objects.equals(this.gcpServiceAccountEmail, targetTypeDetailsInput.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKey, targetTypeDetailsInput.gcpServiceAccountKey) &&
+        Objects.equals(this.gcpServiceAccountKeyBase64, targetTypeDetailsInput.gcpServiceAccountKeyBase64) &&
         Objects.equals(this.githubAppId, targetTypeDetailsInput.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, targetTypeDetailsInput.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, targetTypeDetailsInput.githubBaseUrl) &&
@@ -2810,6 +2927,8 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.gkeServiceAccountKey, targetTypeDetailsInput.gkeServiceAccountKey) &&
         Objects.equals(this.gkeServiceAccountName, targetTypeDetailsInput.gkeServiceAccountName) &&
         Objects.equals(this.host, targetTypeDetailsInput.host) &&
+        Objects.equals(this.hostname, targetTypeDetailsInput.hostname) &&
+        Objects.equals(this.hosts, targetTypeDetailsInput.hosts) &&
         Objects.equals(this.implementationType, targetTypeDetailsInput.implementationType) &&
         Objects.equals(this.k8sBearerToken, targetTypeDetailsInput.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, targetTypeDetailsInput.k8sClusterCaCertificate) &&
@@ -2841,6 +2960,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.rabbitmqServerPassword, targetTypeDetailsInput.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
+        Objects.equals(this.rdpPort, targetTypeDetailsInput.rdpPort) &&
         Objects.equals(this.securityToken, targetTypeDetailsInput.securityToken) &&
         Objects.equals(this.sfAccount, targetTypeDetailsInput.sfAccount) &&
         Objects.equals(this.sslConnectionCertificate, targetTypeDetailsInput.sslConnectionCertificate) &&
@@ -2861,7 +2981,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rdpPort, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2913,6 +3033,7 @@ public class TargetTypeDetailsInput {
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
+    sb.append("    gcpServiceAccountKeyBase64: ").append(toIndentedString(gcpServiceAccountKeyBase64)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
@@ -2922,6 +3043,8 @@ public class TargetTypeDetailsInput {
     sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
     sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
@@ -2953,6 +3076,7 @@ public class TargetTypeDetailsInput {
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
+    sb.append("    rdpPort: ").append(toIndentedString(rdpPort)).append("\n");
     sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");

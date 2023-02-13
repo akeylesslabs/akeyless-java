@@ -48,7 +48,7 @@ public class GatewayCreateK8SAuthConfig {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_K8S_CA_CERT = "k8s-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CA_CERT)
@@ -60,7 +60,7 @@ public class GatewayCreateK8SAuthConfig {
 
   public static final String SERIALIZED_NAME_K8S_ISSUER = "k8s-issuer";
   @SerializedName(SERIALIZED_NAME_K8S_ISSUER)
-  private String k8sIssuer;
+  private String k8sIssuer = "kubernetes/serviceaccount";
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -170,11 +170,11 @@ public class GatewayCreateK8SAuthConfig {
   }
 
    /**
-   * Disable issuer validation
+   * Disable issuer validation [true/false]
    * @return disableIssuerValidation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Disable issuer validation")
+  @ApiModelProperty(value = "Disable issuer validation [true/false]")
 
   public String getDisableIssuerValidation() {
     return disableIssuerValidation;
@@ -261,11 +261,11 @@ public class GatewayCreateK8SAuthConfig {
   }
 
    /**
-   * The Kubernetes JWT issuer name. If not set, kubernetes/serviceaccount will use as an issuer.
+   * The Kubernetes JWT issuer name. K8SIssuer is the claim that specifies who issued the Kubernetes token
    * @return k8sIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Kubernetes JWT issuer name. If not set, kubernetes/serviceaccount will use as an issuer.")
+  @ApiModelProperty(value = "The Kubernetes JWT issuer name. K8SIssuer is the claim that specifies who issued the Kubernetes token")
 
   public String getK8sIssuer() {
     return k8sIssuer;

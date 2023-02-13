@@ -8,7 +8,7 @@ kmipMoveServer is a command that Moves the root location of the kmip server and 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**newRoot** | **String** |  |  [optional]
+**newRoot** | **String** | New root for the kmip server | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 

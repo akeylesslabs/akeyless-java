@@ -66,7 +66,7 @@ public class GatewayCreateProducerEks {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -94,7 +94,7 @@ public class GatewayCreateProducerEks {
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
-  private Boolean secureAccessWeb;
+  private Boolean secureAccessWeb = false;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -124,11 +124,11 @@ public class GatewayCreateProducerEks {
   }
 
    /**
-   * Protection from accidental deletion of this item
+   * Protection from accidental deletion of this item [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item")
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -376,11 +376,11 @@ public class GatewayCreateProducerEks {
   }
 
    /**
-   * Get secureAccessAllowPortForwading
+   * Enable Port forwarding while using CLI access
    * @return secureAccessAllowPortForwading
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Port forwarding while using CLI access")
 
   public Boolean getSecureAccessAllowPortForwading() {
     return secureAccessAllowPortForwading;
@@ -399,11 +399,11 @@ public class GatewayCreateProducerEks {
   }
 
    /**
-   * Get secureAccessBastionIssuer
+   * Path to the SSH Certificate Issuer for your Akeyless Bastion
    * @return secureAccessBastionIssuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the SSH Certificate Issuer for your Akeyless Bastion")
 
   public String getSecureAccessBastionIssuer() {
     return secureAccessBastionIssuer;
@@ -422,11 +422,11 @@ public class GatewayCreateProducerEks {
   }
 
    /**
-   * Get secureAccessClusterEndpoint
+   * The K8s cluster endpoint URL
    * @return secureAccessClusterEndpoint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The K8s cluster endpoint URL")
 
   public String getSecureAccessClusterEndpoint() {
     return secureAccessClusterEndpoint;
@@ -445,11 +445,11 @@ public class GatewayCreateProducerEks {
   }
 
    /**
-   * Get secureAccessEnable
+   * Enable/Disable secure remote access [true/false]
    * @return secureAccessEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
 
   public String getSecureAccessEnable() {
     return secureAccessEnable;
@@ -468,11 +468,11 @@ public class GatewayCreateProducerEks {
   }
 
    /**
-   * Get secureAccessWeb
+   * Enable Web Secure Remote Access
    * @return secureAccessWeb
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
 
   public Boolean getSecureAccessWeb() {
     return secureAccessWeb;

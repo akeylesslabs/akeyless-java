@@ -8,7 +8,7 @@ gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **creationStatements** | **String** | PostgreSQL Creation statements |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
@@ -19,12 +19,12 @@ Name | Type | Description | Notes
 **postgresqlUsername** | **String** | PostgreSQL Username |  [optional]
 **producerEncryptionKey** | **String** | Dynamic producer encryption key |  [optional]
 **revocationStatement** | **String** | PostgreSQL Revocation statements |  [optional]
-**secureAccessBastionIssuer** | **String** |  |  [optional]
-**secureAccessDbSchema** | **String** |  |  [optional]
-**secureAccessEnable** | **String** |  |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** |  |  [optional]
-**secureAccessWeb** | **Boolean** |  |  [optional]
-**ssl** | **Boolean** | SSL connection mode |  [optional]
+**secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
+**secureAccessDbSchema** | **String** | The DB schema |  [optional]
+**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections |  [optional]
+**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
+**ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]
 **tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

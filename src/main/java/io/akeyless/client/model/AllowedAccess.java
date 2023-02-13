@@ -48,6 +48,10 @@ public class AllowedAccess {
   @SerializedName(SERIALIZED_NAME_ALLOWEDS_LOGIN)
   private Boolean allowedsLogin;
 
+  public static final String SERIALIZED_NAME_EDITABLE = "editable";
+  @SerializedName(SERIALIZED_NAME_EDITABLE)
+  private Boolean editable;
+
   public static final String SERIALIZED_NAME_ERR_MSG = "err_msg";
   @SerializedName(SERIALIZED_NAME_ERR_MSG)
   private String errMsg;
@@ -158,6 +162,29 @@ public class AllowedAccess {
 
   public void setAllowedsLogin(Boolean allowedsLogin) {
     this.allowedsLogin = allowedsLogin;
+  }
+
+
+  public AllowedAccess editable(Boolean editable) {
+    
+    this.editable = editable;
+    return this;
+  }
+
+   /**
+   * Get editable
+   * @return editable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getEditable() {
+    return editable;
+  }
+
+
+  public void setEditable(Boolean editable) {
+    this.editable = editable;
   }
 
 
@@ -297,6 +324,7 @@ public class AllowedAccess {
         Objects.equals(this.accessRulesType, allowedAccess.accessRulesType) &&
         Objects.equals(this.allowedApi, allowedAccess.allowedApi) &&
         Objects.equals(this.allowedsLogin, allowedAccess.allowedsLogin) &&
+        Objects.equals(this.editable, allowedAccess.editable) &&
         Objects.equals(this.errMsg, allowedAccess.errMsg) &&
         Objects.equals(this.hash, allowedAccess.hash) &&
         Objects.equals(this.isValid, allowedAccess.isValid) &&
@@ -306,7 +334,7 @@ public class AllowedAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accId, accessRulesType, allowedApi, allowedsLogin, errMsg, hash, isValid, name, subClaims);
+    return Objects.hash(accId, accessRulesType, allowedApi, allowedsLogin, editable, errMsg, hash, isValid, name, subClaims);
   }
 
 
@@ -318,6 +346,7 @@ public class AllowedAccess {
     sb.append("    accessRulesType: ").append(toIndentedString(accessRulesType)).append("\n");
     sb.append("    allowedApi: ").append(toIndentedString(allowedApi)).append("\n");
     sb.append("    allowedsLogin: ").append(toIndentedString(allowedsLogin)).append("\n");
+    sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    errMsg: ").append(toIndentedString(errMsg)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");

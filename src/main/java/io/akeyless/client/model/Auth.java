@@ -67,11 +67,11 @@ public class Auth {
 
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
-  private String gcpAudience;
+  private String gcpAudience = "akeyless.io";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_JWT = "jwt";
   @SerializedName(SERIALIZED_NAME_JWT)

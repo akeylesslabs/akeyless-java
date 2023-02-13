@@ -34,6 +34,10 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_ALT_NAMES)
   private String altNames;
 
+  public static final String SERIALIZED_NAME_API_VERSION = "api-version";
+  @SerializedName(SERIALIZED_NAME_API_VERSION)
+  private String apiVersion = "v1";
+
   public static final String SERIALIZED_NAME_CERT_ISSUER_NAME = "cert-issuer-name";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
   private String certIssuerName;
@@ -52,7 +56,7 @@ public class GetKubeExecCreds {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
@@ -95,6 +99,29 @@ public class GetKubeExecCreds {
 
   public void setAltNames(String altNames) {
     this.altNames = altNames;
+  }
+
+
+  public GetKubeExecCreds apiVersion(String apiVersion) {
+    
+    this.apiVersion = apiVersion;
+    return this;
+  }
+
+   /**
+   * Client authentication API version
+   * @return apiVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client authentication API version")
+
+  public String getApiVersion() {
+    return apiVersion;
+  }
+
+
+  public void setApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
   }
 
 
@@ -337,6 +364,7 @@ public class GetKubeExecCreds {
     }
     GetKubeExecCreds getKubeExecCreds = (GetKubeExecCreds) o;
     return Objects.equals(this.altNames, getKubeExecCreds.altNames) &&
+        Objects.equals(this.apiVersion, getKubeExecCreds.apiVersion) &&
         Objects.equals(this.certIssuerName, getKubeExecCreds.certIssuerName) &&
         Objects.equals(this.commonName, getKubeExecCreds.commonName) &&
         Objects.equals(this.csrDataBase64, getKubeExecCreds.csrDataBase64) &&
@@ -351,7 +379,7 @@ public class GetKubeExecCreds {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
+    return Objects.hash(altNames, apiVersion, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
 
@@ -360,6 +388,7 @@ public class GetKubeExecCreds {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetKubeExecCreds {\n");
     sb.append("    altNames: ").append(toIndentedString(altNames)).append("\n");
+    sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    csrDataBase64: ").append(toIndentedString(csrDataBase64)).append("\n");

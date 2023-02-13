@@ -56,7 +56,7 @@ public class GatewayUpdateLdapAuthConfig {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_LDAP_CA_CERT = "ldap-ca-cert";
   @SerializedName(SERIALIZED_NAME_LDAP_CA_CERT)
@@ -286,11 +286,11 @@ public class GatewayUpdateLdapAuthConfig {
   }
 
    /**
-   * Enable Ldap
+   * Enable Ldap [true/false]
    * @return ldapEnable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Enable Ldap")
+  @ApiModelProperty(value = "Enable Ldap [true/false]")
 
   public String getLdapEnable() {
     return ldapEnable;

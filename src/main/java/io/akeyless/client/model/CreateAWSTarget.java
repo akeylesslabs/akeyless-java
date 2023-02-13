@@ -47,7 +47,7 @@ public class CreateAWSTarget {
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -59,7 +59,7 @@ public class CreateAWSTarget {
 
   public static final String SERIALIZED_NAME_REGION = "region";
   @SerializedName(SERIALIZED_NAME_REGION)
-  private String region;
+  private String region = "us-east-2";
 
   public static final String SERIALIZED_NAME_SESSION_TOKEN = "session-token";
   @SerializedName(SERIALIZED_NAME_SESSION_TOKEN)
@@ -85,11 +85,10 @@ public class CreateAWSTarget {
   }
 
    /**
-   * Get accessKey
+   * AWS secret access key
    * @return accessKey
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "AWS secret access key")
 
   public String getAccessKey() {
     return accessKey;
@@ -108,11 +107,10 @@ public class CreateAWSTarget {
   }
 
    /**
-   * Get accessKeyId
+   * AWS access key ID
    * @return accessKeyId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "AWS access key ID")
 
   public String getAccessKeyId() {
     return accessKeyId;
@@ -245,11 +243,11 @@ public class CreateAWSTarget {
   }
 
    /**
-   * Get region
+   * AWS region
    * @return region
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "AWS region")
 
   public String getRegion() {
     return region;
@@ -268,11 +266,11 @@ public class CreateAWSTarget {
   }
 
    /**
-   * Get sessionToken
+   * Required only for temporary security credentials retrieved using STS
    * @return sessionToken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Required only for temporary security credentials retrieved using STS")
 
   public String getSessionToken() {
     return sessionToken;
@@ -337,11 +335,11 @@ public class CreateAWSTarget {
   }
 
    /**
-   * Get useGwCloudIdentity
+   * Use the GW&#39;s Cloud IAM
    * @return useGwCloudIdentity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Use the GW's Cloud IAM")
 
   public Boolean getUseGwCloudIdentity() {
     return useGwCloudIdentity;

@@ -31,11 +31,11 @@ import java.io.IOException;
 public class ListSRABastions {
   public static final String SERIALIZED_NAME_ALLOWED_URLS_ONLY = "allowed-urls-only";
   @SerializedName(SERIALIZED_NAME_ALLOWED_URLS_ONLY)
-  private Boolean allowedUrlsOnly;
+  private Boolean allowedUrlsOnly = false;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
-  private Boolean json;
+  private Boolean json = false;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -53,11 +53,11 @@ public class ListSRABastions {
   }
 
    /**
-   * Get allowedUrlsOnly
+   * Filter the response to show only bastions allowed URLs
    * @return allowedUrlsOnly
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter the response to show only bastions allowed URLs")
 
   public Boolean getAllowedUrlsOnly() {
     return allowedUrlsOnly;
