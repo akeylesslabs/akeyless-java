@@ -64,6 +64,10 @@ public class GatewayUpdateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_MYSQL_PORT)
   private String mysqlPort = "3306";
 
+  public static final String SERIALIZED_NAME_MYSQL_REVOCATION_STATEMENTS = "mysql-revocation-statements";
+  @SerializedName(SERIALIZED_NAME_MYSQL_REVOCATION_STATEMENTS)
+  private String mysqlRevocationStatements;
+
   public static final String SERIALIZED_NAME_MYSQL_SCREATION_STATEMENTS = "mysql-screation-statements";
   @SerializedName(SERIALIZED_NAME_MYSQL_SCREATION_STATEMENTS)
   private String mysqlScreationStatements;
@@ -310,6 +314,29 @@ public class GatewayUpdateProducerMySQL {
 
   public void setMysqlPort(String mysqlPort) {
     this.mysqlPort = mysqlPort;
+  }
+
+
+  public GatewayUpdateProducerMySQL mysqlRevocationStatements(String mysqlRevocationStatements) {
+    
+    this.mysqlRevocationStatements = mysqlRevocationStatements;
+    return this;
+  }
+
+   /**
+   * MySQL Revocation statements
+   * @return mysqlRevocationStatements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MySQL Revocation statements")
+
+  public String getMysqlRevocationStatements() {
+    return mysqlRevocationStatements;
+  }
+
+
+  public void setMysqlRevocationStatements(String mysqlRevocationStatements) {
+    this.mysqlRevocationStatements = mysqlRevocationStatements;
   }
 
 
@@ -713,6 +740,7 @@ public class GatewayUpdateProducerMySQL {
         Objects.equals(this.mysqlHost, gatewayUpdateProducerMySQL.mysqlHost) &&
         Objects.equals(this.mysqlPassword, gatewayUpdateProducerMySQL.mysqlPassword) &&
         Objects.equals(this.mysqlPort, gatewayUpdateProducerMySQL.mysqlPort) &&
+        Objects.equals(this.mysqlRevocationStatements, gatewayUpdateProducerMySQL.mysqlRevocationStatements) &&
         Objects.equals(this.mysqlScreationStatements, gatewayUpdateProducerMySQL.mysqlScreationStatements) &&
         Objects.equals(this.mysqlUsername, gatewayUpdateProducerMySQL.mysqlUsername) &&
         Objects.equals(this.name, gatewayUpdateProducerMySQL.name) &&
@@ -733,7 +761,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlScreationStatements, mysqlUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -749,6 +777,7 @@ public class GatewayUpdateProducerMySQL {
     sb.append("    mysqlHost: ").append(toIndentedString(mysqlHost)).append("\n");
     sb.append("    mysqlPassword: ").append(toIndentedString(mysqlPassword)).append("\n");
     sb.append("    mysqlPort: ").append(toIndentedString(mysqlPort)).append("\n");
+    sb.append("    mysqlRevocationStatements: ").append(toIndentedString(mysqlRevocationStatements)).append("\n");
     sb.append("    mysqlScreationStatements: ").append(toIndentedString(mysqlScreationStatements)).append("\n");
     sb.append("    mysqlUsername: ").append(toIndentedString(mysqlUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

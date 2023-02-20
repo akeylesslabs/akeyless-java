@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **accessId** | **String** | Access ID |  [optional]
 **accessKey** | **String** | Access key (relevant only for access-type&#x3D;access_key) |  [optional]
 **accessType** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert) |  [optional]
+**accountId** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) |  [optional]
 **adminEmail** | **String** | Email (relevant only for access-type&#x3D;password) |  [optional]
 **adminPassword** | **String** | Password (relevant only for access-type&#x3D;password) |  [optional]
 **certData** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) |  [optional]

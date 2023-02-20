@@ -619,6 +619,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_MYSQL_CREATION_STATEMENTS)
   private String mysqlCreationStatements;
 
+  public static final String SERIALIZED_NAME_MYSQL_REVOCATION_STATEMENTS = "mysql_revocation_statements";
+  @SerializedName(SERIALIZED_NAME_MYSQL_REVOCATION_STATEMENTS)
+  private String mysqlRevocationStatements;
+
   public static final String SERIALIZED_NAME_ORACLE_CREATION_STATEMENTS = "oracle_creation_statements";
   @SerializedName(SERIALIZED_NAME_ORACLE_CREATION_STATEMENTS)
   private String oracleCreationStatements;
@@ -4258,6 +4262,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails mysqlRevocationStatements(String mysqlRevocationStatements) {
+    
+    this.mysqlRevocationStatements = mysqlRevocationStatements;
+    return this;
+  }
+
+   /**
+   * Get mysqlRevocationStatements
+   * @return mysqlRevocationStatements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMysqlRevocationStatements() {
+    return mysqlRevocationStatements;
+  }
+
+
+  public void setMysqlRevocationStatements(String mysqlRevocationStatements) {
+    this.mysqlRevocationStatements = mysqlRevocationStatements;
+  }
+
+
   public DSProducerDetails oracleCreationStatements(String oracleCreationStatements) {
     
     this.oracleCreationStatements = oracleCreationStatements;
@@ -5741,6 +5768,7 @@ public class DSProducerDetails {
         Objects.equals(this.mssqlCreationStatements, dsProducerDetails.mssqlCreationStatements) &&
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
+        Objects.equals(this.mysqlRevocationStatements, dsProducerDetails.mysqlRevocationStatements) &&
         Objects.equals(this.oracleCreationStatements, dsProducerDetails.oracleCreationStatements) &&
         Objects.equals(this.password, dsProducerDetails.password) &&
         Objects.equals(this.passwordLength, dsProducerDetails.passwordLength) &&
@@ -5801,7 +5829,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
 
@@ -5955,6 +5983,7 @@ public class DSProducerDetails {
     sb.append("    mssqlCreationStatements: ").append(toIndentedString(mssqlCreationStatements)).append("\n");
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
+    sb.append("    mysqlRevocationStatements: ").append(toIndentedString(mysqlRevocationStatements)).append("\n");
     sb.append("    oracleCreationStatements: ").append(toIndentedString(oracleCreationStatements)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

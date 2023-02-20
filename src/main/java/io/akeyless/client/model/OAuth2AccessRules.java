@@ -49,6 +49,10 @@ public class OAuth2AccessRules {
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
 
+  public static final String SERIALIZED_NAME_JWKS_JSON_DATA = "jwks_json_data";
+  @SerializedName(SERIALIZED_NAME_JWKS_JSON_DATA)
+  private String jwksJsonData;
+
   public static final String SERIALIZED_NAME_JWKS_URI = "jwks_uri";
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
   private String jwksUri;
@@ -166,6 +170,29 @@ public class OAuth2AccessRules {
   }
 
 
+  public OAuth2AccessRules jwksJsonData(String jwksJsonData) {
+    
+    this.jwksJsonData = jwksJsonData;
+    return this;
+  }
+
+   /**
+   * The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. base64 encoded string
+   * @return jwksJsonData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. base64 encoded string")
+
+  public String getJwksJsonData() {
+    return jwksJsonData;
+  }
+
+
+  public void setJwksJsonData(String jwksJsonData) {
+    this.jwksJsonData = jwksJsonData;
+  }
+
+
   public OAuth2AccessRules jwksUri(String jwksUri) {
     
     this.jwksUri = jwksUri;
@@ -225,13 +252,14 @@ public class OAuth2AccessRules {
         Objects.equals(this.boundClaims, oauth2AccessRules.boundClaims) &&
         Objects.equals(this.boundClientsId, oauth2AccessRules.boundClientsId) &&
         Objects.equals(this.issuer, oauth2AccessRules.issuer) &&
+        Objects.equals(this.jwksJsonData, oauth2AccessRules.jwksJsonData) &&
         Objects.equals(this.jwksUri, oauth2AccessRules.jwksUri) &&
         Objects.equals(this.uniqueIdentifier, oauth2AccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, boundClaims, boundClientsId, issuer, jwksUri, uniqueIdentifier);
+    return Objects.hash(audience, boundClaims, boundClientsId, issuer, jwksJsonData, jwksUri, uniqueIdentifier);
   }
 
 
@@ -243,6 +271,7 @@ public class OAuth2AccessRules {
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    boundClientsId: ").append(toIndentedString(boundClientsId)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    jwksJsonData: ").append(toIndentedString(jwksJsonData)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");

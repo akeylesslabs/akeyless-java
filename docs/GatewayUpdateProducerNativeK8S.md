@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **k8sClusterCaCert** | **String** | K8S cluster CA certificate |  [optional]
 **k8sClusterEndpoint** | **String** | K8S cluster URL endpoint |  [optional]
 **k8sClusterToken** | **String** | K8S cluster Bearer token |  [optional]
-**k8sNamespace** | **String** | K8S namespace |  [optional]
-**k8sServiceAccount** | **String** | K8S service account |  [optional]
+**k8sNamespace** | **String** | K8S Namespace where the ServiceAccount exists. |  [optional]
+**k8sServiceAccount** | **String** | K8S ServiceAccount to extract token from. |  [optional]
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]

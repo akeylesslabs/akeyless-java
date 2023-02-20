@@ -41,6 +41,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
   private String accessType = "access_key";
 
+  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account-id";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  private String accountId;
+
   public static final String SERIALIZED_NAME_ADMIN_EMAIL = "admin-email";
   @SerializedName(SERIALIZED_NAME_ADMIN_EMAIL)
   private String adminEmail;
@@ -168,6 +172,29 @@ public class Auth {
 
   public void setAccessType(String accessType) {
     this.accessType = accessType;
+  }
+
+
+  public Auth accountId(String accountId) {
+    
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account)
+   * @return accountId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Account id (relevant only for access-type=password where the email address is associated with more than one account)")
+
+  public String getAccountId() {
+    return accountId;
+  }
+
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -528,6 +555,7 @@ public class Auth {
     return Objects.equals(this.accessId, auth.accessId) &&
         Objects.equals(this.accessKey, auth.accessKey) &&
         Objects.equals(this.accessType, auth.accessType) &&
+        Objects.equals(this.accountId, auth.accountId) &&
         Objects.equals(this.adminEmail, auth.adminEmail) &&
         Objects.equals(this.adminPassword, auth.adminPassword) &&
         Objects.equals(this.certData, auth.certData) &&
@@ -547,7 +575,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, certData, cloudId, debug, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certData, cloudId, debug, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, uidToken);
   }
 
 
@@ -558,6 +586,7 @@ public class Auth {
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");

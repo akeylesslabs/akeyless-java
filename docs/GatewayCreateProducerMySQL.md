@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **mysqlHost** | **String** | MySQL Host |  [optional]
 **mysqlPassword** | **String** | MySQL Password |  [optional]
 **mysqlPort** | **String** | MySQL Port |  [optional]
+**mysqlRevocationStatements** | **String** | MySQL Revocation statements |  [optional]
 **mysqlScreationStatements** | **String** | MySQL Creation statements |  [optional]
 **mysqlUsername** | **String** | MySQL Username |  [optional]
 **name** | **String** | Producer name | 

@@ -41,6 +41,10 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
   private String accessType = "access_key";
 
+  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account-id";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  private String accountId;
+
   public static final String SERIALIZED_NAME_ADMIN_EMAIL = "admin-email";
   @SerializedName(SERIALIZED_NAME_ADMIN_EMAIL)
   private String adminEmail;
@@ -140,6 +144,29 @@ public class Configure {
 
   public void setAccessType(String accessType) {
     this.accessType = accessType;
+  }
+
+
+  public Configure accountId(String accountId) {
+    
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account)
+   * @return accountId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Account id (relevant only for access-type=password where the email address is associated with more than one account)")
+
+  public String getAccountId() {
+    return accountId;
+  }
+
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -339,6 +366,7 @@ public class Configure {
     return Objects.equals(this.accessId, configure.accessId) &&
         Objects.equals(this.accessKey, configure.accessKey) &&
         Objects.equals(this.accessType, configure.accessType) &&
+        Objects.equals(this.accountId, configure.accountId) &&
         Objects.equals(this.adminEmail, configure.adminEmail) &&
         Objects.equals(this.adminPassword, configure.adminPassword) &&
         Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
@@ -351,7 +379,7 @@ public class Configure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData);
   }
 
 
@@ -362,6 +390,7 @@ public class Configure {
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");

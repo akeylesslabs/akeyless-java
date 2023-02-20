@@ -37,6 +37,10 @@ public class EmailPassAccessRules {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_ENC_EMAIL_WITH_SHARED_KEY = "enc_email_with_shared_key";
+  @SerializedName(SERIALIZED_NAME_ENC_EMAIL_WITH_SHARED_KEY)
+  private String encEmailWithSharedKey;
+
   public static final String SERIALIZED_NAME_HASH_PASS = "hash_pass";
   @SerializedName(SERIALIZED_NAME_HASH_PASS)
   private String hashPass;
@@ -88,6 +92,29 @@ public class EmailPassAccessRules {
   }
 
 
+  public EmailPassAccessRules encEmailWithSharedKey(String encEmailWithSharedKey) {
+    
+    this.encEmailWithSharedKey = encEmailWithSharedKey;
+    return this;
+  }
+
+   /**
+   * EncEmailWithSharedKey is the email of this auth method, encrypted with the shared auth/uam key (for use in uam)
+   * @return encEmailWithSharedKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "EncEmailWithSharedKey is the email of this auth method, encrypted with the shared auth/uam key (for use in uam)")
+
+  public String getEncEmailWithSharedKey() {
+    return encEmailWithSharedKey;
+  }
+
+
+  public void setEncEmailWithSharedKey(String encEmailWithSharedKey) {
+    this.encEmailWithSharedKey = encEmailWithSharedKey;
+  }
+
+
   public EmailPassAccessRules hashPass(String hashPass) {
     
     this.hashPass = hashPass;
@@ -122,12 +149,13 @@ public class EmailPassAccessRules {
     EmailPassAccessRules emailPassAccessRules = (EmailPassAccessRules) o;
     return Objects.equals(this.alg, emailPassAccessRules.alg) &&
         Objects.equals(this.email, emailPassAccessRules.email) &&
+        Objects.equals(this.encEmailWithSharedKey, emailPassAccessRules.encEmailWithSharedKey) &&
         Objects.equals(this.hashPass, emailPassAccessRules.hashPass);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, email, hashPass);
+    return Objects.hash(alg, email, encEmailWithSharedKey, hashPass);
   }
 
 
@@ -137,6 +165,7 @@ public class EmailPassAccessRules {
     sb.append("class EmailPassAccessRules {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    encEmailWithSharedKey: ").append(toIndentedString(encEmailWithSharedKey)).append("\n");
     sb.append("    hashPass: ").append(toIndentedString(hashPass)).append("\n");
     sb.append("}");
     return sb.toString();

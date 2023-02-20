@@ -54,7 +54,7 @@ public class GatewayCreateProducerNativeK8S {
 
   public static final String SERIALIZED_NAME_K8S_NAMESPACE = "k8s-namespace";
   @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
-  private String k8sNamespace = "default";
+  private String k8sNamespace;
 
   public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT = "k8s-service-account";
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT)
@@ -243,11 +243,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * K8S namespace
+   * K8S Namespace where the ServiceAccount exists.
    * @return k8sNamespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8S namespace")
+  @ApiModelProperty(value = "K8S Namespace where the ServiceAccount exists.")
 
   public String getK8sNamespace() {
     return k8sNamespace;
@@ -266,11 +266,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * K8S service account
+   * K8S ServiceAccount to extract token from.
    * @return k8sServiceAccount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "K8S service account")
+  @ApiModelProperty(value = "K8S ServiceAccount to extract token from.")
 
   public String getK8sServiceAccount() {
     return k8sServiceAccount;

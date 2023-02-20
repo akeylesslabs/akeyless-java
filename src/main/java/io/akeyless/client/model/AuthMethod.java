@@ -66,6 +66,10 @@ public class AuthMethod {
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
 
+  public static final String SERIALIZED_NAME_IS_APPROVED = "is_approved";
+  @SerializedName(SERIALIZED_NAME_IS_APPROVED)
+  private Boolean isApproved;
+
   public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
   private OffsetDateTime modificationDate;
@@ -271,6 +275,29 @@ public class AuthMethod {
   }
 
 
+  public AuthMethod isApproved(Boolean isApproved) {
+    
+    this.isApproved = isApproved;
+    return this;
+  }
+
+   /**
+   * Get isApproved
+   * @return isApproved
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIsApproved() {
+    return isApproved;
+  }
+
+
+  public void setIsApproved(Boolean isApproved) {
+    this.isApproved = isApproved;
+  }
+
+
   public AuthMethod modificationDate(OffsetDateTime modificationDate) {
     
     this.modificationDate = modificationDate;
@@ -311,12 +338,13 @@ public class AuthMethod {
         Objects.equals(this.authMethodRolesAssoc, authMethod.authMethodRolesAssoc) &&
         Objects.equals(this.clientPermissions, authMethod.clientPermissions) &&
         Objects.equals(this.creationDate, authMethod.creationDate) &&
+        Objects.equals(this.isApproved, authMethod.isApproved) &&
         Objects.equals(this.modificationDate, authMethod.modificationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessInfo, accountId, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, modificationDate);
+    return Objects.hash(accessDate, accessInfo, accountId, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, isApproved, modificationDate);
   }
 
 
@@ -332,6 +360,7 @@ public class AuthMethod {
     sb.append("    authMethodRolesAssoc: ").append(toIndentedString(authMethodRolesAssoc)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("}");
     return sb.toString();

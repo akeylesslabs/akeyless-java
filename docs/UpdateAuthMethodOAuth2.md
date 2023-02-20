@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **issuer** | **String** | Issuer URL |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**jwksJsonData** | **String** | The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. base64 encoded string |  [optional]
+**jwksJsonFile** | **String** | JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the authorization server. |  [optional]
 **jwksUri** | **String** | The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. | 
 **jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 

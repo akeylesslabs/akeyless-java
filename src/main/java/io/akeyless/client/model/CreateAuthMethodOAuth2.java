@@ -64,9 +64,17 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_JWKS_JSON_DATA = "jwks-json-data";
+  @SerializedName(SERIALIZED_NAME_JWKS_JSON_DATA)
+  private String jwksJsonData;
+
+  public static final String SERIALIZED_NAME_JWKS_JSON_FILE = "jwks-json-file";
+  @SerializedName(SERIALIZED_NAME_JWKS_JSON_FILE)
+  private String jwksJsonFile;
+
   public static final String SERIALIZED_NAME_JWKS_URI = "jwks-uri";
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
-  private String jwksUri;
+  private String jwksUri = "default_jwks_url";
 
   public static final String SERIALIZED_NAME_JWT_TTL = "jwt-ttl";
   @SerializedName(SERIALIZED_NAME_JWT_TTL)
@@ -297,6 +305,52 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
+  public CreateAuthMethodOAuth2 jwksJsonData(String jwksJsonData) {
+    
+    this.jwksJsonData = jwksJsonData;
+    return this;
+  }
+
+   /**
+   * The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. base64 encoded string
+   * @return jwksJsonData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. base64 encoded string")
+
+  public String getJwksJsonData() {
+    return jwksJsonData;
+  }
+
+
+  public void setJwksJsonData(String jwksJsonData) {
+    this.jwksJsonData = jwksJsonData;
+  }
+
+
+  public CreateAuthMethodOAuth2 jwksJsonFile(String jwksJsonFile) {
+    
+    this.jwksJsonFile = jwksJsonFile;
+    return this;
+  }
+
+   /**
+   * JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the authorization server.
+   * @return jwksJsonFile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the authorization server.")
+
+  public String getJwksJsonFile() {
+    return jwksJsonFile;
+  }
+
+
+  public void setJwksJsonFile(String jwksJsonFile) {
+    this.jwksJsonFile = jwksJsonFile;
+  }
+
+
   public CreateAuthMethodOAuth2 jwksUri(String jwksUri) {
     
     this.jwksUri = jwksUri;
@@ -449,6 +503,8 @@ public class CreateAuthMethodOAuth2 {
         Objects.equals(this.gwBoundIps, createAuthMethodOAuth2.gwBoundIps) &&
         Objects.equals(this.issuer, createAuthMethodOAuth2.issuer) &&
         Objects.equals(this.json, createAuthMethodOAuth2.json) &&
+        Objects.equals(this.jwksJsonData, createAuthMethodOAuth2.jwksJsonData) &&
+        Objects.equals(this.jwksJsonFile, createAuthMethodOAuth2.jwksJsonFile) &&
         Objects.equals(this.jwksUri, createAuthMethodOAuth2.jwksUri) &&
         Objects.equals(this.jwtTtl, createAuthMethodOAuth2.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOAuth2.name) &&
@@ -459,7 +515,7 @@ public class CreateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gwBoundIps, issuer, json, jwksJsonData, jwksJsonFile, jwksUri, jwtTtl, name, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -475,6 +531,8 @@ public class CreateAuthMethodOAuth2 {
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    jwksJsonData: ").append(toIndentedString(jwksJsonData)).append("\n");
+    sb.append("    jwksJsonFile: ").append(toIndentedString(jwksJsonFile)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

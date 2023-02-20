@@ -10171,6 +10171,7 @@ components:
         - client_permissions
         access_date: 2000-01-23T04:56:07.000+00:00
         modification_date: 2000-01-23T04:56:07.000+00:00
+        is_approved: true
         access_info:
           jwt_ttl: 6
           gcp_access_rules:
@@ -10240,6 +10241,7 @@ components:
             bound_clients_id:
             - bound_clients_id
             - bound_clients_id
+            jwks_json_data: jwks_json_data
             issuer: issuer
           oidc_access_rules:
             bound_claims:
@@ -10377,6 +10379,7 @@ components:
           access_id_alias: access_id_alias
           email_pass_access_rules:
             hash_pass: hash_pass
+            enc_email_with_shared_key: enc_email_with_shared_key
             alg: alg
             email: email
         creation_date: 2000-01-23T04:56:07.000+00:00
@@ -10412,6 +10415,9 @@ components:
           format: date-time
           type: string
           x-go-name: CreationDate
+        is_approved:
+          type: boolean
+          x-go-name: IsApproved
         modification_date:
           format: date-time
           type: string
@@ -10489,6 +10495,7 @@ components:
           bound_clients_id:
           - bound_clients_id
           - bound_clients_id
+          jwks_json_data: jwks_json_data
           issuer: issuer
         oidc_access_rules:
           bound_claims:
@@ -10626,6 +10633,7 @@ components:
         access_id_alias: access_id_alias
         email_pass_access_rules:
           hash_pass: hash_pass
+          enc_email_with_shared_key: enc_email_with_shared_key
           alg: alg
           email: email
       properties:
@@ -12647,6 +12655,7 @@ components:
         k8s_role_name: k8s_role_name
         db_port: db_port
         artifactory_base_url: artifactory_base_url
+        mysql_revocation_statements: mysql_revocation_statements
         create_sync_url: create_sync_url
         aws_session_token: aws_session_token
         jwks: jwks
@@ -13219,6 +13228,9 @@ components:
         mysql_creation_statements:
           type: string
           x-go-name: MysqlCreationStatements
+        mysql_revocation_statements:
+          type: string
+          x-go-name: MysqlRevocationStatements
         oracle_creation_statements:
           type: string
           x-go-name: OracleDBCreationStatements
@@ -13608,6 +13620,7 @@ components:
     EmailPassAccessRules:
       example:
         hash_pass: hash_pass
+        enc_email_with_shared_key: enc_email_with_shared_key
         alg: alg
         email: email
       properties:
@@ -13619,6 +13632,12 @@ components:
           description: The Email value
           type: string
           x-go-name: Email
+        enc_email_with_shared_key:
+          description: |-
+            EncEmailWithSharedKey is the email of this auth method,
+            encrypted with the shared auth/uam key (for use in uam)
+          type: string
+          x-go-name: EncEmailWithSharedKey
         hash_pass:
           description: The password value
           type: string
@@ -16968,6 +16987,7 @@ components:
           - client_permissions
           access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
+          is_approved: true
           access_info:
             jwt_ttl: 6
             gcp_access_rules:
@@ -17037,6 +17057,7 @@ components:
               bound_clients_id:
               - bound_clients_id
               - bound_clients_id
+              jwks_json_data: jwks_json_data
               issuer: issuer
             oidc_access_rules:
               bound_claims:
@@ -17174,6 +17195,7 @@ components:
             access_id_alias: access_id_alias
             email_pass_access_rules:
               hash_pass: hash_pass
+              enc_email_with_shared_key: enc_email_with_shared_key
               alg: alg
               email: email
           creation_date: 2000-01-23T04:56:07.000+00:00
@@ -17270,6 +17292,7 @@ components:
           - client_permissions
           access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
+          is_approved: true
           access_info:
             jwt_ttl: 6
             gcp_access_rules:
@@ -17339,6 +17362,7 @@ components:
               bound_clients_id:
               - bound_clients_id
               - bound_clients_id
+              jwks_json_data: jwks_json_data
               issuer: issuer
             oidc_access_rules:
               bound_claims:
@@ -17476,6 +17500,7 @@ components:
             access_id_alias: access_id_alias
             email_pass_access_rules:
               hash_pass: hash_pass
+              enc_email_with_shared_key: enc_email_with_shared_key
               alg: alg
               email: email
           creation_date: 2000-01-23T04:56:07.000+00:00
@@ -19715,6 +19740,7 @@ components:
         bound_clients_id:
         - bound_clients_id
         - bound_clients_id
+        jwks_json_data: jwks_json_data
         issuer: issuer
       properties:
         audience:
@@ -19737,6 +19763,14 @@ components:
           description: Issuer URL
           type: string
           x-go-name: Issuer
+        jwks_json_data:
+          description: |-
+            The JSON Web Key Set (JWKS) that containing the public keys
+            that should be used to verify any JSON Web Token (JWT) issued by the
+            authorization server.
+            base64 encoded string
+          type: string
+          x-go-name: JWKeySetJsonData
         jwks_uri:
           description: |-
             The URL to the JSON Web Key Set (JWKS) that containing the public keys
@@ -22535,6 +22569,11 @@ components:
             (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert)
           type: string
           x-go-name: AccessType
+        account-id:
+          description: Account id (relevant only for access-type=password where the
+            email address is associated with more than one account)
+          type: string
+          x-go-name: AccountId
         admin-email:
           description: Email (relevant only for access-type=password)
           type: string
@@ -22635,6 +22674,11 @@ components:
           description: Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s)
           type: string
           x-go-name: AccessType
+        account-id:
+          description: Account id (relevant only for access-type=password where the
+            email address is associated with more than one account)
+          type: string
+          x-go-name: AccountId
         admin-email:
           description: Email (relevant only for access-type=password)
           type: string
@@ -23766,7 +23810,22 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        jwks-json-data:
+          description: |-
+            The JSON Web Key Set (JWKS) that containing the public keys
+            that should be used to verify any JSON Web Token (JWT) issued by the
+            authorization server.
+            base64 encoded string
+          type: string
+          x-go-name: JWKeySetJsonData
+        jwks-json-file:
+          description: |-
+            JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the
+            authorization server.
+          type: string
+          x-go-name: JWKeySetJsonFile
         jwks-uri:
+          default: default_jwks_url
           description: |-
             The URL to the JSON Web Key Set (JWKS) that containing the public keys
             that should be used to verify any JSON Web Token (JWT) issued by the
@@ -28044,6 +28103,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -28447,6 +28507,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -28836,6 +28897,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -29180,6 +29242,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -29574,6 +29637,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -30008,6 +30072,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -30346,6 +30411,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -30718,6 +30784,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -31070,6 +31137,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -31412,6 +31480,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -31775,6 +31844,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -32150,6 +32220,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -32505,6 +32576,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -32880,6 +32952,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -33272,6 +33345,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -33396,6 +33470,10 @@ components:
           description: MySQL Port
           type: string
           x-go-name: DBPort
+        mysql-revocation-statements:
+          description: MySQL Revocation statements
+          type: string
+          x-go-name: RevocationStatements
         mysql-screation-statements:
           description: MySQL Creation statements
           type: string
@@ -33656,6 +33734,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -33767,12 +33846,11 @@ components:
           type: string
           x-go-name: ClusterBearerToken
         k8s-namespace:
-          default: default
-          description: K8S namespace
+          description: K8S Namespace where the ServiceAccount exists.
           type: string
           x-go-name: Namespace
         k8s-service-account:
-          description: K8S service account
+          description: K8S ServiceAccount to extract token from.
           type: string
           x-go-name: ServiceAccount
         name:
@@ -34034,6 +34112,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -34411,6 +34490,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -34832,6 +34912,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -35213,6 +35294,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -35591,6 +35673,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -35972,6 +36055,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -36336,6 +36420,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -36687,6 +36772,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -38927,6 +39013,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -39334,6 +39421,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -39727,6 +39815,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -40075,6 +40164,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -40473,6 +40563,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -40915,6 +41006,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -41257,6 +41349,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -41633,6 +41726,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -41989,6 +42083,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -42335,6 +42430,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -42702,6 +42798,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -43081,6 +43178,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -43440,6 +43538,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -43819,6 +43918,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -44215,6 +44315,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -44339,6 +44440,10 @@ components:
           description: MySQL Port
           type: string
           x-go-name: DBPort
+        mysql-revocation-statements:
+          description: MySQL Revocation statements
+          type: string
+          x-go-name: RevocationStatements
         mysql-screation-statements:
           description: MySQL Creation statements
           type: string
@@ -44603,6 +44708,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -44714,12 +44820,11 @@ components:
           type: string
           x-go-name: ClusterBearerToken
         k8s-namespace:
-          default: default
-          description: K8S namespace
+          description: K8S Namespace where the ServiceAccount exists.
           type: string
           x-go-name: Namespace
         k8s-service-account:
-          description: K8S service account
+          description: K8S ServiceAccount to extract token from.
           type: string
           x-go-name: ServiceAccount
         name:
@@ -44985,6 +45090,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -45366,6 +45472,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -45791,6 +45898,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -46176,6 +46284,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -46558,6 +46667,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -46943,6 +47053,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -47311,6 +47422,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -47666,6 +47778,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
           jwks: jwks
@@ -51282,7 +51395,22 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        jwks-json-data:
+          description: |-
+            The JSON Web Key Set (JWKS) that containing the public keys
+            that should be used to verify any JSON Web Token (JWT) issued by the
+            authorization server.
+            base64 encoded string
+          type: string
+          x-go-name: JWKeySetJsonData
+        jwks-json-file:
+          description: |-
+            JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the
+            authorization server.
+          type: string
+          x-go-name: JWKeySetJsonFile
         jwks-uri:
+          default: default_jwks_url
           description: |-
             The URL to the JSON Web Key Set (JWKS) that containing the public keys
             that should be used to verify any JSON Web Token (JWT) issued by the
