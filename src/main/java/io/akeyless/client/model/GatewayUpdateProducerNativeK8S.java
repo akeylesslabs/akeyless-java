@@ -40,6 +40,10 @@ public class GatewayUpdateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES = "k8s-allowed-namespaces";
+  @SerializedName(SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES)
+  private String k8sAllowedNamespaces;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
   private String k8sClusterCaCert;
@@ -56,9 +60,25 @@ public class GatewayUpdateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
   private String k8sNamespace;
 
+  public static final String SERIALIZED_NAME_K8S_PREDEFINED_ROLE_NAME = "k8s-predefined-role-name";
+  @SerializedName(SERIALIZED_NAME_K8S_PREDEFINED_ROLE_NAME)
+  private String k8sPredefinedRoleName;
+
+  public static final String SERIALIZED_NAME_K8S_PREDEFINED_ROLE_TYPE = "k8s-predefined-role-type";
+  @SerializedName(SERIALIZED_NAME_K8S_PREDEFINED_ROLE_TYPE)
+  private String k8sPredefinedRoleType;
+
+  public static final String SERIALIZED_NAME_K8S_ROLEBINDING_YAML_DEF = "k8s-rolebinding-yaml-def";
+  @SerializedName(SERIALIZED_NAME_K8S_ROLEBINDING_YAML_DEF)
+  private String k8sRolebindingYamlDef;
+
   public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT = "k8s-service-account";
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT)
   private String k8sServiceAccount;
+
+  public static final String SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TYPE = "k8s-service-account-type";
+  @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TYPE)
+  private String k8sServiceAccountType;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -171,6 +191,29 @@ public class GatewayUpdateProducerNativeK8S {
   }
 
 
+  public GatewayUpdateProducerNativeK8S k8sAllowedNamespaces(String k8sAllowedNamespaces) {
+    
+    this.k8sAllowedNamespaces = k8sAllowedNamespaces;
+    return this;
+  }
+
+   /**
+   * Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type&#x3D;dynamic)
+   * @return k8sAllowedNamespaces
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)")
+
+  public String getK8sAllowedNamespaces() {
+    return k8sAllowedNamespaces;
+  }
+
+
+  public void setK8sAllowedNamespaces(String k8sAllowedNamespaces) {
+    this.k8sAllowedNamespaces = k8sAllowedNamespaces;
+  }
+
+
   public GatewayUpdateProducerNativeK8S k8sClusterCaCert(String k8sClusterCaCert) {
     
     this.k8sClusterCaCert = k8sClusterCaCert;
@@ -263,6 +306,75 @@ public class GatewayUpdateProducerNativeK8S {
   }
 
 
+  public GatewayUpdateProducerNativeK8S k8sPredefinedRoleName(String k8sPredefinedRoleName) {
+    
+    this.k8sPredefinedRoleName = k8sPredefinedRoleName;
+    return this;
+  }
+
+   /**
+   * The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type&#x3D;dynamic)
+   * @return k8sPredefinedRoleName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic)")
+
+  public String getK8sPredefinedRoleName() {
+    return k8sPredefinedRoleName;
+  }
+
+
+  public void setK8sPredefinedRoleName(String k8sPredefinedRoleName) {
+    this.k8sPredefinedRoleName = k8sPredefinedRoleName;
+  }
+
+
+  public GatewayUpdateProducerNativeK8S k8sPredefinedRoleType(String k8sPredefinedRoleType) {
+    
+    this.k8sPredefinedRoleType = k8sPredefinedRoleType;
+    return this;
+  }
+
+   /**
+   * Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type&#x3D;dynamic)
+   * @return k8sPredefinedRoleType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type=dynamic)")
+
+  public String getK8sPredefinedRoleType() {
+    return k8sPredefinedRoleType;
+  }
+
+
+  public void setK8sPredefinedRoleType(String k8sPredefinedRoleType) {
+    this.k8sPredefinedRoleType = k8sPredefinedRoleType;
+  }
+
+
+  public GatewayUpdateProducerNativeK8S k8sRolebindingYamlDef(String k8sRolebindingYamlDef) {
+    
+    this.k8sRolebindingYamlDef = k8sRolebindingYamlDef;
+    return this;
+  }
+
+   /**
+   * Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type&#x3D;dynamic)
+   * @return k8sRolebindingYamlDef
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)")
+
+  public String getK8sRolebindingYamlDef() {
+    return k8sRolebindingYamlDef;
+  }
+
+
+  public void setK8sRolebindingYamlDef(String k8sRolebindingYamlDef) {
+    this.k8sRolebindingYamlDef = k8sRolebindingYamlDef;
+  }
+
+
   public GatewayUpdateProducerNativeK8S k8sServiceAccount(String k8sServiceAccount) {
     
     this.k8sServiceAccount = k8sServiceAccount;
@@ -283,6 +395,29 @@ public class GatewayUpdateProducerNativeK8S {
 
   public void setK8sServiceAccount(String k8sServiceAccount) {
     this.k8sServiceAccount = k8sServiceAccount;
+  }
+
+
+  public GatewayUpdateProducerNativeK8S k8sServiceAccountType(String k8sServiceAccountType) {
+    
+    this.k8sServiceAccountType = k8sServiceAccountType;
+    return this;
+  }
+
+   /**
+   * K8S ServiceAccount type [fixed, dynamic].
+   * @return k8sServiceAccountType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S ServiceAccount type [fixed, dynamic].")
+
+  public String getK8sServiceAccountType() {
+    return k8sServiceAccountType;
+  }
+
+
+  public void setK8sServiceAccountType(String k8sServiceAccountType) {
+    this.k8sServiceAccountType = k8sServiceAccountType;
   }
 
 
@@ -672,11 +807,16 @@ public class GatewayUpdateProducerNativeK8S {
     GatewayUpdateProducerNativeK8S gatewayUpdateProducerNativeK8S = (GatewayUpdateProducerNativeK8S) o;
     return Objects.equals(this.deleteProtection, gatewayUpdateProducerNativeK8S.deleteProtection) &&
         Objects.equals(this.json, gatewayUpdateProducerNativeK8S.json) &&
+        Objects.equals(this.k8sAllowedNamespaces, gatewayUpdateProducerNativeK8S.k8sAllowedNamespaces) &&
         Objects.equals(this.k8sClusterCaCert, gatewayUpdateProducerNativeK8S.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, gatewayUpdateProducerNativeK8S.k8sClusterEndpoint) &&
         Objects.equals(this.k8sClusterToken, gatewayUpdateProducerNativeK8S.k8sClusterToken) &&
         Objects.equals(this.k8sNamespace, gatewayUpdateProducerNativeK8S.k8sNamespace) &&
+        Objects.equals(this.k8sPredefinedRoleName, gatewayUpdateProducerNativeK8S.k8sPredefinedRoleName) &&
+        Objects.equals(this.k8sPredefinedRoleType, gatewayUpdateProducerNativeK8S.k8sPredefinedRoleType) &&
+        Objects.equals(this.k8sRolebindingYamlDef, gatewayUpdateProducerNativeK8S.k8sRolebindingYamlDef) &&
         Objects.equals(this.k8sServiceAccount, gatewayUpdateProducerNativeK8S.k8sServiceAccount) &&
+        Objects.equals(this.k8sServiceAccountType, gatewayUpdateProducerNativeK8S.k8sServiceAccountType) &&
         Objects.equals(this.name, gatewayUpdateProducerNativeK8S.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerNativeK8S.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerNativeK8S.producerEncryptionKeyName) &&
@@ -697,7 +837,7 @@ public class GatewayUpdateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sServiceAccount, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
 
@@ -707,11 +847,16 @@ public class GatewayUpdateProducerNativeK8S {
     sb.append("class GatewayUpdateProducerNativeK8S {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
+    sb.append("    k8sPredefinedRoleName: ").append(toIndentedString(k8sPredefinedRoleName)).append("\n");
+    sb.append("    k8sPredefinedRoleType: ").append(toIndentedString(k8sPredefinedRoleType)).append("\n");
+    sb.append("    k8sRolebindingYamlDef: ").append(toIndentedString(k8sRolebindingYamlDef)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
+    sb.append("    k8sServiceAccountType: ").append(toIndentedString(k8sServiceAccountType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

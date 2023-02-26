@@ -33,6 +33,10 @@ public class DescribeItem {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_GATEWAY_DETAILS = "gateway-details";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_DETAILS)
+  private Boolean gatewayDetails = false;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
@@ -78,6 +82,29 @@ public class DescribeItem {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public DescribeItem gatewayDetails(Boolean gatewayDetails) {
+    
+    this.gatewayDetails = gatewayDetails;
+    return this;
+  }
+
+   /**
+   * Indicate if the item should return with clusters details (url, etc)
+   * @return gatewayDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicate if the item should return with clusters details (url, etc)")
+
+  public Boolean getGatewayDetails() {
+    return gatewayDetails;
+  }
+
+
+  public void setGatewayDetails(Boolean gatewayDetails) {
+    this.gatewayDetails = gatewayDetails;
   }
 
 
@@ -228,6 +255,7 @@ public class DescribeItem {
     }
     DescribeItem describeItem = (DescribeItem) o;
     return Objects.equals(this.displayId, describeItem.displayId) &&
+        Objects.equals(this.gatewayDetails, describeItem.gatewayDetails) &&
         Objects.equals(this.itemId, describeItem.itemId) &&
         Objects.equals(this.json, describeItem.json) &&
         Objects.equals(this.name, describeItem.name) &&
@@ -238,7 +266,7 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, json, name, showVersions, token, uidToken);
+    return Objects.hash(displayId, gatewayDetails, itemId, json, name, showVersions, token, uidToken);
   }
 
 
@@ -247,6 +275,7 @@ public class DescribeItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeItem {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

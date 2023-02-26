@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateIssueInfo;
+import io.akeyless.client.model.GatewayBasicInfo;
 import io.akeyless.client.model.ItemGeneralInfo;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemVersion;
@@ -85,6 +86,10 @@ public class Item {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display_id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
+
+  public static final String SERIALIZED_NAME_GATEWAY_DETAILS = "gateway_details";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_DETAILS)
+  private List<GatewayBasicInfo> gatewayDetails = null;
 
   public static final String SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED = "is_access_request_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED)
@@ -464,6 +469,37 @@ public class Item {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public Item gatewayDetails(List<GatewayBasicInfo> gatewayDetails) {
+    
+    this.gatewayDetails = gatewayDetails;
+    return this;
+  }
+
+  public Item addGatewayDetailsItem(GatewayBasicInfo gatewayDetailsItem) {
+    if (this.gatewayDetails == null) {
+      this.gatewayDetails = new ArrayList<GatewayBasicInfo>();
+    }
+    this.gatewayDetails.add(gatewayDetailsItem);
+    return this;
+  }
+
+   /**
+   * Get gatewayDetails
+   * @return gatewayDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<GatewayBasicInfo> getGatewayDetails() {
+    return gatewayDetails;
+  }
+
+
+  public void setGatewayDetails(List<GatewayBasicInfo> gatewayDetails) {
+    this.gatewayDetails = gatewayDetails;
   }
 
 
@@ -1072,6 +1108,7 @@ public class Item {
         Objects.equals(this.deleteProtection, item.deleteProtection) &&
         Objects.equals(this.deletionDate, item.deletionDate) &&
         Objects.equals(this.displayId, item.displayId) &&
+        Objects.equals(this.gatewayDetails, item.gatewayDetails) &&
         Objects.equals(this.isAccessRequestEnabled, item.isAccessRequestEnabled) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
         Objects.equals(this.itemAccessibility, item.itemAccessibility) &&
@@ -1100,7 +1137,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessRequestStatus, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessRequestStatus, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
 
@@ -1120,6 +1157,7 @@ public class Item {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
     sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");

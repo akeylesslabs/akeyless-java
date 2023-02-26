@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class GatewayMessageQueueInfo {
+  public static final String SERIALIZED_NAME_BROADCAST_QUEUE_NAME = "broadcast_queue_name";
+  @SerializedName(SERIALIZED_NAME_BROADCAST_QUEUE_NAME)
+  private String broadcastQueueName;
+
   public static final String SERIALIZED_NAME_MQ_TYPE = "mq_type";
   @SerializedName(SERIALIZED_NAME_MQ_TYPE)
   private String mqType;
@@ -40,6 +44,29 @@ public class GatewayMessageQueueInfo {
   public static final String SERIALIZED_NAME_QUEUE_URL = "queue_url";
   @SerializedName(SERIALIZED_NAME_QUEUE_URL)
   private String queueUrl;
+
+
+  public GatewayMessageQueueInfo broadcastQueueName(String broadcastQueueName) {
+    
+    this.broadcastQueueName = broadcastQueueName;
+    return this;
+  }
+
+   /**
+   * Get broadcastQueueName
+   * @return broadcastQueueName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getBroadcastQueueName() {
+    return broadcastQueueName;
+  }
+
+
+  public void setBroadcastQueueName(String broadcastQueueName) {
+    this.broadcastQueueName = broadcastQueueName;
+  }
 
 
   public GatewayMessageQueueInfo mqType(String mqType) {
@@ -120,14 +147,15 @@ public class GatewayMessageQueueInfo {
       return false;
     }
     GatewayMessageQueueInfo gatewayMessageQueueInfo = (GatewayMessageQueueInfo) o;
-    return Objects.equals(this.mqType, gatewayMessageQueueInfo.mqType) &&
+    return Objects.equals(this.broadcastQueueName, gatewayMessageQueueInfo.broadcastQueueName) &&
+        Objects.equals(this.mqType, gatewayMessageQueueInfo.mqType) &&
         Objects.equals(this.queueName, gatewayMessageQueueInfo.queueName) &&
         Objects.equals(this.queueUrl, gatewayMessageQueueInfo.queueUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mqType, queueName, queueUrl);
+    return Objects.hash(broadcastQueueName, mqType, queueName, queueUrl);
   }
 
 
@@ -135,6 +163,7 @@ public class GatewayMessageQueueInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayMessageQueueInfo {\n");
+    sb.append("    broadcastQueueName: ").append(toIndentedString(broadcastQueueName)).append("\n");
     sb.append("    mqType: ").append(toIndentedString(mqType)).append("\n");
     sb.append("    queueName: ").append(toIndentedString(queueName)).append("\n");
     sb.append("    queueUrl: ").append(toIndentedString(queueUrl)).append("\n");

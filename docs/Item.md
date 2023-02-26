@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **deleteProtection** | **Boolean** |  |  [optional]
 **deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **displayId** | **String** |  |  [optional]
+**gatewayDetails** | [**List&lt;GatewayBasicInfo&gt;**](GatewayBasicInfo.md) |  |  [optional]
 **isAccessRequestEnabled** | **Boolean** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]
 **itemAccessibility** | **Long** |  |  [optional]

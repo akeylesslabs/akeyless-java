@@ -38,6 +38,14 @@ public class DynamicSecretProducerInfo {
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   private Long gwClusterId;
 
+  public static final String SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES = "k8s_allowed_namespaces";
+  @SerializedName(SERIALIZED_NAME_K8S_ALLOWED_NAMESPACES)
+  private String k8sAllowedNamespaces;
+
+  public static final String SERIALIZED_NAME_K8S_DYNAMIC_MODE = "k8s_dynamic_mode";
+  @SerializedName(SERIALIZED_NAME_K8S_DYNAMIC_MODE)
+  private Boolean k8sDynamicMode;
+
   public static final String SERIALIZED_NAME_PRODUCER_LAST_KEEP_ALIVE = "producer_last_keep_alive";
   @SerializedName(SERIALIZED_NAME_PRODUCER_LAST_KEEP_ALIVE)
   private String producerLastKeepAlive;
@@ -98,6 +106,52 @@ public class DynamicSecretProducerInfo {
 
   public void setGwClusterId(Long gwClusterId) {
     this.gwClusterId = gwClusterId;
+  }
+
+
+  public DynamicSecretProducerInfo k8sAllowedNamespaces(String k8sAllowedNamespaces) {
+    
+    this.k8sAllowedNamespaces = k8sAllowedNamespaces;
+    return this;
+  }
+
+   /**
+   * Relevant only for generic k8s producer
+   * @return k8sAllowedNamespaces
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Relevant only for generic k8s producer")
+
+  public String getK8sAllowedNamespaces() {
+    return k8sAllowedNamespaces;
+  }
+
+
+  public void setK8sAllowedNamespaces(String k8sAllowedNamespaces) {
+    this.k8sAllowedNamespaces = k8sAllowedNamespaces;
+  }
+
+
+  public DynamicSecretProducerInfo k8sDynamicMode(Boolean k8sDynamicMode) {
+    
+    this.k8sDynamicMode = k8sDynamicMode;
+    return this;
+  }
+
+   /**
+   * Relevant only for generic k8s producer
+   * @return k8sDynamicMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Relevant only for generic k8s producer")
+
+  public Boolean getK8sDynamicMode() {
+    return k8sDynamicMode;
+  }
+
+
+  public void setK8sDynamicMode(Boolean k8sDynamicMode) {
+    this.k8sDynamicMode = k8sDynamicMode;
   }
 
 
@@ -204,6 +258,8 @@ public class DynamicSecretProducerInfo {
     DynamicSecretProducerInfo dynamicSecretProducerInfo = (DynamicSecretProducerInfo) o;
     return Objects.equals(this.failureMessage, dynamicSecretProducerInfo.failureMessage) &&
         Objects.equals(this.gwClusterId, dynamicSecretProducerInfo.gwClusterId) &&
+        Objects.equals(this.k8sAllowedNamespaces, dynamicSecretProducerInfo.k8sAllowedNamespaces) &&
+        Objects.equals(this.k8sDynamicMode, dynamicSecretProducerInfo.k8sDynamicMode) &&
         Objects.equals(this.producerLastKeepAlive, dynamicSecretProducerInfo.producerLastKeepAlive) &&
         Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
         Objects.equals(this.producerStatus, dynamicSecretProducerInfo.producerStatus) &&
@@ -212,7 +268,7 @@ public class DynamicSecretProducerInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(failureMessage, gwClusterId, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
+    return Objects.hash(failureMessage, gwClusterId, k8sAllowedNamespaces, k8sDynamicMode, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
   }
 
 
@@ -222,6 +278,8 @@ public class DynamicSecretProducerInfo {
     sb.append("class DynamicSecretProducerInfo {\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
+    sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
+    sb.append("    k8sDynamicMode: ").append(toIndentedString(k8sDynamicMode)).append("\n");
     sb.append("    producerLastKeepAlive: ").append(toIndentedString(producerLastKeepAlive)).append("\n");
     sb.append("    producerMetadata: ").append(toIndentedString(producerMetadata)).append("\n");
     sb.append("    producerStatus: ").append(toIndentedString(producerStatus)).append("\n");

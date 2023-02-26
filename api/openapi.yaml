@@ -9282,7 +9282,7 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 6
+          password_length: 7
         sharing_policy:
           default_share_link_ttl: 0
         data_protection_section:
@@ -9497,6 +9497,7 @@ components:
             use_local_ca_jwt: true
         message_queue_info:
           queue_name: queue_name
+          broadcast_queue_name: broadcast_queue_name
           queue_url: queue_url
           mq_type: mq_type
         cache:
@@ -10063,8 +10064,8 @@ components:
         RFC 5280, Section 4.1.2.4.
       example:
         Type:
-        - 9
-        - 9
+        - 3
+        - 3
         Value: '{}'
       properties:
         Type:
@@ -11195,8 +11196,8 @@ components:
     CertificateChainInfo:
       example:
         expiration_events:
-        - seconds_before: 4
-        - seconds_before: 4
+        - seconds_before: 7
+        - seconds_before: 7
         certificate_pem: certificate_pem
         certificate_chain:
         - email_addresses:
@@ -11210,12 +11211,12 @@ components:
           subject:
             Names:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             StreetAddress:
             - StreetAddress
@@ -11223,12 +11224,12 @@ components:
             SerialNumber: SerialNumber
             ExtraNames:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             Locality:
             - Locality
@@ -11239,19 +11240,19 @@ components:
           issuing_certificate_url:
           - issuing_certificate_url
           - issuing_certificate_url
-          KeyUsage: 7
+          KeyUsage: 9
           serial_number: serial_number
-          version: 2
+          version: 4
           is_ca: true
           issuer:
             Names:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             StreetAddress:
             - StreetAddress
@@ -11259,12 +11260,12 @@ components:
             SerialNumber: SerialNumber
             ExtraNames:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             Locality:
             - Locality
@@ -11297,7 +11298,7 @@ components:
           ExtKeyUsage:
           - null
           - null
-          key_size: 3
+          key_size: 2
         - email_addresses:
           - email_addresses
           - email_addresses
@@ -11309,12 +11310,12 @@ components:
           subject:
             Names:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             StreetAddress:
             - StreetAddress
@@ -11322,12 +11323,12 @@ components:
             SerialNumber: SerialNumber
             ExtraNames:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             Locality:
             - Locality
@@ -11338,19 +11339,19 @@ components:
           issuing_certificate_url:
           - issuing_certificate_url
           - issuing_certificate_url
-          KeyUsage: 7
+          KeyUsage: 9
           serial_number: serial_number
-          version: 2
+          version: 4
           is_ca: true
           issuer:
             Names:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             StreetAddress:
             - StreetAddress
@@ -11358,12 +11359,12 @@ components:
             SerialNumber: SerialNumber
             ExtraNames:
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             - Type:
-              - 9
-              - 9
+              - 3
+              - 3
               Value: '{}'
             Locality:
             - Locality
@@ -11396,7 +11397,7 @@ components:
           ExtKeyUsage:
           - null
           - null
-          key_size: 3
+          key_size: 2
       properties:
         certificate_chain:
           items:
@@ -11415,7 +11416,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     CertificateExpirationEvent:
       example:
-        seconds_before: 4
+        seconds_before: 7
       properties:
         seconds_before:
           format: int64
@@ -11436,12 +11437,12 @@ components:
         subject:
           Names:
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           StreetAddress:
           - StreetAddress
@@ -11449,12 +11450,12 @@ components:
           SerialNumber: SerialNumber
           ExtraNames:
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           Locality:
           - Locality
@@ -11465,19 +11466,19 @@ components:
         issuing_certificate_url:
         - issuing_certificate_url
         - issuing_certificate_url
-        KeyUsage: 7
+        KeyUsage: 9
         serial_number: serial_number
-        version: 2
+        version: 4
         is_ca: true
         issuer:
           Names:
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           StreetAddress:
           - StreetAddress
@@ -11485,12 +11486,12 @@ components:
           SerialNumber: SerialNumber
           ExtraNames:
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           - Type:
-            - 9
-            - 9
+            - 3
+            - 3
             Value: '{}'
           Locality:
           - Locality
@@ -11523,7 +11524,7 @@ components:
         ExtKeyUsage:
         - null
         - null
-        key_size: 3
+        key_size: 2
       properties:
         ExtKeyUsage:
           items:
@@ -11705,7 +11706,7 @@ components:
       example:
         classic_key_id: classic_key_id
         target_alias_helper: target_alias_helper
-        gw_cluster_id: 7
+        gw_cluster_id: 1
         is_provided_by_user: true
         key_type: key_type
         classic_key_attributes:
@@ -12506,13 +12507,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 3
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 3
         chef_server_username: chef_server_username
         tags:
         - tags
@@ -13534,6 +13535,8 @@ components:
         DynamicSecretProducerInfo The dynamic secret producer info
         This parameter relevant and required only in case of create update dynamic secret.
       example:
+        k8s_allowed_namespaces: k8s_allowed_namespaces
+        k8s_dynamic_mode: true
         gw_cluster_id: 1
         producer_last_keep_alive: producer_last_keep_alive
         producer_type: producer_type
@@ -13548,6 +13551,14 @@ components:
           format: int64
           type: integer
           x-go-name: GWClusterID
+        k8s_allowed_namespaces:
+          description: Relevant only for generic k8s producer
+          type: string
+          x-go-name: AllowedNamespaces
+        k8s_dynamic_mode:
+          description: Relevant only for generic k8s producer
+          type: boolean
+          x-go-name: DynamicMode
         producer_last_keep_alive:
           type: string
           x-go-name: ProducerLastKeepAlive
@@ -13650,8 +13661,8 @@ components:
         emails
       example:
         fixed_domain_suffix: fixed_domain_suffix
-        keep_prefix_length: 6
-        domain_suffix_length: 9
+        keep_prefix_length: 8
+        domain_suffix_length: 6
       properties:
         domain_suffix_length:
           description: |-
@@ -13884,12 +13895,38 @@ components:
     GWClusterStatus:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GatewayBasicInfo:
+      example:
+        cluster_url: cluster_url
+        cluster_name: cluster_name
+        cluster_id: 2
+        cluster_display_name: cluster_display_name
+      properties:
+        cluster_display_name:
+          type: string
+          x-go-name: ClusterDisplayName
+        cluster_id:
+          format: int64
+          type: integer
+          x-go-name: ClusterId
+        cluster_name:
+          type: string
+          x-go-name: ClusterName
+        cluster_url:
+          type: string
+          x-go-name: ClusterUrl
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GatewayMessageQueueInfo:
       example:
         queue_name: queue_name
+        broadcast_queue_name: broadcast_queue_name
         queue_url: queue_url
         mq_type: mq_type
       properties:
+        broadcast_queue_name:
+          type: string
+          x-go-name: BroadcastQueueName
         mq_type:
           type: string
           x-go-name: MQType
@@ -14203,7 +14240,7 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 6
+            password_length: 7
           sharing_policy:
             default_share_link_ttl: 0
           data_protection_section:
@@ -14596,7 +14633,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -14605,7 +14642,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -14805,7 +14842,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ImporterInfo:
       example:
-        version: 1
+        version: 6
         external_item_id: external_item_id
       properties:
         external_item_id:
@@ -14819,7 +14856,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     Item:
       example:
-        item_accessibility: 2
+        item_accessibility: 7
         auto_rotate: true
         item_state: item_state
         display_id: display_id
@@ -14833,7 +14870,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 3
+          version: 6
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -14842,15 +14879,15 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 3
+          version: 6
           customer_fragment_id: customer_fragment_id
         shared_by:
           unique_id: unique_id
           access_id: access_id
-        item_size: 9
+        item_size: 6
         protection_key_type: protection_key_type
         is_enabled: true
-        rotation_interval: 1
+        rotation_interval: 2
         target_versions:
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -14861,7 +14898,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 2
+          version: 6
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -14872,13 +14909,13 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 2
+          version: 6
           customer_fragment_id: customer_fragment_id
         item_metadata: item_metadata
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         cert_issuer_signer_key_name: cert_issuer_signer_key_name
-        item_id: 8
+        item_id: 9
         item_tags:
         - item_tags
         - item_tags
@@ -14953,22 +14990,31 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 3
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 3
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
+        gateway_details:
+        - cluster_url: cluster_url
+          cluster_name: cluster_name
+          cluster_id: 2
+          cluster_display_name: cluster_display_name
+        - cluster_url: cluster_url
+          cluster_name: cluster_name
+          cluster_id: 2
+          cluster_display_name: cluster_display_name
         customer_fragment_id: customer_fragment_id
         is_access_request_enabled: true
         item_general_info:
           classic_key_details:
             classic_key_id: classic_key_id
             target_alias_helper: target_alias_helper
-            gw_cluster_id: 7
+            gw_cluster_id: 1
             is_provided_by_user: true
             key_type: key_type
             classic_key_attributes:
@@ -15013,7 +15059,7 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 6
+            password_length: 7
           static_secret_info:
             website: website
             websites:
@@ -15022,23 +15068,23 @@ components:
             username: username
           rotated_secret_details:
             rotator_creds_type: rotator_creds_type
-            gw_cluster_id: 1
-            rotation_hour: 5
+            gw_cluster_id: 4
+            rotation_hour: 9
             rotation_statement: rotation_statement
             rotator_status: rotator_status
             rotation_interval_min: true
             rotator_type: rotator_type
-            delete_previous_version_in_days: 7
+            delete_previous_version_in_days: 1
             last_rotation_error: last_rotation_error
-            number_of_versions_to_save: 4
+            number_of_versions_to_save: 5
           tokenizer_info:
             vaultless_tokenizer_info:
               key_name: key_name
               tweak: tweak
               email_tokenizer_info:
                 fixed_domain_suffix: fixed_domain_suffix
-                keep_prefix_length: 6
-                domain_suffix_length: 9
+                keep_prefix_length: 8
+                domain_suffix_length: 6
               template_type: template_type
               tweak_type: tweak_type
               regexp_tokenizer_info:
@@ -15079,10 +15125,12 @@ components:
             ssh_password: true
             bastion_issuer_id: 9
           importer_info:
-            version: 1
+            version: 6
             external_item_id: external_item_id
           display_metadata: display_metadata
           dynamic_secret_producer_details:
+            k8s_allowed_namespaces: k8s_allowed_namespaces
+            k8s_dynamic_mode: true
             gw_cluster_id: 1
             producer_last_keep_alive: producer_last_keep_alive
             producer_type: producer_type
@@ -15091,8 +15139,8 @@ components:
             producer_metadata: producer_metadata
           certificate_chain_info:
             expiration_events:
-            - seconds_before: 4
-            - seconds_before: 4
+            - seconds_before: 7
+            - seconds_before: 7
             certificate_pem: certificate_pem
             certificate_chain:
             - email_addresses:
@@ -15106,12 +15154,12 @@ components:
               subject:
                 Names:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 StreetAddress:
                 - StreetAddress
@@ -15119,12 +15167,12 @@ components:
                 SerialNumber: SerialNumber
                 ExtraNames:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 Locality:
                 - Locality
@@ -15135,19 +15183,19 @@ components:
               issuing_certificate_url:
               - issuing_certificate_url
               - issuing_certificate_url
-              KeyUsage: 7
+              KeyUsage: 9
               serial_number: serial_number
-              version: 2
+              version: 4
               is_ca: true
               issuer:
                 Names:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 StreetAddress:
                 - StreetAddress
@@ -15155,12 +15203,12 @@ components:
                 SerialNumber: SerialNumber
                 ExtraNames:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 Locality:
                 - Locality
@@ -15193,7 +15241,7 @@ components:
               ExtKeyUsage:
               - null
               - null
-              key_size: 3
+              key_size: 2
             - email_addresses:
               - email_addresses
               - email_addresses
@@ -15205,12 +15253,12 @@ components:
               subject:
                 Names:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 StreetAddress:
                 - StreetAddress
@@ -15218,12 +15266,12 @@ components:
                 SerialNumber: SerialNumber
                 ExtraNames:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 Locality:
                 - Locality
@@ -15234,19 +15282,19 @@ components:
               issuing_certificate_url:
               - issuing_certificate_url
               - issuing_certificate_url
-              KeyUsage: 7
+              KeyUsage: 9
               serial_number: serial_number
-              version: 2
+              version: 4
               is_ca: true
               issuer:
                 Names:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 StreetAddress:
                 - StreetAddress
@@ -15254,12 +15302,12 @@ components:
                 SerialNumber: SerialNumber
                 ExtraNames:
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 - Type:
-                  - 9
-                  - 9
+                  - 3
+                  - 3
                   Value: '{}'
                 Locality:
                 - Locality
@@ -15292,7 +15340,7 @@ components:
               ExtKeyUsage:
               - null
               - null
-              key_size: 3
+              key_size: 2
           cert_issue_details:
             max_ttl: 0
             pki_cert_issuer_details:
@@ -15357,7 +15405,7 @@ components:
               allowed_user_key_lengths:
                 key: 5
             cert_issuer_type: cert_issuer_type
-        last_version: 6
+        last_version: 1
         next_rotation_date: 2000-01-23T04:56:07.000+00:00
         delete_protection: true
         client_permissions:
@@ -15409,6 +15457,11 @@ components:
         display_id:
           type: string
           x-go-name: DisplayId
+        gateway_details:
+          items:
+            $ref: '#/components/schemas/GatewayBasicInfo'
+          type: array
+          x-go-name: GatewayDetails
         is_access_request_enabled:
           type: boolean
           x-go-name: IsAccessRequestEnabled
@@ -15512,7 +15565,7 @@ components:
         classic_key_details:
           classic_key_id: classic_key_id
           target_alias_helper: target_alias_helper
-          gw_cluster_id: 7
+          gw_cluster_id: 1
           is_provided_by_user: true
           key_type: key_type
           classic_key_attributes:
@@ -15557,7 +15610,7 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 6
+          password_length: 7
         static_secret_info:
           website: website
           websites:
@@ -15566,23 +15619,23 @@ components:
           username: username
         rotated_secret_details:
           rotator_creds_type: rotator_creds_type
-          gw_cluster_id: 1
-          rotation_hour: 5
+          gw_cluster_id: 4
+          rotation_hour: 9
           rotation_statement: rotation_statement
           rotator_status: rotator_status
           rotation_interval_min: true
           rotator_type: rotator_type
-          delete_previous_version_in_days: 7
+          delete_previous_version_in_days: 1
           last_rotation_error: last_rotation_error
-          number_of_versions_to_save: 4
+          number_of_versions_to_save: 5
         tokenizer_info:
           vaultless_tokenizer_info:
             key_name: key_name
             tweak: tweak
             email_tokenizer_info:
               fixed_domain_suffix: fixed_domain_suffix
-              keep_prefix_length: 6
-              domain_suffix_length: 9
+              keep_prefix_length: 8
+              domain_suffix_length: 6
             template_type: template_type
             tweak_type: tweak_type
             regexp_tokenizer_info:
@@ -15623,10 +15676,12 @@ components:
           ssh_password: true
           bastion_issuer_id: 9
         importer_info:
-          version: 1
+          version: 6
           external_item_id: external_item_id
         display_metadata: display_metadata
         dynamic_secret_producer_details:
+          k8s_allowed_namespaces: k8s_allowed_namespaces
+          k8s_dynamic_mode: true
           gw_cluster_id: 1
           producer_last_keep_alive: producer_last_keep_alive
           producer_type: producer_type
@@ -15635,8 +15690,8 @@ components:
           producer_metadata: producer_metadata
         certificate_chain_info:
           expiration_events:
-          - seconds_before: 4
-          - seconds_before: 4
+          - seconds_before: 7
+          - seconds_before: 7
           certificate_pem: certificate_pem
           certificate_chain:
           - email_addresses:
@@ -15650,12 +15705,12 @@ components:
             subject:
               Names:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               StreetAddress:
               - StreetAddress
@@ -15663,12 +15718,12 @@ components:
               SerialNumber: SerialNumber
               ExtraNames:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               Locality:
               - Locality
@@ -15679,19 +15734,19 @@ components:
             issuing_certificate_url:
             - issuing_certificate_url
             - issuing_certificate_url
-            KeyUsage: 7
+            KeyUsage: 9
             serial_number: serial_number
-            version: 2
+            version: 4
             is_ca: true
             issuer:
               Names:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               StreetAddress:
               - StreetAddress
@@ -15699,12 +15754,12 @@ components:
               SerialNumber: SerialNumber
               ExtraNames:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               Locality:
               - Locality
@@ -15737,7 +15792,7 @@ components:
             ExtKeyUsage:
             - null
             - null
-            key_size: 3
+            key_size: 2
           - email_addresses:
             - email_addresses
             - email_addresses
@@ -15749,12 +15804,12 @@ components:
             subject:
               Names:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               StreetAddress:
               - StreetAddress
@@ -15762,12 +15817,12 @@ components:
               SerialNumber: SerialNumber
               ExtraNames:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               Locality:
               - Locality
@@ -15778,19 +15833,19 @@ components:
             issuing_certificate_url:
             - issuing_certificate_url
             - issuing_certificate_url
-            KeyUsage: 7
+            KeyUsage: 9
             serial_number: serial_number
-            version: 2
+            version: 4
             is_ca: true
             issuer:
               Names:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               StreetAddress:
               - StreetAddress
@@ -15798,12 +15853,12 @@ components:
               SerialNumber: SerialNumber
               ExtraNames:
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               - Type:
-                - 9
-                - 9
+                - 3
+                - 3
                 Value: '{}'
               Locality:
               - Locality
@@ -15836,7 +15891,7 @@ components:
             ExtKeyUsage:
             - null
             - null
-            key_size: 3
+            key_size: 2
         cert_issue_details:
           max_ttl: 0
           pki_cert_issuer_details:
@@ -15949,7 +16004,7 @@ components:
         target_type: target_type
         attributes:
           key: attributes
-        target_id: 6
+        target_id: 3
       properties:
         assoc_id:
           type: string
@@ -15984,7 +16039,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 3
+        version: 6
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -17525,7 +17580,7 @@ components:
         - folders
         - folders
         items:
-        - item_accessibility: 2
+        - item_accessibility: 7
           auto_rotate: true
           item_state: item_state
           display_id: display_id
@@ -17539,7 +17594,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17548,15 +17603,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 9
+          item_size: 6
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 1
+          rotation_interval: 2
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17567,7 +17622,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 2
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17578,13 +17633,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 2
+            version: 6
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 8
+          item_id: 9
           item_tags:
           - item_tags
           - item_tags
@@ -17659,22 +17714,31 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          gateway_details:
+          - cluster_url: cluster_url
+            cluster_name: cluster_name
+            cluster_id: 2
+            cluster_display_name: cluster_display_name
+          - cluster_url: cluster_url
+            cluster_name: cluster_name
+            cluster_id: 2
+            cluster_display_name: cluster_display_name
           customer_fragment_id: customer_fragment_id
           is_access_request_enabled: true
           item_general_info:
             classic_key_details:
               classic_key_id: classic_key_id
               target_alias_helper: target_alias_helper
-              gw_cluster_id: 7
+              gw_cluster_id: 1
               is_provided_by_user: true
               key_type: key_type
               classic_key_attributes:
@@ -17719,7 +17783,7 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 6
+              password_length: 7
             static_secret_info:
               website: website
               websites:
@@ -17728,23 +17792,23 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 1
-              rotation_hour: 5
+              gw_cluster_id: 4
+              rotation_hour: 9
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 7
+              delete_previous_version_in_days: 1
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 4
+              number_of_versions_to_save: 5
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 6
-                  domain_suffix_length: 9
+                  keep_prefix_length: 8
+                  domain_suffix_length: 6
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -17785,10 +17849,12 @@ components:
               ssh_password: true
               bastion_issuer_id: 9
             importer_info:
-              version: 1
+              version: 6
               external_item_id: external_item_id
             display_metadata: display_metadata
             dynamic_secret_producer_details:
+              k8s_allowed_namespaces: k8s_allowed_namespaces
+              k8s_dynamic_mode: true
               gw_cluster_id: 1
               producer_last_keep_alive: producer_last_keep_alive
               producer_type: producer_type
@@ -17797,8 +17863,8 @@ components:
               producer_metadata: producer_metadata
             certificate_chain_info:
               expiration_events:
-              - seconds_before: 4
-              - seconds_before: 4
+              - seconds_before: 7
+              - seconds_before: 7
               certificate_pem: certificate_pem
               certificate_chain:
               - email_addresses:
@@ -17812,12 +17878,12 @@ components:
                 subject:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -17825,12 +17891,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -17841,19 +17907,19 @@ components:
                 issuing_certificate_url:
                 - issuing_certificate_url
                 - issuing_certificate_url
-                KeyUsage: 7
+                KeyUsage: 9
                 serial_number: serial_number
-                version: 2
+                version: 4
                 is_ca: true
                 issuer:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -17861,12 +17927,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -17899,7 +17965,7 @@ components:
                 ExtKeyUsage:
                 - null
                 - null
-                key_size: 3
+                key_size: 2
               - email_addresses:
                 - email_addresses
                 - email_addresses
@@ -17911,12 +17977,12 @@ components:
                 subject:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -17924,12 +17990,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -17940,19 +18006,19 @@ components:
                 issuing_certificate_url:
                 - issuing_certificate_url
                 - issuing_certificate_url
-                KeyUsage: 7
+                KeyUsage: 9
                 serial_number: serial_number
-                version: 2
+                version: 4
                 is_ca: true
                 issuer:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -17960,12 +18026,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -17998,7 +18064,7 @@ components:
                 ExtKeyUsage:
                 - null
                 - null
-                key_size: 3
+                key_size: 2
             cert_issue_details:
               max_ttl: 0
               pki_cert_issuer_details:
@@ -18063,7 +18129,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 6
+          last_version: 1
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           client_permissions:
@@ -18074,7 +18140,7 @@ components:
           deletion_date: 2000-01-23T04:56:07.000+00:00
           access_request_status: access_request_status
           public_value: public_value
-        - item_accessibility: 2
+        - item_accessibility: 7
           auto_rotate: true
           item_state: item_state
           display_id: display_id
@@ -18088,7 +18154,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18097,15 +18163,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 9
+          item_size: 6
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 1
+          rotation_interval: 2
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18116,7 +18182,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 2
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18127,13 +18193,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 2
+            version: 6
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 8
+          item_id: 9
           item_tags:
           - item_tags
           - item_tags
@@ -18208,22 +18274,31 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          gateway_details:
+          - cluster_url: cluster_url
+            cluster_name: cluster_name
+            cluster_id: 2
+            cluster_display_name: cluster_display_name
+          - cluster_url: cluster_url
+            cluster_name: cluster_name
+            cluster_id: 2
+            cluster_display_name: cluster_display_name
           customer_fragment_id: customer_fragment_id
           is_access_request_enabled: true
           item_general_info:
             classic_key_details:
               classic_key_id: classic_key_id
               target_alias_helper: target_alias_helper
-              gw_cluster_id: 7
+              gw_cluster_id: 1
               is_provided_by_user: true
               key_type: key_type
               classic_key_attributes:
@@ -18268,7 +18343,7 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 6
+              password_length: 7
             static_secret_info:
               website: website
               websites:
@@ -18277,23 +18352,23 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 1
-              rotation_hour: 5
+              gw_cluster_id: 4
+              rotation_hour: 9
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 7
+              delete_previous_version_in_days: 1
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 4
+              number_of_versions_to_save: 5
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 6
-                  domain_suffix_length: 9
+                  keep_prefix_length: 8
+                  domain_suffix_length: 6
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -18334,10 +18409,12 @@ components:
               ssh_password: true
               bastion_issuer_id: 9
             importer_info:
-              version: 1
+              version: 6
               external_item_id: external_item_id
             display_metadata: display_metadata
             dynamic_secret_producer_details:
+              k8s_allowed_namespaces: k8s_allowed_namespaces
+              k8s_dynamic_mode: true
               gw_cluster_id: 1
               producer_last_keep_alive: producer_last_keep_alive
               producer_type: producer_type
@@ -18346,8 +18423,8 @@ components:
               producer_metadata: producer_metadata
             certificate_chain_info:
               expiration_events:
-              - seconds_before: 4
-              - seconds_before: 4
+              - seconds_before: 7
+              - seconds_before: 7
               certificate_pem: certificate_pem
               certificate_chain:
               - email_addresses:
@@ -18361,12 +18438,12 @@ components:
                 subject:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -18374,12 +18451,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -18390,19 +18467,19 @@ components:
                 issuing_certificate_url:
                 - issuing_certificate_url
                 - issuing_certificate_url
-                KeyUsage: 7
+                KeyUsage: 9
                 serial_number: serial_number
-                version: 2
+                version: 4
                 is_ca: true
                 issuer:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -18410,12 +18487,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -18448,7 +18525,7 @@ components:
                 ExtKeyUsage:
                 - null
                 - null
-                key_size: 3
+                key_size: 2
               - email_addresses:
                 - email_addresses
                 - email_addresses
@@ -18460,12 +18537,12 @@ components:
                 subject:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -18473,12 +18550,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -18489,19 +18566,19 @@ components:
                 issuing_certificate_url:
                 - issuing_certificate_url
                 - issuing_certificate_url
-                KeyUsage: 7
+                KeyUsage: 9
                 serial_number: serial_number
-                version: 2
+                version: 4
                 is_ca: true
                 issuer:
                   Names:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   StreetAddress:
                   - StreetAddress
@@ -18509,12 +18586,12 @@ components:
                   SerialNumber: SerialNumber
                   ExtraNames:
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   - Type:
-                    - 9
-                    - 9
+                    - 3
+                    - 3
                     Value: '{}'
                   Locality:
                   - Locality
@@ -18547,7 +18624,7 @@ components:
                 ExtKeyUsage:
                 - null
                 - null
-                key_size: 3
+                key_size: 2
             cert_issue_details:
               max_ttl: 0
               pki_cert_issuer_details:
@@ -18612,7 +18689,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 6
+          last_version: 1
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           client_permissions:
@@ -18812,7 +18889,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18821,7 +18898,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -18865,7 +18942,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18874,7 +18951,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -19521,12 +19598,12 @@ components:
       example:
         Names:
         - Type:
-          - 9
-          - 9
+          - 3
+          - 3
           Value: '{}'
         - Type:
-          - 9
-          - 9
+          - 3
+          - 3
           Value: '{}'
         StreetAddress:
         - StreetAddress
@@ -19534,12 +19611,12 @@ components:
         SerialNumber: SerialNumber
         ExtraNames:
         - Type:
-          - 9
-          - 9
+          - 3
+          - 3
           Value: '{}'
         - Type:
-          - 9
-          - 9
+          - 3
+          - 3
           Value: '{}'
         Locality:
         - Locality
@@ -19605,7 +19682,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 3
+          version: 6
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -19614,7 +19691,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 3
+          version: 6
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
         is_enabled: true
@@ -20129,7 +20206,7 @@ components:
         use_capital_letters: true
         use_special_characters: true
         use_lower_letters: true
-        password_length: 6
+        password_length: 7
       properties:
         password_length:
           format: int64
@@ -20670,15 +20747,15 @@ components:
       description: RotatedSecretDetailsInfo The rotated secret rotator info
       example:
         rotator_creds_type: rotator_creds_type
-        gw_cluster_id: 1
-        rotation_hour: 5
+        gw_cluster_id: 4
+        rotation_hour: 9
         rotation_statement: rotation_statement
         rotator_status: rotator_status
         rotation_interval_min: true
         rotator_type: rotator_type
-        delete_previous_version_in_days: 7
+        delete_previous_version_in_days: 1
         last_rotation_error: last_rotation_error
-        number_of_versions_to_save: 4
+        number_of_versions_to_save: 5
       properties:
         delete_previous_version_in_days:
           format: int32
@@ -21317,7 +21394,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 3
+          version: 6
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -21326,7 +21403,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 3
+          version: 6
           customer_fragment_id: customer_fragment_id
         modification_date: 2000-01-23T04:56:07.000+00:00
         attributes:
@@ -21458,7 +21535,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 2
+        version: 6
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -22025,8 +22102,8 @@ components:
           tweak: tweak
           email_tokenizer_info:
             fixed_domain_suffix: fixed_domain_suffix
-            keep_prefix_length: 6
-            domain_suffix_length: 9
+            keep_prefix_length: 8
+            domain_suffix_length: 6
           template_type: template_type
           tweak_type: tweak_type
           regexp_tokenizer_info:
@@ -22344,8 +22421,8 @@ components:
         tweak: tweak
         email_tokenizer_info:
           fixed_domain_suffix: fixed_domain_suffix
-          keep_prefix_length: 6
-          domain_suffix_length: 9
+          keep_prefix_length: 8
+          domain_suffix_length: 6
         template_type: template_type
         tweak_type: tweak_type
         regexp_tokenizer_info:
@@ -27044,6 +27121,12 @@ components:
           description: The display id of the item
           type: string
           x-go-name: DisplayId
+        gateway-details:
+          default: false
+          description: Indicate if the item should return with clusters details (url,
+            etc)
+          type: boolean
+          x-go-name: WithGatewayDetails
         item-id:
           description: Item id of the item
           format: int64
@@ -27954,13 +28037,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -28358,13 +28441,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -28748,13 +28831,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -29093,13 +29176,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -29488,13 +29571,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -29923,13 +30006,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -30262,13 +30345,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -30635,13 +30718,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -30988,13 +31071,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31331,13 +31414,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31695,13 +31778,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32071,13 +32154,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32427,13 +32510,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32803,13 +32886,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33196,13 +33279,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33585,13 +33668,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33833,6 +33916,11 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        k8s-allowed-namespaces:
+          description: Comma-separated list of allowed K8S namespaces for the generated
+            ServiceAccount (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: AllowedNamespaces
         k8s-cluster-ca-cert:
           description: K8S cluster CA certificate
           type: string
@@ -33849,10 +33937,29 @@ components:
           description: K8S Namespace where the ServiceAccount exists.
           type: string
           x-go-name: Namespace
+        k8s-predefined-role-name:
+          description: The pre-existing Role or ClusterRole name to bind the generated
+            ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: PredefinedRoleName
+        k8s-predefined-role-type:
+          description: Specifies the type of the pre-existing K8S role [Role, ClusterRole]
+            (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: PredefinedRoleType
+        k8s-rolebinding-yaml-def:
+          description: Path to yaml file that contains definitions of K8S role and
+            role binding (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: RoleBindingYamlDef
         k8s-service-account:
           description: K8S ServiceAccount to extract token from.
           type: string
           x-go-name: ServiceAccount
+        k8s-service-account-type:
+          description: K8S ServiceAccount type [fixed, dynamic].
+          type: string
+          x-go-name: ServiceAccountType
         name:
           description: Producer name
           type: string
@@ -33963,13 +34070,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34341,13 +34448,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34763,13 +34870,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35145,13 +35252,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35524,13 +35631,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35906,13 +36013,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36271,13 +36378,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36623,13 +36730,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38864,13 +38971,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39272,13 +39379,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39666,13 +39773,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40015,13 +40122,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40414,13 +40521,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40857,13 +40964,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41200,13 +41307,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41577,13 +41684,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41934,13 +42041,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -42281,13 +42388,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -42649,13 +42756,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43029,13 +43136,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43389,13 +43496,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43769,13 +43876,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44166,13 +44273,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44559,13 +44666,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44807,6 +44914,11 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        k8s-allowed-namespaces:
+          description: Comma-separated list of allowed K8S namespaces for the generated
+            ServiceAccount (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: AllowedNamespaces
         k8s-cluster-ca-cert:
           description: K8S cluster CA certificate
           type: string
@@ -44823,10 +44935,29 @@ components:
           description: K8S Namespace where the ServiceAccount exists.
           type: string
           x-go-name: Namespace
+        k8s-predefined-role-name:
+          description: The pre-existing Role or ClusterRole name to bind the generated
+            ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: PredefinedRoleName
+        k8s-predefined-role-type:
+          description: Specifies the type of the pre-existing K8S role [Role, ClusterRole]
+            (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: PredefinedRoleType
+        k8s-rolebinding-yaml-def:
+          description: Path to yaml file that contains definitions of K8S role and
+            role binding (relevant only for k8s-service-account-type=dynamic)
+          type: string
+          x-go-name: RoleBindingYamlDef
         k8s-service-account:
           description: K8S ServiceAccount to extract token from.
           type: string
           x-go-name: ServiceAccount
+        k8s-service-account-type:
+          description: K8S ServiceAccount type [fixed, dynamic].
+          type: string
+          x-go-name: ServiceAccountType
         name:
           description: Producer name
           type: string
@@ -44941,13 +45072,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45323,13 +45454,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45749,13 +45880,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46135,13 +46266,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46518,13 +46649,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46904,13 +47035,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47273,13 +47404,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47629,13 +47760,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 3
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48088,7 +48219,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -48097,7 +48228,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 3
+            version: 6
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
           is_enabled: true
