@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **signUsingAkeylessPki** | **Boolean** | Use Akeyless PKI issuer or Venafi issuer |  [optional]
 **signerKeyName** | **String** | Signer key name |  [optional]
 **storePrivateKey** | **Boolean** | Store private key |  [optional]
-**tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
+**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

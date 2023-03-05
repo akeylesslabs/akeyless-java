@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class UpdateWindowsTarget {
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -65,9 +61,9 @@ public class UpdateWindowsTarget {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
-  public static final String SERIALIZED_NAME_RDP_PORT = "rdp-port";
-  @SerializedName(SERIALIZED_NAME_RDP_PORT)
-  private String rdpPort = "3389";
+  public static final String SERIALIZED_NAME_PORT = "port";
+  @SerializedName(SERIALIZED_NAME_PORT)
+  private String port = "5986";
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -84,29 +80,6 @@ public class UpdateWindowsTarget {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public UpdateWindowsTarget comment(String comment) {
-    
-    this.comment = comment;
-    return this;
-  }
-
-   /**
-   * Deprecated - use description
-   * @return comment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated - use description")
-
-  public String getComment() {
-    return comment;
-  }
-
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
 
 
   public UpdateWindowsTarget description(String description) {
@@ -292,26 +265,26 @@ public class UpdateWindowsTarget {
   }
 
 
-  public UpdateWindowsTarget rdpPort(String rdpPort) {
+  public UpdateWindowsTarget port(String port) {
     
-    this.rdpPort = rdpPort;
+    this.port = port;
     return this;
   }
 
    /**
-   * Server port for RDP (Remote Desktop Protocol)
-   * @return rdpPort
+   * Server WinRM HTTPS port
+   * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Server port for RDP (Remote Desktop Protocol)")
+  @ApiModelProperty(value = "Server WinRM HTTPS port")
 
-  public String getRdpPort() {
-    return rdpPort;
+  public String getPort() {
+    return port;
   }
 
 
-  public void setRdpPort(String rdpPort) {
-    this.rdpPort = rdpPort;
+  public void setPort(String port) {
+    this.port = port;
   }
 
 
@@ -416,8 +389,7 @@ public class UpdateWindowsTarget {
       return false;
     }
     UpdateWindowsTarget updateWindowsTarget = (UpdateWindowsTarget) o;
-    return Objects.equals(this.comment, updateWindowsTarget.comment) &&
-        Objects.equals(this.description, updateWindowsTarget.description) &&
+    return Objects.equals(this.description, updateWindowsTarget.description) &&
         Objects.equals(this.hostname, updateWindowsTarget.hostname) &&
         Objects.equals(this.json, updateWindowsTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateWindowsTarget.keepPrevVersion) &&
@@ -425,7 +397,7 @@ public class UpdateWindowsTarget {
         Objects.equals(this.name, updateWindowsTarget.name) &&
         Objects.equals(this.newName, updateWindowsTarget.newName) &&
         Objects.equals(this.password, updateWindowsTarget.password) &&
-        Objects.equals(this.rdpPort, updateWindowsTarget.rdpPort) &&
+        Objects.equals(this.port, updateWindowsTarget.port) &&
         Objects.equals(this.token, updateWindowsTarget.token) &&
         Objects.equals(this.uidToken, updateWindowsTarget.uidToken) &&
         Objects.equals(this.updateVersion, updateWindowsTarget.updateVersion) &&
@@ -434,7 +406,7 @@ public class UpdateWindowsTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, hostname, json, keepPrevVersion, key, name, newName, password, rdpPort, token, uidToken, updateVersion, username);
+    return Objects.hash(description, hostname, json, keepPrevVersion, key, name, newName, password, port, token, uidToken, updateVersion, username);
   }
 
 
@@ -442,7 +414,6 @@ public class UpdateWindowsTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWindowsTarget {\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -451,7 +422,7 @@ public class UpdateWindowsTarget {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    rdpPort: ").append(toIndentedString(rdpPort)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");

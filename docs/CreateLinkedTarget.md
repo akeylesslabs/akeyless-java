@@ -6,9 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** | Deprecated - use description |  [optional]
 **description** | **String** | Description of the object |  [optional]
-**hosts** | **String** | A comma seperated list of server hosts. | 
+**hosts** | **String** | A comma seperated list of server hosts and server descriptions joined by semicolon &#39;;&#39; (i.e. &#39;server-dev.com;My Dev server,server-prod.com;My Prod server description&#39;) |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Target name | 
 **parentTargetName** | **String** | The parent Target name |  [optional]

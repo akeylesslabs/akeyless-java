@@ -31,6 +31,10 @@ import java.util.List;
  */
 
 public class CertAccessRules {
+  public static final String SERIALIZED_NAME_ALLOWED_CORS = "allowed_cors";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CORS)
+  private List<String> allowedCors = null;
+
   public static final String SERIALIZED_NAME_BOUND_COMMON_NAMES = "bound_common_names";
   @SerializedName(SERIALIZED_NAME_BOUND_COMMON_NAMES)
   private List<String> boundCommonNames = null;
@@ -66,6 +70,37 @@ public class CertAccessRules {
   public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
+
+
+  public CertAccessRules allowedCors(List<String> allowedCors) {
+    
+    this.allowedCors = allowedCors;
+    return this;
+  }
+
+  public CertAccessRules addAllowedCorsItem(String allowedCorsItem) {
+    if (this.allowedCors == null) {
+      this.allowedCors = new ArrayList<String>();
+    }
+    this.allowedCors.add(allowedCorsItem);
+    return this;
+  }
+
+   /**
+   * a list of allowed cors domains if used for browser authentication
+   * @return allowedCors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "a list of allowed cors domains if used for browser authentication")
+
+  public List<String> getAllowedCors() {
+    return allowedCors;
+  }
+
+
+  public void setAllowedCors(List<String> allowedCors) {
+    this.allowedCors = allowedCors;
+  }
 
 
   public CertAccessRules boundCommonNames(List<String> boundCommonNames) {
@@ -340,7 +375,8 @@ public class CertAccessRules {
       return false;
     }
     CertAccessRules certAccessRules = (CertAccessRules) o;
-    return Objects.equals(this.boundCommonNames, certAccessRules.boundCommonNames) &&
+    return Objects.equals(this.allowedCors, certAccessRules.allowedCors) &&
+        Objects.equals(this.boundCommonNames, certAccessRules.boundCommonNames) &&
         Objects.equals(this.boundDnsSans, certAccessRules.boundDnsSans) &&
         Objects.equals(this.boundEmailSans, certAccessRules.boundEmailSans) &&
         Objects.equals(this.boundExtensions, certAccessRules.boundExtensions) &&
@@ -353,7 +389,7 @@ public class CertAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundOrganizationalUnits, boundUriSans, certificate, revokedCertIds, uniqueIdentifier);
+    return Objects.hash(allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundOrganizationalUnits, boundUriSans, certificate, revokedCertIds, uniqueIdentifier);
   }
 
 
@@ -361,6 +397,7 @@ public class CertAccessRules {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CertAccessRules {\n");
+    sb.append("    allowedCors: ").append(toIndentedString(allowedCors)).append("\n");
     sb.append("    boundCommonNames: ").append(toIndentedString(boundCommonNames)).append("\n");
     sb.append("    boundDnsSans: ").append(toIndentedString(boundDnsSans)).append("\n");
     sb.append("    boundEmailSans: ").append(toIndentedString(boundEmailSans)).append("\n");

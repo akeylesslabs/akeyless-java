@@ -256,11 +256,11 @@ public class GatewayCreateProducerDockerhub {
   }
 
    /**
-   * List of the tags attached to this secret
+   * Add tags attached to this object
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of the tags attached to this secret")
+  @ApiModelProperty(value = "Add tags attached to this object")
 
   public List<String> getTags() {
     return tags;

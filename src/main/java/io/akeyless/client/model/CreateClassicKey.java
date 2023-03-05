@@ -328,11 +328,11 @@ public class CreateClassicKey {
   }
 
    /**
-   * List of the tags attached to this classic key
+   * Add tags attached to this object
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of the tags attached to this classic key")
+  @ApiModelProperty(value = "Add tags attached to this object")
 
   public List<String> getTags() {
     return tags;

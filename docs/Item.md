@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **itemType** | **String** |  |  [optional]
 **itemVersions** | [**List&lt;ItemVersion&gt;**](ItemVersion.md) |  |  [optional]
 **lastVersion** | **Integer** |  |  [optional]
+**linkedDetails** | [**LinkedDetails**](LinkedDetails.md) |  |  [optional]
 **modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **nextRotationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **protectionKeyName** | **String** |  |  [optional]

@@ -1903,6 +1903,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /describe-role-am-assoc:
+    post:
+      operationId: describeAssoc
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/describeAssoc'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleAssociationDetails'
+          description: describeAssocResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /describe-sub-claims:
     post:
       operationId: describeSubClaims
@@ -2943,6 +2972,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayDeleteProducerOutput'
           description: gatewayDeleteProducerResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-download-customer-fragments:
+    post:
+      operationId: gatewayDownloadCustomerFragments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayDownloadCustomerFragments'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayDownloadCustomerFragmentsOutput'
+          description: gatewayDownloadCustomerFragmentsResponse wraps response body.
         default:
           content:
             application/json:
@@ -4740,6 +4798,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetTargetDetailsOutput'
           description: getTargetDetailsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /import-passwords:
+    post:
+      operationId: importPasswords
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/importPasswords'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportPasswordsOutput'
+          description: importPasswordsResponse wraps response body.
         default:
           content:
             application/json:
@@ -7974,6 +8061,12 @@ components:
           schema:
             $ref: '#/components/schemas/deleteTargetsOutput'
       description: deleteTargetsResponse wraps response body.
+    describeAssocResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RoleAssociationDetails'
+      description: describeAssocResponse wraps response body.
     describeItemResponse:
       content:
         application/json:
@@ -8199,6 +8292,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayDeleteSubAdminsOutput'
       description: gatewayDeleteSubAdminsResponse wraps response body.
+    gatewayDownloadCustomerFragmentsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayDownloadCustomerFragmentsOutput'
+      description: gatewayDownloadCustomerFragmentsResponse wraps response body.
     gatewayGetConfigResponse:
       content:
         application/json:
@@ -8584,6 +8683,12 @@ components:
           schema:
             $ref: '#/components/schemas/Target'
       description: getTargetResponse wraps response body.
+    importPasswordsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ImportPasswordsOutput'
+      description: importPasswordsResponse wraps response body.
     kmipClientDeleteRuleResponse:
       content:
         application/json:
@@ -9536,6 +9641,7 @@ components:
           tls_cert: tls_cert
           akeyless_url: akeyless_url
           display_name: display_name
+          enable_sni_proxy: true
         ldap:
           ldap_anonymous_search: true
           ldap_cert: ldap_cert
@@ -10292,6 +10398,9 @@ components:
             - bound_common_names
             - bound_common_names
             unique_identifier: unique_identifier
+            allowed_cors:
+            - allowed_cors
+            - allowed_cors
             bound_dns_sans:
             - bound_dns_sans
             - bound_dns_sans
@@ -10546,6 +10655,9 @@ components:
           - bound_common_names
           - bound_common_names
           unique_identifier: unique_identifier
+          allowed_cors:
+          - allowed_cors
+          - allowed_cors
           bound_dns_sans:
           - bound_dns_sans
           - bound_dns_sans
@@ -11109,6 +11221,9 @@ components:
         - bound_common_names
         - bound_common_names
         unique_identifier: unique_identifier
+        allowed_cors:
+        - allowed_cors
+        - allowed_cors
         bound_dns_sans:
         - bound_dns_sans
         - bound_dns_sans
@@ -11129,6 +11244,12 @@ components:
         - revoked_cert_ids
         - revoked_cert_ids
       properties:
+        allowed_cors:
+          description: a list of allowed cors domains if used for browser authentication
+          items:
+            type: string
+          type: array
+          x-go-name: AllowedCors
         bound_common_names:
           description: A list of names. At least one must exist in the Common Name.
             Supports globbing.
@@ -12175,7 +12296,7 @@ components:
           type: string
           x-go-name: ProtectionKey
         tags:
-          description: List of the tags attached to this classic key
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -14171,6 +14292,7 @@ components:
         tls_cert: tls_cert
         akeyless_url: akeyless_url
         display_name: display_name
+        enable_sni_proxy: true
       properties:
         akeyless_url:
           description: |-
@@ -14187,6 +14309,9 @@ components:
         display_name:
           type: string
           x-go-name: DisplayName
+        enable_sni_proxy:
+          type: boolean
+          x-go-name: EnableSniProxy
         enable_tls:
           type: boolean
           x-go-name: EnableTLS
@@ -14502,8 +14627,7 @@ components:
           db_private_key: db_private_key
           rabbitmq_server_password: rabbitmq_server_password
           hosts:
-          - hosts
-          - hosts
+            key: hosts
           private_key: private_key
           authorization_port: authorization_port
           chef_server_username: chef_server_username
@@ -14525,7 +14649,6 @@ components:
           venafi_base_url: venafi_base_url
           ping_url: ping_url
           ldap_token_expiration: ldap_token_expiration
-          rdp_port: rdp_port
           venafi_use_tpp: true
           mongodb_password: mongodb_password
           aws_secret_access_key: aws_secret_access_key
@@ -14840,6 +14963,26 @@ components:
       title: HuaweiAccessRules defines access rules specific to Huawei authentication.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ImportPasswordsOutput:
+      example:
+        passwords_in_file: 6
+        successfully_parsed: 1
+        imported: 0
+      properties:
+        imported:
+          format: int32
+          type: integer
+          x-go-name: Imported
+        passwords_in_file:
+          format: int64
+          type: integer
+          x-go-name: PasswordsInFile
+        successfully_parsed:
+          format: int64
+          type: integer
+          x-go-name: SuccessfullyParsed
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     ImporterInfo:
       example:
         version: 6
@@ -14859,6 +15002,9 @@ components:
         item_accessibility: 7
         auto_rotate: true
         item_state: item_state
+        linked_details:
+          hosts:
+            key: hosts
         display_id: display_id
         access_date: 2000-01-23T04:56:07.000+00:00
         item_type: item_type
@@ -15520,6 +15666,8 @@ components:
           format: int32
           type: integer
           x-go-name: LastVersion
+        linked_details:
+          $ref: '#/components/schemas/LinkedDetails'
         modification_date:
           format: date-time
           type: string
@@ -16947,6 +17095,18 @@ components:
           x-go-name: OpenLeadership
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    LinkedDetails:
+      example:
+        hosts:
+          key: hosts
+      properties:
+        hosts:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Hosts
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ListAuthMethodsOutput:
       example:
         next_page: next_page
@@ -17162,6 +17322,9 @@ components:
               - bound_common_names
               - bound_common_names
               unique_identifier: unique_identifier
+              allowed_cors:
+              - allowed_cors
+              - allowed_cors
               bound_dns_sans:
               - bound_dns_sans
               - bound_dns_sans
@@ -17467,6 +17630,9 @@ components:
               - bound_common_names
               - bound_common_names
               unique_identifier: unique_identifier
+              allowed_cors:
+              - allowed_cors
+              - allowed_cors
               bound_dns_sans:
               - bound_dns_sans
               - bound_dns_sans
@@ -17583,6 +17749,9 @@ components:
         - item_accessibility: 7
           auto_rotate: true
           item_state: item_state
+          linked_details:
+            hosts:
+              key: hosts
           display_id: display_id
           access_date: 2000-01-23T04:56:07.000+00:00
           item_type: item_type
@@ -18143,6 +18312,9 @@ components:
         - item_accessibility: 7
           auto_rotate: true
           item_state: item_state
+          linked_details:
+            hosts:
+              key: hosts
           display_id: display_id
           access_date: 2000-01-23T04:56:07.000+00:00
           item_type: item_type
@@ -20683,6 +20855,41 @@ components:
       title: Role includes role details.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RoleAssociationDetails:
+      description: |-
+        RoleAssociationDetails includes details of an association between a role
+        and an auth method.
+      example:
+        role_name: role_name
+        assoc_id: assoc_id
+        auth_method_name: auth_method_name
+        auth_method_sub_claims:
+          key:
+          - auth_method_sub_claims
+          - auth_method_sub_claims
+        sub_claims_case_sensitive: true
+      properties:
+        assoc_id:
+          type: string
+          x-go-name: AssociationID
+        auth_method_name:
+          type: string
+          x-go-name: AuthMethodName
+        auth_method_sub_claims:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+          x-go-name: AuthMethodSubClaims
+        role_name:
+          type: string
+          x-go-name: RoleName
+        sub_claims_case_sensitive:
+          type: boolean
+          x-go-name: IsSubClaimsCaseSensitive
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     RoleAuthMethodAssociation:
       description: |-
         RoleAuthMethodAssociation includes details of an association between a role
@@ -21601,8 +21808,7 @@ components:
         db_private_key: db_private_key
         rabbitmq_server_password: rabbitmq_server_password
         hosts:
-        - hosts
-        - hosts
+          key: hosts
         private_key: private_key
         authorization_port: authorization_port
         chef_server_username: chef_server_username
@@ -21624,7 +21830,6 @@ components:
         venafi_base_url: venafi_base_url
         ping_url: ping_url
         ldap_token_expiration: ldap_token_expiration
-        rdp_port: rdp_port
         venafi_use_tpp: true
         mongodb_password: mongodb_password
         aws_secret_access_key: aws_secret_access_key
@@ -21887,9 +22092,9 @@ components:
           type: string
           x-go-name: Hostname
         hosts:
-          items:
+          additionalProperties:
             type: string
-          type: array
+          type: object
           x-go-name: Hosts
         implementation_type:
           type: string
@@ -21968,7 +22173,7 @@ components:
           x-go-name: PingURL
         port:
           type: string
-          x-go-name: HostPort
+          x-go-name: Port
         private_key:
           type: string
           x-go-name: SshPrivateKey
@@ -21987,9 +22192,6 @@ components:
         rabbitmq_server_user:
           type: string
           x-go-name: RabbitmqServerUser
-        rdp_port:
-          type: string
-          x-go-name: RdpPort
         security_token:
           type: string
           x-go-name: SecurityToken
@@ -23280,6 +23482,11 @@ components:
           format: int64
           type: integer
           x-go-name: AccessExpires
+        allowed-cors:
+          description: Comma separated list of allowed CORS domains to be validated
+            as part of the authentication flow.
+          type: string
+          x-go-name: AllowedCors
         bound-common-names:
           description: A list of names. At least one must exist in the Common Name.
             Supports globbing.
@@ -24385,7 +24592,7 @@ components:
           type: string
           x-go-name: CertificateName
         tags:
-          description: List of the tags attached to this certificate
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -24700,7 +24907,7 @@ components:
           type: string
           x-go-name: DynamicSecretName
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -25257,16 +25464,14 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createLinkedTarget:
       properties:
-        comment:
-          description: Deprecated - use description
-          type: string
-          x-go-name: Comment
         description:
           description: Description of the object
           type: string
           x-go-name: Description
         hosts:
-          description: A comma seperated list of server hosts.
+          description: A comma seperated list of server hosts and server descriptions
+            joined by semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My
+            Prod server description')
           type: string
           x-go-name: Hosts
         json:
@@ -25292,7 +25497,6 @@ components:
           type: string
           x-go-name: UIDToken
       required:
-      - hosts
       - name
       title: createLinkedTarget is a command that creates a new Linked Target which
         can inherit credentials from existing Targets.
@@ -25752,7 +25956,7 @@ components:
           type: string
           x-go-name: StorageKeyName
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -26160,7 +26364,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -26332,10 +26536,6 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createWindowsTarget:
       properties:
-        comment:
-          description: Deprecated - use description
-          type: string
-          x-go-name: Comment
         description:
           description: Description of the object
           type: string
@@ -26363,11 +26563,11 @@ components:
           description: The privileged user password
           type: string
           x-go-name: Password
-        rdp-port:
-          default: "3389"
-          description: Server port for RDP (Remote Desktop Protocol)
+        port:
+          default: "5986"
+          description: Server WinRM HTTPS port
           type: string
-          x-go-name: RdpPort
+          x-go-name: Port
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -26451,10 +26651,19 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     decryptFile:
       properties:
+        cyphertext-header:
+          type: string
+          x-go-name: CyphertextHeaderJsonBase64
         display-id:
           description: The display id of the key to use in the decryption process
           type: string
           x-go-name: DisplayId
+        in:
+          description: |-
+            Path to the file to be decrypted. If not provided, the content will be
+            taken from stdin
+          type: string
+          x-go-name: InputFile
         item-id:
           description: The item id of the key to use in the decryption process
           format: int64
@@ -26469,6 +26678,12 @@ components:
           description: The name of the key to use in the decryption process
           type: string
           x-go-name: KeyName
+        out:
+          description: |-
+            Path to the output file. If not provided, the output will be sent to
+            stdout
+          type: string
+          x-go-name: OutputFilePath
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -26479,6 +26694,7 @@ components:
           type: string
           x-go-name: UIDToken
       required:
+      - in
       - key-name
       title: decryptFile is a command that decrypts a file using an AES key.
       type: object
@@ -27115,6 +27331,31 @@ components:
     deleteTargetsOutput:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    describeAssoc:
+      properties:
+        assoc-id:
+          description: The association id
+          type: string
+          x-go-name: AssocId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - assoc-id
+      title: describeAssoc is a command that returns role association details.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     describeItem:
       properties:
         display-id:
@@ -27330,15 +27571,6 @@ components:
           description: The display id of the key to use in the encryption process
           type: string
           x-go-name: DisplayId
-        encryption-context:
-          additionalProperties:
-            type: string
-          description: |-
-            name-value pair that specifies the encryption context to be used for
-            authenticated encryption. If used here, the same value must be supplied
-            to the decrypt command or decryption will fail
-          type: object
-          x-go-name: EncContext
         in:
           description: |-
             Path to the file to be encrypted. If not provided, the content will be
@@ -27969,7 +28201,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -28375,7 +28607,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -28743,7 +28975,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -29110,7 +29342,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -29477,7 +29709,7 @@ components:
           type: boolean
           x-go-name: StorePrivateKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -29849,7 +30081,7 @@ components:
           type: boolean
           x-go-name: SkipSSL
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -29934,7 +30166,7 @@ components:
           type: string
           x-go-name: RotateSyncURL
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -30279,7 +30511,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -30652,7 +30884,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -31004,7 +31236,7 @@ components:
           type: string
           x-go-name: ServiceAccountType
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -31712,7 +31944,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -32088,7 +32320,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -32432,7 +32664,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -32820,7 +33052,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -33213,7 +33445,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -33602,7 +33834,7 @@ components:
           type: string
           x-go-name: SSLConnectionCertificate
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -34004,7 +34236,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -34382,7 +34614,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -34804,7 +35036,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -35186,7 +35418,7 @@ components:
           type: boolean
           x-go-name: SSLConnection
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -35565,7 +35797,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -35942,7 +36174,7 @@ components:
           type: string
           x-go-name: SecureAccessOverrideUser
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -36312,7 +36544,7 @@ components:
           type: boolean
           x-go-name: SSLConnection
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -36660,7 +36892,7 @@ components:
           type: string
           x-go-name: Role
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -37145,6 +37377,38 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayDeleteSubAdminsOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayDownloadCustomerFragments:
+      description: gatewayDownloadCustomerFragments is a command that downloads customer
+        fragments
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayDownloadCustomerFragmentsOutput:
+      example:
+        cf_json:
+          key: '{}'
+      properties:
+        cf_json:
+          additionalProperties:
+            type: object
+          type: object
+          x-go-name: CfJson
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayGetConfig:
@@ -38903,7 +39167,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -39313,7 +39577,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -39685,7 +39949,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -40056,7 +40320,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -40427,7 +40691,7 @@ components:
           type: boolean
           x-go-name: StorePrivateKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -40803,7 +41067,7 @@ components:
           type: boolean
           x-go-name: SkipSSL
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -40892,7 +41156,7 @@ components:
           type: string
           x-go-name: RotateSyncURL
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -41241,7 +41505,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -41618,7 +41882,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -41974,7 +42238,7 @@ components:
           type: string
           x-go-name: ServiceAccountType
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -42690,7 +42954,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -43070,7 +43334,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -43418,7 +43682,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -43810,7 +44074,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -44207,7 +44471,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -44600,7 +44864,7 @@ components:
           type: string
           x-go-name: SSLConnectionCertificate
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -45006,7 +45270,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -45388,7 +45652,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebCategory
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -45814,7 +46078,7 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -46200,7 +46464,7 @@ components:
           type: boolean
           x-go-name: SSLConnection
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -46583,7 +46847,7 @@ components:
           type: boolean
           x-go-name: SecureAccessWebProxy
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -46964,7 +47228,7 @@ components:
           type: string
           x-go-name: SecureAccessOverrideUser
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -47338,7 +47602,7 @@ components:
           type: boolean
           x-go-name: SSLConnection
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -47690,7 +47954,7 @@ components:
           type: string
           x-go-name: Role
         tags:
-          description: List of the tags attached to this secret
+          description: Add tags attached to this object
           items:
             type: string
           type: array
@@ -48616,6 +48880,51 @@ components:
       required:
       - name
       title: getTargetDetails is a command that returns target details.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    importPasswords:
+      description: importPasswords is a command that import passwords
+      properties:
+        accessibility:
+          default: personal
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
+        format:
+          default: LastPass
+          description: Password format type [LastPass/Chrome/Firefox]
+          type: string
+          x-go-name: Format
+        import-path:
+          description: File path
+          type: string
+          x-go-name: FilePath
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        protection_key:
+          description: The name of a key that used to encrypt the secret value (if
+            empty, the account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        target-folder:
+          default: /
+          description: Target folder for imported passwords
+          type: string
+          x-go-name: TargetFolder
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - import-path
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     kmipClientDeleteRule:
@@ -51028,6 +51337,11 @@ components:
           format: int64
           type: integer
           x-go-name: AccessExpires
+        allowed-cors:
+          description: Comma separated list of allowed CORS domains to be validated
+            as part of the authentication flow.
+          type: string
+          x-go-name: AllowedCors
         bound-common-names:
           description: A list of names. At least one must exist in the Common Name.
             Supports globbing.
@@ -53029,20 +53343,18 @@ components:
     updateLinkedTarget:
       properties:
         add-hosts:
-          description: Comma separated list of new hosts that will be added to the
-            Linked Target hosts.
+          description: A comma seperated list of new server hosts and server descriptions
+            joined by semicolon ';' that will be added to the Linked Target hosts.
           type: string
           x-go-name: AddHosts
-        comment:
-          description: Deprecated - use description
-          type: string
-          x-go-name: Comment
         description:
           description: Description of the object
           type: string
           x-go-name: Description
         hosts:
-          description: A comma seperated list of server hosts.
+          description: A comma seperated list of server hosts and server descriptions
+            joined by semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My
+            Prod server description')
           type: string
           x-go-name: Hosts
         json:
@@ -53082,7 +53394,6 @@ components:
           type: string
           x-go-name: UIDToken
       required:
-      - hosts
       - name
       title: updateLinkedTarget is a command that updates an existing target.
       type: object
@@ -54394,10 +54705,6 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateWindowsTarget:
       properties:
-        comment:
-          description: Deprecated - use description
-          type: string
-          x-go-name: Comment
         description:
           description: Description of the object
           type: string
@@ -54434,11 +54741,11 @@ components:
           description: The privileged user password
           type: string
           x-go-name: Password
-        rdp-port:
-          default: "3389"
-          description: Server port for RDP (Remote Desktop Protocol)
+        port:
+          default: "5986"
+          description: Server WinRM HTTPS port
           type: string
-          x-go-name: RdpPort
+          x-go-name: Port
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string

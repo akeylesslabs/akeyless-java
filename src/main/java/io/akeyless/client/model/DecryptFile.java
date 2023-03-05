@@ -29,9 +29,17 @@ import java.io.IOException;
  */
 
 public class DecryptFile {
+  public static final String SERIALIZED_NAME_CYPHERTEXT_HEADER = "cyphertext-header";
+  @SerializedName(SERIALIZED_NAME_CYPHERTEXT_HEADER)
+  private String cyphertextHeader;
+
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
+
+  public static final String SERIALIZED_NAME_IN = "in";
+  @SerializedName(SERIALIZED_NAME_IN)
+  private String in;
 
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
@@ -45,6 +53,10 @@ public class DecryptFile {
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
+  public static final String SERIALIZED_NAME_OUT = "out";
+  @SerializedName(SERIALIZED_NAME_OUT)
+  private String out;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -52,6 +64,29 @@ public class DecryptFile {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DecryptFile cyphertextHeader(String cyphertextHeader) {
+    
+    this.cyphertextHeader = cyphertextHeader;
+    return this;
+  }
+
+   /**
+   * Get cyphertextHeader
+   * @return cyphertextHeader
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCyphertextHeader() {
+    return cyphertextHeader;
+  }
+
+
+  public void setCyphertextHeader(String cyphertextHeader) {
+    this.cyphertextHeader = cyphertextHeader;
+  }
 
 
   public DecryptFile displayId(String displayId) {
@@ -74,6 +109,28 @@ public class DecryptFile {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public DecryptFile in(String in) {
+    
+    this.in = in;
+    return this;
+  }
+
+   /**
+   * Path to the file to be decrypted. If not provided, the content will be taken from stdin
+   * @return in
+  **/
+  @ApiModelProperty(required = true, value = "Path to the file to be decrypted. If not provided, the content will be taken from stdin")
+
+  public String getIn() {
+    return in;
+  }
+
+
+  public void setIn(String in) {
+    this.in = in;
   }
 
 
@@ -145,6 +202,29 @@ public class DecryptFile {
   }
 
 
+  public DecryptFile out(String out) {
+    
+    this.out = out;
+    return this;
+  }
+
+   /**
+   * Path to the output file. If not provided, the output will be sent to stdout
+   * @return out
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Path to the output file. If not provided, the output will be sent to stdout")
+
+  public String getOut() {
+    return out;
+  }
+
+
+  public void setOut(String out) {
+    this.out = out;
+  }
+
+
   public DecryptFile token(String token) {
     
     this.token = token;
@@ -200,17 +280,20 @@ public class DecryptFile {
       return false;
     }
     DecryptFile decryptFile = (DecryptFile) o;
-    return Objects.equals(this.displayId, decryptFile.displayId) &&
+    return Objects.equals(this.cyphertextHeader, decryptFile.cyphertextHeader) &&
+        Objects.equals(this.displayId, decryptFile.displayId) &&
+        Objects.equals(this.in, decryptFile.in) &&
         Objects.equals(this.itemId, decryptFile.itemId) &&
         Objects.equals(this.json, decryptFile.json) &&
         Objects.equals(this.keyName, decryptFile.keyName) &&
+        Objects.equals(this.out, decryptFile.out) &&
         Objects.equals(this.token, decryptFile.token) &&
         Objects.equals(this.uidToken, decryptFile.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, json, keyName, token, uidToken);
+    return Objects.hash(cyphertextHeader, displayId, in, itemId, json, keyName, out, token, uidToken);
   }
 
 
@@ -218,10 +301,13 @@ public class DecryptFile {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecryptFile {\n");
+    sb.append("    cyphertextHeader: ").append(toIndentedString(cyphertextHeader)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    out: ").append(toIndentedString(out)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

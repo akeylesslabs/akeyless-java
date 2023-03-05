@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class CreateWindowsTarget {
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -57,9 +53,9 @@ public class CreateWindowsTarget {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
-  public static final String SERIALIZED_NAME_RDP_PORT = "rdp-port";
-  @SerializedName(SERIALIZED_NAME_RDP_PORT)
-  private String rdpPort = "3389";
+  public static final String SERIALIZED_NAME_PORT = "port";
+  @SerializedName(SERIALIZED_NAME_PORT)
+  private String port = "5986";
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -72,29 +68,6 @@ public class CreateWindowsTarget {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
-
-
-  public CreateWindowsTarget comment(String comment) {
-    
-    this.comment = comment;
-    return this;
-  }
-
-   /**
-   * Deprecated - use description
-   * @return comment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated - use description")
-
-  public String getComment() {
-    return comment;
-  }
-
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
 
 
   public CreateWindowsTarget description(String description) {
@@ -234,26 +207,26 @@ public class CreateWindowsTarget {
   }
 
 
-  public CreateWindowsTarget rdpPort(String rdpPort) {
+  public CreateWindowsTarget port(String port) {
     
-    this.rdpPort = rdpPort;
+    this.port = port;
     return this;
   }
 
    /**
-   * Server port for RDP (Remote Desktop Protocol)
-   * @return rdpPort
+   * Server WinRM HTTPS port
+   * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Server port for RDP (Remote Desktop Protocol)")
+  @ApiModelProperty(value = "Server WinRM HTTPS port")
 
-  public String getRdpPort() {
-    return rdpPort;
+  public String getPort() {
+    return port;
   }
 
 
-  public void setRdpPort(String rdpPort) {
-    this.rdpPort = rdpPort;
+  public void setPort(String port) {
+    this.port = port;
   }
 
 
@@ -335,14 +308,13 @@ public class CreateWindowsTarget {
       return false;
     }
     CreateWindowsTarget createWindowsTarget = (CreateWindowsTarget) o;
-    return Objects.equals(this.comment, createWindowsTarget.comment) &&
-        Objects.equals(this.description, createWindowsTarget.description) &&
+    return Objects.equals(this.description, createWindowsTarget.description) &&
         Objects.equals(this.hostname, createWindowsTarget.hostname) &&
         Objects.equals(this.json, createWindowsTarget.json) &&
         Objects.equals(this.key, createWindowsTarget.key) &&
         Objects.equals(this.name, createWindowsTarget.name) &&
         Objects.equals(this.password, createWindowsTarget.password) &&
-        Objects.equals(this.rdpPort, createWindowsTarget.rdpPort) &&
+        Objects.equals(this.port, createWindowsTarget.port) &&
         Objects.equals(this.token, createWindowsTarget.token) &&
         Objects.equals(this.uidToken, createWindowsTarget.uidToken) &&
         Objects.equals(this.username, createWindowsTarget.username);
@@ -350,7 +322,7 @@ public class CreateWindowsTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, hostname, json, key, name, password, rdpPort, token, uidToken, username);
+    return Objects.hash(description, hostname, json, key, name, password, port, token, uidToken, username);
   }
 
 
@@ -358,14 +330,13 @@ public class CreateWindowsTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWindowsTarget {\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    rdpPort: ").append(toIndentedString(rdpPort)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

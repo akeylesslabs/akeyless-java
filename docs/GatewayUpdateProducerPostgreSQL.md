@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]
-**tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
+**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

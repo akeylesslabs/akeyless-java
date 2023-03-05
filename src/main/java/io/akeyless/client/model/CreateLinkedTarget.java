@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 
 public class CreateLinkedTarget {
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -60,29 +56,6 @@ public class CreateLinkedTarget {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
-
-
-  public CreateLinkedTarget comment(String comment) {
-    
-    this.comment = comment;
-    return this;
-  }
-
-   /**
-   * Deprecated - use description
-   * @return comment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated - use description")
-
-  public String getComment() {
-    return comment;
-  }
-
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
 
 
   public CreateLinkedTarget description(String description) {
@@ -115,10 +88,11 @@ public class CreateLinkedTarget {
   }
 
    /**
-   * A comma seperated list of server hosts.
+   * A comma seperated list of server hosts and server descriptions joined by semicolon &#39;;&#39; (i.e. &#39;server-dev.com;My Dev server,server-prod.com;My Prod server description&#39;)
    * @return hosts
   **/
-  @ApiModelProperty(required = true, value = "A comma seperated list of server hosts.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A comma seperated list of server hosts and server descriptions joined by semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My Prod server description')")
 
   public String getHosts() {
     return hosts;
@@ -253,8 +227,7 @@ public class CreateLinkedTarget {
       return false;
     }
     CreateLinkedTarget createLinkedTarget = (CreateLinkedTarget) o;
-    return Objects.equals(this.comment, createLinkedTarget.comment) &&
-        Objects.equals(this.description, createLinkedTarget.description) &&
+    return Objects.equals(this.description, createLinkedTarget.description) &&
         Objects.equals(this.hosts, createLinkedTarget.hosts) &&
         Objects.equals(this.json, createLinkedTarget.json) &&
         Objects.equals(this.name, createLinkedTarget.name) &&
@@ -265,7 +238,7 @@ public class CreateLinkedTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, hosts, json, name, parentTargetName, token, uidToken);
+    return Objects.hash(description, hosts, json, name, parentTargetName, token, uidToken);
   }
 
 
@@ -273,7 +246,6 @@ public class CreateLinkedTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLinkedTarget {\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

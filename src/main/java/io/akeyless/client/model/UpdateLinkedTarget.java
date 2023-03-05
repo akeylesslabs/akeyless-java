@@ -33,10 +33,6 @@ public class UpdateLinkedTarget {
   @SerializedName(SERIALIZED_NAME_ADD_HOSTS)
   private String addHosts;
 
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -85,11 +81,11 @@ public class UpdateLinkedTarget {
   }
 
    /**
-   * Comma separated list of new hosts that will be added to the Linked Target hosts.
+   * A comma seperated list of new server hosts and server descriptions joined by semicolon &#39;;&#39; that will be added to the Linked Target hosts.
    * @return addHosts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comma separated list of new hosts that will be added to the Linked Target hosts.")
+  @ApiModelProperty(value = "A comma seperated list of new server hosts and server descriptions joined by semicolon ';' that will be added to the Linked Target hosts.")
 
   public String getAddHosts() {
     return addHosts;
@@ -98,29 +94,6 @@ public class UpdateLinkedTarget {
 
   public void setAddHosts(String addHosts) {
     this.addHosts = addHosts;
-  }
-
-
-  public UpdateLinkedTarget comment(String comment) {
-    
-    this.comment = comment;
-    return this;
-  }
-
-   /**
-   * Deprecated - use description
-   * @return comment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated - use description")
-
-  public String getComment() {
-    return comment;
-  }
-
-
-  public void setComment(String comment) {
-    this.comment = comment;
   }
 
 
@@ -154,10 +127,11 @@ public class UpdateLinkedTarget {
   }
 
    /**
-   * A comma seperated list of server hosts.
+   * A comma seperated list of server hosts and server descriptions joined by semicolon &#39;;&#39; (i.e. &#39;server-dev.com;My Dev server,server-prod.com;My Prod server description&#39;)
    * @return hosts
   **/
-  @ApiModelProperty(required = true, value = "A comma seperated list of server hosts.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A comma seperated list of server hosts and server descriptions joined by semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My Prod server description')")
 
   public String getHosts() {
     return hosts;
@@ -362,7 +336,6 @@ public class UpdateLinkedTarget {
     }
     UpdateLinkedTarget updateLinkedTarget = (UpdateLinkedTarget) o;
     return Objects.equals(this.addHosts, updateLinkedTarget.addHosts) &&
-        Objects.equals(this.comment, updateLinkedTarget.comment) &&
         Objects.equals(this.description, updateLinkedTarget.description) &&
         Objects.equals(this.hosts, updateLinkedTarget.hosts) &&
         Objects.equals(this.json, updateLinkedTarget.json) &&
@@ -377,7 +350,7 @@ public class UpdateLinkedTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addHosts, comment, description, hosts, json, keepPrevVersion, name, newName, parentTargetName, rmHosts, token, uidToken);
+    return Objects.hash(addHosts, description, hosts, json, keepPrevVersion, name, newName, parentTargetName, rmHosts, token, uidToken);
   }
 
 
@@ -386,7 +359,6 @@ public class UpdateLinkedTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateLinkedTarget {\n");
     sb.append("    addHosts: ").append(toIndentedString(addHosts)).append("\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

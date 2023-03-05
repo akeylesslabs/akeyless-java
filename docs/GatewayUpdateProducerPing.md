@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **pingSigningAlgo** | **String** | The signing algorithm that the client must use to sign its request objects [RS256,RS384,RS512,ES256,ES384,ES512,PS256,PS384,PS512] If no explicit value is given, the client can use any of the supported signing algorithms (relevant for PRIVATE_KEY_JWT authentication method) |  [optional]
 **pingUrl** | **String** | Ping URL |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
-**tags** | **List&lt;String&gt;** | List of the tags attached to this secret |  [optional]
+**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

@@ -6,10 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addHosts** | **String** | Comma separated list of new hosts that will be added to the Linked Target hosts. |  [optional]
-**comment** | **String** | Deprecated - use description |  [optional]
+**addHosts** | **String** | A comma seperated list of new server hosts and server descriptions joined by semicolon &#39;;&#39; that will be added to the Linked Target hosts. |  [optional]
 **description** | **String** | Description of the object |  [optional]
-**hosts** | **String** | A comma seperated list of server hosts. | 
+**hosts** | **String** | A comma seperated list of server hosts and server descriptions joined by semicolon &#39;;&#39; (i.e. &#39;server-dev.com;My Dev server,server-prod.com;My Prod server description&#39;) |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
 **name** | **String** | Linked Target name | 

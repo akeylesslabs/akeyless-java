@@ -36,6 +36,10 @@ public class CreateAuthMethodCert {
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CORS = "allowed-cors";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CORS)
+  private String allowedCors;
+
   public static final String SERIALIZED_NAME_BOUND_COMMON_NAMES = "bound-common-names";
   @SerializedName(SERIALIZED_NAME_BOUND_COMMON_NAMES)
   private List<String> boundCommonNames = null;
@@ -125,6 +129,29 @@ public class CreateAuthMethodCert {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodCert allowedCors(String allowedCors) {
+    
+    this.allowedCors = allowedCors;
+    return this;
+  }
+
+   /**
+   * Comma separated list of allowed CORS domains to be validated as part of the authentication flow.
+   * @return allowedCors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comma separated list of allowed CORS domains to be validated as part of the authentication flow.")
+
+  public String getAllowedCors() {
+    return allowedCors;
+  }
+
+
+  public void setAllowedCors(String allowedCors) {
+    this.allowedCors = allowedCors;
   }
 
 
@@ -599,6 +626,7 @@ public class CreateAuthMethodCert {
     }
     CreateAuthMethodCert createAuthMethodCert = (CreateAuthMethodCert) o;
     return Objects.equals(this.accessExpires, createAuthMethodCert.accessExpires) &&
+        Objects.equals(this.allowedCors, createAuthMethodCert.allowedCors) &&
         Objects.equals(this.boundCommonNames, createAuthMethodCert.boundCommonNames) &&
         Objects.equals(this.boundDnsSans, createAuthMethodCert.boundDnsSans) &&
         Objects.equals(this.boundEmailSans, createAuthMethodCert.boundEmailSans) &&
@@ -620,7 +648,7 @@ public class CreateAuthMethodCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, gwBoundIps, json, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, gwBoundIps, json, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
 
@@ -629,6 +657,7 @@ public class CreateAuthMethodCert {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodCert {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedCors: ").append(toIndentedString(allowedCors)).append("\n");
     sb.append("    boundCommonNames: ").append(toIndentedString(boundCommonNames)).append("\n");
     sb.append("    boundDnsSans: ").append(toIndentedString(boundDnsSans)).append("\n");
     sb.append("    boundEmailSans: ").append(toIndentedString(boundEmailSans)).append("\n");

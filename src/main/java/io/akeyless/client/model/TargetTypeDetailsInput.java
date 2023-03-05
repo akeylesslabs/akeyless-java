@@ -24,7 +24,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * TargetTypeDetailsInput
@@ -253,7 +255,7 @@ public class TargetTypeDetailsInput {
 
   public static final String SERIALIZED_NAME_HOSTS = "hosts";
   @SerializedName(SERIALIZED_NAME_HOSTS)
-  private List<String> hosts = null;
+  private Map<String, String> hosts = null;
 
   public static final String SERIALIZED_NAME_IMPLEMENTATION_TYPE = "implementation_type";
   @SerializedName(SERIALIZED_NAME_IMPLEMENTATION_TYPE)
@@ -378,10 +380,6 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_USER = "rabbitmq_server_user";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_USER)
   private String rabbitmqServerUser;
-
-  public static final String SERIALIZED_NAME_RDP_PORT = "rdp_port";
-  @SerializedName(SERIALIZED_NAME_RDP_PORT)
-  private String rdpPort;
 
   public static final String SERIALIZED_NAME_SECURITY_TOKEN = "security_token";
   @SerializedName(SERIALIZED_NAME_SECURITY_TOKEN)
@@ -1729,17 +1727,17 @@ public class TargetTypeDetailsInput {
   }
 
 
-  public TargetTypeDetailsInput hosts(List<String> hosts) {
+  public TargetTypeDetailsInput hosts(Map<String, String> hosts) {
     
     this.hosts = hosts;
     return this;
   }
 
-  public TargetTypeDetailsInput addHostsItem(String hostsItem) {
+  public TargetTypeDetailsInput putHostsItem(String key, String hostsItem) {
     if (this.hosts == null) {
-      this.hosts = new ArrayList<String>();
+      this.hosts = new HashMap<String, String>();
     }
-    this.hosts.add(hostsItem);
+    this.hosts.put(key, hostsItem);
     return this;
   }
 
@@ -1750,12 +1748,12 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getHosts() {
+  public Map<String, String> getHosts() {
     return hosts;
   }
 
 
-  public void setHosts(List<String> hosts) {
+  public void setHosts(Map<String, String> hosts) {
     this.hosts = hosts;
   }
 
@@ -2473,29 +2471,6 @@ public class TargetTypeDetailsInput {
   }
 
 
-  public TargetTypeDetailsInput rdpPort(String rdpPort) {
-    
-    this.rdpPort = rdpPort;
-    return this;
-  }
-
-   /**
-   * Get rdpPort
-   * @return rdpPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getRdpPort() {
-    return rdpPort;
-  }
-
-
-  public void setRdpPort(String rdpPort) {
-    this.rdpPort = rdpPort;
-  }
-
-
   public TargetTypeDetailsInput securityToken(String securityToken) {
     
     this.securityToken = securityToken;
@@ -2960,7 +2935,6 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.rabbitmqServerPassword, targetTypeDetailsInput.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
-        Objects.equals(this.rdpPort, targetTypeDetailsInput.rdpPort) &&
         Objects.equals(this.securityToken, targetTypeDetailsInput.securityToken) &&
         Objects.equals(this.sfAccount, targetTypeDetailsInput.sfAccount) &&
         Objects.equals(this.sslConnectionCertificate, targetTypeDetailsInput.sslConnectionCertificate) &&
@@ -2981,7 +2955,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rdpPort, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -3076,7 +3050,6 @@ public class TargetTypeDetailsInput {
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
-    sb.append("    rdpPort: ").append(toIndentedString(rdpPort)).append("\n");
     sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");

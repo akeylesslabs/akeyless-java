@@ -41,6 +41,10 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   private String displayName;
 
+  public static final String SERIALIZED_NAME_ENABLE_SNI_PROXY = "enable_sni_proxy";
+  @SerializedName(SERIALIZED_NAME_ENABLE_SNI_PROXY)
+  private Boolean enableSniProxy;
+
   public static final String SERIALIZED_NAME_ENABLE_TLS = "enable_tls";
   @SerializedName(SERIALIZED_NAME_ENABLE_TLS)
   private Boolean enableTls;
@@ -140,6 +144,29 @@ public class GeneralConfigPart {
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
+  }
+
+
+  public GeneralConfigPart enableSniProxy(Boolean enableSniProxy) {
+    
+    this.enableSniProxy = enableSniProxy;
+    return this;
+  }
+
+   /**
+   * Get enableSniProxy
+   * @return enableSniProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getEnableSniProxy() {
+    return enableSniProxy;
+  }
+
+
+  public void setEnableSniProxy(Boolean enableSniProxy) {
+    this.enableSniProxy = enableSniProxy;
   }
 
 
@@ -339,6 +366,7 @@ public class GeneralConfigPart {
     return Objects.equals(this.akeylessUrl, generalConfigPart.akeylessUrl) &&
         Objects.equals(this.apiTokenTtl, generalConfigPart.apiTokenTtl) &&
         Objects.equals(this.displayName, generalConfigPart.displayName) &&
+        Objects.equals(this.enableSniProxy, generalConfigPart.enableSniProxy) &&
         Objects.equals(this.enableTls, generalConfigPart.enableTls) &&
         Objects.equals(this.enableTlsConfigure, generalConfigPart.enableTlsConfigure) &&
         Objects.equals(this.enableTlsCurl, generalConfigPart.enableTlsCurl) &&
@@ -351,7 +379,7 @@ public class GeneralConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
+    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
   }
 
 
@@ -362,6 +390,7 @@ public class GeneralConfigPart {
     sb.append("    akeylessUrl: ").append(toIndentedString(akeylessUrl)).append("\n");
     sb.append("    apiTokenTtl: ").append(toIndentedString(apiTokenTtl)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    enableSniProxy: ").append(toIndentedString(enableSniProxy)).append("\n");
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    enableTlsConfigure: ").append(toIndentedString(enableTlsConfigure)).append("\n");
     sb.append("    enableTlsCurl: ").append(toIndentedString(enableTlsCurl)).append("\n");

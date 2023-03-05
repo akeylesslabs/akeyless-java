@@ -25,6 +25,7 @@ import io.akeyless.client.model.GatewayBasicInfo;
 import io.akeyless.client.model.ItemGeneralInfo;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemVersion;
+import io.akeyless.client.model.LinkedDetails;
 import io.akeyless.client.model.RuleAssigner;
 import io.akeyless.client.model.TargetItemVersion;
 import io.swagger.annotations.ApiModel;
@@ -150,6 +151,10 @@ public class Item {
   public static final String SERIALIZED_NAME_LAST_VERSION = "last_version";
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
   private Integer lastVersion;
+
+  public static final String SERIALIZED_NAME_LINKED_DETAILS = "linked_details";
+  @SerializedName(SERIALIZED_NAME_LINKED_DETAILS)
+  private LinkedDetails linkedDetails;
 
   public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
@@ -872,6 +877,29 @@ public class Item {
   }
 
 
+  public Item linkedDetails(LinkedDetails linkedDetails) {
+    
+    this.linkedDetails = linkedDetails;
+    return this;
+  }
+
+   /**
+   * Get linkedDetails
+   * @return linkedDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public LinkedDetails getLinkedDetails() {
+    return linkedDetails;
+  }
+
+
+  public void setLinkedDetails(LinkedDetails linkedDetails) {
+    this.linkedDetails = linkedDetails;
+  }
+
+
   public Item modificationDate(OffsetDateTime modificationDate) {
     
     this.modificationDate = modificationDate;
@@ -1124,6 +1152,7 @@ public class Item {
         Objects.equals(this.itemType, item.itemType) &&
         Objects.equals(this.itemVersions, item.itemVersions) &&
         Objects.equals(this.lastVersion, item.lastVersion) &&
+        Objects.equals(this.linkedDetails, item.linkedDetails) &&
         Objects.equals(this.modificationDate, item.modificationDate) &&
         Objects.equals(this.nextRotationDate, item.nextRotationDate) &&
         Objects.equals(this.protectionKeyName, item.protectionKeyName) &&
@@ -1137,7 +1166,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessRequestStatus, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessRequestStatus, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
 
@@ -1173,6 +1202,7 @@ public class Item {
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemVersions: ").append(toIndentedString(itemVersions)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
+    sb.append("    linkedDetails: ").append(toIndentedString(linkedDetails)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    nextRotationDate: ").append(toIndentedString(nextRotationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");

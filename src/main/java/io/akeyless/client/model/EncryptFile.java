@@ -23,9 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * EncryptFile
@@ -35,10 +32,6 @@ public class EncryptFile {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
-
-  public static final String SERIALIZED_NAME_ENCRYPTION_CONTEXT = "encryption-context";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTION_CONTEXT)
-  private Map<String, String> encryptionContext = null;
 
   public static final String SERIALIZED_NAME_IN = "in";
   @SerializedName(SERIALIZED_NAME_IN)
@@ -89,37 +82,6 @@ public class EncryptFile {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
-  }
-
-
-  public EncryptFile encryptionContext(Map<String, String> encryptionContext) {
-    
-    this.encryptionContext = encryptionContext;
-    return this;
-  }
-
-  public EncryptFile putEncryptionContextItem(String key, String encryptionContextItem) {
-    if (this.encryptionContext == null) {
-      this.encryptionContext = new HashMap<String, String>();
-    }
-    this.encryptionContext.put(key, encryptionContextItem);
-    return this;
-  }
-
-   /**
-   * name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
-   * @return encryptionContext
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail")
-
-  public Map<String, String> getEncryptionContext() {
-    return encryptionContext;
-  }
-
-
-  public void setEncryptionContext(Map<String, String> encryptionContext) {
-    this.encryptionContext = encryptionContext;
   }
 
 
@@ -292,7 +254,6 @@ public class EncryptFile {
     }
     EncryptFile encryptFile = (EncryptFile) o;
     return Objects.equals(this.displayId, encryptFile.displayId) &&
-        Objects.equals(this.encryptionContext, encryptFile.encryptionContext) &&
         Objects.equals(this.in, encryptFile.in) &&
         Objects.equals(this.itemId, encryptFile.itemId) &&
         Objects.equals(this.json, encryptFile.json) &&
@@ -304,7 +265,7 @@ public class EncryptFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, encryptionContext, in, itemId, json, keyName, out, token, uidToken);
+    return Objects.hash(displayId, in, itemId, json, keyName, out, token, uidToken);
   }
 
 
@@ -313,7 +274,6 @@ public class EncryptFile {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptFile {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
-    sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
