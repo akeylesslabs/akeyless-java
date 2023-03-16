@@ -109,6 +109,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_CA_CERT_NAME)
   private String caCertName;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE)
+  private String certificate;
+
   public static final String SERIALIZED_NAME_CHEF_SERVER_HOST_NAME = "chef_server_host_name";
   @SerializedName(SERIALIZED_NAME_CHEF_SERVER_HOST_NAME)
   private String chefServerHostName;
@@ -408,6 +412,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
+
+  public static final String SERIALIZED_NAME_USE_TLS = "use_tls";
+  @SerializedName(SERIALIZED_NAME_USE_TLS)
+  private Boolean useTls;
 
   public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
@@ -896,6 +904,29 @@ public class TargetTypeDetailsInput {
 
   public void setCaCertName(String caCertName) {
     this.caCertName = caCertName;
+  }
+
+
+  public TargetTypeDetailsInput certificate(String certificate) {
+    
+    this.certificate = certificate;
+    return this;
+  }
+
+   /**
+   * Get certificate
+   * @return certificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificate() {
+    return certificate;
+  }
+
+
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
   }
 
 
@@ -2632,6 +2663,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput useTls(Boolean useTls) {
+    
+    this.useTls = useTls;
+    return this;
+  }
+
+   /**
+   * Get useTls
+   * @return useTls
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseTls() {
+    return useTls;
+  }
+
+
+  public void setUseTls(Boolean useTls) {
+    this.useTls = useTls;
+  }
+
+
   public TargetTypeDetailsInput userName(String userName) {
     
     this.userName = userName;
@@ -2867,6 +2921,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.azureTenantId, targetTypeDetailsInput.azureTenantId) &&
         Objects.equals(this.caCertData, targetTypeDetailsInput.caCertData) &&
         Objects.equals(this.caCertName, targetTypeDetailsInput.caCertName) &&
+        Objects.equals(this.certificate, targetTypeDetailsInput.certificate) &&
         Objects.equals(this.chefServerHostName, targetTypeDetailsInput.chefServerHostName) &&
         Objects.equals(this.chefServerKey, targetTypeDetailsInput.chefServerKey) &&
         Objects.equals(this.chefServerPort, targetTypeDetailsInput.chefServerPort) &&
@@ -2942,6 +2997,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.tenantUrl, targetTypeDetailsInput.tenantUrl) &&
         Objects.equals(this.url, targetTypeDetailsInput.url) &&
         Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
+        Objects.equals(this.useTls, targetTypeDetailsInput.useTls) &&
         Objects.equals(this.userName, targetTypeDetailsInput.userName) &&
         Objects.equals(this.userPassword, targetTypeDetailsInput.userPassword) &&
         Objects.equals(this.username, targetTypeDetailsInput.username) &&
@@ -2955,7 +3011,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, certificate, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, useTls, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
 
@@ -2982,6 +3038,7 @@ public class TargetTypeDetailsInput {
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    caCertData: ").append(toIndentedString(caCertData)).append("\n");
     sb.append("    caCertName: ").append(toIndentedString(caCertName)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    chefServerHostName: ").append(toIndentedString(chefServerHostName)).append("\n");
     sb.append("    chefServerKey: ").append(toIndentedString(chefServerKey)).append("\n");
     sb.append("    chefServerPort: ").append(toIndentedString(chefServerPort)).append("\n");
@@ -3057,6 +3114,7 @@ public class TargetTypeDetailsInput {
     sb.append("    tenantUrl: ").append(toIndentedString(tenantUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
+    sb.append("    useTls: ").append(toIndentedString(useTls)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

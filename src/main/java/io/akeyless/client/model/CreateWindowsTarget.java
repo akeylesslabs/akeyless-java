@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class CreateWindowsTarget {
+  public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE)
+  private String certificate;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -65,9 +69,36 @@ public class CreateWindowsTarget {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_TLS = "use-tls";
+  @SerializedName(SERIALIZED_NAME_USE_TLS)
+  private String useTls = "true";
+
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
+
+
+  public CreateWindowsTarget certificate(String certificate) {
+    
+    this.certificate = certificate;
+    return this;
+  }
+
+   /**
+   * SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+   * @return certificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)")
+
+  public String getCertificate() {
+    return certificate;
+  }
+
+
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
+  }
 
 
   public CreateWindowsTarget description(String description) {
@@ -103,8 +134,7 @@ public class CreateWindowsTarget {
    * Server hostname
    * @return hostname
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Server hostname")
+  @ApiModelProperty(required = true, value = "Server hostname")
 
   public String getHostname() {
     return hostname;
@@ -191,11 +221,10 @@ public class CreateWindowsTarget {
   }
 
    /**
-   * The privileged user password
+   * Privileged user password
    * @return password
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The privileged user password")
+  @ApiModelProperty(required = true, value = "Privileged user password")
 
   public String getPassword() {
     return password;
@@ -214,11 +243,11 @@ public class CreateWindowsTarget {
   }
 
    /**
-   * Server WinRM HTTPS port
+   * Server WinRM port
    * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Server WinRM HTTPS port")
+  @ApiModelProperty(value = "Server WinRM port")
 
   public String getPort() {
     return port;
@@ -276,6 +305,29 @@ public class CreateWindowsTarget {
   }
 
 
+  public CreateWindowsTarget useTls(String useTls) {
+    
+    this.useTls = useTls;
+    return this;
+  }
+
+   /**
+   * Enable/Disable TLS for WinRM over HTTPS [true/false]
+   * @return useTls
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable TLS for WinRM over HTTPS [true/false]")
+
+  public String getUseTls() {
+    return useTls;
+  }
+
+
+  public void setUseTls(String useTls) {
+    this.useTls = useTls;
+  }
+
+
   public CreateWindowsTarget username(String username) {
     
     this.username = username;
@@ -286,8 +338,7 @@ public class CreateWindowsTarget {
    * Privileged username
    * @return username
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Privileged username")
+  @ApiModelProperty(required = true, value = "Privileged username")
 
   public String getUsername() {
     return username;
@@ -308,7 +359,8 @@ public class CreateWindowsTarget {
       return false;
     }
     CreateWindowsTarget createWindowsTarget = (CreateWindowsTarget) o;
-    return Objects.equals(this.description, createWindowsTarget.description) &&
+    return Objects.equals(this.certificate, createWindowsTarget.certificate) &&
+        Objects.equals(this.description, createWindowsTarget.description) &&
         Objects.equals(this.hostname, createWindowsTarget.hostname) &&
         Objects.equals(this.json, createWindowsTarget.json) &&
         Objects.equals(this.key, createWindowsTarget.key) &&
@@ -317,12 +369,13 @@ public class CreateWindowsTarget {
         Objects.equals(this.port, createWindowsTarget.port) &&
         Objects.equals(this.token, createWindowsTarget.token) &&
         Objects.equals(this.uidToken, createWindowsTarget.uidToken) &&
+        Objects.equals(this.useTls, createWindowsTarget.useTls) &&
         Objects.equals(this.username, createWindowsTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, hostname, json, key, name, password, port, token, uidToken, username);
+    return Objects.hash(certificate, description, hostname, json, key, name, password, port, token, uidToken, useTls, username);
   }
 
 
@@ -330,6 +383,7 @@ public class CreateWindowsTarget {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWindowsTarget {\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -339,6 +393,7 @@ public class CreateWindowsTarget {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useTls: ").append(toIndentedString(useTls)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

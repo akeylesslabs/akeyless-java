@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessDbSchema** | **String** | The DB schema |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts) |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]

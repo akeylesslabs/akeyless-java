@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bastionDetails** | **Boolean** | Indicate if the item should return with ztb cluster details (url, etc) |  [optional]
 **displayId** | **String** | The display id of the item |  [optional]
 **gatewayDetails** | **Boolean** | Indicate if the item should return with clusters details (url, etc) |  [optional]
 **itemId** | **Long** | Item id of the item |  [optional]

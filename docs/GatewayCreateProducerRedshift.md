@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **redshiftPort** | **String** | Redshift Port |  [optional]
 **redshiftUsername** | **String** | Redshift Username |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts) |  [optional]
 **ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]

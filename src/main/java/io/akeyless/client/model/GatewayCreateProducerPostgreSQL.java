@@ -457,11 +457,11 @@ public class GatewayCreateProducerPostgreSQL {
   }
 
    /**
-   * Target DB servers for connections
+   * Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts)
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Target DB servers for connections")
+  @ApiModelProperty(value = "Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts)")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;

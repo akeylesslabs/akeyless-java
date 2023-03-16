@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **secureAccessDbName** | **String** | The DB name (relevant only for DB Dynamic-Secret) |  [optional]
 **secureAccessDbSchema** | **String** | The DB schema (relevant only for DB Dynamic-Secret) |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
-**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections |  [optional]
+**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional]
 **secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) |  [optional]
 **secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional]
 **secureAccessRmHost** | **List&lt;String&gt;** | List of the existent hosts that will be removed from SRA servers host |  [optional]

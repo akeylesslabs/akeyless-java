@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class DescribeItem {
+  public static final String SERIALIZED_NAME_BASTION_DETAILS = "bastion-details";
+  @SerializedName(SERIALIZED_NAME_BASTION_DETAILS)
+  private Boolean bastionDetails = false;
+
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
@@ -60,6 +64,29 @@ public class DescribeItem {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+
+  public DescribeItem bastionDetails(Boolean bastionDetails) {
+    
+    this.bastionDetails = bastionDetails;
+    return this;
+  }
+
+   /**
+   * Indicate if the item should return with ztb cluster details (url, etc)
+   * @return bastionDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicate if the item should return with ztb cluster details (url, etc)")
+
+  public Boolean getBastionDetails() {
+    return bastionDetails;
+  }
+
+
+  public void setBastionDetails(Boolean bastionDetails) {
+    this.bastionDetails = bastionDetails;
+  }
 
 
   public DescribeItem displayId(String displayId) {
@@ -254,7 +281,8 @@ public class DescribeItem {
       return false;
     }
     DescribeItem describeItem = (DescribeItem) o;
-    return Objects.equals(this.displayId, describeItem.displayId) &&
+    return Objects.equals(this.bastionDetails, describeItem.bastionDetails) &&
+        Objects.equals(this.displayId, describeItem.displayId) &&
         Objects.equals(this.gatewayDetails, describeItem.gatewayDetails) &&
         Objects.equals(this.itemId, describeItem.itemId) &&
         Objects.equals(this.json, describeItem.json) &&
@@ -266,7 +294,7 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, gatewayDetails, itemId, json, name, showVersions, token, uidToken);
+    return Objects.hash(bastionDetails, displayId, gatewayDetails, itemId, json, name, showVersions, token, uidToken);
   }
 
 
@@ -274,6 +302,7 @@ public class DescribeItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeItem {\n");
+    sb.append("    bastionDetails: ").append(toIndentedString(bastionDetails)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");

@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessTokenManagerId** | **String** |  |  [optional]
+**aclRules** | **List&lt;String&gt;** |  |  [optional]
 **active** | **Boolean** |  |  [optional]
 **adminName** | **String** |  |  [optional]
 **adminPwd** | **String** |  |  [optional]

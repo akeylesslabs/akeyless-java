@@ -38,6 +38,10 @@ public class LastStatusInfo {
   @SerializedName(SERIALIZED_NAME_PRODUCERS_ERRORS)
   private Object producersErrors;
 
+  public static final String SERIALIZED_NAME_WAS_MIGRATIONS_COPIED_TO_NEW_TABLE = "was_migrations_copied_to_new_table";
+  @SerializedName(SERIALIZED_NAME_WAS_MIGRATIONS_COPIED_TO_NEW_TABLE)
+  private Boolean wasMigrationsCopiedToNewTable;
+
 
   public LastStatusInfo migrationsStatus(MigrationStatus migrationsStatus) {
     
@@ -85,6 +89,29 @@ public class LastStatusInfo {
   }
 
 
+  public LastStatusInfo wasMigrationsCopiedToNewTable(Boolean wasMigrationsCopiedToNewTable) {
+    
+    this.wasMigrationsCopiedToNewTable = wasMigrationsCopiedToNewTable;
+    return this;
+  }
+
+   /**
+   * flag to indicate migrationStatus copied to new table
+   * @return wasMigrationsCopiedToNewTable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "flag to indicate migrationStatus copied to new table")
+
+  public Boolean getWasMigrationsCopiedToNewTable() {
+    return wasMigrationsCopiedToNewTable;
+  }
+
+
+  public void setWasMigrationsCopiedToNewTable(Boolean wasMigrationsCopiedToNewTable) {
+    this.wasMigrationsCopiedToNewTable = wasMigrationsCopiedToNewTable;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -95,12 +122,13 @@ public class LastStatusInfo {
     }
     LastStatusInfo lastStatusInfo = (LastStatusInfo) o;
     return Objects.equals(this.migrationsStatus, lastStatusInfo.migrationsStatus) &&
-        Objects.equals(this.producersErrors, lastStatusInfo.producersErrors);
+        Objects.equals(this.producersErrors, lastStatusInfo.producersErrors) &&
+        Objects.equals(this.wasMigrationsCopiedToNewTable, lastStatusInfo.wasMigrationsCopiedToNewTable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(migrationsStatus, producersErrors);
+    return Objects.hash(migrationsStatus, producersErrors, wasMigrationsCopiedToNewTable);
   }
 
 
@@ -110,6 +138,7 @@ public class LastStatusInfo {
     sb.append("class LastStatusInfo {\n");
     sb.append("    migrationsStatus: ").append(toIndentedString(migrationsStatus)).append("\n");
     sb.append("    producersErrors: ").append(toIndentedString(producersErrors)).append("\n");
+    sb.append("    wasMigrationsCopiedToNewTable: ").append(toIndentedString(wasMigrationsCopiedToNewTable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

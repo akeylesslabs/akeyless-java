@@ -801,6 +801,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /create-esm:
+    post:
+      operationId: CreateESM
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateESM'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateESMOutput'
+          description: CreateExternalSecretsManagerResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /create-event-forwarder:
     post:
       operationId: createEventForwarder
@@ -2085,6 +2114,143 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /esm-create:
+    post:
+      operationId: esmCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/esmUpdate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsmCreateSecretOutput'
+          description: esmCreateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /esm-delete:
+    post:
+      operationId: esmDelete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/esmDelete'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsmDeleteSecretOutput'
+          description: esmDeleteResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /esm-get:
+    post:
+      operationId: esmGet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/esmGet'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsmGetSecretOutput'
+          description: esmGetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /esm-list:
+    post:
+      operationId: esmList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/esmList'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsmListSecretsOutput'
+          description: esmListResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /esm-update:
+    post:
+      operationId: esmUpdate
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EsmUpdateSecretOutput'
+          description: esmUpdateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-accepts: application/json
   /export-classic-key:
     post:
       operationId: ExportClassicKey
@@ -2159,6 +2325,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayMigrationCreateOutput'
           description: gatewayMigrationCreateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-create-producer-Redis:
+    post:
+      operationId: gatewayCreateProducerRedis
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayCreateProducerRedis'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayCreateProducerRedisOutput'
+          description: gatewayCreateProducerRedisResponse wraps response body.
         default:
           content:
             application/json:
@@ -4219,6 +4414,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayUpdateProducerRdpOutput'
           description: gatewayUpdateProducerRdpResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-producer-redis:
+    post:
+      operationId: gatewayUpdateProducerRedis
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateProducerRedis'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateProducerRedisOutput'
+          description: gatewayUpdateProducerRedisResponse wraps response body.
         default:
           content:
             application/json:
@@ -7647,6 +7871,12 @@ components:
           schema:
             $ref: '#/components/schemas/CreateClassicKeyOutput'
       description: CreateClassicKeyResponse wraps response body.
+    CreateExternalSecretsManagerResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateESMOutput'
+      description: CreateExternalSecretsManagerResponse wraps response body.
     DescribePermissionsResponse:
       content:
         application/json:
@@ -8117,6 +8347,36 @@ components:
       description: |-
         errorResponse wraps any error to return it as a JSON object with one "error"
         field.
+    esmCreateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EsmCreateSecretOutput'
+      description: esmCreateResponse wraps response body.
+    esmDeleteResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EsmDeleteSecretOutput'
+      description: esmDeleteResponse wraps response body.
+    esmGetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EsmGetSecretOutput'
+      description: esmGetResponse wraps response body.
+    esmListResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EsmListSecretsOutput'
+      description: esmListResponse wraps response body.
+    esmUpdateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EsmUpdateSecretOutput'
+      description: esmUpdateResponse wraps response body.
     gatewayCreateK8SAuthConfigResponse:
       content:
         application/json:
@@ -8262,6 +8522,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayCreateProducerRdpOutput'
       description: gatewayCreateProducerRdpResponse wraps response body.
+    gatewayCreateProducerRedisResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayCreateProducerRedisOutput'
+      description: gatewayCreateProducerRedisResponse wraps response body.
     gatewayCreateProducerRedshiftResponse:
       content:
         application/json:
@@ -8556,6 +8822,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayUpdateProducerRdpOutput'
       description: gatewayUpdateProducerRdpResponse wraps response body.
+    gatewayUpdateProducerRedisResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayUpdateProducerRedisOutput'
+      description: gatewayUpdateProducerRedisResponse wraps response body.
     gatewayUpdateProducerRedshiftResponse:
       content:
         application/json:
@@ -12017,6 +12289,7 @@ components:
             - created_migrations
             - created_migrations
         last_status:
+          was_migrations_copied_to_new_table: true
           migrations_status:
             last_messages:
               key: last_messages
@@ -12332,6 +12605,85 @@ components:
             supported by AKEYLESS.
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    CreateESM:
+      description: CreateESM is a command that creates an External Secrets Manager
+      example:
+        target-to-associate: target-to-associate
+        delete_protection: delete_protection
+        name: name
+        description: description
+        json: false
+        k8s-namespace: k8s-namespace
+        azure-kv-name: azure-kv-name
+        uid-token: uid-token
+        tags:
+        - tags
+        - tags
+        token: token
+      properties:
+        azure-kv-name:
+          description: Azure Key Vault name (Relevant only for Azure targets)
+          type: string
+          x-go-name: AzureVault
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
+        description:
+          description: Description of the External Secrets Manager
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        k8s-namespace:
+          description: K8s namespace (Relevant to Kubernetes targets)
+          type: string
+          x-go-name: K8sNamespace
+        name:
+          description: External Secrets Manager name
+          type: string
+          x-go-name: ESMName
+        tags:
+          description: List of the tags attached to this External Secrets Manager
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-to-associate:
+          description: Target External Secrets Manager to connect
+          type: string
+          x-go-name: TargetToAssociate
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      - target-to-associate
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    CreateESMOutput:
+      example:
+        external_secret_manager_name: external_secret_manager_name
+        external_secret_manager_id: 0
+      properties:
+        external_secret_manager_id:
+          format: int64
+          type: integer
+          x-go-name: ESMId
+        external_secret_manager_name:
+          type: string
+          x-go-name: ESMName
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreatePKICertIssuer:
@@ -12694,6 +13046,9 @@ components:
         - github_installation_token_repositories
         - github_installation_token_repositories
         gcp_service_account_key: gcp_service_account_key
+        acl_rules:
+        - acl_rules
+        - acl_rules
         gcp_service_account_type: gcp_service_account_type
         session_extension_warn_interval_min: 3
         venafi_store_private_key: true
@@ -12863,6 +13218,11 @@ components:
         access_token_manager_id:
           type: string
           x-go-name: AccessTokenManagerId
+        acl_rules:
+          items:
+            type: string
+          type: array
+          x-go-name: AclRules
         active:
           type: boolean
           x-go-name: Active
@@ -13804,6 +14164,81 @@ components:
           x-go-name: KeepPrefixLength
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    EsmCreateSecretOutput:
+      example:
+        secret_id: secret_id
+        version_id: version_id
+      properties:
+        secret_id:
+          type: string
+          x-go-name: SecretId
+        version_id:
+          type: string
+          x-go-name: VersionId
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    EsmDeleteSecretOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    EsmGetSecretOutput:
+      example:
+        metadata: '{}'
+        value: value
+      properties:
+        metadata:
+          type: object
+          x-go-name: Metadata
+        value:
+          type: string
+          x-go-name: Value
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    EsmListSecretsOutput:
+      example:
+        secrets_list:
+        - secret_id: secret_id
+          created: 2000-01-23T04:56:07.000+00:00
+          last_retrieved: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          expiration: 2000-01-23T04:56:07.000+00:00
+          location: '{}'
+          type: type
+          status: true
+          tags:
+            key: tags
+        - secret_id: secret_id
+          created: 2000-01-23T04:56:07.000+00:00
+          last_retrieved: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          expiration: 2000-01-23T04:56:07.000+00:00
+          location: '{}'
+          type: type
+          status: true
+          tags:
+            key: tags
+      properties:
+        secrets_list:
+          items:
+            $ref: '#/components/schemas/SecretInfo'
+          type: array
+          x-go-name: SecretsList
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    EsmUpdateSecretOutput:
+      example:
+        secret_id: secret_id
+        version_id: version_id
+      properties:
+        secret_id:
+          type: string
+          x-go-name: SecretId
+        version_id:
+          type: string
+          x-go-name: VersionId
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     EventType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -14658,6 +15093,7 @@ components:
           app_private_key:
           - 0
           - 0
+          use_tls: true
           private_key_password: private_key_password
           artifactory_admin_username: artifactory_admin_username
           rabbitmq_server_user: rabbitmq_server_user
@@ -14693,6 +15129,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           eks_cluster_endpoint: eks_cluster_endpoint
           gke_service_account_key: gke_service_account_key
+          certificate: certificate
           mongodb_uri_options: mongodb_uri_options
           github_app_private_key: github_app_private_key
           db_pwd: db_pwd
@@ -15554,6 +15991,36 @@ components:
         last_version: 1
         next_rotation_date: 2000-01-23T04:56:07.000+00:00
         delete_protection: true
+        bastion_details:
+          clusters:
+          - allowed_urls:
+            - allowed_urls
+            - allowed_urls
+            cluster_name: cluster_name
+            allowed_urls_per_instance:
+              key:
+              - allowed_urls_per_instance
+              - allowed_urls_per_instance
+            access_id: access_id
+            allowed_access_ids:
+            - allowed_access_ids
+            - allowed_access_ids
+            display_name: display_name
+            last_report: 2000-01-23T04:56:07.000+00:00
+          - allowed_urls:
+            - allowed_urls
+            - allowed_urls
+            cluster_name: cluster_name
+            allowed_urls_per_instance:
+              key:
+              - allowed_urls_per_instance
+              - allowed_urls_per_instance
+            access_id: access_id
+            allowed_access_ids:
+            - allowed_access_ids
+            - allowed_access_ids
+            display_name: display_name
+            last_report: 2000-01-23T04:56:07.000+00:00
         client_permissions:
         - client_permissions
         - client_permissions
@@ -15573,6 +16040,8 @@ components:
         auto_rotate:
           type: boolean
           x-go-name: AutoRotate
+        bastion_details:
+          $ref: '#/components/schemas/BastionsList'
         cert_issuer_signer_key_name:
           type: string
           x-go-name: CertIssuerSignerKeyName
@@ -17004,6 +17473,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     LastStatusInfo:
       example:
+        was_migrations_copied_to_new_table: true
         migrations_status:
           last_messages:
             key: last_messages
@@ -17018,6 +17488,10 @@ components:
         producers_errors:
           type: object
           x-go-name: Producers
+        was_migrations_copied_to_new_table:
+          description: flag to indicate migrationStatus copied to new table
+          type: boolean
+          x-go-name: WasMigrationsCopiedToNewTable
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     LdapConfigPart:
@@ -18301,6 +18775,36 @@ components:
           last_version: 1
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
+          bastion_details:
+            clusters:
+            - allowed_urls:
+              - allowed_urls
+              - allowed_urls
+              cluster_name: cluster_name
+              allowed_urls_per_instance:
+                key:
+                - allowed_urls_per_instance
+                - allowed_urls_per_instance
+              access_id: access_id
+              allowed_access_ids:
+              - allowed_access_ids
+              - allowed_access_ids
+              display_name: display_name
+              last_report: 2000-01-23T04:56:07.000+00:00
+            - allowed_urls:
+              - allowed_urls
+              - allowed_urls
+              cluster_name: cluster_name
+              allowed_urls_per_instance:
+                key:
+                - allowed_urls_per_instance
+                - allowed_urls_per_instance
+              access_id: access_id
+              allowed_access_ids:
+              - allowed_access_ids
+              - allowed_access_ids
+              display_name: display_name
+              last_report: 2000-01-23T04:56:07.000+00:00
           client_permissions:
           - client_permissions
           - client_permissions
@@ -18864,6 +19368,36 @@ components:
           last_version: 1
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
+          bastion_details:
+            clusters:
+            - allowed_urls:
+              - allowed_urls
+              - allowed_urls
+              cluster_name: cluster_name
+              allowed_urls_per_instance:
+                key:
+                - allowed_urls_per_instance
+                - allowed_urls_per_instance
+              access_id: access_id
+              allowed_access_ids:
+              - allowed_access_ids
+              - allowed_access_ids
+              display_name: display_name
+              last_report: 2000-01-23T04:56:07.000+00:00
+            - allowed_urls:
+              - allowed_urls
+              - allowed_urls
+              cluster_name: cluster_name
+              allowed_urls_per_instance:
+                key:
+                - allowed_urls_per_instance
+                - allowed_urls_per_instance
+              access_id: access_id
+              allowed_access_ids:
+              - allowed_access_ids
+              - allowed_access_ids
+              display_name: display_name
+              last_report: 2000-01-23T04:56:07.000+00:00
           client_permissions:
           - client_permissions
           - client_permissions
@@ -21268,6 +21802,57 @@ components:
       title: SSHCertificateType defines the types of SSH certificates.
       type: integer
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    SecretInfo:
+      example:
+        secret_id: secret_id
+        created: 2000-01-23T04:56:07.000+00:00
+        last_retrieved: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        expiration: 2000-01-23T04:56:07.000+00:00
+        location: '{}'
+        type: type
+        status: true
+        tags:
+          key: tags
+      properties:
+        created:
+          format: date-time
+          type: string
+          x-go-name: Created
+        description:
+          type: string
+          x-go-name: Description
+        expiration:
+          format: date-time
+          type: string
+          x-go-name: Expiration
+        last_retrieved:
+          format: date-time
+          type: string
+          x-go-name: LastRetrieved
+        location:
+          type: object
+          x-go-name: Location
+        name:
+          type: string
+          x-go-name: Name
+        secret_id:
+          type: string
+          x-go-name: SecretId
+        status:
+          type: boolean
+          x-go-name: Status
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Tags
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/external-secrets-manager/base
     SecureRemoteAccess:
       example:
         schema: schema
@@ -21839,6 +22424,7 @@ components:
         app_private_key:
         - 0
         - 0
+        use_tls: true
         private_key_password: private_key_password
         artifactory_admin_username: artifactory_admin_username
         rabbitmq_server_user: rabbitmq_server_user
@@ -21874,6 +22460,7 @@ components:
         venafi_tpp_username: venafi_tpp_username
         eks_cluster_endpoint: eks_cluster_endpoint
         gke_service_account_key: gke_service_account_key
+        certificate: certificate
         mongodb_uri_options: mongodb_uri_options
         github_app_private_key: github_app_private_key
         db_pwd: db_pwd
@@ -21970,6 +22557,9 @@ components:
           description: CACertName is the name of the certificate in SalesForce tenant
           type: string
           x-go-name: CACertName
+        certificate:
+          type: string
+          x-go-name: Certificate
         chef_server_host_name:
           type: string
           x-go-name: ChefServerHostName
@@ -22218,6 +22808,9 @@ components:
         use_gw_cloud_identity:
           type: boolean
           x-go-name: GCPUseDefaultIdentity
+        use_tls:
+          type: boolean
+          x-go-name: UseTLS
         user_name:
           type: string
           x-go-name: Username
@@ -25911,7 +26504,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -26039,7 +26633,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -26335,7 +26930,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -26536,6 +27132,11 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createWindowsTarget:
       properties:
+        certificate:
+          description: SSL CA certificate in base64 encoding generated from a trusted
+            Certificate Authority (CA)
+          type: string
+          x-go-name: Certificate
         description:
           description: Description of the object
           type: string
@@ -26560,12 +27161,12 @@ components:
           type: string
           x-go-name: TargetName
         password:
-          description: The privileged user password
+          description: Privileged user password
           type: string
           x-go-name: Password
         port:
           default: "5986"
-          description: Server WinRM HTTPS port
+          description: Server WinRM port
           type: string
           x-go-name: Port
         token:
@@ -26577,12 +27178,20 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        use-tls:
+          default: "true"
+          description: Enable/Disable TLS for WinRM over HTTPS [true/false]
+          type: string
+          x-go-name: UseTLS
         username:
           description: Privileged username
           type: string
           x-go-name: Username
       required:
+      - hostname
       - name
+      - password
+      - username
       title: createWindowsTarget is a command that creates a new windows target.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -27358,6 +27967,12 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     describeItem:
       properties:
+        bastion-details:
+          default: false
+          description: Indicate if the item should return with ztb cluster details
+            (url, etc)
+          type: boolean
+          x-go-name: WithBastionDetails
         display-id:
           description: The display id of the item
           type: string
@@ -27726,6 +28341,201 @@ components:
           x-go-name: Result
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    esmCreate:
+      description: esmCreate is a command that creates a new secret in an External
+        Secrets Manager
+      properties:
+        binary-value:
+          description: Use this option if the external secret value is a base64 encoded
+            binary
+          type: boolean
+          x-go-name: BinaryValue
+        description:
+          description: Description of the external secret
+          type: string
+          x-go-name: Description
+        esm-name:
+          description: Name of the External Secrets Manager item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-name:
+          description: Name for the new external secret
+          type: string
+          x-go-name: SecretName
+        tags:
+          additionalProperties:
+            type: string
+          description: Tags for the external secret
+          type: object
+          x-go-name: Tags
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        value:
+          description: Value of the external secret item, either text or base64 encoded
+            binary
+          type: string
+          x-go-name: Value
+      required:
+      - esm-name
+      - secret-name
+      - value
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    esmDelete:
+      description: esmDelete is a command that deletes a secret from an External Secrets
+        Manager
+      properties:
+        esm-name:
+          description: Name of the External Secrets Manager item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-id:
+          description: The external secret id (or name, for AWS, Azure or K8s targets)
+            to delete
+          type: string
+          x-go-name: SecretId
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - esm-name
+      - secret-id
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    esmGet:
+      description: esmGet is a command that gets the value and interal details of
+        a secret from an External Secrets Manager
+      properties:
+        esm-name:
+          description: Name of the External Secrets Manager item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-id:
+          description: The secret id (or name, for AWS, Azure or K8s targets) to get
+            from the External Secrets Manager
+          type: string
+          x-go-name: SecretId
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - esm-name
+      - secret-id
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    esmList:
+      description: esmList is a command that lists the secrets of an External Secrets
+        Manager
+      properties:
+        esm-name:
+          description: Name of the External Secrets Manager item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - esm-name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    esmUpdate:
+      description: esmUpdate is a command that updates a secret in an External Secrets
+        Manager
+      properties:
+        binary-value:
+          description: Use this option if the external secret value is a base64 encoded
+            binary
+          type: boolean
+          x-go-name: BinaryValue
+        description:
+          description: Description of the external secret
+          type: string
+          x-go-name: Description
+        esm-name:
+          description: Name of the External Secrets Manager item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-id:
+          description: The external secret id (or name, for AWS, Azure or K8s targets)
+            to update
+          type: string
+          x-go-name: SecretId
+        tags:
+          additionalProperties:
+            type: string
+          description: Tags for the external secret
+          type: object
+          x-go-name: Tags
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        value:
+          description: Value of the external secret item, either text or base64 encoded
+            binary
+          type: string
+          x-go-name: Value
+      required:
+      - esm-name
+      - secret-id
+      - value
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateK8SAuthConfig:
       description: gatewayCreateK8SAuth is a command that creates k8s auth config
       properties:
@@ -27844,6 +28654,7 @@ components:
               - created_migrations
               - created_migrations
           last_status:
+            was_migrations_copied_to_new_table: true
             migrations_status:
               last_messages:
                 key: last_messages
@@ -28335,6 +29146,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -28739,6 +29553,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -29129,6 +29946,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -29474,6 +30294,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -29869,6 +30692,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -30304,6 +31130,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -30643,6 +31472,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -31016,6 +31848,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -31369,6 +32204,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -31712,6 +32550,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -32076,6 +32917,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -32309,7 +33153,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -32452,6 +33297,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -32808,6 +33656,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -33041,7 +33892,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -33184,6 +34036,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -33434,7 +34289,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -33577,6 +34433,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -33814,7 +34673,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -33966,6 +34826,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -34368,6 +35231,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -34603,7 +35469,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -34746,6 +35613,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -35168,6 +36038,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -35402,7 +36275,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -35550,6 +36424,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -35929,6 +36806,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -36160,7 +37040,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -36311,6 +37192,369 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
+          gcp_service_account_type: gcp_service_account_type
+          session_extension_warn_interval_min: 3
+          venafi_store_private_key: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          github_installation_id: 5
+          k8s_allowed_namespaces: k8s_allowed_namespaces
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          is_fixed_user: is_fixed_user
+          sf_account: sf_account
+          secure_remote_access_details:
+            schema: schema
+            web_proxy: true
+            bastion_ssh: bastion_ssh
+            isolated: true
+            ssh_private_key: true
+            allow_port_forwarding: true
+            is_web: true
+            endpoint: endpoint
+            native: true
+            enable: true
+            host:
+            - host
+            - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
+            bastion_api: bastion_api
+            rotate_after_disconnect: true
+            category: category
+            region: region
+            ssh_password: true
+            bastion_issuer_id: 9
+          chef_server_host_name: chef_server_host_name
+          k8s_role_type: k8s_role_type
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
+          chef_server_url: chef_server_url
+          aws_user_groups: aws_user_groups
+          azure_tenant_id: azure_tenant_id
+          jwks_url: jwks_url
+          k8s_namespace: k8s_namespace
+          user_password: user_password
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          chef_server_key: chef_server_key
+          implementation_type: implementation_type
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
+          issuer: issuer
+          github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
+          ldap_bind_dn: ldap_bind_dn
+          admin_pwd: admin_pwd
+          azure_fixed_user_only: true
+          azure_user_roles_template_id: azure_user_roles_template_id
+          aws_access_mode: aws_access_mode
+          username_length: 4
+          authorization_port: authorization_port
+          db_host_name: db_host_name
+          ldap_user_dn: ldap_user_dn
+          azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          delete_protection: true
+          db_name: db_name
+          k8s_role_name: k8s_role_name
+          db_port: db_port
+          artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          jwks: jwks
+          hanadb_revocation_statements: hanadb_revocation_statements
+          db_isolation_level: db_isolation_level
+          ssl_connection_mode: true
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          user_ttl: user_ttl
+          ping_url: ping_url
+          ldap_token_expiration: ldap_token_expiration
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          password_policy: password_policy
+          artifactory_admin_username: artifactory_admin_username
+          restricted_scopes:
+          - restricted_scopes
+          - restricted_scopes
+          scopes:
+          - scopes
+          - scopes
+          sf_warehouse_name: sf_warehouse_name
+          artifactory_token_scope: artifactory_token_scope
+          k8s_dynamic_mode: true
+          revoke_sync_url: revoke_sync_url
+          host_port: host_port
+          enable_admin_rotation: true
+          client_authentication_type: client_authentication_type
+          mongodb_uri_connection: mongodb_uri_connection
+          db_user_name: db_user_name
+          eks_region: eks_region
+          artifactory_admin_apikey: artifactory_admin_apikey
+          azure_app_object_id: azure_app_object_id
+          ldap_bind_password: ldap_bind_password
+          subject_dn: subject_dn
+          externally_provided_user: externally_provided_user
+          db_server_certificates: db_server_certificates
+          db_server_name: db_server_name
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          db_pwd: db_pwd
+          signing_algorithm: signing_algorithm
+          administrative_port: administrative_port
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
+          gcp_service_account_email: gcp_service_account_email
+          hanadb_creation_statements: hanadb_creation_statements
+          password_length: 9
+          dynamic_secret_name: dynamic_secret_name
+          aws_user_programmatic_access: true
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          ldap_user_attr: ldap_user_attr
+          use_gw_cloud_identity: true
+          azure_user_programmatic_access: true
+          k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
+          eks_secret_access_key: eks_secret_access_key
+          grant_types:
+          - grant_types
+          - grant_types
+          github_base_url: github_base_url
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          github_repository_path: github_repository_path
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          gke_cluster_name: gke_cluster_name
+          host_name: host_name
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerRedis:
+      description: gatewayCreateProducerRedis is a command that creates Redis producer
+      properties:
+        acl-rules:
+          description: |-
+            A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat
+            By default the user will have permissions to read all keys '["~*", "+@read"]'
+          type: string
+          x-go-name: AclRules
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
+        host:
+          default: 127.0.0.1
+          description: Redis Host
+          type: string
+          x-go-name: Host
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        password:
+          description: Redis Password
+          type: string
+          x-go-name: Password
+        port:
+          default: "6379"
+          description: Redis Port
+          type: string
+          x-go-name: Port
+        producer-encryption-key-name:
+          description: Dynamic producer encryption key
+          type: string
+          x-go-name: ProducerEncryptionKey
+        ssl:
+          default: false
+          description: Enable/Disable SSL [true/false]
+          type: boolean
+          x-go-name: SSLConnection
+        ssl-certificate:
+          description: SSL CA certificate in base64 encoding generated from a trusted
+            Certificate Authority (CA)
+          type: string
+          x-go-name: SSLConnectionCertificate
+        tags:
+          description: Add tags attached to this object
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-ttl:
+          default: 60m
+          description: User TTL
+          type: string
+          x-go-name: UserTtl
+        username:
+          description: Redis Username
+          type: string
+          x-go-name: Username
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateProducerRedisOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          metadata: metadata
+          last_admin_rotation: 7
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          ssl_connection_certificate: ssl_connection_certificate
+          oracle_creation_statements: oracle_creation_statements
+          mssql_creation_statements: mssql_creation_statements
+          password: password
+          sf_user_role: sf_user_role
+          privileged_user: privileged_user
+          ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
+          ldap_url: ldap_url
+          username_policy: username_policy
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          warn_before_user_expiration_min: 7
+          db_private_key: db_private_key
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          active: true
+          item_targets_assoc:
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_type: target_type
+            attributes:
+              key: attributes
+            target_id: 3
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_type: target_type
+            attributes:
+              key: attributes
+            target_id: 3
+          chef_server_username: chef_server_username
+          tags:
+          - tags
+          - tags
+          mongodb_custom_data: mongodb_custom_data
+          k8s_service_account: k8s_service_account
+          chef_skip_ssl: true
+          k8s_cluster_endpoint: k8s_cluster_endpoint
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          access_token_manager_id: access_token_manager_id
+          gcp_token_lifetime: gcp_token_lifetime
+          user_name: user_name
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          postgres_revocation_statements: postgres_revocation_statements
+          gcp_service_account_key_base64: gcp_service_account_key_base64
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
+          timeout_seconds: 2
+          eks_assume_role: eks_assume_role
+          db_max_idle_conns: db_max_idle_conns
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
+          cassandra_creation_statements: cassandra_creation_statements
+          failure_message: failure_message
+          db_private_key_passphrase: db_private_key_passphrase
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          payload: payload
+          redshift_creation_statements: redshift_creation_statements
+          enforce_replay_prevention: true
+          ldap_audience: ldap_audience
+          redirect_uris:
+          - redirect_uris
+          - redirect_uris
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
+          user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
+          gcp_key_algo: gcp_key_algo
+          venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
+          gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -36533,7 +37777,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -36676,6 +37921,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -37028,6 +38276,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -37279,6 +38530,7 @@ components:
               - created_migrations
               - created_migrations
           last_status:
+            was_migrations_copied_to_new_table: true
             migrations_status:
               last_messages:
                 key: last_messages
@@ -38802,6 +40054,7 @@ components:
               - created_migrations
               - created_migrations
           last_status:
+            was_migrations_copied_to_new_table: true
             migrations_status:
               last_messages:
                 key: last_messages
@@ -39301,6 +40554,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -39709,6 +40965,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -40103,6 +41362,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -40452,6 +41714,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -40851,6 +42116,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -41294,6 +42562,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -41637,6 +42908,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -42014,6 +43288,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -42371,6 +43648,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -42718,6 +43998,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -43086,6 +44369,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -43323,7 +44609,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -43466,6 +44753,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -43826,6 +45116,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -44063,7 +45356,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -44206,6 +45500,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -44460,7 +45757,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -44603,6 +45901,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -44844,7 +46145,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -44996,6 +46298,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -45402,6 +46707,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -45641,7 +46949,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -45784,6 +47093,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -46210,6 +47522,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -46448,7 +47763,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -46596,6 +47912,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -46979,6 +48298,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -47214,7 +48536,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -47365,6 +48688,373 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
+          gcp_service_account_type: gcp_service_account_type
+          session_extension_warn_interval_min: 3
+          venafi_store_private_key: true
+          eks_cluster_endpoint: eks_cluster_endpoint
+          gke_service_account_key: gke_service_account_key
+          mongodb_uri_options: mongodb_uri_options
+          github_app_private_key: github_app_private_key
+          gke_service_account_name: gke_service_account_name
+          mysql_creation_statements: mysql_creation_statements
+          github_installation_id: 5
+          k8s_allowed_namespaces: k8s_allowed_namespaces
+          rabbitmq_server_uri: rabbitmq_server_uri
+          chef_server_access_mode: chef_server_access_mode
+          rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
+          is_fixed_user: is_fixed_user
+          sf_account: sf_account
+          secure_remote_access_details:
+            schema: schema
+            web_proxy: true
+            bastion_ssh: bastion_ssh
+            isolated: true
+            ssh_private_key: true
+            allow_port_forwarding: true
+            is_web: true
+            endpoint: endpoint
+            native: true
+            enable: true
+            host:
+            - host
+            - host
+            dashboard_url: dashboard_url
+            bastion_issuer: bastion_issuer
+            ssh_user: ssh_user
+            is_cli: true
+            use_internal_bastion: true
+            rdp_user: rdp_user
+            url: url
+            account_id: account_id
+            db_name: db_name
+            allow_providing_external_username: true
+            domain: domain
+            bastion_api: bastion_api
+            rotate_after_disconnect: true
+            category: category
+            region: region
+            ssh_password: true
+            bastion_issuer_id: 9
+          chef_server_host_name: chef_server_host_name
+          k8s_role_type: k8s_role_type
+          mongodb_is_atlas: true
+          eks_cluster_ca_certificate: eks_cluster_ca_certificate
+          rotate_sync_url: rotate_sync_url
+          chef_server_url: chef_server_url
+          aws_user_groups: aws_user_groups
+          azure_tenant_id: azure_tenant_id
+          jwks_url: jwks_url
+          k8s_namespace: k8s_namespace
+          user_password: user_password
+          venafi_sign_using_akeyless_pki: true
+          dynamic_secret_key: dynamic_secret_key
+          chef_server_key: chef_server_key
+          implementation_type: implementation_type
+          gcp_tmp_service_account_name: gcp_tmp_service_account_name
+          issuer: issuer
+          github_app_id: 1
+          k8s_multiple_doc_yaml_temp_definition:
+          - 2
+          - 2
+          ldap_bind_dn: ldap_bind_dn
+          admin_pwd: admin_pwd
+          azure_fixed_user_only: true
+          azure_user_roles_template_id: azure_user_roles_template_id
+          aws_access_mode: aws_access_mode
+          username_length: 4
+          authorization_port: authorization_port
+          db_host_name: db_host_name
+          ldap_user_dn: ldap_user_dn
+          azure_fixed_user_name_sub_claim_key: azure_fixed_user_name_sub_claim_key
+          delete_protection: true
+          db_name: db_name
+          k8s_role_name: k8s_role_name
+          db_port: db_port
+          artifactory_base_url: artifactory_base_url
+          mysql_revocation_statements: mysql_revocation_statements
+          create_sync_url: create_sync_url
+          aws_session_token: aws_session_token
+          jwks: jwks
+          hanadb_revocation_statements: hanadb_revocation_statements
+          db_isolation_level: db_isolation_level
+          ssl_connection_mode: true
+          mongodb_roles: mongodb_roles
+          mongodb_db_name: mongodb_db_name
+          eks_access_key_id: eks_access_key_id
+          venafi_base_url: venafi_base_url
+          user_ttl: user_ttl
+          ping_url: ping_url
+          ldap_token_expiration: ldap_token_expiration
+          venafi_use_tpp: true
+          mongodb_password: mongodb_password
+          aws_secret_access_key: aws_secret_access_key
+          mongodb_atlas_api_private_key: mongodb_atlas_api_private_key
+          postgres_creation_statements: postgres_creation_statements
+          password_policy: password_policy
+          artifactory_admin_username: artifactory_admin_username
+          restricted_scopes:
+          - restricted_scopes
+          - restricted_scopes
+          scopes:
+          - scopes
+          - scopes
+          sf_warehouse_name: sf_warehouse_name
+          artifactory_token_scope: artifactory_token_scope
+          k8s_dynamic_mode: true
+          revoke_sync_url: revoke_sync_url
+          host_port: host_port
+          enable_admin_rotation: true
+          client_authentication_type: client_authentication_type
+          mongodb_uri_connection: mongodb_uri_connection
+          db_user_name: db_user_name
+          eks_region: eks_region
+          artifactory_admin_apikey: artifactory_admin_apikey
+          azure_app_object_id: azure_app_object_id
+          ldap_bind_password: ldap_bind_password
+          subject_dn: subject_dn
+          externally_provided_user: externally_provided_user
+          db_server_certificates: db_server_certificates
+          db_server_name: db_server_name
+          venafi_tpp_username: venafi_tpp_username
+          azure_user_portal_access: true
+          venafi_root_first_in_chain: true
+          venafi_auto_generated_folder: venafi_auto_generated_folder
+          db_pwd: db_pwd
+          signing_algorithm: signing_algorithm
+          administrative_port: administrative_port
+          github_installation_token_repositories_ids:
+          - 5
+          - 5
+          gcp_service_account_email: gcp_service_account_email
+          hanadb_creation_statements: hanadb_creation_statements
+          password_length: 9
+          dynamic_secret_name: dynamic_secret_name
+          aws_user_programmatic_access: true
+          rabbitmq_user_write_permission: rabbitmq_user_write_permission
+          rabbitmq_user_tags: rabbitmq_user_tags
+          venafi_tpp_password: venafi_tpp_password
+          ldap_user_attr: ldap_user_attr
+          use_gw_cloud_identity: true
+          azure_user_programmatic_access: true
+          k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
+          eks_secret_access_key: eks_secret_access_key
+          grant_types:
+          - grant_types
+          - grant_types
+          github_base_url: github_base_url
+          groups: groups
+          chef_organizations: chef_organizations
+          dynamic_secret_id: 6
+          mssql_revocation_statements: mssql_revocation_statements
+          chef_server_port: chef_server_port
+          github_repository_path: github_repository_path
+          aws_access_key_id: aws_access_key_id
+          aws_region: aws_region
+          eks_cluster_name: eks_cluster_name
+          gke_cluster_name: gke_cluster_name
+          host_name: host_name
+      properties:
+        producer_details:
+          $ref: '#/components/schemas/DSProducerDetails'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateProducerRedis:
+      description: gatewayUpdateProducerRedis is a command that updates redis producer
+      properties:
+        acl-rules:
+          description: |-
+            A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat
+            By default the user will have permissions to read all keys '["~*", "+@read"]'
+          type: string
+          x-go-name: AclRules
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
+        host:
+          default: 127.0.0.1
+          description: Redis Host
+          type: string
+          x-go-name: Host
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerName
+        new-name:
+          description: Producer name
+          type: string
+          x-go-name: ProducerNewName
+        password:
+          description: Redis Password
+          type: string
+          x-go-name: Password
+        port:
+          default: "6379"
+          description: Redis Port
+          type: string
+          x-go-name: Port
+        producer-encryption-key-name:
+          description: Dynamic producer encryption key
+          type: string
+          x-go-name: ProducerEncryptionKey
+        ssl:
+          default: false
+          description: Enable/Disable SSL [true/false]
+          type: boolean
+          x-go-name: SSLConnection
+        ssl-certificate:
+          description: SSL CA certificate in base64 encoding generated from a trusted
+            Certificate Authority (CA)
+          type: string
+          x-go-name: SSLConnectionCertificate
+        tags:
+          description: Add tags attached to this object
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-ttl:
+          default: 60m
+          description: User TTL
+          type: string
+          x-go-name: UserTtl
+        username:
+          description: Redis Username
+          type: string
+          x-go-name: Username
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateProducerRedisOutput:
+      example:
+        producer_details:
+          gke_cluster_endpoint: gke_cluster_endpoint
+          dynamic_secret_type: dynamic_secret_type
+          metadata: metadata
+          last_admin_rotation: 7
+          db_max_open_conns: db_max_open_conns
+          admin_rotation_interval_days: 0
+          ssl_connection_certificate: ssl_connection_certificate
+          oracle_creation_statements: oracle_creation_statements
+          mssql_creation_statements: mssql_creation_statements
+          password: password
+          sf_user_role: sf_user_role
+          privileged_user: privileged_user
+          ldap_certificate: ldap_certificate
+          gcp_role_bindings:
+            key:
+            - gcp_role_bindings
+            - gcp_role_bindings
+          ldap_url: ldap_url
+          username_policy: username_policy
+          gcp_token_scope: gcp_token_scope
+          venafi_allowed_domains:
+          - venafi_allowed_domains
+          - venafi_allowed_domains
+          warn_before_user_expiration_min: 7
+          db_private_key: db_private_key
+          fixed_user_only: fixed_user_only
+          rabbitmq_server_password: rabbitmq_server_password
+          aws_user_policies: aws_user_policies
+          aws_role_arns: aws_role_arns
+          active: true
+          item_targets_assoc:
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_type: target_type
+            attributes:
+              key: attributes
+            target_id: 3
+          - assoc_id: assoc_id
+            target_name: target_name
+            target_type: target_type
+            attributes:
+              key: attributes
+            target_id: 3
+          chef_server_username: chef_server_username
+          tags:
+          - tags
+          - tags
+          mongodb_custom_data: mongodb_custom_data
+          k8s_service_account: k8s_service_account
+          chef_skip_ssl: true
+          k8s_cluster_endpoint: k8s_cluster_endpoint
+          azure_client_secret: azure_client_secret
+          azure_user_groups_obj_id: azure_user_groups_obj_id
+          gcp_token_type: gcp_token_type
+          access_token_manager_id: access_token_manager_id
+          gcp_token_lifetime: gcp_token_lifetime
+          user_name: user_name
+          rabbitmq_user_vhost: rabbitmq_user_vhost
+          mongodb_username: mongodb_username
+          postgres_revocation_statements: postgres_revocation_statements
+          gcp_service_account_key_base64: gcp_service_account_key_base64
+          venafi_signer_key_name: venafi_signer_key_name
+          should_stop: should_stop
+          artifactory_token_audience: artifactory_token_audience
+          mongodb_atlas_api_public_key: mongodb_atlas_api_public_key
+          github_installation_token_permissions:
+            key: github_installation_token_permissions
+          timeout_seconds: 2
+          eks_assume_role: eks_assume_role
+          db_max_idle_conns: db_max_idle_conns
+          admin_name: admin_name
+          rabbitmq_server_user: rabbitmq_server_user
+          venafi_api_key: venafi_api_key
+          mongodb_host_port: mongodb_host_port
+          gke_cluster_ca_certificate: gke_cluster_ca_certificate
+          k8s_bearer_token: k8s_bearer_token
+          azure_resource_name: azure_resource_name
+          cassandra_creation_statements: cassandra_creation_statements
+          failure_message: failure_message
+          db_private_key_passphrase: db_private_key_passphrase
+          rabbitmq_user_read_permission: rabbitmq_user_read_permission
+          azure_client_id: azure_client_id
+          mongodb_default_auth_db: mongodb_default_auth_db
+          mongodb_atlas_project_id: mongodb_atlas_project_id
+          payload: payload
+          redshift_creation_statements: redshift_creation_statements
+          enforce_replay_prevention: true
+          ldap_audience: ldap_audience
+          redirect_uris:
+          - redirect_uris
+          - redirect_uris
+          venafi_allow_subdomains: true
+          aws_user_console_access: true
+          azure_resource_group_name: azure_resource_group_name
+          user_principal_name: user_principal_name
+          azure_subscription_id: azure_subscription_id
+          gcp_key_algo: gcp_key_algo
+          venafi_zone: venafi_zone
+          github_installation_token_repositories:
+          - github_installation_token_repositories
+          - github_installation_token_repositories
+          gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -47591,7 +49281,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target DB servers for connections
+          description: Target DB servers for connections (In case of Linked Target
+            association, host(s) will inherit Linked Target hosts)
           items:
             type: string
           type: array
@@ -47734,6 +49425,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -48090,6 +49784,9 @@ components:
           - github_installation_token_repositories
           - github_installation_token_repositories
           gcp_service_account_key: gcp_service_account_key
+          acl_rules:
+          - acl_rules
+          - acl_rules
           gcp_service_account_type: gcp_service_account_type
           session_extension_warn_interval_min: 3
           venafi_store_private_key: true
@@ -53128,7 +54825,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -53976,7 +55674,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -54141,7 +55840,8 @@ components:
           type: string
           x-go-name: SecureAccessEnabled
         secure-access-host:
-          description: Target servers for connections
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
           items:
             type: string
           type: array
@@ -54705,6 +56405,11 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateWindowsTarget:
       properties:
+        certificate:
+          description: SSL CA certificate in base64 encoding generated from a trusted
+            Certificate Authority (CA)
+          type: string
+          x-go-name: Certificate
         description:
           description: Description of the object
           type: string
@@ -54738,12 +56443,12 @@ components:
           type: string
           x-go-name: NewTargetName
         password:
-          description: The privileged user password
+          description: Privileged user password
           type: string
           x-go-name: Password
         port:
           default: "5986"
-          description: Server WinRM HTTPS port
+          description: Server WinRM port
           type: string
           x-go-name: Port
         token:
@@ -54759,12 +56464,20 @@ components:
           description: Deprecated
           type: boolean
           x-go-name: CreateNewVersion
+        use-tls:
+          default: "true"
+          description: Enable/Disable TLS for WinRM over HTTPS [true/false]
+          type: string
+          x-go-name: UseTLS
         username:
           description: Privileged username
           type: string
           x-go-name: Username
       required:
+      - hostname
       - name
+      - password
+      - username
       title: updateWindowsTarget is a command that updates an existing windows target.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands

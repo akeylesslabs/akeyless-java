@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.BastionsList;
 import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.GatewayBasicInfo;
 import io.akeyless.client.model.ItemGeneralInfo;
@@ -51,6 +52,10 @@ public class Item {
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto_rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private Boolean autoRotate;
+
+  public static final String SERIALIZED_NAME_BASTION_DETAILS = "bastion_details";
+  @SerializedName(SERIALIZED_NAME_BASTION_DETAILS)
+  private BastionsList bastionDetails;
 
   public static final String SERIALIZED_NAME_CERT_ISSUER_SIGNER_KEY_NAME = "cert_issuer_signer_key_name";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUER_SIGNER_KEY_NAME)
@@ -259,6 +264,29 @@ public class Item {
 
   public void setAutoRotate(Boolean autoRotate) {
     this.autoRotate = autoRotate;
+  }
+
+
+  public Item bastionDetails(BastionsList bastionDetails) {
+    
+    this.bastionDetails = bastionDetails;
+    return this;
+  }
+
+   /**
+   * Get bastionDetails
+   * @return bastionDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public BastionsList getBastionDetails() {
+    return bastionDetails;
+  }
+
+
+  public void setBastionDetails(BastionsList bastionDetails) {
+    this.bastionDetails = bastionDetails;
   }
 
 
@@ -1127,6 +1155,7 @@ public class Item {
     return Objects.equals(this.accessDate, item.accessDate) &&
         Objects.equals(this.accessRequestStatus, item.accessRequestStatus) &&
         Objects.equals(this.autoRotate, item.autoRotate) &&
+        Objects.equals(this.bastionDetails, item.bastionDetails) &&
         Objects.equals(this.certIssuerSignerKeyName, item.certIssuerSignerKeyName) &&
         Objects.equals(this.certificateIssueDetails, item.certificateIssueDetails) &&
         Objects.equals(this.certificates, item.certificates) &&
@@ -1166,7 +1195,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessRequestStatus, autoRotate, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
 
@@ -1177,6 +1206,7 @@ public class Item {
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    accessRequestStatus: ").append(toIndentedString(accessRequestStatus)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
+    sb.append("    bastionDetails: ").append(toIndentedString(bastionDetails)).append("\n");
     sb.append("    certIssuerSignerKeyName: ").append(toIndentedString(certIssuerSignerKeyName)).append("\n");
     sb.append("    certificateIssueDetails: ").append(toIndentedString(certificateIssueDetails)).append("\n");
     sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");

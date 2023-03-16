@@ -384,11 +384,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Target servers for connections
+   * Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
    * @return secureAccessHost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Target servers for connections")
+  @ApiModelProperty(value = "Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)")
 
   public List<String> getSecureAccessHost() {
     return secureAccessHost;
