@@ -842,22 +842,6 @@ public class V2ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void gatewayDeleteSubAdminsTest() throws ApiException {
-        GatewayDeleteAllowedManagementAccess body = null;
-        api.gatewayDeleteAllowedManagementAccess(body);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void gatewayGetConfigTest() throws ApiException {
         GatewayGetConfig body = null;
         AkeylessGatewayConfig response = api.gatewayGetConfig(body);
@@ -910,21 +894,6 @@ public class V2ApiTest {
         GatewayListProducers body = null;
         GetProducersListReplyObj response = api.gatewayListProducers(body);
 
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void gatewayListSubAdminsTest() throws ApiException {
-        GatewayListAllowedManagementAccess body = null;
-        GetSubAdminsListReplyObj response = api.gatewayListAllowedManagementAccess(body);
         // TODO: test validations
     }
     
