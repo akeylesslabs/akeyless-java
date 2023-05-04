@@ -2,6 +2,7 @@
 
 # ConfigHash
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,9 +19,9 @@ Name | Type | Description | Notes
 **mQueue** | **String** |  |  [optional]
 **migrationStatus** | **String** |  |  [optional]
 **migrations** | **String** |  |  [optional]
-**producers** | [**Object**](.md) |  |  [optional]
+**producers** | **Object** |  |  [optional]
 **producersStatus** | **String** |  |  [optional]
-**rotators** | [**Object**](.md) |  |  [optional]
+**rotators** | **Object** |  |  [optional]
 **saml** | **String** |  |  [optional]
 **universalIdentity** | **String** |  |  [optional]
 

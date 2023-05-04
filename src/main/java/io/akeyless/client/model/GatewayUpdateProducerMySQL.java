@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerMySQL is a command that updates mysql producer
  */
 @ApiModel(description = "gatewayUpdateProducerMySQL is a command that updates mysql producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerMySQL {
   public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
   @SerializedName(SERIALIZED_NAME_DB_SERVER_CERTIFICATES)
@@ -132,6 +132,8 @@ public class GatewayUpdateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerMySQL() { 
+  }
 
   public GatewayUpdateProducerMySQL dbServerCertificates(String dbServerCertificates) {
     
@@ -396,6 +398,7 @@ public class GatewayUpdateProducerMySQL {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -724,7 +727,7 @@ public class GatewayUpdateProducerMySQL {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -764,7 +767,6 @@ public class GatewayUpdateProducerMySQL {
     return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -802,7 +804,7 @@ public class GatewayUpdateProducerMySQL {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

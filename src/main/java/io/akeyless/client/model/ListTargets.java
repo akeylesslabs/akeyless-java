@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ListTargets
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListTargets {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
@@ -55,6 +55,8 @@ public class ListTargets {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public ListTargets() { 
+  }
 
   public ListTargets filter(String filter) {
     
@@ -203,7 +205,7 @@ public class ListTargets {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -224,7 +226,6 @@ public class ListTargets {
     return Objects.hash(filter, json, paginationToken, token, type, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -243,7 +244,7 @@ public class ListTargets {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

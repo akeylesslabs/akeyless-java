@@ -3,6 +3,7 @@
 # UpdateRotatedSecret
 
 updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use gateway-update-item command]
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerRdp is a command that creates rdp producer
  */
 @ApiModel(description = "gatewayCreateProducerRdp is a command that creates rdp producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerRdp {
   public static final String SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION = "allow-user-extend-session";
   @SerializedName(SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION)
@@ -120,6 +120,8 @@ public class GatewayCreateProducerRdp {
   @SerializedName(SERIALIZED_NAME_WARN_USER_BEFORE_EXPIRATION)
   private Long warnUserBeforeExpiration;
 
+  public GatewayCreateProducerRdp() { 
+  }
 
   public GatewayCreateProducerRdp allowUserExtendSession(Long allowUserExtendSession) {
     
@@ -223,6 +225,7 @@ public class GatewayCreateProducerRdp {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -643,7 +646,7 @@ public class GatewayCreateProducerRdp {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -680,7 +683,6 @@ public class GatewayCreateProducerRdp {
     return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -715,7 +717,7 @@ public class GatewayCreateProducerRdp {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

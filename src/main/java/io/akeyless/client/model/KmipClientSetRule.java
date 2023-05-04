@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * KmipClientSetRule
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KmipClientSetRule {
   public static final String SERIALIZED_NAME_CAPABILITY = "capability";
   @SerializedName(SERIALIZED_NAME_CAPABILITY)
@@ -59,6 +59,8 @@ public class KmipClientSetRule {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public KmipClientSetRule() { 
+  }
 
   public KmipClientSetRule capability(List<String> capability) {
     
@@ -75,6 +77,7 @@ public class KmipClientSetRule {
    * Access capabilities
    * @return capability
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Access capabilities")
 
   public List<String> getCapability() {
@@ -166,6 +169,7 @@ public class KmipClientSetRule {
    * Access path
    * @return path
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Access path")
 
   public String getPath() {
@@ -225,7 +229,7 @@ public class KmipClientSetRule {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -247,7 +251,6 @@ public class KmipClientSetRule {
     return Objects.hash(capability, clientId, json, name, path, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -267,7 +270,7 @@ public class KmipClientSetRule {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

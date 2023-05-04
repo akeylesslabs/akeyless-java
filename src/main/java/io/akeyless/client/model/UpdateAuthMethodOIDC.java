@@ -30,7 +30,7 @@ import java.util.List;
  * updateAuthMethodOIDC is a command that updates a new auth method that will be available to authenticate using OIDC.
  */
 @ApiModel(description = "updateAuthMethodOIDC is a command that updates a new auth method that will be available to authenticate using OIDC.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodOIDC {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -104,6 +104,8 @@ public class UpdateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
 
+  public UpdateAuthMethodOIDC() { 
+  }
 
   public UpdateAuthMethodOIDC accessExpires(Long accessExpires) {
     
@@ -392,6 +394,7 @@ public class UpdateAuthMethodOIDC {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -537,6 +540,7 @@ public class UpdateAuthMethodOIDC {
    * A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \&quot;sub claim\&quot; that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
    * @return uniqueIdentifier
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \"sub claim\" that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.")
 
   public String getUniqueIdentifier() {
@@ -550,7 +554,7 @@ public class UpdateAuthMethodOIDC {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -583,7 +587,6 @@ public class UpdateAuthMethodOIDC {
     return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -614,7 +617,7 @@ public class UpdateAuthMethodOIDC {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

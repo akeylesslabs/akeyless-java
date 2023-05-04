@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Configure
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Configure {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -77,6 +77,8 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
 
+  public Configure() { 
+  }
 
   public Configure accessId(String accessId) {
     
@@ -131,11 +133,11 @@ public class Configure {
   }
 
    /**
-   * Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s)
+   * Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert)
    * @return accessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s)")
+  @ApiModelProperty(value = "Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert)")
 
   public String getAccessType() {
     return accessType;
@@ -355,7 +357,7 @@ public class Configure {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -382,7 +384,6 @@ public class Configure {
     return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -407,7 +408,7 @@ public class Configure {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

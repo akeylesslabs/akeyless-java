@@ -3,6 +3,7 @@
 # GatewayCreateProducerGithub
 
 gatewayCreateProducerGithub is a command that creates github producer
+
 ## Properties
 
 Name | Type | Description | Notes

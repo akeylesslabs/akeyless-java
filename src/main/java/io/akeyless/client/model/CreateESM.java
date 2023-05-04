@@ -30,7 +30,7 @@ import java.util.List;
  * CreateESM is a command that creates an External Secrets Manager
  */
 @ApiModel(description = "CreateESM is a command that creates an External Secrets Manager")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateESM {
   public static final String SERIALIZED_NAME_AZURE_KV_NAME = "azure-kv-name";
   @SerializedName(SERIALIZED_NAME_AZURE_KV_NAME)
@@ -72,6 +72,8 @@ public class CreateESM {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateESM() { 
+  }
 
   public CreateESM azureKvName(String azureKvName) {
     
@@ -198,6 +200,7 @@ public class CreateESM {
    * External Secrets Manager name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "External Secrets Manager name")
 
   public String getName() {
@@ -251,6 +254,7 @@ public class CreateESM {
    * Target External Secrets Manager to connect
    * @return targetToAssociate
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target External Secrets Manager to connect")
 
   public String getTargetToAssociate() {
@@ -310,7 +314,7 @@ public class CreateESM {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -335,7 +339,6 @@ public class CreateESM {
     return Objects.hash(azureKvName, deleteProtection, description, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -358,7 +361,7 @@ public class CreateESM {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

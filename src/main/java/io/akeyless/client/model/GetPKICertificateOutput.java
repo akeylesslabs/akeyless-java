@@ -27,8 +27,12 @@ import java.io.IOException;
 /**
  * GetPKICertificateOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetPKICertificateOutput {
+  public static final String SERIALIZED_NAME_CERT_DISPLAY_ID = "cert_display_id";
+  @SerializedName(SERIALIZED_NAME_CERT_DISPLAY_ID)
+  private String certDisplayId;
+
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private String data;
@@ -40,6 +44,35 @@ public class GetPKICertificateOutput {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_READING_TOKEN = "reading_token";
+  @SerializedName(SERIALIZED_NAME_READING_TOKEN)
+  private String readingToken;
+
+  public GetPKICertificateOutput() { 
+  }
+
+  public GetPKICertificateOutput certDisplayId(String certDisplayId) {
+    
+    this.certDisplayId = certDisplayId;
+    return this;
+  }
+
+   /**
+   * Get certDisplayId
+   * @return certDisplayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertDisplayId() {
+    return certDisplayId;
+  }
+
+
+  public void setCertDisplayId(String certDisplayId) {
+    this.certDisplayId = certDisplayId;
+  }
 
 
   public GetPKICertificateOutput data(String data) {
@@ -111,8 +144,31 @@ public class GetPKICertificateOutput {
   }
 
 
+  public GetPKICertificateOutput readingToken(String readingToken) {
+    
+    this.readingToken = readingToken;
+    return this;
+  }
+
+   /**
+   * Get readingToken
+   * @return readingToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getReadingToken() {
+    return readingToken;
+  }
+
+
+  public void setReadingToken(String readingToken) {
+    this.readingToken = readingToken;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -120,24 +176,27 @@ public class GetPKICertificateOutput {
       return false;
     }
     GetPKICertificateOutput getPKICertificateOutput = (GetPKICertificateOutput) o;
-    return Objects.equals(this.data, getPKICertificateOutput.data) &&
+    return Objects.equals(this.certDisplayId, getPKICertificateOutput.certDisplayId) &&
+        Objects.equals(this.data, getPKICertificateOutput.data) &&
         Objects.equals(this.parentCert, getPKICertificateOutput.parentCert) &&
-        Objects.equals(this.path, getPKICertificateOutput.path);
+        Objects.equals(this.path, getPKICertificateOutput.path) &&
+        Objects.equals(this.readingToken, getPKICertificateOutput.readingToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, parentCert, path);
+    return Objects.hash(certDisplayId, data, parentCert, path, readingToken);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPKICertificateOutput {\n");
+    sb.append("    certDisplayId: ").append(toIndentedString(certDisplayId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    parentCert: ").append(toIndentedString(parentCert)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    readingToken: ").append(toIndentedString(readingToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -146,7 +205,7 @@ public class GetPKICertificateOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

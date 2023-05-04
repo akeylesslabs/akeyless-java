@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerHanaDbOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

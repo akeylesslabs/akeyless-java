@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * UIDTokenDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UIDTokenDetails {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
@@ -72,6 +72,8 @@ public class UIDTokenDetails {
   @SerializedName(SERIALIZED_NAME_TTL)
   private Integer ttl;
 
+  public UIDTokenDetails() { 
+  }
 
   public UIDTokenDetails children(Map<String, UIDTokenDetails> children) {
     
@@ -312,7 +314,7 @@ public class UIDTokenDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -337,7 +339,6 @@ public class UIDTokenDetails {
     return Objects.hash(children, comment, denyInheritance, denyRotate, depth, expiredDate, id, lastRotate, revoked, ttl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -360,7 +361,7 @@ public class UIDTokenDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

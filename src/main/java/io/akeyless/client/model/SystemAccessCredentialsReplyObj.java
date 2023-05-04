@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SystemAccessCredentialsReplyObj
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SystemAccessCredentialsReplyObj {
   public static final String SERIALIZED_NAME_AUTH_CREDS = "auth_creds";
   @SerializedName(SERIALIZED_NAME_AUTH_CREDS)
@@ -41,6 +41,10 @@ public class SystemAccessCredentialsReplyObj {
   @SerializedName(SERIALIZED_NAME_KFM_CREDS)
   private String kfmCreds;
 
+  public static final String SERIALIZED_NAME_REQUIRED_MFA = "required_mfa";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_MFA)
+  private String requiredMfa;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -49,6 +53,8 @@ public class SystemAccessCredentialsReplyObj {
   @SerializedName(SERIALIZED_NAME_UAM_CREDS)
   private String uamCreds;
 
+  public SystemAccessCredentialsReplyObj() { 
+  }
 
   public SystemAccessCredentialsReplyObj authCreds(String authCreds) {
     
@@ -119,6 +125,29 @@ public class SystemAccessCredentialsReplyObj {
   }
 
 
+  public SystemAccessCredentialsReplyObj requiredMfa(String requiredMfa) {
+    
+    this.requiredMfa = requiredMfa;
+    return this;
+  }
+
+   /**
+   * Get requiredMfa
+   * @return requiredMfa
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRequiredMfa() {
+    return requiredMfa;
+  }
+
+
+  public void setRequiredMfa(String requiredMfa) {
+    this.requiredMfa = requiredMfa;
+  }
+
+
   public SystemAccessCredentialsReplyObj token(String token) {
     
     this.token = token;
@@ -166,7 +195,7 @@ public class SystemAccessCredentialsReplyObj {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -177,15 +206,15 @@ public class SystemAccessCredentialsReplyObj {
     return Objects.equals(this.authCreds, systemAccessCredentialsReplyObj.authCreds) &&
         Objects.equals(this.expiry, systemAccessCredentialsReplyObj.expiry) &&
         Objects.equals(this.kfmCreds, systemAccessCredentialsReplyObj.kfmCreds) &&
+        Objects.equals(this.requiredMfa, systemAccessCredentialsReplyObj.requiredMfa) &&
         Objects.equals(this.token, systemAccessCredentialsReplyObj.token) &&
         Objects.equals(this.uamCreds, systemAccessCredentialsReplyObj.uamCreds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authCreds, expiry, kfmCreds, token, uamCreds);
+    return Objects.hash(authCreds, expiry, kfmCreds, requiredMfa, token, uamCreds);
   }
-
 
   @Override
   public String toString() {
@@ -194,6 +223,7 @@ public class SystemAccessCredentialsReplyObj {
     sb.append("    authCreds: ").append(toIndentedString(authCreds)).append("\n");
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    kfmCreds: ").append(toIndentedString(kfmCreds)).append("\n");
+    sb.append("    requiredMfa: ").append(toIndentedString(requiredMfa)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uamCreds: ").append(toIndentedString(uamCreds)).append("\n");
     sb.append("}");
@@ -204,7 +234,7 @@ public class SystemAccessCredentialsReplyObj {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

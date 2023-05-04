@@ -2,6 +2,7 @@
 
 # EmailEntry
 
+
 ## Properties
 
 Name | Type | Description | Notes

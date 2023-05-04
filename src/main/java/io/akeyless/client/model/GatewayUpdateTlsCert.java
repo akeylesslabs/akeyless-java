@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayUpdateTlsCert is a command that updates Gateway TLS certificate
  */
 @ApiModel(description = "gatewayUpdateTlsCert is a command that updates Gateway TLS certificate")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateTlsCert {
   public static final String SERIALIZED_NAME_CERT_DATA = "cert-data";
   @SerializedName(SERIALIZED_NAME_CERT_DATA)
@@ -50,6 +50,8 @@ public class GatewayUpdateTlsCert {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayUpdateTlsCert() { 
+  }
 
   public GatewayUpdateTlsCert certData(String certData) {
     
@@ -167,7 +169,7 @@ public class GatewayUpdateTlsCert {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -187,7 +189,6 @@ public class GatewayUpdateTlsCert {
     return Objects.hash(certData, json, keyData, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -205,7 +206,7 @@ public class GatewayUpdateTlsCert {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

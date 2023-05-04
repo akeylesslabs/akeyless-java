@@ -3,6 +3,7 @@
 # ListSharedItems
 
 listSharedItems is a command to list all the items been shared
+
 ## Properties
 
 Name | Type | Description | Notes

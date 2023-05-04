@@ -3,6 +3,7 @@
 # GatewayUpdateK8SAuthConfig
 
 gatewayUpdateK8SAuth is a command that updates k8s auth config
+
 ## Properties
 
 Name | Type | Description | Notes

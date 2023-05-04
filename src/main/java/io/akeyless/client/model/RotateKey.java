@@ -28,7 +28,7 @@ import java.io.IOException;
  * of it.
  */
 @ApiModel(description = "of it.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RotateKey {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -54,6 +54,8 @@ public class RotateKey {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public RotateKey() { 
+  }
 
   public RotateKey json(Boolean json) {
     
@@ -88,6 +90,7 @@ public class RotateKey {
    * Key name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Key name")
 
   public String getName() {
@@ -193,7 +196,7 @@ public class RotateKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -214,7 +217,6 @@ public class RotateKey {
     return Objects.hash(json, name, newCertPemData, newKeyData, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -233,7 +235,7 @@ public class RotateKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

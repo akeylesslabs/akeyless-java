@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayCreateK8SAuth is a command that creates k8s auth config
  */
 @ApiModel(description = "gatewayCreateK8SAuth is a command that creates k8s auth config")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateK8SAuthConfig {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -94,6 +94,8 @@ public class GatewayCreateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayCreateK8SAuthConfig() { 
+  }
 
   public GatewayCreateK8SAuthConfig accessId(String accessId) {
     
@@ -105,6 +107,7 @@ public class GatewayCreateK8SAuthConfig {
    * The access ID of the Kubernetes auth method
    * @return accessId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The access ID of the Kubernetes auth method")
 
   public String getAccessId() {
@@ -242,6 +245,7 @@ public class GatewayCreateK8SAuthConfig {
    * The URL of the kubernetes API server
    * @return k8sHost
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The URL of the kubernetes API server")
 
   public String getK8sHost() {
@@ -287,6 +291,7 @@ public class GatewayCreateK8SAuthConfig {
    * K8S Auth config name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S Auth config name")
 
   public String getName() {
@@ -355,6 +360,7 @@ public class GatewayCreateK8SAuthConfig {
    * The private key (base64 encoded) associated with the public key defined in the Kubernetes auth
    * @return signingKey
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The private key (base64 encoded) associated with the public key defined in the Kubernetes auth")
 
   public String getSigningKey() {
@@ -460,7 +466,7 @@ public class GatewayCreateK8SAuthConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -491,7 +497,6 @@ public class GatewayCreateK8SAuthConfig {
     return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, disableIssuerValidation, json, k8sCaCert, k8sHost, k8sIssuer, name, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -520,7 +525,7 @@ public class GatewayCreateK8SAuthConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

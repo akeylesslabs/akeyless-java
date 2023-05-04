@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateItem is a command that updates classic key
  */
 @ApiModel(description = "gatewayUpdateItem is a command that updates classic key")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateItem {
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
@@ -128,6 +128,8 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayUpdateItem() { 
+  }
 
   public GatewayUpdateItem addTag(List<String> addTag) {
     
@@ -400,6 +402,7 @@ public class GatewayUpdateItem {
    * Item name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Item name")
 
   public String getName() {
@@ -660,6 +663,7 @@ public class GatewayUpdateItem {
    * Item type
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Item type")
 
   public String getType() {
@@ -696,7 +700,7 @@ public class GatewayUpdateItem {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -735,7 +739,6 @@ public class GatewayUpdateItem {
     return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, description, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -772,7 +775,7 @@ public class GatewayUpdateItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

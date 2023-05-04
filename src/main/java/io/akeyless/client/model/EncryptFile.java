@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EncryptFile
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EncryptFile {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -61,6 +61,8 @@ public class EncryptFile {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public EncryptFile() { 
+  }
 
   public EncryptFile displayId(String displayId) {
     
@@ -95,6 +97,7 @@ public class EncryptFile {
    * Path to the file to be encrypted. If not provided, the content will be taken from stdin
    * @return in
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path to the file to be encrypted. If not provided, the content will be taken from stdin")
 
   public String getIn() {
@@ -163,6 +166,7 @@ public class EncryptFile {
    * The name of the key to use in the encryption process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
 
   public String getKeyName() {
@@ -245,7 +249,7 @@ public class EncryptFile {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -268,7 +272,6 @@ public class EncryptFile {
     return Objects.hash(displayId, in, itemId, json, keyName, out, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -289,7 +292,7 @@ public class EncryptFile {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

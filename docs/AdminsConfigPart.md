@@ -2,11 +2,13 @@
 
 # AdminsConfigPart
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allowedAccess** | [**Map&lt;String, AllowedAccess&gt;**](AllowedAccess.md) |  |  [optional]
+**adminsMigrationStatus** | **Long** |  |  [optional]
+**allowedAccess** | [**Map&lt;String, AllowedAccessOld&gt;**](AllowedAccessOld.md) |  |  [optional]
 
 
 

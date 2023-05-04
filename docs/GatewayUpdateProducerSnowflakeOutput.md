@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerSnowflakeOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

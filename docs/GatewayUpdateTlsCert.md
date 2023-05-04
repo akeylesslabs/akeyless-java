@@ -3,6 +3,7 @@
 # GatewayUpdateTlsCert
 
 gatewayUpdateTlsCert is a command that updates Gateway TLS certificate
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,7 +2,8 @@
 
 # GatewayListProducers
 
-gatewayListProducers is a command that returns producer
+gatewayListProducers is a command that returns a list of producers
+
 ## Properties
 
 Name | Type | Description | Notes

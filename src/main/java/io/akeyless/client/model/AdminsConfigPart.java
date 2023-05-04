@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.akeyless.client.model.AllowedAccess;
+import io.akeyless.client.model.AllowedAccessOld;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,22 +31,51 @@ import java.util.Map;
 /**
  * AdminsConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdminsConfigPart {
+  public static final String SERIALIZED_NAME_ADMINS_MIGRATION_STATUS = "admins_migration_status";
+  @SerializedName(SERIALIZED_NAME_ADMINS_MIGRATION_STATUS)
+  private Long adminsMigrationStatus;
+
   public static final String SERIALIZED_NAME_ALLOWED_ACCESS = "allowed_access";
   @SerializedName(SERIALIZED_NAME_ALLOWED_ACCESS)
-  private Map<String, AllowedAccess> allowedAccess = null;
+  private Map<String, AllowedAccessOld> allowedAccess = null;
+
+  public AdminsConfigPart() { 
+  }
+
+  public AdminsConfigPart adminsMigrationStatus(Long adminsMigrationStatus) {
+    
+    this.adminsMigrationStatus = adminsMigrationStatus;
+    return this;
+  }
+
+   /**
+   * Get adminsMigrationStatus
+   * @return adminsMigrationStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getAdminsMigrationStatus() {
+    return adminsMigrationStatus;
+  }
 
 
-  public AdminsConfigPart allowedAccess(Map<String, AllowedAccess> allowedAccess) {
+  public void setAdminsMigrationStatus(Long adminsMigrationStatus) {
+    this.adminsMigrationStatus = adminsMigrationStatus;
+  }
+
+
+  public AdminsConfigPart allowedAccess(Map<String, AllowedAccessOld> allowedAccess) {
     
     this.allowedAccess = allowedAccess;
     return this;
   }
 
-  public AdminsConfigPart putAllowedAccessItem(String key, AllowedAccess allowedAccessItem) {
+  public AdminsConfigPart putAllowedAccessItem(String key, AllowedAccessOld allowedAccessItem) {
     if (this.allowedAccess == null) {
-      this.allowedAccess = new HashMap<String, AllowedAccess>();
+      this.allowedAccess = new HashMap<String, AllowedAccessOld>();
     }
     this.allowedAccess.put(key, allowedAccessItem);
     return this;
@@ -59,18 +88,18 @@ public class AdminsConfigPart {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Map<String, AllowedAccess> getAllowedAccess() {
+  public Map<String, AllowedAccessOld> getAllowedAccess() {
     return allowedAccess;
   }
 
 
-  public void setAllowedAccess(Map<String, AllowedAccess> allowedAccess) {
+  public void setAllowedAccess(Map<String, AllowedAccessOld> allowedAccess) {
     this.allowedAccess = allowedAccess;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -78,19 +107,20 @@ public class AdminsConfigPart {
       return false;
     }
     AdminsConfigPart adminsConfigPart = (AdminsConfigPart) o;
-    return Objects.equals(this.allowedAccess, adminsConfigPart.allowedAccess);
+    return Objects.equals(this.adminsMigrationStatus, adminsConfigPart.adminsMigrationStatus) &&
+        Objects.equals(this.allowedAccess, adminsConfigPart.allowedAccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedAccess);
+    return Objects.hash(adminsMigrationStatus, allowedAccess);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdminsConfigPart {\n");
+    sb.append("    adminsMigrationStatus: ").append(toIndentedString(adminsMigrationStatus)).append("\n");
     sb.append("    allowedAccess: ").append(toIndentedString(allowedAccess)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -100,7 +130,7 @@ public class AdminsConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

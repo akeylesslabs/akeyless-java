@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayGetLdapAuth is a command that gets ldap auth config
  */
 @ApiModel(description = "gatewayGetLdapAuth is a command that gets ldap auth config")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayGetLdapAuthConfig {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -42,6 +42,8 @@ public class GatewayGetLdapAuthConfig {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayGetLdapAuthConfig() { 
+  }
 
   public GatewayGetLdapAuthConfig json(Boolean json) {
     
@@ -113,7 +115,7 @@ public class GatewayGetLdapAuthConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class GatewayGetLdapAuthConfig {
     return Objects.hash(json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class GatewayGetLdapAuthConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

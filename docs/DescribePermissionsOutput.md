@@ -2,6 +2,7 @@
 
 # DescribePermissionsOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

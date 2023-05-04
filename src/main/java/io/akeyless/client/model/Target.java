@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Target
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Target {
   public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
@@ -108,6 +108,8 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
 
+  public Target() { 
+  }
 
   public Target accessDate(OffsetDateTime accessDate) {
     
@@ -556,7 +558,7 @@ public class Target {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -589,7 +591,6 @@ public class Target {
     return Objects.hash(accessDate, accessRequestStatus, attributes, clientPermissions, comment, creationDate, credentialsLess, isAccessRequestEnabled, lastVersion, modificationDate, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetType, targetVersions, withCustomerFragment);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -620,7 +621,7 @@ public class Target {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

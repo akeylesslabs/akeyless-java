@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CreateCertificate
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateCertificate {
   public static final String SERIALIZED_NAME_CERTIFICATE_DATA = "certificate-data";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DATA)
@@ -46,6 +46,10 @@ public class CreateCertificate {
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   private List<String> expirationEventIn = null;
+
+  public static final String SERIALIZED_NAME_FORMAT = "format";
+  @SerializedName(SERIALIZED_NAME_FORMAT)
+  private String format;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -79,6 +83,8 @@ public class CreateCertificate {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateCertificate() { 
+  }
 
   public CreateCertificate certificateData(String certificateData) {
     
@@ -87,11 +93,11 @@ public class CreateCertificate {
   }
 
    /**
-   * Content of the certificate PEM in a Base64 format.
+   * Content of the certificate in a Base64 format.
    * @return certificateData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Content of the certificate PEM in a Base64 format.")
+  @ApiModelProperty(value = "Content of the certificate in a Base64 format.")
 
   public String getCertificateData() {
     return certificateData;
@@ -180,6 +186,29 @@ public class CreateCertificate {
   }
 
 
+  public CreateCertificate format(String format) {
+    
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * CertificateFormat of the certificate and private key, possible values: cer,crt,pem,pfx,p12. Required when passing inline certificate content with --certificate-data or --key-data, otherwise format is derived from the file extension.
+   * @return format
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CertificateFormat of the certificate and private key, possible values: cer,crt,pem,pfx,p12. Required when passing inline certificate content with --certificate-data or --key-data, otherwise format is derived from the file extension.")
+
+  public String getFormat() {
+    return format;
+  }
+
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+
   public CreateCertificate json(Boolean json) {
     
     this.json = json;
@@ -233,11 +262,11 @@ public class CreateCertificate {
   }
 
    /**
-   * Content of the certificate&#39;s private key PEM in a Base64 format.
+   * Content of the certificate&#39;s private key in a Base64 format.
    * @return keyData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Content of the certificate's private key PEM in a Base64 format.")
+  @ApiModelProperty(value = "Content of the certificate's private key in a Base64 format.")
 
   public String getKeyData() {
     return keyData;
@@ -282,6 +311,7 @@ public class CreateCertificate {
    * Certificate name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Certificate name")
 
   public String getName() {
@@ -372,7 +402,7 @@ public class CreateCertificate {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -384,6 +414,7 @@ public class CreateCertificate {
         Objects.equals(this.deleteProtection, createCertificate.deleteProtection) &&
         Objects.equals(this.description, createCertificate.description) &&
         Objects.equals(this.expirationEventIn, createCertificate.expirationEventIn) &&
+        Objects.equals(this.format, createCertificate.format) &&
         Objects.equals(this.json, createCertificate.json) &&
         Objects.equals(this.key, createCertificate.key) &&
         Objects.equals(this.keyData, createCertificate.keyData) &&
@@ -396,9 +427,8 @@ public class CreateCertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateData, deleteProtection, description, expirationEventIn, json, key, keyData, metadata, name, tags, token, uidToken);
+    return Objects.hash(certificateData, deleteProtection, description, expirationEventIn, format, json, key, keyData, metadata, name, tags, token, uidToken);
   }
-
 
   @Override
   public String toString() {
@@ -408,6 +438,7 @@ public class CreateCertificate {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
@@ -424,7 +455,7 @@ public class CreateCertificate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -28,12 +28,14 @@ import java.io.IOException;
 /**
  * GatewayUpdateProducerAzureOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerAzureOutput {
   public static final String SERIALIZED_NAME_PRODUCER_DETAILS = "producer_details";
   @SerializedName(SERIALIZED_NAME_PRODUCER_DETAILS)
   private DSProducerDetails producerDetails;
 
+  public GatewayUpdateProducerAzureOutput() { 
+  }
 
   public GatewayUpdateProducerAzureOutput producerDetails(DSProducerDetails producerDetails) {
     
@@ -59,7 +61,7 @@ public class GatewayUpdateProducerAzureOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -75,7 +77,6 @@ public class GatewayUpdateProducerAzureOutput {
     return Objects.hash(producerDetails);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -89,7 +90,7 @@ public class GatewayUpdateProducerAzureOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

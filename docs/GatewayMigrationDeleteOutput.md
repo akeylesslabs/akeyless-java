@@ -2,6 +2,7 @@
 
 # GatewayMigrationDeleteOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

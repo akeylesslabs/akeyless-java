@@ -28,7 +28,7 @@ import java.io.IOException;
  * describePermissions is a command that shows which permissions your have to a particular path.
  */
 @ApiModel(description = "describePermissions is a command that shows which permissions your have to a particular path.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DescribePermissions {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -50,6 +50,8 @@ public class DescribePermissions {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DescribePermissions() { 
+  }
 
   public DescribePermissions json(Boolean json) {
     
@@ -84,6 +86,7 @@ public class DescribePermissions {
    * Path to an object
    * @return path
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path to an object")
 
   public String getPath() {
@@ -129,6 +132,7 @@ public class DescribePermissions {
    * Type of object (item, am, role, target)
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of object (item, am, role, target)")
 
   public String getType() {
@@ -165,7 +169,7 @@ public class DescribePermissions {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -185,7 +189,6 @@ public class DescribePermissions {
     return Objects.hash(json, path, token, type, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -203,7 +206,7 @@ public class DescribePermissions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

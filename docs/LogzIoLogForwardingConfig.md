@@ -2,6 +2,7 @@
 
 # LogzIoLogForwardingConfig
 
+
 ## Properties
 
 Name | Type | Description | Notes

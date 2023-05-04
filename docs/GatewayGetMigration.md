@@ -3,6 +3,7 @@
 # GatewayGetMigration
 
 gatewayGetMigration is a command that get migration
+
 ## Properties
 
 Name | Type | Description | Notes

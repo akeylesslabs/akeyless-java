@@ -28,7 +28,7 @@ import java.io.IOException;
  * EmailTokenizerInfo represents a tokenizer that specifically tokenizes emails
  */
 @ApiModel(description = "EmailTokenizerInfo represents a tokenizer that specifically tokenizes emails")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmailTokenizerInfo {
   public static final String SERIALIZED_NAME_DOMAIN_SUFFIX_LENGTH = "domain_suffix_length";
   @SerializedName(SERIALIZED_NAME_DOMAIN_SUFFIX_LENGTH)
@@ -42,6 +42,8 @@ public class EmailTokenizerInfo {
   @SerializedName(SERIALIZED_NAME_KEEP_PREFIX_LENGTH)
   private Long keepPrefixLength;
 
+  public EmailTokenizerInfo() { 
+  }
 
   public EmailTokenizerInfo domainSuffixLength(Long domainSuffixLength) {
     
@@ -113,7 +115,7 @@ public class EmailTokenizerInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class EmailTokenizerInfo {
     return Objects.hash(domainSuffixLength, fixedDomainSuffix, keepPrefixLength);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class EmailTokenizerInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

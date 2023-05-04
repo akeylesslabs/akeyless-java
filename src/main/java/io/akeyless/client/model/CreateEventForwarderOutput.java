@@ -27,12 +27,14 @@ import java.io.IOException;
 /**
  * CreateEventForwarderOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateEventForwarderOutput {
   public static final String SERIALIZED_NAME_EVENT_FORWARDER_ID = "event_forwarder_id";
   @SerializedName(SERIALIZED_NAME_EVENT_FORWARDER_ID)
   private Long eventForwarderId;
 
+  public CreateEventForwarderOutput() { 
+  }
 
   public CreateEventForwarderOutput eventForwarderId(Long eventForwarderId) {
     
@@ -58,7 +60,7 @@ public class CreateEventForwarderOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +76,6 @@ public class CreateEventForwarderOutput {
     return Objects.hash(eventForwarderId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +89,7 @@ public class CreateEventForwarderOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

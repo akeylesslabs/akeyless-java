@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateESMOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateESMOutput {
   public static final String SERIALIZED_NAME_EXTERNAL_SECRET_MANAGER_ID = "external_secret_manager_id";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_SECRET_MANAGER_ID)
@@ -37,6 +37,8 @@ public class CreateESMOutput {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_SECRET_MANAGER_NAME)
   private String externalSecretManagerName;
 
+  public CreateESMOutput() { 
+  }
 
   public CreateESMOutput externalSecretManagerId(Long externalSecretManagerId) {
     
@@ -85,7 +87,7 @@ public class CreateESMOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class CreateESMOutput {
     return Objects.hash(externalSecretManagerId, externalSecretManagerName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class CreateESMOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

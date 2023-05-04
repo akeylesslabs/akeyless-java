@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SplunkLogForwardingConfig
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SplunkLogForwardingConfig {
   public static final String SERIALIZED_NAME_SPLUNK_INDEX = "splunk_index";
   @SerializedName(SERIALIZED_NAME_SPLUNK_INDEX)
@@ -49,6 +49,8 @@ public class SplunkLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_SPLUNK_URL)
   private String splunkUrl;
 
+  public SplunkLogForwardingConfig() { 
+  }
 
   public SplunkLogForwardingConfig splunkIndex(String splunkIndex) {
     
@@ -166,7 +168,7 @@ public class SplunkLogForwardingConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -186,7 +188,6 @@ public class SplunkLogForwardingConfig {
     return Objects.hash(splunkIndex, splunkSource, splunkSourcetype, splunkToken, splunkUrl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -204,7 +205,7 @@ public class SplunkLogForwardingConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

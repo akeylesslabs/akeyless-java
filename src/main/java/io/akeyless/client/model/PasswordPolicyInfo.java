@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PasswordPolicyInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PasswordPolicyInfo {
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password_length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -49,6 +49,8 @@ public class PasswordPolicyInfo {
   @SerializedName(SERIALIZED_NAME_USE_SPECIAL_CHARACTERS)
   private Boolean useSpecialCharacters;
 
+  public PasswordPolicyInfo() { 
+  }
 
   public PasswordPolicyInfo passwordLength(Long passwordLength) {
     
@@ -166,7 +168,7 @@ public class PasswordPolicyInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -186,7 +188,6 @@ public class PasswordPolicyInfo {
     return Objects.hash(passwordLength, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -204,7 +205,7 @@ public class PasswordPolicyInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

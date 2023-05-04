@@ -28,7 +28,7 @@ import java.io.IOException;
  * updateRotationSettings is a command that updates rotations settings of an existing key
  */
 @ApiModel(description = "updateRotationSettings is a command that updates rotations settings of an existing key")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateRotationSettings {
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
@@ -54,6 +54,8 @@ public class UpdateRotationSettings {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateRotationSettings() { 
+  }
 
   public UpdateRotationSettings autoRotate(Boolean autoRotate) {
     
@@ -65,6 +67,7 @@ public class UpdateRotationSettings {
    * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation
    * @return autoRotate
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation")
 
   public Boolean getAutoRotate() {
@@ -110,6 +113,7 @@ public class UpdateRotationSettings {
    * Key name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Key name")
 
   public String getName() {
@@ -192,7 +196,7 @@ public class UpdateRotationSettings {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -213,7 +217,6 @@ public class UpdateRotationSettings {
     return Objects.hash(autoRotate, json, name, rotationInterval, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -232,7 +235,7 @@ public class UpdateRotationSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

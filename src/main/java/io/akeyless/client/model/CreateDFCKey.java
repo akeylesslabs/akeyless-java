@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CreateDFCKey
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDFCKey {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -75,6 +75,8 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateDFCKey() { 
+  }
 
   public CreateDFCKey alg(String alg) {
     
@@ -86,6 +88,7 @@ public class CreateDFCKey {
    * DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
    * @return alg
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]")
 
   public String getAlg() {
@@ -223,6 +226,7 @@ public class CreateDFCKey {
    * DFCKey name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "DFCKey name")
 
   public String getName() {
@@ -336,7 +340,7 @@ public class CreateDFCKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -362,7 +366,6 @@ public class CreateDFCKey {
     return Objects.hash(alg, customerFrgId, deleteProtection, description, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -386,7 +389,7 @@ public class CreateDFCKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

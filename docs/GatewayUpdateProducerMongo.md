@@ -3,6 +3,7 @@
 # GatewayUpdateProducerMongo
 
 gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer
+
 ## Properties
 
 Name | Type | Description | Notes

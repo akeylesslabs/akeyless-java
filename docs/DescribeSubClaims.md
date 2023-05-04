@@ -3,6 +3,7 @@
 # DescribeSubClaims
 
 describe-sub-claims Get the sub-claims associated with the provided token or authentication profile
+
 ## Properties
 
 Name | Type | Description | Notes

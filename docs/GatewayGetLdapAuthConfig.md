@@ -3,6 +3,7 @@
 # GatewayGetLdapAuthConfig
 
 gatewayGetLdapAuth is a command that gets ldap auth config
+
 ## Properties
 
 Name | Type | Description | Notes

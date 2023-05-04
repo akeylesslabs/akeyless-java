@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer
  */
 @ApiModel(description = "gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
@@ -124,6 +124,8 @@ public class GatewayUpdateProducerPostgreSQL {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerPostgreSQL() { 
+  }
 
   public GatewayUpdateProducerPostgreSQL creationStatements(String creationStatements) {
     
@@ -204,6 +206,7 @@ public class GatewayUpdateProducerPostgreSQL {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -670,7 +673,7 @@ public class GatewayUpdateProducerPostgreSQL {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -708,7 +711,6 @@ public class GatewayUpdateProducerPostgreSQL {
     return Objects.hash(creationStatements, deleteProtection, json, name, newName, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -744,7 +746,7 @@ public class GatewayUpdateProducerPostgreSQL {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

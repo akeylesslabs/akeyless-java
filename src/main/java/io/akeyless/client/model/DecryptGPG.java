@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DecryptGPG
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecryptGPG {
   public static final String SERIALIZED_NAME_CIPHERTEXT = "ciphertext";
   @SerializedName(SERIALIZED_NAME_CIPHERTEXT)
@@ -65,6 +65,8 @@ public class DecryptGPG {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DecryptGPG() { 
+  }
 
   public DecryptGPG ciphertext(String ciphertext) {
     
@@ -76,6 +78,7 @@ public class DecryptGPG {
    * Ciphertext to be decrypted in base64 encoded format
    * @return ciphertext
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Ciphertext to be decrypted in base64 encoded format")
 
   public String getCiphertext() {
@@ -167,6 +170,7 @@ public class DecryptGPG {
    * The name of the key to use in the decryption process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
 
   public String getKeyName() {
@@ -272,7 +276,7 @@ public class DecryptGPG {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -296,7 +300,6 @@ public class DecryptGPG {
     return Objects.hash(ciphertext, displayId, itemId, json, keyName, outputFormat, passphrase, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -318,7 +321,7 @@ public class DecryptGPG {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UpdateEventForwarder
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateEventForwarder {
   public static final String SERIALIZED_NAME_ADMIN_NAME = "admin-name";
   @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
@@ -83,6 +83,8 @@ public class UpdateEventForwarder {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateEventForwarder() { 
+  }
 
   public UpdateEventForwarder adminName(String adminName) {
     
@@ -294,6 +296,7 @@ public class UpdateEventForwarder {
    * EventForwarder name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "EventForwarder name")
 
   public String getName() {
@@ -399,7 +402,7 @@ public class UpdateEventForwarder {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -427,7 +430,6 @@ public class UpdateEventForwarder {
     return Objects.hash(adminName, description, emailTo, enable, eventSourceLocations, eventTypes, host, json, name, newComment, newName, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -453,7 +455,7 @@ public class UpdateEventForwarder {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

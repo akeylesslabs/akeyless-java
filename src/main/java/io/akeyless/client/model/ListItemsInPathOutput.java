@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ListItemsInPathOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListItemsInPathOutput {
   public static final String SERIALIZED_NAME_FOLDERS = "folders";
   @SerializedName(SERIALIZED_NAME_FOLDERS)
@@ -44,6 +44,8 @@ public class ListItemsInPathOutput {
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE)
   private String nextPage;
 
+  public ListItemsInPathOutput() { 
+  }
 
   public ListItemsInPathOutput folders(List<String> folders) {
     
@@ -131,7 +133,7 @@ public class ListItemsInPathOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -149,7 +151,6 @@ public class ListItemsInPathOutput {
     return Objects.hash(folders, items, nextPage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -165,7 +166,7 @@ public class ListItemsInPathOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

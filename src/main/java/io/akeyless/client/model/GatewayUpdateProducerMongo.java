@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer
  */
 @ApiModel(description = "gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerMongo {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -136,6 +136,8 @@ public class GatewayUpdateProducerMongo {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerMongo() { 
+  }
 
   public GatewayUpdateProducerMongo deleteProtection(String deleteProtection) {
     
@@ -469,6 +471,7 @@ public class GatewayUpdateProducerMongo {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -751,7 +754,7 @@ public class GatewayUpdateProducerMongo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -792,7 +795,6 @@ public class GatewayUpdateProducerMongo {
     return Objects.hash(deleteProtection, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -831,7 +833,7 @@ public class GatewayUpdateProducerMongo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

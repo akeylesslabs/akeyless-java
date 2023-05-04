@@ -3,6 +3,7 @@
 # EmailTokenizerInfo
 
 EmailTokenizerInfo represents a tokenizer that specifically tokenizes emails
+
 ## Properties
 
 Name | Type | Description | Notes

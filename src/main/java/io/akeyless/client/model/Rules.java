@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Rules
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Rules {
   public static final String SERIALIZED_NAME_ADMIN = "admin";
   @SerializedName(SERIALIZED_NAME_ADMIN)
@@ -40,6 +40,8 @@ public class Rules {
   @SerializedName(SERIALIZED_NAME_PATH_RULES)
   private List<PathRule> pathRules = null;
 
+  public Rules() { 
+  }
 
   public Rules admin(Boolean admin) {
     
@@ -96,7 +98,7 @@ public class Rules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -113,7 +115,6 @@ public class Rules {
     return Objects.hash(admin, pathRules);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -128,7 +129,7 @@ public class Rules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

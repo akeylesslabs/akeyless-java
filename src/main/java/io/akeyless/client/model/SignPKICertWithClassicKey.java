@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SignPKICertWithClassicKey
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignPKICertWithClassicKey {
   public static final String SERIALIZED_NAME_COMMON_NAME = "common-name";
   @SerializedName(SERIALIZED_NAME_COMMON_NAME)
@@ -105,6 +105,8 @@ public class SignPKICertWithClassicKey {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public SignPKICertWithClassicKey() { 
+  }
 
   public SignPKICertWithClassicKey commonName(String commonName) {
     
@@ -162,6 +164,7 @@ public class SignPKICertWithClassicKey {
    * The name of the key to use in the sign PKI Cert process
    * @return displayId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the sign PKI Cert process")
 
   public String getDisplayId() {
@@ -391,6 +394,7 @@ public class SignPKICertWithClassicKey {
    * SigningMethod
    * @return signingMethod
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "SigningMethod")
 
   public String getSigningMethod() {
@@ -459,6 +463,7 @@ public class SignPKICertWithClassicKey {
    * he requested Time To Live for the certificate, in seconds
    * @return ttl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
 
   public Long getTtl() {
@@ -527,6 +532,7 @@ public class SignPKICertWithClassicKey {
    * classic key version
    * @return version
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "classic key version")
 
   public Integer getVersion() {
@@ -540,7 +546,7 @@ public class SignPKICertWithClassicKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -574,7 +580,6 @@ public class SignPKICertWithClassicKey {
     return Objects.hash(commonName, country, displayId, dnsNames, json, keyUsage, locality, organizationalUnits, organizations, postalCode, province, publicKeyPemData, signingMethod, streetAddress, token, ttl, uidToken, uriSans, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -606,7 +611,7 @@ public class SignPKICertWithClassicKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

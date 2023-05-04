@@ -3,6 +3,7 @@
 # EsmDelete
 
 esmDelete is a command that deletes a secret from an External Secrets Manager
+
 ## Properties
 
 Name | Type | Description | Notes

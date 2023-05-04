@@ -28,7 +28,7 @@ import java.io.IOException;
  * signPKCS1 is a command that calculates the signature of hashed data using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5.
  */
 @ApiModel(description = "signPKCS1 is a command that calculates the signature of hashed data using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignPKCS1 {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -58,6 +58,8 @@ public class SignPKCS1 {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public SignPKCS1() { 
+  }
 
   public SignPKCS1 displayId(String displayId) {
     
@@ -161,6 +163,7 @@ public class SignPKCS1 {
    * The message to be signed
    * @return message
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The message to be signed")
 
   public String getMessage() {
@@ -220,7 +223,7 @@ public class SignPKCS1 {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -242,7 +245,6 @@ public class SignPKCS1 {
     return Objects.hash(displayId, itemId, json, keyName, message, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -262,7 +264,7 @@ public class SignPKCS1 {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

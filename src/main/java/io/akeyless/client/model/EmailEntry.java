@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailEntry
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmailEntry {
   public static final String SERIALIZED_NAME_TO_EMAIL = "to_email";
   @SerializedName(SERIALIZED_NAME_TO_EMAIL)
@@ -37,6 +37,8 @@ public class EmailEntry {
   @SerializedName(SERIALIZED_NAME_TO_NAME)
   private String toName;
 
+  public EmailEntry() { 
+  }
 
   public EmailEntry toEmail(String toEmail) {
     
@@ -85,7 +87,7 @@ public class EmailEntry {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class EmailEntry {
     return Objects.hash(toEmail, toName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class EmailEntry {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

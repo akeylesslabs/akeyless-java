@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerMySQL is a command that creates mysql producer
  */
 @ApiModel(description = "gatewayCreateProducerMySQL is a command that creates mysql producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerMySQL {
   public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
   @SerializedName(SERIALIZED_NAME_DB_SERVER_CERTIFICATES)
@@ -128,6 +128,8 @@ public class GatewayCreateProducerMySQL {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayCreateProducerMySQL() { 
+  }
 
   public GatewayCreateProducerMySQL dbServerCertificates(String dbServerCertificates) {
     
@@ -392,6 +394,7 @@ public class GatewayCreateProducerMySQL {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -697,7 +700,7 @@ public class GatewayCreateProducerMySQL {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -736,7 +739,6 @@ public class GatewayCreateProducerMySQL {
     return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -773,7 +775,7 @@ public class GatewayCreateProducerMySQL {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -3,6 +3,7 @@
 # GatewayDeleteMigration
 
 gatewayDeleteMigration is a command that delete migration
+
 ## Properties
 
 Name | Type | Description | Notes

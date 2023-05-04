@@ -30,7 +30,7 @@ import java.util.List;
  * createAuthMethodK8S is a command that creates a new auth method that will be able to authenticate using K8S.
  */
 @ApiModel(description = "createAuthMethodK8S is a command that creates a new auth method that will be able to authenticate using K8S.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodK8S {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -92,6 +92,8 @@ public class CreateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateAuthMethodK8S() { 
+  }
 
   public CreateAuthMethodK8S accessExpires(Long accessExpires) {
     
@@ -396,6 +398,7 @@ public class CreateAuthMethodK8S {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -478,7 +481,7 @@ public class CreateAuthMethodK8S {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -508,7 +511,6 @@ public class CreateAuthMethodK8S {
     return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, publicKey, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -536,7 +538,7 @@ public class CreateAuthMethodK8S {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

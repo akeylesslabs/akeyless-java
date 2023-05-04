@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * PathRule
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PathRule {
   public static final String SERIALIZED_NAME_ASSIGNERS = "assigners";
   @SerializedName(SERIALIZED_NAME_ASSIGNERS)
@@ -68,6 +68,8 @@ public class PathRule {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public PathRule() { 
+  }
 
   public PathRule assigners(List<RuleAssigner> assigners) {
     
@@ -293,7 +295,7 @@ public class PathRule {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -317,7 +319,6 @@ public class PathRule {
     return Objects.hash(assigners, capabilities, isLimitAccess, numberOfAccessUsed, numberOfAllowedAccess, path, startTime, ttl, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -339,7 +340,7 @@ public class PathRule {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

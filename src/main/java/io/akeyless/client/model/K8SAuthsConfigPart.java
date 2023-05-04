@@ -30,12 +30,14 @@ import java.util.List;
 /**
  * K8SAuthsConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class K8SAuthsConfigPart {
   public static final String SERIALIZED_NAME_K8S_AUTHS = "k8s_auths";
   @SerializedName(SERIALIZED_NAME_K8S_AUTHS)
   private List<K8SAuth> k8sAuths = null;
 
+  public K8SAuthsConfigPart() { 
+  }
 
   public K8SAuthsConfigPart k8sAuths(List<K8SAuth> k8sAuths) {
     
@@ -69,7 +71,7 @@ public class K8SAuthsConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -85,7 +87,6 @@ public class K8SAuthsConfigPart {
     return Objects.hash(k8sAuths);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -99,7 +100,7 @@ public class K8SAuthsConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

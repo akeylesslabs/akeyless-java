@@ -28,12 +28,14 @@ import java.io.IOException;
 /**
  * TokenizerInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TokenizerInfo {
   public static final String SERIALIZED_NAME_VAULTLESS_TOKENIZER_INFO = "vaultless_tokenizer_info";
   @SerializedName(SERIALIZED_NAME_VAULTLESS_TOKENIZER_INFO)
   private VaultlessTokenizerInfo vaultlessTokenizerInfo;
 
+  public TokenizerInfo() { 
+  }
 
   public TokenizerInfo vaultlessTokenizerInfo(VaultlessTokenizerInfo vaultlessTokenizerInfo) {
     
@@ -59,7 +61,7 @@ public class TokenizerInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -75,7 +77,6 @@ public class TokenizerInfo {
     return Objects.hash(vaultlessTokenizerInfo);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -89,7 +90,7 @@ public class TokenizerInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

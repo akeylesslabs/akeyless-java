@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConfigHash
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigHash {
   public static final String SERIALIZED_NAME_ADMINS = "admins";
   @SerializedName(SERIALIZED_NAME_ADMINS)
@@ -97,6 +97,8 @@ public class ConfigHash {
   @SerializedName(SERIALIZED_NAME_UNIVERSAL_IDENTITY)
   private String universalIdentity;
 
+  public ConfigHash() { 
+  }
 
   public ConfigHash admins(String admins) {
     
@@ -490,7 +492,7 @@ public class ConfigHash {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -522,7 +524,6 @@ public class ConfigHash {
     return Objects.hash(admins, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrationStatus, migrations, producers, producersStatus, rotators, saml, universalIdentity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -552,7 +553,7 @@ public class ConfigHash {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

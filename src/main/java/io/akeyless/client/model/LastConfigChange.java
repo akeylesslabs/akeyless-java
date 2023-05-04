@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * LastConfigChange
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LastConfigChange {
   public static final String SERIALIZED_NAME_LAST_K8S_AUTHS_CHANGE = "last_k8s_auths_change";
   @SerializedName(SERIALIZED_NAME_LAST_K8S_AUTHS_CHANGE)
@@ -39,6 +39,8 @@ public class LastConfigChange {
   @SerializedName(SERIALIZED_NAME_LAST_MIGRATIONS_CHANGE)
   private MigrationsConfigLastChange lastMigrationsChange;
 
+  public LastConfigChange() { 
+  }
 
   public LastConfigChange lastK8sAuthsChange(K8SAuthsConfigLastChange lastK8sAuthsChange) {
     
@@ -87,7 +89,7 @@ public class LastConfigChange {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -104,7 +106,6 @@ public class LastConfigChange {
     return Objects.hash(lastK8sAuthsChange, lastMigrationsChange);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -119,7 +120,7 @@ public class LastConfigChange {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

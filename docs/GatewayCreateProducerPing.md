@@ -3,6 +3,7 @@
 # GatewayCreateProducerPing
 
 gatewayCreateProducerPing is a command that creates ping producer
+
 ## Properties
 
 Name | Type | Description | Notes

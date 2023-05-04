@@ -31,7 +31,7 @@ import java.util.Map;
  * Responses:  default: errorResponse 200: addGatewayAllowedAccessIdResponse
  */
 @ApiModel(description = "Responses:  default: errorResponse 200: addGatewayAllowedAccessIdResponse")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AddGatewayAllowedAccessId {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -57,6 +57,8 @@ public class AddGatewayAllowedAccessId {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public AddGatewayAllowedAccessId() { 
+  }
 
   public AddGatewayAllowedAccessId accessId(String accessId) {
     
@@ -68,6 +70,7 @@ public class AddGatewayAllowedAccessId {
    * The access id that will be able to access to gateway
    * @return accessId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The access id that will be able to access to gateway")
 
   public String getAccessId() {
@@ -90,6 +93,7 @@ public class AddGatewayAllowedAccessId {
    * The name of the updated cluster, e.g. acc-abcd12345678/p-123456789012/defaultCluster
    * @return clusterName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the updated cluster, e.g. acc-abcd12345678/p-123456789012/defaultCluster")
 
   public String getClusterName() {
@@ -203,7 +207,7 @@ public class AddGatewayAllowedAccessId {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -224,7 +228,6 @@ public class AddGatewayAllowedAccessId {
     return Objects.hash(accessId, clusterName, json, subClaims, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -243,7 +246,7 @@ public class AddGatewayAllowedAccessId {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

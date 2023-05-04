@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MigrationGeneral
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MigrationGeneral {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -57,6 +57,8 @@ public class MigrationGeneral {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public MigrationGeneral() { 
+  }
 
   public MigrationGeneral id(String id) {
     
@@ -220,7 +222,7 @@ public class MigrationGeneral {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -242,7 +244,6 @@ public class MigrationGeneral {
     return Objects.hash(id, name, newName, prefix, protectionKey, status, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -262,7 +263,7 @@ public class MigrationGeneral {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

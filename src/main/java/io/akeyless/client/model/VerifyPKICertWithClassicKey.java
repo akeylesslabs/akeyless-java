@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * VerifyPKICertWithClassicKey
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerifyPKICertWithClassicKey {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -53,6 +53,8 @@ public class VerifyPKICertWithClassicKey {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public VerifyPKICertWithClassicKey() { 
+  }
 
   public VerifyPKICertWithClassicKey displayId(String displayId) {
     
@@ -64,6 +66,7 @@ public class VerifyPKICertWithClassicKey {
    * The name of the key to use in the verify PKICert process
    * @return displayId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the verify PKICert process")
 
   public String getDisplayId() {
@@ -109,6 +112,7 @@ public class VerifyPKICertWithClassicKey {
    * PkiCert
    * @return pkiCert
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "PkiCert")
 
   public String getPkiCert() {
@@ -177,6 +181,7 @@ public class VerifyPKICertWithClassicKey {
    * classic key version
    * @return version
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "classic key version")
 
   public Integer getVersion() {
@@ -190,7 +195,7 @@ public class VerifyPKICertWithClassicKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -211,7 +216,6 @@ public class VerifyPKICertWithClassicKey {
     return Objects.hash(displayId, json, pkiCert, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -230,7 +234,7 @@ public class VerifyPKICertWithClassicKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

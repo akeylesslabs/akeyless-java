@@ -30,7 +30,7 @@ import java.util.List;
  * createAuthMethodAzureAD is a command that creates a new auth method that will be able to authenticate using Azure Active Directory credentials.
  */
 @ApiModel(description = "createAuthMethodAzureAD is a command that creates a new auth method that will be able to authenticate using Azure Active Directory credentials.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodAzureAD {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -116,6 +116,8 @@ public class CreateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateAuthMethodAzureAD() { 
+  }
 
   public CreateAuthMethodAzureAD accessExpires(Long accessExpires) {
     
@@ -452,6 +454,7 @@ public class CreateAuthMethodAzureAD {
    * The Azure tenant id that the access is restricted to
    * @return boundTenantId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The Azure tenant id that the access is restricted to")
 
   public String getBoundTenantId() {
@@ -620,6 +623,7 @@ public class CreateAuthMethodAzureAD {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -679,7 +683,7 @@ public class CreateAuthMethodAzureAD {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -715,7 +719,6 @@ public class CreateAuthMethodAzureAD {
     return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -749,7 +752,7 @@ public class CreateAuthMethodAzureAD {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

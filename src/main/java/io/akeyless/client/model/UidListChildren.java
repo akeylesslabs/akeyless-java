@@ -28,7 +28,7 @@ import java.io.IOException;
  * uidListChildren is a command that lists child token ids of Akeyless Universal Identity.
  */
 @ApiModel(description = "uidListChildren is a command that lists child token ids of Akeyless Universal Identity.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UidListChildren {
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth-method-name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
@@ -46,6 +46,8 @@ public class UidListChildren {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UidListChildren() { 
+  }
 
   public UidListChildren authMethodName(String authMethodName) {
     
@@ -140,7 +142,7 @@ public class UidListChildren {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -159,7 +161,6 @@ public class UidListChildren {
     return Objects.hash(authMethodName, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -176,7 +177,7 @@ public class UidListChildren {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

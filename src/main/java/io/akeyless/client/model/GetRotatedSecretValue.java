@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetRotatedSecretValue
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetRotatedSecretValue {
   public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
   @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
@@ -53,6 +53,8 @@ public class GetRotatedSecretValue {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public GetRotatedSecretValue() { 
+  }
 
   public GetRotatedSecretValue ignoreCache(String ignoreCache) {
     
@@ -110,6 +112,7 @@ public class GetRotatedSecretValue {
    * Secret name
    * @return names
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret name")
 
   public String getNames() {
@@ -192,7 +195,7 @@ public class GetRotatedSecretValue {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -213,7 +216,6 @@ public class GetRotatedSecretValue {
     return Objects.hash(ignoreCache, json, names, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -232,7 +234,7 @@ public class GetRotatedSecretValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

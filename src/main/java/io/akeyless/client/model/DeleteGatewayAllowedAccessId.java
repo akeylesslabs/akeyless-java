@@ -28,7 +28,7 @@ import java.io.IOException;
  * deleteGatewayAllowedAccessId is a command that deletes access-id
  */
 @ApiModel(description = "deleteGatewayAllowedAccessId is a command that deletes access-id")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteGatewayAllowedAccessId {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -50,6 +50,8 @@ public class DeleteGatewayAllowedAccessId {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DeleteGatewayAllowedAccessId() { 
+  }
 
   public DeleteGatewayAllowedAccessId accessId(String accessId) {
     
@@ -61,6 +63,7 @@ public class DeleteGatewayAllowedAccessId {
    * The access id to be stripped of access to gateway
    * @return accessId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The access id to be stripped of access to gateway")
 
   public String getAccessId() {
@@ -83,6 +86,7 @@ public class DeleteGatewayAllowedAccessId {
    * The name of the updated cluster, e.g. acc-abcd12345678/p-123456789012/defaultCluster
    * @return clusterName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the updated cluster, e.g. acc-abcd12345678/p-123456789012/defaultCluster")
 
   public String getClusterName() {
@@ -165,7 +169,7 @@ public class DeleteGatewayAllowedAccessId {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -185,7 +189,6 @@ public class DeleteGatewayAllowedAccessId {
     return Objects.hash(accessId, clusterName, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -203,7 +206,7 @@ public class DeleteGatewayAllowedAccessId {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

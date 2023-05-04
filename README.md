@@ -14,7 +14,7 @@ The purpose of this application is to provide access to Akeyless API.
 
 Building the API client library requires:
 1. Java 1.7+
-2. Maven/Gradle
+2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
 
@@ -109,30 +109,60 @@ Class | Method | HTTP request | Description
 *V2Api* | [**assocTargetItem**](docs/V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
 *V2Api* | [**auth**](docs/V2Api.md#auth) | **POST** /auth | 
 *V2Api* | [**configure**](docs/V2Api.md#configure) | **POST** /configure | 
+*V2Api* | [**connect**](docs/V2Api.md#connect) | **POST** /connect | 
+*V2Api* | [**createAWSTarget**](docs/V2Api.md#createAWSTarget) | **POST** /create-aws-target | 
+*V2Api* | [**createArtifactoryTarget**](docs/V2Api.md#createArtifactoryTarget) | **POST** /create-artifactory-target | 
 *V2Api* | [**createAuthMethod**](docs/V2Api.md#createAuthMethod) | **POST** /create-auth-method | 
 *V2Api* | [**createAuthMethodAWSIAM**](docs/V2Api.md#createAuthMethodAWSIAM) | **POST** /create-auth-method-aws-iam | 
 *V2Api* | [**createAuthMethodAzureAD**](docs/V2Api.md#createAuthMethodAzureAD) | **POST** /create-auth-method-azure-ad | 
+*V2Api* | [**createAuthMethodCert**](docs/V2Api.md#createAuthMethodCert) | **POST** /create-auth-method-cert | 
+*V2Api* | [**createAuthMethodGCP**](docs/V2Api.md#createAuthMethodGCP) | **POST** /create-auth-method-gcp | 
 *V2Api* | [**createAuthMethodHuawei**](docs/V2Api.md#createAuthMethodHuawei) | **POST** /create-auth-method-huawei | 
+*V2Api* | [**createAuthMethodK8S**](docs/V2Api.md#createAuthMethodK8S) | **POST** /create-auth-method-k8s | 
+*V2Api* | [**createAuthMethodLDAP**](docs/V2Api.md#createAuthMethodLDAP) | **POST** /create-auth-method-ldap | 
 *V2Api* | [**createAuthMethodOAuth2**](docs/V2Api.md#createAuthMethodOAuth2) | **POST** /create-auth-method-oauth2 | 
+*V2Api* | [**createAuthMethodOIDC**](docs/V2Api.md#createAuthMethodOIDC) | **POST** /create-auth-method-oidc | 
 *V2Api* | [**createAuthMethodSAML**](docs/V2Api.md#createAuthMethodSAML) | **POST** /create-auth-method-saml | 
 *V2Api* | [**createAuthMethodUniversalIdentity**](docs/V2Api.md#createAuthMethodUniversalIdentity) | **POST** /create-auth-method-universal-identity | 
-*V2Api* | [**createAwsTarget**](docs/V2Api.md#createAwsTarget) | **POST** /create-aws-target | 
+*V2Api* | [**createAzureTarget**](docs/V2Api.md#createAzureTarget) | **POST** /create-azure-target | 
+*V2Api* | [**createCertificate**](docs/V2Api.md#createCertificate) | **POST** /create-certificate | 
+*V2Api* | [**createClassicKey**](docs/V2Api.md#createClassicKey) | **POST** /create-classic-key | 
 *V2Api* | [**createDBTarget**](docs/V2Api.md#createDBTarget) | **POST** /create-db-target | 
+*V2Api* | [**createDFCKey**](docs/V2Api.md#createDFCKey) | **POST** /create-dfc-key | 
+*V2Api* | [**createDockerhubTarget**](docs/V2Api.md#createDockerhubTarget) | **POST** /create-dockerhub-target | 
 *V2Api* | [**createDynamicSecret**](docs/V2Api.md#createDynamicSecret) | **POST** /create-dynamic-secret | 
+*V2Api* | [**createEKSTarget**](docs/V2Api.md#createEKSTarget) | **POST** /create-eks-target | 
+*V2Api* | [**createESM**](docs/V2Api.md#createESM) | **POST** /create-esm | 
+*V2Api* | [**createEventForwarder**](docs/V2Api.md#createEventForwarder) | **POST** /create-event-forwarder | 
+*V2Api* | [**createGKETarget**](docs/V2Api.md#createGKETarget) | **POST** /create-gke-target | 
+*V2Api* | [**createGcpTarget**](docs/V2Api.md#createGcpTarget) | **POST** /create-gcp-target | 
+*V2Api* | [**createGithubTarget**](docs/V2Api.md#createGithubTarget) | **POST** /create-github-target | 
+*V2Api* | [**createGlobalSignTarget**](docs/V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
 *V2Api* | [**createKey**](docs/V2Api.md#createKey) | **POST** /create-key | 
+*V2Api* | [**createLinkedTarget**](docs/V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
+*V2Api* | [**createNativeK8STarget**](docs/V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
 *V2Api* | [**createPKICertIssuer**](docs/V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
-*V2Api* | [**createRabbitMQTarget**](docs/V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitMQ-target | 
-*V2Api* | [**createRdpTarget**](docs/V2Api.md#createRdpTarget) | **POST** /create-rdp-target | 
+*V2Api* | [**createPingTarget**](docs/V2Api.md#createPingTarget) | **POST** /create-ping-target | 
+*V2Api* | [**createRabbitMQTarget**](docs/V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitmq-target | 
 *V2Api* | [**createRole**](docs/V2Api.md#createRole) | **POST** /create-role | 
+*V2Api* | [**createRotatedSecret**](docs/V2Api.md#createRotatedSecret) | **POST** /create-rotated-secret | 
 *V2Api* | [**createSSHCertIssuer**](docs/V2Api.md#createSSHCertIssuer) | **POST** /create-ssh-cert-issuer | 
 *V2Api* | [**createSSHTarget**](docs/V2Api.md#createSSHTarget) | **POST** /create-ssh-target | 
+*V2Api* | [**createSalesforceTarget**](docs/V2Api.md#createSalesforceTarget) | **POST** /create-salesforce-target | 
 *V2Api* | [**createSecret**](docs/V2Api.md#createSecret) | **POST** /create-secret | 
-*V2Api* | [**createTarget**](docs/V2Api.md#createTarget) | **POST** /create-target | 
+*V2Api* | [**createTokenizer**](docs/V2Api.md#createTokenizer) | **POST** /create-tokenizer | 
 *V2Api* | [**createWebTarget**](docs/V2Api.md#createWebTarget) | **POST** /create-web-target | 
+*V2Api* | [**createWindowsTarget**](docs/V2Api.md#createWindowsTarget) | **POST** /create-windows-target | 
+*V2Api* | [**createZeroSSLTarget**](docs/V2Api.md#createZeroSSLTarget) | **POST** /create-zerossl-target | 
+*V2Api* | [**createldapTarget**](docs/V2Api.md#createldapTarget) | **POST** /create-ldap-target | 
 *V2Api* | [**decrypt**](docs/V2Api.md#decrypt) | **POST** /decrypt | 
+*V2Api* | [**decryptGPG**](docs/V2Api.md#decryptGPG) | **POST** /decrypt-gpg | 
 *V2Api* | [**decryptPKCS1**](docs/V2Api.md#decryptPKCS1) | **POST** /decrypt-pkcs1 | 
+*V2Api* | [**decryptWithClassicKey**](docs/V2Api.md#decryptWithClassicKey) | **POST** /decrypt-with-classic-key | 
 *V2Api* | [**deleteAuthMethod**](docs/V2Api.md#deleteAuthMethod) | **POST** /delete-auth-method | 
 *V2Api* | [**deleteAuthMethods**](docs/V2Api.md#deleteAuthMethods) | **POST** /delete-auth-methods | 
+*V2Api* | [**deleteEventForwarder**](docs/V2Api.md#deleteEventForwarder) | **POST** /delete-event-forwarder | 
+*V2Api* | [**deleteGatewayAllowedAccessId**](docs/V2Api.md#deleteGatewayAllowedAccessId) | **POST** /gateway-delete-allowed-management-access | 
 *V2Api* | [**deleteItem**](docs/V2Api.md#deleteItem) | **POST** /delete-item | 
 *V2Api* | [**deleteItems**](docs/V2Api.md#deleteItems) | **POST** /delete-items | 
 *V2Api* | [**deleteRole**](docs/V2Api.md#deleteRole) | **POST** /delete-role | 
@@ -142,75 +172,215 @@ Class | Method | HTTP request | Description
 *V2Api* | [**deleteTarget**](docs/V2Api.md#deleteTarget) | **POST** /delete-target | 
 *V2Api* | [**deleteTargetAssociation**](docs/V2Api.md#deleteTargetAssociation) | **POST** /delete-assoc-target-item | 
 *V2Api* | [**deleteTargets**](docs/V2Api.md#deleteTargets) | **POST** /delete-targets | 
+*V2Api* | [**describeAssoc**](docs/V2Api.md#describeAssoc) | **POST** /describe-role-am-assoc | 
 *V2Api* | [**describeItem**](docs/V2Api.md#describeItem) | **POST** /describe-item | 
+*V2Api* | [**describePermissions**](docs/V2Api.md#describePermissions) | **POST** /describe-permissions | 
+*V2Api* | [**describeSubClaims**](docs/V2Api.md#describeSubClaims) | **POST** /describe-sub-claims | 
+*V2Api* | [**detokenize**](docs/V2Api.md#detokenize) | **POST** /detokenize | 
 *V2Api* | [**encrypt**](docs/V2Api.md#encrypt) | **POST** /encrypt | 
-*V2Api* | [**encryptPKCS1**](docs/V2Api.md#encryptPKCS1) | **POST** /encrypt-pkcs1 | 
-*V2Api* | [**gatewayAddSubAdmins**](docs/V2Api.md#gatewayAddSubAdmins) | **POST** /gateway-add-sub-admins | 
+*V2Api* | [**encryptGPG**](docs/V2Api.md#encryptGPG) | **POST** /encrypt-gpg | 
+*V2Api* | [**encryptWithClassicKey**](docs/V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
+*V2Api* | [**esmCreate**](docs/V2Api.md#esmCreate) | **POST** /esm-create | 
+*V2Api* | [**esmDelete**](docs/V2Api.md#esmDelete) | **POST** /esm-delete | 
+*V2Api* | [**esmGet**](docs/V2Api.md#esmGet) | **POST** /esm-get | 
+*V2Api* | [**esmList**](docs/V2Api.md#esmList) | **POST** /esm-list | 
+*V2Api* | [**esmUpdate**](docs/V2Api.md#esmUpdate) | **POST** /esm-update | 
+*V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
+*V2Api* | [**gatewayCreateK8SAuthConfig**](docs/V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
+*V2Api* | [**gatewayCreateMigration**](docs/V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
 *V2Api* | [**gatewayCreateProducerArtifactory**](docs/V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
 *V2Api* | [**gatewayCreateProducerAws**](docs/V2Api.md#gatewayCreateProducerAws) | **POST** /gateway-create-producer-aws | 
 *V2Api* | [**gatewayCreateProducerAzure**](docs/V2Api.md#gatewayCreateProducerAzure) | **POST** /gateway-create-producer-azure | 
+*V2Api* | [**gatewayCreateProducerCassandra**](docs/V2Api.md#gatewayCreateProducerCassandra) | **POST** /gateway-create-producer-cassandra | 
+*V2Api* | [**gatewayCreateProducerCertificateAutomation**](docs/V2Api.md#gatewayCreateProducerCertificateAutomation) | **POST** /gateway-create-producer-certificate-automation | 
+*V2Api* | [**gatewayCreateProducerCustom**](docs/V2Api.md#gatewayCreateProducerCustom) | **POST** /gateway-create-producer-custom | 
+*V2Api* | [**gatewayCreateProducerDockerhub**](docs/V2Api.md#gatewayCreateProducerDockerhub) | **POST** /gateway-create-producer-dockerhub | 
 *V2Api* | [**gatewayCreateProducerEks**](docs/V2Api.md#gatewayCreateProducerEks) | **POST** /gateway-create-producer-eks | 
+*V2Api* | [**gatewayCreateProducerGcp**](docs/V2Api.md#gatewayCreateProducerGcp) | **POST** /gateway-create-producer-gcp | 
+*V2Api* | [**gatewayCreateProducerGithub**](docs/V2Api.md#gatewayCreateProducerGithub) | **POST** /gateway-create-producer-github | 
 *V2Api* | [**gatewayCreateProducerGke**](docs/V2Api.md#gatewayCreateProducerGke) | **POST** /gateway-create-producer-gke | 
+*V2Api* | [**gatewayCreateProducerHanaDb**](docs/V2Api.md#gatewayCreateProducerHanaDb) | **POST** /gateway-create-producer-hanadb | 
+*V2Api* | [**gatewayCreateProducerLdap**](docs/V2Api.md#gatewayCreateProducerLdap) | **POST** /gateway-create-producer-ldap | 
 *V2Api* | [**gatewayCreateProducerMSSQL**](docs/V2Api.md#gatewayCreateProducerMSSQL) | **POST** /gateway-create-producer-mssql | 
 *V2Api* | [**gatewayCreateProducerMongo**](docs/V2Api.md#gatewayCreateProducerMongo) | **POST** /gateway-create-producer-mongo | 
 *V2Api* | [**gatewayCreateProducerMySQL**](docs/V2Api.md#gatewayCreateProducerMySQL) | **POST** /gateway-create-producer-mysql | 
+*V2Api* | [**gatewayCreateProducerNativeK8S**](docs/V2Api.md#gatewayCreateProducerNativeK8S) | **POST** /gateway-create-producer-k8s | 
+*V2Api* | [**gatewayCreateProducerOracleDb**](docs/V2Api.md#gatewayCreateProducerOracleDb) | **POST** /gateway-create-producer-oracle | 
+*V2Api* | [**gatewayCreateProducerPing**](docs/V2Api.md#gatewayCreateProducerPing) | **POST** /gateway-create-producer-ping | 
 *V2Api* | [**gatewayCreateProducerPostgreSQL**](docs/V2Api.md#gatewayCreateProducerPostgreSQL) | **POST** /gateway-create-producer-postgresql | 
 *V2Api* | [**gatewayCreateProducerRabbitMQ**](docs/V2Api.md#gatewayCreateProducerRabbitMQ) | **POST** /gateway-create-producer-rabbitmq | 
 *V2Api* | [**gatewayCreateProducerRdp**](docs/V2Api.md#gatewayCreateProducerRdp) | **POST** /gateway-create-producer-rdp | 
-*V2Api* | [**gatewayCreateProducerVenafi**](docs/V2Api.md#gatewayCreateProducerVenafi) | **POST** /gateway-create-producer-venafi | 
+*V2Api* | [**gatewayCreateProducerRedis**](docs/V2Api.md#gatewayCreateProducerRedis) | **POST** /gateway-create-producer-Redis | 
+*V2Api* | [**gatewayCreateProducerRedshift**](docs/V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
+*V2Api* | [**gatewayCreateProducerSnowflake**](docs/V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
+*V2Api* | [**gatewayDeleteK8SAuthConfig**](docs/V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
+*V2Api* | [**gatewayDeleteMigration**](docs/V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
 *V2Api* | [**gatewayDeleteProducer**](docs/V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
-*V2Api* | [**gatewayDeleteSubAdmins**](docs/V2Api.md#gatewayDeleteSubAdmins) | **POST** /gateway-delete-sub-admins | 
+*V2Api* | [**gatewayDownloadCustomerFragments**](docs/V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
 *V2Api* | [**gatewayGetConfig**](docs/V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
+*V2Api* | [**gatewayGetK8SAuthConfig**](docs/V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
+*V2Api* | [**gatewayGetLdapAuthConfig**](docs/V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
+*V2Api* | [**gatewayGetMigration**](docs/V2Api.md#gatewayGetMigration) | **POST** /gateway-get-migration | 
 *V2Api* | [**gatewayGetProducer**](docs/V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
 *V2Api* | [**gatewayGetTmpUsers**](docs/V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
+*V2Api* | [**gatewayListMigration**](docs/V2Api.md#gatewayListMigration) | **POST** /gateway-list-migration | 
 *V2Api* | [**gatewayListProducers**](docs/V2Api.md#gatewayListProducers) | **POST** /gateway-list-producers | 
-*V2Api* | [**gatewayListSubAdmins**](docs/V2Api.md#gatewayListSubAdmins) | **POST** /gateway-list-SubAdmins | 
+*V2Api* | [**gatewayListRotatedSecrets**](docs/V2Api.md#gatewayListRotatedSecrets) | **POST** /gateway-list-rotated-secrets | 
+*V2Api* | [**gatewayMigratePersonalItems**](docs/V2Api.md#gatewayMigratePersonalItems) | **POST** /gateway-migrate-personal-items | 
 *V2Api* | [**gatewayRevokeTmpUsers**](docs/V2Api.md#gatewayRevokeTmpUsers) | **POST** /gateway-revoke-producer-tmp-creds | 
 *V2Api* | [**gatewayStartProducer**](docs/V2Api.md#gatewayStartProducer) | **POST** /gateway-start-producer | 
+*V2Api* | [**gatewayStatusMigration**](docs/V2Api.md#gatewayStatusMigration) | **POST** /gateway-migration-status | 
 *V2Api* | [**gatewayStopProducer**](docs/V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
+*V2Api* | [**gatewaySyncMigration**](docs/V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
+*V2Api* | [**gatewayUpdateItem**](docs/V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
+*V2Api* | [**gatewayUpdateK8SAuthConfig**](docs/V2Api.md#gatewayUpdateK8SAuthConfig) | **POST** /gateway-update-k8s-auth-config | 
+*V2Api* | [**gatewayUpdateLdapAuthConfig**](docs/V2Api.md#gatewayUpdateLdapAuthConfig) | **POST** /gateway-update-ldap-auth-config | 
+*V2Api* | [**gatewayUpdateMigration**](docs/V2Api.md#gatewayUpdateMigration) | **POST** /gateway-update-migration | 
+*V2Api* | [**gatewayUpdateProducerArtifactory**](docs/V2Api.md#gatewayUpdateProducerArtifactory) | **POST** /gateway-update-producer-artifactory | 
+*V2Api* | [**gatewayUpdateProducerAws**](docs/V2Api.md#gatewayUpdateProducerAws) | **POST** /gateway-update-producer-aws | 
+*V2Api* | [**gatewayUpdateProducerAzure**](docs/V2Api.md#gatewayUpdateProducerAzure) | **POST** /gateway-update-producer-azure | 
+*V2Api* | [**gatewayUpdateProducerCassandra**](docs/V2Api.md#gatewayUpdateProducerCassandra) | **POST** /gateway-update-producer-cassandra | 
+*V2Api* | [**gatewayUpdateProducerCertificateAutomation**](docs/V2Api.md#gatewayUpdateProducerCertificateAutomation) | **POST** /gateway-update-producer-certificate-automation | 
+*V2Api* | [**gatewayUpdateProducerCustom**](docs/V2Api.md#gatewayUpdateProducerCustom) | **POST** /gateway-update-producer-custom | 
+*V2Api* | [**gatewayUpdateProducerDockerhub**](docs/V2Api.md#gatewayUpdateProducerDockerhub) | **POST** /gateway-update-producer-dockerhub | 
+*V2Api* | [**gatewayUpdateProducerEks**](docs/V2Api.md#gatewayUpdateProducerEks) | **POST** /gateway-update-producer-eks | 
+*V2Api* | [**gatewayUpdateProducerGcp**](docs/V2Api.md#gatewayUpdateProducerGcp) | **POST** /gateway-update-producer-gcp | 
+*V2Api* | [**gatewayUpdateProducerGithub**](docs/V2Api.md#gatewayUpdateProducerGithub) | **POST** /gateway-update-producer-github | 
+*V2Api* | [**gatewayUpdateProducerGke**](docs/V2Api.md#gatewayUpdateProducerGke) | **POST** /gateway-update-producer-gke | 
+*V2Api* | [**gatewayUpdateProducerHanaDb**](docs/V2Api.md#gatewayUpdateProducerHanaDb) | **POST** /gateway-update-producer-hana | 
+*V2Api* | [**gatewayUpdateProducerLdap**](docs/V2Api.md#gatewayUpdateProducerLdap) | **POST** /gateway-update-producer-ldap | 
+*V2Api* | [**gatewayUpdateProducerMSSQL**](docs/V2Api.md#gatewayUpdateProducerMSSQL) | **POST** /gateway-update-producer-mssql | 
+*V2Api* | [**gatewayUpdateProducerMongo**](docs/V2Api.md#gatewayUpdateProducerMongo) | **POST** /gateway-update-producer-mongo | 
+*V2Api* | [**gatewayUpdateProducerMySQL**](docs/V2Api.md#gatewayUpdateProducerMySQL) | **POST** /gateway-update-producer-mysql | 
+*V2Api* | [**gatewayUpdateProducerNativeK8S**](docs/V2Api.md#gatewayUpdateProducerNativeK8S) | **POST** /gateway-update-producer-k8s | 
+*V2Api* | [**gatewayUpdateProducerOracleDb**](docs/V2Api.md#gatewayUpdateProducerOracleDb) | **POST** /gateway-update-producer-oracle | 
+*V2Api* | [**gatewayUpdateProducerPing**](docs/V2Api.md#gatewayUpdateProducerPing) | **POST** /gateway-update-producer-ping | 
+*V2Api* | [**gatewayUpdateProducerPostgreSQL**](docs/V2Api.md#gatewayUpdateProducerPostgreSQL) | **POST** /gateway-update-producer-postgresql | 
+*V2Api* | [**gatewayUpdateProducerRabbitMQ**](docs/V2Api.md#gatewayUpdateProducerRabbitMQ) | **POST** /gateway-update-producer-rabbitmq | 
+*V2Api* | [**gatewayUpdateProducerRdp**](docs/V2Api.md#gatewayUpdateProducerRdp) | **POST** /gateway-update-producer-rdp | 
+*V2Api* | [**gatewayUpdateProducerRedis**](docs/V2Api.md#gatewayUpdateProducerRedis) | **POST** /gateway-update-producer-redis | 
+*V2Api* | [**gatewayUpdateProducerRedshift**](docs/V2Api.md#gatewayUpdateProducerRedshift) | **POST** /gateway-update-producer-redshift | 
+*V2Api* | [**gatewayUpdateProducerSnowflake**](docs/V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
+*V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
 *V2Api* | [**getAccountLogo**](docs/V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
+*V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
 *V2Api* | [**getAuthMethod**](docs/V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
-*V2Api* | [**getDynamicPkiCertificate**](docs/V2Api.md#getDynamicPkiCertificate) | **POST** /get-dynamic-pki-certificate | 
+*V2Api* | [**getCertificateValue**](docs/V2Api.md#getCertificateValue) | **POST** /get-certificate-value | 
 *V2Api* | [**getDynamicSecretValue**](docs/V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
+*V2Api* | [**getEventForwarder**](docs/V2Api.md#getEventForwarder) | **POST** /get-event-forwarder | 
+*V2Api* | [**getKubeExecCreds**](docs/V2Api.md#getKubeExecCreds) | **POST** /get-kube-exec-creds | 
+*V2Api* | [**getPKICertificate**](docs/V2Api.md#getPKICertificate) | **POST** /get-pki-certificate | 
 *V2Api* | [**getRSAPublic**](docs/V2Api.md#getRSAPublic) | **POST** /get-rsa-public | 
 *V2Api* | [**getRole**](docs/V2Api.md#getRole) | **POST** /get-role | 
+*V2Api* | [**getRotatedSecretValue**](docs/V2Api.md#getRotatedSecretValue) | **POST** /get-rotated-secret-value | 
 *V2Api* | [**getSSHCertificate**](docs/V2Api.md#getSSHCertificate) | **POST** /get-ssh-certificate | 
 *V2Api* | [**getSecretValue**](docs/V2Api.md#getSecretValue) | **POST** /get-secret-value | 
+*V2Api* | [**getTags**](docs/V2Api.md#getTags) | **POST** /get-tags | 
 *V2Api* | [**getTarget**](docs/V2Api.md#getTarget) | **POST** /get-target | 
 *V2Api* | [**getTargetDetails**](docs/V2Api.md#getTargetDetails) | **POST** /get-target-details | 
+*V2Api* | [**hmac**](docs/V2Api.md#hmac) | **POST** /hmac | 
+*V2Api* | [**importPasswords**](docs/V2Api.md#importPasswords) | **POST** /import-passwords | 
+*V2Api* | [**kmipClientDeleteRule**](docs/V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 
+*V2Api* | [**kmipClientSetRule**](docs/V2Api.md#kmipClientSetRule) | **POST** /kmip-client-set-rule | 
+*V2Api* | [**kmipCreateClient**](docs/V2Api.md#kmipCreateClient) | **POST** /kmip-create-client | 
+*V2Api* | [**kmipDeleteClient**](docs/V2Api.md#kmipDeleteClient) | **POST** /kmip-delete-client | 
+*V2Api* | [**kmipDeleteServer**](docs/V2Api.md#kmipDeleteServer) | **DELETE** /kmip-delete-environment | 
+*V2Api* | [**kmipDescribeClient**](docs/V2Api.md#kmipDescribeClient) | **POST** /kmip-get-client | 
+*V2Api* | [**kmipDescribeServer**](docs/V2Api.md#kmipDescribeServer) | **POST** /kmip-get-environment | 
+*V2Api* | [**kmipListClients**](docs/V2Api.md#kmipListClients) | **POST** /kmip-list-clients | 
+*V2Api* | [**kmipMoveServer**](docs/V2Api.md#kmipMoveServer) | **POST** /kmip-move-environment | 
+*V2Api* | [**kmipRenewClientCertificate**](docs/V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client | 
+*V2Api* | [**kmipRenewServerCertificate**](docs/V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment | 
+*V2Api* | [**kmipServerSetup**](docs/V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
+*V2Api* | [**kmipSetServerState**](docs/V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
 *V2Api* | [**listAuthMethods**](docs/V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
+*V2Api* | [**listGateways**](docs/V2Api.md#listGateways) | **POST** /list-gateways | 
 *V2Api* | [**listItems**](docs/V2Api.md#listItems) | **POST** /list-items | 
 *V2Api* | [**listRoles**](docs/V2Api.md#listRoles) | **POST** /list-roles | 
+*V2Api* | [**listSRABastions**](docs/V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
+*V2Api* | [**listSharedItems**](docs/V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 *V2Api* | [**listTargets**](docs/V2Api.md#listTargets) | **POST** /list-targets | 
 *V2Api* | [**moveObjects**](docs/V2Api.md#moveObjects) | **POST** /move-objects | 
 *V2Api* | [**rawCreds**](docs/V2Api.md#rawCreds) | **POST** /raw-creds | 
 *V2Api* | [**refreshKey**](docs/V2Api.md#refreshKey) | **POST** /refresh-key | 
+*V2Api* | [**requestAccess**](docs/V2Api.md#requestAccess) | **POST** /request-access | 
 *V2Api* | [**reverseRBAC**](docs/V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
+*V2Api* | [**revokeCreds**](docs/V2Api.md#revokeCreds) | **POST** /revoke-creds | 
 *V2Api* | [**rollbackSecret**](docs/V2Api.md#rollbackSecret) | **POST** /rollback-secret | 
 *V2Api* | [**rotateKey**](docs/V2Api.md#rotateKey) | **POST** /rotate-key | 
+*V2Api* | [**rotateSecret**](docs/V2Api.md#rotateSecret) | **POST** /gateway-rotate-secret | 
 *V2Api* | [**setItemState**](docs/V2Api.md#setItemState) | **POST** /set-item-state | 
 *V2Api* | [**setRoleRule**](docs/V2Api.md#setRoleRule) | **POST** /set-role-rule | 
+*V2Api* | [**shareItem**](docs/V2Api.md#shareItem) | **POST** /share-item | 
+*V2Api* | [**signGPG**](docs/V2Api.md#signGPG) | **POST** /sign-gpg | 
+*V2Api* | [**signJWTWithClassicKey**](docs/V2Api.md#signJWTWithClassicKey) | **POST** /sign-jwt-with-classic-key | 
 *V2Api* | [**signPKCS1**](docs/V2Api.md#signPKCS1) | **POST** /sign-pkcs1 | 
+*V2Api* | [**signPKICertWithClassicKey**](docs/V2Api.md#signPKICertWithClassicKey) | **POST** /sign-pki-cert-with-classic-key | 
 *V2Api* | [**staticCredsAuth**](docs/V2Api.md#staticCredsAuth) | **POST** /static-creds-auth | 
+*V2Api* | [**tokenize**](docs/V2Api.md#tokenize) | **POST** /tokenize | 
 *V2Api* | [**uidCreateChildToken**](docs/V2Api.md#uidCreateChildToken) | **POST** /uid-create-child-token | 
 *V2Api* | [**uidGenerateToken**](docs/V2Api.md#uidGenerateToken) | **POST** /uid-generate-token | 
 *V2Api* | [**uidListChildren**](docs/V2Api.md#uidListChildren) | **POST** /uid-list-children | 
 *V2Api* | [**uidRevokeToken**](docs/V2Api.md#uidRevokeToken) | **POST** /uid-revoke-token | 
 *V2Api* | [**uidRotateToken**](docs/V2Api.md#uidRotateToken) | **POST** /uid-rotate-token | 
+*V2Api* | [**updateAWSTarget**](docs/V2Api.md#updateAWSTarget) | **POST** /update-aws-target | 
 *V2Api* | [**updateAWSTargetDetails**](docs/V2Api.md#updateAWSTargetDetails) | **POST** /update-aws-target-details | 
+*V2Api* | [**updateAccountSettings**](docs/V2Api.md#updateAccountSettings) | **POST** /update-account-settings | 
+*V2Api* | [**updateArtifactoryTarget**](docs/V2Api.md#updateArtifactoryTarget) | **POST** /update-artifactory-target | 
+*V2Api* | [**updateAssoc**](docs/V2Api.md#updateAssoc) | **POST** /update-assoc | 
+*V2Api* | [**updateAuthMethod**](docs/V2Api.md#updateAuthMethod) | **POST** /update-auth-method | 
+*V2Api* | [**updateAuthMethodAWSIAM**](docs/V2Api.md#updateAuthMethodAWSIAM) | **POST** /update-auth-method-aws-iam | 
+*V2Api* | [**updateAuthMethodAzureAD**](docs/V2Api.md#updateAuthMethodAzureAD) | **POST** /update-auth-method-azure-ad | 
+*V2Api* | [**updateAuthMethodCert**](docs/V2Api.md#updateAuthMethodCert) | **POST** /update-auth-method-cert | 
+*V2Api* | [**updateAuthMethodGCP**](docs/V2Api.md#updateAuthMethodGCP) | **POST** /update-auth-method-gcp | 
+*V2Api* | [**updateAuthMethodK8S**](docs/V2Api.md#updateAuthMethodK8S) | **POST** /update-auth-method-k8s | 
+*V2Api* | [**updateAuthMethodLDAP**](docs/V2Api.md#updateAuthMethodLDAP) | **POST** /update-auth-method-ldap | 
+*V2Api* | [**updateAuthMethodOAuth2**](docs/V2Api.md#updateAuthMethodOAuth2) | **POST** /update-auth-method-oauth2 | 
+*V2Api* | [**updateAuthMethodOIDC**](docs/V2Api.md#updateAuthMethodOIDC) | **POST** /update-auth-method-oidc | 
+*V2Api* | [**updateAuthMethodSAML**](docs/V2Api.md#updateAuthMethodSAML) | **POST** /update-auth-method-saml | 
+*V2Api* | [**updateAuthMethodUniversalIdentity**](docs/V2Api.md#updateAuthMethodUniversalIdentity) | **POST** /update-auth-method-universal-identity | 
+*V2Api* | [**updateAzureTarget**](docs/V2Api.md#updateAzureTarget) | **POST** /update-azure-target | 
+*V2Api* | [**updateCertificateValue**](docs/V2Api.md#updateCertificateValue) | **POST** /update-certificate-value | 
+*V2Api* | [**updateDBTarget**](docs/V2Api.md#updateDBTarget) | **POST** /update-db-target | 
 *V2Api* | [**updateDBTargetDetails**](docs/V2Api.md#updateDBTargetDetails) | **POST** /update-db-target-details | 
+*V2Api* | [**updateDockerhubTarget**](docs/V2Api.md#updateDockerhubTarget) | **POST** /update-dockerhub-target | 
+*V2Api* | [**updateEKSTarget**](docs/V2Api.md#updateEKSTarget) | **POST** /update-eks-target | 
+*V2Api* | [**updateEventForwarder**](docs/V2Api.md#updateEventForwarder) | **POST** /update-event-forwarder | 
+*V2Api* | [**updateGKETarget**](docs/V2Api.md#updateGKETarget) | **POST** /update-gke-target | 
+*V2Api* | [**updateGcpTarget**](docs/V2Api.md#updateGcpTarget) | **POST** /update-gcp-target | 
+*V2Api* | [**updateGithubTarget**](docs/V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
+*V2Api* | [**updateGlobalSignTarget**](docs/V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
 *V2Api* | [**updateItem**](docs/V2Api.md#updateItem) | **POST** /update-item | 
+*V2Api* | [**updateLdapTarget**](docs/V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
+*V2Api* | [**updateLdapTargetDetails**](docs/V2Api.md#updateLdapTargetDetails) | **POST** /update-ldap-target-details | 
+*V2Api* | [**updateLinkedTarget**](docs/V2Api.md#updateLinkedTarget) | **POST** /update-linked-target | 
+*V2Api* | [**updateNativeK8STarget**](docs/V2Api.md#updateNativeK8STarget) | **POST** /update-k8s-target | 
+*V2Api* | [**updatePKICertIssuer**](docs/V2Api.md#updatePKICertIssuer) | **POST** /update-pki-cert-issuer | 
+*V2Api* | [**updatePingTarget**](docs/V2Api.md#updatePingTarget) | **POST** /update-ping-target | 
 *V2Api* | [**updateRDPTargetDetails**](docs/V2Api.md#updateRDPTargetDetails) | **POST** /update-rdp-target-details | 
+*V2Api* | [**updateRabbitMQTarget**](docs/V2Api.md#updateRabbitMQTarget) | **POST** /update-rabbitmq-target | 
 *V2Api* | [**updateRabbitMQTargetDetails**](docs/V2Api.md#updateRabbitMQTargetDetails) | **POST** /update-rabbitmq-target-details | 
 *V2Api* | [**updateRole**](docs/V2Api.md#updateRole) | **POST** /update-role | 
+*V2Api* | [**updateRotatedSecret**](docs/V2Api.md#updateRotatedSecret) | **POST** /update-rotated-secret | 
+*V2Api* | [**updateRotationSettings**](docs/V2Api.md#updateRotationSettings) | **POST** /update-rotation-settingsrotate-key | 
+*V2Api* | [**updateSSHCertIssuer**](docs/V2Api.md#updateSSHCertIssuer) | **POST** /update-ssh-cert-issuer | 
+*V2Api* | [**updateSSHTarget**](docs/V2Api.md#updateSSHTarget) | **POST** /update-ssh-target | 
 *V2Api* | [**updateSSHTargetDetails**](docs/V2Api.md#updateSSHTargetDetails) | **POST** /update-ssh-target-details | 
+*V2Api* | [**updateSalesforceTarget**](docs/V2Api.md#updateSalesforceTarget) | **POST** /update-salesforce-target | 
 *V2Api* | [**updateSecretVal**](docs/V2Api.md#updateSecretVal) | **POST** /update-secret-val | 
 *V2Api* | [**updateTarget**](docs/V2Api.md#updateTarget) | **POST** /update-target | 
 *V2Api* | [**updateTargetDetails**](docs/V2Api.md#updateTargetDetails) | **POST** /update-target-details | 
+*V2Api* | [**updateWebTarget**](docs/V2Api.md#updateWebTarget) | **POST** /update-web-target | 
 *V2Api* | [**updateWebTargetDetails**](docs/V2Api.md#updateWebTargetDetails) | **POST** /update-web-target-details | 
+*V2Api* | [**updateWindowsTarget**](docs/V2Api.md#updateWindowsTarget) | **POST** /update-windows-target | 
+*V2Api* | [**updateZeroSSLTarget**](docs/V2Api.md#updateZeroSSLTarget) | **POST** /update-zerossl-target | 
 *V2Api* | [**uploadRSA**](docs/V2Api.md#uploadRSA) | **POST** /upload-rsa | 
+*V2Api* | [**validateToken**](docs/V2Api.md#validateToken) | **POST** /validate-token | 
+*V2Api* | [**verifyGPG**](docs/V2Api.md#verifyGPG) | **POST** /verify-gpg | 
+*V2Api* | [**verifyJWTWithClassicKey**](docs/V2Api.md#verifyJWTWithClassicKey) | **POST** /verify-jwt-with-classic-key | 
 *V2Api* | [**verifyPKCS1**](docs/V2Api.md#verifyPKCS1) | **POST** /verify-pkcs1 | 
+*V2Api* | [**verifyPKICertWithClassicKey**](docs/V2Api.md#verifyPKICertWithClassicKey) | **POST** /verify-pki-cert-with-classic-key | 
 
 
 ## Documentation for Models
@@ -219,72 +389,162 @@ Class | Method | HTTP request | Description
  - [AWSIAMAccessRules](docs/AWSIAMAccessRules.md)
  - [AWSPayload](docs/AWSPayload.md)
  - [AWSSecretsMigration](docs/AWSSecretsMigration.md)
+ - [AccountGeneralSettings](docs/AccountGeneralSettings.md)
+ - [AccountObjectVersionSettingsOutput](docs/AccountObjectVersionSettingsOutput.md)
+ - [ActiveDirectoryMigration](docs/ActiveDirectoryMigration.md)
+ - [ActiveDirectoryPayload](docs/ActiveDirectoryPayload.md)
+ - [AddGatewayAllowedAccessId](docs/AddGatewayAllowedAccessId.md)
  - [AdminsConfigPart](docs/AdminsConfigPart.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
+ - [AllowedAccess](docs/AllowedAccess.md)
+ - [AllowedAccessArgs](docs/AllowedAccessArgs.md)
+ - [AllowedAccessDeleteArgs](docs/AllowedAccessDeleteArgs.md)
+ - [AllowedAccessOld](docs/AllowedAccessOld.md)
+ - [AllowedAccessUpdateArgs](docs/AllowedAccessUpdateArgs.md)
  - [AssocRoleAuthMethod](docs/AssocRoleAuthMethod.md)
  - [AssocTargetItem](docs/AssocTargetItem.md)
+ - [AttributeTypeAndValue](docs/AttributeTypeAndValue.md)
  - [Auth](docs/Auth.md)
  - [AuthMethod](docs/AuthMethod.md)
  - [AuthMethodAccessInfo](docs/AuthMethodAccessInfo.md)
  - [AuthMethodRoleAssociation](docs/AuthMethodRoleAssociation.md)
  - [AuthOutput](docs/AuthOutput.md)
+ - [AwsS3LogForwardingConfig](docs/AwsS3LogForwardingConfig.md)
  - [AzureADAccessRules](docs/AzureADAccessRules.md)
  - [AzureKeyVaultMigration](docs/AzureKeyVaultMigration.md)
+ - [AzureLogAnalyticsForwardingConfig](docs/AzureLogAnalyticsForwardingConfig.md)
  - [AzurePayload](docs/AzurePayload.md)
+ - [BastionListEntry](docs/BastionListEntry.md)
+ - [BastionsList](docs/BastionsList.md)
  - [CFConfigPart](docs/CFConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
+ - [CertAccessRules](docs/CertAccessRules.md)
+ - [CertificateChainInfo](docs/CertificateChainInfo.md)
+ - [CertificateExpirationEvent](docs/CertificateExpirationEvent.md)
+ - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
+ - [ClassicKeyDetailsInfo](docs/ClassicKeyDetailsInfo.md)
+ - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
+ - [ClassicKeyTargetInfo](docs/ClassicKeyTargetInfo.md)
  - [ClientData](docs/ClientData.md)
+ - [ConfigChange](docs/ConfigChange.md)
+ - [ConfigHash](docs/ConfigHash.md)
  - [Configure](docs/Configure.md)
  - [ConfigureOutput](docs/ConfigureOutput.md)
+ - [Connect](docs/Connect.md)
+ - [CreateAWSTarget](docs/CreateAWSTarget.md)
+ - [CreateAWSTargetOutput](docs/CreateAWSTargetOutput.md)
+ - [CreateArtifactoryTarget](docs/CreateArtifactoryTarget.md)
+ - [CreateArtifactoryTargetOutput](docs/CreateArtifactoryTargetOutput.md)
  - [CreateAuthMethod](docs/CreateAuthMethod.md)
  - [CreateAuthMethodAWSIAM](docs/CreateAuthMethodAWSIAM.md)
  - [CreateAuthMethodAWSIAMOutput](docs/CreateAuthMethodAWSIAMOutput.md)
  - [CreateAuthMethodAzureAD](docs/CreateAuthMethodAzureAD.md)
  - [CreateAuthMethodAzureADOutput](docs/CreateAuthMethodAzureADOutput.md)
+ - [CreateAuthMethodCert](docs/CreateAuthMethodCert.md)
+ - [CreateAuthMethodCertOutput](docs/CreateAuthMethodCertOutput.md)
+ - [CreateAuthMethodGCP](docs/CreateAuthMethodGCP.md)
+ - [CreateAuthMethodGCPOutput](docs/CreateAuthMethodGCPOutput.md)
  - [CreateAuthMethodHuawei](docs/CreateAuthMethodHuawei.md)
  - [CreateAuthMethodHuaweiOutput](docs/CreateAuthMethodHuaweiOutput.md)
+ - [CreateAuthMethodK8S](docs/CreateAuthMethodK8S.md)
+ - [CreateAuthMethodK8SOutput](docs/CreateAuthMethodK8SOutput.md)
  - [CreateAuthMethodLDAP](docs/CreateAuthMethodLDAP.md)
  - [CreateAuthMethodLDAPOutput](docs/CreateAuthMethodLDAPOutput.md)
  - [CreateAuthMethodOAuth2](docs/CreateAuthMethodOAuth2.md)
  - [CreateAuthMethodOAuth2Output](docs/CreateAuthMethodOAuth2Output.md)
+ - [CreateAuthMethodOIDC](docs/CreateAuthMethodOIDC.md)
+ - [CreateAuthMethodOIDCOutput](docs/CreateAuthMethodOIDCOutput.md)
  - [CreateAuthMethodOutput](docs/CreateAuthMethodOutput.md)
  - [CreateAuthMethodSAML](docs/CreateAuthMethodSAML.md)
  - [CreateAuthMethodSAMLOutput](docs/CreateAuthMethodSAMLOutput.md)
  - [CreateAuthMethodUniversalIdentity](docs/CreateAuthMethodUniversalIdentity.md)
  - [CreateAuthMethodUniversalIdentityOutput](docs/CreateAuthMethodUniversalIdentityOutput.md)
- - [CreateAWSTarget](docs/CreateAWSTarget.md)
+ - [CreateAzureTarget](docs/CreateAzureTarget.md)
+ - [CreateAzureTargetOutput](docs/CreateAzureTargetOutput.md)
+ - [CreateCertificate](docs/CreateCertificate.md)
+ - [CreateCertificateOutput](docs/CreateCertificateOutput.md)
+ - [CreateClassicKey](docs/CreateClassicKey.md)
+ - [CreateClassicKeyOutput](docs/CreateClassicKeyOutput.md)
  - [CreateDBTarget](docs/CreateDBTarget.md)
+ - [CreateDBTargetOutput](docs/CreateDBTargetOutput.md)
+ - [CreateDFCKey](docs/CreateDFCKey.md)
+ - [CreateDFCKeyOutput](docs/CreateDFCKeyOutput.md)
+ - [CreateDockerhubTarget](docs/CreateDockerhubTarget.md)
+ - [CreateDockerhubTargetOutput](docs/CreateDockerhubTargetOutput.md)
  - [CreateDynamicSecret](docs/CreateDynamicSecret.md)
+ - [CreateEKSTarget](docs/CreateEKSTarget.md)
+ - [CreateEKSTargetOutput](docs/CreateEKSTargetOutput.md)
+ - [CreateESM](docs/CreateESM.md)
+ - [CreateESMOutput](docs/CreateESMOutput.md)
+ - [CreateEventForwarder](docs/CreateEventForwarder.md)
+ - [CreateEventForwarderOutput](docs/CreateEventForwarderOutput.md)
+ - [CreateGKETarget](docs/CreateGKETarget.md)
+ - [CreateGKETargetOutput](docs/CreateGKETargetOutput.md)
+ - [CreateGcpTarget](docs/CreateGcpTarget.md)
+ - [CreateGcpTargetOutput](docs/CreateGcpTargetOutput.md)
+ - [CreateGithubTarget](docs/CreateGithubTarget.md)
+ - [CreateGithubTargetOutput](docs/CreateGithubTargetOutput.md)
+ - [CreateGlobalSignTarget](docs/CreateGlobalSignTarget.md)
+ - [CreateGlobalSignTargetOutput](docs/CreateGlobalSignTargetOutput.md)
  - [CreateKey](docs/CreateKey.md)
  - [CreateKeyOutput](docs/CreateKeyOutput.md)
+ - [CreateLdapTarget](docs/CreateLdapTarget.md)
+ - [CreateLdapTargetOutput](docs/CreateLdapTargetOutput.md)
+ - [CreateLinkedTarget](docs/CreateLinkedTarget.md)
+ - [CreateLinkedTargetOutput](docs/CreateLinkedTargetOutput.md)
+ - [CreateNativeK8STarget](docs/CreateNativeK8STarget.md)
+ - [CreateNativeK8STargetOutput](docs/CreateNativeK8STargetOutput.md)
  - [CreatePKICertIssuer](docs/CreatePKICertIssuer.md)
  - [CreatePKICertIssuerOutput](docs/CreatePKICertIssuerOutput.md)
+ - [CreatePingTarget](docs/CreatePingTarget.md)
+ - [CreatePingTargetOutput](docs/CreatePingTargetOutput.md)
  - [CreateRabbitMQTarget](docs/CreateRabbitMQTarget.md)
- - [CreateRdpTarget](docs/CreateRdpTarget.md)
+ - [CreateRabbitMQTargetOutput](docs/CreateRabbitMQTargetOutput.md)
  - [CreateRole](docs/CreateRole.md)
  - [CreateRoleAuthMethodAssocOutput](docs/CreateRoleAuthMethodAssocOutput.md)
+ - [CreateRotatedSecret](docs/CreateRotatedSecret.md)
+ - [CreateRotatedSecretOutput](docs/CreateRotatedSecretOutput.md)
  - [CreateSSHCertIssuer](docs/CreateSSHCertIssuer.md)
  - [CreateSSHCertIssuerOutput](docs/CreateSSHCertIssuerOutput.md)
  - [CreateSSHTarget](docs/CreateSSHTarget.md)
+ - [CreateSSHTargetOutput](docs/CreateSSHTargetOutput.md)
+ - [CreateSalesforceTarget](docs/CreateSalesforceTarget.md)
+ - [CreateSalesforceTargetOutput](docs/CreateSalesforceTargetOutput.md)
  - [CreateSecret](docs/CreateSecret.md)
  - [CreateSecretOutput](docs/CreateSecretOutput.md)
  - [CreateTargetItemAssocOutput](docs/CreateTargetItemAssocOutput.md)
+ - [CreateTokenizer](docs/CreateTokenizer.md)
+ - [CreateTokenizerOutput](docs/CreateTokenizerOutput.md)
  - [CreateWebTarget](docs/CreateWebTarget.md)
+ - [CreateWebTargetOutput](docs/CreateWebTargetOutput.md)
+ - [CreateWindowsTarget](docs/CreateWindowsTarget.md)
+ - [CreateWindowsTargetOutput](docs/CreateWindowsTargetOutput.md)
+ - [CreateZeroSSLTarget](docs/CreateZeroSSLTarget.md)
+ - [CreateZeroSSLTargetOutput](docs/CreateZeroSSLTargetOutput.md)
  - [CustomerFragment](docs/CustomerFragment.md)
  - [CustomerFragmentsJson](docs/CustomerFragmentsJson.md)
+ - [CustomerFullAddress](docs/CustomerFullAddress.md)
  - [DSProducerDetails](docs/DSProducerDetails.md)
+ - [DataProtectionSection](docs/DataProtectionSection.md)
+ - [DatadogForwardingConfig](docs/DatadogForwardingConfig.md)
  - [Decrypt](docs/Decrypt.md)
  - [DecryptFile](docs/DecryptFile.md)
  - [DecryptFileOutput](docs/DecryptFileOutput.md)
+ - [DecryptGPG](docs/DecryptGPG.md)
+ - [DecryptGPGOutput](docs/DecryptGPGOutput.md)
  - [DecryptOutput](docs/DecryptOutput.md)
  - [DecryptPKCS1](docs/DecryptPKCS1.md)
  - [DecryptPKCS1Output](docs/DecryptPKCS1Output.md)
+ - [DecryptWithClassicKey](docs/DecryptWithClassicKey.md)
+ - [DecryptWithClassicKeyOutput](docs/DecryptWithClassicKeyOutput.md)
  - [DefaultConfigPart](docs/DefaultConfigPart.md)
  - [DeleteAuthMethod](docs/DeleteAuthMethod.md)
  - [DeleteAuthMethodOutput](docs/DeleteAuthMethodOutput.md)
  - [DeleteAuthMethods](docs/DeleteAuthMethods.md)
  - [DeleteAuthMethodsOutput](docs/DeleteAuthMethodsOutput.md)
+ - [DeleteEventForwarder](docs/DeleteEventForwarder.md)
+ - [DeleteGatewayAllowedAccessId](docs/DeleteGatewayAllowedAccessId.md)
  - [DeleteItem](docs/DeleteItem.md)
  - [DeleteItemOutput](docs/DeleteItemOutput.md)
  - [DeleteItems](docs/DeleteItems.md)
@@ -297,61 +557,207 @@ Class | Method | HTTP request | Description
  - [DeleteTarget](docs/DeleteTarget.md)
  - [DeleteTargetAssociation](docs/DeleteTargetAssociation.md)
  - [DeleteTargets](docs/DeleteTargets.md)
+ - [DescribeAssoc](docs/DescribeAssoc.md)
  - [DescribeItem](docs/DescribeItem.md)
+ - [DescribePermissions](docs/DescribePermissions.md)
+ - [DescribePermissionsOutput](docs/DescribePermissionsOutput.md)
+ - [DescribeSubClaims](docs/DescribeSubClaims.md)
+ - [DescribeSubClaimsOutput](docs/DescribeSubClaimsOutput.md)
+ - [Detokenize](docs/Detokenize.md)
+ - [DetokenizeOutput](docs/DetokenizeOutput.md)
  - [DynamicSecretProducerInfo](docs/DynamicSecretProducerInfo.md)
  - [ElasticsearchLogForwardingConfig](docs/ElasticsearchLogForwardingConfig.md)
+ - [EmailEntry](docs/EmailEntry.md)
  - [EmailPassAccessRules](docs/EmailPassAccessRules.md)
+ - [EmailTokenizerInfo](docs/EmailTokenizerInfo.md)
  - [Encrypt](docs/Encrypt.md)
  - [EncryptFile](docs/EncryptFile.md)
  - [EncryptFileOutput](docs/EncryptFileOutput.md)
+ - [EncryptGPG](docs/EncryptGPG.md)
+ - [EncryptGPGOutput](docs/EncryptGPGOutput.md)
  - [EncryptOutput](docs/EncryptOutput.md)
- - [EncryptPKCS1](docs/EncryptPKCS1.md)
- - [EncryptPKCS1Output](docs/EncryptPKCS1Output.md)
- - [GatewayAddSubAdmins](docs/GatewayAddSubAdmins.md)
- - [GatewayAddSubAdminsOutput](docs/GatewayAddSubAdminsOutput.md)
+ - [EncryptWithClassicKey](docs/EncryptWithClassicKey.md)
+ - [EncryptWithClassicKeyOutput](docs/EncryptWithClassicKeyOutput.md)
+ - [EsmCreate](docs/EsmCreate.md)
+ - [EsmCreateSecretOutput](docs/EsmCreateSecretOutput.md)
+ - [EsmDelete](docs/EsmDelete.md)
+ - [EsmGet](docs/EsmGet.md)
+ - [EsmGetSecretOutput](docs/EsmGetSecretOutput.md)
+ - [EsmList](docs/EsmList.md)
+ - [EsmListSecretsOutput](docs/EsmListSecretsOutput.md)
+ - [EsmUpdate](docs/EsmUpdate.md)
+ - [EsmUpdateSecretOutput](docs/EsmUpdateSecretOutput.md)
+ - [ExportClassicKey](docs/ExportClassicKey.md)
+ - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
+ - [Extension](docs/Extension.md)
+ - [ExternalKMSKeyId](docs/ExternalKMSKeyId.md)
+ - [GCPAccessRules](docs/GCPAccessRules.md)
+ - [GCPPayload](docs/GCPPayload.md)
+ - [GCPSecretsMigration](docs/GCPSecretsMigration.md)
+ - [GatewayBasicInfo](docs/GatewayBasicInfo.md)
+ - [GatewayCreateK8SAuthConfig](docs/GatewayCreateK8SAuthConfig.md)
+ - [GatewayCreateK8SAuthConfigOutput](docs/GatewayCreateK8SAuthConfigOutput.md)
+ - [GatewayCreateMigration](docs/GatewayCreateMigration.md)
  - [GatewayCreateProducerArtifactory](docs/GatewayCreateProducerArtifactory.md)
  - [GatewayCreateProducerArtifactoryOutput](docs/GatewayCreateProducerArtifactoryOutput.md)
  - [GatewayCreateProducerAws](docs/GatewayCreateProducerAws.md)
  - [GatewayCreateProducerAwsOutput](docs/GatewayCreateProducerAwsOutput.md)
  - [GatewayCreateProducerAzure](docs/GatewayCreateProducerAzure.md)
  - [GatewayCreateProducerAzureOutput](docs/GatewayCreateProducerAzureOutput.md)
+ - [GatewayCreateProducerCassandra](docs/GatewayCreateProducerCassandra.md)
+ - [GatewayCreateProducerCassandraOutput](docs/GatewayCreateProducerCassandraOutput.md)
+ - [GatewayCreateProducerCertificateAutomation](docs/GatewayCreateProducerCertificateAutomation.md)
+ - [GatewayCreateProducerCertificateAutomationOutput](docs/GatewayCreateProducerCertificateAutomationOutput.md)
+ - [GatewayCreateProducerChef](docs/GatewayCreateProducerChef.md)
+ - [GatewayCreateProducerChefOutput](docs/GatewayCreateProducerChefOutput.md)
+ - [GatewayCreateProducerCustom](docs/GatewayCreateProducerCustom.md)
+ - [GatewayCreateProducerCustomOutput](docs/GatewayCreateProducerCustomOutput.md)
+ - [GatewayCreateProducerDockerhub](docs/GatewayCreateProducerDockerhub.md)
+ - [GatewayCreateProducerDockerhubOutput](docs/GatewayCreateProducerDockerhubOutput.md)
  - [GatewayCreateProducerEks](docs/GatewayCreateProducerEks.md)
  - [GatewayCreateProducerEksOutput](docs/GatewayCreateProducerEksOutput.md)
+ - [GatewayCreateProducerGcp](docs/GatewayCreateProducerGcp.md)
+ - [GatewayCreateProducerGcpOutput](docs/GatewayCreateProducerGcpOutput.md)
+ - [GatewayCreateProducerGithub](docs/GatewayCreateProducerGithub.md)
+ - [GatewayCreateProducerGithubOutput](docs/GatewayCreateProducerGithubOutput.md)
  - [GatewayCreateProducerGke](docs/GatewayCreateProducerGke.md)
  - [GatewayCreateProducerGkeOutput](docs/GatewayCreateProducerGkeOutput.md)
+ - [GatewayCreateProducerHanaDb](docs/GatewayCreateProducerHanaDb.md)
+ - [GatewayCreateProducerHanaDbOutput](docs/GatewayCreateProducerHanaDbOutput.md)
+ - [GatewayCreateProducerLdap](docs/GatewayCreateProducerLdap.md)
+ - [GatewayCreateProducerLdapOutput](docs/GatewayCreateProducerLdapOutput.md)
  - [GatewayCreateProducerMSSQL](docs/GatewayCreateProducerMSSQL.md)
  - [GatewayCreateProducerMSSQLOutput](docs/GatewayCreateProducerMSSQLOutput.md)
  - [GatewayCreateProducerMongo](docs/GatewayCreateProducerMongo.md)
  - [GatewayCreateProducerMongoOutput](docs/GatewayCreateProducerMongoOutput.md)
  - [GatewayCreateProducerMySQL](docs/GatewayCreateProducerMySQL.md)
  - [GatewayCreateProducerMySQLOutput](docs/GatewayCreateProducerMySQLOutput.md)
+ - [GatewayCreateProducerNativeK8S](docs/GatewayCreateProducerNativeK8S.md)
+ - [GatewayCreateProducerNativeK8SOutput](docs/GatewayCreateProducerNativeK8SOutput.md)
+ - [GatewayCreateProducerOracleDb](docs/GatewayCreateProducerOracleDb.md)
+ - [GatewayCreateProducerOracleDbOutput](docs/GatewayCreateProducerOracleDbOutput.md)
+ - [GatewayCreateProducerPing](docs/GatewayCreateProducerPing.md)
+ - [GatewayCreateProducerPingOutput](docs/GatewayCreateProducerPingOutput.md)
  - [GatewayCreateProducerPostgreSQL](docs/GatewayCreateProducerPostgreSQL.md)
  - [GatewayCreateProducerPostgreSQLOutput](docs/GatewayCreateProducerPostgreSQLOutput.md)
  - [GatewayCreateProducerRabbitMQ](docs/GatewayCreateProducerRabbitMQ.md)
  - [GatewayCreateProducerRabbitMQOutput](docs/GatewayCreateProducerRabbitMQOutput.md)
  - [GatewayCreateProducerRdp](docs/GatewayCreateProducerRdp.md)
  - [GatewayCreateProducerRdpOutput](docs/GatewayCreateProducerRdpOutput.md)
+ - [GatewayCreateProducerRedis](docs/GatewayCreateProducerRedis.md)
+ - [GatewayCreateProducerRedisOutput](docs/GatewayCreateProducerRedisOutput.md)
+ - [GatewayCreateProducerRedshift](docs/GatewayCreateProducerRedshift.md)
+ - [GatewayCreateProducerRedshiftOutput](docs/GatewayCreateProducerRedshiftOutput.md)
+ - [GatewayCreateProducerSnowflake](docs/GatewayCreateProducerSnowflake.md)
+ - [GatewayCreateProducerSnowflakeOutput](docs/GatewayCreateProducerSnowflakeOutput.md)
+ - [GatewayDeleteAllowedAccessOutput](docs/GatewayDeleteAllowedAccessOutput.md)
+ - [GatewayDeleteK8SAuthConfig](docs/GatewayDeleteK8SAuthConfig.md)
+ - [GatewayDeleteK8SAuthConfigOutput](docs/GatewayDeleteK8SAuthConfigOutput.md)
+ - [GatewayDeleteMigration](docs/GatewayDeleteMigration.md)
  - [GatewayDeleteProducer](docs/GatewayDeleteProducer.md)
  - [GatewayDeleteProducerOutput](docs/GatewayDeleteProducerOutput.md)
- - [GatewayDeleteSubAdmins](docs/GatewayDeleteSubAdmins.md)
- - [GatewayDeleteSubAdminsOutput](docs/GatewayDeleteSubAdminsOutput.md)
+ - [GatewayDownloadCustomerFragments](docs/GatewayDownloadCustomerFragments.md)
+ - [GatewayDownloadCustomerFragmentsOutput](docs/GatewayDownloadCustomerFragmentsOutput.md)
  - [GatewayGetConfig](docs/GatewayGetConfig.md)
+ - [GatewayGetK8SAuthConfig](docs/GatewayGetK8SAuthConfig.md)
+ - [GatewayGetK8SAuthConfigOutput](docs/GatewayGetK8SAuthConfigOutput.md)
+ - [GatewayGetLdapAuthConfig](docs/GatewayGetLdapAuthConfig.md)
+ - [GatewayGetLdapAuthConfigOutput](docs/GatewayGetLdapAuthConfigOutput.md)
+ - [GatewayGetMigration](docs/GatewayGetMigration.md)
  - [GatewayGetProducer](docs/GatewayGetProducer.md)
  - [GatewayGetTmpUsers](docs/GatewayGetTmpUsers.md)
+ - [GatewayListMigration](docs/GatewayListMigration.md)
  - [GatewayListProducers](docs/GatewayListProducers.md)
- - [GatewayListSubAdmins](docs/GatewayListSubAdmins.md)
+ - [GatewayListRotatedSecrets](docs/GatewayListRotatedSecrets.md)
+ - [GatewayMessageQueueInfo](docs/GatewayMessageQueueInfo.md)
+ - [GatewayMigratePersonalItems](docs/GatewayMigratePersonalItems.md)
+ - [GatewayMigratePersonalItemsOutput](docs/GatewayMigratePersonalItemsOutput.md)
+ - [GatewayMigrationCreateOutput](docs/GatewayMigrationCreateOutput.md)
+ - [GatewayMigrationDeleteOutput](docs/GatewayMigrationDeleteOutput.md)
+ - [GatewayMigrationGetOutput](docs/GatewayMigrationGetOutput.md)
+ - [GatewayMigrationListOutput](docs/GatewayMigrationListOutput.md)
+ - [GatewayMigrationSyncOutput](docs/GatewayMigrationSyncOutput.md)
+ - [GatewayMigrationUpdateOutput](docs/GatewayMigrationUpdateOutput.md)
  - [GatewayRevokeTmpUsers](docs/GatewayRevokeTmpUsers.md)
  - [GatewayStartProducer](docs/GatewayStartProducer.md)
  - [GatewayStartProducerOutput](docs/GatewayStartProducerOutput.md)
+ - [GatewayStatusMigration](docs/GatewayStatusMigration.md)
  - [GatewayStopProducer](docs/GatewayStopProducer.md)
  - [GatewayStopProducerOutput](docs/GatewayStopProducerOutput.md)
+ - [GatewaySyncMigration](docs/GatewaySyncMigration.md)
+ - [GatewayUpdateItem](docs/GatewayUpdateItem.md)
+ - [GatewayUpdateItemOutput](docs/GatewayUpdateItemOutput.md)
+ - [GatewayUpdateK8SAuthConfig](docs/GatewayUpdateK8SAuthConfig.md)
+ - [GatewayUpdateK8SAuthConfigOutput](docs/GatewayUpdateK8SAuthConfigOutput.md)
+ - [GatewayUpdateLdapAuthConfig](docs/GatewayUpdateLdapAuthConfig.md)
+ - [GatewayUpdateLdapAuthConfigOutput](docs/GatewayUpdateLdapAuthConfigOutput.md)
+ - [GatewayUpdateMigration](docs/GatewayUpdateMigration.md)
+ - [GatewayUpdateProducerArtifactory](docs/GatewayUpdateProducerArtifactory.md)
+ - [GatewayUpdateProducerArtifactoryOutput](docs/GatewayUpdateProducerArtifactoryOutput.md)
+ - [GatewayUpdateProducerAws](docs/GatewayUpdateProducerAws.md)
+ - [GatewayUpdateProducerAwsOutput](docs/GatewayUpdateProducerAwsOutput.md)
+ - [GatewayUpdateProducerAzure](docs/GatewayUpdateProducerAzure.md)
+ - [GatewayUpdateProducerAzureOutput](docs/GatewayUpdateProducerAzureOutput.md)
+ - [GatewayUpdateProducerCassandra](docs/GatewayUpdateProducerCassandra.md)
+ - [GatewayUpdateProducerCassandraOutput](docs/GatewayUpdateProducerCassandraOutput.md)
+ - [GatewayUpdateProducerCertificateAutomation](docs/GatewayUpdateProducerCertificateAutomation.md)
+ - [GatewayUpdateProducerCertificateAutomationOutput](docs/GatewayUpdateProducerCertificateAutomationOutput.md)
+ - [GatewayUpdateProducerChef](docs/GatewayUpdateProducerChef.md)
+ - [GatewayUpdateProducerChefOutput](docs/GatewayUpdateProducerChefOutput.md)
+ - [GatewayUpdateProducerCustom](docs/GatewayUpdateProducerCustom.md)
+ - [GatewayUpdateProducerCustomOutput](docs/GatewayUpdateProducerCustomOutput.md)
+ - [GatewayUpdateProducerDockerhub](docs/GatewayUpdateProducerDockerhub.md)
+ - [GatewayUpdateProducerDockerhubOutput](docs/GatewayUpdateProducerDockerhubOutput.md)
+ - [GatewayUpdateProducerEks](docs/GatewayUpdateProducerEks.md)
+ - [GatewayUpdateProducerEksOutput](docs/GatewayUpdateProducerEksOutput.md)
+ - [GatewayUpdateProducerGcp](docs/GatewayUpdateProducerGcp.md)
+ - [GatewayUpdateProducerGcpOutput](docs/GatewayUpdateProducerGcpOutput.md)
+ - [GatewayUpdateProducerGithub](docs/GatewayUpdateProducerGithub.md)
+ - [GatewayUpdateProducerGithubOutput](docs/GatewayUpdateProducerGithubOutput.md)
+ - [GatewayUpdateProducerGke](docs/GatewayUpdateProducerGke.md)
+ - [GatewayUpdateProducerGkeOutput](docs/GatewayUpdateProducerGkeOutput.md)
+ - [GatewayUpdateProducerHanaDb](docs/GatewayUpdateProducerHanaDb.md)
+ - [GatewayUpdateProducerHanaDbOutput](docs/GatewayUpdateProducerHanaDbOutput.md)
+ - [GatewayUpdateProducerLdap](docs/GatewayUpdateProducerLdap.md)
+ - [GatewayUpdateProducerLdapOutput](docs/GatewayUpdateProducerLdapOutput.md)
+ - [GatewayUpdateProducerMSSQL](docs/GatewayUpdateProducerMSSQL.md)
+ - [GatewayUpdateProducerMSSQLOutput](docs/GatewayUpdateProducerMSSQLOutput.md)
+ - [GatewayUpdateProducerMongo](docs/GatewayUpdateProducerMongo.md)
+ - [GatewayUpdateProducerMongoOutput](docs/GatewayUpdateProducerMongoOutput.md)
+ - [GatewayUpdateProducerMySQL](docs/GatewayUpdateProducerMySQL.md)
+ - [GatewayUpdateProducerMySQLOutput](docs/GatewayUpdateProducerMySQLOutput.md)
+ - [GatewayUpdateProducerNativeK8S](docs/GatewayUpdateProducerNativeK8S.md)
+ - [GatewayUpdateProducerNativeK8SOutput](docs/GatewayUpdateProducerNativeK8SOutput.md)
+ - [GatewayUpdateProducerOracleDb](docs/GatewayUpdateProducerOracleDb.md)
+ - [GatewayUpdateProducerOracleDbOutput](docs/GatewayUpdateProducerOracleDbOutput.md)
+ - [GatewayUpdateProducerPing](docs/GatewayUpdateProducerPing.md)
+ - [GatewayUpdateProducerPingOutput](docs/GatewayUpdateProducerPingOutput.md)
+ - [GatewayUpdateProducerPostgreSQL](docs/GatewayUpdateProducerPostgreSQL.md)
+ - [GatewayUpdateProducerPostgreSQLOutput](docs/GatewayUpdateProducerPostgreSQLOutput.md)
+ - [GatewayUpdateProducerRabbitMQ](docs/GatewayUpdateProducerRabbitMQ.md)
+ - [GatewayUpdateProducerRabbitMQOutput](docs/GatewayUpdateProducerRabbitMQOutput.md)
+ - [GatewayUpdateProducerRdp](docs/GatewayUpdateProducerRdp.md)
+ - [GatewayUpdateProducerRdpOutput](docs/GatewayUpdateProducerRdpOutput.md)
+ - [GatewayUpdateProducerRedis](docs/GatewayUpdateProducerRedis.md)
+ - [GatewayUpdateProducerRedisOutput](docs/GatewayUpdateProducerRedisOutput.md)
+ - [GatewayUpdateProducerRedshift](docs/GatewayUpdateProducerRedshift.md)
+ - [GatewayUpdateProducerRedshiftOutput](docs/GatewayUpdateProducerRedshiftOutput.md)
+ - [GatewayUpdateProducerSnowflake](docs/GatewayUpdateProducerSnowflake.md)
+ - [GatewayUpdateProducerSnowflakeOutput](docs/GatewayUpdateProducerSnowflakeOutput.md)
+ - [GatewayUpdateTlsCert](docs/GatewayUpdateTlsCert.md)
+ - [GatewayUpdateTlsCertOutput](docs/GatewayUpdateTlsCertOutput.md)
  - [GatewayUpdateTmpUsers](docs/GatewayUpdateTmpUsers.md)
+ - [GatewaysListResponse](docs/GatewaysListResponse.md)
  - [GenCustomerFragment](docs/GenCustomerFragment.md)
  - [GeneralConfigPart](docs/GeneralConfigPart.md)
+ - [GetAccountSettings](docs/GetAccountSettings.md)
+ - [GetAccountSettingsCommandOutput](docs/GetAccountSettingsCommandOutput.md)
  - [GetAuthMethod](docs/GetAuthMethod.md)
- - [GetCloudIdentity](docs/GetCloudIdentity.md)
- - [GetCloudIdentityOutput](docs/GetCloudIdentityOutput.md)
+ - [GetCertificateValue](docs/GetCertificateValue.md)
+ - [GetCertificateValueOutput](docs/GetCertificateValueOutput.md)
  - [GetDynamicSecretValue](docs/GetDynamicSecretValue.md)
+ - [GetEventForwarder](docs/GetEventForwarder.md)
+ - [GetEventForwarderOutput](docs/GetEventForwarderOutput.md)
  - [GetKubeExecCreds](docs/GetKubeExecCreds.md)
  - [GetKubeExecCredsOutput](docs/GetKubeExecCredsOutput.md)
  - [GetPKICertificate](docs/GetPKICertificate.md)
@@ -360,77 +766,164 @@ Class | Method | HTTP request | Description
  - [GetRSAPublic](docs/GetRSAPublic.md)
  - [GetRSAPublicOutput](docs/GetRSAPublicOutput.md)
  - [GetRole](docs/GetRole.md)
+ - [GetRotatedSecretValue](docs/GetRotatedSecretValue.md)
  - [GetSSHCertificate](docs/GetSSHCertificate.md)
  - [GetSSHCertificateOutput](docs/GetSSHCertificateOutput.md)
  - [GetSecretValue](docs/GetSecretValue.md)
- - [GetSubAdminsListReplyObj](docs/GetSubAdminsListReplyObj.md)
+ - [GetTags](docs/GetTags.md)
  - [GetTarget](docs/GetTarget.md)
  - [GetTargetDetails](docs/GetTargetDetails.md)
  - [GetTargetDetailsOutput](docs/GetTargetDetailsOutput.md)
+ - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [HashiMigration](docs/HashiMigration.md)
  - [HashiPayload](docs/HashiPayload.md)
+ - [Hmac](docs/Hmac.md)
+ - [HmacOutput](docs/HmacOutput.md)
  - [HuaweiAccessRules](docs/HuaweiAccessRules.md)
+ - [ImportPasswords](docs/ImportPasswords.md)
+ - [ImportPasswordsOutput](docs/ImportPasswordsOutput.md)
+ - [ImporterInfo](docs/ImporterInfo.md)
  - [Item](docs/Item.md)
  - [ItemGeneralInfo](docs/ItemGeneralInfo.md)
  - [ItemTargetAssociation](docs/ItemTargetAssociation.md)
  - [ItemVersion](docs/ItemVersion.md)
  - [JSONError](docs/JSONError.md)
+ - [K8SAuth](docs/K8SAuth.md)
+ - [K8SAuthsConfigLastChange](docs/K8SAuthsConfigLastChange.md)
+ - [K8SAuthsConfigPart](docs/K8SAuthsConfigPart.md)
  - [K8SMigration](docs/K8SMigration.md)
  - [K8SPayload](docs/K8SPayload.md)
+ - [KMIPClient](docs/KMIPClient.md)
+ - [KMIPClientGetResponse](docs/KMIPClientGetResponse.md)
+ - [KMIPClientListResponse](docs/KMIPClientListResponse.md)
+ - [KMIPClientUpdateResponse](docs/KMIPClientUpdateResponse.md)
+ - [KMIPConfigPart](docs/KMIPConfigPart.md)
+ - [KMIPEnvironmentCreateResponse](docs/KMIPEnvironmentCreateResponse.md)
+ - [KMIPServer](docs/KMIPServer.md)
+ - [KmipClientDeleteRule](docs/KmipClientDeleteRule.md)
+ - [KmipClientSetRule](docs/KmipClientSetRule.md)
+ - [KmipCreateClient](docs/KmipCreateClient.md)
+ - [KmipCreateClientOutput](docs/KmipCreateClientOutput.md)
+ - [KmipDeleteClient](docs/KmipDeleteClient.md)
+ - [KmipDeleteServer](docs/KmipDeleteServer.md)
+ - [KmipDescribeClient](docs/KmipDescribeClient.md)
+ - [KmipDescribeServer](docs/KmipDescribeServer.md)
+ - [KmipDescribeServerOutput](docs/KmipDescribeServerOutput.md)
+ - [KmipListClients](docs/KmipListClients.md)
+ - [KmipMoveServer](docs/KmipMoveServer.md)
+ - [KmipMoveServerOutput](docs/KmipMoveServerOutput.md)
+ - [KmipRenewClientCertificate](docs/KmipRenewClientCertificate.md)
+ - [KmipRenewClientCertificateOutput](docs/KmipRenewClientCertificateOutput.md)
+ - [KmipRenewServerCertificate](docs/KmipRenewServerCertificate.md)
+ - [KmipRenewServerCertificateOutput](docs/KmipRenewServerCertificateOutput.md)
+ - [KmipServerSetup](docs/KmipServerSetup.md)
+ - [KmipSetServerState](docs/KmipSetServerState.md)
+ - [KmipSetServerStateOutput](docs/KmipSetServerStateOutput.md)
+ - [KubernetesAccessRules](docs/KubernetesAccessRules.md)
  - [LDAPAccessRules](docs/LDAPAccessRules.md)
+ - [LastConfigChange](docs/LastConfigChange.md)
+ - [LastStatusInfo](docs/LastStatusInfo.md)
  - [LdapConfigPart](docs/LdapConfigPart.md)
  - [LeadershipConfigPart](docs/LeadershipConfigPart.md)
+ - [LinkedDetails](docs/LinkedDetails.md)
  - [ListAuthMethods](docs/ListAuthMethods.md)
  - [ListAuthMethodsOutput](docs/ListAuthMethodsOutput.md)
+ - [ListGateways](docs/ListGateways.md)
  - [ListItems](docs/ListItems.md)
  - [ListItemsInPathOutput](docs/ListItemsInPathOutput.md)
+ - [ListItemsOutput](docs/ListItemsOutput.md)
  - [ListRoles](docs/ListRoles.md)
  - [ListRolesOutput](docs/ListRolesOutput.md)
+ - [ListSRABastions](docs/ListSRABastions.md)
+ - [ListSharedItems](docs/ListSharedItems.md)
  - [ListTargets](docs/ListTargets.md)
  - [ListTargetsOutput](docs/ListTargetsOutput.md)
  - [LogForwardingConfigPart](docs/LogForwardingConfigPart.md)
  - [LogstashLogForwardingConfig](docs/LogstashLogForwardingConfig.md)
  - [LogzIoLogForwardingConfig](docs/LogzIoLogForwardingConfig.md)
  - [MigrationGeneral](docs/MigrationGeneral.md)
+ - [MigrationItems](docs/MigrationItems.md)
+ - [MigrationStatus](docs/MigrationStatus.md)
+ - [MigrationStatusReplyObj](docs/MigrationStatusReplyObj.md)
+ - [MigrationsConfigLastChange](docs/MigrationsConfigLastChange.md)
  - [MigrationsConfigPart](docs/MigrationsConfigPart.md)
+ - [MockMigration](docs/MockMigration.md)
+ - [MockPayload](docs/MockPayload.md)
  - [MoveObjects](docs/MoveObjects.md)
+ - [Name](docs/Name.md)
+ - [NotiForwarder](docs/NotiForwarder.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
+ - [OIDCAccessRules](docs/OIDCAccessRules.md)
+ - [OIDCCustomClaim](docs/OIDCCustomClaim.md)
+ - [ObjectVersionSettingsOutput](docs/ObjectVersionSettingsOutput.md)
+ - [OnePasswordMigration](docs/OnePasswordMigration.md)
+ - [OnePasswordPayload](docs/OnePasswordPayload.md)
  - [PKICertificateIssueDetails](docs/PKICertificateIssueDetails.md)
+ - [PasswordPolicyInfo](docs/PasswordPolicyInfo.md)
  - [PathRule](docs/PathRule.md)
  - [Producer](docs/Producer.md)
  - [ProducersConfigPart](docs/ProducersConfigPart.md)
  - [RawCreds](docs/RawCreds.md)
  - [RefreshKey](docs/RefreshKey.md)
  - [RefreshKeyOutput](docs/RefreshKeyOutput.md)
+ - [RegexpTokenizerInfo](docs/RegexpTokenizerInfo.md)
+ - [RequestAccess](docs/RequestAccess.md)
+ - [RequestAccessOutput](docs/RequestAccessOutput.md)
+ - [RequiredActivity](docs/RequiredActivity.md)
  - [ReverseRBAC](docs/ReverseRBAC.md)
  - [ReverseRBACClient](docs/ReverseRBACClient.md)
  - [ReverseRBACOutput](docs/ReverseRBACOutput.md)
+ - [RevokeCreds](docs/RevokeCreds.md)
  - [Role](docs/Role.md)
+ - [RoleAssociationDetails](docs/RoleAssociationDetails.md)
  - [RoleAuthMethodAssociation](docs/RoleAuthMethodAssociation.md)
  - [RollbackSecret](docs/RollbackSecret.md)
  - [RollbackSecretOutput](docs/RollbackSecretOutput.md)
  - [RotateKey](docs/RotateKey.md)
  - [RotateKeyOutput](docs/RotateKeyOutput.md)
+ - [RotateSecret](docs/RotateSecret.md)
+ - [RotatedSecretDetailsInfo](docs/RotatedSecretDetailsInfo.md)
+ - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
+ - [Rotator](docs/Rotator.md)
+ - [RotatorsConfigPart](docs/RotatorsConfigPart.md)
+ - [RuleAssigner](docs/RuleAssigner.md)
  - [Rules](docs/Rules.md)
  - [SAMLAccessRules](docs/SAMLAccessRules.md)
  - [SAMLAttribute](docs/SAMLAttribute.md)
  - [SSHCertificateIssueDetails](docs/SSHCertificateIssueDetails.md)
+ - [SecretInfo](docs/SecretInfo.md)
+ - [SecureRemoteAccess](docs/SecureRemoteAccess.md)
  - [SetItemState](docs/SetItemState.md)
  - [SetRoleRule](docs/SetRoleRule.md)
+ - [ShareItem](docs/ShareItem.md)
+ - [SharingPolicyInfo](docs/SharingPolicyInfo.md)
+ - [SignGPG](docs/SignGPG.md)
+ - [SignGPGOutput](docs/SignGPGOutput.md)
+ - [SignJWTOutput](docs/SignJWTOutput.md)
+ - [SignJWTWithClassicKey](docs/SignJWTWithClassicKey.md)
  - [SignPKCS1](docs/SignPKCS1.md)
  - [SignPKCS1Output](docs/SignPKCS1Output.md)
+ - [SignPKICertOutput](docs/SignPKICertOutput.md)
+ - [SignPKICertWithClassicKey](docs/SignPKICertWithClassicKey.md)
+ - [SmInfo](docs/SmInfo.md)
  - [SplunkLogForwardingConfig](docs/SplunkLogForwardingConfig.md)
+ - [SraInfo](docs/SraInfo.md)
  - [StaticCredsAuth](docs/StaticCredsAuth.md)
  - [StaticCredsAuthOutput](docs/StaticCredsAuthOutput.md)
+ - [StaticSecretDetailsInfo](docs/StaticSecretDetailsInfo.md)
  - [SyslogLogForwardingConfig](docs/SyslogLogForwardingConfig.md)
  - [SystemAccessCredentialsReplyObj](docs/SystemAccessCredentialsReplyObj.md)
+ - [SystemAccessCredsSettings](docs/SystemAccessCredsSettings.md)
  - [Target](docs/Target.md)
  - [TargetItemAssociation](docs/TargetItemAssociation.md)
- - [TargetTypeDetailesInput](docs/TargetTypeDetailesInput.md)
+ - [TargetItemVersion](docs/TargetItemVersion.md)
+ - [TargetTypeDetailsInput](docs/TargetTypeDetailsInput.md)
  - [TmpUserData](docs/TmpUserData.md)
+ - [Tokenize](docs/Tokenize.md)
+ - [TokenizeOutput](docs/TokenizeOutput.md)
+ - [TokenizerInfo](docs/TokenizerInfo.md)
  - [UIDTokenDetails](docs/UIDTokenDetails.md)
- - [UIdentityConfigPart](docs/UIdentityConfigPart.md)
  - [UidCreateChildToken](docs/UidCreateChildToken.md)
  - [UidCreateChildTokenOutput](docs/UidCreateChildTokenOutput.md)
  - [UidGenerateToken](docs/UidGenerateToken.md)
@@ -442,25 +935,100 @@ Class | Method | HTTP request | Description
  - [Unconfigure](docs/Unconfigure.md)
  - [UniversalIdentityAccessRules](docs/UniversalIdentityAccessRules.md)
  - [UniversalIdentityDetails](docs/UniversalIdentityDetails.md)
+ - [Update](docs/Update.md)
+ - [UpdateAWSTarget](docs/UpdateAWSTarget.md)
  - [UpdateAWSTargetDetails](docs/UpdateAWSTargetDetails.md)
+ - [UpdateAccountSettings](docs/UpdateAccountSettings.md)
+ - [UpdateAccountSettingsOutput](docs/UpdateAccountSettingsOutput.md)
+ - [UpdateArtifactoryTarget](docs/UpdateArtifactoryTarget.md)
+ - [UpdateArtifactoryTargetOutput](docs/UpdateArtifactoryTargetOutput.md)
+ - [UpdateAssoc](docs/UpdateAssoc.md)
+ - [UpdateAuthMethod](docs/UpdateAuthMethod.md)
+ - [UpdateAuthMethodAWSIAM](docs/UpdateAuthMethodAWSIAM.md)
+ - [UpdateAuthMethodAzureAD](docs/UpdateAuthMethodAzureAD.md)
+ - [UpdateAuthMethodCert](docs/UpdateAuthMethodCert.md)
+ - [UpdateAuthMethodCertOutput](docs/UpdateAuthMethodCertOutput.md)
+ - [UpdateAuthMethodGCP](docs/UpdateAuthMethodGCP.md)
+ - [UpdateAuthMethodK8S](docs/UpdateAuthMethodK8S.md)
+ - [UpdateAuthMethodK8SOutput](docs/UpdateAuthMethodK8SOutput.md)
+ - [UpdateAuthMethodLDAP](docs/UpdateAuthMethodLDAP.md)
+ - [UpdateAuthMethodLDAPOutput](docs/UpdateAuthMethodLDAPOutput.md)
+ - [UpdateAuthMethodOAuth2](docs/UpdateAuthMethodOAuth2.md)
+ - [UpdateAuthMethodOIDC](docs/UpdateAuthMethodOIDC.md)
+ - [UpdateAuthMethodOutput](docs/UpdateAuthMethodOutput.md)
+ - [UpdateAuthMethodSAML](docs/UpdateAuthMethodSAML.md)
+ - [UpdateAuthMethodUniversalIdentity](docs/UpdateAuthMethodUniversalIdentity.md)
+ - [UpdateAzureTarget](docs/UpdateAzureTarget.md)
+ - [UpdateAzureTargetOutput](docs/UpdateAzureTargetOutput.md)
+ - [UpdateCertificateOutput](docs/UpdateCertificateOutput.md)
+ - [UpdateCertificateValue](docs/UpdateCertificateValue.md)
+ - [UpdateDBTarget](docs/UpdateDBTarget.md)
  - [UpdateDBTargetDetails](docs/UpdateDBTargetDetails.md)
+ - [UpdateDBTargetOutput](docs/UpdateDBTargetOutput.md)
+ - [UpdateDockerhubTarget](docs/UpdateDockerhubTarget.md)
+ - [UpdateDockerhubTargetOutput](docs/UpdateDockerhubTargetOutput.md)
+ - [UpdateEKSTarget](docs/UpdateEKSTarget.md)
+ - [UpdateEKSTargetOutput](docs/UpdateEKSTargetOutput.md)
+ - [UpdateEventForwarder](docs/UpdateEventForwarder.md)
+ - [UpdateGKETarget](docs/UpdateGKETarget.md)
+ - [UpdateGKETargetOutput](docs/UpdateGKETargetOutput.md)
+ - [UpdateGcpTarget](docs/UpdateGcpTarget.md)
+ - [UpdateGcpTargetOutput](docs/UpdateGcpTargetOutput.md)
+ - [UpdateGithubTarget](docs/UpdateGithubTarget.md)
+ - [UpdateGithubTargetOutput](docs/UpdateGithubTargetOutput.md)
+ - [UpdateGlobalSignTarget](docs/UpdateGlobalSignTarget.md)
+ - [UpdateGlobalSignTargetOutput](docs/UpdateGlobalSignTargetOutput.md)
  - [UpdateItem](docs/UpdateItem.md)
  - [UpdateItemOutput](docs/UpdateItemOutput.md)
+ - [UpdateLdapTarget](docs/UpdateLdapTarget.md)
+ - [UpdateLdapTargetDetails](docs/UpdateLdapTargetDetails.md)
+ - [UpdateLdapTargetOutput](docs/UpdateLdapTargetOutput.md)
+ - [UpdateLinkedTarget](docs/UpdateLinkedTarget.md)
+ - [UpdateNativeK8STarget](docs/UpdateNativeK8STarget.md)
+ - [UpdateNativeK8STargetOutput](docs/UpdateNativeK8STargetOutput.md)
  - [UpdateOutput](docs/UpdateOutput.md)
+ - [UpdatePKICertIssuer](docs/UpdatePKICertIssuer.md)
+ - [UpdatePKICertIssuerOutput](docs/UpdatePKICertIssuerOutput.md)
+ - [UpdatePingTarget](docs/UpdatePingTarget.md)
  - [UpdateRDPTargetDetails](docs/UpdateRDPTargetDetails.md)
+ - [UpdateRabbitMQTarget](docs/UpdateRabbitMQTarget.md)
  - [UpdateRabbitMQTargetDetails](docs/UpdateRabbitMQTargetDetails.md)
+ - [UpdateRabbitMQTargetOutput](docs/UpdateRabbitMQTargetOutput.md)
  - [UpdateRole](docs/UpdateRole.md)
  - [UpdateRoleOutput](docs/UpdateRoleOutput.md)
+ - [UpdateRotatedSecret](docs/UpdateRotatedSecret.md)
+ - [UpdateRotatedSecretOutput](docs/UpdateRotatedSecretOutput.md)
+ - [UpdateRotationSettings](docs/UpdateRotationSettings.md)
+ - [UpdateSSHCertIssuer](docs/UpdateSSHCertIssuer.md)
+ - [UpdateSSHCertIssuerOutput](docs/UpdateSSHCertIssuerOutput.md)
+ - [UpdateSSHTarget](docs/UpdateSSHTarget.md)
  - [UpdateSSHTargetDetails](docs/UpdateSSHTargetDetails.md)
+ - [UpdateSSHTargetOutput](docs/UpdateSSHTargetOutput.md)
+ - [UpdateSalesforceTarget](docs/UpdateSalesforceTarget.md)
+ - [UpdateSalesforceTargetOutput](docs/UpdateSalesforceTargetOutput.md)
  - [UpdateSecretVal](docs/UpdateSecretVal.md)
  - [UpdateSecretValOutput](docs/UpdateSecretValOutput.md)
  - [UpdateTarget](docs/UpdateTarget.md)
+ - [UpdateTargetDetails](docs/UpdateTargetDetails.md)
  - [UpdateTargetDetailsOutput](docs/UpdateTargetDetailsOutput.md)
  - [UpdateTargetOutput](docs/UpdateTargetOutput.md)
+ - [UpdateWebTarget](docs/UpdateWebTarget.md)
  - [UpdateWebTargetDetails](docs/UpdateWebTargetDetails.md)
+ - [UpdateWebTargetOutput](docs/UpdateWebTargetOutput.md)
+ - [UpdateWindowsTarget](docs/UpdateWindowsTarget.md)
+ - [UpdateZeroSSLTarget](docs/UpdateZeroSSLTarget.md)
+ - [UpdateZeroSSLTargetOutput](docs/UpdateZeroSSLTargetOutput.md)
  - [UploadPKCS12](docs/UploadPKCS12.md)
  - [UploadRSA](docs/UploadRSA.md)
+ - [ValidateToken](docs/ValidateToken.md)
+ - [ValidateTokenOutput](docs/ValidateTokenOutput.md)
+ - [VaultlessTokenizerInfo](docs/VaultlessTokenizerInfo.md)
+ - [VerifyGPG](docs/VerifyGPG.md)
+ - [VerifyJWTOutput](docs/VerifyJWTOutput.md)
+ - [VerifyJWTWithClassicKey](docs/VerifyJWTWithClassicKey.md)
  - [VerifyPKCS1](docs/VerifyPKCS1.md)
+ - [VerifyPKICertOutput](docs/VerifyPKICertOutput.md)
+ - [VerifyPKICertWithClassicKey](docs/VerifyPKICertWithClassicKey.md)
 
 
 ## Documentation for Authorization

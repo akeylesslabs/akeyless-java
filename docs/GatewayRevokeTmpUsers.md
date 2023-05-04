@@ -3,6 +3,7 @@
 # GatewayRevokeTmpUsers
 
 gatewayRevokeTmpUsers is a command that revoke producer tmp user
+
 ## Properties
 
 Name | Type | Description | Notes

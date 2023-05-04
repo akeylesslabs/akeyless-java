@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerLdap is a command that creates ldap producer
  */
 @ApiModel(description = "gatewayCreateProducerLdap is a command that creates ldap producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerLdap {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
@@ -100,6 +100,8 @@ public class GatewayCreateProducerLdap {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayCreateProducerLdap() { 
+  }
 
   public GatewayCreateProducerLdap bindDn(String bindDn) {
     
@@ -272,6 +274,7 @@ public class GatewayCreateProducerLdap {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -500,7 +503,7 @@ public class GatewayCreateProducerLdap {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -532,7 +535,6 @@ public class GatewayCreateProducerLdap {
     return Objects.hash(bindDn, bindDnPassword, deleteProtection, externalUsername, json, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -562,7 +564,7 @@ public class GatewayCreateProducerLdap {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

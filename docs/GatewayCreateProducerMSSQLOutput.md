@@ -2,6 +2,7 @@
 
 # GatewayCreateProducerMSSQLOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * K8SPayload
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class K8SPayload {
   public static final String SERIALIZED_NAME_CA = "ca";
   @SerializedName(SERIALIZED_NAME_CA)
@@ -67,6 +67,8 @@ public class K8SPayload {
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
 
+  public K8SPayload() { 
+  }
 
   public K8SPayload ca(List<Integer> ca) {
     
@@ -300,7 +302,7 @@ public class K8SPayload {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -324,7 +326,6 @@ public class K8SPayload {
     return Objects.hash(ca, clientCert, clientKey, namespace, password, server, skipSystem, token, username);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -346,7 +347,7 @@ public class K8SPayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

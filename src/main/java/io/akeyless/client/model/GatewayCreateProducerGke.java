@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerGke is a command that creates gke producer
  */
 @ApiModel(description = "gatewayCreateProducerGke is a command that creates gke producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerGke {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -108,6 +108,8 @@ public class GatewayCreateProducerGke {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayCreateProducerGke() { 
+  }
 
   public GatewayCreateProducerGke deleteProtection(String deleteProtection) {
     
@@ -280,6 +282,7 @@ public class GatewayCreateProducerGke {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -554,7 +557,7 @@ public class GatewayCreateProducerGke {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -588,7 +591,6 @@ public class GatewayCreateProducerGke {
     return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -620,7 +622,7 @@ public class GatewayCreateProducerGke {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

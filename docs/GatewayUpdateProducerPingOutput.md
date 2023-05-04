@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerPingOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

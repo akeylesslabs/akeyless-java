@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GeneralConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeneralConfigPart {
   public static final String SERIALIZED_NAME_AKEYLESS_URL = "akeyless_url";
   @SerializedName(SERIALIZED_NAME_AKEYLESS_URL)
@@ -77,6 +77,8 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_TLS_KEY)
   private String tlsKey;
 
+  public GeneralConfigPart() { 
+  }
 
   public GeneralConfigPart akeylessUrl(String akeylessUrl) {
     
@@ -355,7 +357,7 @@ public class GeneralConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -382,7 +384,6 @@ public class GeneralConfigPart {
     return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -407,7 +408,7 @@ public class GeneralConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ClientData
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ClientData {
   public static final String SERIALIZED_NAME_CLIENT_CERTIFICATE_DATA = "clientCertificateData";
   @SerializedName(SERIALIZED_NAME_CLIENT_CERTIFICATE_DATA)
@@ -41,6 +41,8 @@ public class ClientData {
   @SerializedName(SERIALIZED_NAME_PARENT_CERTIFICATE_DATA)
   private String parentCertificateData;
 
+  public ClientData() { 
+  }
 
   public ClientData clientCertificateData(String clientCertificateData) {
     
@@ -112,7 +114,7 @@ public class ClientData {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +132,6 @@ public class ClientData {
     return Objects.hash(clientCertificateData, clientKeyData, parentCertificateData);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,7 +147,7 @@ public class ClientData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ReverseRBACClient
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReverseRBACClient {
   public static final String SERIALIZED_NAME_ASSOCS = "assocs";
   @SerializedName(SERIALIZED_NAME_ASSOCS)
@@ -40,6 +40,8 @@ public class ReverseRBACClient {
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
   private String authMethodName;
 
+  public ReverseRBACClient() { 
+  }
 
   public ReverseRBACClient assocs(List<AuthMethodRoleAssociation> assocs) {
     
@@ -96,7 +98,7 @@ public class ReverseRBACClient {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -113,7 +115,6 @@ public class ReverseRBACClient {
     return Objects.hash(assocs, authMethodName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -128,7 +129,7 @@ public class ReverseRBACClient {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

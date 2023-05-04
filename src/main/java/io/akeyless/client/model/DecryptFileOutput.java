@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DecryptFileOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecryptFileOutput {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -37,6 +37,8 @@ public class DecryptFileOutput {
   @SerializedName(SERIALIZED_NAME_PLAIN_TEXT)
   private String plainText;
 
+  public DecryptFileOutput() { 
+  }
 
   public DecryptFileOutput path(String path) {
     
@@ -85,7 +87,7 @@ public class DecryptFileOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class DecryptFileOutput {
     return Objects.hash(path, plainText);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class DecryptFileOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -30,7 +30,7 @@ import java.util.List;
  * listAuthMethods is a command that returns a list of all auth methods in the account.
  */
 @ApiModel(description = "listAuthMethods is a command that returns a list of all auth methods in the account.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListAuthMethods {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
@@ -56,6 +56,8 @@ public class ListAuthMethods {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public ListAuthMethods() { 
+  }
 
   public ListAuthMethods filter(String filter) {
     
@@ -204,7 +206,7 @@ public class ListAuthMethods {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -225,7 +227,6 @@ public class ListAuthMethods {
     return Objects.hash(filter, json, paginationToken, token, type, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -244,7 +245,7 @@ public class ListAuthMethods {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

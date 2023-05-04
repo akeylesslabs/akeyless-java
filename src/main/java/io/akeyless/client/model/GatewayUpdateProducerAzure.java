@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerAzure is a command that updates azure producer
  */
 @ApiModel(description = "gatewayUpdateProducerAzure is a command that updates azure producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerAzure {
   public static final String SERIALIZED_NAME_APP_OBJ_ID = "app-obj-id";
   @SerializedName(SERIALIZED_NAME_APP_OBJ_ID)
@@ -132,6 +132,8 @@ public class GatewayUpdateProducerAzure {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerAzure() { 
+  }
 
   public GatewayUpdateProducerAzure appObjId(String appObjId) {
     
@@ -327,6 +329,7 @@ public class GatewayUpdateProducerAzure {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -716,7 +719,7 @@ public class GatewayUpdateProducerAzure {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -756,7 +759,6 @@ public class GatewayUpdateProducerAzure {
     return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -794,7 +796,7 @@ public class GatewayUpdateProducerAzure {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

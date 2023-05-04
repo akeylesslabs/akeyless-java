@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerGithubOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

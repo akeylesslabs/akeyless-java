@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * GwClusterIdentity
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GwClusterIdentity {
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
@@ -79,6 +79,8 @@ public class GwClusterIdentity {
   @SerializedName(SERIALIZED_NAME_STATUS_DESCRIPTION)
   private String statusDescription;
 
+  public GwClusterIdentity() { 
+  }
 
   public GwClusterIdentity allowed(Boolean allowed) {
     
@@ -373,7 +375,7 @@ public class GwClusterIdentity {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -400,7 +402,6 @@ public class GwClusterIdentity {
     return Objects.hash(allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, defaultProtectionKeyId, defaultSecretLocation, displayName, id, status, statusDescription);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -425,7 +426,7 @@ public class GwClusterIdentity {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

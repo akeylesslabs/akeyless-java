@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdatePingTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdatePingTarget {
   public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative-port";
   @SerializedName(SERIALIZED_NAME_ADMINISTRATIVE_PORT)
@@ -89,6 +89,8 @@ public class UpdatePingTarget {
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
   private Boolean updateVersion;
 
+  public UpdatePingTarget() { 
+  }
 
   public UpdatePingTarget administrativePort(String administrativePort) {
     
@@ -261,6 +263,7 @@ public class UpdatePingTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -435,7 +438,7 @@ public class UpdatePingTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -465,7 +468,6 @@ public class UpdatePingTarget {
     return Objects.hash(administrativePort, authorizationPort, comment, description, json, keepPrevVersion, key, name, newName, password, pingUrl, privilegedUser, token, uidToken, updateVersion);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -493,7 +495,7 @@ public class UpdatePingTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

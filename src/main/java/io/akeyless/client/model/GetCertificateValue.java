@@ -27,15 +27,35 @@ import java.io.IOException;
 /**
  * GetCertificateValue
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetCertificateValue {
+  public static final String SERIALIZED_NAME_CERT_ISSUER_NAME = "cert-issuer-name";
+  @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
+  private String certIssuerName;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_FILE_OUTPUT = "certificate-file-output";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FILE_OUTPUT)
+  private String certificateFileOutput;
+
+  public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
+  private String displayId;
+
+  public static final String SERIALIZED_NAME_ISSUANCE_TOKEN = "issuance-token";
+  @SerializedName(SERIALIZED_NAME_ISSUANCE_TOKEN)
+  private String issuanceToken;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  private String name = "dummy_certificate_name";
+
+  public static final String SERIALIZED_NAME_PRIVATE_KEY_FILE_OUTPUT = "private-key-file-output";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_FILE_OUTPUT)
+  private String privateKeyFileOutput;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -48,6 +68,100 @@ public class GetCertificateValue {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
+
+  public GetCertificateValue() { 
+  }
+
+  public GetCertificateValue certIssuerName(String certIssuerName) {
+    
+    this.certIssuerName = certIssuerName;
+    return this;
+  }
+
+   /**
+   * The parent PKI Certificate Issuer&#39;s name of the certificate, required when used with display-id and token
+   * @return certIssuerName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The parent PKI Certificate Issuer's name of the certificate, required when used with display-id and token")
+
+  public String getCertIssuerName() {
+    return certIssuerName;
+  }
+
+
+  public void setCertIssuerName(String certIssuerName) {
+    this.certIssuerName = certIssuerName;
+  }
+
+
+  public GetCertificateValue certificateFileOutput(String certificateFileOutput) {
+    
+    this.certificateFileOutput = certificateFileOutput;
+    return this;
+  }
+
+   /**
+   * File to write the certificates to.
+   * @return certificateFileOutput
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "File to write the certificates to.")
+
+  public String getCertificateFileOutput() {
+    return certificateFileOutput;
+  }
+
+
+  public void setCertificateFileOutput(String certificateFileOutput) {
+    this.certificateFileOutput = certificateFileOutput;
+  }
+
+
+  public GetCertificateValue displayId(String displayId) {
+    
+    this.displayId = displayId;
+    return this;
+  }
+
+   /**
+   * Certificate display ID
+   * @return displayId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate display ID")
+
+  public String getDisplayId() {
+    return displayId;
+  }
+
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+
+  public GetCertificateValue issuanceToken(String issuanceToken) {
+    
+    this.issuanceToken = issuanceToken;
+    return this;
+  }
+
+   /**
+   * Token for getting the issued certificate
+   * @return issuanceToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Token for getting the issued certificate")
+
+  public String getIssuanceToken() {
+    return issuanceToken;
+  }
+
+
+  public void setIssuanceToken(String issuanceToken) {
+    this.issuanceToken = issuanceToken;
+  }
 
 
   public GetCertificateValue json(Boolean json) {
@@ -83,6 +197,7 @@ public class GetCertificateValue {
    * Certificate name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Certificate name")
 
   public String getName() {
@@ -92,6 +207,29 @@ public class GetCertificateValue {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GetCertificateValue privateKeyFileOutput(String privateKeyFileOutput) {
+    
+    this.privateKeyFileOutput = privateKeyFileOutput;
+    return this;
+  }
+
+   /**
+   * File to write the private key to.
+   * @return privateKeyFileOutput
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "File to write the private key to.")
+
+  public String getPrivateKeyFileOutput() {
+    return privateKeyFileOutput;
+  }
+
+
+  public void setPrivateKeyFileOutput(String privateKeyFileOutput) {
+    this.privateKeyFileOutput = privateKeyFileOutput;
   }
 
 
@@ -165,7 +303,7 @@ public class GetCertificateValue {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -173,8 +311,13 @@ public class GetCertificateValue {
       return false;
     }
     GetCertificateValue getCertificateValue = (GetCertificateValue) o;
-    return Objects.equals(this.json, getCertificateValue.json) &&
+    return Objects.equals(this.certIssuerName, getCertificateValue.certIssuerName) &&
+        Objects.equals(this.certificateFileOutput, getCertificateValue.certificateFileOutput) &&
+        Objects.equals(this.displayId, getCertificateValue.displayId) &&
+        Objects.equals(this.issuanceToken, getCertificateValue.issuanceToken) &&
+        Objects.equals(this.json, getCertificateValue.json) &&
         Objects.equals(this.name, getCertificateValue.name) &&
+        Objects.equals(this.privateKeyFileOutput, getCertificateValue.privateKeyFileOutput) &&
         Objects.equals(this.token, getCertificateValue.token) &&
         Objects.equals(this.uidToken, getCertificateValue.uidToken) &&
         Objects.equals(this.version, getCertificateValue.version);
@@ -182,16 +325,20 @@ public class GetCertificateValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, token, uidToken, version);
+    return Objects.hash(certIssuerName, certificateFileOutput, displayId, issuanceToken, json, name, privateKeyFileOutput, token, uidToken, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCertificateValue {\n");
+    sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
+    sb.append("    certificateFileOutput: ").append(toIndentedString(certificateFileOutput)).append("\n");
+    sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    issuanceToken: ").append(toIndentedString(issuanceToken)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    privateKeyFileOutput: ").append(toIndentedString(privateKeyFileOutput)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -203,7 +350,7 @@ public class GetCertificateValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

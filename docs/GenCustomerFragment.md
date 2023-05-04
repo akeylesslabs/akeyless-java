@@ -2,6 +2,7 @@
 
 # GenCustomerFragment
 
+
 ## Properties
 
 Name | Type | Description | Notes

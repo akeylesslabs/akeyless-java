@@ -27,8 +27,12 @@ import java.io.IOException;
 /**
  * DefaultConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DefaultConfigPart {
+  public static final String SERIALIZED_NAME_CERTIFICATE_ACCESS_ID = "certificate_access_id";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ACCESS_ID)
+  private String certificateAccessId;
+
   public static final String SERIALIZED_NAME_DEFAULT_PROTECTION_KEY_ID = "default_protection_key_id";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PROTECTION_KEY_ID)
   private Long defaultProtectionKeyId;
@@ -44,6 +48,31 @@ public class DefaultConfigPart {
   public static final String SERIALIZED_NAME_SAML_ACCESS_ID = "saml_access_id";
   @SerializedName(SERIALIZED_NAME_SAML_ACCESS_ID)
   private String samlAccessId;
+
+  public DefaultConfigPart() { 
+  }
+
+  public DefaultConfigPart certificateAccessId(String certificateAccessId) {
+    
+    this.certificateAccessId = certificateAccessId;
+    return this;
+  }
+
+   /**
+   * Get certificateAccessId
+   * @return certificateAccessId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateAccessId() {
+    return certificateAccessId;
+  }
+
+
+  public void setCertificateAccessId(String certificateAccessId) {
+    this.certificateAccessId = certificateAccessId;
+  }
 
 
   public DefaultConfigPart defaultProtectionKeyId(Long defaultProtectionKeyId) {
@@ -139,7 +168,7 @@ public class DefaultConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -147,7 +176,8 @@ public class DefaultConfigPart {
       return false;
     }
     DefaultConfigPart defaultConfigPart = (DefaultConfigPart) o;
-    return Objects.equals(this.defaultProtectionKeyId, defaultConfigPart.defaultProtectionKeyId) &&
+    return Objects.equals(this.certificateAccessId, defaultConfigPart.certificateAccessId) &&
+        Objects.equals(this.defaultProtectionKeyId, defaultConfigPart.defaultProtectionKeyId) &&
         Objects.equals(this.defaultSecretLocation, defaultConfigPart.defaultSecretLocation) &&
         Objects.equals(this.oidcAccessId, defaultConfigPart.oidcAccessId) &&
         Objects.equals(this.samlAccessId, defaultConfigPart.samlAccessId);
@@ -155,14 +185,14 @@ public class DefaultConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultProtectionKeyId, defaultSecretLocation, oidcAccessId, samlAccessId);
+    return Objects.hash(certificateAccessId, defaultProtectionKeyId, defaultSecretLocation, oidcAccessId, samlAccessId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DefaultConfigPart {\n");
+    sb.append("    certificateAccessId: ").append(toIndentedString(certificateAccessId)).append("\n");
     sb.append("    defaultProtectionKeyId: ").append(toIndentedString(defaultProtectionKeyId)).append("\n");
     sb.append("    defaultSecretLocation: ").append(toIndentedString(defaultSecretLocation)).append("\n");
     sb.append("    oidcAccessId: ").append(toIndentedString(oidcAccessId)).append("\n");
@@ -175,7 +205,7 @@ public class DefaultConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -27,12 +27,14 @@ import java.io.IOException;
 /**
  * GCPPayload
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GCPPayload {
   public static final String SERIALIZED_NAME_GCP_CREDENTIALS_JSON = "gcp_credentials_json";
   @SerializedName(SERIALIZED_NAME_GCP_CREDENTIALS_JSON)
   private String gcpCredentialsJson;
 
+  public GCPPayload() { 
+  }
 
   public GCPPayload gcpCredentialsJson(String gcpCredentialsJson) {
     
@@ -58,7 +60,7 @@ public class GCPPayload {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +76,6 @@ public class GCPPayload {
     return Objects.hash(gcpCredentialsJson);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +89,7 @@ public class GCPPayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

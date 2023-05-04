@@ -2,6 +2,7 @@
 
 # GetAccountSettingsCommandOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

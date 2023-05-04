@@ -2,6 +2,7 @@
 
 # UpdatePingTarget
 
+
 ## Properties
 
 Name | Type | Description | Notes

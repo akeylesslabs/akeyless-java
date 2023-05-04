@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Extension
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Extension {
   public static final String SERIALIZED_NAME_CRITICAL = "Critical";
   @SerializedName(SERIALIZED_NAME_CRITICAL)
@@ -41,6 +41,8 @@ public class Extension {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public Extension() { 
+  }
 
   public Extension critical(Boolean critical) {
     
@@ -112,7 +114,7 @@ public class Extension {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +132,6 @@ public class Extension {
     return Objects.hash(critical, name, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,7 +147,7 @@ public class Extension {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

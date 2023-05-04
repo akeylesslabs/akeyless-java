@@ -2,6 +2,7 @@
 
 # ActiveDirectoryPayload
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,8 +20,11 @@ Name | Type | Description | Notes
 **localUsersIgnoreList** | **Map&lt;String, Boolean&gt;** |  |  [optional]
 **localUsersRotatedSecretsPathTemplate** | **String** |  |  [optional]
 **sshPort** | **String** |  |  [optional]
+**targetsType** | **String** |  |  [optional]
 **userBaseDn** | **String** |  |  [optional]
 **userGroups** | **List&lt;String&gt;** |  |  [optional]
+**winrmOverHttp** | **Boolean** |  |  [optional]
+**winrmPort** | **String** |  |  [optional]
 
 
 

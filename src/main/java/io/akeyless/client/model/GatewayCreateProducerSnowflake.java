@@ -30,7 +30,7 @@ import java.util.List;
  * GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
  */
 @ApiModel(description = "GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerSnowflake {
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
@@ -96,6 +96,8 @@ public class GatewayCreateProducerSnowflake {
   @SerializedName(SERIALIZED_NAME_WAREHOUSE)
   private String warehouse;
 
+  public GatewayCreateProducerSnowflake() { 
+  }
 
   public GatewayCreateProducerSnowflake account(String account) {
     
@@ -245,6 +247,7 @@ public class GatewayCreateProducerSnowflake {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -473,7 +476,7 @@ public class GatewayCreateProducerSnowflake {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -504,7 +507,6 @@ public class GatewayCreateProducerSnowflake {
     return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, json, name, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -533,7 +535,7 @@ public class GatewayCreateProducerSnowflake {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

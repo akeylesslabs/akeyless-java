@@ -2,6 +2,7 @@
 
 # CustomerFragmentsJson
 
+
 ## Properties
 
 Name | Type | Description | Notes

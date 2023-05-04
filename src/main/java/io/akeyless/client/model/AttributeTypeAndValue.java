@@ -30,7 +30,7 @@ import java.util.List;
  * AttributeTypeAndValue mirrors the ASN.1 structure of the same name in RFC 5280, Section 4.1.2.4.
  */
 @ApiModel(description = "AttributeTypeAndValue mirrors the ASN.1 structure of the same name in RFC 5280, Section 4.1.2.4.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AttributeTypeAndValue {
   public static final String SERIALIZED_NAME_TYPE = "Type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -40,6 +40,8 @@ public class AttributeTypeAndValue {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Object value;
 
+  public AttributeTypeAndValue() { 
+  }
 
   public AttributeTypeAndValue type(List<Long> type) {
     
@@ -96,7 +98,7 @@ public class AttributeTypeAndValue {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -113,7 +115,6 @@ public class AttributeTypeAndValue {
     return Objects.hash(type, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -128,7 +129,7 @@ public class AttributeTypeAndValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

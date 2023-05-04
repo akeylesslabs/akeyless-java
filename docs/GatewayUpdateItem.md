@@ -3,6 +3,7 @@
 # GatewayUpdateItem
 
 gatewayUpdateItem is a command that updates classic key
+
 ## Properties
 
 Name | Type | Description | Notes

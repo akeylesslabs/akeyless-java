@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateLdapTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateLdapTarget {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
@@ -81,6 +81,8 @@ public class CreateLdapTarget {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateLdapTarget() { 
+  }
 
   public CreateLdapTarget bindDn(String bindDn) {
     
@@ -92,6 +94,7 @@ public class CreateLdapTarget {
    * Bind DN
    * @return bindDn
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Bind DN")
 
   public String getBindDn() {
@@ -114,6 +117,7 @@ public class CreateLdapTarget {
    * Bind DN Password
    * @return bindDnPassword
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Bind DN Password")
 
   public String getBindDnPassword() {
@@ -251,6 +255,7 @@ public class CreateLdapTarget {
    * LDAP Server URL
    * @return ldapUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "LDAP Server URL")
 
   public String getLdapUrl() {
@@ -273,6 +278,7 @@ public class CreateLdapTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -378,7 +384,7 @@ public class CreateLdapTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -406,7 +412,6 @@ public class CreateLdapTarget {
     return Objects.hash(bindDn, bindDnPassword, comment, description, json, key, ldapCaCert, ldapUrl, name, serverType, token, tokenExpiration, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -432,7 +437,7 @@ public class CreateLdapTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

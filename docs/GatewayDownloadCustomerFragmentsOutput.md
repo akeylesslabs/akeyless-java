@@ -2,6 +2,7 @@
 
 # GatewayDownloadCustomerFragmentsOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GenCustomerFragment
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GenCustomerFragment {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -41,6 +41,8 @@ public class GenCustomerFragment {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
 
+  public GenCustomerFragment() { 
+  }
 
   public GenCustomerFragment description(String description) {
     
@@ -112,7 +114,7 @@ public class GenCustomerFragment {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +132,6 @@ public class GenCustomerFragment {
     return Objects.hash(description, json, metadata);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,7 +147,7 @@ public class GenCustomerFragment {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

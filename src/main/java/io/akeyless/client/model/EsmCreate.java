@@ -31,7 +31,7 @@ import java.util.Map;
  * esmCreate is a command that creates a new secret in an External Secrets Manager
  */
 @ApiModel(description = "esmCreate is a command that creates a new secret in an External Secrets Manager")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EsmCreate {
   public static final String SERIALIZED_NAME_BINARY_VALUE = "binary-value";
   @SerializedName(SERIALIZED_NAME_BINARY_VALUE)
@@ -69,6 +69,8 @@ public class EsmCreate {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public EsmCreate() { 
+  }
 
   public EsmCreate binaryValue(Boolean binaryValue) {
     
@@ -126,6 +128,7 @@ public class EsmCreate {
    * Name of the External Secrets Manager item
    * @return esmName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the External Secrets Manager item")
 
   public String getEsmName() {
@@ -171,6 +174,7 @@ public class EsmCreate {
    * Name for the new external secret
    * @return secretName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name for the new external secret")
 
   public String getSecretName() {
@@ -270,6 +274,7 @@ public class EsmCreate {
    * Value of the external secret item, either text or base64 encoded binary
    * @return value
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Value of the external secret item, either text or base64 encoded binary")
 
   public String getValue() {
@@ -283,7 +288,7 @@ public class EsmCreate {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -307,7 +312,6 @@ public class EsmCreate {
     return Objects.hash(binaryValue, description, esmName, json, secretName, tags, token, uidToken, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -329,7 +333,7 @@ public class EsmCreate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

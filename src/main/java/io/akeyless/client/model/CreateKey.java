@@ -30,7 +30,7 @@ import java.util.List;
  * createKey is a command that creates a new key. [Deprecated: Use command create-dfc-key]
  */
 @ApiModel(description = "createKey is a command that creates a new key. [Deprecated: Use command create-dfc-key]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateKey {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -76,6 +76,8 @@ public class CreateKey {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateKey() { 
+  }
 
   public CreateKey alg(String alg) {
     
@@ -87,6 +89,7 @@ public class CreateKey {
    * Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
    * @return alg
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]")
 
   public String getAlg() {
@@ -224,6 +227,7 @@ public class CreateKey {
    * Key name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Key name")
 
   public String getName() {
@@ -337,7 +341,7 @@ public class CreateKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -363,7 +367,6 @@ public class CreateKey {
     return Objects.hash(alg, customerFrgId, deleteProtection, description, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -387,7 +390,7 @@ public class CreateKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

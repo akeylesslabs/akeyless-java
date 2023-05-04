@@ -3,6 +3,7 @@
 # RevokeCreds
 
 revokeCreds will permanently revoke the credentials associated with the provided token or profile.
+
 ## Properties
 
 Name | Type | Description | Notes

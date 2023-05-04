@@ -28,8 +28,12 @@ import java.io.IOException;
  * ExportClassicKey is a command that returns the classic key material
  */
 @ApiModel(description = "ExportClassicKey is a command that returns the classic key material")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExportClassicKey {
+  public static final String SERIALIZED_NAME_EXPORT_PUBLIC_KEY = "export-public-key";
+  @SerializedName(SERIALIZED_NAME_EXPORT_PUBLIC_KEY)
+  private Boolean exportPublicKey = false;
+
   public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
   @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
   private String ignoreCache = "false";
@@ -53,6 +57,31 @@ public class ExportClassicKey {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
+
+  public ExportClassicKey() { 
+  }
+
+  public ExportClassicKey exportPublicKey(Boolean exportPublicKey) {
+    
+    this.exportPublicKey = exportPublicKey;
+    return this;
+  }
+
+   /**
+   * Use this option to output only public key
+   * @return exportPublicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use this option to output only public key")
+
+  public Boolean getExportPublicKey() {
+    return exportPublicKey;
+  }
+
+
+  public void setExportPublicKey(Boolean exportPublicKey) {
+    this.exportPublicKey = exportPublicKey;
+  }
 
 
   public ExportClassicKey ignoreCache(String ignoreCache) {
@@ -111,6 +140,7 @@ public class ExportClassicKey {
    * ClassicKey name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ClassicKey name")
 
   public String getName() {
@@ -193,7 +223,7 @@ public class ExportClassicKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -201,7 +231,8 @@ public class ExportClassicKey {
       return false;
     }
     ExportClassicKey exportClassicKey = (ExportClassicKey) o;
-    return Objects.equals(this.ignoreCache, exportClassicKey.ignoreCache) &&
+    return Objects.equals(this.exportPublicKey, exportClassicKey.exportPublicKey) &&
+        Objects.equals(this.ignoreCache, exportClassicKey.ignoreCache) &&
         Objects.equals(this.json, exportClassicKey.json) &&
         Objects.equals(this.name, exportClassicKey.name) &&
         Objects.equals(this.token, exportClassicKey.token) &&
@@ -211,14 +242,14 @@ public class ExportClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ignoreCache, json, name, token, uidToken, version);
+    return Objects.hash(exportPublicKey, ignoreCache, json, name, token, uidToken, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportClassicKey {\n");
+    sb.append("    exportPublicKey: ").append(toIndentedString(exportPublicKey)).append("\n");
     sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -233,7 +264,7 @@ public class ExportClassicKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

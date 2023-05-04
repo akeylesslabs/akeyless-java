@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * KmipCreateClient
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KmipCreateClient {
   public static final String SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION = "activate-keys-on-creation";
   @SerializedName(SERIALIZED_NAME_ACTIVATE_KEYS_ON_CREATION)
@@ -53,6 +53,8 @@ public class KmipCreateClient {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public KmipCreateClient() { 
+  }
 
   public KmipCreateClient activateKeysOnCreation(String activateKeysOnCreation) {
     
@@ -133,6 +135,7 @@ public class KmipCreateClient {
    * Client name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Client name")
 
   public String getName() {
@@ -192,7 +195,7 @@ public class KmipCreateClient {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -213,7 +216,6 @@ public class KmipCreateClient {
     return Objects.hash(activateKeysOnCreation, certificateTtl, json, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -232,7 +234,7 @@ public class KmipCreateClient {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

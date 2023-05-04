@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerRdp is a command that updates rdp producer
  */
 @ApiModel(description = "gatewayUpdateProducerRdp is a command that updates rdp producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerRdp {
   public static final String SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION = "allow-user-extend-session";
   @SerializedName(SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION)
@@ -124,6 +124,8 @@ public class GatewayUpdateProducerRdp {
   @SerializedName(SERIALIZED_NAME_WARN_USER_BEFORE_EXPIRATION)
   private Long warnUserBeforeExpiration;
 
+  public GatewayUpdateProducerRdp() { 
+  }
 
   public GatewayUpdateProducerRdp allowUserExtendSession(Long allowUserExtendSession) {
     
@@ -227,6 +229,7 @@ public class GatewayUpdateProducerRdp {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -670,7 +673,7 @@ public class GatewayUpdateProducerRdp {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -708,7 +711,6 @@ public class GatewayUpdateProducerRdp {
     return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, newName, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -744,7 +746,7 @@ public class GatewayUpdateProducerRdp {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

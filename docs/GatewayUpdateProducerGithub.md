@@ -3,6 +3,7 @@
 # GatewayUpdateProducerGithub
 
 gatewayUpdateProducerGithub is a command that updates github producer
+
 ## Properties
 
 Name | Type | Description | Notes

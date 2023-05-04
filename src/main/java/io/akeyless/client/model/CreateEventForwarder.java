@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CreateEventForwarder
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateEventForwarder {
   public static final String SERIALIZED_NAME_ADMIN_NAME = "admin-name";
   @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
@@ -99,6 +99,8 @@ public class CreateEventForwarder {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateEventForwarder() { 
+  }
 
   public CreateEventForwarder adminName(String adminName) {
     
@@ -230,6 +232,7 @@ public class CreateEventForwarder {
    * Event sources
    * @return eventSourceLocations
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Event sources")
 
   public List<String> getEventSourceLocations() {
@@ -329,6 +332,7 @@ public class CreateEventForwarder {
    * Get forwarderType
    * @return forwarderType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getForwarderType() {
@@ -420,6 +424,7 @@ public class CreateEventForwarder {
    * EventForwarder name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "EventForwarder name")
 
   public String getName() {
@@ -442,6 +447,7 @@ public class CreateEventForwarder {
    * Get runnerType
    * @return runnerType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getRunnerType() {
@@ -501,7 +507,7 @@ public class CreateEventForwarder {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -533,7 +539,6 @@ public class CreateEventForwarder {
     return Objects.hash(adminName, adminPwd, comment, description, emailTo, eventSourceLocations, eventSourceType, eventTypes, every, forwarderType, host, json, key, name, runnerType, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -563,7 +568,7 @@ public class CreateEventForwarder {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

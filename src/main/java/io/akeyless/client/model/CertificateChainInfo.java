@@ -31,20 +31,34 @@ import java.util.List;
 /**
  * CertificateChainInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CertificateChainInfo {
   public static final String SERIALIZED_NAME_CERTIFICATE_CHAIN = "certificate_chain";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_CHAIN)
   private List<CertificateInfo> certificateChain = null;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate_format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  private String certificateFormat;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_ISSUER_NAME = "certificate_issuer_name";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUER_NAME)
+  private String certificateIssuerName;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_PEM = "certificate_pem";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PEM)
   private String certificatePem;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_STATUS = "certificate_status";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_STATUS)
+  private String certificateStatus;
 
   public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
   private List<CertificateExpirationEvent> expirationEvents = null;
 
+  public CertificateChainInfo() { 
+  }
 
   public CertificateChainInfo certificateChain(List<CertificateInfo> certificateChain) {
     
@@ -77,6 +91,52 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo certificateFormat(String certificateFormat) {
+    
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+   /**
+   * Get certificateFormat
+   * @return certificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+
+  public void setCertificateFormat(String certificateFormat) {
+    this.certificateFormat = certificateFormat;
+  }
+
+
+  public CertificateChainInfo certificateIssuerName(String certificateIssuerName) {
+    
+    this.certificateIssuerName = certificateIssuerName;
+    return this;
+  }
+
+   /**
+   * Get certificateIssuerName
+   * @return certificateIssuerName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateIssuerName() {
+    return certificateIssuerName;
+  }
+
+
+  public void setCertificateIssuerName(String certificateIssuerName) {
+    this.certificateIssuerName = certificateIssuerName;
+  }
+
+
   public CertificateChainInfo certificatePem(String certificatePem) {
     
     this.certificatePem = certificatePem;
@@ -97,6 +157,29 @@ public class CertificateChainInfo {
 
   public void setCertificatePem(String certificatePem) {
     this.certificatePem = certificatePem;
+  }
+
+
+  public CertificateChainInfo certificateStatus(String certificateStatus) {
+    
+    this.certificateStatus = certificateStatus;
+    return this;
+  }
+
+   /**
+   * Get certificateStatus
+   * @return certificateStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateStatus() {
+    return certificateStatus;
+  }
+
+
+  public void setCertificateStatus(String certificateStatus) {
+    this.certificateStatus = certificateStatus;
   }
 
 
@@ -132,7 +215,7 @@ public class CertificateChainInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -141,22 +224,27 @@ public class CertificateChainInfo {
     }
     CertificateChainInfo certificateChainInfo = (CertificateChainInfo) o;
     return Objects.equals(this.certificateChain, certificateChainInfo.certificateChain) &&
+        Objects.equals(this.certificateFormat, certificateChainInfo.certificateFormat) &&
+        Objects.equals(this.certificateIssuerName, certificateChainInfo.certificateIssuerName) &&
         Objects.equals(this.certificatePem, certificateChainInfo.certificatePem) &&
+        Objects.equals(this.certificateStatus, certificateChainInfo.certificateStatus) &&
         Objects.equals(this.expirationEvents, certificateChainInfo.expirationEvents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateChain, certificatePem, expirationEvents);
+    return Objects.hash(certificateChain, certificateFormat, certificateIssuerName, certificatePem, certificateStatus, expirationEvents);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CertificateChainInfo {\n");
     sb.append("    certificateChain: ").append(toIndentedString(certificateChain)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
+    sb.append("    certificateIssuerName: ").append(toIndentedString(certificateIssuerName)).append("\n");
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
+    sb.append("    certificateStatus: ").append(toIndentedString(certificateStatus)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -166,7 +254,7 @@ public class CertificateChainInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

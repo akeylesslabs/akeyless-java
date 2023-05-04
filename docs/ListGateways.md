@@ -2,6 +2,7 @@
 
 # ListGateways
 
+
 ## Properties
 
 Name | Type | Description | Notes

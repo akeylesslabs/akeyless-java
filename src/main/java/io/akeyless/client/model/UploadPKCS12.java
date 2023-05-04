@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UploadPKCS12
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UploadPKCS12 {
   public static final String SERIALIZED_NAME_CUSTOMER_FRG_ID = "customer-frg-id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
@@ -79,6 +79,8 @@ public class UploadPKCS12 {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UploadPKCS12() { 
+  }
 
   public UploadPKCS12 customerFrgId(String customerFrgId) {
     
@@ -159,6 +161,7 @@ public class UploadPKCS12 {
    * PKCS#12 input file (private key and certificate only)
    * @return in
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "PKCS#12 input file (private key and certificate only)")
 
   public String getIn() {
@@ -227,6 +230,7 @@ public class UploadPKCS12 {
    * Name of key to be created
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of key to be created")
 
   public String getName() {
@@ -249,6 +253,7 @@ public class UploadPKCS12 {
    * Passphrase to unlock the pkcs#12 bundle
    * @return passphrase
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Passphrase to unlock the pkcs#12 bundle")
 
   public String getPassphrase() {
@@ -362,7 +367,7 @@ public class UploadPKCS12 {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -389,7 +394,6 @@ public class UploadPKCS12 {
     return Objects.hash(customerFrgId, deleteProtection, description, in, json, metadata, name, passphrase, splitLevel, tag, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -414,7 +418,7 @@ public class UploadPKCS12 {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayDeleteMigration is a command that delete migration
  */
 @ApiModel(description = "gatewayDeleteMigration is a command that delete migration")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayDeleteMigration {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -46,6 +46,8 @@ public class GatewayDeleteMigration {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayDeleteMigration() { 
+  }
 
   public GatewayDeleteMigration id(String id) {
     
@@ -57,6 +59,7 @@ public class GatewayDeleteMigration {
    * Migration ID
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Migration ID")
 
   public String getId() {
@@ -139,7 +142,7 @@ public class GatewayDeleteMigration {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +161,6 @@ public class GatewayDeleteMigration {
     return Objects.hash(id, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +177,7 @@ public class GatewayDeleteMigration {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

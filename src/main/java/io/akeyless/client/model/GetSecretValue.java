@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * GetSecretValue
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetSecretValue {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -63,6 +63,8 @@ public class GetSecretValue {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public GetSecretValue() { 
+  }
 
   public GetSecretValue accessibility(String accessibility) {
     
@@ -148,6 +150,7 @@ public class GetSecretValue {
    * Secret name
    * @return names
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret name")
 
   public List<String> getNames() {
@@ -253,7 +256,7 @@ public class GetSecretValue {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -276,7 +279,6 @@ public class GetSecretValue {
     return Objects.hash(accessibility, ignoreCache, json, names, prettyPrint, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -297,7 +299,7 @@ public class GetSecretValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

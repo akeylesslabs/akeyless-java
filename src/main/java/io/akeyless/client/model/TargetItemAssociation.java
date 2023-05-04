@@ -31,7 +31,7 @@ import java.util.Map;
  * TargetItemAssociation includes details of an association between a target and an item.
  */
 @ApiModel(description = "TargetItemAssociation includes details of an association between a target and an item.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TargetItemAssociation {
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc_id";
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
@@ -57,6 +57,8 @@ public class TargetItemAssociation {
   @SerializedName(SERIALIZED_NAME_RELATIONSHIP)
   private String relationship;
 
+  public TargetItemAssociation() { 
+  }
 
   public TargetItemAssociation assocId(String assocId) {
     
@@ -205,7 +207,7 @@ public class TargetItemAssociation {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -226,7 +228,6 @@ public class TargetItemAssociation {
     return Objects.hash(assocId, attributes, clusterId, itemName, itemType, relationship);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -245,7 +246,7 @@ public class TargetItemAssociation {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

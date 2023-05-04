@@ -2,6 +2,7 @@
 
 # DatadogForwardingConfig
 
+
 ## Properties
 
 Name | Type | Description | Notes

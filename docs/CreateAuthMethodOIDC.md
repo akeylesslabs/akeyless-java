@@ -3,6 +3,7 @@
 # CreateAuthMethodOIDC
 
 createAuthMethodOIDC is a command that creates a new auth method that will be available to authenticate using OIDC.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # ImportPasswords
 
 importPasswords is a command that import passwords
+
 ## Properties
 
 Name | Type | Description | Notes

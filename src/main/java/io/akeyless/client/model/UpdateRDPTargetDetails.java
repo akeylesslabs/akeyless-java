@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateRDPTargetDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateRDPTargetDetails {
   public static final String SERIALIZED_NAME_ADMIN_NAME = "admin_name";
   @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
@@ -73,6 +73,8 @@ public class UpdateRDPTargetDetails {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateRDPTargetDetails() { 
+  }
 
   public UpdateRDPTargetDetails adminName(String adminName) {
     
@@ -222,6 +224,7 @@ public class UpdateRDPTargetDetails {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -327,7 +330,7 @@ public class UpdateRDPTargetDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -353,7 +356,6 @@ public class UpdateRDPTargetDetails {
     return Objects.hash(adminName, adminPwd, hostName, hostPort, json, keepPrevVersion, name, newVersion, protectionKey, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -377,7 +379,7 @@ public class UpdateRDPTargetDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

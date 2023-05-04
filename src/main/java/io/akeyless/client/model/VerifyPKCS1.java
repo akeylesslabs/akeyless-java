@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * VerifyPKCS1
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerifyPKCS1 {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -61,6 +61,8 @@ public class VerifyPKCS1 {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public VerifyPKCS1() { 
+  }
 
   public VerifyPKCS1 displayId(String displayId) {
     
@@ -141,6 +143,7 @@ public class VerifyPKCS1 {
    * The name of the RSA key to use in the verification process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the RSA key to use in the verification process")
 
   public String getKeyName() {
@@ -163,6 +166,7 @@ public class VerifyPKCS1 {
    * The message to be verified
    * @return message
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The message to be verified")
 
   public String getMessage() {
@@ -185,6 +189,7 @@ public class VerifyPKCS1 {
    * The message&#39;s signature
    * @return signature
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The message's signature")
 
   public String getSignature() {
@@ -244,7 +249,7 @@ public class VerifyPKCS1 {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -267,7 +272,6 @@ public class VerifyPKCS1 {
     return Objects.hash(displayId, itemId, json, keyName, message, signature, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -288,7 +292,7 @@ public class VerifyPKCS1 {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

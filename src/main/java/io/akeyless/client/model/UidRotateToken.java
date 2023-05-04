@@ -28,7 +28,7 @@ import java.io.IOException;
  * uidRotateToken is a command that rotates an Akeyless Universal Identity token.
  */
 @ApiModel(description = "uidRotateToken is a command that rotates an Akeyless Universal Identity token.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UidRotateToken {
   public static final String SERIALIZED_NAME_FORK = "fork";
   @SerializedName(SERIALIZED_NAME_FORK)
@@ -50,6 +50,8 @@ public class UidRotateToken {
   @SerializedName(SERIALIZED_NAME_WITH_MANUAL_ACK)
   private Boolean withManualAck;
 
+  public UidRotateToken() { 
+  }
 
   public UidRotateToken fork(Boolean fork) {
     
@@ -167,7 +169,7 @@ public class UidRotateToken {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -187,7 +189,6 @@ public class UidRotateToken {
     return Objects.hash(fork, json, sendManualAckToken, uidToken, withManualAck);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -205,7 +206,7 @@ public class UidRotateToken {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

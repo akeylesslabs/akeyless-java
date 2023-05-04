@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * BastionListEntry
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BastionListEntry {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -62,6 +62,8 @@ public class BastionListEntry {
   @SerializedName(SERIALIZED_NAME_LAST_REPORT)
   private OffsetDateTime lastReport;
 
+  public BastionListEntry() { 
+  }
 
   public BastionListEntry accessId(String accessId) {
     
@@ -249,7 +251,7 @@ public class BastionListEntry {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -271,7 +273,6 @@ public class BastionListEntry {
     return Objects.hash(accessId, allowedAccessIds, allowedUrls, allowedUrlsPerInstance, clusterName, displayName, lastReport);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -291,7 +292,7 @@ public class BastionListEntry {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

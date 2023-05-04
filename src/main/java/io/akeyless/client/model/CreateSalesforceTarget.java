@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateSalesforceTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSalesforceTarget {
   public static final String SERIALIZED_NAME_APP_PRIVATE_KEY_DATA = "app-private-key-data";
   @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY_DATA)
@@ -97,6 +97,8 @@ public class CreateSalesforceTarget {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateSalesforceTarget() { 
+  }
 
   public CreateSalesforceTarget appPrivateKeyData(String appPrivateKeyData) {
     
@@ -131,6 +133,7 @@ public class CreateSalesforceTarget {
    * type of the auth flow (&#39;jwt&#39; / &#39;user-password&#39;)
    * @return authFlow
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "type of the auth flow ('jwt' / 'user-password')")
 
   public String getAuthFlow() {
@@ -199,6 +202,7 @@ public class CreateSalesforceTarget {
    * Client ID of the oauth2 app to use for connecting to Salesforce
    * @return clientId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Client ID of the oauth2 app to use for connecting to Salesforce")
 
   public String getClientId() {
@@ -290,6 +294,7 @@ public class CreateSalesforceTarget {
    * The email of the user attached to the oauth2 app used for connecting to Salesforce
    * @return email
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The email of the user attached to the oauth2 app used for connecting to Salesforce")
 
   public String getEmail() {
@@ -358,6 +363,7 @@ public class CreateSalesforceTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -426,6 +432,7 @@ public class CreateSalesforceTarget {
    * Url of the Salesforce tenant
    * @return tenantUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Url of the Salesforce tenant")
 
   public String getTenantUrl() {
@@ -485,7 +492,7 @@ public class CreateSalesforceTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -517,7 +524,6 @@ public class CreateSalesforceTarget {
     return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, description, email, json, key, name, password, securityToken, tenantUrl, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -547,7 +553,7 @@ public class CreateSalesforceTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

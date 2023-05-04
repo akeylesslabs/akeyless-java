@@ -2,15 +2,16 @@
 
 # Role
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**accessDate** | **OffsetDateTime** |  |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **comment** | **String** |  |  [optional]
-**creationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**creationDate** | **OffsetDateTime** |  |  [optional]
+**modificationDate** | **OffsetDateTime** |  |  [optional]
 **roleAuthMethodsAssoc** | [**List&lt;RoleAuthMethodAssociation&gt;**](RoleAuthMethodAssociation.md) |  |  [optional]
 **roleName** | **String** |  |  [optional]
 **rules** | [**Rules**](Rules.md) |  |  [optional]

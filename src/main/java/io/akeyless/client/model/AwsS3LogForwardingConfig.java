@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AwsS3LogForwardingConfig
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AwsS3LogForwardingConfig {
   public static final String SERIALIZED_NAME_AWS_ACCESS_ID = "aws_access_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_ID)
@@ -53,6 +53,8 @@ public class AwsS3LogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_LOG_FOLDER)
   private String logFolder;
 
+  public AwsS3LogForwardingConfig() { 
+  }
 
   public AwsS3LogForwardingConfig awsAccessId(String awsAccessId) {
     
@@ -193,7 +195,7 @@ public class AwsS3LogForwardingConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -214,7 +216,6 @@ public class AwsS3LogForwardingConfig {
     return Objects.hash(awsAccessId, awsAccessKey, awsRegion, awsUseGatewayCloudIdentity, bucketName, logFolder);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -233,7 +234,7 @@ public class AwsS3LogForwardingConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

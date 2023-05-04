@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * ActiveDirectoryPayload
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ActiveDirectoryPayload {
   public static final String SERIALIZED_NAME_ACTIVE_DIRECTORY_TARGET_ID = "active_directory_target_id";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DIRECTORY_TARGET_ID)
@@ -85,6 +85,10 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_SSH_PORT)
   private String sshPort;
 
+  public static final String SERIALIZED_NAME_TARGETS_TYPE = "targets_type";
+  @SerializedName(SERIALIZED_NAME_TARGETS_TYPE)
+  private String targetsType;
+
   public static final String SERIALIZED_NAME_USER_BASE_DN = "user_base_dn";
   @SerializedName(SERIALIZED_NAME_USER_BASE_DN)
   private String userBaseDn;
@@ -93,6 +97,16 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_USER_GROUPS)
   private List<String> userGroups = null;
 
+  public static final String SERIALIZED_NAME_WINRM_OVER_HTTP = "winrm_over_http";
+  @SerializedName(SERIALIZED_NAME_WINRM_OVER_HTTP)
+  private Boolean winrmOverHttp;
+
+  public static final String SERIALIZED_NAME_WINRM_PORT = "winrm_port";
+  @SerializedName(SERIALIZED_NAME_WINRM_PORT)
+  private String winrmPort;
+
+  public ActiveDirectoryPayload() { 
+  }
 
   public ActiveDirectoryPayload activeDirectoryTargetId(Long activeDirectoryTargetId) {
     
@@ -401,6 +415,29 @@ public class ActiveDirectoryPayload {
   }
 
 
+  public ActiveDirectoryPayload targetsType(String targetsType) {
+    
+    this.targetsType = targetsType;
+    return this;
+  }
+
+   /**
+   * Get targetsType
+   * @return targetsType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTargetsType() {
+    return targetsType;
+  }
+
+
+  public void setTargetsType(String targetsType) {
+    this.targetsType = targetsType;
+  }
+
+
   public ActiveDirectoryPayload userBaseDn(String userBaseDn) {
     
     this.userBaseDn = userBaseDn;
@@ -455,8 +492,54 @@ public class ActiveDirectoryPayload {
   }
 
 
+  public ActiveDirectoryPayload winrmOverHttp(Boolean winrmOverHttp) {
+    
+    this.winrmOverHttp = winrmOverHttp;
+    return this;
+  }
+
+   /**
+   * Get winrmOverHttp
+   * @return winrmOverHttp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getWinrmOverHttp() {
+    return winrmOverHttp;
+  }
+
+
+  public void setWinrmOverHttp(Boolean winrmOverHttp) {
+    this.winrmOverHttp = winrmOverHttp;
+  }
+
+
+  public ActiveDirectoryPayload winrmPort(String winrmPort) {
+    
+    this.winrmPort = winrmPort;
+    return this;
+  }
+
+   /**
+   * Get winrmPort
+   * @return winrmPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getWinrmPort() {
+    return winrmPort;
+  }
+
+
+  public void setWinrmPort(String winrmPort) {
+    this.winrmPort = winrmPort;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -477,15 +560,17 @@ public class ActiveDirectoryPayload {
         Objects.equals(this.localUsersIgnoreList, activeDirectoryPayload.localUsersIgnoreList) &&
         Objects.equals(this.localUsersRotatedSecretsPathTemplate, activeDirectoryPayload.localUsersRotatedSecretsPathTemplate) &&
         Objects.equals(this.sshPort, activeDirectoryPayload.sshPort) &&
+        Objects.equals(this.targetsType, activeDirectoryPayload.targetsType) &&
         Objects.equals(this.userBaseDn, activeDirectoryPayload.userBaseDn) &&
-        Objects.equals(this.userGroups, activeDirectoryPayload.userGroups);
+        Objects.equals(this.userGroups, activeDirectoryPayload.userGroups) &&
+        Objects.equals(this.winrmOverHttp, activeDirectoryPayload.winrmOverHttp) &&
+        Objects.equals(this.winrmPort, activeDirectoryPayload.winrmPort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, sshPort, userBaseDn, userGroups);
+    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, sshPort, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
-
 
   @Override
   public String toString() {
@@ -504,8 +589,11 @@ public class ActiveDirectoryPayload {
     sb.append("    localUsersIgnoreList: ").append(toIndentedString(localUsersIgnoreList)).append("\n");
     sb.append("    localUsersRotatedSecretsPathTemplate: ").append(toIndentedString(localUsersRotatedSecretsPathTemplate)).append("\n");
     sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
+    sb.append("    targetsType: ").append(toIndentedString(targetsType)).append("\n");
     sb.append("    userBaseDn: ").append(toIndentedString(userBaseDn)).append("\n");
     sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
+    sb.append("    winrmOverHttp: ").append(toIndentedString(winrmOverHttp)).append("\n");
+    sb.append("    winrmPort: ").append(toIndentedString(winrmPort)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -514,7 +602,7 @@ public class ActiveDirectoryPayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

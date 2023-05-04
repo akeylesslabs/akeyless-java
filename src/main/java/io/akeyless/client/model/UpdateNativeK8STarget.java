@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateNativeK8STarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateNativeK8STarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -43,15 +43,15 @@ public class UpdateNativeK8STarget {
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
-  private String k8sClusterCaCert;
+  private String k8sClusterCaCert = "dummy_val";
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s-cluster-endpoint";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
-  private String k8sClusterEndpoint;
+  private String k8sClusterEndpoint = "dummy_val";
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_TOKEN = "k8s-cluster-token";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_TOKEN)
-  private String k8sClusterToken;
+  private String k8sClusterToken = "dummy_val";
 
   public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
   @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
@@ -81,6 +81,12 @@ public class UpdateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
   private Boolean updateVersion;
 
+  public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use-gw-service-account";
+  @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
+  private Boolean useGwServiceAccount;
+
+  public UpdateNativeK8STarget() { 
+  }
 
   public UpdateNativeK8STarget comment(String comment) {
     
@@ -161,6 +167,7 @@ public class UpdateNativeK8STarget {
    * K8S cluster CA certificate
    * @return k8sClusterCaCert
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S cluster CA certificate")
 
   public String getK8sClusterCaCert() {
@@ -183,6 +190,7 @@ public class UpdateNativeK8STarget {
    * K8S cluster URL endpoint
    * @return k8sClusterEndpoint
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S cluster URL endpoint")
 
   public String getK8sClusterEndpoint() {
@@ -205,6 +213,7 @@ public class UpdateNativeK8STarget {
    * K8S cluster Bearer token
    * @return k8sClusterToken
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S cluster Bearer token")
 
   public String getK8sClusterToken() {
@@ -273,6 +282,7 @@ public class UpdateNativeK8STarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -377,8 +387,31 @@ public class UpdateNativeK8STarget {
   }
 
 
+  public UpdateNativeK8STarget useGwServiceAccount(Boolean useGwServiceAccount) {
+    
+    this.useGwServiceAccount = useGwServiceAccount;
+    return this;
+  }
+
+   /**
+   * Use the GW&#39;s service account
+   * @return useGwServiceAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use the GW's service account")
+
+  public Boolean getUseGwServiceAccount() {
+    return useGwServiceAccount;
+  }
+
+
+  public void setUseGwServiceAccount(Boolean useGwServiceAccount) {
+    this.useGwServiceAccount = useGwServiceAccount;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -398,14 +431,14 @@ public class UpdateNativeK8STarget {
         Objects.equals(this.newName, updateNativeK8STarget.newName) &&
         Objects.equals(this.token, updateNativeK8STarget.token) &&
         Objects.equals(this.uidToken, updateNativeK8STarget.uidToken) &&
-        Objects.equals(this.updateVersion, updateNativeK8STarget.updateVersion);
+        Objects.equals(this.updateVersion, updateNativeK8STarget.updateVersion) &&
+        Objects.equals(this.useGwServiceAccount, updateNativeK8STarget.useGwServiceAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
   }
-
 
   @Override
   public String toString() {
@@ -424,6 +457,7 @@ public class UpdateNativeK8STarget {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
+    sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -432,7 +466,7 @@ public class UpdateNativeK8STarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

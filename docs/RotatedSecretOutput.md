@@ -2,6 +2,7 @@
 
 # RotatedSecretOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

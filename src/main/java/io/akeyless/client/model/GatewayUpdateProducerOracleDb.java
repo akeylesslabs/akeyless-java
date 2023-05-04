@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerOracleDb is a command that updates oracle db producer
  */
 @ApiModel(description = "gatewayUpdateProducerOracleDb is a command that updates oracle db producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerOracleDb {
   public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
   @SerializedName(SERIALIZED_NAME_DB_SERVER_CERTIFICATES)
@@ -120,6 +120,8 @@ public class GatewayUpdateProducerOracleDb {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerOracleDb() { 
+  }
 
   public GatewayUpdateProducerOracleDb dbServerCertificates(String dbServerCertificates) {
     
@@ -223,6 +225,7 @@ public class GatewayUpdateProducerOracleDb {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -643,7 +646,7 @@ public class GatewayUpdateProducerOracleDb {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -680,7 +683,6 @@ public class GatewayUpdateProducerOracleDb {
     return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, name, newName, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -715,7 +717,7 @@ public class GatewayUpdateProducerOracleDb {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

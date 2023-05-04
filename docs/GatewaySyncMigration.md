@@ -3,6 +3,7 @@
 # GatewaySyncMigration
 
 gatewaySyncMigration is a command that sync migration
+
 ## Properties
 
 Name | Type | Description | Notes

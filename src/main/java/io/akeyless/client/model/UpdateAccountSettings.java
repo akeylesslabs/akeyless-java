@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateAccountSettings
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAccountSettings {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
@@ -117,6 +117,8 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_USE_CAPITAL_LETTERS)
   private String useCapitalLetters;
 
+  public UpdateAccountSettings() { 
+  }
 
   public UpdateAccountSettings address(String address) {
     
@@ -625,7 +627,7 @@ public class UpdateAccountSettings {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -662,7 +664,6 @@ public class UpdateAccountSettings {
     return Objects.hash(address, city, companyName, country, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -697,7 +698,7 @@ public class UpdateAccountSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

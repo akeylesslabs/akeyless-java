@@ -2,6 +2,7 @@
 
 # GatewayGetLdapAuthConfigOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

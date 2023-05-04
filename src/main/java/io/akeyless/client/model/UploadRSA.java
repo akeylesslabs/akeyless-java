@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UploadRSA
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UploadRSA {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -87,6 +87,8 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UploadRSA() { 
+  }
 
   public UploadRSA alg(String alg) {
     
@@ -98,6 +100,7 @@ public class UploadRSA {
    * Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]
    * @return alg
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]")
 
   public String getAlg() {
@@ -258,6 +261,7 @@ public class UploadRSA {
    * Name of key to be created
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of key to be created")
 
   public String getName() {
@@ -417,7 +421,7 @@ public class UploadRSA {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -446,7 +450,6 @@ public class UploadRSA {
     return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, description, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -473,7 +476,7 @@ public class UploadRSA {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

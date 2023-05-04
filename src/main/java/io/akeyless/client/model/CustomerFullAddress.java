@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CustomerFullAddress
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CustomerFullAddress {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
@@ -45,6 +45,8 @@ public class CustomerFullAddress {
   @SerializedName(SERIALIZED_NAME_STREET)
   private String street;
 
+  public CustomerFullAddress() { 
+  }
 
   public CustomerFullAddress city(String city) {
     
@@ -139,7 +141,7 @@ public class CustomerFullAddress {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +160,6 @@ public class CustomerFullAddress {
     return Objects.hash(city, country, postalCode, street);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +176,7 @@ public class CustomerFullAddress {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

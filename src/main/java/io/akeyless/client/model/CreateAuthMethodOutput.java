@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateAuthMethodOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodOutput {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -41,6 +41,8 @@ public class CreateAuthMethodOutput {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public CreateAuthMethodOutput() { 
+  }
 
   public CreateAuthMethodOutput accessId(String accessId) {
     
@@ -112,7 +114,7 @@ public class CreateAuthMethodOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +132,6 @@ public class CreateAuthMethodOutput {
     return Objects.hash(accessId, accessKey, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,7 +147,7 @@ public class CreateAuthMethodOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

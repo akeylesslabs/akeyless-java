@@ -2,6 +2,7 @@
 
 # SSHCertificateIssueDetails
 
+
 ## Properties
 
 Name | Type | Description | Notes

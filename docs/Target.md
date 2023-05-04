@@ -2,20 +2,21 @@
 
 # Target
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**accessDate** | **OffsetDateTime** |  |  [optional]
 **accessRequestStatus** | **String** |  |  [optional]
 **attributes** | **Map&lt;String, Object&gt;** | this is not \&quot;omitempty\&quot; since an empty value causes no update while an empty map will clear the attributes |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **comment** | **String** |  |  [optional]
-**creationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**creationDate** | **OffsetDateTime** |  |  [optional]
 **credentialsLess** | **Boolean** |  |  [optional]
 **isAccessRequestEnabled** | **Boolean** |  |  [optional]
 **lastVersion** | **Integer** |  |  [optional]
-**modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**modificationDate** | **OffsetDateTime** |  |  [optional]
 **protectionKeyName** | **String** |  |  [optional]
 **targetDetails** | **String** |  |  [optional]
 **targetId** | **Long** |  |  [optional]

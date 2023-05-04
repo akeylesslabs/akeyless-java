@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateDBTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateDBTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -149,6 +149,8 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
 
+  public UpdateDBTarget() { 
+  }
 
   public UpdateDBTarget comment(String comment) {
     
@@ -252,6 +254,7 @@ public class UpdateDBTarget {
    * Get dbType
    * @return dbType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getDbType() {
@@ -527,6 +530,7 @@ public class UpdateDBTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -839,7 +843,7 @@ public class UpdateDBTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -884,7 +888,6 @@ public class UpdateDBTarget {
     return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -927,7 +930,7 @@ public class UpdateDBTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

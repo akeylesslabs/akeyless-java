@@ -2,6 +2,7 @@
 
 # CertificateExpirationEvent
 
+
 ## Properties
 
 Name | Type | Description | Notes

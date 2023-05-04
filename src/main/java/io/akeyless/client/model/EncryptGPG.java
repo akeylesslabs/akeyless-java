@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EncryptGPG
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EncryptGPG {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -61,6 +61,8 @@ public class EncryptGPG {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public EncryptGPG() { 
+  }
 
   public EncryptGPG displayId(String displayId) {
     
@@ -164,6 +166,7 @@ public class EncryptGPG {
    * The name of the key to use in the encryption process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
 
   public String getKeyName() {
@@ -186,6 +189,7 @@ public class EncryptGPG {
    * Data to be encrypted
    * @return plaintext
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Data to be encrypted")
 
   public String getPlaintext() {
@@ -245,7 +249,7 @@ public class EncryptGPG {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -268,7 +272,6 @@ public class EncryptGPG {
     return Objects.hash(displayId, inputFormat, itemId, json, keyName, plaintext, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -289,7 +292,7 @@ public class EncryptGPG {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

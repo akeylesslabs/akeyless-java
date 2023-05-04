@@ -28,7 +28,7 @@ import java.io.IOException;
  * deleteRoleAssociation is a command that deletes an association between role and auth method.
  */
 @ApiModel(description = "deleteRoleAssociation is a command that deletes an association between role and auth method.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteRoleAssociation {
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc-id";
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
@@ -46,6 +46,8 @@ public class DeleteRoleAssociation {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DeleteRoleAssociation() { 
+  }
 
   public DeleteRoleAssociation assocId(String assocId) {
     
@@ -57,6 +59,7 @@ public class DeleteRoleAssociation {
    * The association id to be deleted
    * @return assocId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The association id to be deleted")
 
   public String getAssocId() {
@@ -139,7 +142,7 @@ public class DeleteRoleAssociation {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +161,6 @@ public class DeleteRoleAssociation {
     return Objects.hash(assocId, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +177,7 @@ public class DeleteRoleAssociation {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetCertificateValueOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetCertificateValueOutput {
   public static final String SERIALIZED_NAME_CERTIFICATE_PEM = "certificate_pem";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PEM)
@@ -37,6 +37,8 @@ public class GetCertificateValueOutput {
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PEM)
   private String privateKeyPem;
 
+  public GetCertificateValueOutput() { 
+  }
 
   public GetCertificateValueOutput certificatePem(String certificatePem) {
     
@@ -85,7 +87,7 @@ public class GetCertificateValueOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class GetCertificateValueOutput {
     return Objects.hash(certificatePem, privateKeyPem);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class GetCertificateValueOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * uidCreateChildToken is a command that creates a new child token using Akeyless Universal Identity.
  */
 @ApiModel(description = "uidCreateChildToken is a command that creates a new child token using Akeyless Universal Identity.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UidCreateChildToken {
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth-method-name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
@@ -70,6 +70,8 @@ public class UidCreateChildToken {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN_ID)
   private String uidTokenId;
 
+  public UidCreateChildToken() { 
+  }
 
   public UidCreateChildToken authMethodName(String authMethodName) {
     
@@ -302,7 +304,7 @@ public class UidCreateChildToken {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -327,7 +329,6 @@ public class UidCreateChildToken {
     return Objects.hash(authMethodName, childDenyInheritance, childDenyRotate, childTtl, comment, description, json, token, uidToken, uidTokenId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -350,7 +351,7 @@ public class UidCreateChildToken {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

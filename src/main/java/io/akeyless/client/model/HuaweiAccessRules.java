@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * HuaweiAccessRules
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HuaweiAccessRules {
   public static final String SERIALIZED_NAME_AUTH_ENDPOINT = "auth_endpoint";
   @SerializedName(SERIALIZED_NAME_AUTH_ENDPOINT)
@@ -59,6 +59,8 @@ public class HuaweiAccessRules {
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private List<String> userName = null;
 
+  public HuaweiAccessRules() { 
+  }
 
   public HuaweiAccessRules authEndpoint(String authEndpoint) {
     
@@ -270,7 +272,7 @@ public class HuaweiAccessRules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -292,7 +294,6 @@ public class HuaweiAccessRules {
     return Objects.hash(authEndpoint, domainId, domainName, tenantId, tenantName, userId, userName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -312,7 +313,7 @@ public class HuaweiAccessRules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

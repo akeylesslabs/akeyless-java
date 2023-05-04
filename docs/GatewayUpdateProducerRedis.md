@@ -3,6 +3,7 @@
 # GatewayUpdateProducerRedis
 
 gatewayUpdateProducerRedis is a command that updates redis producer
+
 ## Properties
 
 Name | Type | Description | Notes

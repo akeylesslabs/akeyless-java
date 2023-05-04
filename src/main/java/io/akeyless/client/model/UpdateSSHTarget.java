@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateSSHTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSSHTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -93,6 +93,8 @@ public class UpdateSSHTarget {
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
   private Boolean updateVersion;
 
+  public UpdateSSHTarget() { 
+  }
 
   public UpdateSSHTarget comment(String comment) {
     
@@ -242,6 +244,7 @@ public class UpdateSSHTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -462,7 +465,7 @@ public class UpdateSSHTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -493,7 +496,6 @@ public class UpdateSSHTarget {
     return Objects.hash(comment, description, host, json, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -522,7 +524,7 @@ public class UpdateSSHTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

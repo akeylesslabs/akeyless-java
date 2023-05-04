@@ -2,19 +2,20 @@
 
 # NotiForwarder
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **comment** | **String** |  |  [optional]
-**creationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**creationDate** | **OffsetDateTime** |  |  [optional]
 **endpoint** | **String** |  |  [optional]
 **eventTypes** | **List&lt;String&gt;** |  |  [optional]
 **gatewayClusterId** | **Long** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]
 **lastVersion** | **Integer** |  |  [optional]
-**modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**modificationDate** | **OffsetDateTime** |  |  [optional]
 **notiForwarderId** | **Long** |  |  [optional]
 **notiForwarderName** | **String** |  |  [optional]
 **notiForwarderType** | **String** |  |  [optional]

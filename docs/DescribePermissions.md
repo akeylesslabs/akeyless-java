@@ -3,6 +3,7 @@
 # DescribePermissions
 
 describePermissions is a command that shows which permissions your have to a particular path.
+
 ## Properties
 
 Name | Type | Description | Notes

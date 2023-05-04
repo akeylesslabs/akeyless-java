@@ -28,7 +28,7 @@ import java.io.IOException;
  * detokenize is a command that decrypts text with a tokenizer
  */
 @ApiModel(description = "detokenize is a command that decrypts text with a tokenizer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Detokenize {
   public static final String SERIALIZED_NAME_CIPHERTEXT = "ciphertext";
   @SerializedName(SERIALIZED_NAME_CIPHERTEXT)
@@ -54,6 +54,8 @@ public class Detokenize {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public Detokenize() { 
+  }
 
   public Detokenize ciphertext(String ciphertext) {
     
@@ -65,6 +67,7 @@ public class Detokenize {
    * Data to be decrypted
    * @return ciphertext
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Data to be decrypted")
 
   public String getCiphertext() {
@@ -133,6 +136,7 @@ public class Detokenize {
    * The name of the tokenizer to use in the decryption process
    * @return tokenizerName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the tokenizer to use in the decryption process")
 
   public String getTokenizerName() {
@@ -192,7 +196,7 @@ public class Detokenize {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -213,7 +217,6 @@ public class Detokenize {
     return Objects.hash(ciphertext, json, token, tokenizerName, tweak, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -232,7 +235,7 @@ public class Detokenize {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

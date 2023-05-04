@@ -27,12 +27,14 @@ import java.io.IOException;
 /**
  * GatewayUpdateTlsCertOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateTlsCertOutput {
   public static final String SERIALIZED_NAME_UPDATED = "updated";
   @SerializedName(SERIALIZED_NAME_UPDATED)
   private Boolean updated;
 
+  public GatewayUpdateTlsCertOutput() { 
+  }
 
   public GatewayUpdateTlsCertOutput updated(Boolean updated) {
     
@@ -58,7 +60,7 @@ public class GatewayUpdateTlsCertOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +76,6 @@ public class GatewayUpdateTlsCertOutput {
     return Objects.hash(updated);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +89,7 @@ public class GatewayUpdateTlsCertOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

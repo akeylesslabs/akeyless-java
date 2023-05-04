@@ -31,7 +31,7 @@ import java.util.Map;
  * decrypt is a command that decrypts ciphertext into plaintext by using an AES key.
  */
 @ApiModel(description = "decrypt is a command that decrypts ciphertext into plaintext by using an AES key.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Decrypt {
   public static final String SERIALIZED_NAME_CIPHERTEXT = "ciphertext";
   @SerializedName(SERIALIZED_NAME_CIPHERTEXT)
@@ -69,6 +69,12 @@ public class Decrypt {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+  public Decrypt() { 
+  }
 
   public Decrypt ciphertext(String ciphertext) {
     
@@ -203,6 +209,7 @@ public class Decrypt {
    * The name of the key to use in the decryption process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
 
   public String getKeyName() {
@@ -284,8 +291,31 @@ public class Decrypt {
   }
 
 
+  public Decrypt version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * key version (relevant only for classic key)
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "key version (relevant only for classic key)")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -301,14 +331,14 @@ public class Decrypt {
         Objects.equals(this.keyName, decrypt.keyName) &&
         Objects.equals(this.outputFormat, decrypt.outputFormat) &&
         Objects.equals(this.token, decrypt.token) &&
-        Objects.equals(this.uidToken, decrypt.uidToken);
+        Objects.equals(this.uidToken, decrypt.uidToken) &&
+        Objects.equals(this.version, decrypt.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, encryptionContext, itemId, json, keyName, outputFormat, token, uidToken);
+    return Objects.hash(ciphertext, displayId, encryptionContext, itemId, json, keyName, outputFormat, token, uidToken, version);
   }
-
 
   @Override
   public String toString() {
@@ -323,6 +353,7 @@ public class Decrypt {
     sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -331,7 +362,7 @@ public class Decrypt {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

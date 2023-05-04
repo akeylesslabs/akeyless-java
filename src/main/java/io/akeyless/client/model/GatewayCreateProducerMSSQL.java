@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerMSSQL is a command that creates mssql producer
  */
 @ApiModel(description = "gatewayCreateProducerMSSQL is a command that creates mssql producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerMSSQL {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -116,6 +116,8 @@ public class GatewayCreateProducerMSSQL {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayCreateProducerMSSQL() { 
+  }
 
   public GatewayCreateProducerMSSQL deleteProtection(String deleteProtection) {
     
@@ -334,6 +336,7 @@ public class GatewayCreateProducerMSSQL {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -616,7 +619,7 @@ public class GatewayCreateProducerMSSQL {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -652,7 +655,6 @@ public class GatewayCreateProducerMSSQL {
     return Objects.hash(deleteProtection, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -686,7 +688,7 @@ public class GatewayCreateProducerMSSQL {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

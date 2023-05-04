@@ -30,7 +30,7 @@ import java.util.List;
  * updateAuthMethodAWSIAM is a command that updates a new Auth Method that will be able to authenticate using AWS IAM credentials.
  */
 @ApiModel(description = "updateAuthMethodAWSIAM is a command that updates a new Auth Method that will be able to authenticate using AWS IAM credentials.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodAWSIAM {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -104,6 +104,8 @@ public class UpdateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateAuthMethodAWSIAM() { 
+  }
 
   public UpdateAuthMethodAWSIAM accessExpires(Long accessExpires) {
     
@@ -174,6 +176,7 @@ public class UpdateAuthMethodAWSIAM {
    * A list of AWS account-IDs that the access is restricted to
    * @return boundAwsAccountId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of AWS account-IDs that the access is restricted to")
 
   public List<String> getBoundAwsAccountId() {
@@ -482,6 +485,7 @@ public class UpdateAuthMethodAWSIAM {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -587,7 +591,7 @@ public class UpdateAuthMethodAWSIAM {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -620,7 +624,6 @@ public class UpdateAuthMethodAWSIAM {
     return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, stsUrl, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -651,7 +654,7 @@ public class UpdateAuthMethodAWSIAM {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -30,7 +30,7 @@ import java.util.List;
  * CreateClassicKey is a command that creates classic key
  */
 @ApiModel(description = "CreateClassicKey is a command that creates classic key")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateClassicKey {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -84,6 +84,8 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateClassicKey() { 
+  }
 
   public CreateClassicKey alg(String alg) {
     
@@ -95,6 +97,7 @@ public class CreateClassicKey {
    * Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]
    * @return alg
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]")
 
   public String getAlg() {
@@ -278,6 +281,7 @@ public class CreateClassicKey {
    * ClassicKey name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ClassicKey name")
 
   public String getName() {
@@ -391,7 +395,7 @@ public class CreateClassicKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -419,7 +423,6 @@ public class CreateClassicKey {
     return Objects.hash(alg, certFileData, deleteProtection, description, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -445,7 +448,7 @@ public class CreateClassicKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

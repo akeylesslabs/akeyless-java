@@ -30,7 +30,7 @@ import java.util.List;
  * updateAuthMethodGCP is a command that updates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials.
  */
 @ApiModel(description = "updateAuthMethodGCP is a command that updates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodGCP {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -104,6 +104,8 @@ public class UpdateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateAuthMethodGCP() { 
+  }
 
   public UpdateAuthMethodGCP accessExpires(Long accessExpires) {
     
@@ -138,6 +140,7 @@ public class UpdateAuthMethodGCP {
    * The audience to verify in the JWT received by the client
    * @return audience
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The audience to verify in the JWT received by the client")
 
   public String getAudience() {
@@ -446,6 +449,7 @@ public class UpdateAuthMethodGCP {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -537,6 +541,7 @@ public class UpdateAuthMethodGCP {
    * Type of the GCP Access Rules
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of the GCP Access Rules")
 
   public String getType() {
@@ -573,7 +578,7 @@ public class UpdateAuthMethodGCP {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -606,7 +611,6 @@ public class UpdateAuthMethodGCP {
     return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, serviceAccountCredsData, token, type, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -637,7 +641,7 @@ public class UpdateAuthMethodGCP {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -2,6 +2,7 @@
 
 # GetRole
 
+
 ## Properties
 
 Name | Type | Description | Notes

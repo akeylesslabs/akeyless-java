@@ -31,11 +31,15 @@ import java.util.Map;
 /**
  * TargetTypeDetailsInput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative_port";
   @SerializedName(SERIALIZED_NAME_ADMINISTRATIVE_PORT)
   private String administrativePort;
+
+  public static final String SERIALIZED_NAME_API_KEY = "api_key";
+  @SerializedName(SERIALIZED_NAME_API_KEY)
+  private String apiKey;
 
   public static final String SERIALIZED_NAME_APP_PRIVATE_KEY = "app_private_key";
   @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY)
@@ -181,6 +185,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_DB_USER_NAME)
   private String dbUserName;
 
+  public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
+  @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
+  private String domainName;
+
   public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks_access_key_id";
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
   private String eksAccessKeyId;
@@ -204,6 +212,14 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY = "eks_secret_access_key";
   @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
   private String eksSecretAccessKey;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
 
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp_service_account_email";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
@@ -261,6 +277,22 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_HOSTS)
   private Map<String, String> hosts = null;
 
+  public static final String SERIALIZED_NAME_IMAP_FQDN = "imap_fqdn";
+  @SerializedName(SERIALIZED_NAME_IMAP_FQDN)
+  private String imapFqdn;
+
+  public static final String SERIALIZED_NAME_IMAP_PASSWORD = "imap_password";
+  @SerializedName(SERIALIZED_NAME_IMAP_PASSWORD)
+  private String imapPassword;
+
+  public static final String SERIALIZED_NAME_IMAP_PORT = "imap_port";
+  @SerializedName(SERIALIZED_NAME_IMAP_PORT)
+  private String imapPort;
+
+  public static final String SERIALIZED_NAME_IMAP_USER = "imap_user";
+  @SerializedName(SERIALIZED_NAME_IMAP_USER)
+  private String imapUser;
+
   public static final String SERIALIZED_NAME_IMPLEMENTATION_TYPE = "implementation_type";
   @SerializedName(SERIALIZED_NAME_IMPLEMENTATION_TYPE)
   private String implementationType;
@@ -276,6 +308,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s_cluster_endpoint";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
 
   public static final String SERIALIZED_NAME_LDAP_AUDIENCE = "ldap_audience";
   @SerializedName(SERIALIZED_NAME_LDAP_AUDIENCE)
@@ -353,6 +389,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
 
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
+
   public static final String SERIALIZED_NAME_PING_URL = "ping_url";
   @SerializedName(SERIALIZED_NAME_PING_URL)
   private String pingUrl;
@@ -372,6 +412,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_PRIVILEGED_USER = "privileged_user";
   @SerializedName(SERIALIZED_NAME_PRIVILEGED_USER)
   private String privilegedUser;
+
+  public static final String SERIALIZED_NAME_PROFILE_ID = "profile_id";
+  @SerializedName(SERIALIZED_NAME_PROFILE_ID)
+  private String profileId;
 
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
@@ -405,6 +449,10 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_TENANT_URL)
   private String tenantUrl;
 
+  public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
+  @SerializedName(SERIALIZED_NAME_TIMEOUT)
+  private Long timeout;
+
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
@@ -412,6 +460,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
+
+  public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use_gw_service_account";
+  @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
+  private Boolean useGwServiceAccount;
 
   public static final String SERIALIZED_NAME_USE_TLS = "use_tls";
   @SerializedName(SERIALIZED_NAME_USE_TLS)
@@ -428,6 +480,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
+
+  public static final String SERIALIZED_NAME_VALIDATION_EMAIL = "validation_email";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_EMAIL)
+  private String validationEmail;
 
   public static final String SERIALIZED_NAME_VENAFI_API_KEY = "venafi_api_key";
   @SerializedName(SERIALIZED_NAME_VENAFI_API_KEY)
@@ -453,6 +509,8 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_VENAFI_ZONE)
   private String venafiZone;
 
+  public TargetTypeDetailsInput() { 
+  }
 
   public TargetTypeDetailsInput administrativePort(String administrativePort) {
     
@@ -474,6 +532,29 @@ public class TargetTypeDetailsInput {
 
   public void setAdministrativePort(String administrativePort) {
     this.administrativePort = administrativePort;
+  }
+
+
+  public TargetTypeDetailsInput apiKey(String apiKey) {
+    
+    this.apiKey = apiKey;
+    return this;
+  }
+
+   /**
+   * Get apiKey
+   * @return apiKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getApiKey() {
+    return apiKey;
+  }
+
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
   }
 
 
@@ -1321,6 +1402,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput domainName(String domainName) {
+    
+    this.domainName = domainName;
+    return this;
+  }
+
+   /**
+   * Get domainName
+   * @return domainName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDomainName() {
+    return domainName;
+  }
+
+
+  public void setDomainName(String domainName) {
+    this.domainName = domainName;
+  }
+
+
   public TargetTypeDetailsInput eksAccessKeyId(String eksAccessKeyId) {
     
     this.eksAccessKeyId = eksAccessKeyId;
@@ -1456,6 +1560,52 @@ public class TargetTypeDetailsInput {
 
   public void setEksSecretAccessKey(String eksSecretAccessKey) {
     this.eksSecretAccessKey = eksSecretAccessKey;
+  }
+
+
+  public TargetTypeDetailsInput email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public TargetTypeDetailsInput firstName(String firstName) {
+    
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * Contact Info - GlobalSign requires this to be sent with every certificate creation request
+   * @return firstName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contact Info - GlobalSign requires this to be sent with every certificate creation request")
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
 
@@ -1789,6 +1939,98 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput imapFqdn(String imapFqdn) {
+    
+    this.imapFqdn = imapFqdn;
+    return this;
+  }
+
+   /**
+   * Get imapFqdn
+   * @return imapFqdn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getImapFqdn() {
+    return imapFqdn;
+  }
+
+
+  public void setImapFqdn(String imapFqdn) {
+    this.imapFqdn = imapFqdn;
+  }
+
+
+  public TargetTypeDetailsInput imapPassword(String imapPassword) {
+    
+    this.imapPassword = imapPassword;
+    return this;
+  }
+
+   /**
+   * Get imapPassword
+   * @return imapPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getImapPassword() {
+    return imapPassword;
+  }
+
+
+  public void setImapPassword(String imapPassword) {
+    this.imapPassword = imapPassword;
+  }
+
+
+  public TargetTypeDetailsInput imapPort(String imapPort) {
+    
+    this.imapPort = imapPort;
+    return this;
+  }
+
+   /**
+   * Get imapPort
+   * @return imapPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getImapPort() {
+    return imapPort;
+  }
+
+
+  public void setImapPort(String imapPort) {
+    this.imapPort = imapPort;
+  }
+
+
+  public TargetTypeDetailsInput imapUser(String imapUser) {
+    
+    this.imapUser = imapUser;
+    return this;
+  }
+
+   /**
+   * Get imapUser
+   * @return imapUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getImapUser() {
+    return imapUser;
+  }
+
+
+  public void setImapUser(String imapUser) {
+    this.imapUser = imapUser;
+  }
+
+
   public TargetTypeDetailsInput implementationType(String implementationType) {
     
     this.implementationType = implementationType;
@@ -1878,6 +2120,29 @@ public class TargetTypeDetailsInput {
 
   public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
     this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public TargetTypeDetailsInput lastName(String lastName) {
+    
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Get lastName
+   * @return lastName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastName() {
+    return lastName;
+  }
+
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
 
@@ -2318,6 +2583,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput phone(String phone) {
+    
+    this.phone = phone;
+    return this;
+  }
+
+   /**
+   * Get phone
+   * @return phone
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPhone() {
+    return phone;
+  }
+
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
   public TargetTypeDetailsInput pingUrl(String pingUrl) {
     
     this.pingUrl = pingUrl;
@@ -2430,6 +2718,29 @@ public class TargetTypeDetailsInput {
 
   public void setPrivilegedUser(String privilegedUser) {
     this.privilegedUser = privilegedUser;
+  }
+
+
+  public TargetTypeDetailsInput profileId(String profileId) {
+    
+    this.profileId = profileId;
+    return this;
+  }
+
+   /**
+   * Get profileId
+   * @return profileId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProfileId() {
+    return profileId;
+  }
+
+
+  public void setProfileId(String profileId) {
+    this.profileId = profileId;
   }
 
 
@@ -2617,6 +2928,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput timeout(Long timeout) {
+    
+    this.timeout = timeout;
+    return this;
+  }
+
+   /**
+   * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+   * @return timeout
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.")
+
+  public Long getTimeout() {
+    return timeout;
+  }
+
+
+  public void setTimeout(Long timeout) {
+    this.timeout = timeout;
+  }
+
+
   public TargetTypeDetailsInput url(String url) {
     
     this.url = url;
@@ -2660,6 +2994,29 @@ public class TargetTypeDetailsInput {
 
   public void setUseGwCloudIdentity(Boolean useGwCloudIdentity) {
     this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
+  public TargetTypeDetailsInput useGwServiceAccount(Boolean useGwServiceAccount) {
+    
+    this.useGwServiceAccount = useGwServiceAccount;
+    return this;
+  }
+
+   /**
+   * Get useGwServiceAccount
+   * @return useGwServiceAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getUseGwServiceAccount() {
+    return useGwServiceAccount;
+  }
+
+
+  public void setUseGwServiceAccount(Boolean useGwServiceAccount) {
+    this.useGwServiceAccount = useGwServiceAccount;
   }
 
 
@@ -2752,6 +3109,29 @@ public class TargetTypeDetailsInput {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+
+  public TargetTypeDetailsInput validationEmail(String validationEmail) {
+    
+    this.validationEmail = validationEmail;
+    return this;
+  }
+
+   /**
+   * Get validationEmail
+   * @return validationEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getValidationEmail() {
+    return validationEmail;
+  }
+
+
+  public void setValidationEmail(String validationEmail) {
+    this.validationEmail = validationEmail;
   }
 
 
@@ -2894,7 +3274,7 @@ public class TargetTypeDetailsInput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -2903,6 +3283,7 @@ public class TargetTypeDetailsInput {
     }
     TargetTypeDetailsInput targetTypeDetailsInput = (TargetTypeDetailsInput) o;
     return Objects.equals(this.administrativePort, targetTypeDetailsInput.administrativePort) &&
+        Objects.equals(this.apiKey, targetTypeDetailsInput.apiKey) &&
         Objects.equals(this.appPrivateKey, targetTypeDetailsInput.appPrivateKey) &&
         Objects.equals(this.artifactoryAdminApikey, targetTypeDetailsInput.artifactoryAdminApikey) &&
         Objects.equals(this.artifactoryAdminUsername, targetTypeDetailsInput.artifactoryAdminUsername) &&
@@ -2939,12 +3320,15 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.dbServerCertificates, targetTypeDetailsInput.dbServerCertificates) &&
         Objects.equals(this.dbServerName, targetTypeDetailsInput.dbServerName) &&
         Objects.equals(this.dbUserName, targetTypeDetailsInput.dbUserName) &&
+        Objects.equals(this.domainName, targetTypeDetailsInput.domainName) &&
         Objects.equals(this.eksAccessKeyId, targetTypeDetailsInput.eksAccessKeyId) &&
         Objects.equals(this.eksClusterCaCertificate, targetTypeDetailsInput.eksClusterCaCertificate) &&
         Objects.equals(this.eksClusterEndpoint, targetTypeDetailsInput.eksClusterEndpoint) &&
         Objects.equals(this.eksClusterName, targetTypeDetailsInput.eksClusterName) &&
         Objects.equals(this.eksRegion, targetTypeDetailsInput.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, targetTypeDetailsInput.eksSecretAccessKey) &&
+        Objects.equals(this.email, targetTypeDetailsInput.email) &&
+        Objects.equals(this.firstName, targetTypeDetailsInput.firstName) &&
         Objects.equals(this.gcpServiceAccountEmail, targetTypeDetailsInput.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKey, targetTypeDetailsInput.gcpServiceAccountKey) &&
         Objects.equals(this.gcpServiceAccountKeyBase64, targetTypeDetailsInput.gcpServiceAccountKeyBase64) &&
@@ -2959,10 +3343,15 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.host, targetTypeDetailsInput.host) &&
         Objects.equals(this.hostname, targetTypeDetailsInput.hostname) &&
         Objects.equals(this.hosts, targetTypeDetailsInput.hosts) &&
+        Objects.equals(this.imapFqdn, targetTypeDetailsInput.imapFqdn) &&
+        Objects.equals(this.imapPassword, targetTypeDetailsInput.imapPassword) &&
+        Objects.equals(this.imapPort, targetTypeDetailsInput.imapPort) &&
+        Objects.equals(this.imapUser, targetTypeDetailsInput.imapUser) &&
         Objects.equals(this.implementationType, targetTypeDetailsInput.implementationType) &&
         Objects.equals(this.k8sBearerToken, targetTypeDetailsInput.k8sBearerToken) &&
         Objects.equals(this.k8sClusterCaCertificate, targetTypeDetailsInput.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, targetTypeDetailsInput.k8sClusterEndpoint) &&
+        Objects.equals(this.lastName, targetTypeDetailsInput.lastName) &&
         Objects.equals(this.ldapAudience, targetTypeDetailsInput.ldapAudience) &&
         Objects.equals(this.ldapBindDn, targetTypeDetailsInput.ldapBindDn) &&
         Objects.equals(this.ldapBindPassword, targetTypeDetailsInput.ldapBindPassword) &&
@@ -2982,11 +3371,13 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.mongodbUsername, targetTypeDetailsInput.mongodbUsername) &&
         Objects.equals(this.password, targetTypeDetailsInput.password) &&
         Objects.equals(this.payload, targetTypeDetailsInput.payload) &&
+        Objects.equals(this.phone, targetTypeDetailsInput.phone) &&
         Objects.equals(this.pingUrl, targetTypeDetailsInput.pingUrl) &&
         Objects.equals(this.port, targetTypeDetailsInput.port) &&
         Objects.equals(this.privateKey, targetTypeDetailsInput.privateKey) &&
         Objects.equals(this.privateKeyPassword, targetTypeDetailsInput.privateKeyPassword) &&
         Objects.equals(this.privilegedUser, targetTypeDetailsInput.privilegedUser) &&
+        Objects.equals(this.profileId, targetTypeDetailsInput.profileId) &&
         Objects.equals(this.rabbitmqServerPassword, targetTypeDetailsInput.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
@@ -2995,12 +3386,15 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.sslConnectionCertificate, targetTypeDetailsInput.sslConnectionCertificate) &&
         Objects.equals(this.sslConnectionMode, targetTypeDetailsInput.sslConnectionMode) &&
         Objects.equals(this.tenantUrl, targetTypeDetailsInput.tenantUrl) &&
+        Objects.equals(this.timeout, targetTypeDetailsInput.timeout) &&
         Objects.equals(this.url, targetTypeDetailsInput.url) &&
         Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
+        Objects.equals(this.useGwServiceAccount, targetTypeDetailsInput.useGwServiceAccount) &&
         Objects.equals(this.useTls, targetTypeDetailsInput.useTls) &&
         Objects.equals(this.userName, targetTypeDetailsInput.userName) &&
         Objects.equals(this.userPassword, targetTypeDetailsInput.userPassword) &&
         Objects.equals(this.username, targetTypeDetailsInput.username) &&
+        Objects.equals(this.validationEmail, targetTypeDetailsInput.validationEmail) &&
         Objects.equals(this.venafiApiKey, targetTypeDetailsInput.venafiApiKey) &&
         Objects.equals(this.venafiBaseUrl, targetTypeDetailsInput.venafiBaseUrl) &&
         Objects.equals(this.venafiTppPassword, targetTypeDetailsInput.venafiTppPassword) &&
@@ -3011,15 +3405,15 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, certificate, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, url, useGwCloudIdentity, useTls, userName, userPassword, username, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(administrativePort, apiKey, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, certificate, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, domainName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, email, firstName, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, imapFqdn, imapPassword, imapPort, imapUser, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, lastName, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, phone, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, profileId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, timeout, url, useGwCloudIdentity, useGwServiceAccount, useTls, userName, userPassword, username, validationEmail, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetTypeDetailsInput {\n");
     sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    appPrivateKey: ").append(toIndentedString(appPrivateKey)).append("\n");
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
     sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
@@ -3056,12 +3450,15 @@ public class TargetTypeDetailsInput {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
+    sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
     sb.append("    eksClusterCaCertificate: ").append(toIndentedString(eksClusterCaCertificate)).append("\n");
     sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
     sb.append("    gcpServiceAccountKeyBase64: ").append(toIndentedString(gcpServiceAccountKeyBase64)).append("\n");
@@ -3076,10 +3473,15 @@ public class TargetTypeDetailsInput {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
+    sb.append("    imapFqdn: ").append(toIndentedString(imapFqdn)).append("\n");
+    sb.append("    imapPassword: ").append(toIndentedString(imapPassword)).append("\n");
+    sb.append("    imapPort: ").append(toIndentedString(imapPort)).append("\n");
+    sb.append("    imapUser: ").append(toIndentedString(imapUser)).append("\n");
     sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    ldapAudience: ").append(toIndentedString(ldapAudience)).append("\n");
     sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");
     sb.append("    ldapBindPassword: ").append(toIndentedString(ldapBindPassword)).append("\n");
@@ -3099,11 +3501,13 @@ public class TargetTypeDetailsInput {
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    pingUrl: ").append(toIndentedString(pingUrl)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
     sb.append("    privilegedUser: ").append(toIndentedString(privilegedUser)).append("\n");
+    sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
@@ -3112,12 +3516,15 @@ public class TargetTypeDetailsInput {
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
     sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
     sb.append("    tenantUrl: ").append(toIndentedString(tenantUrl)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
+    sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
     sb.append("    useTls: ").append(toIndentedString(useTls)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    validationEmail: ").append(toIndentedString(validationEmail)).append("\n");
     sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
     sb.append("    venafiBaseUrl: ").append(toIndentedString(venafiBaseUrl)).append("\n");
     sb.append("    venafiTppPassword: ").append(toIndentedString(venafiTppPassword)).append("\n");
@@ -3132,7 +3539,7 @@ public class TargetTypeDetailsInput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

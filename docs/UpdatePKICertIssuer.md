@@ -2,6 +2,7 @@
 
 # UpdatePKICertIssuer
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,6 +16,9 @@ Name | Type | Description | Notes
 **codeSigningFlag** | **Boolean** | If set, certificates will be flagged for code signing use |  [optional]
 **country** | **String** | A comma-separated list of the country that will be set in the issued certificate |  [optional]
 **description** | **String** | Description of the object |  [optional]
+**destinationPath** | **String** | A path in which to save generated certificates |  [optional]
+**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional]
+**gwClusterUrl** | **String** | The GW cluster URL to issue the certificate from, required in Public CA mode |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keyUsage** | **String** | key-usage |  [optional]
 **locality** | **String** | A comma-separated list of the locality that will be set in the issued certificate |  [optional]
@@ -26,10 +30,11 @@ Name | Type | Description | Notes
 **organizationalUnits** | **String** | A comma-separated list of organizational units (OU) that will be set in the issued certificate |  [optional]
 **organizations** | **String** | A comma-separated list of organizations (O) that will be set in the issued certificate |  [optional]
 **postalCode** | **String** | A comma-separated list of the postal code that will be set in the issued certificate |  [optional]
+**protectCertificates** | **Boolean** | Whether to protect generated certificates from deletion |  [optional]
 **province** | **String** | A comma-separated list of the province that will be set in the issued certificate |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
 **serverFlag** | **Boolean** | If set, certificates will be flagged for server auth use |  [optional]
-**signerKeyName** | **String** | A key to sign the certificate with | 
+**signerKeyName** | **String** | A key to sign the certificate with, required in Private CA mode | 
 **streetAddress** | **String** | A comma-separated list of the street address that will be set in the issued certificate |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **ttl** | **Long** | he requested Time To Live for the certificate, in seconds | 

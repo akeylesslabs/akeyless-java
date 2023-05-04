@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateAWSTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAWSTarget {
   public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY)
@@ -77,6 +77,8 @@ public class CreateAWSTarget {
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
 
+  public CreateAWSTarget() { 
+  }
 
   public CreateAWSTarget accessKey(String accessKey) {
     
@@ -88,6 +90,7 @@ public class CreateAWSTarget {
    * AWS secret access key
    * @return accessKey
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "AWS secret access key")
 
   public String getAccessKey() {
@@ -110,6 +113,7 @@ public class CreateAWSTarget {
    * AWS access key ID
    * @return accessKeyId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "AWS access key ID")
 
   public String getAccessKeyId() {
@@ -224,6 +228,7 @@ public class CreateAWSTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -352,7 +357,7 @@ public class CreateAWSTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -379,7 +384,6 @@ public class CreateAWSTarget {
     return Objects.hash(accessKey, accessKeyId, comment, description, json, key, name, region, sessionToken, token, uidToken, useGwCloudIdentity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -404,7 +408,7 @@ public class CreateAWSTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

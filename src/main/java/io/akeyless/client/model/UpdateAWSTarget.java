@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateAWSTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAWSTarget {
   public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY)
@@ -89,6 +89,8 @@ public class UpdateAWSTarget {
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
 
+  public UpdateAWSTarget() { 
+  }
 
   public UpdateAWSTarget accessKey(String accessKey) {
     
@@ -100,6 +102,7 @@ public class UpdateAWSTarget {
    * AWS secret access key
    * @return accessKey
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "AWS secret access key")
 
   public String getAccessKey() {
@@ -122,6 +125,7 @@ public class UpdateAWSTarget {
    * AWS access key ID
    * @return accessKeyId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "AWS access key ID")
 
   public String getAccessKeyId() {
@@ -259,6 +263,7 @@ public class UpdateAWSTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -433,7 +438,7 @@ public class UpdateAWSTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -463,7 +468,6 @@ public class UpdateAWSTarget {
     return Objects.hash(accessKey, accessKeyId, comment, description, json, keepPrevVersion, key, name, newName, region, sessionToken, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -491,7 +495,7 @@ public class UpdateAWSTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

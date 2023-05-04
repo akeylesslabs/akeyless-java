@@ -23,42 +23,48 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * AllowedAccess
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AllowedAccess {
-  public static final String SERIALIZED_NAME_ACC_ID = "acc_id";
-  @SerializedName(SERIALIZED_NAME_ACC_ID)
-  private String accId;
+  public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
+  @SerializedName(SERIALIZED_NAME_ACCESS_ID)
+  private String accessId;
 
-  public static final String SERIALIZED_NAME_ACCESS_RULES_TYPE = "access_rules_type";
-  @SerializedName(SERIALIZED_NAME_ACCESS_RULES_TYPE)
-  private String accessRulesType;
+  public static final String SERIALIZED_NAME_ACCESS_TYPE = "access_type";
+  @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
+  private String accessType;
 
-  public static final String SERIALIZED_NAME_ALLOWED_API = "allowed_api";
-  @SerializedName(SERIALIZED_NAME_ALLOWED_API)
-  private Boolean allowedApi;
+  public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  private Long clusterId;
 
-  public static final String SERIALIZED_NAME_ALLOWEDS_LOGIN = "alloweds_login";
-  @SerializedName(SERIALIZED_NAME_ALLOWEDS_LOGIN)
-  private Boolean allowedsLogin;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
   public static final String SERIALIZED_NAME_EDITABLE = "editable";
   @SerializedName(SERIALIZED_NAME_EDITABLE)
   private Boolean editable;
 
-  public static final String SERIALIZED_NAME_ERR_MSG = "err_msg";
-  @SerializedName(SERIALIZED_NAME_ERR_MSG)
-  private String errMsg;
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
+  private String error;
 
-  public static final String SERIALIZED_NAME_HASH = "hash";
-  @SerializedName(SERIALIZED_NAME_HASH)
-  private String hash;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Long id;
 
   public static final String SERIALIZED_NAME_IS_VALID = "is_valid";
   @SerializedName(SERIALIZED_NAME_IS_VALID)
@@ -68,100 +74,133 @@ public class AllowedAccess {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
+  @SerializedName(SERIALIZED_NAME_PERMISSIONS)
+  private List<String> permissions = null;
+
   public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub_claims";
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
   private Map<String, List<String>> subClaims = null;
 
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
 
-  public AllowedAccess accId(String accId) {
+  public AllowedAccess() { 
+  }
+
+  public AllowedAccess accessId(String accessId) {
     
-    this.accId = accId;
+    this.accessId = accessId;
     return this;
   }
 
    /**
-   * Get accId
-   * @return accId
+   * Get accessId
+   * @return accessId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getAccId() {
-    return accId;
+  public String getAccessId() {
+    return accessId;
   }
 
 
-  public void setAccId(String accId) {
-    this.accId = accId;
+  public void setAccessId(String accessId) {
+    this.accessId = accessId;
   }
 
 
-  public AllowedAccess accessRulesType(String accessRulesType) {
+  public AllowedAccess accessType(String accessType) {
     
-    this.accessRulesType = accessRulesType;
+    this.accessType = accessType;
     return this;
   }
 
    /**
-   * Get accessRulesType
-   * @return accessRulesType
+   * Get accessType
+   * @return accessType
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getAccessRulesType() {
-    return accessRulesType;
+  public String getAccessType() {
+    return accessType;
   }
 
 
-  public void setAccessRulesType(String accessRulesType) {
-    this.accessRulesType = accessRulesType;
+  public void setAccessType(String accessType) {
+    this.accessType = accessType;
   }
 
 
-  public AllowedAccess allowedApi(Boolean allowedApi) {
+  public AllowedAccess clusterId(Long clusterId) {
     
-    this.allowedApi = allowedApi;
+    this.clusterId = clusterId;
     return this;
   }
 
    /**
-   * Get allowedApi
-   * @return allowedApi
+   * Get clusterId
+   * @return clusterId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getAllowedApi() {
-    return allowedApi;
+  public Long getClusterId() {
+    return clusterId;
   }
 
 
-  public void setAllowedApi(Boolean allowedApi) {
-    this.allowedApi = allowedApi;
+  public void setClusterId(Long clusterId) {
+    this.clusterId = clusterId;
   }
 
 
-  public AllowedAccess allowedsLogin(Boolean allowedsLogin) {
+  public AllowedAccess createdAt(OffsetDateTime createdAt) {
     
-    this.allowedsLogin = allowedsLogin;
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Get allowedsLogin
-   * @return allowedsLogin
+   * Get createdAt
+   * @return createdAt
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getAllowedsLogin() {
-    return allowedsLogin;
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
 
-  public void setAllowedsLogin(Boolean allowedsLogin) {
-    this.allowedsLogin = allowedsLogin;
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public AllowedAccess description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -188,49 +227,49 @@ public class AllowedAccess {
   }
 
 
-  public AllowedAccess errMsg(String errMsg) {
+  public AllowedAccess error(String error) {
     
-    this.errMsg = errMsg;
+    this.error = error;
     return this;
   }
 
    /**
-   * Get errMsg
-   * @return errMsg
+   * Get error
+   * @return error
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getErrMsg() {
-    return errMsg;
+  public String getError() {
+    return error;
   }
 
 
-  public void setErrMsg(String errMsg) {
-    this.errMsg = errMsg;
+  public void setError(String error) {
+    this.error = error;
   }
 
 
-  public AllowedAccess hash(String hash) {
+  public AllowedAccess id(Long id) {
     
-    this.hash = hash;
+    this.id = id;
     return this;
   }
 
    /**
-   * Get hash
-   * @return hash
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getHash() {
-    return hash;
+  public Long getId() {
+    return id;
   }
 
 
-  public void setHash(String hash) {
-    this.hash = hash;
+  public void setId(Long id) {
+    this.id = id;
   }
 
 
@@ -280,6 +319,37 @@ public class AllowedAccess {
   }
 
 
+  public AllowedAccess permissions(List<String> permissions) {
+    
+    this.permissions = permissions;
+    return this;
+  }
+
+  public AllowedAccess addPermissionsItem(String permissionsItem) {
+    if (this.permissions == null) {
+      this.permissions = new ArrayList<String>();
+    }
+    this.permissions.add(permissionsItem);
+    return this;
+  }
+
+   /**
+   * Get permissions
+   * @return permissions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getPermissions() {
+    return permissions;
+  }
+
+
+  public void setPermissions(List<String> permissions) {
+    this.permissions = permissions;
+  }
+
+
   public AllowedAccess subClaims(Map<String, List<String>> subClaims) {
     
     this.subClaims = subClaims;
@@ -311,8 +381,31 @@ public class AllowedAccess {
   }
 
 
+  public AllowedAccess updatedAt(OffsetDateTime updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -320,38 +413,43 @@ public class AllowedAccess {
       return false;
     }
     AllowedAccess allowedAccess = (AllowedAccess) o;
-    return Objects.equals(this.accId, allowedAccess.accId) &&
-        Objects.equals(this.accessRulesType, allowedAccess.accessRulesType) &&
-        Objects.equals(this.allowedApi, allowedAccess.allowedApi) &&
-        Objects.equals(this.allowedsLogin, allowedAccess.allowedsLogin) &&
+    return Objects.equals(this.accessId, allowedAccess.accessId) &&
+        Objects.equals(this.accessType, allowedAccess.accessType) &&
+        Objects.equals(this.clusterId, allowedAccess.clusterId) &&
+        Objects.equals(this.createdAt, allowedAccess.createdAt) &&
+        Objects.equals(this.description, allowedAccess.description) &&
         Objects.equals(this.editable, allowedAccess.editable) &&
-        Objects.equals(this.errMsg, allowedAccess.errMsg) &&
-        Objects.equals(this.hash, allowedAccess.hash) &&
+        Objects.equals(this.error, allowedAccess.error) &&
+        Objects.equals(this.id, allowedAccess.id) &&
         Objects.equals(this.isValid, allowedAccess.isValid) &&
         Objects.equals(this.name, allowedAccess.name) &&
-        Objects.equals(this.subClaims, allowedAccess.subClaims);
+        Objects.equals(this.permissions, allowedAccess.permissions) &&
+        Objects.equals(this.subClaims, allowedAccess.subClaims) &&
+        Objects.equals(this.updatedAt, allowedAccess.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accId, accessRulesType, allowedApi, allowedsLogin, editable, errMsg, hash, isValid, name, subClaims);
+    return Objects.hash(accessId, accessType, clusterId, createdAt, description, editable, error, id, isValid, name, permissions, subClaims, updatedAt);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AllowedAccess {\n");
-    sb.append("    accId: ").append(toIndentedString(accId)).append("\n");
-    sb.append("    accessRulesType: ").append(toIndentedString(accessRulesType)).append("\n");
-    sb.append("    allowedApi: ").append(toIndentedString(allowedApi)).append("\n");
-    sb.append("    allowedsLogin: ").append(toIndentedString(allowedsLogin)).append("\n");
+    sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
+    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
-    sb.append("    errMsg: ").append(toIndentedString(errMsg)).append("\n");
-    sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -360,7 +458,7 @@ public class AllowedAccess {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * CreateSecret
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSecret {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -133,6 +133,8 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public CreateSecret() { 
+  }
 
   public CreateSecret accessibility(String accessibility) {
     
@@ -282,6 +284,7 @@ public class CreateSecret {
    * Secret name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret name")
 
   public String getName() {
@@ -727,6 +730,7 @@ public class CreateSecret {
    * The secret value
    * @return value
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The secret value")
 
   public String getValue() {
@@ -740,7 +744,7 @@ public class CreateSecret {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -780,7 +784,6 @@ public class CreateSecret {
     return Objects.hash(accessibility, deleteProtection, description, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -818,7 +821,7 @@ public class CreateSecret {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

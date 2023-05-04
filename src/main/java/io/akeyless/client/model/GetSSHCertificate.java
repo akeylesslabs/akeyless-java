@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetSSHCertificate
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetSSHCertificate {
   public static final String SERIALIZED_NAME_CERT_ISSUER_NAME = "cert-issuer-name";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
@@ -61,6 +61,8 @@ public class GetSSHCertificate {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GetSSHCertificate() { 
+  }
 
   public GetSSHCertificate certIssuerName(String certIssuerName) {
     
@@ -72,6 +74,7 @@ public class GetSSHCertificate {
    * The name of the SSH certificate issuer
    * @return certIssuerName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the SSH certificate issuer")
 
   public String getCertIssuerName() {
@@ -94,6 +97,7 @@ public class GetSSHCertificate {
    * The username to sign in the SSH certificate
    * @return certUsername
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The username to sign in the SSH certificate")
 
   public String getCertUsername() {
@@ -245,7 +249,7 @@ public class GetSSHCertificate {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -268,7 +272,6 @@ public class GetSSHCertificate {
     return Objects.hash(certIssuerName, certUsername, json, legacySigningAlgName, publicKeyData, token, ttl, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -289,7 +292,7 @@ public class GetSSHCertificate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

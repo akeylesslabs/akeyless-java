@@ -30,7 +30,7 @@ import java.util.List;
  * assocTargetItem is a command that creates an association between target and item.
  */
 @ApiModel(description = "assocTargetItem is a command that creates an association between target and item.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AssocTargetItem {
   public static final String SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION = "disable-previous-key-version";
   @SerializedName(SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION)
@@ -96,6 +96,8 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_VAULT_NAME)
   private String vaultName;
 
+  public AssocTargetItem() { 
+  }
 
   public AssocTargetItem disablePreviousKeyVersion(Boolean disablePreviousKeyVersion) {
     
@@ -276,6 +278,7 @@ public class AssocTargetItem {
    * The item to associate
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The item to associate")
 
   public String getName() {
@@ -375,6 +378,7 @@ public class AssocTargetItem {
    * The target to associate
    * @return targetName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The target to associate")
 
   public String getTargetName() {
@@ -480,7 +484,7 @@ public class AssocTargetItem {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -511,7 +515,6 @@ public class AssocTargetItem {
     return Objects.hash(disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, projectId, purpose, regions, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -540,7 +543,7 @@ public class AssocTargetItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

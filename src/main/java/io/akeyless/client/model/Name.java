@@ -31,7 +31,7 @@ import java.util.List;
  * Name represents an X.509 distinguished name. This only includes the common elements of a DN. Note that Name is only an approximation of the X.509 structure. If an accurate representation is needed, asn1.Unmarshal the raw subject or issuer as an RDNSequence.
  */
 @ApiModel(description = "Name represents an X.509 distinguished name. This only includes the common elements of a DN. Note that Name is only an approximation of the X.509 structure. If an accurate representation is needed, asn1.Unmarshal the raw subject or issuer as an RDNSequence.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Name {
   public static final String SERIALIZED_NAME_COUNTRY = "Country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
@@ -57,6 +57,8 @@ public class Name {
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
   private List<String> streetAddress = null;
 
+  public Name() { 
+  }
 
   public Name country(List<String> country) {
     
@@ -237,7 +239,7 @@ public class Name {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -258,7 +260,6 @@ public class Name {
     return Objects.hash(country, extraNames, locality, names, serialNumber, streetAddress);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -277,7 +278,7 @@ public class Name {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

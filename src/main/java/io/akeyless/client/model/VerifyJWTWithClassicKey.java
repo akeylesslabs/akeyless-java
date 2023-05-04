@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * VerifyJWTWithClassicKey
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerifyJWTWithClassicKey {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -57,6 +57,8 @@ public class VerifyJWTWithClassicKey {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public VerifyJWTWithClassicKey() { 
+  }
 
   public VerifyJWTWithClassicKey displayId(String displayId) {
     
@@ -68,6 +70,7 @@ public class VerifyJWTWithClassicKey {
    * The name of the key to use in the verify JWT process
    * @return displayId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the verify JWT process")
 
   public String getDisplayId() {
@@ -113,6 +116,7 @@ public class VerifyJWTWithClassicKey {
    * JWT
    * @return jwt
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "JWT")
 
   public String getJwt() {
@@ -135,6 +139,7 @@ public class VerifyJWTWithClassicKey {
    * RequiredClaims
    * @return requiredClaims
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "RequiredClaims")
 
   public String getRequiredClaims() {
@@ -203,6 +208,7 @@ public class VerifyJWTWithClassicKey {
    * classic key version
    * @return version
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "classic key version")
 
   public Integer getVersion() {
@@ -216,7 +222,7 @@ public class VerifyJWTWithClassicKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -238,7 +244,6 @@ public class VerifyJWTWithClassicKey {
     return Objects.hash(displayId, json, jwt, requiredClaims, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -258,7 +263,7 @@ public class VerifyJWTWithClassicKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

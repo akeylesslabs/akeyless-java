@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ElasticsearchLogForwardingConfig
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ElasticsearchLogForwardingConfig {
   public static final String SERIALIZED_NAME_ELASTICSEARCH_API_KEY = "elasticsearch_api_key";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_API_KEY)
@@ -61,6 +61,8 @@ public class ElasticsearchLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_USER_NAME)
   private String elasticsearchUserName;
 
+  public ElasticsearchLogForwardingConfig() { 
+  }
 
   public ElasticsearchLogForwardingConfig elasticsearchApiKey(String elasticsearchApiKey) {
     
@@ -247,7 +249,7 @@ public class ElasticsearchLogForwardingConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -270,7 +272,6 @@ public class ElasticsearchLogForwardingConfig {
     return Objects.hash(elasticsearchApiKey, elasticsearchAuthType, elasticsearchCloudId, elasticsearchIndex, elasticsearchNodes, elasticsearchPassword, elasticsearchServerType, elasticsearchUserName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -291,7 +292,7 @@ public class ElasticsearchLogForwardingConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

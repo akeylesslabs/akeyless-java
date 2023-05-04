@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * GatewayUpdateProducerCustom
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerCustom {
   public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin_rotation_interval_days";
   @SerializedName(SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS)
@@ -95,6 +95,8 @@ public class GatewayUpdateProducerCustom {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerCustom() { 
+  }
 
   public GatewayUpdateProducerCustom adminRotationIntervalDays(Long adminRotationIntervalDays) {
     
@@ -129,6 +131,7 @@ public class GatewayUpdateProducerCustom {
    * URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create
    * @return createSyncUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create")
 
   public String getCreateSyncUrl() {
@@ -220,6 +223,7 @@ public class GatewayUpdateProducerCustom {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -311,6 +315,7 @@ public class GatewayUpdateProducerCustom {
    * URL of an endpoint that implements /sync/revoke method, for example https://webhook.example.com/sync/revoke
    * @return revokeSyncUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "URL of an endpoint that implements /sync/revoke method, for example https://webhook.example.com/sync/revoke")
 
   public String getRevokeSyncUrl() {
@@ -470,7 +475,7 @@ public class GatewayUpdateProducerCustom {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -501,7 +506,6 @@ public class GatewayUpdateProducerCustom {
     return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, enableAdminRotation, json, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -530,7 +534,7 @@ public class GatewayUpdateProducerCustom {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

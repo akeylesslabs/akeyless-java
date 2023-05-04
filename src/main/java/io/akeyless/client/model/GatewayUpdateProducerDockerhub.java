@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerDockerhub is a command that updates a DOCKERHUB producer
  */
 @ApiModel(description = "gatewayUpdateProducerDockerhub is a command that updates a DOCKERHUB producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerDockerhub {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -84,6 +84,8 @@ public class GatewayUpdateProducerDockerhub {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerDockerhub() { 
+  }
 
   public GatewayUpdateProducerDockerhub deleteProtection(String deleteProtection) {
     
@@ -210,6 +212,7 @@ public class GatewayUpdateProducerDockerhub {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -392,7 +395,7 @@ public class GatewayUpdateProducerDockerhub {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -420,7 +423,6 @@ public class GatewayUpdateProducerDockerhub {
     return Objects.hash(deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -446,7 +448,7 @@ public class GatewayUpdateProducerDockerhub {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

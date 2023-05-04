@@ -2,6 +2,7 @@
 
 # ShareItem
 
+
 ## Properties
 
 Name | Type | Description | Notes

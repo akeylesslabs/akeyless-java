@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetRSAPublicOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetRSAPublicOutput {
   public static final String SERIALIZED_NAME_PEM = "pem";
   @SerializedName(SERIALIZED_NAME_PEM)
@@ -41,6 +41,8 @@ public class GetRSAPublicOutput {
   @SerializedName(SERIALIZED_NAME_SSH)
   private String ssh;
 
+  public GetRSAPublicOutput() { 
+  }
 
   public GetRSAPublicOutput pem(String pem) {
     
@@ -112,7 +114,7 @@ public class GetRSAPublicOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +132,6 @@ public class GetRSAPublicOutput {
     return Objects.hash(pem, raw, ssh);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,7 +147,7 @@ public class GetRSAPublicOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

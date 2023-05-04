@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * SetRoleRule
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SetRoleRule {
   public static final String SERIALIZED_NAME_CAPABILITY = "capability";
   @SerializedName(SERIALIZED_NAME_CAPABILITY)
@@ -63,6 +63,8 @@ public class SetRoleRule {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public SetRoleRule() { 
+  }
 
   public SetRoleRule capability(List<String> capability) {
     
@@ -79,6 +81,7 @@ public class SetRoleRule {
    * List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny]
    * @return capability
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny]")
 
   public List<String> getCapability() {
@@ -124,6 +127,7 @@ public class SetRoleRule {
    * The path the rule refers to
    * @return path
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The path the rule refers to")
 
   public String getPath() {
@@ -146,6 +150,7 @@ public class SetRoleRule {
    * The role name to be updated
    * @return roleName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The role name to be updated")
 
   public String getRoleName() {
@@ -251,7 +256,7 @@ public class SetRoleRule {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -274,7 +279,6 @@ public class SetRoleRule {
     return Objects.hash(capability, json, path, roleName, ruleType, token, ttl, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -295,7 +299,7 @@ public class SetRoleRule {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

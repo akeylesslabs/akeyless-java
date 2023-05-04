@@ -3,6 +3,7 @@
 # CreateAuthMethodUniversalIdentity
 
 createAuthMethodUniversalIdentity is a command that creates a new auth method that will be able to authenticate using Akeyless Universal Identity.
+
 ## Properties
 
 Name | Type | Description | Notes

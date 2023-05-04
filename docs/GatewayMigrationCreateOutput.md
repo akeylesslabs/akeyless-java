@@ -2,6 +2,7 @@
 
 # GatewayMigrationCreateOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

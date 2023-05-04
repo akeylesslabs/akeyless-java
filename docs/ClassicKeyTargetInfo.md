@@ -2,6 +2,7 @@
 
 # ClassicKeyTargetInfo
 
+
 ## Properties
 
 Name | Type | Description | Notes

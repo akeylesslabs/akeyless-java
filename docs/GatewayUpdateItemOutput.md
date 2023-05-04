@@ -2,6 +2,7 @@
 
 # GatewayUpdateItemOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

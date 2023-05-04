@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * GatewayDeleteK8SAuthConfigOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayDeleteK8SAuthConfigOutput {
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
@@ -42,6 +42,8 @@ public class GatewayDeleteK8SAuthConfigOutput {
   @SerializedName(SERIALIZED_NAME_TOTAL_HASH)
   private String totalHash;
 
+  public GatewayDeleteK8SAuthConfigOutput() { 
+  }
 
   public GatewayDeleteK8SAuthConfigOutput clusterId(String clusterId) {
     
@@ -113,7 +115,7 @@ public class GatewayDeleteK8SAuthConfigOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class GatewayDeleteK8SAuthConfigOutput {
     return Objects.hash(clusterId, partsChange, totalHash);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class GatewayDeleteK8SAuthConfigOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

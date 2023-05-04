@@ -3,6 +3,7 @@
 # AddGatewayAllowedAccessId
 
 Responses:  default: errorResponse 200: addGatewayAllowedAccessIdResponse
+
 ## Properties
 
 Name | Type | Description | Notes

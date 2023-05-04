@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UniversalIdentityAccessRules
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UniversalIdentityAccessRules {
   public static final String SERIALIZED_NAME_DENY_INHERITANCE = "deny_inheritance";
   @SerializedName(SERIALIZED_NAME_DENY_INHERITANCE)
@@ -41,6 +41,8 @@ public class UniversalIdentityAccessRules {
   @SerializedName(SERIALIZED_NAME_TTL)
   private Integer ttl;
 
+  public UniversalIdentityAccessRules() { 
+  }
 
   public UniversalIdentityAccessRules denyInheritance(Boolean denyInheritance) {
     
@@ -112,7 +114,7 @@ public class UniversalIdentityAccessRules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +132,6 @@ public class UniversalIdentityAccessRules {
     return Objects.hash(denyInheritance, denyRotate, ttl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,7 +147,7 @@ public class UniversalIdentityAccessRules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

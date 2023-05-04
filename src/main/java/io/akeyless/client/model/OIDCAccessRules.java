@@ -31,7 +31,7 @@ import java.util.List;
  * OIDCAccessRules contains access rules specific to Open Id Connect authentication method.
  */
 @ApiModel(description = "OIDCAccessRules contains access rules specific to Open Id Connect authentication method.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OIDCAccessRules {
   public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS = "allowed_redirect_URIs";
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS)
@@ -73,6 +73,8 @@ public class OIDCAccessRules {
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
 
+  public OIDCAccessRules() { 
+  }
 
   public OIDCAccessRules allowedRedirectURIs(List<String> allowedRedirectURIs) {
     
@@ -329,7 +331,7 @@ public class OIDCAccessRules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -354,7 +356,6 @@ public class OIDCAccessRules {
     return Objects.hash(allowedRedirectURIs, audience, boundClaims, clientId, clientSecret, isInternal, issuer, requiredScopes, requiredScopesPrefix, uniqueIdentifier);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -377,7 +378,7 @@ public class OIDCAccessRules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * SecureRemoteAccess
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecureRemoteAccess {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -143,6 +143,8 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_WEB_PROXY)
   private Boolean webProxy;
 
+  public SecureRemoteAccess() { 
+  }
 
   public SecureRemoteAccess accountId(String accountId) {
     
@@ -797,7 +799,7 @@ public class SecureRemoteAccess {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -840,7 +842,6 @@ public class SecureRemoteAccess {
     return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion, webProxy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -881,7 +882,7 @@ public class SecureRemoteAccess {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

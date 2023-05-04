@@ -3,6 +3,7 @@
 # Detokenize
 
 detokenize is a command that decrypts text with a tokenizer
+
 ## Properties
 
 Name | Type | Description | Notes

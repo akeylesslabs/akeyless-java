@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerCassandraOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateClassicKeyOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateClassicKeyOutput {
   public static final String SERIALIZED_NAME_CLASSIC_KEY_ID = "classic_key_id";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ID)
@@ -41,6 +41,12 @@ public class CreateClassicKeyOutput {
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_TYPE)
   private String classicKeyType;
 
+  public static final String SERIALIZED_NAME_PUBLIC_KEY = "public_key";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
+  private String publicKey;
+
+  public CreateClassicKeyOutput() { 
+  }
 
   public CreateClassicKeyOutput classicKeyId(String classicKeyId) {
     
@@ -111,8 +117,31 @@ public class CreateClassicKeyOutput {
   }
 
 
+  public CreateClassicKeyOutput publicKey(String publicKey) {
+    
+    this.publicKey = publicKey;
+    return this;
+  }
+
+   /**
+   * Get publicKey
+   * @return publicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -122,14 +151,14 @@ public class CreateClassicKeyOutput {
     CreateClassicKeyOutput createClassicKeyOutput = (CreateClassicKeyOutput) o;
     return Objects.equals(this.classicKeyId, createClassicKeyOutput.classicKeyId) &&
         Objects.equals(this.classicKeyName, createClassicKeyOutput.classicKeyName) &&
-        Objects.equals(this.classicKeyType, createClassicKeyOutput.classicKeyType);
+        Objects.equals(this.classicKeyType, createClassicKeyOutput.classicKeyType) &&
+        Objects.equals(this.publicKey, createClassicKeyOutput.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(classicKeyId, classicKeyName, classicKeyType);
+    return Objects.hash(classicKeyId, classicKeyName, classicKeyType, publicKey);
   }
-
 
   @Override
   public String toString() {
@@ -138,6 +167,7 @@ public class CreateClassicKeyOutput {
     sb.append("    classicKeyId: ").append(toIndentedString(classicKeyId)).append("\n");
     sb.append("    classicKeyName: ").append(toIndentedString(classicKeyName)).append("\n");
     sb.append("    classicKeyType: ").append(toIndentedString(classicKeyType)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -146,7 +176,7 @@ public class CreateClassicKeyOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

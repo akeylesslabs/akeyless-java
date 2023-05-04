@@ -3,6 +3,7 @@
 # DeleteGatewayAllowedAccessId
 
 deleteGatewayAllowedAccessId is a command that deletes access-id
+
 ## Properties
 
 Name | Type | Description | Notes

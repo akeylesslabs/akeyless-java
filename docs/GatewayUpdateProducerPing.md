@@ -3,6 +3,7 @@
 # GatewayUpdateProducerPing
 
 gatewayUpdateProducerPing is a command that updates Ping producer
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateNativeK8STarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateNativeK8STarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -43,15 +43,15 @@ public class CreateNativeK8STarget {
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
-  private String k8sClusterCaCert;
+  private String k8sClusterCaCert = "dummy_val";
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s-cluster-endpoint";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
-  private String k8sClusterEndpoint;
+  private String k8sClusterEndpoint = "dummy_val";
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_TOKEN = "k8s-cluster-token";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_TOKEN)
-  private String k8sClusterToken;
+  private String k8sClusterToken = "dummy_val";
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -69,6 +69,12 @@ public class CreateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use-gw-service-account";
+  @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
+  private Boolean useGwServiceAccount;
+
+  public CreateNativeK8STarget() { 
+  }
 
   public CreateNativeK8STarget comment(String comment) {
     
@@ -149,6 +155,7 @@ public class CreateNativeK8STarget {
    * K8S cluster CA certificate
    * @return k8sClusterCaCert
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S cluster CA certificate")
 
   public String getK8sClusterCaCert() {
@@ -171,6 +178,7 @@ public class CreateNativeK8STarget {
    * K8S cluster URL endpoint
    * @return k8sClusterEndpoint
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S cluster URL endpoint")
 
   public String getK8sClusterEndpoint() {
@@ -193,6 +201,7 @@ public class CreateNativeK8STarget {
    * K8S cluster Bearer token
    * @return k8sClusterToken
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "K8S cluster Bearer token")
 
   public String getK8sClusterToken() {
@@ -238,6 +247,7 @@ public class CreateNativeK8STarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -296,8 +306,31 @@ public class CreateNativeK8STarget {
   }
 
 
+  public CreateNativeK8STarget useGwServiceAccount(Boolean useGwServiceAccount) {
+    
+    this.useGwServiceAccount = useGwServiceAccount;
+    return this;
+  }
+
+   /**
+   * Use the GW&#39;s service account
+   * @return useGwServiceAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use the GW's service account")
+
+  public Boolean getUseGwServiceAccount() {
+    return useGwServiceAccount;
+  }
+
+
+  public void setUseGwServiceAccount(Boolean useGwServiceAccount) {
+    this.useGwServiceAccount = useGwServiceAccount;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -314,14 +347,14 @@ public class CreateNativeK8STarget {
         Objects.equals(this.key, createNativeK8STarget.key) &&
         Objects.equals(this.name, createNativeK8STarget.name) &&
         Objects.equals(this.token, createNativeK8STarget.token) &&
-        Objects.equals(this.uidToken, createNativeK8STarget.uidToken);
+        Objects.equals(this.uidToken, createNativeK8STarget.uidToken) &&
+        Objects.equals(this.useGwServiceAccount, createNativeK8STarget.useGwServiceAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, key, name, token, uidToken);
+    return Objects.hash(comment, description, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, key, name, token, uidToken, useGwServiceAccount);
   }
-
 
   @Override
   public String toString() {
@@ -337,6 +370,7 @@ public class CreateNativeK8STarget {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -345,7 +379,7 @@ public class CreateNativeK8STarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

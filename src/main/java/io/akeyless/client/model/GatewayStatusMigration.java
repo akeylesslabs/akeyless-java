@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayStatusMigration is a command that get migration status
  */
 @ApiModel(description = "gatewayStatusMigration is a command that get migration status")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayStatusMigration {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -50,6 +50,8 @@ public class GatewayStatusMigration {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayStatusMigration() { 
+  }
 
   public GatewayStatusMigration id(String id) {
     
@@ -167,7 +169,7 @@ public class GatewayStatusMigration {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -187,7 +189,6 @@ public class GatewayStatusMigration {
     return Objects.hash(id, json, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -205,7 +206,7 @@ public class GatewayStatusMigration {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

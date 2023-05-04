@@ -29,12 +29,14 @@ import java.util.List;
 /**
  * CreateDFCKeyOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDFCKeyOutput {
   public static final String SERIALIZED_NAME_FRAGMENT_RESULTS = "fragment_results";
   @SerializedName(SERIALIZED_NAME_FRAGMENT_RESULTS)
   private List<Long> fragmentResults = null;
 
+  public CreateDFCKeyOutput() { 
+  }
 
   public CreateDFCKeyOutput fragmentResults(List<Long> fragmentResults) {
     
@@ -68,7 +70,7 @@ public class CreateDFCKeyOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -84,7 +86,6 @@ public class CreateDFCKeyOutput {
     return Objects.hash(fragmentResults);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -98,7 +99,7 @@ public class CreateDFCKeyOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * NotiForwarder
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotiForwarder {
   public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
@@ -114,6 +114,8 @@ public class NotiForwarder {
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
   private Boolean withCustomerFragment;
 
+  public NotiForwarder() { 
+  }
 
   public NotiForwarder clientPermissions(List<String> clientPermissions) {
     
@@ -616,7 +618,7 @@ public class NotiForwarder {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -651,7 +653,6 @@ public class NotiForwarder {
     return Objects.hash(clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, paths, protectionKey, runnerType, timespanInSeconds, toEmails, username, withCustomerFragment);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -684,7 +685,7 @@ public class NotiForwarder {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

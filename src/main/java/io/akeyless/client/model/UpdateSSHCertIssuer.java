@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * UpdateSSHCertIssuer
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSSHCertIssuer {
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
@@ -113,6 +113,8 @@ public class UpdateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateSSHCertIssuer() { 
+  }
 
   public UpdateSSHCertIssuer addTag(List<String> addTag) {
     
@@ -155,6 +157,7 @@ public class UpdateSSHCertIssuer {
    * Users allowed to fetch the certificate, e.g root,ubuntu
    * @return allowedUsers
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Users allowed to fetch the certificate, e.g root,ubuntu")
 
   public String getAllowedUsers() {
@@ -277,6 +280,7 @@ public class UpdateSSHCertIssuer {
    * SSH certificate issuer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "SSH certificate issuer name")
 
   public String getName() {
@@ -522,6 +526,7 @@ public class UpdateSSHCertIssuer {
    * A key to sign the certificate with
    * @return signerKeyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A key to sign the certificate with")
 
   public String getSignerKeyName() {
@@ -567,6 +572,7 @@ public class UpdateSSHCertIssuer {
    * he requested Time To Live for the certificate, in seconds
    * @return ttl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
 
   public Long getTtl() {
@@ -603,7 +609,7 @@ public class UpdateSSHCertIssuer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -638,7 +644,6 @@ public class UpdateSSHCertIssuer {
     return Objects.hash(addTag, allowedUsers, description, extensions, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -671,7 +676,7 @@ public class UpdateSSHCertIssuer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

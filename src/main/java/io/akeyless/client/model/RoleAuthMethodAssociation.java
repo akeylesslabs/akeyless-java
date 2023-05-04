@@ -31,7 +31,7 @@ import java.util.Map;
  * RoleAuthMethodAssociation includes details of an association between a role and an auth method.
  */
 @ApiModel(description = "RoleAuthMethodAssociation includes details of an association between a role and an auth method.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleAuthMethodAssociation {
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc_id";
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
@@ -53,6 +53,8 @@ public class RoleAuthMethodAssociation {
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_CASE_SENSITIVE)
   private Boolean subClaimsCaseSensitive;
 
+  public RoleAuthMethodAssociation() { 
+  }
 
   public RoleAuthMethodAssociation assocId(String assocId) {
     
@@ -178,7 +180,7 @@ public class RoleAuthMethodAssociation {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -198,7 +200,6 @@ public class RoleAuthMethodAssociation {
     return Objects.hash(assocId, authMethodAccessId, authMethodName, authMethodSubClaims, subClaimsCaseSensitive);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -216,7 +217,7 @@ public class RoleAuthMethodAssociation {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

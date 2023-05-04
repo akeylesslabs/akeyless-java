@@ -3,6 +3,7 @@
 # CreateTokenizer
 
 createTokenizer is a command that creates a tokenizer item
+
 ## Properties
 
 Name | Type | Description | Notes

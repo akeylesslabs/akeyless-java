@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * CertificateInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CertificateInfo {
   public static final String SERIALIZED_NAME_EXT_KEY_USAGE = "ExtKeyUsage";
   @SerializedName(SERIALIZED_NAME_EXT_KEY_USAGE)
@@ -126,6 +126,8 @@ public class CertificateInfo {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Long version;
 
+  public CertificateInfo() { 
+  }
 
   public CertificateInfo extKeyUsage(List<Long> extKeyUsage) {
     
@@ -721,7 +723,7 @@ public class CertificateInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -759,7 +761,6 @@ public class CertificateInfo {
     return Objects.hash(extKeyUsage, keyUsage, dnsNames, emailAddresses, extensions, ipAddresses, isCa, issuer, issuingCertificateUrl, keySize, notAfter, notBefore, ocspServer, publicKeyAlgorithmName, serialNumber, sha1Fingerprint, sha256Fingerprint, signature, signatureAlgorithmName, subject, subjectPublicKey, uris, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -795,7 +796,7 @@ public class CertificateInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

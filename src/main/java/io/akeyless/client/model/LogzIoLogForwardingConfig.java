@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LogzIoLogForwardingConfig
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogzIoLogForwardingConfig {
   public static final String SERIALIZED_NAME_TARGET_LOGZ_IO_PROTOCOL = "target_logz_io_protocol";
   @SerializedName(SERIALIZED_NAME_TARGET_LOGZ_IO_PROTOCOL)
@@ -37,6 +37,8 @@ public class LogzIoLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_TARGET_LOGZ_IO_TOKEN)
   private String targetLogzIoToken;
 
+  public LogzIoLogForwardingConfig() { 
+  }
 
   public LogzIoLogForwardingConfig targetLogzIoProtocol(String targetLogzIoProtocol) {
     
@@ -85,7 +87,7 @@ public class LogzIoLogForwardingConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class LogzIoLogForwardingConfig {
     return Objects.hash(targetLogzIoProtocol, targetLogzIoToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class LogzIoLogForwardingConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * SystemAccessCredsSettings describes system access credential settings for account by minutes
  */
 @ApiModel(description = "SystemAccessCredsSettings describes system access credential settings for account by minutes")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SystemAccessCredsSettings {
   public static final String SERIALIZED_NAME_JWT_TTL_DEFAULT = "jwt_ttl_default";
   @SerializedName(SERIALIZED_NAME_JWT_TTL_DEFAULT)
@@ -42,6 +42,8 @@ public class SystemAccessCredsSettings {
   @SerializedName(SERIALIZED_NAME_JWT_TTL_MINIMUM)
   private Long jwtTtlMinimum;
 
+  public SystemAccessCredsSettings() { 
+  }
 
   public SystemAccessCredsSettings jwtTtlDefault(Long jwtTtlDefault) {
     
@@ -113,7 +115,7 @@ public class SystemAccessCredsSettings {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class SystemAccessCredsSettings {
     return Objects.hash(jwtTtlDefault, jwtTtlMaximum, jwtTtlMinimum);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class SystemAccessCredsSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

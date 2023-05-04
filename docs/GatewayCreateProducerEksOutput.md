@@ -2,6 +2,7 @@
 
 # GatewayCreateProducerEksOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

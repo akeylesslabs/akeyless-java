@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * UpdateSecretVal
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSecretVal {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -89,6 +89,8 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public UpdateSecretVal() { 
+  }
 
   public UpdateSecretVal accessibility(String accessibility) {
     
@@ -215,6 +217,7 @@ public class UpdateSecretVal {
    * Secret name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret name")
 
   public String getName() {
@@ -414,6 +417,7 @@ public class UpdateSecretVal {
    * The new secret value
    * @return value
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The new secret value")
 
   public String getValue() {
@@ -427,7 +431,7 @@ public class UpdateSecretVal {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -456,7 +460,6 @@ public class UpdateSecretVal {
     return Objects.hash(accessibility, json, keepPrevVersion, key, multiline, name, newVersion, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, token, uidToken, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -483,7 +486,7 @@ public class UpdateSecretVal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

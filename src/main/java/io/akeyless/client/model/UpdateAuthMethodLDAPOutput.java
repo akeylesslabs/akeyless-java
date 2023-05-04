@@ -27,12 +27,14 @@ import java.io.IOException;
 /**
  * UpdateAuthMethodLDAPOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodLDAPOutput {
   public static final String SERIALIZED_NAME_PRV_KEY = "prv_key";
   @SerializedName(SERIALIZED_NAME_PRV_KEY)
   private String prvKey;
 
+  public UpdateAuthMethodLDAPOutput() { 
+  }
 
   public UpdateAuthMethodLDAPOutput prvKey(String prvKey) {
     
@@ -58,7 +60,7 @@ public class UpdateAuthMethodLDAPOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +76,6 @@ public class UpdateAuthMethodLDAPOutput {
     return Objects.hash(prvKey);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +89,7 @@ public class UpdateAuthMethodLDAPOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

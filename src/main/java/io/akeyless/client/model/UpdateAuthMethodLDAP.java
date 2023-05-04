@@ -30,7 +30,7 @@ import java.util.List;
  * updateAuthMethodLDAP is a command that updates a new auth method that will be able to authenticate using LDAP.
  */
 @ApiModel(description = "updateAuthMethodLDAP is a command that updates a new auth method that will be able to authenticate using LDAP.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodLDAP {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -84,6 +84,8 @@ public class UpdateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier = "users";
 
+  public UpdateAuthMethodLDAP() { 
+  }
 
   public UpdateAuthMethodLDAP accessExpires(Long accessExpires) {
     
@@ -272,6 +274,7 @@ public class UpdateAuthMethodLDAP {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -400,7 +403,7 @@ public class UpdateAuthMethodLDAP {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -428,7 +431,6 @@ public class UpdateAuthMethodLDAP {
     return Objects.hash(accessExpires, boundIps, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -454,7 +456,7 @@ public class UpdateAuthMethodLDAP {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

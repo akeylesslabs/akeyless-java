@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateGithubTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateGithubTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -81,6 +81,8 @@ public class UpdateGithubTarget {
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
   private Boolean updateVersion;
 
+  public UpdateGithubTarget() { 
+  }
 
   public UpdateGithubTarget comment(String comment) {
     
@@ -276,6 +278,7 @@ public class UpdateGithubTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -381,7 +384,7 @@ public class UpdateGithubTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -409,7 +412,6 @@ public class UpdateGithubTarget {
     return Objects.hash(comment, description, githubAppId, githubAppPrivateKey, githubBaseUrl, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -435,7 +437,7 @@ public class UpdateGithubTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

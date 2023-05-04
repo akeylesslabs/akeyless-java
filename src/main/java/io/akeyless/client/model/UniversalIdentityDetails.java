@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * UniversalIdentityDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UniversalIdentityDetails {
   public static final String SERIALIZED_NAME_MAX_DEPTH = "max_depth";
   @SerializedName(SERIALIZED_NAME_MAX_DEPTH)
@@ -42,6 +42,8 @@ public class UniversalIdentityDetails {
   @SerializedName(SERIALIZED_NAME_ROOT)
   private UIDTokenDetails root;
 
+  public UniversalIdentityDetails() { 
+  }
 
   public UniversalIdentityDetails maxDepth(Integer maxDepth) {
     
@@ -113,7 +115,7 @@ public class UniversalIdentityDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class UniversalIdentityDetails {
     return Objects.hash(maxDepth, numberOfTokens, root);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class UniversalIdentityDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

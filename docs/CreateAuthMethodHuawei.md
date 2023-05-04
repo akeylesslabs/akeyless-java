@@ -3,6 +3,7 @@
 # CreateAuthMethodHuawei
 
 createAuthMethodHuawei is a command that creates a new auth method that will be able to authenticate using Huawei credentials.
+
 ## Properties
 
 Name | Type | Description | Notes

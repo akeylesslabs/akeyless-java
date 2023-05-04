@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerAws is a command that Updates aws producer
  */
 @ApiModel(description = "gatewayUpdateProducerAws is a command that Updates aws producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerAws {
   public static final String SERIALIZED_NAME_ACCESS_MODE = "access-mode";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODE)
@@ -144,6 +144,8 @@ public class GatewayUpdateProducerAws {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerAws() { 
+  }
 
   public GatewayUpdateProducerAws accessMode(String accessMode) {
     
@@ -431,6 +433,7 @@ public class GatewayUpdateProducerAws {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -797,7 +800,7 @@ public class GatewayUpdateProducerAws {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -840,7 +843,6 @@ public class GatewayUpdateProducerAws {
     return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, json, name, newName, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -881,7 +883,7 @@ public class GatewayUpdateProducerAws {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

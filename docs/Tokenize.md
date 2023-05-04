@@ -3,6 +3,7 @@
 # Tokenize
 
 tokenize is a command that encrypts text with a tokenizer
+
 ## Properties
 
 Name | Type | Description | Notes

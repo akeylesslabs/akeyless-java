@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateAWSTargetDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAWSTargetDetails {
   public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY)
@@ -73,6 +73,8 @@ public class UpdateAWSTargetDetails {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateAWSTargetDetails() { 
+  }
 
   public UpdateAWSTargetDetails accessKey(String accessKey) {
     
@@ -176,6 +178,7 @@ public class UpdateAWSTargetDetails {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -327,7 +330,7 @@ public class UpdateAWSTargetDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -353,7 +356,6 @@ public class UpdateAWSTargetDetails {
     return Objects.hash(accessKey, accessKeyId, json, keepPrevVersion, name, newVersion, protectionKey, region, sessionToken, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -377,7 +379,7 @@ public class UpdateAWSTargetDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

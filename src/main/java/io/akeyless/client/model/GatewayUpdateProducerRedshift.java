@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerRedshift is a command that updates redshift producer
  */
 @ApiModel(description = "gatewayUpdateProducerRedshift is a command that updates redshift producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerRedshift {
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
@@ -108,6 +108,8 @@ public class GatewayUpdateProducerRedshift {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerRedshift() { 
+  }
 
   public GatewayUpdateProducerRedshift creationStatements(String creationStatements) {
     
@@ -188,6 +190,7 @@ public class GatewayUpdateProducerRedshift {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -562,7 +565,7 @@ public class GatewayUpdateProducerRedshift {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -596,7 +599,6 @@ public class GatewayUpdateProducerRedshift {
     return Objects.hash(creationStatements, deleteProtection, json, name, newName, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -628,7 +630,7 @@ public class GatewayUpdateProducerRedshift {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

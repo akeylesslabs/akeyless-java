@@ -2,6 +2,7 @@
 
 # DeleteRoleRuleOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

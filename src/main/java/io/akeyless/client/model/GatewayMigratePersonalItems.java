@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayMigratePersonalItems is a command that migrate personal items from external vault
  */
 @ApiModel(description = "gatewayMigratePersonalItems is a command that migrate personal items from external vault")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayMigratePersonalItems {
   public static final String SERIALIZED_NAME_1PASSWORD_EMAIL = "1password-email";
   @SerializedName(SERIALIZED_NAME_1PASSWORD_EMAIL)
@@ -76,6 +76,8 @@ public class GatewayMigratePersonalItems {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayMigratePersonalItems() { 
+  }
 
   public GatewayMigratePersonalItems _1passwordEmail(String _1passwordEmail) {
     
@@ -339,7 +341,7 @@ public class GatewayMigratePersonalItems {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -365,7 +367,6 @@ public class GatewayMigratePersonalItems {
     return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, json, protectionKey, targetLocation, token, type, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -389,7 +390,7 @@ public class GatewayMigratePersonalItems {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

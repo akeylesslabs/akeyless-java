@@ -2,6 +2,7 @@
 
 # CustomerFragment
 
+
 ## Properties
 
 Name | Type | Description | Notes

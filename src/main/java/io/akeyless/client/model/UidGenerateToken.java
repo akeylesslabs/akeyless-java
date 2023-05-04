@@ -28,7 +28,7 @@ import java.io.IOException;
  * uidGenerateToken is a command that generates a new token using Akeyless Universal Identity.
  */
 @ApiModel(description = "uidGenerateToken is a command that generates a new token using Akeyless Universal Identity.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UidGenerateToken {
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth-method-name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
@@ -46,6 +46,8 @@ public class UidGenerateToken {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UidGenerateToken() { 
+  }
 
   public UidGenerateToken authMethodName(String authMethodName) {
     
@@ -57,6 +59,7 @@ public class UidGenerateToken {
    * The universal identity auth method name
    * @return authMethodName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The universal identity auth method name")
 
   public String getAuthMethodName() {
@@ -139,7 +142,7 @@ public class UidGenerateToken {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +161,6 @@ public class UidGenerateToken {
     return Objects.hash(authMethodName, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +177,7 @@ public class UidGenerateToken {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

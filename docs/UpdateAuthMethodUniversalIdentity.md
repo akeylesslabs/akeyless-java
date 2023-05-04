@@ -3,6 +3,7 @@
 # UpdateAuthMethodUniversalIdentity
 
 updateAuthMethodUniversalIdentity is a command that updates a new auth method that will be able to authenticate using Akeyless Universal Identity.
+
 ## Properties
 
 Name | Type | Description | Notes

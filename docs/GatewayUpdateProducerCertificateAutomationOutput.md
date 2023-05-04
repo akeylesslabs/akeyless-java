@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerCertificateAutomationOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

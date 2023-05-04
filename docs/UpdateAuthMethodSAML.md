@@ -3,6 +3,7 @@
 # UpdateAuthMethodSAML
 
 updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML.
+
 ## Properties
 
 Name | Type | Description | Notes

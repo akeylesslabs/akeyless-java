@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RollbackSecret
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RollbackSecret {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -49,6 +49,8 @@ public class RollbackSecret {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public RollbackSecret() { 
+  }
 
   public RollbackSecret json(Boolean json) {
     
@@ -83,6 +85,7 @@ public class RollbackSecret {
    * Secret name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret name")
 
   public String getName() {
@@ -105,6 +108,7 @@ public class RollbackSecret {
    * Old secret version to rollback to
    * @return oldVersion
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Old secret version to rollback to")
 
   public Integer getOldVersion() {
@@ -164,7 +168,7 @@ public class RollbackSecret {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -184,7 +188,6 @@ public class RollbackSecret {
     return Objects.hash(json, name, oldVersion, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -202,7 +205,7 @@ public class RollbackSecret {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

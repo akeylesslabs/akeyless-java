@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CreateKeyOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateKeyOutput {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display_id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -43,6 +43,8 @@ public class CreateKeyOutput {
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
 
+  public CreateKeyOutput() { 
+  }
 
   public CreateKeyOutput displayId(String displayId) {
     
@@ -122,7 +124,7 @@ public class CreateKeyOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -140,7 +142,6 @@ public class CreateKeyOutput {
     return Objects.hash(displayId, fragmentResults, itemId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -156,7 +157,7 @@ public class CreateKeyOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

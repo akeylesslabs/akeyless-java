@@ -2,6 +2,7 @@
 
 # CertificateIssueInfo
 
+
 ## Properties
 
 Name | Type | Description | Notes

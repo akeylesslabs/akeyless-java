@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * ClassicKeyDetailsInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ClassicKeyDetailsInfo {
   public static final String SERIALIZED_NAME_CLASSIC_KEY_ATTRIBUTES = "classic_key_attributes";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ATTRIBUTES)
@@ -66,6 +66,10 @@ public class ClassicKeyDetailsInfo {
   @SerializedName(SERIALIZED_NAME_LAST_ERROR)
   private String lastError;
 
+  public static final String SERIALIZED_NAME_PUBLIC_KEY = "public_key";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
+  private String publicKey;
+
   public static final String SERIALIZED_NAME_TARGET_ALIAS_HELPER = "target_alias_helper";
   @SerializedName(SERIALIZED_NAME_TARGET_ALIAS_HELPER)
   private String targetAliasHelper;
@@ -78,6 +82,8 @@ public class ClassicKeyDetailsInfo {
   @SerializedName(SERIALIZED_NAME_TARGETS)
   private List<ClassicKeyTargetInfo> targets = null;
 
+  public ClassicKeyDetailsInfo() { 
+  }
 
   public ClassicKeyDetailsInfo classicKeyAttributes(Map<String, List<String>> classicKeyAttributes) {
     
@@ -271,6 +277,29 @@ public class ClassicKeyDetailsInfo {
   }
 
 
+  public ClassicKeyDetailsInfo publicKey(String publicKey) {
+    
+    this.publicKey = publicKey;
+    return this;
+  }
+
+   /**
+   * Get publicKey
+   * @return publicKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
+
+
   public ClassicKeyDetailsInfo targetAliasHelper(String targetAliasHelper) {
     
     this.targetAliasHelper = targetAliasHelper;
@@ -357,7 +386,7 @@ public class ClassicKeyDetailsInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -373,6 +402,7 @@ public class ClassicKeyDetailsInfo {
         Objects.equals(this.keyState, classicKeyDetailsInfo.keyState) &&
         Objects.equals(this.keyType, classicKeyDetailsInfo.keyType) &&
         Objects.equals(this.lastError, classicKeyDetailsInfo.lastError) &&
+        Objects.equals(this.publicKey, classicKeyDetailsInfo.publicKey) &&
         Objects.equals(this.targetAliasHelper, classicKeyDetailsInfo.targetAliasHelper) &&
         Objects.equals(this.targetTypes, classicKeyDetailsInfo.targetTypes) &&
         Objects.equals(this.targets, classicKeyDetailsInfo.targets);
@@ -380,9 +410,8 @@ public class ClassicKeyDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(classicKeyAttributes, classicKeyId, gwClusterId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, targetAliasHelper, targetTypes, targets);
+    return Objects.hash(classicKeyAttributes, classicKeyId, gwClusterId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, publicKey, targetAliasHelper, targetTypes, targets);
   }
-
 
   @Override
   public String toString() {
@@ -396,6 +425,7 @@ public class ClassicKeyDetailsInfo {
     sb.append("    keyState: ").append(toIndentedString(keyState)).append("\n");
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    lastError: ").append(toIndentedString(lastError)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    targetAliasHelper: ").append(toIndentedString(targetAliasHelper)).append("\n");
     sb.append("    targetTypes: ").append(toIndentedString(targetTypes)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
@@ -407,7 +437,7 @@ public class ClassicKeyDetailsInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

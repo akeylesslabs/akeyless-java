@@ -30,12 +30,14 @@ import java.util.List;
 /**
  * ProducersConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProducersConfigPart {
   public static final String SERIALIZED_NAME_PRODUCERS = "producers";
   @SerializedName(SERIALIZED_NAME_PRODUCERS)
   private List<Producer> producers = null;
 
+  public ProducersConfigPart() { 
+  }
 
   public ProducersConfigPart producers(List<Producer> producers) {
     
@@ -69,7 +71,7 @@ public class ProducersConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -85,7 +87,6 @@ public class ProducersConfigPart {
     return Objects.hash(producers);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -99,7 +100,7 @@ public class ProducersConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

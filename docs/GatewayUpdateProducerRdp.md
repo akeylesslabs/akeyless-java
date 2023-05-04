@@ -3,6 +3,7 @@
 # GatewayUpdateProducerRdp
 
 gatewayUpdateProducerRdp is a command that updates rdp producer
+
 ## Properties
 
 Name | Type | Description | Notes

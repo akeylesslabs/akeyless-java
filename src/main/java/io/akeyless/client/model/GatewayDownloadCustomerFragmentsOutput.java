@@ -30,12 +30,14 @@ import java.util.Map;
 /**
  * GatewayDownloadCustomerFragmentsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayDownloadCustomerFragmentsOutput {
   public static final String SERIALIZED_NAME_CF_JSON = "cf_json";
   @SerializedName(SERIALIZED_NAME_CF_JSON)
   private Map<String, Object> cfJson = null;
 
+  public GatewayDownloadCustomerFragmentsOutput() { 
+  }
 
   public GatewayDownloadCustomerFragmentsOutput cfJson(Map<String, Object> cfJson) {
     
@@ -69,7 +71,7 @@ public class GatewayDownloadCustomerFragmentsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -85,7 +87,6 @@ public class GatewayDownloadCustomerFragmentsOutput {
     return Objects.hash(cfJson);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -99,7 +100,7 @@ public class GatewayDownloadCustomerFragmentsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

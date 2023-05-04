@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DeleteRoles
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteRoles {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -45,6 +45,8 @@ public class DeleteRoles {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DeleteRoles() { 
+  }
 
   public DeleteRoles json(Boolean json) {
     
@@ -79,6 +81,7 @@ public class DeleteRoles {
    * Path to delete the auth methods from
    * @return path
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path to delete the auth methods from")
 
   public String getPath() {
@@ -138,7 +141,7 @@ public class DeleteRoles {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -157,7 +160,6 @@ public class DeleteRoles {
     return Objects.hash(json, path, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -174,7 +176,7 @@ public class DeleteRoles {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

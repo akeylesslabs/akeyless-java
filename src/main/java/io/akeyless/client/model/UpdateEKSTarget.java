@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateEKSTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateEKSTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -97,6 +97,8 @@ public class UpdateEKSTarget {
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
 
+  public UpdateEKSTarget() { 
+  }
 
   public UpdateEKSTarget comment(String comment) {
     
@@ -154,6 +156,7 @@ public class UpdateEKSTarget {
    * Access Key ID
    * @return eksAccessKeyId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Access Key ID")
 
   public String getEksAccessKeyId() {
@@ -176,6 +179,7 @@ public class UpdateEKSTarget {
    * EKS cluster CA certificate
    * @return eksClusterCaCert
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "EKS cluster CA certificate")
 
   public String getEksClusterCaCert() {
@@ -198,6 +202,7 @@ public class UpdateEKSTarget {
    * EKS cluster URL endpoint
    * @return eksClusterEndpoint
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "EKS cluster URL endpoint")
 
   public String getEksClusterEndpoint() {
@@ -220,6 +225,7 @@ public class UpdateEKSTarget {
    * EKS cluster name
    * @return eksClusterName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "EKS cluster name")
 
   public String getEksClusterName() {
@@ -265,6 +271,7 @@ public class UpdateEKSTarget {
    * Secret Access Key
    * @return eksSecretAccessKey
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret Access Key")
 
   public String getEksSecretAccessKey() {
@@ -356,6 +363,7 @@ public class UpdateEKSTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -484,7 +492,7 @@ public class UpdateEKSTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -516,7 +524,6 @@ public class UpdateEKSTarget {
     return Objects.hash(comment, description, eksAccessKeyId, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -546,7 +553,7 @@ public class UpdateEKSTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

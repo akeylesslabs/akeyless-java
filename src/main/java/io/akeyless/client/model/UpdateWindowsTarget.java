@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateWindowsTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateWindowsTarget {
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE)
@@ -36,6 +36,10 @@ public class UpdateWindowsTarget {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_DOMAIN = "domain";
+  @SerializedName(SERIALIZED_NAME_DOMAIN)
+  private String domain;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -89,6 +93,8 @@ public class UpdateWindowsTarget {
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
 
+  public UpdateWindowsTarget() { 
+  }
 
   public UpdateWindowsTarget certificate(String certificate) {
     
@@ -136,6 +142,29 @@ public class UpdateWindowsTarget {
   }
 
 
+  public UpdateWindowsTarget domain(String domain) {
+    
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * User domain name
+   * @return domain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "User domain name")
+
+  public String getDomain() {
+    return domain;
+  }
+
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
+
   public UpdateWindowsTarget hostname(String hostname) {
     
     this.hostname = hostname;
@@ -146,6 +175,7 @@ public class UpdateWindowsTarget {
    * Server hostname
    * @return hostname
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Server hostname")
 
   public String getHostname() {
@@ -237,6 +267,7 @@ public class UpdateWindowsTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -282,6 +313,7 @@ public class UpdateWindowsTarget {
    * Privileged user password
    * @return password
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Privileged user password")
 
   public String getPassword() {
@@ -419,6 +451,7 @@ public class UpdateWindowsTarget {
    * Privileged username
    * @return username
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Privileged username")
 
   public String getUsername() {
@@ -432,7 +465,7 @@ public class UpdateWindowsTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -442,6 +475,7 @@ public class UpdateWindowsTarget {
     UpdateWindowsTarget updateWindowsTarget = (UpdateWindowsTarget) o;
     return Objects.equals(this.certificate, updateWindowsTarget.certificate) &&
         Objects.equals(this.description, updateWindowsTarget.description) &&
+        Objects.equals(this.domain, updateWindowsTarget.domain) &&
         Objects.equals(this.hostname, updateWindowsTarget.hostname) &&
         Objects.equals(this.json, updateWindowsTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateWindowsTarget.keepPrevVersion) &&
@@ -459,9 +493,8 @@ public class UpdateWindowsTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificate, description, hostname, json, keepPrevVersion, key, name, newName, password, port, token, uidToken, updateVersion, useTls, username);
+    return Objects.hash(certificate, description, domain, hostname, json, keepPrevVersion, key, name, newName, password, port, token, uidToken, updateVersion, useTls, username);
   }
-
 
   @Override
   public String toString() {
@@ -469,6 +502,7 @@ public class UpdateWindowsTarget {
     sb.append("class UpdateWindowsTarget {\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -490,7 +524,7 @@ public class UpdateWindowsTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

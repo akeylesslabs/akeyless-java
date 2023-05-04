@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UidRevokeToken
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UidRevokeToken {
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth-method-name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
@@ -53,6 +53,8 @@ public class UidRevokeToken {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UidRevokeToken() { 
+  }
 
   public UidRevokeToken authMethodName(String authMethodName) {
     
@@ -110,6 +112,7 @@ public class UidRevokeToken {
    * the universal identity token/token-id to revoke
    * @return revokeToken
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "the universal identity token/token-id to revoke")
 
   public String getRevokeToken() {
@@ -132,6 +135,7 @@ public class UidRevokeToken {
    * revokeSelf/revokeAll (delete only this token/this token and his children)
    * @return revokeType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "revokeSelf/revokeAll (delete only this token/this token and his children)")
 
   public String getRevokeType() {
@@ -191,7 +195,7 @@ public class UidRevokeToken {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -212,7 +216,6 @@ public class UidRevokeToken {
     return Objects.hash(authMethodName, json, revokeToken, revokeType, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -231,7 +234,7 @@ public class UidRevokeToken {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

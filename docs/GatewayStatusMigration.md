@@ -3,6 +3,7 @@
 # GatewayStatusMigration
 
 gatewayStatusMigration is a command that get migration status
+
 ## Properties
 
 Name | Type | Description | Notes

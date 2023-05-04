@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * SSHCertificateIssueDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SSHCertificateIssueDetails {
   public static final String SERIALIZED_NAME_ALLOWED_DOMAINS = "allowed_domains";
   @SerializedName(SERIALIZED_NAME_ALLOWED_DOMAINS)
@@ -65,6 +65,8 @@ public class SSHCertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_STATIC_KEY_ID)
   private String staticKeyId;
 
+  public SSHCertificateIssueDetails() { 
+  }
 
   public SSHCertificateIssueDetails allowedDomains(List<String> allowedDomains) {
     
@@ -299,7 +301,7 @@ public class SSHCertificateIssueDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -322,7 +324,6 @@ public class SSHCertificateIssueDetails {
     return Objects.hash(allowedDomains, allowedUserKeyLengths, allowedUsers, certType, criticalOptions, extensions, principals, staticKeyId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -343,7 +344,7 @@ public class SSHCertificateIssueDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

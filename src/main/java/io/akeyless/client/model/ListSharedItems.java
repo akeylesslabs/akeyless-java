@@ -28,7 +28,7 @@ import java.io.IOException;
  * listSharedItems is a command to list all the items been shared
  */
 @ApiModel(description = "listSharedItems is a command to list all the items been shared")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListSharedItems {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -46,6 +46,8 @@ public class ListSharedItems {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public ListSharedItems() { 
+  }
 
   public ListSharedItems accessibility(String accessibility) {
     
@@ -140,7 +142,7 @@ public class ListSharedItems {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -159,7 +161,6 @@ public class ListSharedItems {
     return Objects.hash(accessibility, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -176,7 +177,7 @@ public class ListSharedItems {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

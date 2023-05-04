@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerAzureOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

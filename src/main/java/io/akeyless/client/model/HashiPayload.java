@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * HashiPayload
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HashiPayload {
   public static final String SERIALIZED_NAME_IMPORT_AS_JSON = "import_as_json";
   @SerializedName(SERIALIZED_NAME_IMPORT_AS_JSON)
@@ -47,6 +47,8 @@ public class HashiPayload {
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
+  public HashiPayload() { 
+  }
 
   public HashiPayload importAsJson(Boolean importAsJson) {
     
@@ -149,7 +151,7 @@ public class HashiPayload {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -168,7 +170,6 @@ public class HashiPayload {
     return Objects.hash(importAsJson, namespaces, token, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -185,7 +186,7 @@ public class HashiPayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

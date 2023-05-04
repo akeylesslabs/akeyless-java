@@ -3,6 +3,7 @@
 # CreateAuthMethodSAML
 
 createAuthMethodSAML is a command that creates a new auth method that will be available to authenticate using SAML.
+
 ## Properties
 
 Name | Type | Description | Notes

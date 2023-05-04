@@ -2,6 +2,7 @@
 
 # AkeylessGatewayConfig
 
+
 ## Properties
 
 Name | Type | Description | Notes

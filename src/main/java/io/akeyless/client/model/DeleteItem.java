@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DeleteItem
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteItem {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -61,6 +61,8 @@ public class DeleteItem {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version = -1;
 
+  public DeleteItem() { 
+  }
 
   public DeleteItem accessibility(String accessibility) {
     
@@ -164,6 +166,7 @@ public class DeleteItem {
    * Item name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Item name")
 
   public String getName() {
@@ -246,7 +249,7 @@ public class DeleteItem {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -269,7 +272,6 @@ public class DeleteItem {
     return Objects.hash(accessibility, deleteImmediately, deleteInDays, json, name, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -290,7 +292,7 @@ public class DeleteItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

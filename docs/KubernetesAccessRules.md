@@ -2,6 +2,7 @@
 
 # KubernetesAccessRules
 
+
 ## Properties
 
 Name | Type | Description | Notes

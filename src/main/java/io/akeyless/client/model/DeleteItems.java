@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DeleteItems
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteItems {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -45,6 +45,8 @@ public class DeleteItems {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DeleteItems() { 
+  }
 
   public DeleteItems json(Boolean json) {
     
@@ -79,6 +81,7 @@ public class DeleteItems {
    * Path to delete the items from
    * @return path
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path to delete the items from")
 
   public String getPath() {
@@ -138,7 +141,7 @@ public class DeleteItems {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -157,7 +160,6 @@ public class DeleteItems {
     return Objects.hash(json, path, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -174,7 +176,7 @@ public class DeleteItems {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

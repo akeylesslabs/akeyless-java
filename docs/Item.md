@@ -2,11 +2,12 @@
 
 # Item
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**accessDate** | **OffsetDateTime** |  |  [optional]
 **accessRequestStatus** | **String** |  |  [optional]
 **autoRotate** | **Boolean** |  |  [optional]
 **bastionDetails** | [**BastionsList**](BastionsList.md) |  |  [optional]
@@ -14,10 +15,10 @@ Name | Type | Description | Notes
 **certificateIssueDetails** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  |  [optional]
 **certificates** | **String** |  |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
-**creationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**creationDate** | **OffsetDateTime** |  |  [optional]
 **customerFragmentId** | **String** |  |  [optional]
 **deleteProtection** | **Boolean** |  |  [optional]
-**deletionDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**deletionDate** | **OffsetDateTime** |  |  [optional]
 **displayId** | **String** |  |  [optional]
 **gatewayDetails** | [**List&lt;GatewayBasicInfo&gt;**](GatewayBasicInfo.md) |  |  [optional]
 **isAccessRequestEnabled** | **Boolean** |  |  [optional]
@@ -36,8 +37,8 @@ Name | Type | Description | Notes
 **itemVersions** | [**List&lt;ItemVersion&gt;**](ItemVersion.md) |  |  [optional]
 **lastVersion** | **Integer** |  |  [optional]
 **linkedDetails** | [**LinkedDetails**](LinkedDetails.md) |  |  [optional]
-**modificationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**nextRotationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**modificationDate** | **OffsetDateTime** |  |  [optional]
+**nextRotationDate** | **OffsetDateTime** |  |  [optional]
 **protectionKeyName** | **String** |  |  [optional]
 **protectionKeyType** | **String** |  |  [optional]
 **publicValue** | **String** |  |  [optional]

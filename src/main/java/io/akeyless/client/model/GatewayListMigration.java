@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayListMigration is a command that list migration
  */
 @ApiModel(description = "gatewayListMigration is a command that list migration")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayListMigration {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -42,6 +42,8 @@ public class GatewayListMigration {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayListMigration() { 
+  }
 
   public GatewayListMigration json(Boolean json) {
     
@@ -113,7 +115,7 @@ public class GatewayListMigration {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class GatewayListMigration {
     return Objects.hash(json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class GatewayListMigration {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

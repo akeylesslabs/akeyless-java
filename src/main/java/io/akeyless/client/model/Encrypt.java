@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Encrypt
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Encrypt {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -68,6 +68,12 @@ public class Encrypt {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+  public Encrypt() { 
+  }
 
   public Encrypt displayId(String displayId) {
     
@@ -130,11 +136,11 @@ public class Encrypt {
   }
 
    /**
-   * If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
+   * Select default assumed format for any plaintext input. Currently supported options: [base64]
    * @return inputFormat
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]")
+  @ApiModelProperty(value = "Select default assumed format for any plaintext input. Currently supported options: [base64]")
 
   public String getInputFormat() {
     return inputFormat;
@@ -202,6 +208,7 @@ public class Encrypt {
    * The name of the key to use in the encryption process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
 
   public String getKeyName() {
@@ -283,8 +290,31 @@ public class Encrypt {
   }
 
 
+  public Encrypt version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * key version (relevant only for classic key)
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "key version (relevant only for classic key)")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -300,14 +330,14 @@ public class Encrypt {
         Objects.equals(this.keyName, encrypt.keyName) &&
         Objects.equals(this.plaintext, encrypt.plaintext) &&
         Objects.equals(this.token, encrypt.token) &&
-        Objects.equals(this.uidToken, encrypt.uidToken);
+        Objects.equals(this.uidToken, encrypt.uidToken) &&
+        Objects.equals(this.version, encrypt.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, encryptionContext, inputFormat, itemId, json, keyName, plaintext, token, uidToken);
+    return Objects.hash(displayId, encryptionContext, inputFormat, itemId, json, keyName, plaintext, token, uidToken, version);
   }
-
 
   @Override
   public String toString() {
@@ -322,6 +352,7 @@ public class Encrypt {
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -330,7 +361,7 @@ public class Encrypt {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

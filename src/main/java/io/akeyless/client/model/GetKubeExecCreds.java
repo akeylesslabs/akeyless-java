@@ -28,7 +28,7 @@ import java.io.IOException;
  * getKubeExecCreds is a command that gets credentials for authentication with Kubernetes cluster based on a PKI cert issuer.
  */
 @ApiModel(description = "getKubeExecCreds is a command that gets credentials for authentication with Kubernetes cluster based on a PKI cert issuer.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetKubeExecCreds {
   public static final String SERIALIZED_NAME_ALT_NAMES = "alt-names";
   @SerializedName(SERIALIZED_NAME_ALT_NAMES)
@@ -78,6 +78,8 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_URI_SANS)
   private String uriSans;
 
+  public GetKubeExecCreds() { 
+  }
 
   public GetKubeExecCreds altNames(String altNames) {
     
@@ -135,6 +137,7 @@ public class GetKubeExecCreds {
    * The name of the PKI certificate issuer
    * @return certIssuerName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the PKI certificate issuer")
 
   public String getCertIssuerName() {
@@ -355,7 +358,7 @@ public class GetKubeExecCreds {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -382,7 +385,6 @@ public class GetKubeExecCreds {
     return Objects.hash(altNames, apiVersion, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -407,7 +409,7 @@ public class GetKubeExecCreds {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

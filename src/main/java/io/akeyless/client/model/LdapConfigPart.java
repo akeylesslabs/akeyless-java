@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LdapConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LdapConfigPart {
   public static final String SERIALIZED_NAME_LDAP_ACCESS_ID = "ldap_access_id";
   @SerializedName(SERIALIZED_NAME_LDAP_ACCESS_ID)
@@ -85,6 +85,8 @@ public class LdapConfigPart {
   @SerializedName(SERIALIZED_NAME_LDAP_USER_DN)
   private String ldapUserDn;
 
+  public LdapConfigPart() { 
+  }
 
   public LdapConfigPart ldapAccessId(String ldapAccessId) {
     
@@ -409,7 +411,7 @@ public class LdapConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -438,7 +440,6 @@ public class LdapConfigPart {
     return Objects.hash(ldapAccessId, ldapAnonymousSearch, ldapBindDn, ldapBindPassword, ldapCert, ldapEnable, ldapGroupAttr, ldapGroupDn, ldapGroupFilter, ldapPrivateKey, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -465,7 +466,7 @@ public class LdapConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

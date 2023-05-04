@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * VaultlessTokenizerInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VaultlessTokenizerInfo {
   public static final String SERIALIZED_NAME_EMAIL_TOKENIZER_INFO = "email_tokenizer_info";
   @SerializedName(SERIALIZED_NAME_EMAIL_TOKENIZER_INFO)
@@ -55,6 +55,8 @@ public class VaultlessTokenizerInfo {
   @SerializedName(SERIALIZED_NAME_TWEAK_TYPE)
   private String tweakType;
 
+  public VaultlessTokenizerInfo() { 
+  }
 
   public VaultlessTokenizerInfo emailTokenizerInfo(EmailTokenizerInfo emailTokenizerInfo) {
     
@@ -195,7 +197,7 @@ public class VaultlessTokenizerInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -216,7 +218,6 @@ public class VaultlessTokenizerInfo {
     return Objects.hash(emailTokenizerInfo, keyName, regexpTokenizerInfo, templateType, tweak, tweakType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -235,7 +236,7 @@ public class VaultlessTokenizerInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -3,6 +3,7 @@
 # AssocRoleAuthMethod
 
 assocRoleAuthMethod is a command that creates an association between role and auth method.
+
 ## Properties
 
 Name | Type | Description | Notes

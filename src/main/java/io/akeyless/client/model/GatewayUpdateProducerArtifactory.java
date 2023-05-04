@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerArtifactory is a command that updates artifactory producer
  */
 @ApiModel(description = "gatewayUpdateProducerArtifactory is a command that updates artifactory producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerArtifactory {
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME = "artifactory-admin-name";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME)
@@ -92,6 +92,8 @@ public class GatewayUpdateProducerArtifactory {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerArtifactory() { 
+  }
 
   public GatewayUpdateProducerArtifactory artifactoryAdminName(String artifactoryAdminName) {
     
@@ -149,6 +151,7 @@ public class GatewayUpdateProducerArtifactory {
    * Token Audience
    * @return artifactoryTokenAudience
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Token Audience")
 
   public String getArtifactoryTokenAudience() {
@@ -171,6 +174,7 @@ public class GatewayUpdateProducerArtifactory {
    * Token Scope
    * @return artifactoryTokenScope
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Token Scope")
 
   public String getArtifactoryTokenScope() {
@@ -262,6 +266,7 @@ public class GatewayUpdateProducerArtifactory {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -444,7 +449,7 @@ public class GatewayUpdateProducerArtifactory {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -474,7 +479,6 @@ public class GatewayUpdateProducerArtifactory {
     return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, deleteProtection, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -502,7 +506,7 @@ public class GatewayUpdateProducerArtifactory {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

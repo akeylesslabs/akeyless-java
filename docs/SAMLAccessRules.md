@@ -2,6 +2,7 @@
 
 # SAMLAccessRules
 
+
 ## Properties
 
 Name | Type | Description | Notes

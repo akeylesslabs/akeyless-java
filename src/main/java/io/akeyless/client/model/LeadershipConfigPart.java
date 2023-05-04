@@ -29,12 +29,14 @@ import java.util.List;
 /**
  * LeadershipConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LeadershipConfigPart {
   public static final String SERIALIZED_NAME_OPEN_LEADERSHIP = "open_leadership";
   @SerializedName(SERIALIZED_NAME_OPEN_LEADERSHIP)
   private List<Integer> openLeadership = null;
 
+  public LeadershipConfigPart() { 
+  }
 
   public LeadershipConfigPart openLeadership(List<Integer> openLeadership) {
     
@@ -68,7 +70,7 @@ public class LeadershipConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -84,7 +86,6 @@ public class LeadershipConfigPart {
     return Objects.hash(openLeadership);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -98,7 +99,7 @@ public class LeadershipConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

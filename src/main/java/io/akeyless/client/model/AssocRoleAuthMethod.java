@@ -31,7 +31,7 @@ import java.util.Map;
  * assocRoleAuthMethod is a command that creates an association between role and auth method.
  */
 @ApiModel(description = "assocRoleAuthMethod is a command that creates an association between role and auth method.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AssocRoleAuthMethod {
   public static final String SERIALIZED_NAME_AM_NAME = "am-name";
   @SerializedName(SERIALIZED_NAME_AM_NAME)
@@ -61,6 +61,8 @@ public class AssocRoleAuthMethod {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public AssocRoleAuthMethod() { 
+  }
 
   public AssocRoleAuthMethod amName(String amName) {
     
@@ -72,6 +74,7 @@ public class AssocRoleAuthMethod {
    * The auth method to associate
    * @return amName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The auth method to associate")
 
   public String getAmName() {
@@ -140,6 +143,7 @@ public class AssocRoleAuthMethod {
    * The role to associate
    * @return roleName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The role to associate")
 
   public String getRoleName() {
@@ -230,7 +234,7 @@ public class AssocRoleAuthMethod {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -252,7 +256,6 @@ public class AssocRoleAuthMethod {
     return Objects.hash(amName, caseSensitive, json, roleName, subClaims, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -272,7 +275,7 @@ public class AssocRoleAuthMethod {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

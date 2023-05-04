@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * APIKeyAccessRules
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyAccessRules {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -37,6 +37,8 @@ public class APIKeyAccessRules {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public APIKeyAccessRules() { 
+  }
 
   public APIKeyAccessRules alg(String alg) {
     
@@ -85,7 +87,7 @@ public class APIKeyAccessRules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class APIKeyAccessRules {
     return Objects.hash(alg, key);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class APIKeyAccessRules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

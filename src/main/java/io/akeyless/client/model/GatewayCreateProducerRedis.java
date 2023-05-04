@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerRedis is a command that creates Redis producer
  */
 @ApiModel(description = "gatewayCreateProducerRedis is a command that creates Redis producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerRedis {
   public static final String SERIALIZED_NAME_ACL_RULES = "acl-rules";
   @SerializedName(SERIALIZED_NAME_ACL_RULES)
@@ -96,6 +96,8 @@ public class GatewayCreateProducerRedis {
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
 
+  public GatewayCreateProducerRedis() { 
+  }
 
   public GatewayCreateProducerRedis aclRules(String aclRules) {
     
@@ -199,6 +201,7 @@ public class GatewayCreateProducerRedis {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -473,7 +476,7 @@ public class GatewayCreateProducerRedis {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -504,7 +507,6 @@ public class GatewayCreateProducerRedis {
     return Objects.hash(aclRules, deleteProtection, host, json, name, password, port, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -533,7 +535,7 @@ public class GatewayCreateProducerRedis {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

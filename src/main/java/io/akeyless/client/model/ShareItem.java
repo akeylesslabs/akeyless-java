@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ShareItem
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ShareItem {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -67,6 +67,8 @@ public class ShareItem {
   @SerializedName(SERIALIZED_NAME_VIEW_ONCE)
   private Boolean viewOnce = false;
 
+  public ShareItem() { 
+  }
 
   public ShareItem accessibility(String accessibility) {
     
@@ -101,6 +103,7 @@ public class ShareItem {
    * Action to be performed on the item [start/stop/describe]
    * @return action
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Action to be performed on the item [start/stop/describe]")
 
   public String getAction() {
@@ -154,6 +157,7 @@ public class ShareItem {
    * Item name
    * @return itemName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Item name")
 
   public String getItemName() {
@@ -282,7 +286,7 @@ public class ShareItem {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -306,7 +310,6 @@ public class ShareItem {
     return Objects.hash(accessibility, action, emails, itemName, json, token, ttl, uidToken, viewOnce);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -328,7 +331,7 @@ public class ShareItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

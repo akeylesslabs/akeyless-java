@@ -3,6 +3,7 @@
 # UpdateAuthMethodCert
 
 updateAuthMethodCert is a command that updates a new auth method that will be able to authenticate using a client certificae
+
 ## Properties
 
 Name | Type | Description | Notes

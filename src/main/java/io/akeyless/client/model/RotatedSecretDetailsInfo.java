@@ -28,7 +28,7 @@ import java.io.IOException;
  * RotatedSecretDetailsInfo The rotated secret rotator info
  */
 @ApiModel(description = "RotatedSecretDetailsInfo The rotated secret rotator info")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RotatedSecretDetailsInfo {
   public static final String SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS = "delete_previous_version_in_days";
   @SerializedName(SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS)
@@ -70,6 +70,8 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_ROTATOR_TYPE)
   private String rotatorType;
 
+  public RotatedSecretDetailsInfo() { 
+  }
 
   public RotatedSecretDetailsInfo deletePreviousVersionInDays(Integer deletePreviousVersionInDays) {
     
@@ -302,7 +304,7 @@ public class RotatedSecretDetailsInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -327,7 +329,6 @@ public class RotatedSecretDetailsInfo {
     return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -350,7 +351,7 @@ public class RotatedSecretDetailsInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

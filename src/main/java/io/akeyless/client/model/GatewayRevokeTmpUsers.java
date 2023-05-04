@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayRevokeTmpUsers is a command that revoke producer tmp user
  */
 @ApiModel(description = "gatewayRevokeTmpUsers is a command that revoke producer tmp user")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayRevokeTmpUsers {
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
@@ -62,6 +62,8 @@ public class GatewayRevokeTmpUsers {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayRevokeTmpUsers() { 
+  }
 
   public GatewayRevokeTmpUsers host(String host) {
     
@@ -119,6 +121,7 @@ public class GatewayRevokeTmpUsers {
    * Producer Name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer Name")
 
   public String getName() {
@@ -187,6 +190,7 @@ public class GatewayRevokeTmpUsers {
    * Tmp Creds ID
    * @return tmpCredsId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Tmp Creds ID")
 
   public String getTmpCredsId() {
@@ -246,7 +250,7 @@ public class GatewayRevokeTmpUsers {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -269,7 +273,6 @@ public class GatewayRevokeTmpUsers {
     return Objects.hash(host, json, name, revokeAll, softDelete, tmpCredsId, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -290,7 +293,7 @@ public class GatewayRevokeTmpUsers {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

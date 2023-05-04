@@ -31,7 +31,7 @@ import java.io.IOException;
  * AccountGeneralSettings describes general settings for an account
  */
 @ApiModel(description = "AccountGeneralSettings describes general settings for an account")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_DATA_PROTECTION_SECTION = "data_protection_section";
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
@@ -49,6 +49,8 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_SHARING_POLICY)
   private SharingPolicyInfo sharingPolicy;
 
+  public AccountGeneralSettings() { 
+  }
 
   public AccountGeneralSettings dataProtectionSection(DataProtectionSection dataProtectionSection) {
     
@@ -143,7 +145,7 @@ public class AccountGeneralSettings {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -162,7 +164,6 @@ public class AccountGeneralSettings {
     return Objects.hash(dataProtectionSection, enableRequestForAccess, passwordPolicy, sharingPolicy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -179,7 +180,7 @@ public class AccountGeneralSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

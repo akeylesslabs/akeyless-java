@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerOracleDbOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # CreateAuthMethodUniversalIdentityOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

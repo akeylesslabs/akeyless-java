@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerNativeK8SOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

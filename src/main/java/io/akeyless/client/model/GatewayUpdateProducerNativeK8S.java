@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerNativeK8S is a command that updates k8s producer
  */
 @ApiModel(description = "gatewayUpdateProducerNativeK8S is a command that updates k8s producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerNativeK8S {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -140,10 +140,16 @@ public class GatewayUpdateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use-gw-service-account";
+  @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
+  private Boolean useGwServiceAccount;
+
   public static final String SERIALIZED_NAME_USER_TTL = "user-ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerNativeK8S() { 
+  }
 
   public GatewayUpdateProducerNativeK8S deleteProtection(String deleteProtection) {
     
@@ -431,6 +437,7 @@ public class GatewayUpdateProducerNativeK8S {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -773,6 +780,29 @@ public class GatewayUpdateProducerNativeK8S {
   }
 
 
+  public GatewayUpdateProducerNativeK8S useGwServiceAccount(Boolean useGwServiceAccount) {
+    
+    this.useGwServiceAccount = useGwServiceAccount;
+    return this;
+  }
+
+   /**
+   * Use the GW&#39;s service account
+   * @return useGwServiceAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use the GW's service account")
+
+  public Boolean getUseGwServiceAccount() {
+    return useGwServiceAccount;
+  }
+
+
+  public void setUseGwServiceAccount(Boolean useGwServiceAccount) {
+    this.useGwServiceAccount = useGwServiceAccount;
+  }
+
+
   public GatewayUpdateProducerNativeK8S userTtl(String userTtl) {
     
     this.userTtl = userTtl;
@@ -797,7 +827,7 @@ public class GatewayUpdateProducerNativeK8S {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -832,14 +862,14 @@ public class GatewayUpdateProducerNativeK8S {
         Objects.equals(this.targetName, gatewayUpdateProducerNativeK8S.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerNativeK8S.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerNativeK8S.uidToken) &&
+        Objects.equals(this.useGwServiceAccount, gatewayUpdateProducerNativeK8S.useGwServiceAccount) &&
         Objects.equals(this.userTtl, gatewayUpdateProducerNativeK8S.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
-
 
   @Override
   public String toString() {
@@ -872,6 +902,7 @@ public class GatewayUpdateProducerNativeK8S {
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -881,7 +912,7 @@ public class GatewayUpdateProducerNativeK8S {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

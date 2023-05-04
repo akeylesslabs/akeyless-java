@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UpdateAuthMethod
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethod {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -71,6 +71,8 @@ public class UpdateAuthMethod {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateAuthMethod() { 
+  }
 
   public UpdateAuthMethod accessExpires(Long accessExpires) {
     
@@ -236,6 +238,7 @@ public class UpdateAuthMethod {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -318,7 +321,7 @@ public class UpdateAuthMethod {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -343,7 +346,6 @@ public class UpdateAuthMethod {
     return Objects.hash(accessExpires, boundIps, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -366,7 +368,7 @@ public class UpdateAuthMethod {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

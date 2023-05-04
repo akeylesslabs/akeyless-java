@@ -2,6 +2,7 @@
 
 # MigrationsConfigPart
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -35,7 +35,7 @@ import java.io.IOException;
 /**
  * LogForwardingConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogForwardingConfigPart {
   public static final String SERIALIZED_NAME_AWS_S3_CONFIG = "aws_s3_config";
   @SerializedName(SERIALIZED_NAME_AWS_S3_CONFIG)
@@ -89,6 +89,8 @@ public class LogForwardingConfigPart {
   @SerializedName(SERIALIZED_NAME_TARGET_LOG_TYPE)
   private String targetLogType;
 
+  public LogForwardingConfigPart() { 
+  }
 
   public LogForwardingConfigPart awsS3Config(AwsS3LogForwardingConfig awsS3Config) {
     
@@ -390,7 +392,7 @@ public class LogForwardingConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -418,7 +420,6 @@ public class LogForwardingConfigPart {
     return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, jsonOutput, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -444,7 +445,7 @@ public class LogForwardingConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

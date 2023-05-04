@@ -30,7 +30,7 @@ import java.util.List;
  * AzureADAccessRules contains access rules specific to Azure Active Directory authentication.
  */
 @ApiModel(description = "AzureADAccessRules contains access rules specific to Azure Active Directory authentication.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AzureADAccessRules {
   public static final String SERIALIZED_NAME_AD_ENDPOINT = "ad_endpoint";
   @SerializedName(SERIALIZED_NAME_AD_ENDPOINT)
@@ -80,6 +80,8 @@ public class AzureADAccessRules {
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
   private String jwksUri;
 
+  public AzureADAccessRules() { 
+  }
 
   public AzureADAccessRules adEndpoint(String adEndpoint) {
     
@@ -422,7 +424,7 @@ public class AzureADAccessRules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -449,7 +451,6 @@ public class AzureADAccessRules {
     return Objects.hash(adEndpoint, boundGroupIds, boundResourceGroups, boundResourceIds, boundResourceNames, boundResourceProviders, boundResourceTypes, boundServicePrincipalIds, boundSubscriptionIds, boundTenantId, issuer, jwksUri);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -474,7 +475,7 @@ public class AzureADAccessRules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

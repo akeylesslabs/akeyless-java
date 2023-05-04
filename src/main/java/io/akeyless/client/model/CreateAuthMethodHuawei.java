@@ -30,7 +30,7 @@ import java.util.List;
  * createAuthMethodHuawei is a command that creates a new auth method that will be able to authenticate using Huawei credentials.
  */
 @ApiModel(description = "createAuthMethodHuawei is a command that creates a new auth method that will be able to authenticate using Huawei credentials.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodHuawei {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -96,6 +96,8 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateAuthMethodHuawei() { 
+  }
 
   public CreateAuthMethodHuawei accessExpires(Long accessExpires) {
     
@@ -470,6 +472,7 @@ public class CreateAuthMethodHuawei {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -529,7 +532,7 @@ public class CreateAuthMethodHuawei {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -560,7 +563,6 @@ public class CreateAuthMethodHuawei {
     return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -589,7 +591,7 @@ public class CreateAuthMethodHuawei {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

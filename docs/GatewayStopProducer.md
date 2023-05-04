@@ -3,6 +3,7 @@
 # GatewayStopProducer
 
 gatewayStopProducer is a command that stops producer
+
 ## Properties
 
 Name | Type | Description | Notes

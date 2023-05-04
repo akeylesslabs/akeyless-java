@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TokenizeOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TokenizeOutput {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
@@ -37,6 +37,8 @@ public class TokenizeOutput {
   @SerializedName(SERIALIZED_NAME_TWEAK)
   private String tweak;
 
+  public TokenizeOutput() { 
+  }
 
   public TokenizeOutput result(String result) {
     
@@ -85,7 +87,7 @@ public class TokenizeOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class TokenizeOutput {
     return Objects.hash(result, tweak);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class TokenizeOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

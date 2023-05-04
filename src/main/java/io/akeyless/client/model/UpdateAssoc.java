@@ -31,7 +31,7 @@ import java.util.Map;
  * updateAssoc is a command that updates the sub-claims of an association between role and auth method.
  */
 @ApiModel(description = "updateAssoc is a command that updates the sub-claims of an association between role and auth method.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAssoc {
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc-id";
   @SerializedName(SERIALIZED_NAME_ASSOC_ID)
@@ -57,6 +57,8 @@ public class UpdateAssoc {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateAssoc() { 
+  }
 
   public UpdateAssoc assocId(String assocId) {
     
@@ -68,6 +70,7 @@ public class UpdateAssoc {
    * The association id to be updated
    * @return assocId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The association id to be updated")
 
   public String getAssocId() {
@@ -204,7 +207,7 @@ public class UpdateAssoc {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -225,7 +228,6 @@ public class UpdateAssoc {
     return Objects.hash(assocId, caseSensitive, json, subClaims, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -244,7 +246,7 @@ public class UpdateAssoc {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

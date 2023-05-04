@@ -2,6 +2,7 @@
 
 # CertificateInfo
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,8 +17,8 @@ Name | Type | Description | Notes
 **issuer** | [**Name**](Name.md) |  |  [optional]
 **issuingCertificateUrl** | **List&lt;String&gt;** |  |  [optional]
 **keySize** | **Long** |  |  [optional]
-**notAfter** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**notBefore** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**notAfter** | **OffsetDateTime** |  |  [optional]
+**notBefore** | **OffsetDateTime** |  |  [optional]
 **ocspServer** | **List&lt;String&gt;** |  |  [optional]
 **publicKeyAlgorithmName** | **String** |  |  [optional]
 **serialNumber** | **String** |  |  [optional]

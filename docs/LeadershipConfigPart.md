@@ -2,6 +2,7 @@
 
 # LeadershipConfigPart
 
+
 ## Properties
 
 Name | Type | Description | Notes

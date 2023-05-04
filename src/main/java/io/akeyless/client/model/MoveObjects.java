@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MoveObjects
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MoveObjects {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -53,6 +53,8 @@ public class MoveObjects {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public MoveObjects() { 
+  }
 
   public MoveObjects json(Boolean json) {
     
@@ -110,6 +112,7 @@ public class MoveObjects {
    * Source path to move the objects from
    * @return source
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Source path to move the objects from")
 
   public String getSource() {
@@ -132,6 +135,7 @@ public class MoveObjects {
    * Target path to move the objects to
    * @return target
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target path to move the objects to")
 
   public String getTarget() {
@@ -191,7 +195,7 @@ public class MoveObjects {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -212,7 +216,6 @@ public class MoveObjects {
     return Objects.hash(json, objectsType, source, target, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -231,7 +234,7 @@ public class MoveObjects {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

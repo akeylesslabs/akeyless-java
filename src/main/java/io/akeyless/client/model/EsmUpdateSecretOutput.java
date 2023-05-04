@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EsmUpdateSecretOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EsmUpdateSecretOutput {
   public static final String SERIALIZED_NAME_SECRET_ID = "secret_id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
@@ -37,6 +37,8 @@ public class EsmUpdateSecretOutput {
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
   private String versionId;
 
+  public EsmUpdateSecretOutput() { 
+  }
 
   public EsmUpdateSecretOutput secretId(String secretId) {
     
@@ -85,7 +87,7 @@ public class EsmUpdateSecretOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class EsmUpdateSecretOutput {
     return Objects.hash(secretId, versionId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class EsmUpdateSecretOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

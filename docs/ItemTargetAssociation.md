@@ -2,7 +2,8 @@
 
 # ItemTargetAssociation
 
-ItemTargetAssociation includes details of an association between an item and a target.
+and a target.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # ItemGeneralInfo
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # DSProducerDetails
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -83,7 +84,7 @@ Name | Type | Description | Notes
 **failureMessage** | **String** |  |  [optional]
 **fixedUserOnly** | **String** |  |  [optional]
 **gcpKeyAlgo** | **String** |  |  [optional]
-**gcpRoleBindings** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) |  |  [optional]
+**gcpRoleBindings** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
 **gcpServiceAccountEmail** | **String** | GCPServiceAccountEmail overrides the deprecated field from the target |  [optional]
 **gcpServiceAccountKey** | **String** |  |  [optional]
 **gcpServiceAccountKeyBase64** | **String** |  |  [optional]
@@ -190,6 +191,7 @@ Name | Type | Description | Notes
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **timeoutSeconds** | **Long** |  |  [optional]
 **useGwCloudIdentity** | **Boolean** |  |  [optional]
+**useGwServiceAccount** | **Boolean** |  |  [optional]
 **userName** | **String** |  |  [optional]
 **userPassword** | **String** |  |  [optional]
 **userPrincipalName** | **String** |  |  [optional]

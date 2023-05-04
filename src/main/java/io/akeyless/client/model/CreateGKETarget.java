@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateGKETarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateGKETarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -81,6 +81,8 @@ public class CreateGKETarget {
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
 
+  public CreateGKETarget() { 
+  }
 
   public CreateGKETarget comment(String comment) {
     
@@ -299,6 +301,7 @@ public class CreateGKETarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -381,7 +384,7 @@ public class CreateGKETarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -409,7 +412,6 @@ public class CreateGKETarget {
     return Objects.hash(comment, description, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, key, name, token, uidToken, useGwCloudIdentity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -435,7 +437,7 @@ public class CreateGKETarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

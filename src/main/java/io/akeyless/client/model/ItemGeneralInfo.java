@@ -37,7 +37,7 @@ import java.io.IOException;
 /**
  * ItemGeneralInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_CERT_ISSUE_DETAILS = "cert_issue_details";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUE_DETAILS)
@@ -87,6 +87,8 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_TOKENIZER_INFO)
   private TokenizerInfo tokenizerInfo;
 
+  public ItemGeneralInfo() { 
+  }
 
   public ItemGeneralInfo certIssueDetails(CertificateIssueInfo certIssueDetails) {
     
@@ -365,7 +367,7 @@ public class ItemGeneralInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -392,7 +394,6 @@ public class ItemGeneralInfo {
     return Objects.hash(certIssueDetails, certificateChainInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -417,7 +418,7 @@ public class ItemGeneralInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -41,7 +41,7 @@ import java.io.IOException;
 /**
  * AkeylessGatewayConfig
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_ADMINS = "admins";
   @SerializedName(SERIALIZED_NAME_ADMINS)
@@ -107,6 +107,8 @@ public class AkeylessGatewayConfig {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public AkeylessGatewayConfig() { 
+  }
 
   public AkeylessGatewayConfig admins(AdminsConfigPart admins) {
     
@@ -477,7 +479,7 @@ public class AkeylessGatewayConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -508,7 +510,6 @@ public class AkeylessGatewayConfig {
     return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -537,7 +538,7 @@ public class AkeylessGatewayConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

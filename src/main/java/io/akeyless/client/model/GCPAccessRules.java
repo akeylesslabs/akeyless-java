@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * GCPAccessRules
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GCPAccessRules {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
@@ -65,6 +65,8 @@ public class GCPAccessRules {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public GCPAccessRules() { 
+  }
 
   public GCPAccessRules audience(String audience) {
     
@@ -291,7 +293,7 @@ public class GCPAccessRules {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -314,7 +316,6 @@ public class GCPAccessRules {
     return Objects.hash(audience, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, serviceAccount, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -335,7 +336,7 @@ public class GCPAccessRules {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

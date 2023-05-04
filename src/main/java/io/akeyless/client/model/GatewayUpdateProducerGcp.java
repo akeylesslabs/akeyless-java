@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerGcp is a command that updates a GCP producer
  */
 @ApiModel(description = "gatewayUpdateProducerGcp is a command that updates a GCP producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerGcp {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -100,6 +100,8 @@ public class GatewayUpdateProducerGcp {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerGcp() { 
+  }
 
   public GatewayUpdateProducerGcp deleteProtection(String deleteProtection) {
     
@@ -272,6 +274,7 @@ public class GatewayUpdateProducerGcp {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -363,6 +366,7 @@ public class GatewayUpdateProducerGcp {
    * The type of the gcp dynamic secret. Options[fixed, dynamic]
    * @return serviceAccountType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of the gcp dynamic secret. Options[fixed, dynamic]")
 
   public String getServiceAccountType() {
@@ -499,7 +503,7 @@ public class GatewayUpdateProducerGcp {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -531,7 +535,6 @@ public class GatewayUpdateProducerGcp {
     return Objects.hash(deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, json, name, newName, producerEncryptionKeyName, roleBinding, serviceAccountType, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -561,7 +564,7 @@ public class GatewayUpdateProducerGcp {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

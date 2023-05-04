@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * DeleteItemOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteItemOutput {
   public static final String SERIALIZED_NAME_DELETION_DATE = "deletion_date";
   @SerializedName(SERIALIZED_NAME_DELETION_DATE)
@@ -46,6 +46,8 @@ public class DeleteItemOutput {
   @SerializedName(SERIALIZED_NAME_VERSION_DELETED)
   private Integer versionDeleted;
 
+  public DeleteItemOutput() { 
+  }
 
   public DeleteItemOutput deletionDate(OffsetDateTime deletionDate) {
     
@@ -140,7 +142,7 @@ public class DeleteItemOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -159,7 +161,6 @@ public class DeleteItemOutput {
     return Objects.hash(deletionDate, itemId, itemName, versionDeleted);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -176,7 +177,7 @@ public class DeleteItemOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

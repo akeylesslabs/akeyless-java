@@ -2,6 +2,7 @@
 
 # SmInfo
 
+
 ## Properties
 
 Name | Type | Description | Notes

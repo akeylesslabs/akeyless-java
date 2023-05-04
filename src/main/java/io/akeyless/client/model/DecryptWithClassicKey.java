@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DecryptWithClassicKey
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecryptWithClassicKey {
   public static final String SERIALIZED_NAME_CIPHERTEXT = "ciphertext";
   @SerializedName(SERIALIZED_NAME_CIPHERTEXT)
@@ -53,6 +53,8 @@ public class DecryptWithClassicKey {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public DecryptWithClassicKey() { 
+  }
 
   public DecryptWithClassicKey ciphertext(String ciphertext) {
     
@@ -64,6 +66,7 @@ public class DecryptWithClassicKey {
    * Ciphertext to be decrypted in base64 encoded format
    * @return ciphertext
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Ciphertext to be decrypted in base64 encoded format")
 
   public String getCiphertext() {
@@ -86,6 +89,7 @@ public class DecryptWithClassicKey {
    * The name of the key to use in the encryption process
    * @return displayId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the encryption process")
 
   public String getDisplayId() {
@@ -177,6 +181,7 @@ public class DecryptWithClassicKey {
    * classic key version
    * @return version
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "classic key version")
 
   public Integer getVersion() {
@@ -190,7 +195,7 @@ public class DecryptWithClassicKey {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -211,7 +216,6 @@ public class DecryptWithClassicKey {
     return Objects.hash(ciphertext, displayId, json, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -230,7 +234,7 @@ public class DecryptWithClassicKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

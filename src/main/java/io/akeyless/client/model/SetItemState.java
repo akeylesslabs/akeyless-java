@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SetItemState
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SetItemState {
   public static final String SERIALIZED_NAME_DESIRED_STATE = "desired-state";
   @SerializedName(SERIALIZED_NAME_DESIRED_STATE)
@@ -53,6 +53,8 @@ public class SetItemState {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version = 0;
 
+  public SetItemState() { 
+  }
 
   public SetItemState desiredState(String desiredState) {
     
@@ -64,6 +66,7 @@ public class SetItemState {
    * Desired item state (Enabled, Disabled)
    * @return desiredState
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Desired item state (Enabled, Disabled)")
 
   public String getDesiredState() {
@@ -109,6 +112,7 @@ public class SetItemState {
    * Current item name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Current item name")
 
   public String getName() {
@@ -191,7 +195,7 @@ public class SetItemState {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -212,7 +216,6 @@ public class SetItemState {
     return Objects.hash(desiredState, json, name, token, uidToken, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -231,7 +234,7 @@ public class SetItemState {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

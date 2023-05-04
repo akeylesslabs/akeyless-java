@@ -28,7 +28,7 @@ import java.io.IOException;
  * getRSAPublic is a command that obtains the public key from a specific RSA private key.
  */
 @ApiModel(description = "getRSAPublic is a command that obtains the public key from a specific RSA private key.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetRSAPublic {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -46,6 +46,8 @@ public class GetRSAPublic {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GetRSAPublic() { 
+  }
 
   public GetRSAPublic json(Boolean json) {
     
@@ -80,6 +82,7 @@ public class GetRSAPublic {
    * Name of RSA key to extract the public key from
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of RSA key to extract the public key from")
 
   public String getName() {
@@ -139,7 +142,7 @@ public class GetRSAPublic {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +161,6 @@ public class GetRSAPublic {
     return Objects.hash(json, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +177,7 @@ public class GetRSAPublic {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

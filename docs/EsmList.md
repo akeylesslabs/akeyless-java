@@ -3,6 +3,7 @@
 # EsmList
 
 esmList is a command that lists the secrets of an External Secrets Manager
+
 ## Properties
 
 Name | Type | Description | Notes

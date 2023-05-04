@@ -2,6 +2,7 @@
 
 # DeleteItemsOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

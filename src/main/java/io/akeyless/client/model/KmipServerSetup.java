@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * KmipServerSetup
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KmipServerSetup {
   public static final String SERIALIZED_NAME_CERTIFICATE_TTL = "certificate-ttl";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
@@ -53,6 +53,8 @@ public class KmipServerSetup {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public KmipServerSetup() { 
+  }
 
   public KmipServerSetup certificateTtl(Long certificateTtl) {
     
@@ -87,6 +89,7 @@ public class KmipServerSetup {
    * Hostname
    * @return hostname
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Hostname")
 
   public String getHostname() {
@@ -132,6 +135,7 @@ public class KmipServerSetup {
    * Root path of KMIP Resources
    * @return root
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Root path of KMIP Resources")
 
   public String getRoot() {
@@ -191,7 +195,7 @@ public class KmipServerSetup {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -212,7 +216,6 @@ public class KmipServerSetup {
     return Objects.hash(certificateTtl, hostname, json, root, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -231,7 +234,7 @@ public class KmipServerSetup {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

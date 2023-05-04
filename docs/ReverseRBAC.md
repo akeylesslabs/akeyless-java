@@ -3,6 +3,7 @@
 # ReverseRBAC
 
 reverseRBAC is a command that shows which auth methods have access to a particular object.
+
 ## Properties
 
 Name | Type | Description | Notes

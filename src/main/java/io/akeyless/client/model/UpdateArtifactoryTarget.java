@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateArtifactoryTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateArtifactoryTarget {
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME = "artifactory-admin-name";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME)
@@ -81,6 +81,8 @@ public class UpdateArtifactoryTarget {
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
   private Boolean updateVersion;
 
+  public UpdateArtifactoryTarget() { 
+  }
 
   public UpdateArtifactoryTarget artifactoryAdminName(String artifactoryAdminName) {
     
@@ -92,6 +94,7 @@ public class UpdateArtifactoryTarget {
    * Artifactory Admin Name
    * @return artifactoryAdminName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Artifactory Admin Name")
 
   public String getArtifactoryAdminName() {
@@ -114,6 +117,7 @@ public class UpdateArtifactoryTarget {
    * Artifactory Admin password
    * @return artifactoryAdminPwd
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Artifactory Admin password")
 
   public String getArtifactoryAdminPwd() {
@@ -136,6 +140,7 @@ public class UpdateArtifactoryTarget {
    * Base URL
    * @return baseUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Base URL")
 
   public String getBaseUrl() {
@@ -273,6 +278,7 @@ public class UpdateArtifactoryTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -378,7 +384,7 @@ public class UpdateArtifactoryTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -406,7 +412,6 @@ public class UpdateArtifactoryTarget {
     return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, comment, description, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -432,7 +437,7 @@ public class UpdateArtifactoryTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

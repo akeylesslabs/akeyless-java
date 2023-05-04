@@ -3,6 +3,7 @@
 # GatewayUpdateProducerLdap
 
 gatewayUpdateProducerLdap is a command that updates ldap producer
+
 ## Properties
 
 Name | Type | Description | Notes

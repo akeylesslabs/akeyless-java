@@ -28,12 +28,14 @@ import java.io.IOException;
  * We need the fields to be pointers as we use the same struct for partial updates as well
  */
 @ApiModel(description = "We need the fields to be pointers as we use the same struct for partial updates as well")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DataProtectionSection {
   public static final String SERIALIZED_NAME_ENABLE_CLASSIC_KEY_PROTECTION = "enable_classic_key_protection";
   @SerializedName(SERIALIZED_NAME_ENABLE_CLASSIC_KEY_PROTECTION)
   private Boolean enableClassicKeyProtection;
 
+  public DataProtectionSection() { 
+  }
 
   public DataProtectionSection enableClassicKeyProtection(Boolean enableClassicKeyProtection) {
     
@@ -59,7 +61,7 @@ public class DataProtectionSection {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -75,7 +77,6 @@ public class DataProtectionSection {
     return Objects.hash(enableClassicKeyProtection);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -89,7 +90,7 @@ public class DataProtectionSection {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

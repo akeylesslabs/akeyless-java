@@ -27,12 +27,14 @@ import java.io.IOException;
 /**
  * EncryptGPGOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EncryptGPGOutput {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private String result;
 
+  public EncryptGPGOutput() { 
+  }
 
   public EncryptGPGOutput result(String result) {
     
@@ -58,7 +60,7 @@ public class EncryptGPGOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +76,6 @@ public class EncryptGPGOutput {
     return Objects.hash(result);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +89,7 @@ public class EncryptGPGOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

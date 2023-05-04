@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * GetDynamicSecretValue
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetDynamicSecretValue {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
@@ -63,6 +63,8 @@ public class GetDynamicSecretValue {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GetDynamicSecretValue() { 
+  }
 
   public GetDynamicSecretValue args(List<String> args) {
     
@@ -151,6 +153,7 @@ public class GetDynamicSecretValue {
    * Dynamic secret name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
@@ -256,7 +259,7 @@ public class GetDynamicSecretValue {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -279,7 +282,6 @@ public class GetDynamicSecretValue {
     return Objects.hash(args, host, json, name, target, timeout, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -300,7 +302,7 @@ public class GetDynamicSecretValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

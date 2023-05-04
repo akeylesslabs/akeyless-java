@@ -28,7 +28,7 @@ import java.io.IOException;
  * validate-token is a command that validaties token
  */
 @ApiModel(description = "validate-token is a command that validaties token")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ValidateToken {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -38,6 +38,8 @@ public class ValidateToken {
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
 
+  public ValidateToken() { 
+  }
 
   public ValidateToken json(Boolean json) {
     
@@ -86,7 +88,7 @@ public class ValidateToken {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -103,7 +105,6 @@ public class ValidateToken {
     return Objects.hash(json, token);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -118,7 +119,7 @@ public class ValidateToken {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

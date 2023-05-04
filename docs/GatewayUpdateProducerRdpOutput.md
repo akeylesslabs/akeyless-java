@@ -2,6 +2,7 @@
 
 # GatewayUpdateProducerRdpOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

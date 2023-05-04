@@ -2,12 +2,14 @@
 
 # UpdateWindowsTarget
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **certificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) |  [optional]
 **description** | **String** | Description of the object |  [optional]
+**domain** | **String** | User domain name |  [optional]
 **hostname** | **String** | Server hostname | 
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]

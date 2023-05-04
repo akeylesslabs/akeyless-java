@@ -3,6 +3,7 @@
 # GatewayUpdateProducerMySQL
 
 gatewayUpdateProducerMySQL is a command that updates mysql producer
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DeleteTargets
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteTargets {
   public static final String SERIALIZED_NAME_FORCE_DELETION = "force-deletion";
   @SerializedName(SERIALIZED_NAME_FORCE_DELETION)
@@ -49,6 +49,8 @@ public class DeleteTargets {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DeleteTargets() { 
+  }
 
   public DeleteTargets forceDeletion(Boolean forceDeletion) {
     
@@ -106,6 +108,7 @@ public class DeleteTargets {
    * Path to delete the targets from
    * @return path
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path to delete the targets from")
 
   public String getPath() {
@@ -165,7 +168,7 @@ public class DeleteTargets {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -185,7 +188,6 @@ public class DeleteTargets {
     return Objects.hash(forceDeletion, json, path, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -203,7 +205,7 @@ public class DeleteTargets {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

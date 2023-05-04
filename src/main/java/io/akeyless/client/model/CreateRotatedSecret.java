@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CreateRotatedSecret
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_API_ID = "api-id";
   @SerializedName(SERIALIZED_NAME_API_ID)
@@ -207,6 +207,8 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_USER_DN)
   private String userDn;
 
+  public CreateRotatedSecret() { 
+  }
 
   public CreateRotatedSecret apiId(String apiId) {
     
@@ -517,6 +519,7 @@ public class CreateRotatedSecret {
    * Secret name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Secret name")
 
   public String getName() {
@@ -700,6 +703,7 @@ public class CreateRotatedSecret {
    * Rotator Type
    * @return rotatorType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Rotator Type")
 
   public String getRotatorType() {
@@ -1129,6 +1133,7 @@ public class CreateRotatedSecret {
    * Target name
    * @return targetName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getTargetName() {
@@ -1234,7 +1239,7 @@ public class CreateRotatedSecret {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -1293,7 +1298,6 @@ public class CreateRotatedSecret {
     return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -1350,7 +1354,7 @@ public class CreateRotatedSecret {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

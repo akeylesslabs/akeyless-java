@@ -3,6 +3,7 @@
 # RegexpTokenizerInfo
 
 RegexpTokenizerInfo represents a general Regexp tokenization template
+
 ## Properties
 
 Name | Type | Description | Notes

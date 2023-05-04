@@ -30,7 +30,7 @@ import java.util.List;
  * createAuthMethodAWSIAM is a command that creates a new Auth Method that will be able to authenticate using AWS IAM credentials.
  */
 @ApiModel(description = "createAuthMethodAWSIAM is a command that creates a new Auth Method that will be able to authenticate using AWS IAM credentials.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodAWSIAM {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -100,6 +100,8 @@ public class CreateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateAuthMethodAWSIAM() { 
+  }
 
   public CreateAuthMethodAWSIAM accessExpires(Long accessExpires) {
     
@@ -170,6 +172,7 @@ public class CreateAuthMethodAWSIAM {
    * A list of AWS account-IDs that the access is restricted to
    * @return boundAwsAccountId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of AWS account-IDs that the access is restricted to")
 
   public List<String> getBoundAwsAccountId() {
@@ -478,6 +481,7 @@ public class CreateAuthMethodAWSIAM {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -560,7 +564,7 @@ public class CreateAuthMethodAWSIAM {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -592,7 +596,6 @@ public class CreateAuthMethodAWSIAM {
     return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, stsUrl, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -622,7 +625,7 @@ public class CreateAuthMethodAWSIAM {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

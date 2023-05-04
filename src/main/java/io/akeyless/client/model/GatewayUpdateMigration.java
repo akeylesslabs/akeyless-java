@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateMigration is a command that update migration
  */
 @ApiModel(description = "gatewayUpdateMigration is a command that update migration")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateMigration {
   public static final String SERIALIZED_NAME_1PASSWORD_EMAIL = "1password-email";
   @SerializedName(SERIALIZED_NAME_1PASSWORD_EMAIL)
@@ -51,6 +51,22 @@ public class GatewayUpdateMigration {
   public static final String SERIALIZED_NAME_1PASSWORD_VAULTS = "1password-vaults";
   @SerializedName(SERIALIZED_NAME_1PASSWORD_VAULTS)
   private List<String> _1passwordVaults = null;
+
+  public static final String SERIALIZED_NAME_AD_SSH_PORT = "ad-ssh-port";
+  @SerializedName(SERIALIZED_NAME_AD_SSH_PORT)
+  private String adSshPort = "22";
+
+  public static final String SERIALIZED_NAME_AD_TARGETS_TYPE = "ad-targets-type";
+  @SerializedName(SERIALIZED_NAME_AD_TARGETS_TYPE)
+  private String adTargetsType = "windows";
+
+  public static final String SERIALIZED_NAME_AD_WINRM_OVER_HTTP = "ad-winrm-over-http";
+  @SerializedName(SERIALIZED_NAME_AD_WINRM_OVER_HTTP)
+  private String adWinrmOverHttp = "false";
+
+  public static final String SERIALIZED_NAME_AD_WINRM_PORT = "ad-winrm-port";
+  @SerializedName(SERIALIZED_NAME_AD_WINRM_PORT)
+  private String adWinrmPort = "5986";
 
   public static final String SERIALIZED_NAME_AD_AUTO_ROTATE = "ad_auto_rotate";
   @SerializedName(SERIALIZED_NAME_AD_AUTO_ROTATE)
@@ -107,10 +123,6 @@ public class GatewayUpdateMigration {
   public static final String SERIALIZED_NAME_AD_USER_GROUPS = "ad_user_groups";
   @SerializedName(SERIALIZED_NAME_AD_USER_GROUPS)
   private String adUserGroups;
-
-  public static final String SERIALIZED_NAME_AS_SSH_PORT = "as_ssh_port";
-  @SerializedName(SERIALIZED_NAME_AS_SSH_PORT)
-  private String asSshPort = "22";
 
   public static final String SERIALIZED_NAME_AWS_KEY = "aws-key";
   @SerializedName(SERIALIZED_NAME_AWS_KEY)
@@ -228,6 +240,8 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayUpdateMigration() { 
+  }
 
   public GatewayUpdateMigration _1passwordEmail(String _1passwordEmail) {
     
@@ -352,6 +366,98 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration adSshPort(String adSshPort) {
+    
+    this.adSshPort = adSshPort;
+    return this;
+  }
+
+   /**
+   * Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration)
+   * @return adSshPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration)")
+
+  public String getAdSshPort() {
+    return adSshPort;
+  }
+
+
+  public void setAdSshPort(String adSshPort) {
+    this.adSshPort = adSshPort;
+  }
+
+
+  public GatewayUpdateMigration adTargetsType(String adTargetsType) {
+    
+    this.adTargetsType = adTargetsType;
+    return this;
+  }
+
+   /**
+   * Set the target type of the domain servers [ssh/windows](Relevant only for Active Directory migration)
+   * @return adTargetsType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the target type of the domain servers [ssh/windows](Relevant only for Active Directory migration)")
+
+  public String getAdTargetsType() {
+    return adTargetsType;
+  }
+
+
+  public void setAdTargetsType(String adTargetsType) {
+    this.adTargetsType = adTargetsType;
+  }
+
+
+  public GatewayUpdateMigration adWinrmOverHttp(String adWinrmOverHttp) {
+    
+    this.adWinrmOverHttp = adWinrmOverHttp;
+    return this;
+  }
+
+   /**
+   * Use WinRM over HTTP, by default runs over HTTPS
+   * @return adWinrmOverHttp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use WinRM over HTTP, by default runs over HTTPS")
+
+  public String getAdWinrmOverHttp() {
+    return adWinrmOverHttp;
+  }
+
+
+  public void setAdWinrmOverHttp(String adWinrmOverHttp) {
+    this.adWinrmOverHttp = adWinrmOverHttp;
+  }
+
+
+  public GatewayUpdateMigration adWinrmPort(String adWinrmPort) {
+    
+    this.adWinrmPort = adWinrmPort;
+    return this;
+  }
+
+   /**
+   * Set the WinRM Port for further connection to the domain servers. Default is 5986 (Relevant only for Active Directory migration)
+   * @return adWinrmPort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the WinRM Port for further connection to the domain servers. Default is 5986 (Relevant only for Active Directory migration)")
+
+  public String getAdWinrmPort() {
+    return adWinrmPort;
+  }
+
+
+  public void setAdWinrmPort(String adWinrmPort) {
+    this.adWinrmPort = adWinrmPort;
+  }
+
+
   public GatewayUpdateMigration adAutoRotate(String adAutoRotate) {
     
     this.adAutoRotate = adAutoRotate;
@@ -405,11 +511,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Enable/Disable discovery of local users from each domain server and migrate them as SSH Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
+   * Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
    * @return adDiscoverLocalUsers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Enable/Disable discovery of local users from each domain server and migrate them as SSH Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)")
+  @ApiModelProperty(value = "Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)")
 
   public String getAdDiscoverLocalUsers() {
     return adDiscoverLocalUsers;
@@ -612,11 +718,11 @@ public class GatewayUpdateMigration {
   }
 
    /**
-   * Path location template for migrating domain servers as SSH Targets e.g.: .../Servers/{{COMPUTER_NAME}} (Relevant only for Active Directory migration)
+   * Path location template for migrating domain servers as SSH/Windows Targets e.g.: .../Servers/{{COMPUTER_NAME}} (Relevant only for Active Directory migration)
    * @return adTargetsPathTemplate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path location template for migrating domain servers as SSH Targets e.g.: .../Servers/{{COMPUTER_NAME}} (Relevant only for Active Directory migration)")
+  @ApiModelProperty(value = "Path location template for migrating domain servers as SSH/Windows Targets e.g.: .../Servers/{{COMPUTER_NAME}} (Relevant only for Active Directory migration)")
 
   public String getAdTargetsPathTemplate() {
     return adTargetsPathTemplate;
@@ -671,29 +777,6 @@ public class GatewayUpdateMigration {
 
   public void setAdUserGroups(String adUserGroups) {
     this.adUserGroups = adUserGroups;
-  }
-
-
-  public GatewayUpdateMigration asSshPort(String asSshPort) {
-    
-    this.asSshPort = asSshPort;
-    return this;
-  }
-
-   /**
-   * Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration)
-   * @return asSshPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration)")
-
-  public String getAsSshPort() {
-    return asSshPort;
-  }
-
-
-  public void setAsSshPort(String asSshPort) {
-    this.asSshPort = asSshPort;
   }
 
 
@@ -1337,6 +1420,7 @@ public class GatewayUpdateMigration {
    * Target location in Akeyless for imported secrets
    * @return targetLocation
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target location in Akeyless for imported secrets")
 
   public String getTargetLocation() {
@@ -1396,7 +1480,7 @@ public class GatewayUpdateMigration {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -1409,6 +1493,10 @@ public class GatewayUpdateMigration {
         Objects.equals(this._1passwordSecretKey, gatewayUpdateMigration._1passwordSecretKey) &&
         Objects.equals(this._1passwordUrl, gatewayUpdateMigration._1passwordUrl) &&
         Objects.equals(this._1passwordVaults, gatewayUpdateMigration._1passwordVaults) &&
+        Objects.equals(this.adSshPort, gatewayUpdateMigration.adSshPort) &&
+        Objects.equals(this.adTargetsType, gatewayUpdateMigration.adTargetsType) &&
+        Objects.equals(this.adWinrmOverHttp, gatewayUpdateMigration.adWinrmOverHttp) &&
+        Objects.equals(this.adWinrmPort, gatewayUpdateMigration.adWinrmPort) &&
         Objects.equals(this.adAutoRotate, gatewayUpdateMigration.adAutoRotate) &&
         Objects.equals(this.adComputerBaseDn, gatewayUpdateMigration.adComputerBaseDn) &&
         Objects.equals(this.adDiscoverLocalUsers, gatewayUpdateMigration.adDiscoverLocalUsers) &&
@@ -1423,7 +1511,6 @@ public class GatewayUpdateMigration {
         Objects.equals(this.adTargetsPathTemplate, gatewayUpdateMigration.adTargetsPathTemplate) &&
         Objects.equals(this.adUserBaseDn, gatewayUpdateMigration.adUserBaseDn) &&
         Objects.equals(this.adUserGroups, gatewayUpdateMigration.adUserGroups) &&
-        Objects.equals(this.asSshPort, gatewayUpdateMigration.asSshPort) &&
         Objects.equals(this.awsKey, gatewayUpdateMigration.awsKey) &&
         Objects.equals(this.awsKeyId, gatewayUpdateMigration.awsKeyId) &&
         Objects.equals(this.awsRegion, gatewayUpdateMigration.awsRegion) &&
@@ -1457,9 +1544,8 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, asSshPort, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, targetLocation, token, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, targetLocation, token, uidToken);
   }
-
 
   @Override
   public String toString() {
@@ -1470,6 +1556,10 @@ public class GatewayUpdateMigration {
     sb.append("    _1passwordSecretKey: ").append(toIndentedString(_1passwordSecretKey)).append("\n");
     sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
     sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
+    sb.append("    adSshPort: ").append(toIndentedString(adSshPort)).append("\n");
+    sb.append("    adTargetsType: ").append(toIndentedString(adTargetsType)).append("\n");
+    sb.append("    adWinrmOverHttp: ").append(toIndentedString(adWinrmOverHttp)).append("\n");
+    sb.append("    adWinrmPort: ").append(toIndentedString(adWinrmPort)).append("\n");
     sb.append("    adAutoRotate: ").append(toIndentedString(adAutoRotate)).append("\n");
     sb.append("    adComputerBaseDn: ").append(toIndentedString(adComputerBaseDn)).append("\n");
     sb.append("    adDiscoverLocalUsers: ").append(toIndentedString(adDiscoverLocalUsers)).append("\n");
@@ -1484,7 +1574,6 @@ public class GatewayUpdateMigration {
     sb.append("    adTargetsPathTemplate: ").append(toIndentedString(adTargetsPathTemplate)).append("\n");
     sb.append("    adUserBaseDn: ").append(toIndentedString(adUserBaseDn)).append("\n");
     sb.append("    adUserGroups: ").append(toIndentedString(adUserGroups)).append("\n");
-    sb.append("    asSshPort: ").append(toIndentedString(asSshPort)).append("\n");
     sb.append("    awsKey: ").append(toIndentedString(awsKey)).append("\n");
     sb.append("    awsKeyId: ").append(toIndentedString(awsKeyId)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
@@ -1522,7 +1611,7 @@ public class GatewayUpdateMigration {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

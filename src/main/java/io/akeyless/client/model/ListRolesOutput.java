@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ListRolesOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListRolesOutput {
   public static final String SERIALIZED_NAME_NEXT_PAGE = "next_page";
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE)
@@ -40,6 +40,8 @@ public class ListRolesOutput {
   @SerializedName(SERIALIZED_NAME_ROLES)
   private List<Role> roles = null;
 
+  public ListRolesOutput() { 
+  }
 
   public ListRolesOutput nextPage(String nextPage) {
     
@@ -96,7 +98,7 @@ public class ListRolesOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -113,7 +115,6 @@ public class ListRolesOutput {
     return Objects.hash(nextPage, roles);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -128,7 +129,7 @@ public class ListRolesOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

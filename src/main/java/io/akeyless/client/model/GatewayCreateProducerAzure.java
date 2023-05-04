@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerAzure is a command that creates azure producer
  */
 @ApiModel(description = "gatewayCreateProducerAzure is a command that creates azure producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerAzure {
   public static final String SERIALIZED_NAME_APP_OBJ_ID = "app-obj-id";
   @SerializedName(SERIALIZED_NAME_APP_OBJ_ID)
@@ -128,6 +128,8 @@ public class GatewayCreateProducerAzure {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayCreateProducerAzure() { 
+  }
 
   public GatewayCreateProducerAzure appObjId(String appObjId) {
     
@@ -323,6 +325,7 @@ public class GatewayCreateProducerAzure {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -689,7 +692,7 @@ public class GatewayCreateProducerAzure {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -728,7 +731,6 @@ public class GatewayCreateProducerAzure {
     return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -765,7 +767,7 @@ public class GatewayCreateProducerAzure {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

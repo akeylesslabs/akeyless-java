@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerGithub is a command that updates github producer
  */
 @ApiModel(description = "gatewayUpdateProducerGithub is a command that updates github producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerGithub {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -88,6 +88,8 @@ public class GatewayUpdateProducerGithub {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public GatewayUpdateProducerGithub() { 
+  }
 
   public GatewayUpdateProducerGithub deleteProtection(String deleteProtection) {
     
@@ -260,6 +262,7 @@ public class GatewayUpdateProducerGithub {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -427,7 +430,7 @@ public class GatewayUpdateProducerGithub {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -456,7 +459,6 @@ public class GatewayUpdateProducerGithub {
     return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, json, name, newName, targetName, token, tokenPermissions, tokenRepositories, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -483,7 +485,7 @@ public class GatewayUpdateProducerGithub {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

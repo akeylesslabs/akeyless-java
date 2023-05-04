@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CertificateExpirationEvent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * PKICertificateIssueDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PKICertificateIssueDetails {
   public static final String SERIALIZED_NAME_ALLOW_ANY_NAME = "allow_any_name";
   @SerializedName(SERIALIZED_NAME_ALLOW_ANY_NAME)
@@ -51,6 +52,10 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_BASIC_CONSTRAINTS_VALID_FOR_NON_CA)
   private Boolean basicConstraintsValidForNonCa;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_AUTHORITY_MODE = "certificate_authority_mode";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_AUTHORITY_MODE)
+  private String certificateAuthorityMode;
+
   public static final String SERIALIZED_NAME_CLIENT_FLAG = "client_flag";
   @SerializedName(SERIALIZED_NAME_CLIENT_FLAG)
   private Boolean clientFlag;
@@ -63,9 +68,21 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private List<String> country = null;
 
+  public static final String SERIALIZED_NAME_DESTINATION_PATH = "destination_path";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_PATH)
+  private String destinationPath;
+
   public static final String SERIALIZED_NAME_ENFORCE_HOSTNAMES = "enforce_hostnames";
   @SerializedName(SERIALIZED_NAME_ENFORCE_HOSTNAMES)
   private Boolean enforceHostnames;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
+  private List<CertificateExpirationEvent> expirationEvents = null;
+
+  public static final String SERIALIZED_NAME_GW_CLUSTER_URL = "gw_cluster_url";
+  @SerializedName(SERIALIZED_NAME_GW_CLUSTER_URL)
+  private String gwClusterUrl;
 
   public static final String SERIALIZED_NAME_IS_CA = "is_ca";
   @SerializedName(SERIALIZED_NAME_IS_CA)
@@ -103,6 +120,10 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
   private List<String> postalCode = null;
 
+  public static final String SERIALIZED_NAME_PROTECT_GENERATED_CERTIFICATES = "protect_generated_certificates";
+  @SerializedName(SERIALIZED_NAME_PROTECT_GENERATED_CERTIFICATES)
+  private Boolean protectGeneratedCertificates;
+
   public static final String SERIALIZED_NAME_PROVINCE = "province";
   @SerializedName(SERIALIZED_NAME_PROVINCE)
   private List<String> province = null;
@@ -119,6 +140,8 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
   private List<String> streetAddress = null;
 
+  public PKICertificateIssueDetails() { 
+  }
 
   public PKICertificateIssueDetails allowAnyName(Boolean allowAnyName) {
     
@@ -251,6 +274,29 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails certificateAuthorityMode(String certificateAuthorityMode) {
+    
+    this.certificateAuthorityMode = certificateAuthorityMode;
+    return this;
+  }
+
+   /**
+   * Get certificateAuthorityMode
+   * @return certificateAuthorityMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateAuthorityMode() {
+    return certificateAuthorityMode;
+  }
+
+
+  public void setCertificateAuthorityMode(String certificateAuthorityMode) {
+    this.certificateAuthorityMode = certificateAuthorityMode;
+  }
+
+
   public PKICertificateIssueDetails clientFlag(Boolean clientFlag) {
     
     this.clientFlag = clientFlag;
@@ -328,6 +374,29 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails destinationPath(String destinationPath) {
+    
+    this.destinationPath = destinationPath;
+    return this;
+  }
+
+   /**
+   * DestinationPath is the destination to save generated certificates
+   * @return destinationPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "DestinationPath is the destination to save generated certificates")
+
+  public String getDestinationPath() {
+    return destinationPath;
+  }
+
+
+  public void setDestinationPath(String destinationPath) {
+    this.destinationPath = destinationPath;
+  }
+
+
   public PKICertificateIssueDetails enforceHostnames(Boolean enforceHostnames) {
     
     this.enforceHostnames = enforceHostnames;
@@ -348,6 +417,60 @@ public class PKICertificateIssueDetails {
 
   public void setEnforceHostnames(Boolean enforceHostnames) {
     this.enforceHostnames = enforceHostnames;
+  }
+
+
+  public PKICertificateIssueDetails expirationEvents(List<CertificateExpirationEvent> expirationEvents) {
+    
+    this.expirationEvents = expirationEvents;
+    return this;
+  }
+
+  public PKICertificateIssueDetails addExpirationEventsItem(CertificateExpirationEvent expirationEventsItem) {
+    if (this.expirationEvents == null) {
+      this.expirationEvents = new ArrayList<CertificateExpirationEvent>();
+    }
+    this.expirationEvents.add(expirationEventsItem);
+    return this;
+  }
+
+   /**
+   * ExpirationNotification holds a list of expiration notices that should be sent in case a certificate is about to expire, this value is being propagated to the Certificate resources that are created
+   * @return expirationEvents
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ExpirationNotification holds a list of expiration notices that should be sent in case a certificate is about to expire, this value is being propagated to the Certificate resources that are created")
+
+  public List<CertificateExpirationEvent> getExpirationEvents() {
+    return expirationEvents;
+  }
+
+
+  public void setExpirationEvents(List<CertificateExpirationEvent> expirationEvents) {
+    this.expirationEvents = expirationEvents;
+  }
+
+
+  public PKICertificateIssueDetails gwClusterUrl(String gwClusterUrl) {
+    
+    this.gwClusterUrl = gwClusterUrl;
+    return this;
+  }
+
+   /**
+   * GWClusterURL is required when CAMode is \&quot;public\&quot; and it defines the cluster URL the PKI should be issued from. The GW cluster must have permissions to read associated target&#39;s details
+   * @return gwClusterUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "GWClusterURL is required when CAMode is \"public\" and it defines the cluster URL the PKI should be issued from. The GW cluster must have permissions to read associated target's details")
+
+  public String getGwClusterUrl() {
+    return gwClusterUrl;
+  }
+
+
+  public void setGwClusterUrl(String gwClusterUrl) {
+    this.gwClusterUrl = gwClusterUrl;
   }
 
 
@@ -598,6 +721,29 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails protectGeneratedCertificates(Boolean protectGeneratedCertificates) {
+    
+    this.protectGeneratedCertificates = protectGeneratedCertificates;
+    return this;
+  }
+
+   /**
+   * ProtectGeneratedCertificates dictates whether the created certificates should be protected from deletion
+   * @return protectGeneratedCertificates
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ProtectGeneratedCertificates dictates whether the created certificates should be protected from deletion")
+
+  public Boolean getProtectGeneratedCertificates() {
+    return protectGeneratedCertificates;
+  }
+
+
+  public void setProtectGeneratedCertificates(Boolean protectGeneratedCertificates) {
+    this.protectGeneratedCertificates = protectGeneratedCertificates;
+  }
+
+
   public PKICertificateIssueDetails province(List<String> province) {
     
     this.province = province;
@@ -707,7 +853,7 @@ public class PKICertificateIssueDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -720,10 +866,14 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.allowedDomainsList, pkICertificateIssueDetails.allowedDomainsList) &&
         Objects.equals(this.allowedUriSans, pkICertificateIssueDetails.allowedUriSans) &&
         Objects.equals(this.basicConstraintsValidForNonCa, pkICertificateIssueDetails.basicConstraintsValidForNonCa) &&
+        Objects.equals(this.certificateAuthorityMode, pkICertificateIssueDetails.certificateAuthorityMode) &&
         Objects.equals(this.clientFlag, pkICertificateIssueDetails.clientFlag) &&
         Objects.equals(this.codeSigningFlag, pkICertificateIssueDetails.codeSigningFlag) &&
         Objects.equals(this.country, pkICertificateIssueDetails.country) &&
+        Objects.equals(this.destinationPath, pkICertificateIssueDetails.destinationPath) &&
         Objects.equals(this.enforceHostnames, pkICertificateIssueDetails.enforceHostnames) &&
+        Objects.equals(this.expirationEvents, pkICertificateIssueDetails.expirationEvents) &&
+        Objects.equals(this.gwClusterUrl, pkICertificateIssueDetails.gwClusterUrl) &&
         Objects.equals(this.isCa, pkICertificateIssueDetails.isCa) &&
         Objects.equals(this.keyBits, pkICertificateIssueDetails.keyBits) &&
         Objects.equals(this.keyType, pkICertificateIssueDetails.keyType) &&
@@ -733,6 +883,7 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.organizationList, pkICertificateIssueDetails.organizationList) &&
         Objects.equals(this.organizationUnitList, pkICertificateIssueDetails.organizationUnitList) &&
         Objects.equals(this.postalCode, pkICertificateIssueDetails.postalCode) &&
+        Objects.equals(this.protectGeneratedCertificates, pkICertificateIssueDetails.protectGeneratedCertificates) &&
         Objects.equals(this.province, pkICertificateIssueDetails.province) &&
         Objects.equals(this.requireCn, pkICertificateIssueDetails.requireCn) &&
         Objects.equals(this.serverFlag, pkICertificateIssueDetails.serverFlag) &&
@@ -741,9 +892,8 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowSubdomains, allowedDomainsList, allowedUriSans, basicConstraintsValidForNonCa, clientFlag, codeSigningFlag, country, enforceHostnames, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, province, requireCn, serverFlag, streetAddress);
+    return Objects.hash(allowAnyName, allowSubdomains, allowedDomainsList, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, destinationPath, enforceHostnames, expirationEvents, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
   }
-
 
   @Override
   public String toString() {
@@ -754,10 +904,14 @@ public class PKICertificateIssueDetails {
     sb.append("    allowedDomainsList: ").append(toIndentedString(allowedDomainsList)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
     sb.append("    basicConstraintsValidForNonCa: ").append(toIndentedString(basicConstraintsValidForNonCa)).append("\n");
+    sb.append("    certificateAuthorityMode: ").append(toIndentedString(certificateAuthorityMode)).append("\n");
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
     sb.append("    enforceHostnames: ").append(toIndentedString(enforceHostnames)).append("\n");
+    sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
+    sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    isCa: ").append(toIndentedString(isCa)).append("\n");
     sb.append("    keyBits: ").append(toIndentedString(keyBits)).append("\n");
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
@@ -767,6 +921,7 @@ public class PKICertificateIssueDetails {
     sb.append("    organizationList: ").append(toIndentedString(organizationList)).append("\n");
     sb.append("    organizationUnitList: ").append(toIndentedString(organizationUnitList)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    protectGeneratedCertificates: ").append(toIndentedString(protectGeneratedCertificates)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
     sb.append("    requireCn: ").append(toIndentedString(requireCn)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
@@ -779,7 +934,7 @@ public class PKICertificateIssueDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

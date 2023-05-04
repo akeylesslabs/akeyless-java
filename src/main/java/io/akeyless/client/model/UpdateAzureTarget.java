@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateAzureTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAzureTarget {
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
@@ -97,6 +97,8 @@ public class UpdateAzureTarget {
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
 
+  public UpdateAzureTarget() { 
+  }
 
   public UpdateAzureTarget clientId(String clientId) {
     
@@ -269,6 +271,7 @@ public class UpdateAzureTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -489,7 +492,7 @@ public class UpdateAzureTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -521,7 +524,6 @@ public class UpdateAzureTarget {
     return Objects.hash(clientId, clientSecret, comment, description, json, keepPrevVersion, key, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -551,7 +553,7 @@ public class UpdateAzureTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -27,15 +27,48 @@ import java.io.IOException;
 /**
  * Update
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Update {
+  public static final String SERIALIZED_NAME_ARTIFACT_REPOSITORY = "artifact-repository";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_REPOSITORY)
+  private String artifactRepository;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_SHOW_CHANGELOG = "show-changelog";
+  @SerializedName(SERIALIZED_NAME_SHOW_CHANGELOG)
+  private Boolean showChangelog;
+
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version = "latest";
+
+  public Update() { 
+  }
+
+  public Update artifactRepository(String artifactRepository) {
+    
+    this.artifactRepository = artifactRepository;
+    return this;
+  }
+
+   /**
+   * Alternative CLI repository url. e.g. https://artifacts.site2.akeyless.io
+   * @return artifactRepository
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Alternative CLI repository url. e.g. https://artifacts.site2.akeyless.io")
+
+  public String getArtifactRepository() {
+    return artifactRepository;
+  }
+
+
+  public void setArtifactRepository(String artifactRepository) {
+    this.artifactRepository = artifactRepository;
+  }
 
 
   public Update json(Boolean json) {
@@ -61,6 +94,29 @@ public class Update {
   }
 
 
+  public Update showChangelog(Boolean showChangelog) {
+    
+    this.showChangelog = showChangelog;
+    return this;
+  }
+
+   /**
+   * Show the changelog between the current version and the latest one and exit (update will not be performed)
+   * @return showChangelog
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Show the changelog between the current version and the latest one and exit (update will not be performed)")
+
+  public Boolean getShowChangelog() {
+    return showChangelog;
+  }
+
+
+  public void setShowChangelog(Boolean showChangelog) {
+    this.showChangelog = showChangelog;
+  }
+
+
   public Update version(String version) {
     
     this.version = version;
@@ -68,11 +124,11 @@ public class Update {
   }
 
    /**
-   * Version
+   * The CLI version
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version")
+  @ApiModelProperty(value = "The CLI version")
 
   public String getVersion() {
     return version;
@@ -85,7 +141,7 @@ public class Update {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -93,21 +149,24 @@ public class Update {
       return false;
     }
     Update update = (Update) o;
-    return Objects.equals(this.json, update.json) &&
+    return Objects.equals(this.artifactRepository, update.artifactRepository) &&
+        Objects.equals(this.json, update.json) &&
+        Objects.equals(this.showChangelog, update.showChangelog) &&
         Objects.equals(this.version, update.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, version);
+    return Objects.hash(artifactRepository, json, showChangelog, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Update {\n");
+    sb.append("    artifactRepository: ").append(toIndentedString(artifactRepository)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    showChangelog: ").append(toIndentedString(showChangelog)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -117,7 +176,7 @@ public class Update {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

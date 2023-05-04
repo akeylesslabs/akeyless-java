@@ -3,6 +3,7 @@
 # OAuth2AccessRules
 
 OAuth2AccessRules contains access rules specific to OAuth2 authentication method.
+
 ## Properties
 
 Name | Type | Description | Notes

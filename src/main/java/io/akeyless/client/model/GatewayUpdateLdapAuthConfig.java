@@ -28,7 +28,7 @@ import java.io.IOException;
  * gatewayUpdateLdapAuth is a command that updates ldap auth config
  */
 @ApiModel(description = "gatewayUpdateLdapAuth is a command that updates ldap auth config")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateLdapAuthConfig {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -94,6 +94,8 @@ public class GatewayUpdateLdapAuthConfig {
   @SerializedName(SERIALIZED_NAME_USER_DN)
   private String userDn;
 
+  public GatewayUpdateLdapAuthConfig() { 
+  }
 
   public GatewayUpdateLdapAuthConfig accessId(String accessId) {
     
@@ -464,7 +466,7 @@ public class GatewayUpdateLdapAuthConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -495,7 +497,6 @@ public class GatewayUpdateLdapAuthConfig {
     return Objects.hash(accessId, bindDn, bindDnPassword, groupAttr, groupDn, groupFilter, json, ldapCaCert, ldapEnable, ldapUrl, ldapAnonymousSearch, signingKeyData, token, uidToken, userAttribute, userDn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -524,7 +525,7 @@ public class GatewayUpdateLdapAuthConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -3,6 +3,7 @@
 # GatewayMigratePersonalItems
 
 gatewayMigratePersonalItems is a command that migrate personal items from external vault
+
 ## Properties
 
 Name | Type | Description | Notes

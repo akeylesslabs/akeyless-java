@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * K8SAuthsConfigLastChange
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class K8SAuthsConfigLastChange {
   public static final String SERIALIZED_NAME_CHANGED_K8S_AUTHS_IDS = "changed_k8s_auths_ids";
   @SerializedName(SERIALIZED_NAME_CHANGED_K8S_AUTHS_IDS)
@@ -43,6 +43,8 @@ public class K8SAuthsConfigLastChange {
   @SerializedName(SERIALIZED_NAME_DELETED_K8S_AUTHS_IDS)
   private List<String> deletedK8sAuthsIds = null;
 
+  public K8SAuthsConfigLastChange() { 
+  }
 
   public K8SAuthsConfigLastChange changedK8sAuthsIds(List<String> changedK8sAuthsIds) {
     
@@ -138,7 +140,7 @@ public class K8SAuthsConfigLastChange {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -156,7 +158,6 @@ public class K8SAuthsConfigLastChange {
     return Objects.hash(changedK8sAuthsIds, createdK8sAuthsIds, deletedK8sAuthsIds);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -172,7 +173,7 @@ public class K8SAuthsConfigLastChange {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

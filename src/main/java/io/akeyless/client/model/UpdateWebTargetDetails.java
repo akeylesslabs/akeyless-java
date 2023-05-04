@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateWebTargetDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateWebTargetDetails {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -61,6 +61,8 @@ public class UpdateWebTargetDetails {
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
+  public UpdateWebTargetDetails() { 
+  }
 
   public UpdateWebTargetDetails json(Boolean json) {
     
@@ -118,6 +120,7 @@ public class UpdateWebTargetDetails {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -246,7 +249,7 @@ public class UpdateWebTargetDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -269,7 +272,6 @@ public class UpdateWebTargetDetails {
     return Objects.hash(json, keepPrevVersion, name, newVersion, protectionKey, token, uidToken, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -290,7 +292,7 @@ public class UpdateWebTargetDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

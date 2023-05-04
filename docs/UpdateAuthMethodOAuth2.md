@@ -3,6 +3,7 @@
 # UpdateAuthMethodOAuth2
 
 updateAuthMethodOAuth2 is a command that updates a new auth method that will be able to authenticate using Oauth2.
+
 ## Properties
 
 Name | Type | Description | Notes

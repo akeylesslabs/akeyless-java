@@ -30,7 +30,7 @@ import java.util.List;
  * createTokenizer is a command that creates a tokenizer item
  */
 @ApiModel(description = "createTokenizer is a command that creates a tokenizer item")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateTokenizer {
   public static final String SERIALIZED_NAME_ALPHABET = "alphabet";
   @SerializedName(SERIALIZED_NAME_ALPHABET)
@@ -96,6 +96,8 @@ public class CreateTokenizer {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public CreateTokenizer() { 
+  }
 
   public CreateTokenizer alphabet(String alphabet) {
     
@@ -291,6 +293,7 @@ public class CreateTokenizer {
    * Tokenizer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Tokenizer name")
 
   public String getName() {
@@ -367,6 +370,7 @@ public class CreateTokenizer {
    * Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Email,Regexp]
    * @return templateType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Email,Regexp]")
 
   public String getTemplateType() {
@@ -412,6 +416,7 @@ public class CreateTokenizer {
    * Tokenizer type
    * @return tokenizerType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Tokenizer type")
 
   public String getTokenizerType() {
@@ -471,7 +476,7 @@ public class CreateTokenizer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -502,7 +507,6 @@ public class CreateTokenizer {
     return Objects.hash(alphabet, decodingTemplate, deleteProtection, description, encodingTemplate, encryptionKeyName, json, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -531,7 +535,7 @@ public class CreateTokenizer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

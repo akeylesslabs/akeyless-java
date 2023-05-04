@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Rotator
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Rotator {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -49,6 +49,8 @@ public class Rotator {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public Rotator() { 
+  }
 
   public Rotator id(Long id) {
     
@@ -166,7 +168,7 @@ public class Rotator {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -186,7 +188,6 @@ public class Rotator {
     return Objects.hash(id, lastError, name, rotationInterval, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -204,7 +205,7 @@ public class Rotator {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * GetTargetDetailsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetTargetDetailsOutput {
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
@@ -39,6 +39,8 @@ public class GetTargetDetailsOutput {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private TargetTypeDetailsInput value;
 
+  public GetTargetDetailsOutput() { 
+  }
 
   public GetTargetDetailsOutput target(Target target) {
     
@@ -87,7 +89,7 @@ public class GetTargetDetailsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -104,7 +106,6 @@ public class GetTargetDetailsOutput {
     return Objects.hash(target, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -119,7 +120,7 @@ public class GetTargetDetailsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

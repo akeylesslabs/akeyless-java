@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ListSRABastions
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListSRABastions {
   public static final String SERIALIZED_NAME_ALLOWED_URLS_ONLY = "allowed-urls-only";
   @SerializedName(SERIALIZED_NAME_ALLOWED_URLS_ONLY)
@@ -45,6 +45,8 @@ public class ListSRABastions {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public ListSRABastions() { 
+  }
 
   public ListSRABastions allowedUrlsOnly(Boolean allowedUrlsOnly) {
     
@@ -139,7 +141,7 @@ public class ListSRABastions {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +160,6 @@ public class ListSRABastions {
     return Objects.hash(allowedUrlsOnly, json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +176,7 @@ public class ListSRABastions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

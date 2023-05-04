@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * GatewayGetK8SAuthConfigOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayGetK8SAuthConfigOutput {
   public static final String SERIALIZED_NAME_AM_TOKEN_EXPIRATION = "am_token_expiration";
   @SerializedName(SERIALIZED_NAME_AM_TOKEN_EXPIRATION)
@@ -95,6 +95,8 @@ public class GatewayGetK8SAuthConfigOutput {
   @SerializedName(SERIALIZED_NAME_USE_LOCAL_CA_JWT)
   private Boolean useLocalCaJwt;
 
+  public GatewayGetK8SAuthConfigOutput() { 
+  }
 
   public GatewayGetK8SAuthConfigOutput amTokenExpiration(Long amTokenExpiration) {
     
@@ -473,7 +475,7 @@ public class GatewayGetK8SAuthConfigOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -504,7 +506,6 @@ public class GatewayGetK8SAuthConfigOutput {
     return Objects.hash(amTokenExpiration, authMethodAccessId, authMethodPrvKeyPem, clusterApiType, disableIssValidation, id, k8sCaCert, k8sHost, k8sIssuer, k8sPubKeysPem, k8sTokenReviewerJwt, name, protectionKey, rancherApiKey, rancherClusterId, useLocalCaJwt);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -533,7 +534,7 @@ public class GatewayGetK8SAuthConfigOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

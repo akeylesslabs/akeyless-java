@@ -2,6 +2,7 @@
 
 # LogForwardingConfigPart
 
+
 ## Properties
 
 Name | Type | Description | Notes

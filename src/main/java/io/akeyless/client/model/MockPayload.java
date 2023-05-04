@@ -29,12 +29,14 @@ import java.util.List;
 /**
  * MockPayload
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MockPayload {
   public static final String SERIALIZED_NAME_VAULTS = "vaults";
   @SerializedName(SERIALIZED_NAME_VAULTS)
   private List<String> vaults = null;
 
+  public MockPayload() { 
+  }
 
   public MockPayload vaults(List<String> vaults) {
     
@@ -68,7 +70,7 @@ public class MockPayload {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -84,7 +86,6 @@ public class MockPayload {
     return Objects.hash(vaults);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -98,7 +99,7 @@ public class MockPayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

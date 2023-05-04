@@ -2,13 +2,14 @@
 
 # Configure
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessId** | **String** | Access ID |  [optional]
 **accessKey** | **String** | Access Key |  [optional]
-**accessType** | **String** | Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s) |  [optional]
+**accessType** | **String** | Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert) |  [optional]
 **accountId** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) |  [optional]
 **adminEmail** | **String** | Email (relevant only for access-type&#x3D;password) |  [optional]
 **adminPassword** | **String** | Password (relevant only for access-type&#x3D;password) |  [optional]

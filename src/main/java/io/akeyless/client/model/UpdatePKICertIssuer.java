@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UpdatePKICertIssuer
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdatePKICertIssuer {
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
@@ -66,6 +66,18 @@ public class UpdatePKICertIssuer {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_DESTINATION_PATH = "destination-path";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_PATH)
+  private String destinationPath;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  private List<String> expirationEventIn = null;
+
+  public static final String SERIALIZED_NAME_GW_CLUSTER_URL = "gw-cluster-url";
+  @SerializedName(SERIALIZED_NAME_GW_CLUSTER_URL)
+  private String gwClusterUrl;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -111,6 +123,10 @@ public class UpdatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
   private String postalCode;
 
+  public static final String SERIALIZED_NAME_PROTECT_CERTIFICATES = "protect-certificates";
+  @SerializedName(SERIALIZED_NAME_PROTECT_CERTIFICATES)
+  private Boolean protectCertificates;
+
   public static final String SERIALIZED_NAME_PROVINCE = "province";
   @SerializedName(SERIALIZED_NAME_PROVINCE)
   private String province;
@@ -125,7 +141,7 @@ public class UpdatePKICertIssuer {
 
   public static final String SERIALIZED_NAME_SIGNER_KEY_NAME = "signer-key-name";
   @SerializedName(SERIALIZED_NAME_SIGNER_KEY_NAME)
-  private String signerKeyName;
+  private String signerKeyName = "dummy_signer_key";
 
   public static final String SERIALIZED_NAME_STREET_ADDRESS = "street-address";
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
@@ -143,6 +159,8 @@ public class UpdatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdatePKICertIssuer() { 
+  }
 
   public UpdatePKICertIssuer addTag(List<String> addTag) {
     
@@ -359,6 +377,83 @@ public class UpdatePKICertIssuer {
   }
 
 
+  public UpdatePKICertIssuer destinationPath(String destinationPath) {
+    
+    this.destinationPath = destinationPath;
+    return this;
+  }
+
+   /**
+   * A path in which to save generated certificates
+   * @return destinationPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A path in which to save generated certificates")
+
+  public String getDestinationPath() {
+    return destinationPath;
+  }
+
+
+  public void setDestinationPath(String destinationPath) {
+    this.destinationPath = destinationPath;
+  }
+
+
+  public UpdatePKICertIssuer expirationEventIn(List<String> expirationEventIn) {
+    
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public UpdatePKICertIssuer addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<String>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the expiration of the certificate would you like to be notified.")
+
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+
+  public void setExpirationEventIn(List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+  }
+
+
+  public UpdatePKICertIssuer gwClusterUrl(String gwClusterUrl) {
+    
+    this.gwClusterUrl = gwClusterUrl;
+    return this;
+  }
+
+   /**
+   * The GW cluster URL to issue the certificate from, required in Public CA mode
+   * @return gwClusterUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The GW cluster URL to issue the certificate from, required in Public CA mode")
+
+  public String getGwClusterUrl() {
+    return gwClusterUrl;
+  }
+
+
+  public void setGwClusterUrl(String gwClusterUrl) {
+    this.gwClusterUrl = gwClusterUrl;
+  }
+
+
   public UpdatePKICertIssuer json(Boolean json) {
     
     this.json = json;
@@ -461,6 +556,7 @@ public class UpdatePKICertIssuer {
    * PKI certificate issuer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "PKI certificate issuer name")
 
   public String getName() {
@@ -611,6 +707,29 @@ public class UpdatePKICertIssuer {
   }
 
 
+  public UpdatePKICertIssuer protectCertificates(Boolean protectCertificates) {
+    
+    this.protectCertificates = protectCertificates;
+    return this;
+  }
+
+   /**
+   * Whether to protect generated certificates from deletion
+   * @return protectCertificates
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to protect generated certificates from deletion")
+
+  public Boolean getProtectCertificates() {
+    return protectCertificates;
+  }
+
+
+  public void setProtectCertificates(Boolean protectCertificates) {
+    this.protectCertificates = protectCertificates;
+  }
+
+
   public UpdatePKICertIssuer province(String province) {
     
     this.province = province;
@@ -695,10 +814,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * A key to sign the certificate with
+   * A key to sign the certificate with, required in Private CA mode
    * @return signerKeyName
   **/
-  @ApiModelProperty(required = true, value = "A key to sign the certificate with")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "A key to sign the certificate with, required in Private CA mode")
 
   public String getSignerKeyName() {
     return signerKeyName;
@@ -766,6 +886,7 @@ public class UpdatePKICertIssuer {
    * he requested Time To Live for the certificate, in seconds
    * @return ttl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
 
   public Long getTtl() {
@@ -802,7 +923,7 @@ public class UpdatePKICertIssuer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -819,6 +940,9 @@ public class UpdatePKICertIssuer {
         Objects.equals(this.codeSigningFlag, updatePKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, updatePKICertIssuer.country) &&
         Objects.equals(this.description, updatePKICertIssuer.description) &&
+        Objects.equals(this.destinationPath, updatePKICertIssuer.destinationPath) &&
+        Objects.equals(this.expirationEventIn, updatePKICertIssuer.expirationEventIn) &&
+        Objects.equals(this.gwClusterUrl, updatePKICertIssuer.gwClusterUrl) &&
         Objects.equals(this.json, updatePKICertIssuer.json) &&
         Objects.equals(this.keyUsage, updatePKICertIssuer.keyUsage) &&
         Objects.equals(this.locality, updatePKICertIssuer.locality) &&
@@ -830,6 +954,7 @@ public class UpdatePKICertIssuer {
         Objects.equals(this.organizationalUnits, updatePKICertIssuer.organizationalUnits) &&
         Objects.equals(this.organizations, updatePKICertIssuer.organizations) &&
         Objects.equals(this.postalCode, updatePKICertIssuer.postalCode) &&
+        Objects.equals(this.protectCertificates, updatePKICertIssuer.protectCertificates) &&
         Objects.equals(this.province, updatePKICertIssuer.province) &&
         Objects.equals(this.rmTag, updatePKICertIssuer.rmTag) &&
         Objects.equals(this.serverFlag, updatePKICertIssuer.serverFlag) &&
@@ -842,9 +967,8 @@ public class UpdatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, description, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
+    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, description, destinationPath, expirationEventIn, gwClusterUrl, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
   }
-
 
   @Override
   public String toString() {
@@ -859,6 +983,9 @@ public class UpdatePKICertIssuer {
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
+    sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
@@ -870,6 +997,7 @@ public class UpdatePKICertIssuer {
     sb.append("    organizationalUnits: ").append(toIndentedString(organizationalUnits)).append("\n");
     sb.append("    organizations: ").append(toIndentedString(organizations)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    protectCertificates: ").append(toIndentedString(protectCertificates)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
@@ -886,7 +1014,7 @@ public class UpdatePKICertIssuer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -2,6 +2,7 @@
 
 # GatewayCreateProducerArtifactoryOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

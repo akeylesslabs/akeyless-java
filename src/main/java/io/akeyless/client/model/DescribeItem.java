@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DescribeItem
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DescribeItem {
   public static final String SERIALIZED_NAME_BASTION_DETAILS = "bastion-details";
   @SerializedName(SERIALIZED_NAME_BASTION_DETAILS)
@@ -65,6 +65,8 @@ public class DescribeItem {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DescribeItem() { 
+  }
 
   public DescribeItem bastionDetails(Boolean bastionDetails) {
     
@@ -191,6 +193,7 @@ public class DescribeItem {
    * Item name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Item name")
 
   public String getName() {
@@ -273,7 +276,7 @@ public class DescribeItem {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -297,7 +300,6 @@ public class DescribeItem {
     return Objects.hash(bastionDetails, displayId, gatewayDetails, itemId, json, name, showVersions, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -319,7 +321,7 @@ public class DescribeItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

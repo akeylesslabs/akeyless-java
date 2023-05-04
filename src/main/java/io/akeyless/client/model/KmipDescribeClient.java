@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * KmipDescribeClient
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KmipDescribeClient {
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
@@ -49,6 +49,8 @@ public class KmipDescribeClient {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public KmipDescribeClient() { 
+  }
 
   public KmipDescribeClient clientId(String clientId) {
     
@@ -166,7 +168,7 @@ public class KmipDescribeClient {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -186,7 +188,6 @@ public class KmipDescribeClient {
     return Objects.hash(clientId, json, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -204,7 +205,7 @@ public class KmipDescribeClient {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

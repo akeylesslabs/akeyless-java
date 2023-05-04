@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetSSHCertificateOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetSSHCertificateOutput {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -37,6 +37,8 @@ public class GetSSHCertificateOutput {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
+  public GetSSHCertificateOutput() { 
+  }
 
   public GetSSHCertificateOutput data(String data) {
     
@@ -85,7 +87,7 @@ public class GetSSHCertificateOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class GetSSHCertificateOutput {
     return Objects.hash(data, path);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class GetSSHCertificateOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

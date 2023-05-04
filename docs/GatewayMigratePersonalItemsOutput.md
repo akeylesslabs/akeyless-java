@@ -2,6 +2,7 @@
 
 # GatewayMigratePersonalItemsOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

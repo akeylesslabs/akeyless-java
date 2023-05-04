@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ListTargetsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListTargetsOutput {
   public static final String SERIALIZED_NAME_NEXT_PAGE = "next_page";
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE)
@@ -40,6 +40,8 @@ public class ListTargetsOutput {
   @SerializedName(SERIALIZED_NAME_TARGETS)
   private List<Target> targets = null;
 
+  public ListTargetsOutput() { 
+  }
 
   public ListTargetsOutput nextPage(String nextPage) {
     
@@ -96,7 +98,7 @@ public class ListTargetsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -113,7 +115,6 @@ public class ListTargetsOutput {
     return Objects.hash(nextPage, targets);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -128,7 +129,7 @@ public class ListTargetsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

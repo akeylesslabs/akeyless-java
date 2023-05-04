@@ -30,7 +30,7 @@ import java.util.List;
  * GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
  */
 @ApiModel(description = "GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerSnowflake {
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
@@ -100,6 +100,8 @@ public class GatewayUpdateProducerSnowflake {
   @SerializedName(SERIALIZED_NAME_WAREHOUSE)
   private String warehouse;
 
+  public GatewayUpdateProducerSnowflake() { 
+  }
 
   public GatewayUpdateProducerSnowflake account(String account) {
     
@@ -249,6 +251,7 @@ public class GatewayUpdateProducerSnowflake {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -500,7 +503,7 @@ public class GatewayUpdateProducerSnowflake {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -532,7 +535,6 @@ public class GatewayUpdateProducerSnowflake {
     return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, json, name, newName, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -562,7 +564,7 @@ public class GatewayUpdateProducerSnowflake {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

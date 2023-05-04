@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SmInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SmInfo {
   public static final String SERIALIZED_NAME_SLA = "sla";
   @SerializedName(SERIALIZED_NAME_SLA)
@@ -37,6 +37,8 @@ public class SmInfo {
   @SerializedName(SERIALIZED_NAME_TIER)
   private String tier;
 
+  public SmInfo() { 
+  }
 
   public SmInfo sla(String sla) {
     
@@ -85,7 +87,7 @@ public class SmInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +104,6 @@ public class SmInfo {
     return Objects.hash(sla, tier);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -117,7 +118,7 @@ public class SmInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

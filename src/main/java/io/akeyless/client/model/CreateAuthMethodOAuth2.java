@@ -30,7 +30,7 @@ import java.util.List;
  * createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.
  */
 @ApiModel(description = "createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -96,6 +96,8 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
   private String uniqueIdentifier;
 
+  public CreateAuthMethodOAuth2() { 
+  }
 
   public CreateAuthMethodOAuth2 accessExpires(Long accessExpires) {
     
@@ -361,6 +363,7 @@ public class CreateAuthMethodOAuth2 {
    * The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.
    * @return jwksUri
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.")
 
   public String getJwksUri() {
@@ -406,6 +409,7 @@ public class CreateAuthMethodOAuth2 {
    * Auth Method name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Auth Method name")
 
   public String getName() {
@@ -474,6 +478,7 @@ public class CreateAuthMethodOAuth2 {
    * A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \&quot;sub claim\&quot; that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
    * @return uniqueIdentifier
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \"sub claim\" that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.")
 
   public String getUniqueIdentifier() {
@@ -487,7 +492,7 @@ public class CreateAuthMethodOAuth2 {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -518,7 +523,6 @@ public class CreateAuthMethodOAuth2 {
     return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gwBoundIps, issuer, json, jwksJsonData, jwksJsonFile, jwksUri, jwtTtl, name, token, uidToken, uniqueIdentifier);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -547,7 +551,7 @@ public class CreateAuthMethodOAuth2 {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

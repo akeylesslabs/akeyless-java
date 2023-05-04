@@ -27,11 +27,11 @@ import java.io.IOException;
 /**
  * GatewayMessageQueueInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayMessageQueueInfo {
-  public static final String SERIALIZED_NAME_BROADCAST_QUEUE_NAME = "broadcast_queue_name";
-  @SerializedName(SERIALIZED_NAME_BROADCAST_QUEUE_NAME)
-  private String broadcastQueueName;
+  public static final String SERIALIZED_NAME_BROADCAST_QUEUE_NAME_A = "broadcast_queue_name_a";
+  @SerializedName(SERIALIZED_NAME_BROADCAST_QUEUE_NAME_A)
+  private String broadcastQueueNameA;
 
   public static final String SERIALIZED_NAME_MQ_TYPE = "mq_type";
   @SerializedName(SERIALIZED_NAME_MQ_TYPE)
@@ -45,27 +45,29 @@ public class GatewayMessageQueueInfo {
   @SerializedName(SERIALIZED_NAME_QUEUE_URL)
   private String queueUrl;
 
+  public GatewayMessageQueueInfo() { 
+  }
 
-  public GatewayMessageQueueInfo broadcastQueueName(String broadcastQueueName) {
+  public GatewayMessageQueueInfo broadcastQueueNameA(String broadcastQueueNameA) {
     
-    this.broadcastQueueName = broadcastQueueName;
+    this.broadcastQueueNameA = broadcastQueueNameA;
     return this;
   }
 
    /**
-   * Get broadcastQueueName
-   * @return broadcastQueueName
+   * Get broadcastQueueNameA
+   * @return broadcastQueueNameA
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getBroadcastQueueName() {
-    return broadcastQueueName;
+  public String getBroadcastQueueNameA() {
+    return broadcastQueueNameA;
   }
 
 
-  public void setBroadcastQueueName(String broadcastQueueName) {
-    this.broadcastQueueName = broadcastQueueName;
+  public void setBroadcastQueueNameA(String broadcastQueueNameA) {
+    this.broadcastQueueNameA = broadcastQueueNameA;
   }
 
 
@@ -139,7 +141,7 @@ public class GatewayMessageQueueInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -147,7 +149,7 @@ public class GatewayMessageQueueInfo {
       return false;
     }
     GatewayMessageQueueInfo gatewayMessageQueueInfo = (GatewayMessageQueueInfo) o;
-    return Objects.equals(this.broadcastQueueName, gatewayMessageQueueInfo.broadcastQueueName) &&
+    return Objects.equals(this.broadcastQueueNameA, gatewayMessageQueueInfo.broadcastQueueNameA) &&
         Objects.equals(this.mqType, gatewayMessageQueueInfo.mqType) &&
         Objects.equals(this.queueName, gatewayMessageQueueInfo.queueName) &&
         Objects.equals(this.queueUrl, gatewayMessageQueueInfo.queueUrl);
@@ -155,15 +157,14 @@ public class GatewayMessageQueueInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastQueueName, mqType, queueName, queueUrl);
+    return Objects.hash(broadcastQueueNameA, mqType, queueName, queueUrl);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayMessageQueueInfo {\n");
-    sb.append("    broadcastQueueName: ").append(toIndentedString(broadcastQueueName)).append("\n");
+    sb.append("    broadcastQueueNameA: ").append(toIndentedString(broadcastQueueNameA)).append("\n");
     sb.append("    mqType: ").append(toIndentedString(mqType)).append("\n");
     sb.append("    queueName: ").append(toIndentedString(queueName)).append("\n");
     sb.append("    queueUrl: ").append(toIndentedString(queueUrl)).append("\n");
@@ -175,7 +176,7 @@ public class GatewayMessageQueueInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

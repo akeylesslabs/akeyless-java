@@ -2,6 +2,7 @@
 
 # CreateCertificateOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

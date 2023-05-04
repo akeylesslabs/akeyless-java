@@ -27,8 +27,12 @@ import java.io.IOException;
 /**
  * EsmGetSecretOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EsmGetSecretOutput {
+  public static final String SERIALIZED_NAME_BINARY_VALUE = "binary_value";
+  @SerializedName(SERIALIZED_NAME_BINARY_VALUE)
+  private Boolean binaryValue;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
@@ -36,6 +40,31 @@ public class EsmGetSecretOutput {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
+  public EsmGetSecretOutput() { 
+  }
+
+  public EsmGetSecretOutput binaryValue(Boolean binaryValue) {
+    
+    this.binaryValue = binaryValue;
+    return this;
+  }
+
+   /**
+   * Get binaryValue
+   * @return binaryValue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getBinaryValue() {
+    return binaryValue;
+  }
+
+
+  public void setBinaryValue(Boolean binaryValue) {
+    this.binaryValue = binaryValue;
+  }
 
 
   public EsmGetSecretOutput metadata(Object metadata) {
@@ -85,7 +114,7 @@ public class EsmGetSecretOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -93,20 +122,21 @@ public class EsmGetSecretOutput {
       return false;
     }
     EsmGetSecretOutput esmGetSecretOutput = (EsmGetSecretOutput) o;
-    return Objects.equals(this.metadata, esmGetSecretOutput.metadata) &&
+    return Objects.equals(this.binaryValue, esmGetSecretOutput.binaryValue) &&
+        Objects.equals(this.metadata, esmGetSecretOutput.metadata) &&
         Objects.equals(this.value, esmGetSecretOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, value);
+    return Objects.hash(binaryValue, metadata, value);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EsmGetSecretOutput {\n");
+    sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -117,7 +147,7 @@ public class EsmGetSecretOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

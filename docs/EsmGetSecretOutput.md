@@ -2,11 +2,13 @@
 
 # EsmGetSecretOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata** | [**Object**](.md) |  |  [optional]
+**binaryValue** | **Boolean** |  |  [optional]
+**metadata** | **Object** |  |  [optional]
 **value** | **String** |  |  [optional]
 
 

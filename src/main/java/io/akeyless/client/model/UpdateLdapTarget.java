@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateLdapTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateLdapTarget {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
@@ -93,6 +93,8 @@ public class UpdateLdapTarget {
   @SerializedName(SERIALIZED_NAME_UPDATE_VERSION)
   private Boolean updateVersion;
 
+  public UpdateLdapTarget() { 
+  }
 
   public UpdateLdapTarget bindDn(String bindDn) {
     
@@ -311,6 +313,7 @@ public class UpdateLdapTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -462,7 +465,7 @@ public class UpdateLdapTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -493,7 +496,6 @@ public class UpdateLdapTarget {
     return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, name, newName, serverType, token, tokenExpiration, uidToken, updateVersion);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -522,7 +524,7 @@ public class UpdateLdapTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

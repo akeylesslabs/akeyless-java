@@ -31,12 +31,14 @@ import java.util.Map;
 /**
  * ReverseRBACOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReverseRBACOutput {
   public static final String SERIALIZED_NAME_CLIENTS = "clients";
   @SerializedName(SERIALIZED_NAME_CLIENTS)
   private Map<String, ReverseRBACClient> clients = null;
 
+  public ReverseRBACOutput() { 
+  }
 
   public ReverseRBACOutput clients(Map<String, ReverseRBACClient> clients) {
     
@@ -70,7 +72,7 @@ public class ReverseRBACOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -86,7 +88,6 @@ public class ReverseRBACOutput {
     return Objects.hash(clients);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -100,7 +101,7 @@ public class ReverseRBACOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

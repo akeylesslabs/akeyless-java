@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * LastStatusInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LastStatusInfo {
   public static final String SERIALIZED_NAME_MIGRATIONS_STATUS = "migrations_status";
   @SerializedName(SERIALIZED_NAME_MIGRATIONS_STATUS)
@@ -42,6 +42,8 @@ public class LastStatusInfo {
   @SerializedName(SERIALIZED_NAME_WAS_MIGRATIONS_COPIED_TO_NEW_TABLE)
   private Boolean wasMigrationsCopiedToNewTable;
 
+  public LastStatusInfo() { 
+  }
 
   public LastStatusInfo migrationsStatus(MigrationStatus migrationsStatus) {
     
@@ -113,7 +115,7 @@ public class LastStatusInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class LastStatusInfo {
     return Objects.hash(migrationsStatus, producersErrors, wasMigrationsCopiedToNewTable);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class LastStatusInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

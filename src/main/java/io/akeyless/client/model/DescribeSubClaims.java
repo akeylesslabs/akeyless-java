@@ -28,7 +28,7 @@ import java.io.IOException;
  * describe-sub-claims Get the sub-claims associated with the provided token or authentication profile
  */
 @ApiModel(description = "describe-sub-claims Get the sub-claims associated with the provided token or authentication profile")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DescribeSubClaims {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -42,6 +42,8 @@ public class DescribeSubClaims {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DescribeSubClaims() { 
+  }
 
   public DescribeSubClaims json(Boolean json) {
     
@@ -113,7 +115,7 @@ public class DescribeSubClaims {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class DescribeSubClaims {
     return Objects.hash(json, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class DescribeSubClaims {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

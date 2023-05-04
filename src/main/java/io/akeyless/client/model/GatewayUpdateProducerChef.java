@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerChef is a command that updates chef producer
  */
 @ApiModel(description = "gatewayUpdateProducerChef is a command that updates chef producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerChef {
   public static final String SERIALIZED_NAME_CHEF_ORGS = "chef-orgs";
   @SerializedName(SERIALIZED_NAME_CHEF_ORGS)
@@ -92,6 +92,8 @@ public class GatewayUpdateProducerChef {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerChef() { 
+  }
 
   public GatewayUpdateProducerChef chefOrgs(String chefOrgs) {
     
@@ -241,6 +243,7 @@ public class GatewayUpdateProducerChef {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -446,7 +449,7 @@ public class GatewayUpdateProducerChef {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -476,7 +479,6 @@ public class GatewayUpdateProducerChef {
     return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, json, name, newName, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -504,7 +506,7 @@ public class GatewayUpdateProducerChef {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

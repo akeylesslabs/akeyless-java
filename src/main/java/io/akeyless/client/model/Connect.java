@@ -28,7 +28,7 @@ import java.io.IOException;
  * Connect is a command that performs secure remote access
  */
 @ApiModel(description = "Connect is a command that performs secure remote access")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Connect {
   public static final String SERIALIZED_NAME_HELPER = "Helper";
   @SerializedName(SERIALIZED_NAME_HELPER)
@@ -98,6 +98,8 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_VIA_BASTION)
   private String viaBastion;
 
+  public Connect() { 
+  }
 
   public Connect helper(Object helper) {
     
@@ -491,7 +493,7 @@ public class Connect {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -523,7 +525,6 @@ public class Connect {
     return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, viaBastion);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -553,7 +554,7 @@ public class Connect {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

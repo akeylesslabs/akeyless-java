@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ListAuthMethodsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListAuthMethodsOutput {
   public static final String SERIALIZED_NAME_AUTH_METHODS = "auth_methods";
   @SerializedName(SERIALIZED_NAME_AUTH_METHODS)
@@ -40,6 +40,8 @@ public class ListAuthMethodsOutput {
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE)
   private String nextPage;
 
+  public ListAuthMethodsOutput() { 
+  }
 
   public ListAuthMethodsOutput authMethods(List<AuthMethod> authMethods) {
     
@@ -96,7 +98,7 @@ public class ListAuthMethodsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -113,7 +115,6 @@ public class ListAuthMethodsOutput {
     return Objects.hash(authMethods, nextPage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -128,7 +129,7 @@ public class ListAuthMethodsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

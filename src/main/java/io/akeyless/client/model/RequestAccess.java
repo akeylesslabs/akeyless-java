@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * RequestAccess
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RequestAccess {
   public static final String SERIALIZED_NAME_CAPABILITY = "capability";
   @SerializedName(SERIALIZED_NAME_CAPABILITY)
@@ -59,6 +59,8 @@ public class RequestAccess {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public RequestAccess() { 
+  }
 
   public RequestAccess capability(List<String> capability) {
     
@@ -75,6 +77,7 @@ public class RequestAccess {
    * List of the required capabilities options: [read, update, delete]
    * @return capability
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of the required capabilities options: [read, update, delete]")
 
   public List<String> getCapability() {
@@ -166,6 +169,7 @@ public class RequestAccess {
    * Item type
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Item type")
 
   public String getName() {
@@ -225,7 +229,7 @@ public class RequestAccess {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -247,7 +251,6 @@ public class RequestAccess {
     return Objects.hash(capability, comment, description, json, name, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -267,7 +270,7 @@ public class RequestAccess {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

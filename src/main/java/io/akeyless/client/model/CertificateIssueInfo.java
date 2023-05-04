@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * CertificateIssueInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CertificateIssueInfo {
   public static final String SERIALIZED_NAME_CERT_ISSUER_TYPE = "cert_issuer_type";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUER_TYPE)
@@ -47,6 +47,8 @@ public class CertificateIssueInfo {
   @SerializedName(SERIALIZED_NAME_SSH_CERT_ISSUER_DETAILS)
   private SSHCertificateIssueDetails sshCertIssuerDetails;
 
+  public CertificateIssueInfo() { 
+  }
 
   public CertificateIssueInfo certIssuerType(String certIssuerType) {
     
@@ -141,7 +143,7 @@ public class CertificateIssueInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -160,7 +162,6 @@ public class CertificateIssueInfo {
     return Objects.hash(certIssuerType, maxTtl, pkiCertIssuerDetails, sshCertIssuerDetails);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -177,7 +178,7 @@ public class CertificateIssueInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

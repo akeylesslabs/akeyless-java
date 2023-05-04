@@ -2,6 +2,7 @@
 
 # MigrationStatus
 
+
 ## Properties
 
 Name | Type | Description | Notes

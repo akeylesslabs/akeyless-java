@@ -28,7 +28,7 @@ import java.io.IOException;
  * esmGet is a command that gets the value and interal details of a secret from an External Secrets Manager
  */
 @ApiModel(description = "esmGet is a command that gets the value and interal details of a secret from an External Secrets Manager")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EsmGet {
   public static final String SERIALIZED_NAME_ESM_NAME = "esm-name";
   @SerializedName(SERIALIZED_NAME_ESM_NAME)
@@ -50,6 +50,8 @@ public class EsmGet {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public EsmGet() { 
+  }
 
   public EsmGet esmName(String esmName) {
     
@@ -61,6 +63,7 @@ public class EsmGet {
    * Name of the External Secrets Manager item
    * @return esmName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the External Secrets Manager item")
 
   public String getEsmName() {
@@ -106,6 +109,7 @@ public class EsmGet {
    * The secret id (or name, for AWS, Azure or K8s targets) to get from the External Secrets Manager
    * @return secretId
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The secret id (or name, for AWS, Azure or K8s targets) to get from the External Secrets Manager")
 
   public String getSecretId() {
@@ -165,7 +169,7 @@ public class EsmGet {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -185,7 +189,6 @@ public class EsmGet {
     return Objects.hash(esmName, json, secretId, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -203,7 +206,7 @@ public class EsmGet {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

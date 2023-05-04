@@ -28,7 +28,7 @@ import java.io.IOException;
  * DynamicSecretProducerInfo The dynamic secret producer info This parameter relevant and required only in case of create update dynamic secret.
  */
 @ApiModel(description = "DynamicSecretProducerInfo The dynamic secret producer info This parameter relevant and required only in case of create update dynamic secret.")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DynamicSecretProducerInfo {
   public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
@@ -62,6 +62,8 @@ public class DynamicSecretProducerInfo {
   @SerializedName(SERIALIZED_NAME_PRODUCER_TYPE)
   private String producerType;
 
+  public DynamicSecretProducerInfo() { 
+  }
 
   public DynamicSecretProducerInfo failureMessage(String failureMessage) {
     
@@ -248,7 +250,7 @@ public class DynamicSecretProducerInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -271,7 +273,6 @@ public class DynamicSecretProducerInfo {
     return Objects.hash(failureMessage, gwClusterId, k8sAllowedNamespaces, k8sDynamicMode, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -292,7 +293,7 @@ public class DynamicSecretProducerInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

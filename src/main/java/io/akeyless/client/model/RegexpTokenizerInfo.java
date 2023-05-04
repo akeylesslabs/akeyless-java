@@ -28,7 +28,7 @@ import java.io.IOException;
  * RegexpTokenizerInfo represents a general Regexp tokenization template
  */
 @ApiModel(description = "RegexpTokenizerInfo represents a general Regexp tokenization template")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RegexpTokenizerInfo {
   public static final String SERIALIZED_NAME_ALPHABET = "alphabet";
   @SerializedName(SERIALIZED_NAME_ALPHABET)
@@ -46,6 +46,8 @@ public class RegexpTokenizerInfo {
   @SerializedName(SERIALIZED_NAME_PATTERN)
   private String pattern;
 
+  public RegexpTokenizerInfo() { 
+  }
 
   public RegexpTokenizerInfo alphabet(String alphabet) {
     
@@ -140,7 +142,7 @@ public class RegexpTokenizerInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -159,7 +161,6 @@ public class RegexpTokenizerInfo {
     return Objects.hash(alphabet, decodingTemplate, encodingTemplate, pattern);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -176,7 +177,7 @@ public class RegexpTokenizerInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

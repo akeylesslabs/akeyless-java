@@ -3,6 +3,7 @@
 # CreateClassicKey
 
 CreateClassicKey is a command that creates classic key
+
 ## Properties
 
 Name | Type | Description | Notes

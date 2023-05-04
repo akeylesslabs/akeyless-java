@@ -3,6 +3,7 @@
 # DeleteAuthMethods
 
 deleteAuthMethods is a command that deletes multiple auth methods from a given path.
+
 ## Properties
 
 Name | Type | Description | Notes

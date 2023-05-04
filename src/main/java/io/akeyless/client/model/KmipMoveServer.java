@@ -28,7 +28,7 @@ import java.io.IOException;
  * kmipMoveServer is a command that Moves the root location of the kmip server and all associated items to a new root location
  */
 @ApiModel(description = "kmipMoveServer is a command that Moves the root location of the kmip server and all associated items to a new root location")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KmipMoveServer {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -46,6 +46,8 @@ public class KmipMoveServer {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public KmipMoveServer() { 
+  }
 
   public KmipMoveServer json(Boolean json) {
     
@@ -80,6 +82,7 @@ public class KmipMoveServer {
    * New root for the kmip server
    * @return newRoot
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "New root for the kmip server")
 
   public String getNewRoot() {
@@ -139,7 +142,7 @@ public class KmipMoveServer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -158,7 +161,6 @@ public class KmipMoveServer {
     return Objects.hash(json, newRoot, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -175,7 +177,7 @@ public class KmipMoveServer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

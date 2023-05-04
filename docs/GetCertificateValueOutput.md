@@ -2,6 +2,7 @@
 
 # GetCertificateValueOutput
 
+
 ## Properties
 
 Name | Type | Description | Notes

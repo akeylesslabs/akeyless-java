@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CacheConfigPart
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CacheConfigPart {
   public static final String SERIALIZED_NAME_CACHE_ENABLE = "cache_enable";
   @SerializedName(SERIALIZED_NAME_CACHE_ENABLE)
@@ -49,6 +49,8 @@ public class CacheConfigPart {
   @SerializedName(SERIALIZED_NAME_PROACTIVE_CACHE_MINIMUM_FETCHING_TIME)
   private String proactiveCacheMinimumFetchingTime;
 
+  public CacheConfigPart() { 
+  }
 
   public CacheConfigPart cacheEnable(Boolean cacheEnable) {
     
@@ -166,7 +168,7 @@ public class CacheConfigPart {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -186,7 +188,6 @@ public class CacheConfigPart {
     return Objects.hash(cacheEnable, cacheTtl, proactiveCacheDumpInterval, proactiveCacheEnable, proactiveCacheMinimumFetchingTime);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -204,7 +205,7 @@ public class CacheConfigPart {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

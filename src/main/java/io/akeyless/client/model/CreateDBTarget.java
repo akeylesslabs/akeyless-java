@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateDBTarget
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDBTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -137,6 +137,8 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
 
+  public CreateDBTarget() { 
+  }
 
   public CreateDBTarget comment(String comment) {
     
@@ -240,6 +242,7 @@ public class CreateDBTarget {
    * Get dbType
    * @return dbType
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getDbType() {
@@ -492,6 +495,7 @@ public class CreateDBTarget {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -758,7 +762,7 @@ public class CreateDBTarget {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -800,7 +804,6 @@ public class CreateDBTarget {
     return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -840,7 +843,7 @@ public class CreateDBTarget {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

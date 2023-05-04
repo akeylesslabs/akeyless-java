@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * GetAccountSettingsCommandOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetAccountSettingsCommandOutput {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -75,6 +75,8 @@ public class GetAccountSettingsCommandOutput {
   @SerializedName(SERIALIZED_NAME_SYSTEM_ACCESS_CREDS_SETTINGS)
   private SystemAccessCredsSettings systemAccessCredsSettings;
 
+  public GetAccountSettingsCommandOutput() { 
+  }
 
   public GetAccountSettingsCommandOutput accountId(String accountId) {
     
@@ -307,7 +309,7 @@ public class GetAccountSettingsCommandOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -332,7 +334,6 @@ public class GetAccountSettingsCommandOutput {
     return Objects.hash(accountId, address, companyName, email, generalSettings, objectVersionSettings, phone, secretManagement, secureRemoteAccess, systemAccessCredsSettings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -355,7 +356,7 @@ public class GetAccountSettingsCommandOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

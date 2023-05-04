@@ -30,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * KMIPServer
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KMIPServer {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -60,6 +60,8 @@ public class KMIPServer {
   @SerializedName(SERIALIZED_NAME_ROOT)
   private String root;
 
+  public KMIPServer() { 
+  }
 
   public KMIPServer active(Boolean active) {
     
@@ -239,7 +241,7 @@ public class KMIPServer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -261,7 +263,6 @@ public class KMIPServer {
     return Objects.hash(active, ca, certificate, certificateIssueDate, certificateTtlInSeconds, hostname, root);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -281,7 +282,7 @@ public class KMIPServer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

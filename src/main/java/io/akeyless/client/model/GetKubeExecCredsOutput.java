@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * GetKubeExecCredsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetKubeExecCredsOutput {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -42,6 +42,8 @@ public class GetKubeExecCredsOutput {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private ClientData status;
 
+  public GetKubeExecCredsOutput() { 
+  }
 
   public GetKubeExecCredsOutput apiVersion(String apiVersion) {
     
@@ -113,7 +115,7 @@ public class GetKubeExecCredsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +133,6 @@ public class GetKubeExecCredsOutput {
     return Objects.hash(apiVersion, kind, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -147,7 +148,7 @@ public class GetKubeExecCredsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DecryptFile
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecryptFile {
   public static final String SERIALIZED_NAME_CYPHERTEXT_HEADER = "cyphertext-header";
   @SerializedName(SERIALIZED_NAME_CYPHERTEXT_HEADER)
@@ -65,6 +65,8 @@ public class DecryptFile {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public DecryptFile() { 
+  }
 
   public DecryptFile cyphertextHeader(String cyphertextHeader) {
     
@@ -122,6 +124,7 @@ public class DecryptFile {
    * Path to the file to be decrypted. If not provided, the content will be taken from stdin
    * @return in
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path to the file to be decrypted. If not provided, the content will be taken from stdin")
 
   public String getIn() {
@@ -190,6 +193,7 @@ public class DecryptFile {
    * The name of the key to use in the decryption process
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the decryption process")
 
   public String getKeyName() {
@@ -272,7 +276,7 @@ public class DecryptFile {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -296,7 +300,6 @@ public class DecryptFile {
     return Objects.hash(cyphertextHeader, displayId, in, itemId, json, keyName, out, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -318,7 +321,7 @@ public class DecryptFile {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

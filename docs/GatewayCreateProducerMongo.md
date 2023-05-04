@@ -3,6 +3,7 @@
 # GatewayCreateProducerMongo
 
 gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer
+
 ## Properties
 
 Name | Type | Description | Notes

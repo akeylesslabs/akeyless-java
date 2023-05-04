@@ -3,6 +3,7 @@
 # GatewayDownloadCustomerFragments
 
 gatewayDownloadCustomerFragments is a command that downloads customer fragments
+
 ## Properties
 
 Name | Type | Description | Notes

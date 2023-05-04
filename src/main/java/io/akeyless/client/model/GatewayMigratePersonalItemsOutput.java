@@ -28,12 +28,14 @@ import java.io.IOException;
 /**
  * GatewayMigratePersonalItemsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayMigratePersonalItemsOutput {
   public static final String SERIALIZED_NAME_MIGRATION_ITEMS = "migration_items";
   @SerializedName(SERIALIZED_NAME_MIGRATION_ITEMS)
   private MigrationItems migrationItems;
 
+  public GatewayMigratePersonalItemsOutput() { 
+  }
 
   public GatewayMigratePersonalItemsOutput migrationItems(MigrationItems migrationItems) {
     
@@ -59,7 +61,7 @@ public class GatewayMigratePersonalItemsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -75,7 +77,6 @@ public class GatewayMigratePersonalItemsOutput {
     return Objects.hash(migrationItems);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -89,7 +90,7 @@ public class GatewayMigratePersonalItemsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

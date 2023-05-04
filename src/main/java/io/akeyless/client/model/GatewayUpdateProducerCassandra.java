@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayUpdateProducerCassandra is a command that updates a Cassandra producer
  */
 @ApiModel(description = "gatewayUpdateProducerCassandra is a command that updates a Cassandra producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerCassandra {
   public static final String SERIALIZED_NAME_CASSANDRA_CREATION_STATEMENTS = "cassandra-creation-statements";
   @SerializedName(SERIALIZED_NAME_CASSANDRA_CREATION_STATEMENTS)
@@ -92,6 +92,8 @@ public class GatewayUpdateProducerCassandra {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayUpdateProducerCassandra() { 
+  }
 
   public GatewayUpdateProducerCassandra cassandraCreationStatements(String cassandraCreationStatements) {
     
@@ -264,6 +266,7 @@ public class GatewayUpdateProducerCassandra {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -446,7 +449,7 @@ public class GatewayUpdateProducerCassandra {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -476,7 +479,6 @@ public class GatewayUpdateProducerCassandra {
     return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -504,7 +506,7 @@ public class GatewayUpdateProducerCassandra {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

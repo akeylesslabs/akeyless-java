@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateRabbitMQTargetDetails
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateRabbitMQTargetDetails {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -69,6 +69,8 @@ public class UpdateRabbitMQTargetDetails {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public UpdateRabbitMQTargetDetails() { 
+  }
 
   public UpdateRabbitMQTargetDetails json(Boolean json) {
     
@@ -126,6 +128,7 @@ public class UpdateRabbitMQTargetDetails {
    * Target name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Target name")
 
   public String getName() {
@@ -300,7 +303,7 @@ public class UpdateRabbitMQTargetDetails {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -325,7 +328,6 @@ public class UpdateRabbitMQTargetDetails {
     return Objects.hash(json, keepPrevVersion, name, newVersion, protectionKey, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -348,7 +350,7 @@ public class UpdateRabbitMQTargetDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

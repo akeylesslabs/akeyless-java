@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Producer
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Producer {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -53,6 +53,8 @@ public class Producer {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public Producer() { 
+  }
 
   public Producer active(Boolean active) {
     
@@ -193,7 +195,7 @@ public class Producer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -214,7 +216,6 @@ public class Producer {
     return Objects.hash(active, failureMessage, id, init, name, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -233,7 +234,7 @@ public class Producer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

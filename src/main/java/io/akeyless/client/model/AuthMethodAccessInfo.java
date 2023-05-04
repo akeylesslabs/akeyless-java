@@ -40,7 +40,7 @@ import java.io.IOException;
 /**
  * AuthMethodAccessInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access_expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -122,6 +122,8 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_UNIVERSAL_IDENTITY_ACCESS_RULES)
   private UniversalIdentityAccessRules universalIdentityAccessRules;
 
+  public AuthMethodAccessInfo() { 
+  }
 
   public AuthMethodAccessInfo accessExpires(Long accessExpires) {
     
@@ -584,7 +586,7 @@ public class AuthMethodAccessInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -619,7 +621,6 @@ public class AuthMethodAccessInfo {
     return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -652,7 +653,7 @@ public class AuthMethodAccessInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

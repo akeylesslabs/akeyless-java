@@ -30,12 +30,14 @@ import java.util.List;
 /**
  * EsmListSecretsOutput
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EsmListSecretsOutput {
   public static final String SERIALIZED_NAME_SECRETS_LIST = "secrets_list";
   @SerializedName(SERIALIZED_NAME_SECRETS_LIST)
   private List<SecretInfo> secretsList = null;
 
+  public EsmListSecretsOutput() { 
+  }
 
   public EsmListSecretsOutput secretsList(List<SecretInfo> secretsList) {
     
@@ -69,7 +71,7 @@ public class EsmListSecretsOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -85,7 +87,6 @@ public class EsmListSecretsOutput {
     return Objects.hash(secretsList);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -99,7 +100,7 @@ public class EsmListSecretsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

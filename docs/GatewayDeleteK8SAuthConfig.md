@@ -3,6 +3,7 @@
 # GatewayDeleteK8SAuthConfig
 
 gatewayDeleteK8SAuth is a command that deletes k8s auth config
+
 ## Properties
 
 Name | Type | Description | Notes

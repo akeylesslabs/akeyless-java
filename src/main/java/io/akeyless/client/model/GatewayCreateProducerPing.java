@@ -30,7 +30,7 @@ import java.util.List;
  * gatewayCreateProducerPing is a command that creates ping producer
  */
 @ApiModel(description = "gatewayCreateProducerPing is a command that creates ping producer")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerPing {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -132,6 +132,8 @@ public class GatewayCreateProducerPing {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "60m";
 
+  public GatewayCreateProducerPing() { 
+  }
 
   public GatewayCreateProducerPing deleteProtection(String deleteProtection) {
     
@@ -189,6 +191,7 @@ public class GatewayCreateProducerPing {
    * Producer name
    * @return name
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Producer name")
 
   public String getName() {
@@ -740,7 +743,7 @@ public class GatewayCreateProducerPing {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -780,7 +783,6 @@ public class GatewayCreateProducerPing {
     return Objects.hash(deleteProtection, json, name, pingAdministrativePort, pingAtmId, pingAuthorizationPort, pingCertSubjectDn, pingClientAuthenticationType, pingEnforceReplayPrevention, pingGrantTypes, pingIssuerDn, pingJwks, pingJwksUrl, pingPassword, pingPrivilegedUser, pingRedirectUris, pingRestrictedScopes, pingSigningAlgo, pingUrl, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -818,7 +820,7 @@ public class GatewayCreateProducerPing {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -3,6 +3,7 @@
 # CreateKey
 
 createKey is a command that creates a new key. [Deprecated: Use command create-dfc-key]
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ClassicKeyTargetInfo
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ClassicKeyTargetInfo {
   public static final String SERIALIZED_NAME_EXTERNAL_KMS_ID = "external_kms_id";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KMS_ID)
@@ -53,6 +53,8 @@ public class ClassicKeyTargetInfo {
   @SerializedName(SERIALIZED_NAME_TARGET_TYPE)
   private String targetType;
 
+  public ClassicKeyTargetInfo() { 
+  }
 
   public ClassicKeyTargetInfo externalKmsId(ExternalKMSKeyId externalKmsId) {
     
@@ -178,7 +180,7 @@ public class ClassicKeyTargetInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -198,7 +200,6 @@ public class ClassicKeyTargetInfo {
     return Objects.hash(externalKmsId, keyPurpose, keyStatus, targetAssocId, targetType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -216,7 +217,7 @@ public class ClassicKeyTargetInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

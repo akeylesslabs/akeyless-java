@@ -3,6 +3,7 @@
 # GatewayUpdateLdapAuthConfig
 
 gatewayUpdateLdapAuth is a command that updates ldap auth config
+
 ## Properties
 
 Name | Type | Description | Notes

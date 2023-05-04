@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MigrationsConfigLastChange
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MigrationsConfigLastChange {
   public static final String SERIALIZED_NAME_CHANGED_MIGRATIONS = "changed_migrations";
   @SerializedName(SERIALIZED_NAME_CHANGED_MIGRATIONS)
@@ -43,6 +43,8 @@ public class MigrationsConfigLastChange {
   @SerializedName(SERIALIZED_NAME_DELETED_MIGRATIONS)
   private List<String> deletedMigrations = null;
 
+  public MigrationsConfigLastChange() { 
+  }
 
   public MigrationsConfigLastChange changedMigrations(List<String> changedMigrations) {
     
@@ -138,7 +140,7 @@ public class MigrationsConfigLastChange {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -156,7 +158,6 @@ public class MigrationsConfigLastChange {
     return Objects.hash(changedMigrations, createdMigrations, deletedMigrations);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -172,7 +173,7 @@ public class MigrationsConfigLastChange {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
