@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **protectionKey** | **String** |  |  [optional]
 **rancherApiKey** | **String** | RancherApiKey the bear token for clusterApiTypeRancher |  [optional]
 **rancherClusterId** | **String** | RancherClusterId cluster id as define in rancher (in case of clusterApiTypeRancher) |  [optional]
-**useLocalCaJwt** | **Boolean** | UseLocalCAJwt is an optional parameter to set defaulting to using the local CA cert and service account jwt when running in a Kubernetes pod |  [optional]
+**useLocalCaJwt** | **Boolean** | UseLocalCAJwt is an optional parameter to set defaulting to using the local service account when running in a Kubernetes pod |  [optional]
 
 
 

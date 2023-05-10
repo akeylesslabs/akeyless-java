@@ -98,6 +98,10 @@ public class GatewayUpdateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use-gw-service-account";
+  @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
+  private Boolean useGwServiceAccount;
+
   public GatewayUpdateK8SAuthConfig() { 
   }
 
@@ -492,6 +496,29 @@ public class GatewayUpdateK8SAuthConfig {
   }
 
 
+  public GatewayUpdateK8SAuthConfig useGwServiceAccount(Boolean useGwServiceAccount) {
+    
+    this.useGwServiceAccount = useGwServiceAccount;
+    return this;
+  }
+
+   /**
+   * Use the GW&#39;s service account
+   * @return useGwServiceAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use the GW's service account")
+
+  public Boolean getUseGwServiceAccount() {
+    return useGwServiceAccount;
+  }
+
+
+  public void setUseGwServiceAccount(Boolean useGwServiceAccount) {
+    this.useGwServiceAccount = useGwServiceAccount;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -517,12 +544,13 @@ public class GatewayUpdateK8SAuthConfig {
         Objects.equals(this.token, gatewayUpdateK8SAuthConfig.token) &&
         Objects.equals(this.tokenExp, gatewayUpdateK8SAuthConfig.tokenExp) &&
         Objects.equals(this.tokenReviewerJwt, gatewayUpdateK8SAuthConfig.tokenReviewerJwt) &&
-        Objects.equals(this.uidToken, gatewayUpdateK8SAuthConfig.uidToken);
+        Objects.equals(this.uidToken, gatewayUpdateK8SAuthConfig.uidToken) &&
+        Objects.equals(this.useGwServiceAccount, gatewayUpdateK8SAuthConfig.useGwServiceAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, disableIssuerValidation, json, k8sCaCert, k8sHost, k8sIssuer, name, newName, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken);
+    return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, disableIssuerValidation, json, k8sCaCert, k8sHost, k8sIssuer, name, newName, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
   }
 
   @Override
@@ -546,6 +574,7 @@ public class GatewayUpdateK8SAuthConfig {
     sb.append("    tokenExp: ").append(toIndentedString(tokenExp)).append("\n");
     sb.append("    tokenReviewerJwt: ").append(toIndentedString(tokenReviewerJwt)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

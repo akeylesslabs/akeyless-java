@@ -458,11 +458,11 @@ public class GatewayGetK8SAuthConfigOutput {
   }
 
    /**
-   * UseLocalCAJwt is an optional parameter to set defaulting to using the local CA cert and service account jwt when running in a Kubernetes pod
+   * UseLocalCAJwt is an optional parameter to set defaulting to using the local service account when running in a Kubernetes pod
    * @return useLocalCaJwt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "UseLocalCAJwt is an optional parameter to set defaulting to using the local CA cert and service account jwt when running in a Kubernetes pod")
+  @ApiModelProperty(value = "UseLocalCAJwt is an optional parameter to set defaulting to using the local service account when running in a Kubernetes pod")
 
   public Boolean getUseLocalCaJwt() {
     return useLocalCaJwt;

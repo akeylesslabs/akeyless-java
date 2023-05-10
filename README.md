@@ -13,7 +13,7 @@ The purpose of this application is to provide access to Akeyless API.
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.8+
+1. Java 1.7+
 2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation

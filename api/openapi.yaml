@@ -17284,8 +17284,7 @@ components:
         use_local_ca_jwt:
           description: |-
             UseLocalCAJwt is an optional parameter to set defaulting to using
-            the local CA cert and service account jwt when running in a Kubernetes
-            pod
+            the local service account when running in a Kubernetes pod
           type: boolean
           x-go-name: UseLocalCAJwt
       type: object
@@ -30723,6 +30722,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        use-gw-service-account:
+          description: Use the GW's service account
+          type: boolean
+          x-go-name: UseDefaultIdentity
       required:
       - access-id
       - k8s-host
@@ -40928,8 +40931,7 @@ components:
         use_local_ca_jwt:
           description: |-
             UseLocalCAJwt is an optional parameter to set defaulting to using
-            the local CA cert and service account jwt when running in a Kubernetes
-            pod
+            the local service account when running in a Kubernetes pod
           type: boolean
           x-go-name: UseLocalCAJwt
       type: object
@@ -42158,6 +42160,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        use-gw-service-account:
+          description: Use the GW's service account
+          type: boolean
+          x-go-name: UseDefaultIdentity
       required:
       - access-id
       - k8s-host
