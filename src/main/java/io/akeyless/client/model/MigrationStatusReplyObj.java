@@ -34,6 +34,10 @@ public class MigrationStatusReplyObj {
   @SerializedName(SERIALIZED_NAME_DURATION_TIME)
   private String durationTime;
 
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
+  private String error;
+
   public static final String SERIALIZED_NAME_LAST_STATUS_MESSAGE = "last_status_message";
   @SerializedName(SERIALIZED_NAME_LAST_STATUS_MESSAGE)
   private String lastStatusMessage;
@@ -66,9 +70,21 @@ public class MigrationStatusReplyObj {
   @SerializedName(SERIALIZED_NAME_MIGRATION_TYPE)
   private String migrationType;
 
+  public static final String SERIALIZED_NAME_MIGRATION_TYPE_NAME = "migration_type_name";
+  @SerializedName(SERIALIZED_NAME_MIGRATION_TYPE_NAME)
+  private String migrationTypeName;
+
+  public static final String SERIALIZED_NAME_ROTATED_SECRETS = "rotated_secrets";
+  @SerializedName(SERIALIZED_NAME_ROTATED_SECRETS)
+  private MigrationItems rotatedSecrets;
+
   public static final String SERIALIZED_NAME_START_TIME = "start_time";
   @SerializedName(SERIALIZED_NAME_START_TIME)
   private String startTime;
+
+  public static final String SERIALIZED_NAME_TARGETS = "targets";
+  @SerializedName(SERIALIZED_NAME_TARGETS)
+  private MigrationItems targets;
 
   public MigrationStatusReplyObj() { 
   }
@@ -93,6 +109,29 @@ public class MigrationStatusReplyObj {
 
   public void setDurationTime(String durationTime) {
     this.durationTime = durationTime;
+  }
+
+
+  public MigrationStatusReplyObj error(String error) {
+    
+    this.error = error;
+    return this;
+  }
+
+   /**
+   * Get error
+   * @return error
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getError() {
+    return error;
+  }
+
+
+  public void setError(String error) {
+    this.error = error;
   }
 
 
@@ -280,6 +319,52 @@ public class MigrationStatusReplyObj {
   }
 
 
+  public MigrationStatusReplyObj migrationTypeName(String migrationTypeName) {
+    
+    this.migrationTypeName = migrationTypeName;
+    return this;
+  }
+
+   /**
+   * Get migrationTypeName
+   * @return migrationTypeName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMigrationTypeName() {
+    return migrationTypeName;
+  }
+
+
+  public void setMigrationTypeName(String migrationTypeName) {
+    this.migrationTypeName = migrationTypeName;
+  }
+
+
+  public MigrationStatusReplyObj rotatedSecrets(MigrationItems rotatedSecrets) {
+    
+    this.rotatedSecrets = rotatedSecrets;
+    return this;
+  }
+
+   /**
+   * Get rotatedSecrets
+   * @return rotatedSecrets
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MigrationItems getRotatedSecrets() {
+    return rotatedSecrets;
+  }
+
+
+  public void setRotatedSecrets(MigrationItems rotatedSecrets) {
+    this.rotatedSecrets = rotatedSecrets;
+  }
+
+
   public MigrationStatusReplyObj startTime(String startTime) {
     
     this.startTime = startTime;
@@ -303,6 +388,29 @@ public class MigrationStatusReplyObj {
   }
 
 
+  public MigrationStatusReplyObj targets(MigrationItems targets) {
+    
+    this.targets = targets;
+    return this;
+  }
+
+   /**
+   * Get targets
+   * @return targets
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MigrationItems getTargets() {
+    return targets;
+  }
+
+
+  public void setTargets(MigrationItems targets) {
+    this.targets = targets;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -313,6 +421,7 @@ public class MigrationStatusReplyObj {
     }
     MigrationStatusReplyObj migrationStatusReplyObj = (MigrationStatusReplyObj) o;
     return Objects.equals(this.durationTime, migrationStatusReplyObj.durationTime) &&
+        Objects.equals(this.error, migrationStatusReplyObj.error) &&
         Objects.equals(this.lastStatusMessage, migrationStatusReplyObj.lastStatusMessage) &&
         Objects.equals(this.maxNameLength, migrationStatusReplyObj.maxNameLength) &&
         Objects.equals(this.maxValueLength, migrationStatusReplyObj.maxValueLength) &&
@@ -321,12 +430,15 @@ public class MigrationStatusReplyObj {
         Objects.equals(this.migrationName, migrationStatusReplyObj.migrationName) &&
         Objects.equals(this.migrationState, migrationStatusReplyObj.migrationState) &&
         Objects.equals(this.migrationType, migrationStatusReplyObj.migrationType) &&
-        Objects.equals(this.startTime, migrationStatusReplyObj.startTime);
+        Objects.equals(this.migrationTypeName, migrationStatusReplyObj.migrationTypeName) &&
+        Objects.equals(this.rotatedSecrets, migrationStatusReplyObj.rotatedSecrets) &&
+        Objects.equals(this.startTime, migrationStatusReplyObj.startTime) &&
+        Objects.equals(this.targets, migrationStatusReplyObj.targets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationTime, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, startTime);
+    return Objects.hash(durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, targets);
   }
 
   @Override
@@ -334,6 +446,7 @@ public class MigrationStatusReplyObj {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationStatusReplyObj {\n");
     sb.append("    durationTime: ").append(toIndentedString(durationTime)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    lastStatusMessage: ").append(toIndentedString(lastStatusMessage)).append("\n");
     sb.append("    maxNameLength: ").append(toIndentedString(maxNameLength)).append("\n");
     sb.append("    maxValueLength: ").append(toIndentedString(maxValueLength)).append("\n");
@@ -342,7 +455,10 @@ public class MigrationStatusReplyObj {
     sb.append("    migrationName: ").append(toIndentedString(migrationName)).append("\n");
     sb.append("    migrationState: ").append(toIndentedString(migrationState)).append("\n");
     sb.append("    migrationType: ").append(toIndentedString(migrationType)).append("\n");
+    sb.append("    migrationTypeName: ").append(toIndentedString(migrationTypeName)).append("\n");
+    sb.append("    rotatedSecrets: ").append(toIndentedString(rotatedSecrets)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

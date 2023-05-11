@@ -28,6 +28,7 @@ import io.akeyless.client.model.HashiMigration;
 import io.akeyless.client.model.K8SMigration;
 import io.akeyless.client.model.MockMigration;
 import io.akeyless.client.model.OnePasswordMigration;
+import io.akeyless.client.model.ServerInventoryMigration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -70,6 +71,10 @@ public class MigrationsConfigPart {
   public static final String SERIALIZED_NAME_ONE_PASSWORD_MIGRATIONS = "one_password_migrations";
   @SerializedName(SERIALIZED_NAME_ONE_PASSWORD_MIGRATIONS)
   private List<OnePasswordMigration> onePasswordMigrations = null;
+
+  public static final String SERIALIZED_NAME_SERVER_INVENTORY_MIGRATIONS = "server_inventory_migrations";
+  @SerializedName(SERIALIZED_NAME_SERVER_INVENTORY_MIGRATIONS)
+  private List<ServerInventoryMigration> serverInventoryMigrations = null;
 
   public MigrationsConfigPart() { 
   }
@@ -322,6 +327,37 @@ public class MigrationsConfigPart {
   }
 
 
+  public MigrationsConfigPart serverInventoryMigrations(List<ServerInventoryMigration> serverInventoryMigrations) {
+    
+    this.serverInventoryMigrations = serverInventoryMigrations;
+    return this;
+  }
+
+  public MigrationsConfigPart addServerInventoryMigrationsItem(ServerInventoryMigration serverInventoryMigrationsItem) {
+    if (this.serverInventoryMigrations == null) {
+      this.serverInventoryMigrations = new ArrayList<ServerInventoryMigration>();
+    }
+    this.serverInventoryMigrations.add(serverInventoryMigrationsItem);
+    return this;
+  }
+
+   /**
+   * Get serverInventoryMigrations
+   * @return serverInventoryMigrations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ServerInventoryMigration> getServerInventoryMigrations() {
+    return serverInventoryMigrations;
+  }
+
+
+  public void setServerInventoryMigrations(List<ServerInventoryMigration> serverInventoryMigrations) {
+    this.serverInventoryMigrations = serverInventoryMigrations;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -338,12 +374,13 @@ public class MigrationsConfigPart {
         Objects.equals(this.hashiMigrations, migrationsConfigPart.hashiMigrations) &&
         Objects.equals(this.k8sMigrations, migrationsConfigPart.k8sMigrations) &&
         Objects.equals(this.mockMigrations, migrationsConfigPart.mockMigrations) &&
-        Objects.equals(this.onePasswordMigrations, migrationsConfigPart.onePasswordMigrations);
+        Objects.equals(this.onePasswordMigrations, migrationsConfigPart.onePasswordMigrations) &&
+        Objects.equals(this.serverInventoryMigrations, migrationsConfigPart.serverInventoryMigrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, mockMigrations, onePasswordMigrations);
+    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, mockMigrations, onePasswordMigrations, serverInventoryMigrations);
   }
 
   @Override
@@ -358,6 +395,7 @@ public class MigrationsConfigPart {
     sb.append("    k8sMigrations: ").append(toIndentedString(k8sMigrations)).append("\n");
     sb.append("    mockMigrations: ").append(toIndentedString(mockMigrations)).append("\n");
     sb.append("    onePasswordMigrations: ").append(toIndentedString(onePasswordMigrations)).append("\n");
+    sb.append("    serverInventoryMigrations: ").append(toIndentedString(serverInventoryMigrations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional]
+**secureAccessRdpUser** | **String** | Remote Desktop Username |  [optional]
 **secureAccessSshCreds** | **String** | Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key] |  [optional]
 **secureAccessSshUser** | **String** | Override the SSH username as indicated in SSH Certificate Issuer |  [optional]
 **secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional]

@@ -164,6 +164,7 @@ docs/DeleteAuthMethods.md
 docs/DeleteAuthMethodsOutput.md
 docs/DeleteEventForwarder.md
 docs/DeleteGatewayAllowedAccessId.md
+docs/DeleteGwCluster.md
 docs/DeleteItem.md
 docs/DeleteItemOutput.md
 docs/DeleteItems.md
@@ -513,6 +514,8 @@ docs/SAMLAttribute.md
 docs/SSHCertificateIssueDetails.md
 docs/SecretInfo.md
 docs/SecureRemoteAccess.md
+docs/ServerInventoryMigration.md
+docs/ServerInventoryPayload.md
 docs/SetItemState.md
 docs/SetRoleRule.md
 docs/ShareItem.md
@@ -836,6 +839,7 @@ src/main/java/io/akeyless/client/model/DeleteAuthMethods.java
 src/main/java/io/akeyless/client/model/DeleteAuthMethodsOutput.java
 src/main/java/io/akeyless/client/model/DeleteEventForwarder.java
 src/main/java/io/akeyless/client/model/DeleteGatewayAllowedAccessId.java
+src/main/java/io/akeyless/client/model/DeleteGwCluster.java
 src/main/java/io/akeyless/client/model/DeleteItem.java
 src/main/java/io/akeyless/client/model/DeleteItemOutput.java
 src/main/java/io/akeyless/client/model/DeleteItems.java
@@ -1185,6 +1189,8 @@ src/main/java/io/akeyless/client/model/SAMLAttribute.java
 src/main/java/io/akeyless/client/model/SSHCertificateIssueDetails.java
 src/main/java/io/akeyless/client/model/SecretInfo.java
 src/main/java/io/akeyless/client/model/SecureRemoteAccess.java
+src/main/java/io/akeyless/client/model/ServerInventoryMigration.java
+src/main/java/io/akeyless/client/model/ServerInventoryPayload.java
 src/main/java/io/akeyless/client/model/SetItemState.java
 src/main/java/io/akeyless/client/model/SetRoleRule.java
 src/main/java/io/akeyless/client/model/ShareItem.java
@@ -1320,3 +1326,6 @@ src/main/java/io/akeyless/client/model/VerifyJWTWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyPKCS1.java
 src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
+src/test/java/io/akeyless/client/model/DeleteGwClusterTest.java
+src/test/java/io/akeyless/client/model/ServerInventoryMigrationTest.java
+src/test/java/io/akeyless/client/model/ServerInventoryPayloadTest.java

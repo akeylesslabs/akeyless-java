@@ -55,6 +55,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
+  public static final String SERIALIZED_NAME_SRA_ONLY = "sra-only";
+  @SerializedName(SERIALIZED_NAME_SRA_ONLY)
+  private Boolean sraOnly = false;
+
   public static final String SERIALIZED_NAME_SUB_TYPES = "sub_types";
   @SerializedName(SERIALIZED_NAME_SUB_TYPES)
   private List<String> subTypes = null;
@@ -216,6 +220,29 @@ public class ListItems {
   }
 
 
+  public ListItems sraOnly(Boolean sraOnly) {
+    
+    this.sraOnly = sraOnly;
+    return this;
+  }
+
+   /**
+   * Filter by items with SRA functionality enabled
+   * @return sraOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by items with SRA functionality enabled")
+
+  public Boolean getSraOnly() {
+    return sraOnly;
+  }
+
+
+  public void setSraOnly(Boolean sraOnly) {
+    this.sraOnly = sraOnly;
+  }
+
+
   public ListItems subTypes(List<String> subTypes) {
     
     this.subTypes = subTypes;
@@ -362,6 +389,7 @@ public class ListItems {
         Objects.equals(this.minimalView, listItems.minimalView) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
+        Objects.equals(this.sraOnly, listItems.sraOnly) &&
         Objects.equals(this.subTypes, listItems.subTypes) &&
         Objects.equals(this.tag, listItems.tag) &&
         Objects.equals(this.token, listItems.token) &&
@@ -371,7 +399,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, filter, json, minimalView, paginationToken, path, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, filter, json, minimalView, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
   }
 
   @Override
@@ -384,6 +412,7 @@ public class ListItems {
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    sraOnly: ").append(toIndentedString(sraOnly)).append("\n");
     sb.append("    subTypes: ").append(toIndentedString(subTypes)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

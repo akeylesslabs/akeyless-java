@@ -220,6 +220,34 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   private String protectionKey;
 
+  public static final String SERIALIZED_NAME_SI_AUTO_ROTATE = "si-auto-rotate";
+  @SerializedName(SERIALIZED_NAME_SI_AUTO_ROTATE)
+  private String siAutoRotate;
+
+  public static final String SERIALIZED_NAME_SI_ROTATION_HOUR = "si-rotation-hour";
+  @SerializedName(SERIALIZED_NAME_SI_ROTATION_HOUR)
+  private Integer siRotationHour;
+
+  public static final String SERIALIZED_NAME_SI_ROTATION_INTERVAL = "si-rotation-interval";
+  @SerializedName(SERIALIZED_NAME_SI_ROTATION_INTERVAL)
+  private Integer siRotationInterval;
+
+  public static final String SERIALIZED_NAME_SI_SRA_ENABLE_RDP = "si-sra-enable-rdp";
+  @SerializedName(SERIALIZED_NAME_SI_SRA_ENABLE_RDP)
+  private String siSraEnableRdp = "false";
+
+  public static final String SERIALIZED_NAME_SI_TARGET_NAME = "si-target-name";
+  @SerializedName(SERIALIZED_NAME_SI_TARGET_NAME)
+  private String siTargetName;
+
+  public static final String SERIALIZED_NAME_SI_USERS_IGNORE = "si-users-ignore";
+  @SerializedName(SERIALIZED_NAME_SI_USERS_IGNORE)
+  private String siUsersIgnore;
+
+  public static final String SERIALIZED_NAME_SI_USERS_PATH_TEMPLATE = "si-users-path-template";
+  @SerializedName(SERIALIZED_NAME_SI_USERS_PATH_TEMPLATE)
+  private String siUsersPathTemplate;
+
   public static final String SERIALIZED_NAME_TARGET_LOCATION = "target-location";
   @SerializedName(SERIALIZED_NAME_TARGET_LOCATION)
   private String targetLocation;
@@ -760,11 +788,11 @@ public class GatewayCreateMigration {
   }
 
    /**
-   * Comma-separated list of domain groups from which privileged domain users will be migrated (Relevant only for Active Directory migration)
+   * Comma-separated list of domain groups from which privileged domain users will be migrated. If empty, migrate all users based on the --ad-user-base-dn (Relevant only for Active Directory migration)
    * @return adUserGroups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comma-separated list of domain groups from which privileged domain users will be migrated (Relevant only for Active Directory migration)")
+  @ApiModelProperty(value = "Comma-separated list of domain groups from which privileged domain users will be migrated. If empty, migrate all users based on the --ad-user-base-dn (Relevant only for Active Directory migration)")
 
   public String getAdUserGroups() {
     return adUserGroups;
@@ -1360,6 +1388,167 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration siAutoRotate(String siAutoRotate) {
+    
+    this.siAutoRotate = siAutoRotate;
+    return this;
+  }
+
+   /**
+   * Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --si-rotation-interval and --si-rotation-hour parameters (Relevant only for Server Inventory migration)
+   * @return siAutoRotate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --si-rotation-interval and --si-rotation-hour parameters (Relevant only for Server Inventory migration)")
+
+  public String getSiAutoRotate() {
+    return siAutoRotate;
+  }
+
+
+  public void setSiAutoRotate(String siAutoRotate) {
+    this.siAutoRotate = siAutoRotate;
+  }
+
+
+  public GatewayCreateMigration siRotationHour(Integer siRotationHour) {
+    
+    this.siRotationHour = siRotationHour;
+    return this;
+  }
+
+   /**
+   * The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)
+   * @return siRotationHour
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)")
+
+  public Integer getSiRotationHour() {
+    return siRotationHour;
+  }
+
+
+  public void setSiRotationHour(Integer siRotationHour) {
+    this.siRotationHour = siRotationHour;
+  }
+
+
+  public GatewayCreateMigration siRotationInterval(Integer siRotationInterval) {
+    
+    this.siRotationInterval = siRotationInterval;
+    return this;
+  }
+
+   /**
+   * The number of days to wait between every automatic rotation [1-365] (Relevant only for Server Inventory migration)
+   * @return siRotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of days to wait between every automatic rotation [1-365] (Relevant only for Server Inventory migration)")
+
+  public Integer getSiRotationInterval() {
+    return siRotationInterval;
+  }
+
+
+  public void setSiRotationInterval(Integer siRotationInterval) {
+    this.siRotationInterval = siRotationInterval;
+  }
+
+
+  public GatewayCreateMigration siSraEnableRdp(String siSraEnableRdp) {
+    
+    this.siSraEnableRdp = siSraEnableRdp;
+    return this;
+  }
+
+   /**
+   * Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Server Inventory migration)
+   * @return siSraEnableRdp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Server Inventory migration)")
+
+  public String getSiSraEnableRdp() {
+    return siSraEnableRdp;
+  }
+
+
+  public void setSiSraEnableRdp(String siSraEnableRdp) {
+    this.siSraEnableRdp = siSraEnableRdp;
+  }
+
+
+  public GatewayCreateMigration siTargetName(String siTargetName) {
+    
+    this.siTargetName = siTargetName;
+    return this;
+  }
+
+   /**
+   * SSH, Windows or Linked Target Name. (Relevant only for Server Inventory migration)
+   * @return siTargetName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "SSH, Windows or Linked Target Name. (Relevant only for Server Inventory migration)")
+
+  public String getSiTargetName() {
+    return siTargetName;
+  }
+
+
+  public void setSiTargetName(String siTargetName) {
+    this.siTargetName = siTargetName;
+  }
+
+
+  public GatewayCreateMigration siUsersIgnore(String siUsersIgnore) {
+    
+    this.siUsersIgnore = siUsersIgnore;
+    return this;
+  }
+
+   /**
+   * Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
+   * @return siUsersIgnore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)")
+
+  public String getSiUsersIgnore() {
+    return siUsersIgnore;
+  }
+
+
+  public void setSiUsersIgnore(String siUsersIgnore) {
+    this.siUsersIgnore = siUsersIgnore;
+  }
+
+
+  public GatewayCreateMigration siUsersPathTemplate(String siUsersPathTemplate) {
+    
+    this.siUsersPathTemplate = siUsersPathTemplate;
+    return this;
+  }
+
+   /**
+   * Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration)
+   * @return siUsersPathTemplate
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration)")
+
+  public String getSiUsersPathTemplate() {
+    return siUsersPathTemplate;
+  }
+
+
+  public void setSiUsersPathTemplate(String siUsersPathTemplate) {
+    this.siUsersPathTemplate = siUsersPathTemplate;
+  }
+
+
   public GatewayCreateMigration targetLocation(String targetLocation) {
     
     this.targetLocation = targetLocation;
@@ -1508,6 +1697,13 @@ public class GatewayCreateMigration {
         Objects.equals(this.k8sUsername, gatewayCreateMigration.k8sUsername) &&
         Objects.equals(this.name, gatewayCreateMigration.name) &&
         Objects.equals(this.protectionKey, gatewayCreateMigration.protectionKey) &&
+        Objects.equals(this.siAutoRotate, gatewayCreateMigration.siAutoRotate) &&
+        Objects.equals(this.siRotationHour, gatewayCreateMigration.siRotationHour) &&
+        Objects.equals(this.siRotationInterval, gatewayCreateMigration.siRotationInterval) &&
+        Objects.equals(this.siSraEnableRdp, gatewayCreateMigration.siSraEnableRdp) &&
+        Objects.equals(this.siTargetName, gatewayCreateMigration.siTargetName) &&
+        Objects.equals(this.siUsersIgnore, gatewayCreateMigration.siUsersIgnore) &&
+        Objects.equals(this.siUsersPathTemplate, gatewayCreateMigration.siUsersPathTemplate) &&
         Objects.equals(this.targetLocation, gatewayCreateMigration.targetLocation) &&
         Objects.equals(this.token, gatewayCreateMigration.token) &&
         Objects.equals(this.type, gatewayCreateMigration.type) &&
@@ -1516,7 +1712,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, targetLocation, token, type, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
   }
 
   @Override
@@ -1570,6 +1766,13 @@ public class GatewayCreateMigration {
     sb.append("    k8sUsername: ").append(toIndentedString(k8sUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    siAutoRotate: ").append(toIndentedString(siAutoRotate)).append("\n");
+    sb.append("    siRotationHour: ").append(toIndentedString(siRotationHour)).append("\n");
+    sb.append("    siRotationInterval: ").append(toIndentedString(siRotationInterval)).append("\n");
+    sb.append("    siSraEnableRdp: ").append(toIndentedString(siSraEnableRdp)).append("\n");
+    sb.append("    siTargetName: ").append(toIndentedString(siTargetName)).append("\n");
+    sb.append("    siUsersIgnore: ").append(toIndentedString(siUsersIgnore)).append("\n");
+    sb.append("    siUsersPathTemplate: ").append(toIndentedString(siUsersPathTemplate)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

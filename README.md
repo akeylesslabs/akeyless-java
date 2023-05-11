@@ -163,6 +163,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**deleteAuthMethods**](docs/V2Api.md#deleteAuthMethods) | **POST** /delete-auth-methods | 
 *V2Api* | [**deleteEventForwarder**](docs/V2Api.md#deleteEventForwarder) | **POST** /delete-event-forwarder | 
 *V2Api* | [**deleteGatewayAllowedAccessId**](docs/V2Api.md#deleteGatewayAllowedAccessId) | **POST** /gateway-delete-allowed-management-access | 
+*V2Api* | [**deleteGwCluster**](docs/V2Api.md#deleteGwCluster) | **POST** /delete-gateway-cluster | 
 *V2Api* | [**deleteItem**](docs/V2Api.md#deleteItem) | **POST** /delete-item | 
 *V2Api* | [**deleteItems**](docs/V2Api.md#deleteItems) | **POST** /delete-items | 
 *V2Api* | [**deleteRole**](docs/V2Api.md#deleteRole) | **POST** /delete-role | 
@@ -545,6 +546,7 @@ Class | Method | HTTP request | Description
  - [DeleteAuthMethodsOutput](docs/DeleteAuthMethodsOutput.md)
  - [DeleteEventForwarder](docs/DeleteEventForwarder.md)
  - [DeleteGatewayAllowedAccessId](docs/DeleteGatewayAllowedAccessId.md)
+ - [DeleteGwCluster](docs/DeleteGwCluster.md)
  - [DeleteItem](docs/DeleteItem.md)
  - [DeleteItemOutput](docs/DeleteItemOutput.md)
  - [DeleteItems](docs/DeleteItems.md)
@@ -894,6 +896,8 @@ Class | Method | HTTP request | Description
  - [SSHCertificateIssueDetails](docs/SSHCertificateIssueDetails.md)
  - [SecretInfo](docs/SecretInfo.md)
  - [SecureRemoteAccess](docs/SecureRemoteAccess.md)
+ - [ServerInventoryMigration](docs/ServerInventoryMigration.md)
+ - [ServerInventoryPayload](docs/ServerInventoryPayload.md)
  - [SetItemState](docs/SetItemState.md)
  - [SetRoleRule](docs/SetRoleRule.md)
  - [ShareItem](docs/ShareItem.md)

@@ -93,6 +93,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_USER = "secure-access-rdp-user";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_USER)
+  private String secureAccessRdpUser;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS = "secure-access-ssh-creds";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS)
   private String secureAccessSshCreds;
@@ -505,6 +509,29 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret secureAccessRdpUser(String secureAccessRdpUser) {
+    
+    this.secureAccessRdpUser = secureAccessRdpUser;
+    return this;
+  }
+
+   /**
+   * Remote Desktop Username
+   * @return secureAccessRdpUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Remote Desktop Username")
+
+  public String getSecureAccessRdpUser() {
+    return secureAccessRdpUser;
+  }
+
+
+  public void setSecureAccessRdpUser(String secureAccessRdpUser) {
+    this.secureAccessRdpUser = secureAccessRdpUser;
+  }
+
+
   public CreateSecret secureAccessSshCreds(String secureAccessSshCreds) {
     
     this.secureAccessSshCreds = secureAccessSshCreds;
@@ -767,6 +794,7 @@ public class CreateSecret {
         Objects.equals(this.secureAccessBastionIssuer, createSecret.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, createSecret.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, createSecret.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdpUser, createSecret.secureAccessRdpUser) &&
         Objects.equals(this.secureAccessSshCreds, createSecret.secureAccessSshCreds) &&
         Objects.equals(this.secureAccessSshUser, createSecret.secureAccessSshUser) &&
         Objects.equals(this.secureAccessUrl, createSecret.secureAccessUrl) &&
@@ -781,7 +809,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteProtection, description, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
+    return Objects.hash(accessibility, deleteProtection, description, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
   }
 
   @Override
@@ -803,6 +831,7 @@ public class CreateSecret {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    secureAccessSshCreds: ").append(toIndentedString(secureAccessSshCreds)).append("\n");
     sb.append("    secureAccessSshUser: ").append(toIndentedString(secureAccessSshUser)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");

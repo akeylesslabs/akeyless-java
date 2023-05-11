@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **k8sMigrations** | [**List&lt;K8SMigration&gt;**](K8SMigration.md) |  |  [optional]
 **mockMigrations** | [**List&lt;MockMigration&gt;**](MockMigration.md) |  |  [optional]
 **onePasswordMigrations** | [**List&lt;OnePasswordMigration&gt;**](OnePasswordMigration.md) |  |  [optional]
+**serverInventoryMigrations** | [**List&lt;ServerInventoryMigration&gt;**](ServerInventoryMigration.md) |  |  [optional]
 
 
 

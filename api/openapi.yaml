@@ -1729,6 +1729,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /delete-gateway-cluster:
+    post:
+      operationId: deleteGwCluster
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deleteGwCluster'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deleteGwClusterOutput'
+          description: deleteGwClusterResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /delete-item:
     post:
       operationId: deleteItem
@@ -8394,6 +8423,12 @@ components:
           schema:
             $ref: '#/components/schemas/deleteGatewayAllowedAccessIdOutput'
       description: deleteGatewayAllowedAccessIdResponse wraps response body.
+    deleteGwClusterResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/deleteGwClusterOutput'
+      description: deleteGwClusterResponse wraps response body.
     deleteItemResponse:
       content:
         application/json:
@@ -10109,20 +10144,20 @@ components:
         cf:
           customer_fragements:
             key: customer_fragements
-        version: 8
+        version: 3
         producers:
           producers:
           - init: true
             name: name
             active: true
             failure_message: failure_message
-            id: 5
+            id: 6
             type: type
           - init: true
             name: name
             active: true
             failure_message: failure_message
-            id: 5
+            id: 6
             type: type
         general:
           tcp_port: tcp_port
@@ -10184,6 +10219,43 @@ components:
               - namespaces
               - namespaces
               token: token
+          server_inventory_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              type: type
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              auto_rotate_rotation_hour: 9
+              auto_rotate: true
+              enable_rdp_sra: true
+              server_targets_path_template: server_targets_path_template
+              users_ignore_list:
+                key: true
+              migration_target_id: 9
+              users_rotated_secrets_path_template: users_rotated_secrets_path_template
+              auto_rotate_interval_in_days: 5
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              type: type
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              auto_rotate_rotation_hour: 9
+              auto_rotate: true
+              enable_rdp_sra: true
+              server_targets_path_template: server_targets_path_template
+              users_ignore_list:
+                key: true
+              migration_target_id: 9
+              users_rotated_secrets_path_template: users_rotated_secrets_path_template
+              auto_rotate_interval_in_days: 5
           azure_kv_migrations:
           - general:
               prefix: prefix
@@ -10565,12 +10637,12 @@ components:
           rotators:
           - rotation_interval: 9
             name: name
-            id: 9
+            id: 8
             last_error: last_error
             type: type
           - rotation_interval: 9
             name: name
-            id: 9
+            id: 8
             last_error: last_error
             type: type
       properties:
@@ -15414,13 +15486,13 @@ components:
           name: name
           active: true
           failure_message: failure_message
-          id: 5
+          id: 6
           type: type
         - init: true
           name: name
           active: true
           failure_message: failure_message
-          id: 5
+          id: 6
           type: type
       properties:
         producers:
@@ -21639,24 +21711,39 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     MigrationStatusReplyObj:
       example:
-        start_time: start_time
         max_name_length: 0
         migration_type: migration_type
-        migration_id: migration_id
-        last_status_message: last_status_message
-        duration_time: duration_time
-        max_value_length: 6
-        migration_name: migration_name
+        error: error
+        targets:
+          total: 5
+          failed: 0
+          migrated: 6
+          skipped: 1
         migration_items:
           total: 5
           failed: 0
           migrated: 6
           skipped: 1
         migration_state: migration_state
+        rotated_secrets:
+          total: 5
+          failed: 0
+          migrated: 6
+          skipped: 1
+        start_time: start_time
+        migration_type_name: migration_type_name
+        migration_id: migration_id
+        last_status_message: last_status_message
+        duration_time: duration_time
+        max_value_length: 6
+        migration_name: migration_name
       properties:
         duration_time:
           type: string
           x-go-name: DurationTime
+        error:
+          type: string
+          x-go-name: Error
         last_status_message:
           type: string
           x-go-name: LastMessage
@@ -21682,9 +21769,16 @@ components:
         migration_type:
           type: string
           x-go-name: MigrationType
+        migration_type_name:
+          type: string
+          x-go-name: MigrationTypeName
+        rotated_secrets:
+          $ref: '#/components/schemas/MigrationItems'
         start_time:
           type: string
           x-go-name: StartTime
+        targets:
+          $ref: '#/components/schemas/MigrationItems'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     MigrationsConfigLastChange:
@@ -21749,6 +21843,43 @@ components:
             - namespaces
             - namespaces
             token: token
+        server_inventory_migrations:
+        - general:
+            prefix: prefix
+            name: name
+            id: id
+            type: type
+            protection_key: protection_key
+            new_name: new_name
+            status: status
+          payload:
+            auto_rotate_rotation_hour: 9
+            auto_rotate: true
+            enable_rdp_sra: true
+            server_targets_path_template: server_targets_path_template
+            users_ignore_list:
+              key: true
+            migration_target_id: 9
+            users_rotated_secrets_path_template: users_rotated_secrets_path_template
+            auto_rotate_interval_in_days: 5
+        - general:
+            prefix: prefix
+            name: name
+            id: id
+            type: type
+            protection_key: protection_key
+            new_name: new_name
+            status: status
+          payload:
+            auto_rotate_rotation_hour: 9
+            auto_rotate: true
+            enable_rdp_sra: true
+            server_targets_path_template: server_targets_path_template
+            users_ignore_list:
+              key: true
+            migration_target_id: 9
+            users_rotated_secrets_path_template: users_rotated_secrets_path_template
+            auto_rotate_interval_in_days: 5
         azure_kv_migrations:
         - general:
             prefix: prefix
@@ -22031,6 +22162,11 @@ components:
             $ref: '#/components/schemas/OnePasswordMigration'
           type: array
           x-go-name: OnePasswordMigrations
+        server_inventory_migrations:
+          items:
+            $ref: '#/components/schemas/ServerInventoryMigration'
+          type: array
+          x-go-name: ServerInventoryMigrations
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     MockMigration:
@@ -22808,7 +22944,7 @@ components:
         name: name
         active: true
         failure_message: failure_message
-        id: 5
+        id: 6
         type: type
       properties:
         active:
@@ -22844,13 +22980,13 @@ components:
           name: name
           active: true
           failure_message: failure_message
-          id: 5
+          id: 6
           type: type
         - init: true
           name: name
           active: true
           failure_message: failure_message
-          id: 5
+          id: 6
           type: type
       properties:
         producers:
@@ -23356,7 +23492,7 @@ components:
       example:
         rotation_interval: 9
         name: name
-        id: 9
+        id: 8
         last_error: last_error
         type: type
       properties:
@@ -23392,12 +23528,12 @@ components:
         rotators:
         - rotation_interval: 9
           name: name
-          id: 9
+          id: 8
           last_error: last_error
           type: type
         - rotation_interval: 9
           name: name
-          id: 9
+          id: 8
           last_error: last_error
           type: type
       properties:
@@ -23783,6 +23919,76 @@ components:
     SecureRemoteAccessCategory:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ServerInventoryMigration:
+      example:
+        general:
+          prefix: prefix
+          name: name
+          id: id
+          type: type
+          protection_key: protection_key
+          new_name: new_name
+          status: status
+        payload:
+          auto_rotate_rotation_hour: 9
+          auto_rotate: true
+          enable_rdp_sra: true
+          server_targets_path_template: server_targets_path_template
+          users_ignore_list:
+            key: true
+          migration_target_id: 9
+          users_rotated_secrets_path_template: users_rotated_secrets_path_template
+          auto_rotate_interval_in_days: 5
+      properties:
+        general:
+          $ref: '#/components/schemas/MigrationGeneral'
+        payload:
+          $ref: '#/components/schemas/ServerInventoryPayload'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    ServerInventoryPayload:
+      example:
+        auto_rotate_rotation_hour: 9
+        auto_rotate: true
+        enable_rdp_sra: true
+        server_targets_path_template: server_targets_path_template
+        users_ignore_list:
+          key: true
+        migration_target_id: 9
+        users_rotated_secrets_path_template: users_rotated_secrets_path_template
+        auto_rotate_interval_in_days: 5
+      properties:
+        auto_rotate:
+          type: boolean
+          x-go-name: AutoRotate
+        auto_rotate_interval_in_days:
+          format: int32
+          type: integer
+          x-go-name: AutoRotateIntervalInDays
+        auto_rotate_rotation_hour:
+          format: int32
+          type: integer
+          x-go-name: AutoRotateRotationHour
+        enable_rdp_sra:
+          type: boolean
+          x-go-name: EnableRdpSRA
+        migration_target_id:
+          format: int64
+          type: integer
+          x-go-name: MigrationTargetID
+        server_targets_path_template:
+          type: string
+          x-go-name: ServerTargetsPathTemplate
+        users_ignore_list:
+          additionalProperties:
+            type: boolean
+          type: object
+          x-go-name: UsersIgnoreList
+        users_rotated_secrets_path_template:
+          type: string
+          x-go-name: UsersRotatedSecretsPathTemplate
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     SharingPolicyInfo:
       example:
         default_share_link_ttl: 0
@@ -28940,6 +29146,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        secure-access-rdp-user:
+          description: Remote Desktop Username
+          type: string
+          x-go-name: SecureAccessOverrideUser
         secure-access-ssh-creds:
           description: Static-Secret values contains SSH Credentials, either Private
             Key or Password [password/private-key]
@@ -29708,6 +29918,38 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteGatewayAllowedAccessIdOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    deleteGwCluster:
+      properties:
+        cluster-name:
+          description: Gateway Cluster, e.g. acc-abcd12345678/p-123456789012/defaultCluster
+          type: string
+          x-go-name: ClusterName
+        force-deletion:
+          description: Enforce deletion
+          type: boolean
+          x-go-name: ForceDeletion
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - cluster-name
+      title: deleteGwCluster is a command that deletes a gateway.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    deleteGwClusterOutput:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteItem:
@@ -30931,7 +31173,8 @@ components:
           x-go-name: AdUserBaseDN
         ad_user_groups:
           description: Comma-separated list of domain groups from which privileged
-            domain users will be migrated (Relevant only for Active Directory migration)
+            domain users will be migrated. If empty, migrate all users based on the
+            --ad-user-base-dn (Relevant only for Active Directory migration)
           type: string
           x-go-name: AdUserGroups
         aws-key:
@@ -31074,6 +31317,49 @@ components:
             empty, the account default key will be used)
           type: string
           x-go-name: ProtectionKey
+        si-auto-rotate:
+          description: 'Enable/Disable automatic/recurrent rotation for migrated secrets.
+            Default is false: only manual rotation is allowed for migrated secrets.
+            If set to true, this command should be combined with --si-rotation-interval
+            and --si-rotation-hour parameters (Relevant only for Server Inventory
+            migration)'
+          type: string
+          x-go-name: SiAutoRotate
+        si-rotation-hour:
+          description: The hour of the scheduled rotation in UTC (Relevant only for
+            Server Inventory migration)
+          format: int32
+          type: integer
+          x-go-name: SiRotationHour
+        si-rotation-interval:
+          description: The number of days to wait between every automatic rotation
+            [1-365] (Relevant only for Server Inventory migration)
+          format: int32
+          type: integer
+          x-go-name: SiRotationInterval
+        si-sra-enable-rdp:
+          default: "false"
+          description: 'Enable/Disable RDP Secure Remote Access for the migrated local
+            users rotated secrets. Default is false: rotated secrets will not be created
+            with SRA (Relevant only for Server Inventory migration)'
+          type: string
+          x-go-name: SiSRAEnableRDP
+        si-target-name:
+          description: SSH, Windows or Linked Target Name. (Relevant only for Server
+            Inventory migration)
+          type: string
+          x-go-name: SiTargetName
+        si-users-ignore:
+          description: Comma-separated list of Local Users which should not be migrated
+            (Relevant only for Server Inventory migration)
+          type: string
+          x-go-name: SiLocalUsersIgnore
+        si-users-path-template:
+          description: 'Path location template for migrating users as Rotated Secrets
+            e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server
+            Inventory migration)'
+          type: string
+          x-go-name: SiUsersPathTemplate
         target-location:
           description: Target location in Akeyless for imported secrets
           type: string
@@ -31093,6 +31379,8 @@ components:
           x-go-name: UIDToken
       required:
       - name
+      - si-target-name
+      - si-users-path-template
       - target-location
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -41249,6 +41537,43 @@ components:
               - namespaces
               - namespaces
               token: token
+          server_inventory_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              type: type
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              auto_rotate_rotation_hour: 9
+              auto_rotate: true
+              enable_rdp_sra: true
+              server_targets_path_template: server_targets_path_template
+              users_ignore_list:
+                key: true
+              migration_target_id: 9
+              users_rotated_secrets_path_template: users_rotated_secrets_path_template
+              auto_rotate_interval_in_days: 5
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              type: type
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              auto_rotate_rotation_hour: 9
+              auto_rotate: true
+              enable_rdp_sra: true
+              server_targets_path_template: server_targets_path_template
+              users_ignore_list:
+                key: true
+              migration_target_id: 9
+              users_rotated_secrets_path_template: users_rotated_secrets_path_template
+              auto_rotate_interval_in_days: 5
           azure_kv_migrations:
           - general:
               prefix: prefix
@@ -41529,6 +41854,43 @@ components:
               - namespaces
               - namespaces
               token: token
+          server_inventory_migrations:
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              type: type
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              auto_rotate_rotation_hour: 9
+              auto_rotate: true
+              enable_rdp_sra: true
+              server_targets_path_template: server_targets_path_template
+              users_ignore_list:
+                key: true
+              migration_target_id: 9
+              users_rotated_secrets_path_template: users_rotated_secrets_path_template
+              auto_rotate_interval_in_days: 5
+          - general:
+              prefix: prefix
+              name: name
+              id: id
+              type: type
+              protection_key: protection_key
+              new_name: new_name
+              status: status
+            payload:
+              auto_rotate_rotation_hour: 9
+              auto_rotate: true
+              enable_rdp_sra: true
+              server_targets_path_template: server_targets_path_template
+              users_ignore_list:
+                key: true
+              migration_target_id: 9
+              users_rotated_secrets_path_template: users_rotated_secrets_path_template
+              auto_rotate_interval_in_days: 5
           azure_kv_migrations:
           - general:
               prefix: prefix
@@ -42370,7 +42732,8 @@ components:
           x-go-name: AdUserBaseDN
         ad_user_groups:
           description: Comma-separated list of domain groups from which privileged
-            domain users will be migrated (Relevant only for Active Directory migration)
+            domain users will be migrated. If empty, migrate all users based on the
+            --ad-user-base-dn (Relevant only for Active Directory migration)
           type: string
           x-go-name: AdUserGroups
         aws-key:
@@ -42522,6 +42885,49 @@ components:
             empty, the account default key will be used)
           type: string
           x-go-name: ProtectionKey
+        si-auto-rotate:
+          description: 'Enable/Disable automatic/recurrent rotation for migrated secrets.
+            Default is false: only manual rotation is allowed for migrated secrets.
+            If set to true, this command should be combined with --si-rotation-interval
+            and --si-rotation-hour parameters (Relevant only for Server Inventory
+            migration)'
+          type: string
+          x-go-name: SiAutoRotate
+        si-rotation-hour:
+          description: The hour of the scheduled rotation in UTC (Relevant only for
+            Server Inventory migration)
+          format: int32
+          type: integer
+          x-go-name: SiRotationHour
+        si-rotation-interval:
+          description: The number of days to wait between every automatic rotation
+            [1-365] (Relevant only for Server Inventory migration)
+          format: int32
+          type: integer
+          x-go-name: SiRotationInterval
+        si-sra-enable-rdp:
+          default: "false"
+          description: 'Enable/Disable RDP Secure Remote Access for the migrated local
+            users rotated secrets. Default is false: rotated secrets will not be created
+            with SRA (Relevant only for Server Inventory migration)'
+          type: string
+          x-go-name: SiSRAEnableRDP
+        si-target-name:
+          description: SSH, Windows or Linked Target Name. (Relevant only for Server
+            Inventory migration)
+          type: string
+          x-go-name: SiTargetName
+        si-users-ignore:
+          description: Comma-separated list of Local Users which should not be migrated
+            (Relevant only for Server Inventory migration)
+          type: string
+          x-go-name: SiLocalUsersIgnore
+        si-users-path-template:
+          description: 'Path location template for migrating users as Rotated Secrets
+            e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server
+            Inventory migration)'
+          type: string
+          x-go-name: SiUsersPathTemplate
         target-location:
           description: Target location in Akeyless for imported secrets
           type: string
@@ -42536,6 +42942,8 @@ components:
           type: string
           x-go-name: UIDToken
       required:
+      - si-target-name
+      - si-users-path-template
       - target-location
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -53444,6 +53852,11 @@ components:
           description: Path to folder
           type: string
           x-go-name: Path
+        sra-only:
+          default: false
+          description: Filter by items with SRA functionality enabled
+          type: boolean
+          x-go-name: SraOnly
         sub_types:
           items:
             type: string
