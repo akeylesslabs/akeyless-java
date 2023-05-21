@@ -835,9 +835,21 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_VENAFI_STORE_PRIVATE_KEY)
   private Boolean venafiStorePrivateKey;
 
+  public static final String SERIALIZED_NAME_VENAFI_TPP_ACCESS_TOKEN = "venafi_tpp_access_token";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_ACCESS_TOKEN)
+  private String venafiTppAccessToken;
+
+  public static final String SERIALIZED_NAME_VENAFI_TPP_CLIENT_ID = "venafi_tpp_client_id";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_CLIENT_ID)
+  private String venafiTppClientId;
+
   public static final String SERIALIZED_NAME_VENAFI_TPP_PASSWORD = "venafi_tpp_password";
   @SerializedName(SERIALIZED_NAME_VENAFI_TPP_PASSWORD)
   private String venafiTppPassword;
+
+  public static final String SERIALIZED_NAME_VENAFI_TPP_REFRESH_TOKEN = "venafi_tpp_refresh_token";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_REFRESH_TOKEN)
+  private String venafiTppRefreshToken;
 
   public static final String SERIALIZED_NAME_VENAFI_TPP_USERNAME = "venafi_tpp_username";
   @SerializedName(SERIALIZED_NAME_VENAFI_TPP_USERNAME)
@@ -5562,6 +5574,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails venafiTppAccessToken(String venafiTppAccessToken) {
+    
+    this.venafiTppAccessToken = venafiTppAccessToken;
+    return this;
+  }
+
+   /**
+   * Get venafiTppAccessToken
+   * @return venafiTppAccessToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVenafiTppAccessToken() {
+    return venafiTppAccessToken;
+  }
+
+
+  public void setVenafiTppAccessToken(String venafiTppAccessToken) {
+    this.venafiTppAccessToken = venafiTppAccessToken;
+  }
+
+
+  public DSProducerDetails venafiTppClientId(String venafiTppClientId) {
+    
+    this.venafiTppClientId = venafiTppClientId;
+    return this;
+  }
+
+   /**
+   * Get venafiTppClientId
+   * @return venafiTppClientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVenafiTppClientId() {
+    return venafiTppClientId;
+  }
+
+
+  public void setVenafiTppClientId(String venafiTppClientId) {
+    this.venafiTppClientId = venafiTppClientId;
+  }
+
+
   public DSProducerDetails venafiTppPassword(String venafiTppPassword) {
     
     this.venafiTppPassword = venafiTppPassword;
@@ -5569,11 +5627,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get venafiTppPassword
+   * Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead
    * @return venafiTppPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead")
 
   public String getVenafiTppPassword() {
     return venafiTppPassword;
@@ -5585,6 +5643,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails venafiTppRefreshToken(String venafiTppRefreshToken) {
+    
+    this.venafiTppRefreshToken = venafiTppRefreshToken;
+    return this;
+  }
+
+   /**
+   * Get venafiTppRefreshToken
+   * @return venafiTppRefreshToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVenafiTppRefreshToken() {
+    return venafiTppRefreshToken;
+  }
+
+
+  public void setVenafiTppRefreshToken(String venafiTppRefreshToken) {
+    this.venafiTppRefreshToken = venafiTppRefreshToken;
+  }
+
+
   public DSProducerDetails venafiTppUsername(String venafiTppUsername) {
     
     this.venafiTppUsername = venafiTppUsername;
@@ -5592,11 +5673,11 @@ public class DSProducerDetails {
   }
 
    /**
-   * Get venafiTppUsername
+   * Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead
    * @return venafiTppUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead")
 
   public String getVenafiTppUsername() {
     return venafiTppUsername;
@@ -5886,7 +5967,10 @@ public class DSProducerDetails {
         Objects.equals(this.venafiSignUsingAkeylessPki, dsProducerDetails.venafiSignUsingAkeylessPki) &&
         Objects.equals(this.venafiSignerKeyName, dsProducerDetails.venafiSignerKeyName) &&
         Objects.equals(this.venafiStorePrivateKey, dsProducerDetails.venafiStorePrivateKey) &&
+        Objects.equals(this.venafiTppAccessToken, dsProducerDetails.venafiTppAccessToken) &&
+        Objects.equals(this.venafiTppClientId, dsProducerDetails.venafiTppClientId) &&
         Objects.equals(this.venafiTppPassword, dsProducerDetails.venafiTppPassword) &&
+        Objects.equals(this.venafiTppRefreshToken, dsProducerDetails.venafiTppRefreshToken) &&
         Objects.equals(this.venafiTppUsername, dsProducerDetails.venafiTppUsername) &&
         Objects.equals(this.venafiUseTpp, dsProducerDetails.venafiUseTpp) &&
         Objects.equals(this.venafiZone, dsProducerDetails.venafiZone) &&
@@ -5895,7 +5979,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6102,7 +6186,10 @@ public class DSProducerDetails {
     sb.append("    venafiSignUsingAkeylessPki: ").append(toIndentedString(venafiSignUsingAkeylessPki)).append("\n");
     sb.append("    venafiSignerKeyName: ").append(toIndentedString(venafiSignerKeyName)).append("\n");
     sb.append("    venafiStorePrivateKey: ").append(toIndentedString(venafiStorePrivateKey)).append("\n");
+    sb.append("    venafiTppAccessToken: ").append(toIndentedString(venafiTppAccessToken)).append("\n");
+    sb.append("    venafiTppClientId: ").append(toIndentedString(venafiTppClientId)).append("\n");
     sb.append("    venafiTppPassword: ").append(toIndentedString(venafiTppPassword)).append("\n");
+    sb.append("    venafiTppRefreshToken: ").append(toIndentedString(venafiTppRefreshToken)).append("\n");
     sb.append("    venafiTppUsername: ").append(toIndentedString(venafiTppUsername)).append("\n");
     sb.append("    venafiUseTpp: ").append(toIndentedString(venafiUseTpp)).append("\n");
     sb.append("    venafiZone: ").append(toIndentedString(venafiZone)).append("\n");

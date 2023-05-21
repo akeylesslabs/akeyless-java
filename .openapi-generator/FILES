@@ -42,6 +42,7 @@ docs/CertificateChainInfo.md
 docs/CertificateExpirationEvent.md
 docs/CertificateInfo.md
 docs/CertificateIssueInfo.md
+docs/CertificateTemplateInfo.md
 docs/ClassicKeyDetailsInfo.md
 docs/ClassicKeyStatusInfo.md
 docs/ClassicKeyTargetInfo.md
@@ -177,6 +178,8 @@ docs/DeleteRoles.md
 docs/DeleteTarget.md
 docs/DeleteTargetAssociation.md
 docs/DeleteTargets.md
+docs/DeriveKey.md
+docs/DeriveKeyOutput.md
 docs/DescribeAssoc.md
 docs/DescribeItem.md
 docs/DescribePermissions.md
@@ -207,6 +210,7 @@ docs/EsmList.md
 docs/EsmListSecretsOutput.md
 docs/EsmUpdate.md
 docs/EsmUpdateSecretOutput.md
+docs/EventAction.md
 docs/ExportClassicKey.md
 docs/ExportClassicKeyOutput.md
 docs/Extension.md
@@ -717,6 +721,7 @@ src/main/java/io/akeyless/client/model/CertificateChainInfo.java
 src/main/java/io/akeyless/client/model/CertificateExpirationEvent.java
 src/main/java/io/akeyless/client/model/CertificateInfo.java
 src/main/java/io/akeyless/client/model/CertificateIssueInfo.java
+src/main/java/io/akeyless/client/model/CertificateTemplateInfo.java
 src/main/java/io/akeyless/client/model/ClassicKeyDetailsInfo.java
 src/main/java/io/akeyless/client/model/ClassicKeyStatusInfo.java
 src/main/java/io/akeyless/client/model/ClassicKeyTargetInfo.java
@@ -852,6 +857,8 @@ src/main/java/io/akeyless/client/model/DeleteRoles.java
 src/main/java/io/akeyless/client/model/DeleteTarget.java
 src/main/java/io/akeyless/client/model/DeleteTargetAssociation.java
 src/main/java/io/akeyless/client/model/DeleteTargets.java
+src/main/java/io/akeyless/client/model/DeriveKey.java
+src/main/java/io/akeyless/client/model/DeriveKeyOutput.java
 src/main/java/io/akeyless/client/model/DescribeAssoc.java
 src/main/java/io/akeyless/client/model/DescribeItem.java
 src/main/java/io/akeyless/client/model/DescribePermissions.java
@@ -882,6 +889,7 @@ src/main/java/io/akeyless/client/model/EsmList.java
 src/main/java/io/akeyless/client/model/EsmListSecretsOutput.java
 src/main/java/io/akeyless/client/model/EsmUpdate.java
 src/main/java/io/akeyless/client/model/EsmUpdateSecretOutput.java
+src/main/java/io/akeyless/client/model/EventAction.java
 src/main/java/io/akeyless/client/model/ExportClassicKey.java
 src/main/java/io/akeyless/client/model/ExportClassicKeyOutput.java
 src/main/java/io/akeyless/client/model/Extension.java
@@ -1326,6 +1334,7 @@ src/main/java/io/akeyless/client/model/VerifyJWTWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyPKCS1.java
 src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
-src/test/java/io/akeyless/client/model/DeleteGwClusterTest.java
-src/test/java/io/akeyless/client/model/ServerInventoryMigrationTest.java
-src/test/java/io/akeyless/client/model/ServerInventoryPayloadTest.java
+src/test/java/io/akeyless/client/model/CertificateTemplateInfoTest.java
+src/test/java/io/akeyless/client/model/DeriveKeyOutputTest.java
+src/test/java/io/akeyless/client/model/DeriveKeyTest.java
+src/test/java/io/akeyless/client/model/EventActionTest.java

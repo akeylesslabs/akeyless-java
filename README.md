@@ -173,6 +173,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**deleteTarget**](docs/V2Api.md#deleteTarget) | **POST** /delete-target | 
 *V2Api* | [**deleteTargetAssociation**](docs/V2Api.md#deleteTargetAssociation) | **POST** /delete-assoc-target-item | 
 *V2Api* | [**deleteTargets**](docs/V2Api.md#deleteTargets) | **POST** /delete-targets | 
+*V2Api* | [**deriveKey**](docs/V2Api.md#deriveKey) | **POST** /derive-key | 
 *V2Api* | [**describeAssoc**](docs/V2Api.md#describeAssoc) | **POST** /describe-role-am-assoc | 
 *V2Api* | [**describeItem**](docs/V2Api.md#describeItem) | **POST** /describe-item | 
 *V2Api* | [**describePermissions**](docs/V2Api.md#describePermissions) | **POST** /describe-permissions | 
@@ -186,6 +187,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**esmGet**](docs/V2Api.md#esmGet) | **POST** /esm-get | 
 *V2Api* | [**esmList**](docs/V2Api.md#esmList) | **POST** /esm-list | 
 *V2Api* | [**esmUpdate**](docs/V2Api.md#esmUpdate) | **POST** /esm-update | 
+*V2Api* | [**eventAction**](docs/V2Api.md#eventAction) | **POST** /event-action | 
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 *V2Api* | [**gatewayCreateK8SAuthConfig**](docs/V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 *V2Api* | [**gatewayCreateMigration**](docs/V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
@@ -424,6 +426,7 @@ Class | Method | HTTP request | Description
  - [CertificateExpirationEvent](docs/CertificateExpirationEvent.md)
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
+ - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
  - [ClassicKeyDetailsInfo](docs/ClassicKeyDetailsInfo.md)
  - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
  - [ClassicKeyTargetInfo](docs/ClassicKeyTargetInfo.md)
@@ -559,6 +562,8 @@ Class | Method | HTTP request | Description
  - [DeleteTarget](docs/DeleteTarget.md)
  - [DeleteTargetAssociation](docs/DeleteTargetAssociation.md)
  - [DeleteTargets](docs/DeleteTargets.md)
+ - [DeriveKey](docs/DeriveKey.md)
+ - [DeriveKeyOutput](docs/DeriveKeyOutput.md)
  - [DescribeAssoc](docs/DescribeAssoc.md)
  - [DescribeItem](docs/DescribeItem.md)
  - [DescribePermissions](docs/DescribePermissions.md)
@@ -589,6 +594,7 @@ Class | Method | HTTP request | Description
  - [EsmListSecretsOutput](docs/EsmListSecretsOutput.md)
  - [EsmUpdate](docs/EsmUpdate.md)
  - [EsmUpdateSecretOutput](docs/EsmUpdateSecretOutput.md)
+ - [EventAction](docs/EventAction.md)
  - [ExportClassicKey](docs/ExportClassicKey.md)
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
  - [Extension](docs/Extension.md)

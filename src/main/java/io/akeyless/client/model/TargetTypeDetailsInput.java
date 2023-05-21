@@ -493,9 +493,21 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_VENAFI_BASE_URL)
   private String venafiBaseUrl;
 
+  public static final String SERIALIZED_NAME_VENAFI_TPP_ACCESS_TOKEN = "venafi_tpp_access_token";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_ACCESS_TOKEN)
+  private String venafiTppAccessToken;
+
+  public static final String SERIALIZED_NAME_VENAFI_TPP_CLIENT_ID = "venafi_tpp_client_id";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_CLIENT_ID)
+  private String venafiTppClientId;
+
   public static final String SERIALIZED_NAME_VENAFI_TPP_PASSWORD = "venafi_tpp_password";
   @SerializedName(SERIALIZED_NAME_VENAFI_TPP_PASSWORD)
   private String venafiTppPassword;
+
+  public static final String SERIALIZED_NAME_VENAFI_TPP_REFRESH_TOKEN = "venafi_tpp_refresh_token";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_REFRESH_TOKEN)
+  private String venafiTppRefreshToken;
 
   public static final String SERIALIZED_NAME_VENAFI_TPP_USERNAME = "venafi_tpp_username";
   @SerializedName(SERIALIZED_NAME_VENAFI_TPP_USERNAME)
@@ -3181,6 +3193,52 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput venafiTppAccessToken(String venafiTppAccessToken) {
+    
+    this.venafiTppAccessToken = venafiTppAccessToken;
+    return this;
+  }
+
+   /**
+   * Get venafiTppAccessToken
+   * @return venafiTppAccessToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVenafiTppAccessToken() {
+    return venafiTppAccessToken;
+  }
+
+
+  public void setVenafiTppAccessToken(String venafiTppAccessToken) {
+    this.venafiTppAccessToken = venafiTppAccessToken;
+  }
+
+
+  public TargetTypeDetailsInput venafiTppClientId(String venafiTppClientId) {
+    
+    this.venafiTppClientId = venafiTppClientId;
+    return this;
+  }
+
+   /**
+   * Get venafiTppClientId
+   * @return venafiTppClientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVenafiTppClientId() {
+    return venafiTppClientId;
+  }
+
+
+  public void setVenafiTppClientId(String venafiTppClientId) {
+    this.venafiTppClientId = venafiTppClientId;
+  }
+
+
   public TargetTypeDetailsInput venafiTppPassword(String venafiTppPassword) {
     
     this.venafiTppPassword = venafiTppPassword;
@@ -3188,11 +3246,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * Get venafiTppPassword
+   * Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead
    * @return venafiTppPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead")
 
   public String getVenafiTppPassword() {
     return venafiTppPassword;
@@ -3204,6 +3262,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput venafiTppRefreshToken(String venafiTppRefreshToken) {
+    
+    this.venafiTppRefreshToken = venafiTppRefreshToken;
+    return this;
+  }
+
+   /**
+   * Get venafiTppRefreshToken
+   * @return venafiTppRefreshToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVenafiTppRefreshToken() {
+    return venafiTppRefreshToken;
+  }
+
+
+  public void setVenafiTppRefreshToken(String venafiTppRefreshToken) {
+    this.venafiTppRefreshToken = venafiTppRefreshToken;
+  }
+
+
   public TargetTypeDetailsInput venafiTppUsername(String venafiTppUsername) {
     
     this.venafiTppUsername = venafiTppUsername;
@@ -3211,11 +3292,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * Get venafiTppUsername
+   * Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead
    * @return venafiTppUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead")
 
   public String getVenafiTppUsername() {
     return venafiTppUsername;
@@ -3397,7 +3478,10 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.validationEmail, targetTypeDetailsInput.validationEmail) &&
         Objects.equals(this.venafiApiKey, targetTypeDetailsInput.venafiApiKey) &&
         Objects.equals(this.venafiBaseUrl, targetTypeDetailsInput.venafiBaseUrl) &&
+        Objects.equals(this.venafiTppAccessToken, targetTypeDetailsInput.venafiTppAccessToken) &&
+        Objects.equals(this.venafiTppClientId, targetTypeDetailsInput.venafiTppClientId) &&
         Objects.equals(this.venafiTppPassword, targetTypeDetailsInput.venafiTppPassword) &&
+        Objects.equals(this.venafiTppRefreshToken, targetTypeDetailsInput.venafiTppRefreshToken) &&
         Objects.equals(this.venafiTppUsername, targetTypeDetailsInput.venafiTppUsername) &&
         Objects.equals(this.venafiUseTpp, targetTypeDetailsInput.venafiUseTpp) &&
         Objects.equals(this.venafiZone, targetTypeDetailsInput.venafiZone);
@@ -3405,7 +3489,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, apiKey, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, certificate, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, domainName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, email, firstName, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, imapFqdn, imapPassword, imapPort, imapUser, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, lastName, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, phone, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, profileId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, timeout, url, useGwCloudIdentity, useGwServiceAccount, useTls, userName, userPassword, username, validationEmail, venafiApiKey, venafiBaseUrl, venafiTppPassword, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(administrativePort, apiKey, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, certificate, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, domainName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, email, firstName, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, imapFqdn, imapPassword, imapPort, imapUser, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, lastName, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, phone, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, profileId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, timeout, url, useGwCloudIdentity, useGwServiceAccount, useTls, userName, userPassword, username, validationEmail, venafiApiKey, venafiBaseUrl, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone);
   }
 
   @Override
@@ -3527,7 +3611,10 @@ public class TargetTypeDetailsInput {
     sb.append("    validationEmail: ").append(toIndentedString(validationEmail)).append("\n");
     sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
     sb.append("    venafiBaseUrl: ").append(toIndentedString(venafiBaseUrl)).append("\n");
+    sb.append("    venafiTppAccessToken: ").append(toIndentedString(venafiTppAccessToken)).append("\n");
+    sb.append("    venafiTppClientId: ").append(toIndentedString(venafiTppClientId)).append("\n");
     sb.append("    venafiTppPassword: ").append(toIndentedString(venafiTppPassword)).append("\n");
+    sb.append("    venafiTppRefreshToken: ").append(toIndentedString(venafiTppRefreshToken)).append("\n");
     sb.append("    venafiTppUsername: ").append(toIndentedString(venafiTppUsername)).append("\n");
     sb.append("    venafiUseTpp: ").append(toIndentedString(venafiUseTpp)).append("\n");
     sb.append("    venafiZone: ").append(toIndentedString(venafiZone)).append("\n");

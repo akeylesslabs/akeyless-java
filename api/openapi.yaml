@@ -1961,6 +1961,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /derive-key:
+    post:
+      operationId: DeriveKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeriveKey'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeriveKeyOutput'
+          description: DeriveKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /describe-item:
     post:
       operationId: describeItem
@@ -2337,6 +2366,35 @@ paths:
             field.
       tags:
       - v2
+      x-accepts: application/json
+  /event-action:
+    post:
+      operationId: eventAction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/eventAction'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventActionOutput'
+          description: eventActionResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
       x-accepts: application/json
   /export-classic-key:
     post:
@@ -8051,6 +8109,12 @@ components:
           schema:
             $ref: '#/components/schemas/CreateESMOutput'
       description: CreateExternalSecretsManagerResponse wraps response body.
+    DeriveKeyResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeriveKeyOutput'
+      description: DeriveKeyResponse wraps response body.
     DescribePermissionsResponse:
       content:
         application/json:
@@ -8569,6 +8633,12 @@ components:
           schema:
             $ref: '#/components/schemas/EsmUpdateSecretOutput'
       description: esmUpdateResponse wraps response body.
+    eventActionResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/eventActionOutput'
+      description: eventActionResponse wraps response body.
     gatewayCreateAllowedAccessResponse:
       content:
         application/json:
@@ -9890,7 +9960,7 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 7
+          password_length: 1
         sharing_policy:
           default_share_link_ttl: 0
         data_protection_section:
@@ -12575,6 +12645,44 @@ components:
     CertificateStatus:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    CertificateTemplateInfo:
+      example:
+        country: country
+        province: province
+        digest_algo: digest_algo
+        organization: organization
+        locality: locality
+        common_name: common_name
+        ttl: 1
+        self_signed_enabled: true
+      properties:
+        common_name:
+          type: string
+          x-go-name: CommonName
+        country:
+          type: string
+          x-go-name: Country
+        digest_algo:
+          type: string
+          x-go-name: DigestAlgo
+        locality:
+          type: string
+          x-go-name: Locality
+        organization:
+          type: string
+          x-go-name: Organization
+        province:
+          type: string
+          x-go-name: Province
+        self_signed_enabled:
+          type: boolean
+          x-go-name: SelfSignedEnabled
+        ttl:
+          format: int64
+          type: integer
+          x-go-name: TTL
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ChefAccessMode:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
@@ -12997,7 +13105,11 @@ components:
       example:
         protection-key-name: protection-key-name
         metadata: metadata
+        certificate-digest-algo: certificate-digest-algo
+        certificate-locality: certificate-locality
+        generate-self-signed-certificate: true
         description: description
+        certificate-ttl: 0
         gpg-alg: gpg-alg
         cert-file-data: cert-file-data
         key-data: key-data
@@ -13006,9 +13118,13 @@ components:
         - tags
         - tags
         token: token
+        certificate-province: certificate-province
         delete_protection: delete_protection
+        certificate-country: certificate-country
+        certificate-organization: certificate-organization
         name: name
         json: false
+        certificate-common-name: certificate-common-name
         alg: alg
       properties:
         alg:
@@ -13020,6 +13136,41 @@ components:
           description: Certificate in a PEM format.
           type: string
           x-go-name: CertFileData
+        certificate-common-name:
+          description: Common name for the generated certificate. Relevant only for
+            generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateCommonName
+        certificate-country:
+          description: Country name for the generated certificate. Relevant only for
+            generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateCountry
+        certificate-digest-algo:
+          description: Digest algorithm to be used for the certificate key signing.
+            Currently, we support only "sha256" so we hide this option for CLI.
+          type: string
+          x-go-name: CertificateDigestAlgo
+        certificate-locality:
+          description: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateLocality
+        certificate-organization:
+          description: Organization name for the generated certificate. Relevant only
+            for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateOrganization
+        certificate-province:
+          description: Province name for the generated certificate. Relevant only
+            for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateProvince
+        certificate-ttl:
+          description: TTL in days for the generated certificate. Required only for
+            generate-self-signed-certificate.
+          format: int64
+          type: integer
+          x-go-name: CertificateTTL
         delete_protection:
           description: Protection from accidental deletion of this item [true/false]
           type: string
@@ -13028,6 +13179,11 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        generate-self-signed-certificate:
+          description: Whether to generate a self signed certificate with the key.
+            If set, --certificate-ttl must be provided.
+          type: boolean
+          x-go-name: GenerateSelfSignedCertificate
         gpg-alg:
           description: 'gpg alg: Relevant only if GPG key type selected; options:
             [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]'
@@ -13484,6 +13640,7 @@ components:
         sf_user_role: sf_user_role
         privileged_user: privileged_user
         ldap_certificate: ldap_certificate
+        venafi_tpp_client_id: venafi_tpp_client_id
         gcp_role_bindings:
           key:
           - gcp_role_bindings
@@ -13507,13 +13664,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 3
+          target_id: 6
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 3
+          target_id: 6
         chef_server_username: chef_server_username
         tags:
         - tags
@@ -13592,6 +13749,7 @@ components:
         chef_server_access_mode: chef_server_access_mode
         rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
         is_fixed_user: is_fixed_user
+        venafi_tpp_refresh_token: venafi_tpp_refresh_token
         sf_account: sf_account
         secure_remote_access_details:
           schema: schema
@@ -13623,13 +13781,14 @@ components:
           category: category
           region: region
           ssh_password: true
-          bastion_issuer_id: 9
+          bastion_issuer_id: 6
         chef_server_host_name: chef_server_host_name
         k8s_role_type: k8s_role_type
         mongodb_is_atlas: true
         eks_cluster_ca_certificate: eks_cluster_ca_certificate
         rotate_sync_url: rotate_sync_url
         chef_server_url: chef_server_url
+        venafi_tpp_access_token: venafi_tpp_access_token
         aws_user_groups: aws_user_groups
         azure_tenant_id: azure_tenant_id
         jwks_url: jwks_url
@@ -14417,10 +14576,23 @@ components:
         venafi_store_private_key:
           type: boolean
           x-go-name: VenafiStorePrivateKey
+        venafi_tpp_access_token:
+          type: string
+          x-go-name: VenafiAccessToken
+        venafi_tpp_client_id:
+          type: string
+          x-go-name: VenafiTPPClientID
         venafi_tpp_password:
+          description: 'Deprecated: VenafiAccessToken and VenafiRefreshToken should
+            be used instead'
           type: string
           x-go-name: VenafiTPPPassword
+        venafi_tpp_refresh_token:
+          type: string
+          x-go-name: VenafiRefreshToken
         venafi_tpp_username:
+          description: 'Deprecated: VenafiAccessToken and VenafiRefreshToken should
+            be used instead'
           type: string
           x-go-name: VenafiTPPUserName
         venafi_use_tpp:
@@ -14523,6 +14695,101 @@ components:
       title: DeleteItemOutput defines output of DeleteItem operation.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    DeriveKey:
+      example:
+        salt: salt
+        hash-function: sha256
+        key-len: 6
+        mem: 1
+        accessibility: regular
+        parallelism: 5
+        name: name
+        iter: 0
+        json: false
+        alg: pbkdf2
+        uid-token: uid-token
+        token: token
+      properties:
+        accessibility:
+          default: regular
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
+        alg:
+          default: pbkdf2
+          description: Kdf algorithm
+          type: string
+          x-go-name: KDFAlgorithm
+        hash-function:
+          default: sha256
+          description: HashFunction the hash function to use (relevant for pbkdf2)
+          type: string
+          x-go-name: HashFunction
+        iter:
+          description: IterationCount the number of iterations
+          format: int64
+          type: integer
+          x-go-name: IterationCount
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key-len:
+          description: KeyLength the byte length of the generated key
+          format: int64
+          type: integer
+          x-go-name: KeyLength
+        mem:
+          default: 16384
+          description: MemorySizeInKb the memory paramter in kb (relevant for argon2id)
+          format: int64
+          type: integer
+          x-go-name: MemorySizeInKb
+        name:
+          description: Static Secret full name
+          type: string
+          x-go-name: SecretName
+        parallelism:
+          default: 1
+          description: Parallelism the number of threads to use (relevant for argon2id)
+          format: int64
+          type: integer
+          x-go-name: Parallelism
+        salt:
+          description: Salt Base64 encoded salt value. If not provided, the salt will
+            be generated as part of the operation. The salt should be securely-generated
+            random bytes, minimum 64 bits, 128 bits is recommended
+          type: string
+          x-go-name: Salt
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - alg
+      - iter
+      - key-len
+      - name
+      title: DeriveKey is a command that gets a static secret value.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    DeriveKeyOutput:
+      example:
+        Salt: Salt
+        Key: Key
+      properties:
+        Key:
+          type: string
+        Salt:
+          type: string
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     DescribePermissionsOutput:
       example:
         client_permissions:
@@ -14553,7 +14820,7 @@ components:
       example:
         k8s_allowed_namespaces: k8s_allowed_namespaces
         k8s_dynamic_mode: true
-        gw_cluster_id: 1
+        gw_cluster_id: 6
         producer_last_keep_alive: producer_last_keep_alive
         producer_type: producer_type
         producer_status: producer_status
@@ -14677,8 +14944,8 @@ components:
         emails
       example:
         fixed_domain_suffix: fixed_domain_suffix
-        keep_prefix_length: 8
-        domain_suffix_length: 6
+        keep_prefix_length: 9
+        domain_suffix_length: 8
       properties:
         domain_suffix_length:
           description: |-
@@ -15345,7 +15612,7 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 7
+            password_length: 1
           sharing_policy:
             default_share_link_ttl: 0
           data_protection_section:
@@ -15578,6 +15845,7 @@ components:
           password: password
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           ldap_bind_dn: ldap_bind_dn
           ldap_url: ldap_url
           imap_password: imap_password
@@ -15672,6 +15940,7 @@ components:
           validation_email: validation_email
           venafi_tpp_password: venafi_tpp_password
           first_name: first_name
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           use_gw_cloud_identity: true
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           eks_secret_access_key: eks_secret_access_key
@@ -15689,6 +15958,7 @@ components:
           eks_cluster_name: eks_cluster_name
           chef_server_url: chef_server_url
           gke_cluster_name: gke_cluster_name
+          venafi_tpp_access_token: venafi_tpp_access_token
           azure_tenant_id: azure_tenant_id
           username: username
         target:
@@ -15727,7 +15997,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -15736,7 +16006,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -15956,7 +16226,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     ImporterInfo:
       example:
-        version: 6
+        version: 7
         external_item_id: external_item_id
       properties:
         external_item_id:
@@ -15987,7 +16257,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 1
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -15996,15 +16266,15 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 1
           customer_fragment_id: customer_fragment_id
         shared_by:
           unique_id: unique_id
           access_id: access_id
-        item_size: 6
+        item_size: 3
         protection_key_type: protection_key_type
         is_enabled: true
-        rotation_interval: 2
+        rotation_interval: 6
         target_versions:
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -16032,7 +16302,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         cert_issuer_signer_key_name: cert_issuer_signer_key_name
-        item_id: 9
+        item_id: 6
         item_tags:
         - item_tags
         - item_tags
@@ -16114,13 +16384,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 3
+          target_id: 6
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 3
+          target_id: 6
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         gateway_details:
@@ -16135,56 +16405,6 @@ components:
         customer_fragment_id: customer_fragment_id
         is_access_request_enabled: true
         item_general_info:
-          classic_key_details:
-            public_key: public_key
-            classic_key_id: classic_key_id
-            target_alias_helper: target_alias_helper
-            gw_cluster_id: 1
-            is_provided_by_user: true
-            key_type: key_type
-            classic_key_attributes:
-              key:
-              - classic_key_attributes
-              - classic_key_attributes
-            key_state: key_state
-            last_error: last_error
-            targets:
-            - external_kms_id:
-                key_id: key_id
-                key_reference: key_reference
-              target_assoc_id: target_assoc_id
-              target_type: target_type
-              key_purpose:
-              - null
-              - null
-              key_status:
-                last_status: last_status
-                error_date: 2000-01-23T04:56:07.000+00:00
-                last_error: last_error
-                version: 1
-            - external_kms_id:
-                key_id: key_id
-                key_reference: key_reference
-              target_assoc_id: target_assoc_id
-              target_type: target_type
-              key_purpose:
-              - null
-              - null
-              key_status:
-                last_status: last_status
-                error_date: 2000-01-23T04:56:07.000+00:00
-                last_error: last_error
-                version: 1
-            is_unexportable: true
-            target_types:
-            - target_types
-            - target_types
-          password_policy:
-            use_numbers: true
-            use_capital_letters: true
-            use_special_characters: true
-            use_lower_letters: true
-            password_length: 7
           static_secret_info:
             website: website
             websites:
@@ -16193,31 +16413,15 @@ components:
             username: username
           rotated_secret_details:
             rotator_creds_type: rotator_creds_type
-            gw_cluster_id: 4
+            gw_cluster_id: 5
             rotation_hour: 9
             rotation_statement: rotation_statement
             rotator_status: rotator_status
             rotation_interval_min: true
             rotator_type: rotator_type
-            delete_previous_version_in_days: 1
+            delete_previous_version_in_days: 4
             last_rotation_error: last_rotation_error
-            number_of_versions_to_save: 5
-          tokenizer_info:
-            vaultless_tokenizer_info:
-              key_name: key_name
-              tweak: tweak
-              email_tokenizer_info:
-                fixed_domain_suffix: fixed_domain_suffix
-                keep_prefix_length: 8
-                domain_suffix_length: 6
-              template_type: template_type
-              tweak_type: tweak_type
-              regexp_tokenizer_info:
-                encoding_template: encoding_template
-                decoding_template: decoding_template
-                pattern: pattern
-                alphabet: alphabet
-          cluster_gw_url: cluster_gw_url
+            number_of_versions_to_save: 9
           secure_remote_access_details:
             schema: schema
             web_proxy: true
@@ -16248,20 +16452,10 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           importer_info:
-            version: 6
+            version: 7
             external_item_id: external_item_id
-          display_metadata: display_metadata
-          dynamic_secret_producer_details:
-            k8s_allowed_namespaces: k8s_allowed_namespaces
-            k8s_dynamic_mode: true
-            gw_cluster_id: 1
-            producer_last_keep_alive: producer_last_keep_alive
-            producer_type: producer_type
-            producer_status: producer_status
-            failure_message: failure_message
-            producer_metadata: producer_metadata
           certificate_chain_info:
             certificate_issuer_name: certificate_issuer_name
             expiration_events:
@@ -16469,6 +16663,91 @@ components:
               - null
               key_size: 4
             certificate_status: certificate_status
+          certificates_template_info:
+            country: country
+            province: province
+            digest_algo: digest_algo
+            organization: organization
+            locality: locality
+            common_name: common_name
+            ttl: 1
+            self_signed_enabled: true
+          classic_key_details:
+            public_key: public_key
+            classic_key_id: classic_key_id
+            target_alias_helper: target_alias_helper
+            gw_cluster_id: 1
+            is_provided_by_user: true
+            key_type: key_type
+            classic_key_attributes:
+              key:
+              - classic_key_attributes
+              - classic_key_attributes
+            key_state: key_state
+            last_error: last_error
+            targets:
+            - external_kms_id:
+                key_id: key_id
+                key_reference: key_reference
+              target_assoc_id: target_assoc_id
+              target_type: target_type
+              key_purpose:
+              - null
+              - null
+              key_status:
+                last_status: last_status
+                error_date: 2000-01-23T04:56:07.000+00:00
+                last_error: last_error
+                version: 1
+            - external_kms_id:
+                key_id: key_id
+                key_reference: key_reference
+              target_assoc_id: target_assoc_id
+              target_type: target_type
+              key_purpose:
+              - null
+              - null
+              key_status:
+                last_status: last_status
+                error_date: 2000-01-23T04:56:07.000+00:00
+                last_error: last_error
+                version: 1
+            is_unexportable: true
+            target_types:
+            - target_types
+            - target_types
+          password_policy:
+            use_numbers: true
+            use_capital_letters: true
+            use_special_characters: true
+            use_lower_letters: true
+            password_length: 1
+          tokenizer_info:
+            vaultless_tokenizer_info:
+              key_name: key_name
+              tweak: tweak
+              email_tokenizer_info:
+                fixed_domain_suffix: fixed_domain_suffix
+                keep_prefix_length: 9
+                domain_suffix_length: 8
+              template_type: template_type
+              tweak_type: tweak_type
+              regexp_tokenizer_info:
+                encoding_template: encoding_template
+                decoding_template: decoding_template
+                pattern: pattern
+                alphabet: alphabet
+          cluster_gw_url: cluster_gw_url
+          display_metadata: display_metadata
+          dynamic_secret_producer_details:
+            k8s_allowed_namespaces: k8s_allowed_namespaces
+            k8s_dynamic_mode: true
+            gw_cluster_id: 6
+            producer_last_keep_alive: producer_last_keep_alive
+            producer_type: producer_type
+            producer_status: producer_status
+            failure_message: failure_message
+            producer_metadata: producer_metadata
           cert_issue_details:
             max_ttl: 0
             pki_cert_issuer_details:
@@ -16540,7 +16819,7 @@ components:
               allowed_user_key_lengths:
                 key: 5
             cert_issuer_type: cert_issuer_type
-        last_version: 1
+        last_version: 2
         next_rotation_date: 2000-01-23T04:56:07.000+00:00
         delete_protection: true
         bastion_details:
@@ -16731,56 +17010,6 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ItemGeneralInfo:
       example:
-        classic_key_details:
-          public_key: public_key
-          classic_key_id: classic_key_id
-          target_alias_helper: target_alias_helper
-          gw_cluster_id: 1
-          is_provided_by_user: true
-          key_type: key_type
-          classic_key_attributes:
-            key:
-            - classic_key_attributes
-            - classic_key_attributes
-          key_state: key_state
-          last_error: last_error
-          targets:
-          - external_kms_id:
-              key_id: key_id
-              key_reference: key_reference
-            target_assoc_id: target_assoc_id
-            target_type: target_type
-            key_purpose:
-            - null
-            - null
-            key_status:
-              last_status: last_status
-              error_date: 2000-01-23T04:56:07.000+00:00
-              last_error: last_error
-              version: 1
-          - external_kms_id:
-              key_id: key_id
-              key_reference: key_reference
-            target_assoc_id: target_assoc_id
-            target_type: target_type
-            key_purpose:
-            - null
-            - null
-            key_status:
-              last_status: last_status
-              error_date: 2000-01-23T04:56:07.000+00:00
-              last_error: last_error
-              version: 1
-          is_unexportable: true
-          target_types:
-          - target_types
-          - target_types
-        password_policy:
-          use_numbers: true
-          use_capital_letters: true
-          use_special_characters: true
-          use_lower_letters: true
-          password_length: 7
         static_secret_info:
           website: website
           websites:
@@ -16789,31 +17018,15 @@ components:
           username: username
         rotated_secret_details:
           rotator_creds_type: rotator_creds_type
-          gw_cluster_id: 4
+          gw_cluster_id: 5
           rotation_hour: 9
           rotation_statement: rotation_statement
           rotator_status: rotator_status
           rotation_interval_min: true
           rotator_type: rotator_type
-          delete_previous_version_in_days: 1
+          delete_previous_version_in_days: 4
           last_rotation_error: last_rotation_error
-          number_of_versions_to_save: 5
-        tokenizer_info:
-          vaultless_tokenizer_info:
-            key_name: key_name
-            tweak: tweak
-            email_tokenizer_info:
-              fixed_domain_suffix: fixed_domain_suffix
-              keep_prefix_length: 8
-              domain_suffix_length: 6
-            template_type: template_type
-            tweak_type: tweak_type
-            regexp_tokenizer_info:
-              encoding_template: encoding_template
-              decoding_template: decoding_template
-              pattern: pattern
-              alphabet: alphabet
-        cluster_gw_url: cluster_gw_url
+          number_of_versions_to_save: 9
         secure_remote_access_details:
           schema: schema
           web_proxy: true
@@ -16844,20 +17057,10 @@ components:
           category: category
           region: region
           ssh_password: true
-          bastion_issuer_id: 9
+          bastion_issuer_id: 6
         importer_info:
-          version: 6
+          version: 7
           external_item_id: external_item_id
-        display_metadata: display_metadata
-        dynamic_secret_producer_details:
-          k8s_allowed_namespaces: k8s_allowed_namespaces
-          k8s_dynamic_mode: true
-          gw_cluster_id: 1
-          producer_last_keep_alive: producer_last_keep_alive
-          producer_type: producer_type
-          producer_status: producer_status
-          failure_message: failure_message
-          producer_metadata: producer_metadata
         certificate_chain_info:
           certificate_issuer_name: certificate_issuer_name
           expiration_events:
@@ -17065,6 +17268,91 @@ components:
             - null
             key_size: 4
           certificate_status: certificate_status
+        certificates_template_info:
+          country: country
+          province: province
+          digest_algo: digest_algo
+          organization: organization
+          locality: locality
+          common_name: common_name
+          ttl: 1
+          self_signed_enabled: true
+        classic_key_details:
+          public_key: public_key
+          classic_key_id: classic_key_id
+          target_alias_helper: target_alias_helper
+          gw_cluster_id: 1
+          is_provided_by_user: true
+          key_type: key_type
+          classic_key_attributes:
+            key:
+            - classic_key_attributes
+            - classic_key_attributes
+          key_state: key_state
+          last_error: last_error
+          targets:
+          - external_kms_id:
+              key_id: key_id
+              key_reference: key_reference
+            target_assoc_id: target_assoc_id
+            target_type: target_type
+            key_purpose:
+            - null
+            - null
+            key_status:
+              last_status: last_status
+              error_date: 2000-01-23T04:56:07.000+00:00
+              last_error: last_error
+              version: 1
+          - external_kms_id:
+              key_id: key_id
+              key_reference: key_reference
+            target_assoc_id: target_assoc_id
+            target_type: target_type
+            key_purpose:
+            - null
+            - null
+            key_status:
+              last_status: last_status
+              error_date: 2000-01-23T04:56:07.000+00:00
+              last_error: last_error
+              version: 1
+          is_unexportable: true
+          target_types:
+          - target_types
+          - target_types
+        password_policy:
+          use_numbers: true
+          use_capital_letters: true
+          use_special_characters: true
+          use_lower_letters: true
+          password_length: 1
+        tokenizer_info:
+          vaultless_tokenizer_info:
+            key_name: key_name
+            tweak: tweak
+            email_tokenizer_info:
+              fixed_domain_suffix: fixed_domain_suffix
+              keep_prefix_length: 9
+              domain_suffix_length: 8
+            template_type: template_type
+            tweak_type: tweak_type
+            regexp_tokenizer_info:
+              encoding_template: encoding_template
+              decoding_template: decoding_template
+              pattern: pattern
+              alphabet: alphabet
+        cluster_gw_url: cluster_gw_url
+        display_metadata: display_metadata
+        dynamic_secret_producer_details:
+          k8s_allowed_namespaces: k8s_allowed_namespaces
+          k8s_dynamic_mode: true
+          gw_cluster_id: 6
+          producer_last_keep_alive: producer_last_keep_alive
+          producer_type: producer_type
+          producer_status: producer_status
+          failure_message: failure_message
+          producer_metadata: producer_metadata
         cert_issue_details:
           max_ttl: 0
           pki_cert_issuer_details:
@@ -17141,6 +17429,8 @@ components:
           $ref: '#/components/schemas/CertificateIssueInfo'
         certificate_chain_info:
           $ref: '#/components/schemas/CertificateChainInfo'
+        certificates_template_info:
+          $ref: '#/components/schemas/CertificateTemplateInfo'
         classic_key_details:
           $ref: '#/components/schemas/ClassicKeyDetailsInfo'
         cluster_gw_url:
@@ -17182,7 +17472,7 @@ components:
         target_type: target_type
         attributes:
           key: attributes
-        target_id: 3
+        target_id: 6
       properties:
         assoc_id:
           type: string
@@ -17218,7 +17508,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 6
+        version: 1
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -18798,7 +19088,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18807,15 +19097,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 3
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 2
+          rotation_interval: 6
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -18843,7 +19133,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 9
+          item_id: 6
           item_tags:
           - item_tags
           - item_tags
@@ -18925,13 +19215,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -18946,56 +19236,6 @@ components:
           customer_fragment_id: customer_fragment_id
           is_access_request_enabled: true
           item_general_info:
-            classic_key_details:
-              public_key: public_key
-              classic_key_id: classic_key_id
-              target_alias_helper: target_alias_helper
-              gw_cluster_id: 1
-              is_provided_by_user: true
-              key_type: key_type
-              classic_key_attributes:
-                key:
-                - classic_key_attributes
-                - classic_key_attributes
-              key_state: key_state
-              last_error: last_error
-              targets:
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              is_unexportable: true
-              target_types:
-              - target_types
-              - target_types
-            password_policy:
-              use_numbers: true
-              use_capital_letters: true
-              use_special_characters: true
-              use_lower_letters: true
-              password_length: 7
             static_secret_info:
               website: website
               websites:
@@ -19004,31 +19244,15 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 4
+              gw_cluster_id: 5
               rotation_hour: 9
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 1
+              delete_previous_version_in_days: 4
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 5
-            tokenizer_info:
-              vaultless_tokenizer_info:
-                key_name: key_name
-                tweak: tweak
-                email_tokenizer_info:
-                  fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 8
-                  domain_suffix_length: 6
-                template_type: template_type
-                tweak_type: tweak_type
-                regexp_tokenizer_info:
-                  encoding_template: encoding_template
-                  decoding_template: decoding_template
-                  pattern: pattern
-                  alphabet: alphabet
-            cluster_gw_url: cluster_gw_url
+              number_of_versions_to_save: 9
             secure_remote_access_details:
               schema: schema
               web_proxy: true
@@ -19059,20 +19283,10 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 9
+              bastion_issuer_id: 6
             importer_info:
-              version: 6
+              version: 7
               external_item_id: external_item_id
-            display_metadata: display_metadata
-            dynamic_secret_producer_details:
-              k8s_allowed_namespaces: k8s_allowed_namespaces
-              k8s_dynamic_mode: true
-              gw_cluster_id: 1
-              producer_last_keep_alive: producer_last_keep_alive
-              producer_type: producer_type
-              producer_status: producer_status
-              failure_message: failure_message
-              producer_metadata: producer_metadata
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
@@ -19280,6 +19494,91 @@ components:
                 - null
                 key_size: 4
               certificate_status: certificate_status
+            certificates_template_info:
+              country: country
+              province: province
+              digest_algo: digest_algo
+              organization: organization
+              locality: locality
+              common_name: common_name
+              ttl: 1
+              self_signed_enabled: true
+            classic_key_details:
+              public_key: public_key
+              classic_key_id: classic_key_id
+              target_alias_helper: target_alias_helper
+              gw_cluster_id: 1
+              is_provided_by_user: true
+              key_type: key_type
+              classic_key_attributes:
+                key:
+                - classic_key_attributes
+                - classic_key_attributes
+              key_state: key_state
+              last_error: last_error
+              targets:
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              is_unexportable: true
+              target_types:
+              - target_types
+              - target_types
+            password_policy:
+              use_numbers: true
+              use_capital_letters: true
+              use_special_characters: true
+              use_lower_letters: true
+              password_length: 1
+            tokenizer_info:
+              vaultless_tokenizer_info:
+                key_name: key_name
+                tweak: tweak
+                email_tokenizer_info:
+                  fixed_domain_suffix: fixed_domain_suffix
+                  keep_prefix_length: 9
+                  domain_suffix_length: 8
+                template_type: template_type
+                tweak_type: tweak_type
+                regexp_tokenizer_info:
+                  encoding_template: encoding_template
+                  decoding_template: decoding_template
+                  pattern: pattern
+                  alphabet: alphabet
+            cluster_gw_url: cluster_gw_url
+            display_metadata: display_metadata
+            dynamic_secret_producer_details:
+              k8s_allowed_namespaces: k8s_allowed_namespaces
+              k8s_dynamic_mode: true
+              gw_cluster_id: 6
+              producer_last_keep_alive: producer_last_keep_alive
+              producer_type: producer_type
+              producer_status: producer_status
+              failure_message: failure_message
+              producer_metadata: producer_metadata
             cert_issue_details:
               max_ttl: 0
               pki_cert_issuer_details:
@@ -19351,7 +19650,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 1
+          last_version: 2
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -19409,7 +19708,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -19418,15 +19717,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 3
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 2
+          rotation_interval: 6
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -19454,7 +19753,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 9
+          item_id: 6
           item_tags:
           - item_tags
           - item_tags
@@ -19536,13 +19835,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -19557,56 +19856,6 @@ components:
           customer_fragment_id: customer_fragment_id
           is_access_request_enabled: true
           item_general_info:
-            classic_key_details:
-              public_key: public_key
-              classic_key_id: classic_key_id
-              target_alias_helper: target_alias_helper
-              gw_cluster_id: 1
-              is_provided_by_user: true
-              key_type: key_type
-              classic_key_attributes:
-                key:
-                - classic_key_attributes
-                - classic_key_attributes
-              key_state: key_state
-              last_error: last_error
-              targets:
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              is_unexportable: true
-              target_types:
-              - target_types
-              - target_types
-            password_policy:
-              use_numbers: true
-              use_capital_letters: true
-              use_special_characters: true
-              use_lower_letters: true
-              password_length: 7
             static_secret_info:
               website: website
               websites:
@@ -19615,31 +19864,15 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 4
+              gw_cluster_id: 5
               rotation_hour: 9
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 1
+              delete_previous_version_in_days: 4
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 5
-            tokenizer_info:
-              vaultless_tokenizer_info:
-                key_name: key_name
-                tweak: tweak
-                email_tokenizer_info:
-                  fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 8
-                  domain_suffix_length: 6
-                template_type: template_type
-                tweak_type: tweak_type
-                regexp_tokenizer_info:
-                  encoding_template: encoding_template
-                  decoding_template: decoding_template
-                  pattern: pattern
-                  alphabet: alphabet
-            cluster_gw_url: cluster_gw_url
+              number_of_versions_to_save: 9
             secure_remote_access_details:
               schema: schema
               web_proxy: true
@@ -19670,20 +19903,10 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 9
+              bastion_issuer_id: 6
             importer_info:
-              version: 6
+              version: 7
               external_item_id: external_item_id
-            display_metadata: display_metadata
-            dynamic_secret_producer_details:
-              k8s_allowed_namespaces: k8s_allowed_namespaces
-              k8s_dynamic_mode: true
-              gw_cluster_id: 1
-              producer_last_keep_alive: producer_last_keep_alive
-              producer_type: producer_type
-              producer_status: producer_status
-              failure_message: failure_message
-              producer_metadata: producer_metadata
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
@@ -19891,6 +20114,91 @@ components:
                 - null
                 key_size: 4
               certificate_status: certificate_status
+            certificates_template_info:
+              country: country
+              province: province
+              digest_algo: digest_algo
+              organization: organization
+              locality: locality
+              common_name: common_name
+              ttl: 1
+              self_signed_enabled: true
+            classic_key_details:
+              public_key: public_key
+              classic_key_id: classic_key_id
+              target_alias_helper: target_alias_helper
+              gw_cluster_id: 1
+              is_provided_by_user: true
+              key_type: key_type
+              classic_key_attributes:
+                key:
+                - classic_key_attributes
+                - classic_key_attributes
+              key_state: key_state
+              last_error: last_error
+              targets:
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              is_unexportable: true
+              target_types:
+              - target_types
+              - target_types
+            password_policy:
+              use_numbers: true
+              use_capital_letters: true
+              use_special_characters: true
+              use_lower_letters: true
+              password_length: 1
+            tokenizer_info:
+              vaultless_tokenizer_info:
+                key_name: key_name
+                tweak: tweak
+                email_tokenizer_info:
+                  fixed_domain_suffix: fixed_domain_suffix
+                  keep_prefix_length: 9
+                  domain_suffix_length: 8
+                template_type: template_type
+                tweak_type: tweak_type
+                regexp_tokenizer_info:
+                  encoding_template: encoding_template
+                  decoding_template: decoding_template
+                  pattern: pattern
+                  alphabet: alphabet
+            cluster_gw_url: cluster_gw_url
+            display_metadata: display_metadata
+            dynamic_secret_producer_details:
+              k8s_allowed_namespaces: k8s_allowed_namespaces
+              k8s_dynamic_mode: true
+              gw_cluster_id: 6
+              producer_last_keep_alive: producer_last_keep_alive
+              producer_type: producer_type
+              producer_status: producer_status
+              failure_message: failure_message
+              producer_metadata: producer_metadata
             cert_issue_details:
               max_ttl: 0
               pki_cert_issuer_details:
@@ -19962,7 +20270,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 1
+          last_version: 2
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -20042,7 +20350,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -20051,15 +20359,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 3
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 2
+          rotation_interval: 6
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -20087,7 +20395,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 9
+          item_id: 6
           item_tags:
           - item_tags
           - item_tags
@@ -20169,13 +20477,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -20190,56 +20498,6 @@ components:
           customer_fragment_id: customer_fragment_id
           is_access_request_enabled: true
           item_general_info:
-            classic_key_details:
-              public_key: public_key
-              classic_key_id: classic_key_id
-              target_alias_helper: target_alias_helper
-              gw_cluster_id: 1
-              is_provided_by_user: true
-              key_type: key_type
-              classic_key_attributes:
-                key:
-                - classic_key_attributes
-                - classic_key_attributes
-              key_state: key_state
-              last_error: last_error
-              targets:
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              is_unexportable: true
-              target_types:
-              - target_types
-              - target_types
-            password_policy:
-              use_numbers: true
-              use_capital_letters: true
-              use_special_characters: true
-              use_lower_letters: true
-              password_length: 7
             static_secret_info:
               website: website
               websites:
@@ -20248,31 +20506,15 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 4
+              gw_cluster_id: 5
               rotation_hour: 9
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 1
+              delete_previous_version_in_days: 4
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 5
-            tokenizer_info:
-              vaultless_tokenizer_info:
-                key_name: key_name
-                tweak: tweak
-                email_tokenizer_info:
-                  fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 8
-                  domain_suffix_length: 6
-                template_type: template_type
-                tweak_type: tweak_type
-                regexp_tokenizer_info:
-                  encoding_template: encoding_template
-                  decoding_template: decoding_template
-                  pattern: pattern
-                  alphabet: alphabet
-            cluster_gw_url: cluster_gw_url
+              number_of_versions_to_save: 9
             secure_remote_access_details:
               schema: schema
               web_proxy: true
@@ -20303,20 +20545,10 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 9
+              bastion_issuer_id: 6
             importer_info:
-              version: 6
+              version: 7
               external_item_id: external_item_id
-            display_metadata: display_metadata
-            dynamic_secret_producer_details:
-              k8s_allowed_namespaces: k8s_allowed_namespaces
-              k8s_dynamic_mode: true
-              gw_cluster_id: 1
-              producer_last_keep_alive: producer_last_keep_alive
-              producer_type: producer_type
-              producer_status: producer_status
-              failure_message: failure_message
-              producer_metadata: producer_metadata
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
@@ -20524,6 +20756,91 @@ components:
                 - null
                 key_size: 4
               certificate_status: certificate_status
+            certificates_template_info:
+              country: country
+              province: province
+              digest_algo: digest_algo
+              organization: organization
+              locality: locality
+              common_name: common_name
+              ttl: 1
+              self_signed_enabled: true
+            classic_key_details:
+              public_key: public_key
+              classic_key_id: classic_key_id
+              target_alias_helper: target_alias_helper
+              gw_cluster_id: 1
+              is_provided_by_user: true
+              key_type: key_type
+              classic_key_attributes:
+                key:
+                - classic_key_attributes
+                - classic_key_attributes
+              key_state: key_state
+              last_error: last_error
+              targets:
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              is_unexportable: true
+              target_types:
+              - target_types
+              - target_types
+            password_policy:
+              use_numbers: true
+              use_capital_letters: true
+              use_special_characters: true
+              use_lower_letters: true
+              password_length: 1
+            tokenizer_info:
+              vaultless_tokenizer_info:
+                key_name: key_name
+                tweak: tweak
+                email_tokenizer_info:
+                  fixed_domain_suffix: fixed_domain_suffix
+                  keep_prefix_length: 9
+                  domain_suffix_length: 8
+                template_type: template_type
+                tweak_type: tweak_type
+                regexp_tokenizer_info:
+                  encoding_template: encoding_template
+                  decoding_template: decoding_template
+                  pattern: pattern
+                  alphabet: alphabet
+            cluster_gw_url: cluster_gw_url
+            display_metadata: display_metadata
+            dynamic_secret_producer_details:
+              k8s_allowed_namespaces: k8s_allowed_namespaces
+              k8s_dynamic_mode: true
+              gw_cluster_id: 6
+              producer_last_keep_alive: producer_last_keep_alive
+              producer_type: producer_type
+              producer_status: producer_status
+              failure_message: failure_message
+              producer_metadata: producer_metadata
             cert_issue_details:
               max_ttl: 0
               pki_cert_issuer_details:
@@ -20595,7 +20912,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 1
+          last_version: 2
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -20653,7 +20970,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -20662,15 +20979,15 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 3
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 2
+          rotation_interval: 6
           target_versions:
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -20698,7 +21015,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 9
+          item_id: 6
           item_tags:
           - item_tags
           - item_tags
@@ -20780,13 +21097,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -20801,56 +21118,6 @@ components:
           customer_fragment_id: customer_fragment_id
           is_access_request_enabled: true
           item_general_info:
-            classic_key_details:
-              public_key: public_key
-              classic_key_id: classic_key_id
-              target_alias_helper: target_alias_helper
-              gw_cluster_id: 1
-              is_provided_by_user: true
-              key_type: key_type
-              classic_key_attributes:
-                key:
-                - classic_key_attributes
-                - classic_key_attributes
-              key_state: key_state
-              last_error: last_error
-              targets:
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              - external_kms_id:
-                  key_id: key_id
-                  key_reference: key_reference
-                target_assoc_id: target_assoc_id
-                target_type: target_type
-                key_purpose:
-                - null
-                - null
-                key_status:
-                  last_status: last_status
-                  error_date: 2000-01-23T04:56:07.000+00:00
-                  last_error: last_error
-                  version: 1
-              is_unexportable: true
-              target_types:
-              - target_types
-              - target_types
-            password_policy:
-              use_numbers: true
-              use_capital_letters: true
-              use_special_characters: true
-              use_lower_letters: true
-              password_length: 7
             static_secret_info:
               website: website
               websites:
@@ -20859,31 +21126,15 @@ components:
               username: username
             rotated_secret_details:
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 4
+              gw_cluster_id: 5
               rotation_hour: 9
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 1
+              delete_previous_version_in_days: 4
               last_rotation_error: last_rotation_error
-              number_of_versions_to_save: 5
-            tokenizer_info:
-              vaultless_tokenizer_info:
-                key_name: key_name
-                tweak: tweak
-                email_tokenizer_info:
-                  fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 8
-                  domain_suffix_length: 6
-                template_type: template_type
-                tweak_type: tweak_type
-                regexp_tokenizer_info:
-                  encoding_template: encoding_template
-                  decoding_template: decoding_template
-                  pattern: pattern
-                  alphabet: alphabet
-            cluster_gw_url: cluster_gw_url
+              number_of_versions_to_save: 9
             secure_remote_access_details:
               schema: schema
               web_proxy: true
@@ -20914,20 +21165,10 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 9
+              bastion_issuer_id: 6
             importer_info:
-              version: 6
+              version: 7
               external_item_id: external_item_id
-            display_metadata: display_metadata
-            dynamic_secret_producer_details:
-              k8s_allowed_namespaces: k8s_allowed_namespaces
-              k8s_dynamic_mode: true
-              gw_cluster_id: 1
-              producer_last_keep_alive: producer_last_keep_alive
-              producer_type: producer_type
-              producer_status: producer_status
-              failure_message: failure_message
-              producer_metadata: producer_metadata
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
@@ -21135,6 +21376,91 @@ components:
                 - null
                 key_size: 4
               certificate_status: certificate_status
+            certificates_template_info:
+              country: country
+              province: province
+              digest_algo: digest_algo
+              organization: organization
+              locality: locality
+              common_name: common_name
+              ttl: 1
+              self_signed_enabled: true
+            classic_key_details:
+              public_key: public_key
+              classic_key_id: classic_key_id
+              target_alias_helper: target_alias_helper
+              gw_cluster_id: 1
+              is_provided_by_user: true
+              key_type: key_type
+              classic_key_attributes:
+                key:
+                - classic_key_attributes
+                - classic_key_attributes
+              key_state: key_state
+              last_error: last_error
+              targets:
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              - external_kms_id:
+                  key_id: key_id
+                  key_reference: key_reference
+                target_assoc_id: target_assoc_id
+                target_type: target_type
+                key_purpose:
+                - null
+                - null
+                key_status:
+                  last_status: last_status
+                  error_date: 2000-01-23T04:56:07.000+00:00
+                  last_error: last_error
+                  version: 1
+              is_unexportable: true
+              target_types:
+              - target_types
+              - target_types
+            password_policy:
+              use_numbers: true
+              use_capital_letters: true
+              use_special_characters: true
+              use_lower_letters: true
+              password_length: 1
+            tokenizer_info:
+              vaultless_tokenizer_info:
+                key_name: key_name
+                tweak: tweak
+                email_tokenizer_info:
+                  fixed_domain_suffix: fixed_domain_suffix
+                  keep_prefix_length: 9
+                  domain_suffix_length: 8
+                template_type: template_type
+                tweak_type: tweak_type
+                regexp_tokenizer_info:
+                  encoding_template: encoding_template
+                  decoding_template: decoding_template
+                  pattern: pattern
+                  alphabet: alphabet
+            cluster_gw_url: cluster_gw_url
+            display_metadata: display_metadata
+            dynamic_secret_producer_details:
+              k8s_allowed_namespaces: k8s_allowed_namespaces
+              k8s_dynamic_mode: true
+              gw_cluster_id: 6
+              producer_last_keep_alive: producer_last_keep_alive
+              producer_type: producer_type
+              producer_status: producer_status
+              failure_message: failure_message
+              producer_metadata: producer_metadata
             cert_issue_details:
               max_ttl: 0
               pki_cert_issuer_details:
@@ -21206,7 +21532,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 1
+          last_version: 2
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -21430,7 +21756,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21439,7 +21765,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -21483,7 +21809,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21492,7 +21818,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -22296,7 +22622,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 1
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -22305,7 +22631,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 1
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
         is_enabled: true
@@ -22853,7 +23179,7 @@ components:
         use_capital_letters: true
         use_special_characters: true
         use_lower_letters: true
-        password_length: 7
+        password_length: 1
       properties:
         password_length:
           format: int64
@@ -23429,15 +23755,15 @@ components:
       description: RotatedSecretDetailsInfo The rotated secret rotator info
       example:
         rotator_creds_type: rotator_creds_type
-        gw_cluster_id: 4
+        gw_cluster_id: 5
         rotation_hour: 9
         rotation_statement: rotation_statement
         rotator_status: rotator_status
         rotation_interval_min: true
         rotator_type: rotator_type
-        delete_previous_version_in_days: 1
+        delete_previous_version_in_days: 4
         last_rotation_error: last_rotation_error
-        number_of_versions_to_save: 5
+        number_of_versions_to_save: 9
       properties:
         delete_previous_version_in_days:
           format: int32
@@ -23825,7 +24151,7 @@ components:
         category: category
         region: region
         ssh_password: true
-        bastion_issuer_id: 9
+        bastion_issuer_id: 6
       properties:
         account_id:
           type: string
@@ -24201,7 +24527,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 1
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -24210,7 +24536,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 1
           customer_fragment_id: customer_fragment_id
         modification_date: 2000-01-23T04:56:07.000+00:00
         attributes:
@@ -24404,6 +24730,7 @@ components:
         password: password
         privileged_user: privileged_user
         ldap_certificate: ldap_certificate
+        venafi_tpp_client_id: venafi_tpp_client_id
         ldap_bind_dn: ldap_bind_dn
         ldap_url: ldap_url
         imap_password: imap_password
@@ -24498,6 +24825,7 @@ components:
         validation_email: validation_email
         venafi_tpp_password: venafi_tpp_password
         first_name: first_name
+        venafi_tpp_refresh_token: venafi_tpp_refresh_token
         use_gw_cloud_identity: true
         k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
         eks_secret_access_key: eks_secret_access_key
@@ -24515,6 +24843,7 @@ components:
         eks_cluster_name: eks_cluster_name
         chef_server_url: chef_server_url
         gke_cluster_name: gke_cluster_name
+        venafi_tpp_access_token: venafi_tpp_access_token
         azure_tenant_id: azure_tenant_id
         username: username
       properties:
@@ -24904,10 +25233,23 @@ components:
         venafi_base_url:
           type: string
           x-go-name: VenafiBaseURL
+        venafi_tpp_access_token:
+          type: string
+          x-go-name: VenafiAccessToken
+        venafi_tpp_client_id:
+          type: string
+          x-go-name: VenafiTPPClientID
         venafi_tpp_password:
+          description: 'Deprecated: VenafiAccessToken and VenafiRefreshToken should
+            be used instead'
           type: string
           x-go-name: VenafiTPPPassword
+        venafi_tpp_refresh_token:
+          type: string
+          x-go-name: VenafiRefreshToken
         venafi_tpp_username:
+          description: 'Deprecated: VenafiAccessToken and VenafiRefreshToken should
+            be used instead'
           type: string
           x-go-name: VenafiTPPUserName
         venafi_use_tpp:
@@ -24975,8 +25317,8 @@ components:
           tweak: tweak
           email_tokenizer_info:
             fixed_domain_suffix: fixed_domain_suffix
-            keep_prefix_length: 8
-            domain_suffix_length: 6
+            keep_prefix_length: 9
+            domain_suffix_length: 8
           template_type: template_type
           tweak_type: tweak_type
           regexp_tokenizer_info:
@@ -25322,8 +25664,8 @@ components:
         tweak: tweak
         email_tokenizer_info:
           fixed_domain_suffix: fixed_domain_suffix
-          keep_prefix_length: 8
-          domain_suffix_length: 6
+          keep_prefix_length: 9
+          domain_suffix_length: 8
         template_type: template_type
         tweak_type: tweak_type
         regexp_tokenizer_info:
@@ -27456,6 +27798,41 @@ components:
             RSA2048, RSA3072, RSA4096]
           type: string
           x-go-name: Alg
+        certificate-common-name:
+          description: Common name for the generated certificate. Relevant only for
+            generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateCommonName
+        certificate-country:
+          description: Country name for the generated certificate. Relevant only for
+            generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateCountry
+        certificate-digest-algo:
+          description: Digest algorithm to be used for the certificate key signing.
+            Currently, we support only "sha256" so we hide this option for CLI.
+          type: string
+          x-go-name: CertificateDigestAlgo
+        certificate-locality:
+          description: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateLocality
+        certificate-organization:
+          description: Organization name for the generated certificate. Relevant only
+            for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateOrganization
+        certificate-province:
+          description: Province name for the generated certificate. Relevant only
+            for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateProvince
+        certificate-ttl:
+          description: TTL in days for the generated certificate. Required only for
+            generate-self-signed-certificate.
+          format: int64
+          type: integer
+          x-go-name: CertificateTTL
         customer-frg-id:
           description: The customer fragment ID that will be used to create the DFC
             key (if empty, the key will be created independently of a customer fragment)
@@ -27469,6 +27846,11 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        generate-self-signed-certificate:
+          description: Whether to generate a self signed certificate with the key.
+            If set, --certificate-ttl must be provided.
+          type: boolean
+          x-go-name: GenerateSelfSignedCertificate
         json:
           default: false
           description: Set output format to JSON
@@ -28103,6 +28485,41 @@ components:
             RSA2048, RSA3072, RSA4096]
           type: string
           x-go-name: Alg
+        certificate-common-name:
+          description: Common name for the generated certificate. Relevant only for
+            generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateCommonName
+        certificate-country:
+          description: Country name for the generated certificate. Relevant only for
+            generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateCountry
+        certificate-digest-algo:
+          description: Digest algorithm to be used for the certificate key signing.
+            Currently, we support only "sha256" so we hide this option for CLI.
+          type: string
+          x-go-name: CertificateDigestAlgo
+        certificate-locality:
+          description: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateLocality
+        certificate-organization:
+          description: Organization name for the generated certificate. Relevant only
+            for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateOrganization
+        certificate-province:
+          description: Province name for the generated certificate. Relevant only
+            for generate-self-signed-certificate.
+          type: string
+          x-go-name: CertificateProvince
+        certificate-ttl:
+          description: TTL in days for the generated certificate. Required only for
+            generate-self-signed-certificate.
+          format: int64
+          type: integer
+          x-go-name: CertificateTTL
         customer-frg-id:
           description: |-
             The customer fragment ID that will be used to create the key (if empty,
@@ -28117,6 +28534,11 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        generate-self-signed-certificate:
+          description: Whether to generate a self signed certificate with the key.
+            If set, --certificate-ttl must be provided.
+          type: boolean
+          x-go-name: GenerateSelfSignedCertificate
         json:
           default: false
           description: Set output format to JSON
@@ -30883,6 +31305,40 @@ components:
       - value
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    eventAction:
+      properties:
+        action:
+          description: The Event Action [approve/deny]
+          type: string
+          x-go-name: Action
+        event-id:
+          description: The Event ID
+          format: int64
+          type: integer
+          x-go-name: EventId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - action
+      - event-id
+      title: eventAction is a command that Performs an action on an event.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    eventActionOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateK8SAuthConfig:
       description: gatewayCreateK8SAuth is a command that creates k8s auth config
       properties:
@@ -31471,6 +31927,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -31494,13 +31951,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31579,6 +32036,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -31610,13 +32068,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -31879,6 +32338,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -31902,13 +32362,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -31987,6 +32447,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -32018,13 +32479,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -32273,6 +32735,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -32296,13 +32759,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32381,6 +32844,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -32412,13 +32876,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -32622,6 +33087,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -32645,13 +33111,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32730,6 +33196,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -32761,13 +33228,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -32977,6 +33445,11 @@ components:
             to have a TTL of above 60 days (1440h). For more information - https://cert-manager.io/docs/usage/certificate/
           type: string
           x-go-name: UserTtl
+        venafi-access-token:
+          description: Venafi Access Token to use to access the TPP environment (Relevant
+            when using TPP)
+          type: string
+          x-go-name: VenafiAccessToken
         venafi-api-key:
           description: Venafi API key
           type: string
@@ -32985,18 +33458,20 @@ components:
           description: Venafi Baseurl
           type: string
           x-go-name: VenafiBaseURL
-        venafi-password:
-          description: Venafi Password
+        venafi-client-id:
+          default: akeyless
+          description: Venafi Client ID that was used when the access token was generated
           type: string
-          x-go-name: VenafiPassword
+          x-go-name: VenafiClientID
+        venafi-refresh-token:
+          description: Venafi Refresh Token to use when the Access Token is expired
+            (Relevant when using TPP)
+          type: string
+          x-go-name: VenafiRefreshToken
         venafi-use-tpp:
           description: Venafi using TPP
           type: boolean
           x-go-name: VenafiUseTPP
-        venafi-username:
-          description: Venafi Username
-          type: string
-          x-go-name: VenafiUsername
         venafi-zone:
           description: Venafi Zone
           type: string
@@ -33021,6 +33496,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -33044,13 +33520,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33129,6 +33605,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -33160,13 +33637,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -33460,6 +33938,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -33483,13 +33962,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33568,6 +34047,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -33599,13 +34079,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -33803,6 +34284,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -33826,13 +34308,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33911,6 +34393,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -33942,13 +34425,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -34180,6 +34664,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -34203,13 +34688,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34288,6 +34773,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -34319,13 +34805,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -34537,6 +35024,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -34560,13 +35048,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34645,6 +35133,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -34676,13 +35165,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -34884,6 +35374,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -34907,13 +35398,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34992,6 +35483,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -35023,13 +35515,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -35252,6 +35745,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -35275,13 +35769,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35360,6 +35854,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -35391,13 +35886,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -35633,6 +36129,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -35656,13 +36153,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35741,6 +36238,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -35772,13 +36270,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -35993,6 +36492,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -36016,13 +36516,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36101,6 +36601,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -36132,13 +36633,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -36374,6 +36876,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -36397,13 +36900,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36482,6 +36985,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -36513,13 +37017,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -36772,6 +37277,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -36795,13 +37301,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36880,6 +37386,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -36911,13 +37418,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -37166,6 +37674,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -37189,13 +37698,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -37274,6 +37783,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -37305,13 +37815,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -37576,6 +38087,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -37599,13 +38111,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -37684,6 +38196,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -37715,13 +38228,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -37959,6 +38473,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -37982,13 +38497,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38067,6 +38582,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -38098,13 +38614,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -38385,6 +38902,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -38408,13 +38926,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38493,6 +39011,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -38524,13 +39043,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -38772,6 +39292,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -38795,13 +39316,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38880,6 +39401,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -38911,13 +39433,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -39155,6 +39678,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -39178,13 +39702,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39263,6 +39787,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -39294,13 +39819,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -39542,6 +40068,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -39565,13 +40092,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39650,6 +40177,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -39681,13 +40209,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -39903,6 +40432,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -39926,13 +40456,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40011,6 +40541,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -40042,13 +40573,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -40273,6 +40805,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -40296,13 +40829,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40381,6 +40914,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -40412,13 +40946,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -40629,6 +41164,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -40652,13 +41188,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40737,6 +41273,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -40768,13 +41305,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -43038,6 +43576,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -43061,13 +43600,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43146,6 +43685,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -43177,13 +43717,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -43450,6 +43991,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -43473,13 +44015,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43558,6 +44100,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -43589,13 +44132,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -43848,6 +44392,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -43871,13 +44416,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43956,6 +44501,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -43987,13 +44533,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -44201,6 +44748,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -44224,13 +44772,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44309,6 +44857,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -44340,13 +44889,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -44560,6 +45110,11 @@ components:
             to have a TTL of above 60 days (1440h). For more information - https://cert-manager.io/docs/usage/certificate/
           type: string
           x-go-name: UserTtl
+        venafi-access-token:
+          description: Venafi Access Token to use to access the TPP environment (Relevant
+            when using TPP)
+          type: string
+          x-go-name: VenafiAccessToken
         venafi-api-key:
           description: Venafi API key
           type: string
@@ -44568,18 +45123,20 @@ components:
           description: Venafi Baseurl
           type: string
           x-go-name: VenafiBaseURL
-        venafi-password:
-          description: Venafi Password
+        venafi-client-id:
+          default: akeyless
+          description: Venafi Client ID that was used when the access token was generated
           type: string
-          x-go-name: VenafiPassword
+          x-go-name: VenafiClientID
+        venafi-refresh-token:
+          description: Venafi Refresh Token to use when the Access Token is expired
+            (Relevant when using TPP)
+          type: string
+          x-go-name: VenafiRefreshToken
         venafi-use-tpp:
           description: Venafi using TPP
           type: boolean
           x-go-name: VenafiUseTPP
-        venafi-username:
-          description: Venafi Username
-          type: string
-          x-go-name: VenafiUsername
         venafi-zone:
           description: Venafi Zone
           type: string
@@ -44604,6 +45161,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -44627,13 +45185,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44712,6 +45270,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -44743,13 +45302,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -45051,6 +45611,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -45074,13 +45635,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45159,6 +45720,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -45190,13 +45752,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -45398,6 +45961,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -45421,13 +45985,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45506,6 +46070,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -45537,13 +46102,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -45779,6 +46345,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -45802,13 +46369,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45887,6 +46454,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -45918,13 +46486,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -46140,6 +46709,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -46163,13 +46733,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46248,6 +46818,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -46279,13 +46850,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -46491,6 +47063,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -46514,13 +47087,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46599,6 +47172,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -46630,13 +47204,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -46863,6 +47438,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -46886,13 +47462,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46971,6 +47547,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -47002,13 +47579,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -47248,6 +47826,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -47271,13 +47850,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47356,6 +47935,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -47387,13 +47967,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -47612,6 +48193,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -47635,13 +48217,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47720,6 +48302,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -47751,13 +48334,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -47997,6 +48581,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -48020,13 +48605,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48105,6 +48690,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -48136,13 +48722,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -48399,6 +48986,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -48422,13 +49010,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48507,6 +49095,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -48538,13 +49127,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -48797,6 +49387,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -48820,13 +49411,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48905,6 +49496,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -48936,13 +49528,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -49211,6 +49804,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -49234,13 +49828,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -49319,6 +49913,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -49350,13 +49945,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -49598,6 +50194,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -49621,13 +50218,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -49706,6 +50303,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -49737,13 +50335,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -50028,6 +50627,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -50051,13 +50651,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -50136,6 +50736,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -50167,13 +50768,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -50419,6 +51021,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -50442,13 +51045,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -50527,6 +51130,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -50558,13 +51162,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -50806,6 +51411,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -50829,13 +51435,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -50914,6 +51520,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -50945,13 +51552,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -51197,6 +51805,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -51220,13 +51829,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -51305,6 +51914,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -51336,13 +51946,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -51562,6 +52173,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -51585,13 +52197,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -51670,6 +52282,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -51701,13 +52314,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -51936,6 +52550,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -51959,13 +52574,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -52044,6 +52659,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -52075,13 +52691,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -52296,6 +52913,7 @@ components:
           sf_user_role: sf_user_role
           privileged_user: privileged_user
           ldap_certificate: ldap_certificate
+          venafi_tpp_client_id: venafi_tpp_client_id
           gcp_role_bindings:
             key:
             - gcp_role_bindings
@@ -52319,13 +52937,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 3
+            target_id: 6
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -52404,6 +53022,7 @@ components:
           chef_server_access_mode: chef_server_access_mode
           rabbitmq_user_conf_permission: rabbitmq_user_conf_permission
           is_fixed_user: is_fixed_user
+          venafi_tpp_refresh_token: venafi_tpp_refresh_token
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
@@ -52435,13 +53054,14 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 9
+            bastion_issuer_id: 6
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
           eks_cluster_ca_certificate: eks_cluster_ca_certificate
           rotate_sync_url: rotate_sync_url
           chef_server_url: chef_server_url
+          venafi_tpp_access_token: venafi_tpp_access_token
           aws_user_groups: aws_user_groups
           azure_tenant_id: azure_tenant_id
           jwks_url: jwks_url
@@ -52804,7 +53424,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -52813,7 +53433,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 1
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
           is_enabled: true

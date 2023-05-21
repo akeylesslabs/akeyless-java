@@ -36,6 +36,34 @@ public class CreateKey {
   @SerializedName(SERIALIZED_NAME_ALG)
   private String alg;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_COMMON_NAME = "certificate-common-name";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_COMMON_NAME)
+  private String certificateCommonName;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_COUNTRY = "certificate-country";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_COUNTRY)
+  private String certificateCountry;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_DIGEST_ALGO = "certificate-digest-algo";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_DIGEST_ALGO)
+  private String certificateDigestAlgo;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_LOCALITY = "certificate-locality";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_LOCALITY)
+  private String certificateLocality;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_ORGANIZATION = "certificate-organization";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ORGANIZATION)
+  private String certificateOrganization;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_PROVINCE = "certificate-province";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_PROVINCE)
+  private String certificateProvince;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_TTL = "certificate-ttl";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
+  private Long certificateTtl;
+
   public static final String SERIALIZED_NAME_CUSTOMER_FRG_ID = "customer-frg-id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
@@ -47,6 +75,10 @@ public class CreateKey {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_GENERATE_SELF_SIGNED_CERTIFICATE = "generate-self-signed-certificate";
+  @SerializedName(SERIALIZED_NAME_GENERATE_SELF_SIGNED_CERTIFICATE)
+  private Boolean generateSelfSignedCertificate;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -99,6 +131,167 @@ public class CreateKey {
 
   public void setAlg(String alg) {
     this.alg = alg;
+  }
+
+
+  public CreateKey certificateCommonName(String certificateCommonName) {
+    
+    this.certificateCommonName = certificateCommonName;
+    return this;
+  }
+
+   /**
+   * Common name for the generated certificate. Relevant only for generate-self-signed-certificate.
+   * @return certificateCommonName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Common name for the generated certificate. Relevant only for generate-self-signed-certificate.")
+
+  public String getCertificateCommonName() {
+    return certificateCommonName;
+  }
+
+
+  public void setCertificateCommonName(String certificateCommonName) {
+    this.certificateCommonName = certificateCommonName;
+  }
+
+
+  public CreateKey certificateCountry(String certificateCountry) {
+    
+    this.certificateCountry = certificateCountry;
+    return this;
+  }
+
+   /**
+   * Country name for the generated certificate. Relevant only for generate-self-signed-certificate.
+   * @return certificateCountry
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Country name for the generated certificate. Relevant only for generate-self-signed-certificate.")
+
+  public String getCertificateCountry() {
+    return certificateCountry;
+  }
+
+
+  public void setCertificateCountry(String certificateCountry) {
+    this.certificateCountry = certificateCountry;
+  }
+
+
+  public CreateKey certificateDigestAlgo(String certificateDigestAlgo) {
+    
+    this.certificateDigestAlgo = certificateDigestAlgo;
+    return this;
+  }
+
+   /**
+   * Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI.
+   * @return certificateDigestAlgo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Digest algorithm to be used for the certificate key signing. Currently, we support only \"sha256\" so we hide this option for CLI.")
+
+  public String getCertificateDigestAlgo() {
+    return certificateDigestAlgo;
+  }
+
+
+  public void setCertificateDigestAlgo(String certificateDigestAlgo) {
+    this.certificateDigestAlgo = certificateDigestAlgo;
+  }
+
+
+  public CreateKey certificateLocality(String certificateLocality) {
+    
+    this.certificateLocality = certificateLocality;
+    return this;
+  }
+
+   /**
+   * Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
+   * @return certificateLocality
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Locality for the generated certificate. Relevant only for generate-self-signed-certificate.")
+
+  public String getCertificateLocality() {
+    return certificateLocality;
+  }
+
+
+  public void setCertificateLocality(String certificateLocality) {
+    this.certificateLocality = certificateLocality;
+  }
+
+
+  public CreateKey certificateOrganization(String certificateOrganization) {
+    
+    this.certificateOrganization = certificateOrganization;
+    return this;
+  }
+
+   /**
+   * Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.
+   * @return certificateOrganization
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.")
+
+  public String getCertificateOrganization() {
+    return certificateOrganization;
+  }
+
+
+  public void setCertificateOrganization(String certificateOrganization) {
+    this.certificateOrganization = certificateOrganization;
+  }
+
+
+  public CreateKey certificateProvince(String certificateProvince) {
+    
+    this.certificateProvince = certificateProvince;
+    return this;
+  }
+
+   /**
+   * Province name for the generated certificate. Relevant only for generate-self-signed-certificate.
+   * @return certificateProvince
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Province name for the generated certificate. Relevant only for generate-self-signed-certificate.")
+
+  public String getCertificateProvince() {
+    return certificateProvince;
+  }
+
+
+  public void setCertificateProvince(String certificateProvince) {
+    this.certificateProvince = certificateProvince;
+  }
+
+
+  public CreateKey certificateTtl(Long certificateTtl) {
+    
+    this.certificateTtl = certificateTtl;
+    return this;
+  }
+
+   /**
+   * TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
+   * @return certificateTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TTL in days for the generated certificate. Required only for generate-self-signed-certificate.")
+
+  public Long getCertificateTtl() {
+    return certificateTtl;
+  }
+
+
+  public void setCertificateTtl(Long certificateTtl) {
+    this.certificateTtl = certificateTtl;
   }
 
 
@@ -168,6 +361,29 @@ public class CreateKey {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public CreateKey generateSelfSignedCertificate(Boolean generateSelfSignedCertificate) {
+    
+    this.generateSelfSignedCertificate = generateSelfSignedCertificate;
+    return this;
+  }
+
+   /**
+   * Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided.
+   * @return generateSelfSignedCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided.")
+
+  public Boolean getGenerateSelfSignedCertificate() {
+    return generateSelfSignedCertificate;
+  }
+
+
+  public void setGenerateSelfSignedCertificate(Boolean generateSelfSignedCertificate) {
+    this.generateSelfSignedCertificate = generateSelfSignedCertificate;
   }
 
 
@@ -350,9 +566,17 @@ public class CreateKey {
     }
     CreateKey createKey = (CreateKey) o;
     return Objects.equals(this.alg, createKey.alg) &&
+        Objects.equals(this.certificateCommonName, createKey.certificateCommonName) &&
+        Objects.equals(this.certificateCountry, createKey.certificateCountry) &&
+        Objects.equals(this.certificateDigestAlgo, createKey.certificateDigestAlgo) &&
+        Objects.equals(this.certificateLocality, createKey.certificateLocality) &&
+        Objects.equals(this.certificateOrganization, createKey.certificateOrganization) &&
+        Objects.equals(this.certificateProvince, createKey.certificateProvince) &&
+        Objects.equals(this.certificateTtl, createKey.certificateTtl) &&
         Objects.equals(this.customerFrgId, createKey.customerFrgId) &&
         Objects.equals(this.deleteProtection, createKey.deleteProtection) &&
         Objects.equals(this.description, createKey.description) &&
+        Objects.equals(this.generateSelfSignedCertificate, createKey.generateSelfSignedCertificate) &&
         Objects.equals(this.json, createKey.json) &&
         Objects.equals(this.metadata, createKey.metadata) &&
         Objects.equals(this.name, createKey.name) &&
@@ -364,7 +588,7 @@ public class CreateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, customerFrgId, deleteProtection, description, json, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, customerFrgId, deleteProtection, description, generateSelfSignedCertificate, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -372,9 +596,17 @@ public class CreateKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
+    sb.append("    certificateCommonName: ").append(toIndentedString(certificateCommonName)).append("\n");
+    sb.append("    certificateCountry: ").append(toIndentedString(certificateCountry)).append("\n");
+    sb.append("    certificateDigestAlgo: ").append(toIndentedString(certificateDigestAlgo)).append("\n");
+    sb.append("    certificateLocality: ").append(toIndentedString(certificateLocality)).append("\n");
+    sb.append("    certificateOrganization: ").append(toIndentedString(certificateOrganization)).append("\n");
+    sb.append("    certificateProvince: ").append(toIndentedString(certificateProvince)).append("\n");
+    sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

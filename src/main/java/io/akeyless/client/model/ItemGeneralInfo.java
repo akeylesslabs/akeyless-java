@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateChainInfo;
 import io.akeyless.client.model.CertificateIssueInfo;
+import io.akeyless.client.model.CertificateTemplateInfo;
 import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
 import io.akeyless.client.model.ImporterInfo;
@@ -46,6 +47,10 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_CERTIFICATE_CHAIN_INFO = "certificate_chain_info";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_CHAIN_INFO)
   private CertificateChainInfo certificateChainInfo;
+
+  public static final String SERIALIZED_NAME_CERTIFICATES_TEMPLATE_INFO = "certificates_template_info";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATES_TEMPLATE_INFO)
+  private CertificateTemplateInfo certificatesTemplateInfo;
 
   public static final String SERIALIZED_NAME_CLASSIC_KEY_DETAILS = "classic_key_details";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_DETAILS)
@@ -133,6 +138,29 @@ public class ItemGeneralInfo {
 
   public void setCertificateChainInfo(CertificateChainInfo certificateChainInfo) {
     this.certificateChainInfo = certificateChainInfo;
+  }
+
+
+  public ItemGeneralInfo certificatesTemplateInfo(CertificateTemplateInfo certificatesTemplateInfo) {
+    
+    this.certificatesTemplateInfo = certificatesTemplateInfo;
+    return this;
+  }
+
+   /**
+   * Get certificatesTemplateInfo
+   * @return certificatesTemplateInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CertificateTemplateInfo getCertificatesTemplateInfo() {
+    return certificatesTemplateInfo;
+  }
+
+
+  public void setCertificatesTemplateInfo(CertificateTemplateInfo certificatesTemplateInfo) {
+    this.certificatesTemplateInfo = certificatesTemplateInfo;
   }
 
 
@@ -377,6 +405,7 @@ public class ItemGeneralInfo {
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.certificateChainInfo, itemGeneralInfo.certificateChainInfo) &&
+        Objects.equals(this.certificatesTemplateInfo, itemGeneralInfo.certificatesTemplateInfo) &&
         Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
         Objects.equals(this.clusterGwUrl, itemGeneralInfo.clusterGwUrl) &&
         Objects.equals(this.displayMetadata, itemGeneralInfo.displayMetadata) &&
@@ -391,7 +420,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, certificateChainInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(certIssueDetails, certificateChainInfo, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
@@ -400,6 +429,7 @@ public class ItemGeneralInfo {
     sb.append("class ItemGeneralInfo {\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    certificateChainInfo: ").append(toIndentedString(certificateChainInfo)).append("\n");
+    sb.append("    certificatesTemplateInfo: ").append(toIndentedString(certificatesTemplateInfo)).append("\n");
     sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
     sb.append("    clusterGwUrl: ").append(toIndentedString(clusterGwUrl)).append("\n");
     sb.append("    displayMetadata: ").append(toIndentedString(displayMetadata)).append("\n");

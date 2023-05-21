@@ -104,6 +104,10 @@ public class GatewayCreateProducerCertificateAutomation {
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   private String userTtl = "2160h";
 
+  public static final String SERIALIZED_NAME_VENAFI_ACCESS_TOKEN = "venafi-access-token";
+  @SerializedName(SERIALIZED_NAME_VENAFI_ACCESS_TOKEN)
+  private String venafiAccessToken;
+
   public static final String SERIALIZED_NAME_VENAFI_API_KEY = "venafi-api-key";
   @SerializedName(SERIALIZED_NAME_VENAFI_API_KEY)
   private String venafiApiKey;
@@ -112,17 +116,17 @@ public class GatewayCreateProducerCertificateAutomation {
   @SerializedName(SERIALIZED_NAME_VENAFI_BASEURL)
   private String venafiBaseurl;
 
-  public static final String SERIALIZED_NAME_VENAFI_PASSWORD = "venafi-password";
-  @SerializedName(SERIALIZED_NAME_VENAFI_PASSWORD)
-  private String venafiPassword;
+  public static final String SERIALIZED_NAME_VENAFI_CLIENT_ID = "venafi-client-id";
+  @SerializedName(SERIALIZED_NAME_VENAFI_CLIENT_ID)
+  private String venafiClientId = "akeyless";
+
+  public static final String SERIALIZED_NAME_VENAFI_REFRESH_TOKEN = "venafi-refresh-token";
+  @SerializedName(SERIALIZED_NAME_VENAFI_REFRESH_TOKEN)
+  private String venafiRefreshToken;
 
   public static final String SERIALIZED_NAME_VENAFI_USE_TPP = "venafi-use-tpp";
   @SerializedName(SERIALIZED_NAME_VENAFI_USE_TPP)
   private Boolean venafiUseTpp;
-
-  public static final String SERIALIZED_NAME_VENAFI_USERNAME = "venafi-username";
-  @SerializedName(SERIALIZED_NAME_VENAFI_USERNAME)
-  private String venafiUsername;
 
   public static final String SERIALIZED_NAME_VENAFI_ZONE = "venafi-zone";
   @SerializedName(SERIALIZED_NAME_VENAFI_ZONE)
@@ -561,6 +565,29 @@ public class GatewayCreateProducerCertificateAutomation {
   }
 
 
+  public GatewayCreateProducerCertificateAutomation venafiAccessToken(String venafiAccessToken) {
+    
+    this.venafiAccessToken = venafiAccessToken;
+    return this;
+  }
+
+   /**
+   * Venafi Access Token to use to access the TPP environment (Relevant when using TPP)
+   * @return venafiAccessToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Venafi Access Token to use to access the TPP environment (Relevant when using TPP)")
+
+  public String getVenafiAccessToken() {
+    return venafiAccessToken;
+  }
+
+
+  public void setVenafiAccessToken(String venafiAccessToken) {
+    this.venafiAccessToken = venafiAccessToken;
+  }
+
+
   public GatewayCreateProducerCertificateAutomation venafiApiKey(String venafiApiKey) {
     
     this.venafiApiKey = venafiApiKey;
@@ -607,26 +634,49 @@ public class GatewayCreateProducerCertificateAutomation {
   }
 
 
-  public GatewayCreateProducerCertificateAutomation venafiPassword(String venafiPassword) {
+  public GatewayCreateProducerCertificateAutomation venafiClientId(String venafiClientId) {
     
-    this.venafiPassword = venafiPassword;
+    this.venafiClientId = venafiClientId;
     return this;
   }
 
    /**
-   * Venafi Password
-   * @return venafiPassword
+   * Venafi Client ID that was used when the access token was generated
+   * @return venafiClientId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Venafi Password")
+  @ApiModelProperty(value = "Venafi Client ID that was used when the access token was generated")
 
-  public String getVenafiPassword() {
-    return venafiPassword;
+  public String getVenafiClientId() {
+    return venafiClientId;
   }
 
 
-  public void setVenafiPassword(String venafiPassword) {
-    this.venafiPassword = venafiPassword;
+  public void setVenafiClientId(String venafiClientId) {
+    this.venafiClientId = venafiClientId;
+  }
+
+
+  public GatewayCreateProducerCertificateAutomation venafiRefreshToken(String venafiRefreshToken) {
+    
+    this.venafiRefreshToken = venafiRefreshToken;
+    return this;
+  }
+
+   /**
+   * Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP)
+   * @return venafiRefreshToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP)")
+
+  public String getVenafiRefreshToken() {
+    return venafiRefreshToken;
+  }
+
+
+  public void setVenafiRefreshToken(String venafiRefreshToken) {
+    this.venafiRefreshToken = venafiRefreshToken;
   }
 
 
@@ -650,29 +700,6 @@ public class GatewayCreateProducerCertificateAutomation {
 
   public void setVenafiUseTpp(Boolean venafiUseTpp) {
     this.venafiUseTpp = venafiUseTpp;
-  }
-
-
-  public GatewayCreateProducerCertificateAutomation venafiUsername(String venafiUsername) {
-    
-    this.venafiUsername = venafiUsername;
-    return this;
-  }
-
-   /**
-   * Venafi Username
-   * @return venafiUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Venafi Username")
-
-  public String getVenafiUsername() {
-    return venafiUsername;
-  }
-
-
-  public void setVenafiUsername(String venafiUsername) {
-    this.venafiUsername = venafiUsername;
   }
 
 
@@ -726,17 +753,18 @@ public class GatewayCreateProducerCertificateAutomation {
         Objects.equals(this.token, gatewayCreateProducerCertificateAutomation.token) &&
         Objects.equals(this.uidToken, gatewayCreateProducerCertificateAutomation.uidToken) &&
         Objects.equals(this.userTtl, gatewayCreateProducerCertificateAutomation.userTtl) &&
+        Objects.equals(this.venafiAccessToken, gatewayCreateProducerCertificateAutomation.venafiAccessToken) &&
         Objects.equals(this.venafiApiKey, gatewayCreateProducerCertificateAutomation.venafiApiKey) &&
         Objects.equals(this.venafiBaseurl, gatewayCreateProducerCertificateAutomation.venafiBaseurl) &&
-        Objects.equals(this.venafiPassword, gatewayCreateProducerCertificateAutomation.venafiPassword) &&
+        Objects.equals(this.venafiClientId, gatewayCreateProducerCertificateAutomation.venafiClientId) &&
+        Objects.equals(this.venafiRefreshToken, gatewayCreateProducerCertificateAutomation.venafiRefreshToken) &&
         Objects.equals(this.venafiUseTpp, gatewayCreateProducerCertificateAutomation.venafiUseTpp) &&
-        Objects.equals(this.venafiUsername, gatewayCreateProducerCertificateAutomation.venafiUsername) &&
         Objects.equals(this.venafiZone, gatewayCreateProducerCertificateAutomation.venafiZone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminRotationIntervalDays, allowSubdomains, allowedDomains, autoGeneratedFolder, deleteProtection, enableAdminRotation, json, name, producerEncryptionKeyName, rootFirstInChain, signUsingAkeylessPki, signerKeyName, storePrivateKey, tags, targetName, token, uidToken, userTtl, venafiApiKey, venafiBaseurl, venafiPassword, venafiUseTpp, venafiUsername, venafiZone);
+    return Objects.hash(adminRotationIntervalDays, allowSubdomains, allowedDomains, autoGeneratedFolder, deleteProtection, enableAdminRotation, json, name, producerEncryptionKeyName, rootFirstInChain, signUsingAkeylessPki, signerKeyName, storePrivateKey, tags, targetName, token, uidToken, userTtl, venafiAccessToken, venafiApiKey, venafiBaseurl, venafiClientId, venafiRefreshToken, venafiUseTpp, venafiZone);
   }
 
   @Override
@@ -761,11 +789,12 @@ public class GatewayCreateProducerCertificateAutomation {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
+    sb.append("    venafiAccessToken: ").append(toIndentedString(venafiAccessToken)).append("\n");
     sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
     sb.append("    venafiBaseurl: ").append(toIndentedString(venafiBaseurl)).append("\n");
-    sb.append("    venafiPassword: ").append(toIndentedString(venafiPassword)).append("\n");
+    sb.append("    venafiClientId: ").append(toIndentedString(venafiClientId)).append("\n");
+    sb.append("    venafiRefreshToken: ").append(toIndentedString(venafiRefreshToken)).append("\n");
     sb.append("    venafiUseTpp: ").append(toIndentedString(venafiUseTpp)).append("\n");
-    sb.append("    venafiUsername: ").append(toIndentedString(venafiUsername)).append("\n");
     sb.append("    venafiZone: ").append(toIndentedString(venafiZone)).append("\n");
     sb.append("}");
     return sb.toString();

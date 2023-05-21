@@ -72,6 +72,7 @@ Method | HTTP request | Description
 [**deleteTarget**](V2Api.md#deleteTarget) | **POST** /delete-target | 
 [**deleteTargetAssociation**](V2Api.md#deleteTargetAssociation) | **POST** /delete-assoc-target-item | 
 [**deleteTargets**](V2Api.md#deleteTargets) | **POST** /delete-targets | 
+[**deriveKey**](V2Api.md#deriveKey) | **POST** /derive-key | 
 [**describeAssoc**](V2Api.md#describeAssoc) | **POST** /describe-role-am-assoc | 
 [**describeItem**](V2Api.md#describeItem) | **POST** /describe-item | 
 [**describePermissions**](V2Api.md#describePermissions) | **POST** /describe-permissions | 
@@ -85,6 +86,7 @@ Method | HTTP request | Description
 [**esmGet**](V2Api.md#esmGet) | **POST** /esm-get | 
 [**esmList**](V2Api.md#esmList) | **POST** /esm-list | 
 [**esmUpdate**](V2Api.md#esmUpdate) | **POST** /esm-update | 
+[**eventAction**](V2Api.md#eventAction) | **POST** /event-action | 
 [**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 [**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
@@ -4432,6 +4434,67 @@ No authorization required
 **200** | deleteTargetsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="deriveKey"></a>
+# **deriveKey**
+> DeriveKeyOutput deriveKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DeriveKey body = new DeriveKey(); // DeriveKey | 
+    try {
+      DeriveKeyOutput result = apiInstance.deriveKey(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#deriveKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeriveKey**](DeriveKey.md)|  |
+
+### Return type
+
+[**DeriveKeyOutput**](DeriveKeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | DeriveKeyResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="describeAssoc"></a>
 # **describeAssoc**
 > RoleAssociationDetails describeAssoc(body)
@@ -5220,6 +5283,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | esmUpdateResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="eventAction"></a>
+# **eventAction**
+> Object eventAction(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventAction body = new EventAction(); // EventAction | 
+    try {
+      Object result = apiInstance.eventAction(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventAction");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EventAction**](EventAction.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | eventActionResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="exportClassicKey"></a>
