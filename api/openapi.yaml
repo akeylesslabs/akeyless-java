@@ -6123,6 +6123,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /sign-data-with-classic-key:
+    post:
+      operationId: signDataWithClassicKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/signDataWithClassicKey'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signOutput'
+          description: signDataWithClassicKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /sign-gpg:
     post:
       operationId: signGPG
@@ -7979,6 +8008,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /verify-data-with-classic-key:
+    post:
+      operationId: verifyDataWithClassicKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verifyDataWithClassicKey'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verifyPKICertOutput'
+          description: verifyDataWithClassicKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /verify-gpg:
     post:
       operationId: verifyGPG
@@ -9439,6 +9497,12 @@ components:
           schema:
             type: object
       description: shareItemResponse wraps response body.
+    signDataWithClassicKeyResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/signOutput'
+      description: signDataWithClassicKeyResponse wraps response body.
     signGPGResponse:
       content:
         application/json:
@@ -9793,6 +9857,12 @@ components:
           schema:
             $ref: '#/components/schemas/validateTokenOutput'
       description: validateTokenResponse wraps response body.
+    verifyDataWithClassicKeyResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/verifyPKICertOutput'
+      description: verifyDataWithClassicKeyResponse wraps response body.
     verifyGPGResponse:
       content:
         application/json:
@@ -55061,6 +55131,59 @@ components:
         user that don't use akeyless.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    signDataWithClassicKey:
+      properties:
+        data:
+          description: Data
+          type: string
+          x-go-name: Data
+        display-id:
+          description: The name of the key to use in the sign data process
+          type: string
+          x-go-name: DisplayId
+        hashed:
+          default: false
+          description: Defines whether the data should be hashed as part of the signing.
+            If true, the data will not be hashed
+          type: boolean
+          x-go-name: AlreadyHashed
+        hashing-method:
+          default: SHA256
+          description: HashingMethod
+          type: string
+          x-go-name: HashingMethod
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: ClassicKey name
+          type: string
+          x-go-name: KeyName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        version:
+          description: classic key version
+          format: int32
+          type: integer
+          x-go-name: Version
+      required:
+      - data
+      - display-id
+      - name
+      - version
+      title: signDataWithClassicKey is a command that signs data by using a Classic
+        key.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     signGPG:
       properties:
         display-id:
@@ -55163,6 +55286,15 @@ components:
       - version
       title: signJWTWithClassicKey is a command that signs JWT by using an Classic
         key.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    signOutput:
+      example:
+        result: result
+      properties:
+        result:
+          type: string
+          x-go-name: Result
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     signPKCS1:
@@ -60202,6 +60334,63 @@ components:
         reason:
           type: string
           x-go-name: Reason
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    verifyDataWithClassicKey:
+      properties:
+        data:
+          description: Data
+          type: string
+          x-go-name: Data
+        display-id:
+          description: The display id of the key to use in the verification process
+          type: string
+          x-go-name: DisplayId
+        hashed:
+          default: false
+          description: Defines whether the data should be hashed as part of the signing.
+            If true, the data will not be hashed
+          type: boolean
+          x-go-name: AlreadyHashed
+        hashing-method:
+          default: SHA256
+          description: HashingMethod
+          type: string
+          x-go-name: HashingMethod
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key-name:
+          description: The name of the key to use in the verification process
+          type: string
+          x-go-name: KeyName
+        signature:
+          description: The data's signature in a Base64 format.
+          type: string
+          x-go-name: Signature
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        version:
+          description: classic key version
+          format: int32
+          type: integer
+          x-go-name: Version
+      required:
+      - data
+      - key-name
+      - signature
+      - version
+      title: verifyDataWithClassicKey is a command that verifies signed data by using
+        a Classic key.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     verifyGPG:

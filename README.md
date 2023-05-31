@@ -316,6 +316,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**setItemState**](docs/V2Api.md#setItemState) | **POST** /set-item-state | 
 *V2Api* | [**setRoleRule**](docs/V2Api.md#setRoleRule) | **POST** /set-role-rule | 
 *V2Api* | [**shareItem**](docs/V2Api.md#shareItem) | **POST** /share-item | 
+*V2Api* | [**signDataWithClassicKey**](docs/V2Api.md#signDataWithClassicKey) | **POST** /sign-data-with-classic-key | 
 *V2Api* | [**signGPG**](docs/V2Api.md#signGPG) | **POST** /sign-gpg | 
 *V2Api* | [**signJWTWithClassicKey**](docs/V2Api.md#signJWTWithClassicKey) | **POST** /sign-jwt-with-classic-key | 
 *V2Api* | [**signPKCS1**](docs/V2Api.md#signPKCS1) | **POST** /sign-pkcs1 | 
@@ -380,6 +381,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateZeroSSLTarget**](docs/V2Api.md#updateZeroSSLTarget) | **POST** /update-zerossl-target | 
 *V2Api* | [**uploadRSA**](docs/V2Api.md#uploadRSA) | **POST** /upload-rsa | 
 *V2Api* | [**validateToken**](docs/V2Api.md#validateToken) | **POST** /validate-token | 
+*V2Api* | [**verifyDataWithClassicKey**](docs/V2Api.md#verifyDataWithClassicKey) | **POST** /verify-data-with-classic-key | 
 *V2Api* | [**verifyGPG**](docs/V2Api.md#verifyGPG) | **POST** /verify-gpg | 
 *V2Api* | [**verifyJWTWithClassicKey**](docs/V2Api.md#verifyJWTWithClassicKey) | **POST** /verify-jwt-with-classic-key | 
 *V2Api* | [**verifyPKCS1**](docs/V2Api.md#verifyPKCS1) | **POST** /verify-pkcs1 | 
@@ -908,10 +910,12 @@ Class | Method | HTTP request | Description
  - [SetRoleRule](docs/SetRoleRule.md)
  - [ShareItem](docs/ShareItem.md)
  - [SharingPolicyInfo](docs/SharingPolicyInfo.md)
+ - [SignDataWithClassicKey](docs/SignDataWithClassicKey.md)
  - [SignGPG](docs/SignGPG.md)
  - [SignGPGOutput](docs/SignGPGOutput.md)
  - [SignJWTOutput](docs/SignJWTOutput.md)
  - [SignJWTWithClassicKey](docs/SignJWTWithClassicKey.md)
+ - [SignOutput](docs/SignOutput.md)
  - [SignPKCS1](docs/SignPKCS1.md)
  - [SignPKCS1Output](docs/SignPKCS1Output.md)
  - [SignPKICertOutput](docs/SignPKICertOutput.md)
@@ -1033,6 +1037,7 @@ Class | Method | HTTP request | Description
  - [ValidateToken](docs/ValidateToken.md)
  - [ValidateTokenOutput](docs/ValidateTokenOutput.md)
  - [VaultlessTokenizerInfo](docs/VaultlessTokenizerInfo.md)
+ - [VerifyDataWithClassicKey](docs/VerifyDataWithClassicKey.md)
  - [VerifyGPG](docs/VerifyGPG.md)
  - [VerifyJWTOutput](docs/VerifyJWTOutput.md)
  - [VerifyJWTWithClassicKey](docs/VerifyJWTWithClassicKey.md)
