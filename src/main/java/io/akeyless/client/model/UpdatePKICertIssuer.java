@@ -63,6 +63,10 @@ public class UpdatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -338,11 +342,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the country that will be set in the issued certificate
+   * A comma-separated list of countries that will be set in the issued certificate
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the country that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of countries that will be set in the issued certificate")
 
   public String getCountry() {
     return country;
@@ -351,6 +355,29 @@ public class UpdatePKICertIssuer {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+
+  public UpdatePKICertIssuer deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -507,11 +534,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the locality that will be set in the issued certificate
+   * A comma-separated list of localities that will be set in the issued certificate
    * @return locality
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the locality that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of localities that will be set in the issued certificate")
 
   public String getLocality() {
     return locality;
@@ -691,11 +718,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the postal code that will be set in the issued certificate
+   * A comma-separated list of postal codes that will be set in the issued certificate
    * @return postalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the postal code that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of postal codes that will be set in the issued certificate")
 
   public String getPostalCode() {
     return postalCode;
@@ -737,11 +764,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the province that will be set in the issued certificate
+   * A comma-separated list of provinces that will be set in the issued certificate
    * @return province
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the province that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of provinces that will be set in the issued certificate")
 
   public String getProvince() {
     return province;
@@ -837,11 +864,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * A comma-separated list of the street address that will be set in the issued certificate
+   * A comma-separated list of street addresses that will be set in the issued certificate
    * @return streetAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of the street address that will be set in the issued certificate")
+  @ApiModelProperty(value = "A comma-separated list of street addresses that will be set in the issued certificate")
 
   public String getStreetAddress() {
     return streetAddress;
@@ -883,11 +910,11 @@ public class UpdatePKICertIssuer {
   }
 
    /**
-   * he requested Time To Live for the certificate, in seconds
+   * The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target&#39;s supported maximum TTLs
    * @return ttl
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "he requested Time To Live for the certificate, in seconds")
+  @ApiModelProperty(required = true, value = "The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target's supported maximum TTLs")
 
   public Long getTtl() {
     return ttl;
@@ -939,6 +966,7 @@ public class UpdatePKICertIssuer {
         Objects.equals(this.clientFlag, updatePKICertIssuer.clientFlag) &&
         Objects.equals(this.codeSigningFlag, updatePKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, updatePKICertIssuer.country) &&
+        Objects.equals(this.deleteProtection, updatePKICertIssuer.deleteProtection) &&
         Objects.equals(this.description, updatePKICertIssuer.description) &&
         Objects.equals(this.destinationPath, updatePKICertIssuer.destinationPath) &&
         Objects.equals(this.expirationEventIn, updatePKICertIssuer.expirationEventIn) &&
@@ -967,7 +995,7 @@ public class UpdatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, description, destinationPath, expirationEventIn, gwClusterUrl, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
+    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
   }
 
   @Override
@@ -982,6 +1010,7 @@ public class UpdatePKICertIssuer {
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");

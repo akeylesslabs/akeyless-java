@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **filter** | **String** | Filter by item name or part of it |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **minimalView** | **Boolean** |  |  [optional]
+**pagination** | **String** | Retrieve items with pagination |  [optional]
 **paginationToken** | **String** | Next page reference |  [optional]
 **path** | **String** | Path to folder |  [optional]
 **sraOnly** | **Boolean** | Filter by items with SRA functionality enabled |  [optional]

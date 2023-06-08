@@ -16085,6 +16085,7 @@ components:
           protection_key_name: protection_key_name
           access_request_status: access_request_status
           target_details: target_details
+          target_sub_type: target_sub_type
       properties:
         target:
           $ref: '#/components/schemas/Target'
@@ -21844,6 +21845,7 @@ components:
           protection_key_name: protection_key_name
           access_request_status: access_request_status
           target_details: target_details
+          target_sub_type: target_sub_type
         - credentials_less: true
           target_items_assoc:
           - cluster_id: 1
@@ -21897,6 +21899,7 @@ components:
           protection_key_name: protection_key_name
           access_request_status: access_request_status
           target_details: target_details
+          target_sub_type: target_sub_type
       properties:
         next_page:
           type: string
@@ -24615,6 +24618,7 @@ components:
         protection_key_name: protection_key_name
         access_request_status: access_request_status
         target_details: target_details
+        target_sub_type: target_sub_type
       properties:
         access_date:
           format: date-time
@@ -24675,6 +24679,10 @@ components:
         target_name:
           type: string
           x-go-name: TargetName
+        target_sub_type:
+          title: TargetSubType ..
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         target_type:
           title: TargetType ..
           type: string
@@ -24782,6 +24790,10 @@ components:
           x-go-name: WithCustomerFragment
       title: TargetItemVersion describes an item version in AKEYLESS.
       type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    TargetSubType:
+      title: TargetSubType ..
+      type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     TargetType:
       title: TargetType ..
@@ -25540,6 +25552,7 @@ components:
         ttl: 0
         token: token
         client-flag: true
+        delete_protection: delete_protection
         postal-code: postal-code
         server-flag: true
         name: name
@@ -25585,11 +25598,14 @@ components:
           type: boolean
           x-go-name: CodeSigningFlag
         country:
-          description: |-
-            A comma-separated list of the country that will be set in the issued
-            certificate
+          description: A comma-separated list of countries that will be set in the
+            issued certificate
           type: string
           x-go-name: Country
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
         description:
           description: Description of the object
           type: string
@@ -25621,9 +25637,8 @@ components:
           type: string
           x-go-name: KeyUsage
         locality:
-          description: |-
-            A comma-separated list of the locality that will be set in the issued
-            certificate
+          description: A comma-separated list of localities that will be set in the
+            issued certificate
           type: string
           x-go-name: Locality
         metadata:
@@ -25661,9 +25676,8 @@ components:
           type: string
           x-go-name: Organizations
         postal-code:
-          description: |-
-            A comma-separated list of the postal code that will be set in the issued
-            certificate
+          description: A comma-separated list of postal codes that will be set in
+            the issued certificate
           type: string
           x-go-name: PostalCode
         protect-certificates:
@@ -25671,9 +25685,8 @@ components:
           type: boolean
           x-go-name: ProtectGeneratedCertificates
         province:
-          description: |-
-            A comma-separated list of the province that will be set in the issued
-            certificate
+          description: A comma-separated list of provinces that will be set in the
+            issued certificate
           type: string
           x-go-name: Province
         rm-tag:
@@ -25693,9 +25706,8 @@ components:
           type: string
           x-go-name: SignerKeyName
         street-address:
-          description: |-
-            A comma-separated list of the street address that will be set in the
-            issued certificate
+          description: A comma-separated list of street addresses that will be set
+            in the issued certificate
           type: string
           x-go-name: StreetAddress
         token:
@@ -25703,10 +25715,12 @@ components:
           type: string
           x-go-name: Profile
         ttl:
-          description: he requested Time To Live for the certificate, in seconds
+          description: The maximum requested Time To Live for issued certificates,
+            in seconds. In case of Public CA, this is based on the CA target's supported
+            maximum TTLs
           format: int64
           type: integer
-          x-go-name: TTL
+          x-go-name: MaxTTL
         uid-token:
           description: The universal identity token, Required only for universal_identity
             authentication
@@ -54534,6 +54548,11 @@ components:
         minimal-view:
           type: boolean
           x-go-name: BasicData
+        pagination:
+          default: enabled
+          description: Retrieve items with pagination
+          type: string
+          x-go-name: Pagination
         pagination-token:
           description: Next page reference
           type: string
@@ -59362,6 +59381,10 @@ components:
           description: Users allowed to fetch the certificate, e.g root,ubuntu
           type: string
           x-go-name: AllowedUsers
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
         description:
           description: Description of the object
           type: string
@@ -59436,7 +59459,7 @@ components:
           type: string
           x-go-name: Profile
         ttl:
-          description: he requested Time To Live for the certificate, in seconds
+          description: The requested Time To Live for the certificate, in seconds
           format: int64
           type: integer
           x-go-name: TTL
@@ -60362,7 +60385,7 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
-        key-name:
+        name:
           description: The name of the key to use in the verification process
           type: string
           x-go-name: KeyName
@@ -60386,7 +60409,7 @@ components:
           x-go-name: Version
       required:
       - data
-      - key-name
+      - name
       - signature
       - version
       title: verifyDataWithClassicKey is a command that verifies signed data by using

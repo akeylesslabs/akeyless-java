@@ -49,9 +49,9 @@ public class VerifyDataWithClassicKey {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
-  public static final String SERIALIZED_NAME_KEY_NAME = "key-name";
-  @SerializedName(SERIALIZED_NAME_KEY_NAME)
-  private String keyName;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
@@ -187,26 +187,26 @@ public class VerifyDataWithClassicKey {
   }
 
 
-  public VerifyDataWithClassicKey keyName(String keyName) {
+  public VerifyDataWithClassicKey name(String name) {
     
-    this.keyName = keyName;
+    this.name = name;
     return this;
   }
 
    /**
    * The name of the key to use in the verification process
-   * @return keyName
+   * @return name
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the key to use in the verification process")
 
-  public String getKeyName() {
-    return keyName;
+  public String getName() {
+    return name;
   }
 
 
-  public void setKeyName(String keyName) {
-    this.keyName = keyName;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -316,7 +316,7 @@ public class VerifyDataWithClassicKey {
         Objects.equals(this.hashed, verifyDataWithClassicKey.hashed) &&
         Objects.equals(this.hashingMethod, verifyDataWithClassicKey.hashingMethod) &&
         Objects.equals(this.json, verifyDataWithClassicKey.json) &&
-        Objects.equals(this.keyName, verifyDataWithClassicKey.keyName) &&
+        Objects.equals(this.name, verifyDataWithClassicKey.name) &&
         Objects.equals(this.signature, verifyDataWithClassicKey.signature) &&
         Objects.equals(this.token, verifyDataWithClassicKey.token) &&
         Objects.equals(this.uidToken, verifyDataWithClassicKey.uidToken) &&
@@ -325,7 +325,7 @@ public class VerifyDataWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, displayId, hashed, hashingMethod, json, keyName, signature, token, uidToken, version);
+    return Objects.hash(data, displayId, hashed, hashingMethod, json, name, signature, token, uidToken, version);
   }
 
   @Override
@@ -337,7 +337,7 @@ public class VerifyDataWithClassicKey {
     sb.append("    hashed: ").append(toIndentedString(hashed)).append("\n");
     sb.append("    hashingMethod: ").append(toIndentedString(hashingMethod)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
-    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
