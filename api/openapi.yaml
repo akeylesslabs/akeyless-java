@@ -11148,6 +11148,9 @@ components:
         access_date: 2000-01-23T04:56:07.000+00:00
         modification_date: 2000-01-23T04:56:07.000+00:00
         is_approved: true
+        associated_gw_ids:
+        - 5
+        - 5
         access_info:
           jwt_ttl: 6
           gcp_access_rules:
@@ -11374,6 +11377,12 @@ components:
         account_id:
           type: string
           x-go-name: AccountID
+        associated_gw_ids:
+          items:
+            format: int64
+            type: integer
+          type: array
+          x-go-name: AssociatedGwIds
         auth_method_access_id:
           type: string
           x-go-name: AuthMethodAccessID
@@ -18599,6 +18608,9 @@ components:
           access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           is_approved: true
+          associated_gw_ids:
+          - 5
+          - 5
           access_info:
             jwt_ttl: 6
             gcp_access_rules:
@@ -18907,6 +18919,9 @@ components:
           access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           is_approved: true
+          associated_gw_ids:
+          - 5
+          - 5
           access_info:
             jwt_ttl: 6
             gcp_access_rules:

@@ -46,6 +46,10 @@ public class AuthMethod {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
   private String accountId;
 
+  public static final String SERIALIZED_NAME_ASSOCIATED_GW_IDS = "associated_gw_ids";
+  @SerializedName(SERIALIZED_NAME_ASSOCIATED_GW_IDS)
+  private List<Long> associatedGwIds = null;
+
   public static final String SERIALIZED_NAME_AUTH_METHOD_ACCESS_ID = "auth_method_access_id";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_ACCESS_ID)
   private String authMethodAccessId;
@@ -143,6 +147,37 @@ public class AuthMethod {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+
+  public AuthMethod associatedGwIds(List<Long> associatedGwIds) {
+    
+    this.associatedGwIds = associatedGwIds;
+    return this;
+  }
+
+  public AuthMethod addAssociatedGwIdsItem(Long associatedGwIdsItem) {
+    if (this.associatedGwIds == null) {
+      this.associatedGwIds = new ArrayList<Long>();
+    }
+    this.associatedGwIds.add(associatedGwIdsItem);
+    return this;
+  }
+
+   /**
+   * Get associatedGwIds
+   * @return associatedGwIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Long> getAssociatedGwIds() {
+    return associatedGwIds;
+  }
+
+
+  public void setAssociatedGwIds(List<Long> associatedGwIds) {
+    this.associatedGwIds = associatedGwIds;
   }
 
 
@@ -335,6 +370,7 @@ public class AuthMethod {
     return Objects.equals(this.accessDate, authMethod.accessDate) &&
         Objects.equals(this.accessInfo, authMethod.accessInfo) &&
         Objects.equals(this.accountId, authMethod.accountId) &&
+        Objects.equals(this.associatedGwIds, authMethod.associatedGwIds) &&
         Objects.equals(this.authMethodAccessId, authMethod.authMethodAccessId) &&
         Objects.equals(this.authMethodName, authMethod.authMethodName) &&
         Objects.equals(this.authMethodRolesAssoc, authMethod.authMethodRolesAssoc) &&
@@ -346,7 +382,7 @@ public class AuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessInfo, accountId, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, isApproved, modificationDate);
+    return Objects.hash(accessDate, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, isApproved, modificationDate);
   }
 
   @Override
@@ -356,6 +392,7 @@ public class AuthMethod {
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    accessInfo: ").append(toIndentedString(accessInfo)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    associatedGwIds: ").append(toIndentedString(associatedGwIds)).append("\n");
     sb.append("    authMethodAccessId: ").append(toIndentedString(authMethodAccessId)).append("\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
     sb.append("    authMethodRolesAssoc: ").append(toIndentedString(authMethodRolesAssoc)).append("\n");

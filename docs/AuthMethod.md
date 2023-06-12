@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **accessDate** | **OffsetDateTime** |  |  [optional]
 **accessInfo** | [**AuthMethodAccessInfo**](AuthMethodAccessInfo.md) |  |  [optional]
 **accountId** | **String** |  |  [optional]
+**associatedGwIds** | **List&lt;Long&gt;** |  |  [optional]
 **authMethodAccessId** | **String** |  |  [optional]
 **authMethodName** | **String** |  |  [optional]
 **authMethodRolesAssoc** | [**List&lt;AuthMethodRoleAssociation&gt;**](AuthMethodRoleAssociation.md) |  |  [optional]
