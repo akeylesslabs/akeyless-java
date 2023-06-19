@@ -70,6 +70,10 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_ROTATOR_TYPE)
   private String rotatorType;
 
+  public static final String SERIALIZED_NAME_SAME_PASSWORD = "same_password";
+  @SerializedName(SERIALIZED_NAME_SAME_PASSWORD)
+  private Boolean samePassword;
+
   public RotatedSecretDetailsInfo() { 
   }
 
@@ -303,6 +307,29 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo samePassword(Boolean samePassword) {
+    
+    this.samePassword = samePassword;
+    return this;
+  }
+
+   /**
+   * Get samePassword
+   * @return samePassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSamePassword() {
+    return samePassword;
+  }
+
+
+  public void setSamePassword(Boolean samePassword) {
+    this.samePassword = samePassword;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -321,12 +348,13 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.rotationStatement, rotatedSecretDetailsInfo.rotationStatement) &&
         Objects.equals(this.rotatorCredsType, rotatedSecretDetailsInfo.rotatorCredsType) &&
         Objects.equals(this.rotatorStatus, rotatedSecretDetailsInfo.rotatorStatus) &&
-        Objects.equals(this.rotatorType, rotatedSecretDetailsInfo.rotatorType);
+        Objects.equals(this.rotatorType, rotatedSecretDetailsInfo.rotatorType) &&
+        Objects.equals(this.samePassword, rotatedSecretDetailsInfo.samePassword);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType);
+    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword);
   }
 
   @Override
@@ -343,6 +371,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");
     sb.append("    rotatorStatus: ").append(toIndentedString(rotatorStatus)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
     sb.append("}");
     return sb.toString();
   }

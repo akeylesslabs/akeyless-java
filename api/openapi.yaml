@@ -10036,6 +10036,7 @@ components:
         data_protection_section:
           enable_classic_key_protection: true
         enable_request_for_access: true
+        protect_items_by_default: true
       properties:
         data_protection_section:
           $ref: '#/components/schemas/DataProtectionSection'
@@ -10044,6 +10045,9 @@ components:
           x-go-name: EnableRequestForAccess
         password_policy:
           $ref: '#/components/schemas/PasswordPolicyInfo'
+        protect_items_by_default:
+          type: boolean
+          x-go-name: ProtectItemsByDefault
         sharing_policy:
           $ref: '#/components/schemas/SharingPolicyInfo'
       type: object
@@ -13861,6 +13865,7 @@ components:
           region: region
           ssh_password: true
           bastion_issuer_id: 6
+        ldap_group_dn: ldap_group_dn
         chef_server_host_name: chef_server_host_name
         k8s_role_type: k8s_role_type
         mongodb_is_atlas: true
@@ -14409,6 +14414,9 @@ components:
         ldap_certificate:
           type: string
           x-go-name: Certificate
+        ldap_group_dn:
+          type: string
+          x-go-name: GroupDn
         ldap_token_expiration:
           type: string
           x-go-name: TokenExpirationInSec
@@ -15697,6 +15705,7 @@ components:
           data_protection_section:
             enable_classic_key_protection: true
           enable_request_for_access: true
+          protect_items_by_default: true
         secret_management:
           tier: tier
           sla: sla
@@ -16492,6 +16501,7 @@ components:
             - websites
             username: username
           rotated_secret_details:
+            same_password: true
             rotator_creds_type: rotator_creds_type
             gw_cluster_id: 5
             rotation_hour: 9
@@ -17097,6 +17107,7 @@ components:
           - websites
           username: username
         rotated_secret_details:
+          same_password: true
           rotator_creds_type: rotator_creds_type
           gw_cluster_id: 5
           rotation_hour: 9
@@ -19329,6 +19340,7 @@ components:
               - websites
               username: username
             rotated_secret_details:
+              same_password: true
               rotator_creds_type: rotator_creds_type
               gw_cluster_id: 5
               rotation_hour: 9
@@ -19949,6 +19961,7 @@ components:
               - websites
               username: username
             rotated_secret_details:
+              same_password: true
               rotator_creds_type: rotator_creds_type
               gw_cluster_id: 5
               rotation_hour: 9
@@ -20591,6 +20604,7 @@ components:
               - websites
               username: username
             rotated_secret_details:
+              same_password: true
               rotator_creds_type: rotator_creds_type
               gw_cluster_id: 5
               rotation_hour: 9
@@ -21211,6 +21225,7 @@ components:
               - websites
               username: username
             rotated_secret_details:
+              same_password: true
               rotator_creds_type: rotator_creds_type
               gw_cluster_id: 5
               rotation_hour: 9
@@ -23842,6 +23857,7 @@ components:
     RotatedSecretDetailsInfo:
       description: RotatedSecretDetailsInfo The rotated secret rotator info
       example:
+        same_password: true
         rotator_creds_type: rotator_creds_type
         gw_cluster_id: 5
         rotation_hour: 9
@@ -23891,6 +23907,9 @@ components:
           title: RotatorType defines types supported by AKEYLESS.
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        same_password:
+          type: boolean
+          x-go-name: SamePassword
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     RotatedSecretOutput:
@@ -25153,6 +25172,7 @@ components:
         hosts:
           additionalProperties:
             type: string
+          description: key hostname, value description
           type: object
           x-go-name: Hosts
         imap_fqdn:
@@ -29204,6 +29224,11 @@ components:
           description: Rotator Type
           type: string
           x-go-name: RotatorType
+        same-password:
+          description: Rotate same password for each host from the Linked Target (relevant
+            only for Linked Target)
+          type: string
+          x-go-name: SamePassword
         secure-access-allow-external-user:
           default: false
           description: Allow providing external user for a domain users (relevant
@@ -29601,6 +29626,12 @@ components:
           description: for personal password manager
           type: string
           x-go-name: ItemAccessibilityString
+        custom-field:
+          additionalProperties:
+            type: string
+          description: For Password Management use, additional fields
+          type: object
+          x-go-name: CustomFields
         delete_protection:
           description: Protection from accidental deletion of this item [true/false]
           type: string
@@ -29609,6 +29640,12 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        inject-url:
+          description: For Password Management use, reflect the website context
+          items:
+            type: string
+          type: array
+          x-go-name: Websites
         json:
           default: false
           description: Set output format to JSON
@@ -29626,26 +29663,10 @@ components:
           description: Secret name
           type: string
           x-go-name: SecretName
-        password-manager-custom-field:
-          additionalProperties:
-            type: string
-          description: For Password Management use, additional fields
-          type: object
-          x-go-name: CustomFields
-        password-manager-inject-url:
-          description: For Password Management use, reflect the website context
-          items:
-            type: string
-          type: array
-          x-go-name: Websites
-        password-manager-password:
+        password:
           description: For Password Management use, additional fields
           type: string
           x-go-name: Password
-        password-manager-username:
-          description: For Password Management use
-          type: string
-          x-go-name: Username
         protection_key:
           description: |-
             The name of a key that used to encrypt the secret value (if empty, the
@@ -29714,6 +29735,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        username:
+          description: For Password Management use
+          type: string
+          x-go-name: Username
         value:
           description: The secret value
           type: string
@@ -32168,6 +32193,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -32579,6 +32605,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -32976,6 +33003,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -33328,6 +33356,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -33737,6 +33766,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -34179,6 +34209,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -34525,6 +34556,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -34905,6 +34937,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -35265,6 +35298,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -35615,6 +35649,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -35986,6 +36021,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -36370,6 +36406,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -36514,6 +36551,10 @@ components:
           description: Externally provided username [true/false]
           type: string
           x-go-name: FixedUserOnly
+        group-dn:
+          description: Group DN which the temporary user should be added
+          type: string
+          x-go-name: GroupDn
         json:
           default: false
           description: Set output format to JSON
@@ -36733,6 +36774,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -37117,6 +37159,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -37518,6 +37561,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -37915,6 +37959,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -38328,6 +38373,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -38714,6 +38760,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -39143,6 +39190,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -39533,6 +39581,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -39919,6 +39968,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -40309,6 +40359,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -40673,6 +40724,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -41046,6 +41098,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -41405,6 +41458,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -43817,6 +43871,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -44232,6 +44287,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -44633,6 +44689,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -44989,6 +45046,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -45402,6 +45460,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -45852,6 +45911,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -46202,6 +46262,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -46586,6 +46647,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -46950,6 +47012,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -47304,6 +47367,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -47679,6 +47743,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -48067,6 +48132,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -48211,6 +48277,10 @@ components:
           description: Externally provided username [true/false]
           type: string
           x-go-name: FixedUserOnly
+        group-dn:
+          description: Group DN which the temporary user should be added
+          type: string
+          x-go-name: GroupDn
         json:
           default: false
           description: Set output format to JSON
@@ -48434,6 +48504,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -48822,6 +48893,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -49227,6 +49299,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -49628,6 +49701,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -50045,6 +50119,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -50435,6 +50510,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -50868,6 +50944,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -51262,6 +51339,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -51652,6 +51730,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -52046,6 +52125,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -52414,6 +52494,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -52791,6 +52872,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -53154,6 +53236,7 @@ components:
             region: region
             ssh_password: true
             bastion_issuer_id: 6
+          ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
           mongodb_is_atlas: true
@@ -53745,6 +53828,11 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getRotatedSecretValue:
       properties:
+        host:
+          description: Get rotated secret value of specific Host (relevant only for
+            Linked Target)
+          type: string
+          x-go-name: Host
         ignore-cache:
           default: "false"
           description: Retrieve the Secret value without checking the Gateway's cache
@@ -55999,6 +56087,11 @@ components:
             version settings
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        items-deletion-protection:
+          description: Set or unset the default behaviour of items deletion protection
+            [true/false]
+          type: string
+          x-go-name: ItemsDeletionProtection
         json:
           default: false
           description: Set output format to JSON
@@ -57487,10 +57580,24 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateCertificateValue:
       properties:
+        add-tag:
+          description: List of the new tags that will be attached to this item
+          items:
+            type: string
+          type: array
+          x-go-name: AddTags
         certificate-data:
           description: Content of the certificate in a Base64 format.
           type: string
           x-go-name: CertificateData
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
         expiration-event-in:
           description: How many days before the expiration of the certificate would
             you like to be notified.
@@ -57519,10 +57626,20 @@ components:
           description: Content of the certificate's private key in a Base64 format.
           type: string
           x-go-name: PrivateKeyData
+        metadata:
+          description: Deprecated - use description
+          type: string
+          x-go-name: Metadata
         name:
           description: Certificate name
           type: string
           x-go-name: CertificateName
+        rm-tag:
+          description: List of the existent tags that will be removed from this item
+          items:
+            type: string
+          type: array
+          x-go-name: RemoveTags
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -59249,6 +59366,11 @@ components:
           description: '"Custom rotation command (relevant only for ssh target)'
           type: string
           x-go-name: RotatorCustomCmd
+        same-password:
+          description: Rotate same password for each host from the Linked Target (relevant
+            only for Linked Target)
+          type: string
+          x-go-name: SamePassword
         secure-access-allow-external-user:
           default: false
           description: Allow providing external user for a domain users (relevant
@@ -59772,6 +59894,18 @@ components:
           description: for personal password manager
           type: string
           x-go-name: ItemAccessibilityString
+        custom-field:
+          additionalProperties:
+            type: string
+          description: For Password Management use, additional fields
+          type: object
+          x-go-name: CustomFields
+        inject-url:
+          description: For Password Management use, reflect the website context
+          items:
+            type: string
+          type: array
+          x-go-name: Websites
         json:
           default: false
           description: Set output format to JSON
@@ -59800,26 +59934,10 @@ components:
           description: Deprecated
           type: boolean
           x-go-name: NewVersion
-        password-manager-custom-field:
-          additionalProperties:
-            type: string
-          description: For Password Management use, additional fields
-          type: object
-          x-go-name: CustomFields
-        password-manager-inject-url:
-          description: For Password Management use, reflect the website context
-          items:
-            type: string
-          type: array
-          x-go-name: Websites
-        password-manager-password:
+        password:
           description: For Password Management use, additional fields
           type: string
           x-go-name: Password
-        password-manager-username:
-          description: For Password Management use
-          type: string
-          x-go-name: Username
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -59829,6 +59947,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        username:
+          description: For Password Management use
+          type: string
+          x-go-name: Username
         value:
           description: The new secret value
           type: string

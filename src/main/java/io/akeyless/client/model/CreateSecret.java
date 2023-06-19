@@ -37,6 +37,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_CUSTOM_FIELD = "custom-field";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD)
+  private Map<String, String> customField = null;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
@@ -44,6 +48,10 @@ public class CreateSecret {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_INJECT_URL = "inject-url";
+  @SerializedName(SERIALIZED_NAME_INJECT_URL)
+  private List<String> injectUrl = null;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -61,21 +69,9 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_CUSTOM_FIELD = "password-manager-custom-field";
-  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_CUSTOM_FIELD)
-  private Map<String, String> passwordManagerCustomField = null;
-
-  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL = "password-manager-inject-url";
-  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_INJECT_URL)
-  private List<String> passwordManagerInjectUrl = null;
-
-  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD = "password-manager-password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_PASSWORD)
-  private String passwordManagerPassword;
-
-  public static final String SERIALIZED_NAME_PASSWORD_MANAGER_USERNAME = "password-manager-username";
-  @SerializedName(SERIALIZED_NAME_PASSWORD_MANAGER_USERNAME)
-  private String passwordManagerUsername;
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
@@ -133,6 +129,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
@@ -160,6 +160,37 @@ public class CreateSecret {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public CreateSecret customField(Map<String, String> customField) {
+    
+    this.customField = customField;
+    return this;
+  }
+
+  public CreateSecret putCustomFieldItem(String key, String customFieldItem) {
+    if (this.customField == null) {
+      this.customField = new HashMap<String, String>();
+    }
+    this.customField.put(key, customFieldItem);
+    return this;
+  }
+
+   /**
+   * For Password Management use, additional fields
+   * @return customField
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, additional fields")
+
+  public Map<String, String> getCustomField() {
+    return customField;
+  }
+
+
+  public void setCustomField(Map<String, String> customField) {
+    this.customField = customField;
   }
 
 
@@ -206,6 +237,37 @@ public class CreateSecret {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public CreateSecret injectUrl(List<String> injectUrl) {
+    
+    this.injectUrl = injectUrl;
+    return this;
+  }
+
+  public CreateSecret addInjectUrlItem(String injectUrlItem) {
+    if (this.injectUrl == null) {
+      this.injectUrl = new ArrayList<String>();
+    }
+    this.injectUrl.add(injectUrlItem);
+    return this;
+  }
+
+   /**
+   * For Password Management use, reflect the website context
+   * @return injectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use, reflect the website context")
+
+  public List<String> getInjectUrl() {
+    return injectUrl;
+  }
+
+
+  public void setInjectUrl(List<String> injectUrl) {
+    this.injectUrl = injectUrl;
   }
 
 
@@ -301,111 +363,26 @@ public class CreateSecret {
   }
 
 
-  public CreateSecret passwordManagerCustomField(Map<String, String> passwordManagerCustomField) {
+  public CreateSecret password(String password) {
     
-    this.passwordManagerCustomField = passwordManagerCustomField;
-    return this;
-  }
-
-  public CreateSecret putPasswordManagerCustomFieldItem(String key, String passwordManagerCustomFieldItem) {
-    if (this.passwordManagerCustomField == null) {
-      this.passwordManagerCustomField = new HashMap<String, String>();
-    }
-    this.passwordManagerCustomField.put(key, passwordManagerCustomFieldItem);
+    this.password = password;
     return this;
   }
 
    /**
    * For Password Management use, additional fields
-   * @return passwordManagerCustomField
+   * @return password
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "For Password Management use, additional fields")
 
-  public Map<String, String> getPasswordManagerCustomField() {
-    return passwordManagerCustomField;
+  public String getPassword() {
+    return password;
   }
 
 
-  public void setPasswordManagerCustomField(Map<String, String> passwordManagerCustomField) {
-    this.passwordManagerCustomField = passwordManagerCustomField;
-  }
-
-
-  public CreateSecret passwordManagerInjectUrl(List<String> passwordManagerInjectUrl) {
-    
-    this.passwordManagerInjectUrl = passwordManagerInjectUrl;
-    return this;
-  }
-
-  public CreateSecret addPasswordManagerInjectUrlItem(String passwordManagerInjectUrlItem) {
-    if (this.passwordManagerInjectUrl == null) {
-      this.passwordManagerInjectUrl = new ArrayList<String>();
-    }
-    this.passwordManagerInjectUrl.add(passwordManagerInjectUrlItem);
-    return this;
-  }
-
-   /**
-   * For Password Management use, reflect the website context
-   * @return passwordManagerInjectUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, reflect the website context")
-
-  public List<String> getPasswordManagerInjectUrl() {
-    return passwordManagerInjectUrl;
-  }
-
-
-  public void setPasswordManagerInjectUrl(List<String> passwordManagerInjectUrl) {
-    this.passwordManagerInjectUrl = passwordManagerInjectUrl;
-  }
-
-
-  public CreateSecret passwordManagerPassword(String passwordManagerPassword) {
-    
-    this.passwordManagerPassword = passwordManagerPassword;
-    return this;
-  }
-
-   /**
-   * For Password Management use, additional fields
-   * @return passwordManagerPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use, additional fields")
-
-  public String getPasswordManagerPassword() {
-    return passwordManagerPassword;
-  }
-
-
-  public void setPasswordManagerPassword(String passwordManagerPassword) {
-    this.passwordManagerPassword = passwordManagerPassword;
-  }
-
-
-  public CreateSecret passwordManagerUsername(String passwordManagerUsername) {
-    
-    this.passwordManagerUsername = passwordManagerUsername;
-    return this;
-  }
-
-   /**
-   * For Password Management use
-   * @return passwordManagerUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "For Password Management use")
-
-  public String getPasswordManagerUsername() {
-    return passwordManagerUsername;
-  }
-
-
-  public void setPasswordManagerUsername(String passwordManagerUsername) {
-    this.passwordManagerUsername = passwordManagerUsername;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -747,6 +724,29 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * For Password Management use
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For Password Management use")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   public CreateSecret value(String value) {
     
     this.value = value;
@@ -780,16 +780,15 @@ public class CreateSecret {
     }
     CreateSecret createSecret = (CreateSecret) o;
     return Objects.equals(this.accessibility, createSecret.accessibility) &&
+        Objects.equals(this.customField, createSecret.customField) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
         Objects.equals(this.description, createSecret.description) &&
+        Objects.equals(this.injectUrl, createSecret.injectUrl) &&
         Objects.equals(this.json, createSecret.json) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
         Objects.equals(this.name, createSecret.name) &&
-        Objects.equals(this.passwordManagerCustomField, createSecret.passwordManagerCustomField) &&
-        Objects.equals(this.passwordManagerInjectUrl, createSecret.passwordManagerInjectUrl) &&
-        Objects.equals(this.passwordManagerPassword, createSecret.passwordManagerPassword) &&
-        Objects.equals(this.passwordManagerUsername, createSecret.passwordManagerUsername) &&
+        Objects.equals(this.password, createSecret.password) &&
         Objects.equals(this.protectionKey, createSecret.protectionKey) &&
         Objects.equals(this.secureAccessBastionIssuer, createSecret.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, createSecret.secureAccessEnable) &&
@@ -804,12 +803,13 @@ public class CreateSecret {
         Objects.equals(this.token, createSecret.token) &&
         Objects.equals(this.type, createSecret.type) &&
         Objects.equals(this.uidToken, createSecret.uidToken) &&
+        Objects.equals(this.username, createSecret.username) &&
         Objects.equals(this.value, createSecret.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteProtection, description, json, metadata, multilineValue, name, passwordManagerCustomField, passwordManagerInjectUrl, passwordManagerPassword, passwordManagerUsername, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, value);
+    return Objects.hash(accessibility, customField, deleteProtection, description, injectUrl, json, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
   }
 
   @Override
@@ -817,16 +817,15 @@ public class CreateSecret {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecret {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    passwordManagerCustomField: ").append(toIndentedString(passwordManagerCustomField)).append("\n");
-    sb.append("    passwordManagerInjectUrl: ").append(toIndentedString(passwordManagerInjectUrl)).append("\n");
-    sb.append("    passwordManagerPassword: ").append(toIndentedString(passwordManagerPassword)).append("\n");
-    sb.append("    passwordManagerUsername: ").append(toIndentedString(passwordManagerUsername)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
@@ -841,6 +840,7 @@ public class CreateSecret {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

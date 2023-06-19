@@ -48,6 +48,10 @@ public class GatewayCreateProducerLdap {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_USERNAME)
   private String externalUsername = "false";
 
+  public static final String SERIALIZED_NAME_GROUP_DN = "group-dn";
+  @SerializedName(SERIALIZED_NAME_GROUP_DN)
+  private String groupDn;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -192,6 +196,29 @@ public class GatewayCreateProducerLdap {
 
   public void setExternalUsername(String externalUsername) {
     this.externalUsername = externalUsername;
+  }
+
+
+  public GatewayCreateProducerLdap groupDn(String groupDn) {
+    
+    this.groupDn = groupDn;
+    return this;
+  }
+
+   /**
+   * Group DN which the temporary user should be added
+   * @return groupDn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Group DN which the temporary user should be added")
+
+  public String getGroupDn() {
+    return groupDn;
+  }
+
+
+  public void setGroupDn(String groupDn) {
+    this.groupDn = groupDn;
   }
 
 
@@ -515,6 +542,7 @@ public class GatewayCreateProducerLdap {
         Objects.equals(this.bindDnPassword, gatewayCreateProducerLdap.bindDnPassword) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerLdap.deleteProtection) &&
         Objects.equals(this.externalUsername, gatewayCreateProducerLdap.externalUsername) &&
+        Objects.equals(this.groupDn, gatewayCreateProducerLdap.groupDn) &&
         Objects.equals(this.json, gatewayCreateProducerLdap.json) &&
         Objects.equals(this.ldapCaCert, gatewayCreateProducerLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, gatewayCreateProducerLdap.ldapUrl) &&
@@ -532,7 +560,7 @@ public class GatewayCreateProducerLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, deleteProtection, externalUsername, json, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(bindDn, bindDnPassword, deleteProtection, externalUsername, groupDn, json, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -543,6 +571,7 @@ public class GatewayCreateProducerLdap {
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    externalUsername: ").append(toIndentedString(externalUsername)).append("\n");
+    sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");

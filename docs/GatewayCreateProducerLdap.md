@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **bindDnPassword** | **String** | Bind DN Password |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **externalUsername** | **String** | Externally provided username [true/false] |  [optional]
+**groupDn** | **String** | Group DN which the temporary user should be added |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **ldapCaCert** | **String** | CA Certificate File Content |  [optional]
 **ldapUrl** | **String** | LDAP Server URL |  [optional]

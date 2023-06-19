@@ -1935,11 +1935,11 @@ public class TargetTypeDetailsInput {
   }
 
    /**
-   * Get hosts
+   * key hostname, value description
    * @return hosts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "key hostname, value description")
 
   public Map<String, String> getHosts() {
     return hosts;

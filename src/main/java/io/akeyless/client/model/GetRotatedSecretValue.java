@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetRotatedSecretValue {
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
+  private String host;
+
   public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
   @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
   private String ignoreCache = "false";
@@ -55,6 +59,29 @@ public class GetRotatedSecretValue {
 
   public GetRotatedSecretValue() { 
   }
+
+  public GetRotatedSecretValue host(String host) {
+    
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get rotated secret value of specific Host (relevant only for Linked Target)
+   * @return host
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Get rotated secret value of specific Host (relevant only for Linked Target)")
+
+  public String getHost() {
+    return host;
+  }
+
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
 
   public GetRotatedSecretValue ignoreCache(String ignoreCache) {
     
@@ -203,7 +230,8 @@ public class GetRotatedSecretValue {
       return false;
     }
     GetRotatedSecretValue getRotatedSecretValue = (GetRotatedSecretValue) o;
-    return Objects.equals(this.ignoreCache, getRotatedSecretValue.ignoreCache) &&
+    return Objects.equals(this.host, getRotatedSecretValue.host) &&
+        Objects.equals(this.ignoreCache, getRotatedSecretValue.ignoreCache) &&
         Objects.equals(this.json, getRotatedSecretValue.json) &&
         Objects.equals(this.names, getRotatedSecretValue.names) &&
         Objects.equals(this.token, getRotatedSecretValue.token) &&
@@ -213,13 +241,14 @@ public class GetRotatedSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ignoreCache, json, names, token, uidToken, version);
+    return Objects.hash(host, ignoreCache, json, names, token, uidToken, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRotatedSecretValue {\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

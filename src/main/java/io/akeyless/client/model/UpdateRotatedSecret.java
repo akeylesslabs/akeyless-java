@@ -124,6 +124,10 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_ROTATOR_CUSTOM_CMD)
   private String rotatorCustomCmd;
 
+  public static final String SERIALIZED_NAME_SAME_PASSWORD = "same-password";
+  @SerializedName(SERIALIZED_NAME_SAME_PASSWORD)
+  private String samePassword;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER = "secure-access-allow-external-user";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER)
   private Boolean secureAccessAllowExternalUser = false;
@@ -744,6 +748,29 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret samePassword(String samePassword) {
+    
+    this.samePassword = samePassword;
+    return this;
+  }
+
+   /**
+   * Rotate same password for each host from the Linked Target (relevant only for Linked Target)
+   * @return samePassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rotate same password for each host from the Linked Target (relevant only for Linked Target)")
+
+  public String getSamePassword() {
+    return samePassword;
+  }
+
+
+  public void setSamePassword(String samePassword) {
+    this.samePassword = samePassword;
+  }
+
+
   public UpdateRotatedSecret secureAccessAllowExternalUser(Boolean secureAccessAllowExternalUser) {
     
     this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
@@ -1198,6 +1225,7 @@ public class UpdateRotatedSecret {
         Objects.equals(this.rotationInterval, updateRotatedSecret.rotationInterval) &&
         Objects.equals(this.rotatorCredsType, updateRotatedSecret.rotatorCredsType) &&
         Objects.equals(this.rotatorCustomCmd, updateRotatedSecret.rotatorCustomCmd) &&
+        Objects.equals(this.samePassword, updateRotatedSecret.samePassword) &&
         Objects.equals(this.secureAccessAllowExternalUser, updateRotatedSecret.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessAwsAccountId, updateRotatedSecret.secureAccessAwsAccountId) &&
         Objects.equals(this.secureAccessAwsNativeCli, updateRotatedSecret.secureAccessAwsNativeCli) &&
@@ -1220,7 +1248,7 @@ public class UpdateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken);
   }
 
   @Override
@@ -1250,6 +1278,7 @@ public class UpdateRotatedSecret {
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");
     sb.append("    rotatorCustomCmd: ").append(toIndentedString(rotatorCustomCmd)).append("\n");
+    sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
     sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");

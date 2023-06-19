@@ -61,6 +61,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
   private String itemType;
 
+  public static final String SERIALIZED_NAME_ITEMS_DELETION_PROTECTION = "items-deletion-protection";
+  @SerializedName(SERIALIZED_NAME_ITEMS_DELETION_PROTECTION)
+  private String itemsDeletionProtection;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -301,6 +305,29 @@ public class UpdateAccountSettings {
 
   public void setItemType(String itemType) {
     this.itemType = itemType;
+  }
+
+
+  public UpdateAccountSettings itemsDeletionProtection(String itemsDeletionProtection) {
+    
+    this.itemsDeletionProtection = itemsDeletionProtection;
+    return this;
+  }
+
+   /**
+   * Set or unset the default behaviour of items deletion protection [true/false]
+   * @return itemsDeletionProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set or unset the default behaviour of items deletion protection [true/false]")
+
+  public String getItemsDeletionProtection() {
+    return itemsDeletionProtection;
+  }
+
+
+  public void setItemsDeletionProtection(String itemsDeletionProtection) {
+    this.itemsDeletionProtection = itemsDeletionProtection;
   }
 
 
@@ -643,6 +670,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
+        Objects.equals(this.itemsDeletionProtection, updateAccountSettings.itemsDeletionProtection) &&
         Objects.equals(this.json, updateAccountSettings.json) &&
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
@@ -661,7 +689,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -676,6 +704,7 @@ public class UpdateAccountSettings {
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
+    sb.append("    itemsDeletionProtection: ").append(toIndentedString(itemsDeletionProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");

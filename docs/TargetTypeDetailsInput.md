@@ -67,7 +67,7 @@ Name | Type | Description | Notes
 **gkeServiceAccountName** | **String** |  |  [optional]
 **host** | **String** |  |  [optional]
 **hostname** | **String** |  |  [optional]
-**hosts** | **Map&lt;String, String&gt;** |  |  [optional]
+**hosts** | **Map&lt;String, String&gt;** | key hostname, value description |  [optional]
 **imapFqdn** | **String** |  |  [optional]
 **imapPassword** | **String** |  |  [optional]
 **imapPort** | **String** |  |  [optional]

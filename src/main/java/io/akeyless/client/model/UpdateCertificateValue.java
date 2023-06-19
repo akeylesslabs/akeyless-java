@@ -31,9 +31,21 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateCertificateValue {
+  public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
+  @SerializedName(SERIALIZED_NAME_ADD_TAG)
+  private List<String> addTag = null;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_DATA = "certificate-data";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DATA)
   private String certificateData;
+
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
@@ -55,9 +67,17 @@ public class UpdateCertificateValue {
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
 
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private String metadata;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
+  @SerializedName(SERIALIZED_NAME_RM_TAG)
+  private List<String> rmTag = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -69,6 +89,37 @@ public class UpdateCertificateValue {
 
   public UpdateCertificateValue() { 
   }
+
+  public UpdateCertificateValue addTag(List<String> addTag) {
+    
+    this.addTag = addTag;
+    return this;
+  }
+
+  public UpdateCertificateValue addAddTagItem(String addTagItem) {
+    if (this.addTag == null) {
+      this.addTag = new ArrayList<String>();
+    }
+    this.addTag.add(addTagItem);
+    return this;
+  }
+
+   /**
+   * List of the new tags that will be attached to this item
+   * @return addTag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the new tags that will be attached to this item")
+
+  public List<String> getAddTag() {
+    return addTag;
+  }
+
+
+  public void setAddTag(List<String> addTag) {
+    this.addTag = addTag;
+  }
+
 
   public UpdateCertificateValue certificateData(String certificateData) {
     
@@ -90,6 +141,52 @@ public class UpdateCertificateValue {
 
   public void setCertificateData(String certificateData) {
     this.certificateData = certificateData;
+  }
+
+
+  public UpdateCertificateValue deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this item [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
+  public UpdateCertificateValue description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the object
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the object")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -216,6 +313,29 @@ public class UpdateCertificateValue {
   }
 
 
+  public UpdateCertificateValue metadata(String metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Deprecated - use description
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Deprecated - use description")
+
+  public String getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
+  }
+
+
   public UpdateCertificateValue name(String name) {
     
     this.name = name;
@@ -236,6 +356,37 @@ public class UpdateCertificateValue {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateCertificateValue rmTag(List<String> rmTag) {
+    
+    this.rmTag = rmTag;
+    return this;
+  }
+
+  public UpdateCertificateValue addRmTagItem(String rmTagItem) {
+    if (this.rmTag == null) {
+      this.rmTag = new ArrayList<String>();
+    }
+    this.rmTag.add(rmTagItem);
+    return this;
+  }
+
+   /**
+   * List of the existent tags that will be removed from this item
+   * @return rmTag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of the existent tags that will be removed from this item")
+
+  public List<String> getRmTag() {
+    return rmTag;
+  }
+
+
+  public void setRmTag(List<String> rmTag) {
+    this.rmTag = rmTag;
   }
 
 
@@ -294,33 +445,43 @@ public class UpdateCertificateValue {
       return false;
     }
     UpdateCertificateValue updateCertificateValue = (UpdateCertificateValue) o;
-    return Objects.equals(this.certificateData, updateCertificateValue.certificateData) &&
+    return Objects.equals(this.addTag, updateCertificateValue.addTag) &&
+        Objects.equals(this.certificateData, updateCertificateValue.certificateData) &&
+        Objects.equals(this.deleteProtection, updateCertificateValue.deleteProtection) &&
+        Objects.equals(this.description, updateCertificateValue.description) &&
         Objects.equals(this.expirationEventIn, updateCertificateValue.expirationEventIn) &&
         Objects.equals(this.format, updateCertificateValue.format) &&
         Objects.equals(this.json, updateCertificateValue.json) &&
         Objects.equals(this.key, updateCertificateValue.key) &&
         Objects.equals(this.keyData, updateCertificateValue.keyData) &&
+        Objects.equals(this.metadata, updateCertificateValue.metadata) &&
         Objects.equals(this.name, updateCertificateValue.name) &&
+        Objects.equals(this.rmTag, updateCertificateValue.rmTag) &&
         Objects.equals(this.token, updateCertificateValue.token) &&
         Objects.equals(this.uidToken, updateCertificateValue.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateData, expirationEventIn, format, json, key, keyData, name, token, uidToken);
+    return Objects.hash(addTag, certificateData, deleteProtection, description, expirationEventIn, format, json, key, keyData, metadata, name, rmTag, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateCertificateValue {\n");
+    sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    certificateData: ").append(toIndentedString(certificateData)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

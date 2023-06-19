@@ -45,6 +45,10 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
   private PasswordPolicyInfo passwordPolicy;
 
+  public static final String SERIALIZED_NAME_PROTECT_ITEMS_BY_DEFAULT = "protect_items_by_default";
+  @SerializedName(SERIALIZED_NAME_PROTECT_ITEMS_BY_DEFAULT)
+  private Boolean protectItemsByDefault;
+
   public static final String SERIALIZED_NAME_SHARING_POLICY = "sharing_policy";
   @SerializedName(SERIALIZED_NAME_SHARING_POLICY)
   private SharingPolicyInfo sharingPolicy;
@@ -121,6 +125,29 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings protectItemsByDefault(Boolean protectItemsByDefault) {
+    
+    this.protectItemsByDefault = protectItemsByDefault;
+    return this;
+  }
+
+   /**
+   * Get protectItemsByDefault
+   * @return protectItemsByDefault
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getProtectItemsByDefault() {
+    return protectItemsByDefault;
+  }
+
+
+  public void setProtectItemsByDefault(Boolean protectItemsByDefault) {
+    this.protectItemsByDefault = protectItemsByDefault;
+  }
+
+
   public AccountGeneralSettings sharingPolicy(SharingPolicyInfo sharingPolicy) {
     
     this.sharingPolicy = sharingPolicy;
@@ -156,12 +183,13 @@ public class AccountGeneralSettings {
     return Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
+        Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
         Objects.equals(this.sharingPolicy, accountGeneralSettings.sharingPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataProtectionSection, enableRequestForAccess, passwordPolicy, sharingPolicy);
+    return Objects.hash(dataProtectionSection, enableRequestForAccess, passwordPolicy, protectItemsByDefault, sharingPolicy);
   }
 
   @Override
@@ -171,6 +199,7 @@ public class AccountGeneralSettings {
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
+    sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
     sb.append("    sharingPolicy: ").append(toIndentedString(sharingPolicy)).append("\n");
     sb.append("}");
     return sb.toString();

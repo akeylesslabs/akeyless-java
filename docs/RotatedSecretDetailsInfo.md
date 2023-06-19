@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **rotatorCredsType** | **String** |  |  [optional]
 **rotatorStatus** | **String** | RotationStatus defines types of rotation Status |  [optional]
 **rotatorType** | **String** |  |  [optional]
+**samePassword** | **Boolean** |  |  [optional]
 
 
 
