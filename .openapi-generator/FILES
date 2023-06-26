@@ -540,6 +540,7 @@ docs/SraInfo.md
 docs/StaticCredsAuth.md
 docs/StaticCredsAuthOutput.md
 docs/StaticSecretDetailsInfo.md
+docs/SumologicLogForwardingConfig.md
 docs/SyslogLogForwardingConfig.md
 docs/SystemAccessCredentialsReplyObj.md
 docs/SystemAccessCredsSettings.md
@@ -1222,6 +1223,7 @@ src/main/java/io/akeyless/client/model/SraInfo.java
 src/main/java/io/akeyless/client/model/StaticCredsAuth.java
 src/main/java/io/akeyless/client/model/StaticCredsAuthOutput.java
 src/main/java/io/akeyless/client/model/StaticSecretDetailsInfo.java
+src/main/java/io/akeyless/client/model/SumologicLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SyslogLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SystemAccessCredentialsReplyObj.java
 src/main/java/io/akeyless/client/model/SystemAccessCredsSettings.java
@@ -1340,3 +1342,4 @@ src/main/java/io/akeyless/client/model/VerifyJWTWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyPKCS1.java
 src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
+src/test/java/io/akeyless/client/model/SumologicLogForwardingConfigTest.java

@@ -926,6 +926,7 @@ Class | Method | HTTP request | Description
  - [StaticCredsAuth](docs/StaticCredsAuth.md)
  - [StaticCredsAuthOutput](docs/StaticCredsAuthOutput.md)
  - [StaticSecretDetailsInfo](docs/StaticSecretDetailsInfo.md)
+ - [SumologicLogForwardingConfig](docs/SumologicLogForwardingConfig.md)
  - [SyslogLogForwardingConfig](docs/SyslogLogForwardingConfig.md)
  - [SystemAccessCredentialsReplyObj](docs/SystemAccessCredentialsReplyObj.md)
  - [SystemAccessCredsSettings](docs/SystemAccessCredsSettings.md)

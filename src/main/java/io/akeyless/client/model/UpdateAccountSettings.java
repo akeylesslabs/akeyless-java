@@ -45,6 +45,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_DEFAULT_KEY_NAME = "default-key-name";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_KEY_NAME)
+  private String defaultKeyName;
+
   public static final String SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL_MINUTES = "default-share-link-ttl-minutes";
   @SerializedName(SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL_MINUTES)
   private String defaultShareLinkTtlMinutes;
@@ -213,6 +217,29 @@ public class UpdateAccountSettings {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+
+  public UpdateAccountSettings defaultKeyName(String defaultKeyName) {
+    
+    this.defaultKeyName = defaultKeyName;
+    return this;
+  }
+
+   /**
+   * Set the account default key based on the DFC key item name. Use \&quot;set-original-akeyless-default-key\&quot; to revert to using the original default key of the account. Empty string will change nothing.
+   * @return defaultKeyName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the account default key based on the DFC key item name. Use \"set-original-akeyless-default-key\" to revert to using the original default key of the account. Empty string will change nothing.")
+
+  public String getDefaultKeyName() {
+    return defaultKeyName;
+  }
+
+
+  public void setDefaultKeyName(String defaultKeyName) {
+    this.defaultKeyName = defaultKeyName;
   }
 
 
@@ -666,6 +693,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.city, updateAccountSettings.city) &&
         Objects.equals(this.companyName, updateAccountSettings.companyName) &&
         Objects.equals(this.country, updateAccountSettings.country) &&
+        Objects.equals(this.defaultKeyName, updateAccountSettings.defaultKeyName) &&
         Objects.equals(this.defaultShareLinkTtlMinutes, updateAccountSettings.defaultShareLinkTtlMinutes) &&
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
@@ -689,7 +717,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -700,6 +728,7 @@ public class UpdateAccountSettings {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    defaultKeyName: ").append(toIndentedString(defaultKeyName)).append("\n");
     sb.append("    defaultShareLinkTtlMinutes: ").append(toIndentedString(defaultShareLinkTtlMinutes)).append("\n");
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");

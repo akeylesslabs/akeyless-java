@@ -41,6 +41,10 @@ public class CertificateChainInfo {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
   private String certificateFormat;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_ISSUER_ITEM_ID = "certificate_issuer_item_id";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUER_ITEM_ID)
+  private Long certificateIssuerItemId;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_ISSUER_NAME = "certificate_issuer_name";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUER_NAME)
   private String certificateIssuerName;
@@ -111,6 +115,29 @@ public class CertificateChainInfo {
 
   public void setCertificateFormat(String certificateFormat) {
     this.certificateFormat = certificateFormat;
+  }
+
+
+  public CertificateChainInfo certificateIssuerItemId(Long certificateIssuerItemId) {
+    
+    this.certificateIssuerItemId = certificateIssuerItemId;
+    return this;
+  }
+
+   /**
+   * Get certificateIssuerItemId
+   * @return certificateIssuerItemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getCertificateIssuerItemId() {
+    return certificateIssuerItemId;
+  }
+
+
+  public void setCertificateIssuerItemId(Long certificateIssuerItemId) {
+    this.certificateIssuerItemId = certificateIssuerItemId;
   }
 
 
@@ -225,6 +252,7 @@ public class CertificateChainInfo {
     CertificateChainInfo certificateChainInfo = (CertificateChainInfo) o;
     return Objects.equals(this.certificateChain, certificateChainInfo.certificateChain) &&
         Objects.equals(this.certificateFormat, certificateChainInfo.certificateFormat) &&
+        Objects.equals(this.certificateIssuerItemId, certificateChainInfo.certificateIssuerItemId) &&
         Objects.equals(this.certificateIssuerName, certificateChainInfo.certificateIssuerName) &&
         Objects.equals(this.certificatePem, certificateChainInfo.certificatePem) &&
         Objects.equals(this.certificateStatus, certificateChainInfo.certificateStatus) &&
@@ -233,7 +261,7 @@ public class CertificateChainInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateChain, certificateFormat, certificateIssuerName, certificatePem, certificateStatus, expirationEvents);
+    return Objects.hash(certificateChain, certificateFormat, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, expirationEvents);
   }
 
   @Override
@@ -242,6 +270,7 @@ public class CertificateChainInfo {
     sb.append("class CertificateChainInfo {\n");
     sb.append("    certificateChain: ").append(toIndentedString(certificateChain)).append("\n");
     sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
+    sb.append("    certificateIssuerItemId: ").append(toIndentedString(certificateIssuerItemId)).append("\n");
     sb.append("    certificateIssuerName: ").append(toIndentedString(certificateIssuerName)).append("\n");
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
     sb.append("    certificateStatus: ").append(toIndentedString(certificateStatus)).append("\n");

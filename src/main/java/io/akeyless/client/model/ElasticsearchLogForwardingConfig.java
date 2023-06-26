@@ -41,6 +41,10 @@ public class ElasticsearchLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_CLOUD_ID)
   private String elasticsearchCloudId;
 
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_ENABLE_TLS = "elasticsearch_enable_tls";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_ENABLE_TLS)
+  private Boolean elasticsearchEnableTls;
+
   public static final String SERIALIZED_NAME_ELASTICSEARCH_INDEX = "elasticsearch_index";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_INDEX)
   private String elasticsearchIndex;
@@ -56,6 +60,10 @@ public class ElasticsearchLogForwardingConfig {
   public static final String SERIALIZED_NAME_ELASTICSEARCH_SERVER_TYPE = "elasticsearch_server_type";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_SERVER_TYPE)
   private String elasticsearchServerType;
+
+  public static final String SERIALIZED_NAME_ELASTICSEARCH_TLS_CERTIFICATE = "elasticsearch_tls_certificate";
+  @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_TLS_CERTIFICATE)
+  private String elasticsearchTlsCertificate;
 
   public static final String SERIALIZED_NAME_ELASTICSEARCH_USER_NAME = "elasticsearch_user_name";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_USER_NAME)
@@ -130,6 +138,29 @@ public class ElasticsearchLogForwardingConfig {
 
   public void setElasticsearchCloudId(String elasticsearchCloudId) {
     this.elasticsearchCloudId = elasticsearchCloudId;
+  }
+
+
+  public ElasticsearchLogForwardingConfig elasticsearchEnableTls(Boolean elasticsearchEnableTls) {
+    
+    this.elasticsearchEnableTls = elasticsearchEnableTls;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchEnableTls
+   * @return elasticsearchEnableTls
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getElasticsearchEnableTls() {
+    return elasticsearchEnableTls;
+  }
+
+
+  public void setElasticsearchEnableTls(Boolean elasticsearchEnableTls) {
+    this.elasticsearchEnableTls = elasticsearchEnableTls;
   }
 
 
@@ -225,6 +256,29 @@ public class ElasticsearchLogForwardingConfig {
   }
 
 
+  public ElasticsearchLogForwardingConfig elasticsearchTlsCertificate(String elasticsearchTlsCertificate) {
+    
+    this.elasticsearchTlsCertificate = elasticsearchTlsCertificate;
+    return this;
+  }
+
+   /**
+   * Get elasticsearchTlsCertificate
+   * @return elasticsearchTlsCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getElasticsearchTlsCertificate() {
+    return elasticsearchTlsCertificate;
+  }
+
+
+  public void setElasticsearchTlsCertificate(String elasticsearchTlsCertificate) {
+    this.elasticsearchTlsCertificate = elasticsearchTlsCertificate;
+  }
+
+
   public ElasticsearchLogForwardingConfig elasticsearchUserName(String elasticsearchUserName) {
     
     this.elasticsearchUserName = elasticsearchUserName;
@@ -260,16 +314,18 @@ public class ElasticsearchLogForwardingConfig {
     return Objects.equals(this.elasticsearchApiKey, elasticsearchLogForwardingConfig.elasticsearchApiKey) &&
         Objects.equals(this.elasticsearchAuthType, elasticsearchLogForwardingConfig.elasticsearchAuthType) &&
         Objects.equals(this.elasticsearchCloudId, elasticsearchLogForwardingConfig.elasticsearchCloudId) &&
+        Objects.equals(this.elasticsearchEnableTls, elasticsearchLogForwardingConfig.elasticsearchEnableTls) &&
         Objects.equals(this.elasticsearchIndex, elasticsearchLogForwardingConfig.elasticsearchIndex) &&
         Objects.equals(this.elasticsearchNodes, elasticsearchLogForwardingConfig.elasticsearchNodes) &&
         Objects.equals(this.elasticsearchPassword, elasticsearchLogForwardingConfig.elasticsearchPassword) &&
         Objects.equals(this.elasticsearchServerType, elasticsearchLogForwardingConfig.elasticsearchServerType) &&
+        Objects.equals(this.elasticsearchTlsCertificate, elasticsearchLogForwardingConfig.elasticsearchTlsCertificate) &&
         Objects.equals(this.elasticsearchUserName, elasticsearchLogForwardingConfig.elasticsearchUserName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(elasticsearchApiKey, elasticsearchAuthType, elasticsearchCloudId, elasticsearchIndex, elasticsearchNodes, elasticsearchPassword, elasticsearchServerType, elasticsearchUserName);
+    return Objects.hash(elasticsearchApiKey, elasticsearchAuthType, elasticsearchCloudId, elasticsearchEnableTls, elasticsearchIndex, elasticsearchNodes, elasticsearchPassword, elasticsearchServerType, elasticsearchTlsCertificate, elasticsearchUserName);
   }
 
   @Override
@@ -279,10 +335,12 @@ public class ElasticsearchLogForwardingConfig {
     sb.append("    elasticsearchApiKey: ").append(toIndentedString(elasticsearchApiKey)).append("\n");
     sb.append("    elasticsearchAuthType: ").append(toIndentedString(elasticsearchAuthType)).append("\n");
     sb.append("    elasticsearchCloudId: ").append(toIndentedString(elasticsearchCloudId)).append("\n");
+    sb.append("    elasticsearchEnableTls: ").append(toIndentedString(elasticsearchEnableTls)).append("\n");
     sb.append("    elasticsearchIndex: ").append(toIndentedString(elasticsearchIndex)).append("\n");
     sb.append("    elasticsearchNodes: ").append(toIndentedString(elasticsearchNodes)).append("\n");
     sb.append("    elasticsearchPassword: ").append(toIndentedString(elasticsearchPassword)).append("\n");
     sb.append("    elasticsearchServerType: ").append(toIndentedString(elasticsearchServerType)).append("\n");
+    sb.append("    elasticsearchTlsCertificate: ").append(toIndentedString(elasticsearchTlsCertificate)).append("\n");
     sb.append("    elasticsearchUserName: ").append(toIndentedString(elasticsearchUserName)).append("\n");
     sb.append("}");
     return sb.toString();

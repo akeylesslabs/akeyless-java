@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **logzIoConfig** | [**LogzIoLogForwardingConfig**](LogzIoLogForwardingConfig.md) |  |  [optional]
 **pullIntervalSec** | **String** |  |  [optional]
 **splunkConfig** | [**SplunkLogForwardingConfig**](SplunkLogForwardingConfig.md) |  |  [optional]
+**sumoLogicConfig** | [**SumologicLogForwardingConfig**](SumologicLogForwardingConfig.md) |  |  [optional]
 **syslogConfig** | [**SyslogLogForwardingConfig**](SyslogLogForwardingConfig.md) |  |  [optional]
 **targetLogType** | **String** |  |  [optional]
 

@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SplunkLogForwardingConfig {
+  public static final String SERIALIZED_NAME_SPLUNK_ENABLE_TLS = "splunk_enable_tls";
+  @SerializedName(SERIALIZED_NAME_SPLUNK_ENABLE_TLS)
+  private Boolean splunkEnableTls;
+
   public static final String SERIALIZED_NAME_SPLUNK_INDEX = "splunk_index";
   @SerializedName(SERIALIZED_NAME_SPLUNK_INDEX)
   private String splunkIndex;
@@ -41,6 +45,10 @@ public class SplunkLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_SPLUNK_SOURCETYPE)
   private String splunkSourcetype;
 
+  public static final String SERIALIZED_NAME_SPLUNK_TLS_CERTIFICATE = "splunk_tls_certificate";
+  @SerializedName(SERIALIZED_NAME_SPLUNK_TLS_CERTIFICATE)
+  private String splunkTlsCertificate;
+
   public static final String SERIALIZED_NAME_SPLUNK_TOKEN = "splunk_token";
   @SerializedName(SERIALIZED_NAME_SPLUNK_TOKEN)
   private String splunkToken;
@@ -51,6 +59,29 @@ public class SplunkLogForwardingConfig {
 
   public SplunkLogForwardingConfig() { 
   }
+
+  public SplunkLogForwardingConfig splunkEnableTls(Boolean splunkEnableTls) {
+    
+    this.splunkEnableTls = splunkEnableTls;
+    return this;
+  }
+
+   /**
+   * Get splunkEnableTls
+   * @return splunkEnableTls
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSplunkEnableTls() {
+    return splunkEnableTls;
+  }
+
+
+  public void setSplunkEnableTls(Boolean splunkEnableTls) {
+    this.splunkEnableTls = splunkEnableTls;
+  }
+
 
   public SplunkLogForwardingConfig splunkIndex(String splunkIndex) {
     
@@ -121,6 +152,29 @@ public class SplunkLogForwardingConfig {
   }
 
 
+  public SplunkLogForwardingConfig splunkTlsCertificate(String splunkTlsCertificate) {
+    
+    this.splunkTlsCertificate = splunkTlsCertificate;
+    return this;
+  }
+
+   /**
+   * Get splunkTlsCertificate
+   * @return splunkTlsCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSplunkTlsCertificate() {
+    return splunkTlsCertificate;
+  }
+
+
+  public void setSplunkTlsCertificate(String splunkTlsCertificate) {
+    this.splunkTlsCertificate = splunkTlsCertificate;
+  }
+
+
   public SplunkLogForwardingConfig splunkToken(String splunkToken) {
     
     this.splunkToken = splunkToken;
@@ -176,25 +230,29 @@ public class SplunkLogForwardingConfig {
       return false;
     }
     SplunkLogForwardingConfig splunkLogForwardingConfig = (SplunkLogForwardingConfig) o;
-    return Objects.equals(this.splunkIndex, splunkLogForwardingConfig.splunkIndex) &&
+    return Objects.equals(this.splunkEnableTls, splunkLogForwardingConfig.splunkEnableTls) &&
+        Objects.equals(this.splunkIndex, splunkLogForwardingConfig.splunkIndex) &&
         Objects.equals(this.splunkSource, splunkLogForwardingConfig.splunkSource) &&
         Objects.equals(this.splunkSourcetype, splunkLogForwardingConfig.splunkSourcetype) &&
+        Objects.equals(this.splunkTlsCertificate, splunkLogForwardingConfig.splunkTlsCertificate) &&
         Objects.equals(this.splunkToken, splunkLogForwardingConfig.splunkToken) &&
         Objects.equals(this.splunkUrl, splunkLogForwardingConfig.splunkUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(splunkIndex, splunkSource, splunkSourcetype, splunkToken, splunkUrl);
+    return Objects.hash(splunkEnableTls, splunkIndex, splunkSource, splunkSourcetype, splunkTlsCertificate, splunkToken, splunkUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplunkLogForwardingConfig {\n");
+    sb.append("    splunkEnableTls: ").append(toIndentedString(splunkEnableTls)).append("\n");
     sb.append("    splunkIndex: ").append(toIndentedString(splunkIndex)).append("\n");
     sb.append("    splunkSource: ").append(toIndentedString(splunkSource)).append("\n");
     sb.append("    splunkSourcetype: ").append(toIndentedString(splunkSourcetype)).append("\n");
+    sb.append("    splunkTlsCertificate: ").append(toIndentedString(splunkTlsCertificate)).append("\n");
     sb.append("    splunkToken: ").append(toIndentedString(splunkToken)).append("\n");
     sb.append("    splunkUrl: ").append(toIndentedString(splunkUrl)).append("\n");
     sb.append("}");

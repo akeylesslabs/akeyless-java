@@ -33,9 +33,17 @@ public class LogstashLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_LOGSTASH_DNS)
   private String logstashDns;
 
+  public static final String SERIALIZED_NAME_LOGSTASH_ENABLE_TLS = "logstash_enable_tls";
+  @SerializedName(SERIALIZED_NAME_LOGSTASH_ENABLE_TLS)
+  private Boolean logstashEnableTls;
+
   public static final String SERIALIZED_NAME_LOGSTASH_PROTOCOL = "logstash_protocol";
   @SerializedName(SERIALIZED_NAME_LOGSTASH_PROTOCOL)
   private String logstashProtocol;
+
+  public static final String SERIALIZED_NAME_LOGSTASH_TLS_CERTIFICATE = "logstash_tls_certificate";
+  @SerializedName(SERIALIZED_NAME_LOGSTASH_TLS_CERTIFICATE)
+  private String logstashTlsCertificate;
 
   public LogstashLogForwardingConfig() { 
   }
@@ -63,6 +71,29 @@ public class LogstashLogForwardingConfig {
   }
 
 
+  public LogstashLogForwardingConfig logstashEnableTls(Boolean logstashEnableTls) {
+    
+    this.logstashEnableTls = logstashEnableTls;
+    return this;
+  }
+
+   /**
+   * Get logstashEnableTls
+   * @return logstashEnableTls
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getLogstashEnableTls() {
+    return logstashEnableTls;
+  }
+
+
+  public void setLogstashEnableTls(Boolean logstashEnableTls) {
+    this.logstashEnableTls = logstashEnableTls;
+  }
+
+
   public LogstashLogForwardingConfig logstashProtocol(String logstashProtocol) {
     
     this.logstashProtocol = logstashProtocol;
@@ -86,6 +117,29 @@ public class LogstashLogForwardingConfig {
   }
 
 
+  public LogstashLogForwardingConfig logstashTlsCertificate(String logstashTlsCertificate) {
+    
+    this.logstashTlsCertificate = logstashTlsCertificate;
+    return this;
+  }
+
+   /**
+   * Get logstashTlsCertificate
+   * @return logstashTlsCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLogstashTlsCertificate() {
+    return logstashTlsCertificate;
+  }
+
+
+  public void setLogstashTlsCertificate(String logstashTlsCertificate) {
+    this.logstashTlsCertificate = logstashTlsCertificate;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,12 +150,14 @@ public class LogstashLogForwardingConfig {
     }
     LogstashLogForwardingConfig logstashLogForwardingConfig = (LogstashLogForwardingConfig) o;
     return Objects.equals(this.logstashDns, logstashLogForwardingConfig.logstashDns) &&
-        Objects.equals(this.logstashProtocol, logstashLogForwardingConfig.logstashProtocol);
+        Objects.equals(this.logstashEnableTls, logstashLogForwardingConfig.logstashEnableTls) &&
+        Objects.equals(this.logstashProtocol, logstashLogForwardingConfig.logstashProtocol) &&
+        Objects.equals(this.logstashTlsCertificate, logstashLogForwardingConfig.logstashTlsCertificate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logstashDns, logstashProtocol);
+    return Objects.hash(logstashDns, logstashEnableTls, logstashProtocol, logstashTlsCertificate);
   }
 
   @Override
@@ -109,7 +165,9 @@ public class LogstashLogForwardingConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogstashLogForwardingConfig {\n");
     sb.append("    logstashDns: ").append(toIndentedString(logstashDns)).append("\n");
+    sb.append("    logstashEnableTls: ").append(toIndentedString(logstashEnableTls)).append("\n");
     sb.append("    logstashProtocol: ").append(toIndentedString(logstashProtocol)).append("\n");
+    sb.append("    logstashTlsCertificate: ").append(toIndentedString(logstashTlsCertificate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,6 +27,7 @@ import io.akeyless.client.model.ElasticsearchLogForwardingConfig;
 import io.akeyless.client.model.LogstashLogForwardingConfig;
 import io.akeyless.client.model.LogzIoLogForwardingConfig;
 import io.akeyless.client.model.SplunkLogForwardingConfig;
+import io.akeyless.client.model.SumologicLogForwardingConfig;
 import io.akeyless.client.model.SyslogLogForwardingConfig;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -80,6 +81,10 @@ public class LogForwardingConfigPart {
   public static final String SERIALIZED_NAME_SPLUNK_CONFIG = "splunk_config";
   @SerializedName(SERIALIZED_NAME_SPLUNK_CONFIG)
   private SplunkLogForwardingConfig splunkConfig;
+
+  public static final String SERIALIZED_NAME_SUMO_LOGIC_CONFIG = "sumo_logic_config";
+  @SerializedName(SERIALIZED_NAME_SUMO_LOGIC_CONFIG)
+  private SumologicLogForwardingConfig sumoLogicConfig;
 
   public static final String SERIALIZED_NAME_SYSLOG_CONFIG = "syslog_config";
   @SerializedName(SERIALIZED_NAME_SYSLOG_CONFIG)
@@ -345,6 +350,29 @@ public class LogForwardingConfigPart {
   }
 
 
+  public LogForwardingConfigPart sumoLogicConfig(SumologicLogForwardingConfig sumoLogicConfig) {
+    
+    this.sumoLogicConfig = sumoLogicConfig;
+    return this;
+  }
+
+   /**
+   * Get sumoLogicConfig
+   * @return sumoLogicConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SumologicLogForwardingConfig getSumoLogicConfig() {
+    return sumoLogicConfig;
+  }
+
+
+  public void setSumoLogicConfig(SumologicLogForwardingConfig sumoLogicConfig) {
+    this.sumoLogicConfig = sumoLogicConfig;
+  }
+
+
   public LogForwardingConfigPart syslogConfig(SyslogLogForwardingConfig syslogConfig) {
     
     this.syslogConfig = syslogConfig;
@@ -411,13 +439,14 @@ public class LogForwardingConfigPart {
         Objects.equals(this.logzIoConfig, logForwardingConfigPart.logzIoConfig) &&
         Objects.equals(this.pullIntervalSec, logForwardingConfigPart.pullIntervalSec) &&
         Objects.equals(this.splunkConfig, logForwardingConfigPart.splunkConfig) &&
+        Objects.equals(this.sumoLogicConfig, logForwardingConfigPart.sumoLogicConfig) &&
         Objects.equals(this.syslogConfig, logForwardingConfigPart.syslogConfig) &&
         Objects.equals(this.targetLogType, logForwardingConfigPart.targetLogType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, jsonOutput, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, syslogConfig, targetLogType);
+    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, jsonOutput, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, sumoLogicConfig, syslogConfig, targetLogType);
   }
 
   @Override
@@ -435,6 +464,7 @@ public class LogForwardingConfigPart {
     sb.append("    logzIoConfig: ").append(toIndentedString(logzIoConfig)).append("\n");
     sb.append("    pullIntervalSec: ").append(toIndentedString(pullIntervalSec)).append("\n");
     sb.append("    splunkConfig: ").append(toIndentedString(splunkConfig)).append("\n");
+    sb.append("    sumoLogicConfig: ").append(toIndentedString(sumoLogicConfig)).append("\n");
     sb.append("    syslogConfig: ").append(toIndentedString(syslogConfig)).append("\n");
     sb.append("    targetLogType: ").append(toIndentedString(targetLogType)).append("\n");
     sb.append("}");

@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyslogLogForwardingConfig {
+  public static final String SERIALIZED_NAME_SYSLOG_ENABLE_TLS = "syslog_enable_tls";
+  @SerializedName(SERIALIZED_NAME_SYSLOG_ENABLE_TLS)
+  private Boolean syslogEnableTls;
+
   public static final String SERIALIZED_NAME_SYSLOG_FORMATTER = "syslog_formatter";
   @SerializedName(SERIALIZED_NAME_SYSLOG_FORMATTER)
   private String syslogFormatter;
@@ -45,8 +49,35 @@ public class SyslogLogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_SYSLOG_TARGET_TAG)
   private String syslogTargetTag;
 
+  public static final String SERIALIZED_NAME_SYSLOG_TLS_CERTIFICATE = "syslog_tls_certificate";
+  @SerializedName(SERIALIZED_NAME_SYSLOG_TLS_CERTIFICATE)
+  private String syslogTlsCertificate;
+
   public SyslogLogForwardingConfig() { 
   }
+
+  public SyslogLogForwardingConfig syslogEnableTls(Boolean syslogEnableTls) {
+    
+    this.syslogEnableTls = syslogEnableTls;
+    return this;
+  }
+
+   /**
+   * Get syslogEnableTls
+   * @return syslogEnableTls
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSyslogEnableTls() {
+    return syslogEnableTls;
+  }
+
+
+  public void setSyslogEnableTls(Boolean syslogEnableTls) {
+    this.syslogEnableTls = syslogEnableTls;
+  }
+
 
   public SyslogLogForwardingConfig syslogFormatter(String syslogFormatter) {
     
@@ -140,6 +171,29 @@ public class SyslogLogForwardingConfig {
   }
 
 
+  public SyslogLogForwardingConfig syslogTlsCertificate(String syslogTlsCertificate) {
+    
+    this.syslogTlsCertificate = syslogTlsCertificate;
+    return this;
+  }
+
+   /**
+   * Get syslogTlsCertificate
+   * @return syslogTlsCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSyslogTlsCertificate() {
+    return syslogTlsCertificate;
+  }
+
+
+  public void setSyslogTlsCertificate(String syslogTlsCertificate) {
+    this.syslogTlsCertificate = syslogTlsCertificate;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,25 +203,29 @@ public class SyslogLogForwardingConfig {
       return false;
     }
     SyslogLogForwardingConfig syslogLogForwardingConfig = (SyslogLogForwardingConfig) o;
-    return Objects.equals(this.syslogFormatter, syslogLogForwardingConfig.syslogFormatter) &&
+    return Objects.equals(this.syslogEnableTls, syslogLogForwardingConfig.syslogEnableTls) &&
+        Objects.equals(this.syslogFormatter, syslogLogForwardingConfig.syslogFormatter) &&
         Objects.equals(this.syslogHost, syslogLogForwardingConfig.syslogHost) &&
         Objects.equals(this.syslogNetwork, syslogLogForwardingConfig.syslogNetwork) &&
-        Objects.equals(this.syslogTargetTag, syslogLogForwardingConfig.syslogTargetTag);
+        Objects.equals(this.syslogTargetTag, syslogLogForwardingConfig.syslogTargetTag) &&
+        Objects.equals(this.syslogTlsCertificate, syslogLogForwardingConfig.syslogTlsCertificate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(syslogFormatter, syslogHost, syslogNetwork, syslogTargetTag);
+    return Objects.hash(syslogEnableTls, syslogFormatter, syslogHost, syslogNetwork, syslogTargetTag, syslogTlsCertificate);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyslogLogForwardingConfig {\n");
+    sb.append("    syslogEnableTls: ").append(toIndentedString(syslogEnableTls)).append("\n");
     sb.append("    syslogFormatter: ").append(toIndentedString(syslogFormatter)).append("\n");
     sb.append("    syslogHost: ").append(toIndentedString(syslogHost)).append("\n");
     sb.append("    syslogNetwork: ").append(toIndentedString(syslogNetwork)).append("\n");
     sb.append("    syslogTargetTag: ").append(toIndentedString(syslogTargetTag)).append("\n");
+    sb.append("    syslogTlsCertificate: ").append(toIndentedString(syslogTlsCertificate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

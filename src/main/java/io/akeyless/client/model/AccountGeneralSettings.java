@@ -33,6 +33,14 @@ import java.io.IOException;
 @ApiModel(description = "AccountGeneralSettings describes general settings for an account")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountGeneralSettings {
+  public static final String SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_ITEM_ID = "account_default_key_item_id";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_ITEM_ID)
+  private Long accountDefaultKeyItemId;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_NAME = "account_default_key_name";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_NAME)
+  private String accountDefaultKeyName;
+
   public static final String SERIALIZED_NAME_DATA_PROTECTION_SECTION = "data_protection_section";
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
   private DataProtectionSection dataProtectionSection;
@@ -55,6 +63,52 @@ public class AccountGeneralSettings {
 
   public AccountGeneralSettings() { 
   }
+
+  public AccountGeneralSettings accountDefaultKeyItemId(Long accountDefaultKeyItemId) {
+    
+    this.accountDefaultKeyItemId = accountDefaultKeyItemId;
+    return this;
+  }
+
+   /**
+   * AccountDefaultKeyItemID is the item ID of the DFC key item configured as the default protection key
+   * @return accountDefaultKeyItemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AccountDefaultKeyItemID is the item ID of the DFC key item configured as the default protection key")
+
+  public Long getAccountDefaultKeyItemId() {
+    return accountDefaultKeyItemId;
+  }
+
+
+  public void setAccountDefaultKeyItemId(Long accountDefaultKeyItemId) {
+    this.accountDefaultKeyItemId = accountDefaultKeyItemId;
+  }
+
+
+  public AccountGeneralSettings accountDefaultKeyName(String accountDefaultKeyName) {
+    
+    this.accountDefaultKeyName = accountDefaultKeyName;
+    return this;
+  }
+
+   /**
+   * AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will.
+   * @return accountDefaultKeyName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will.")
+
+  public String getAccountDefaultKeyName() {
+    return accountDefaultKeyName;
+  }
+
+
+  public void setAccountDefaultKeyName(String accountDefaultKeyName) {
+    this.accountDefaultKeyName = accountDefaultKeyName;
+  }
+
 
   public AccountGeneralSettings dataProtectionSection(DataProtectionSection dataProtectionSection) {
     
@@ -180,7 +234,9 @@ public class AccountGeneralSettings {
       return false;
     }
     AccountGeneralSettings accountGeneralSettings = (AccountGeneralSettings) o;
-    return Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
+    return Objects.equals(this.accountDefaultKeyItemId, accountGeneralSettings.accountDefaultKeyItemId) &&
+        Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
+        Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
@@ -189,13 +245,15 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataProtectionSection, enableRequestForAccess, passwordPolicy, protectItemsByDefault, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, dataProtectionSection, enableRequestForAccess, passwordPolicy, protectItemsByDefault, sharingPolicy);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountGeneralSettings {\n");
+    sb.append("    accountDefaultKeyItemId: ").append(toIndentedString(accountDefaultKeyItemId)).append("\n");
+    sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");

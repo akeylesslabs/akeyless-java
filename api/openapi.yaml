@@ -10030,14 +10030,30 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 1
+          password_length: 4
         sharing_policy:
-          default_share_link_ttl: 0
+          default_share_link_ttl: 6
         data_protection_section:
           enable_classic_key_protection: true
+        account_default_key_name: account_default_key_name
         enable_request_for_access: true
         protect_items_by_default: true
+        account_default_key_item_id: 0
       properties:
+        account_default_key_item_id:
+          description: AccountDefaultKeyItemID is the item ID of the DFC key item
+            configured as the default protection key
+          format: int64
+          type: integer
+          x-go-name: AccountDefaultKeyItemID
+        account_default_key_name:
+          description: |-
+            AccountDefaultKeyName is the name of the DFC key item configured as the default key
+            This is here simply for the response to include the item name in addition to the display ID so the
+            client can properly show this to the user.
+            It will not be saved to the DB, only the AccountDefaultKeyItemID will.
+          type: string
+          x-go-name: AccountDefaultKeyName
         data_protection_section:
           $ref: '#/components/schemas/DataProtectionSection'
         enable_request_for_access:
@@ -10663,18 +10679,28 @@ components:
             splunk_source: splunk_source
             splunk_index: splunk_index
             splunk_sourcetype: splunk_sourcetype
+            splunk_enable_tls: true
+            splunk_tls_certificate: splunk_tls_certificate
             splunk_url: splunk_url
           logstash_config:
+            logstash_enable_tls: true
             logstash_protocol: logstash_protocol
             logstash_dns: logstash_dns
+            logstash_tls_certificate: logstash_tls_certificate
           logan_enable: true
           logz_io_config:
             target_logz_io_protocol: target_logz_io_protocol
             target_logz_io_token: target_logz_io_token
+          sumo_logic_config:
+            sumo_logic_endpoint: sumo_logic_endpoint
+            sumo_logic_host: sumo_logic_host
+            sumo_logic_tags: sumo_logic_tags
           syslog_config:
+            syslog_enable_tls: true
             syslog_host: syslog_host
             syslog_target_tag: syslog_target_tag
             syslog_formatter: syslog_formatter
+            syslog_tls_certificate: syslog_tls_certificate
             syslog_network: syslog_network
           target_log_type: target_log_type
           datadog_config:
@@ -10687,8 +10713,10 @@ components:
           elasticsearch_config:
             elasticsearch_index: elasticsearch_index
             elasticsearch_server_type: elasticsearch_server_type
+            elasticsearch_tls_certificate: elasticsearch_tls_certificate
             elasticsearch_user_name: elasticsearch_user_name
             elasticsearch_api_key: elasticsearch_api_key
+            elasticsearch_enable_tls: true
             elasticsearch_password: elasticsearch_password
             elasticsearch_cloud_id: elasticsearch_cloud_id
             elasticsearch_auth_type: elasticsearch_auth_type
@@ -12206,6 +12234,7 @@ components:
         expiration_events:
         - seconds_before: 6
         - seconds_before: 6
+        certificate_issuer_item_id: 1
         certificate_pem: certificate_pem
         certificate_format: certificate_format
         certificate_chain:
@@ -12417,6 +12446,10 @@ components:
         certificate_format:
           type: string
           x-go-name: CertificateFormat
+        certificate_issuer_item_id:
+          format: int64
+          type: integer
+          x-go-name: CertificateIssuerID
         certificate_issuer_name:
           type: string
           x-go-name: CertificateIssuerName
@@ -12796,7 +12829,7 @@ components:
             last_status: last_status
             error_date: 2000-01-23T04:56:07.000+00:00
             last_error: last_error
-            version: 1
+            version: 6
         - external_kms_id:
             key_id: key_id
             key_reference: key_reference
@@ -12809,7 +12842,7 @@ components:
             last_status: last_status
             error_date: 2000-01-23T04:56:07.000+00:00
             last_error: last_error
-            version: 1
+            version: 6
         is_unexportable: true
         target_types:
         - target_types
@@ -12874,7 +12907,7 @@ components:
         last_status: last_status
         error_date: 2000-01-23T04:56:07.000+00:00
         last_error: last_error
-        version: 1
+        version: 6
       properties:
         error_date:
           format: date-time
@@ -12907,7 +12940,7 @@ components:
           last_status: last_status
           error_date: 2000-01-23T04:56:07.000+00:00
           last_error: last_error
-          version: 1
+          version: 6
       properties:
         external_kms_id:
           $ref: '#/components/schemas/ExternalKMSKeyId'
@@ -13747,13 +13780,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 1
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 1
         chef_server_username: chef_server_username
         tags:
         - tags
@@ -13864,7 +13897,7 @@ components:
           category: category
           region: region
           ssh_password: true
-          bastion_issuer_id: 6
+          bastion_issuer_id: 8
         ldap_group_dn: ldap_group_dn
         chef_server_host_name: chef_server_host_name
         k8s_role_type: k8s_role_type
@@ -14907,7 +14940,7 @@ components:
       example:
         k8s_allowed_namespaces: k8s_allowed_namespaces
         k8s_dynamic_mode: true
-        gw_cluster_id: 6
+        gw_cluster_id: 7
         producer_last_keep_alive: producer_last_keep_alive
         producer_type: producer_type
         producer_status: producer_status
@@ -14952,8 +14985,10 @@ components:
       example:
         elasticsearch_index: elasticsearch_index
         elasticsearch_server_type: elasticsearch_server_type
+        elasticsearch_tls_certificate: elasticsearch_tls_certificate
         elasticsearch_user_name: elasticsearch_user_name
         elasticsearch_api_key: elasticsearch_api_key
+        elasticsearch_enable_tls: true
         elasticsearch_password: elasticsearch_password
         elasticsearch_cloud_id: elasticsearch_cloud_id
         elasticsearch_auth_type: elasticsearch_auth_type
@@ -14968,6 +15003,9 @@ components:
         elasticsearch_cloud_id:
           type: string
           x-go-name: ElasticsearchCloudId
+        elasticsearch_enable_tls:
+          type: boolean
+          x-go-name: ElasticsearchEnableTLS
         elasticsearch_index:
           type: string
           x-go-name: ElasticsearchIndex
@@ -14980,6 +15018,9 @@ components:
         elasticsearch_server_type:
           type: string
           x-go-name: ElasticsearchServerType
+        elasticsearch_tls_certificate:
+          type: string
+          x-go-name: ElasticsearchTlsCertificate
         elasticsearch_user_name:
           type: string
           x-go-name: ElasticsearchUserName
@@ -15031,8 +15072,8 @@ components:
         emails
       example:
         fixed_domain_suffix: fixed_domain_suffix
-        keep_prefix_length: 9
-        domain_suffix_length: 8
+        keep_prefix_length: 6
+        domain_suffix_length: 9
       properties:
         domain_suffix_length:
           description: |-
@@ -15699,20 +15740,22 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 1
+            password_length: 4
           sharing_policy:
-            default_share_link_ttl: 0
+            default_share_link_ttl: 6
           data_protection_section:
             enable_classic_key_protection: true
+          account_default_key_name: account_default_key_name
           enable_request_for_access: true
           protect_items_by_default: true
+          account_default_key_item_id: 0
         secret_management:
           tier: tier
           sla: sla
         system_access_creds_settings:
-          jwt_ttl_maximum: 1
+          jwt_ttl_maximum: 5
           jwt_ttl_minimum: 5
-          jwt_ttl_default: 6
+          jwt_ttl_default: 1
         email: email
       properties:
         account_id:
@@ -16085,7 +16128,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -16094,7 +16137,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -16315,7 +16358,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     ImporterInfo:
       example:
-        version: 7
+        version: 1
         external_item_id: external_item_id
       properties:
         external_item_id:
@@ -16346,7 +16389,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -16355,12 +16398,12 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         shared_by:
           unique_id: unique_id
           access_id: access_id
-        item_size: 3
+        item_size: 6
         protection_key_type: protection_key_type
         is_enabled: true
         rotation_interval: 6
@@ -16374,7 +16417,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 5
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -16385,13 +16428,13 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 6
+          version: 5
           customer_fragment_id: customer_fragment_id
         item_metadata: item_metadata
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         cert_issuer_signer_key_name: cert_issuer_signer_key_name
-        item_id: 6
+        item_id: 3
         item_tags:
         - item_tags
         - item_tags
@@ -16473,13 +16516,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 1
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 6
+          target_id: 1
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         gateway_details:
@@ -16503,13 +16546,13 @@ components:
           rotated_secret_details:
             same_password: true
             rotator_creds_type: rotator_creds_type
-            gw_cluster_id: 5
-            rotation_hour: 9
+            gw_cluster_id: 9
+            rotation_hour: 6
             rotation_statement: rotation_statement
             rotator_status: rotator_status
             rotation_interval_min: true
             rotator_type: rotator_type
-            delete_previous_version_in_days: 4
+            delete_previous_version_in_days: 5
             last_rotation_error: last_rotation_error
             number_of_versions_to_save: 9
           secure_remote_access_details:
@@ -16542,15 +16585,16 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           importer_info:
-            version: 7
+            version: 1
             external_item_id: external_item_id
           certificate_chain_info:
             certificate_issuer_name: certificate_issuer_name
             expiration_events:
             - seconds_before: 6
             - seconds_before: 6
+            certificate_issuer_item_id: 1
             certificate_pem: certificate_pem
             certificate_format: certificate_format
             certificate_chain:
@@ -16788,7 +16832,7 @@ components:
                 last_status: last_status
                 error_date: 2000-01-23T04:56:07.000+00:00
                 last_error: last_error
-                version: 1
+                version: 6
             - external_kms_id:
                 key_id: key_id
                 key_reference: key_reference
@@ -16801,7 +16845,7 @@ components:
                 last_status: last_status
                 error_date: 2000-01-23T04:56:07.000+00:00
                 last_error: last_error
-                version: 1
+                version: 6
             is_unexportable: true
             target_types:
             - target_types
@@ -16811,15 +16855,15 @@ components:
             use_capital_letters: true
             use_special_characters: true
             use_lower_letters: true
-            password_length: 1
+            password_length: 4
           tokenizer_info:
             vaultless_tokenizer_info:
               key_name: key_name
               tweak: tweak
               email_tokenizer_info:
                 fixed_domain_suffix: fixed_domain_suffix
-                keep_prefix_length: 9
-                domain_suffix_length: 8
+                keep_prefix_length: 6
+                domain_suffix_length: 9
               template_type: template_type
               tweak_type: tweak_type
               regexp_tokenizer_info:
@@ -16832,7 +16876,7 @@ components:
           dynamic_secret_producer_details:
             k8s_allowed_namespaces: k8s_allowed_namespaces
             k8s_dynamic_mode: true
-            gw_cluster_id: 6
+            gw_cluster_id: 7
             producer_last_keep_alive: producer_last_keep_alive
             producer_type: producer_type
             producer_status: producer_status
@@ -16909,7 +16953,7 @@ components:
               allowed_user_key_lengths:
                 key: 5
             cert_issuer_type: cert_issuer_type
-        last_version: 2
+        last_version: 6
         next_rotation_date: 2000-01-23T04:56:07.000+00:00
         delete_protection: true
         bastion_details:
@@ -17109,13 +17153,13 @@ components:
         rotated_secret_details:
           same_password: true
           rotator_creds_type: rotator_creds_type
-          gw_cluster_id: 5
-          rotation_hour: 9
+          gw_cluster_id: 9
+          rotation_hour: 6
           rotation_statement: rotation_statement
           rotator_status: rotator_status
           rotation_interval_min: true
           rotator_type: rotator_type
-          delete_previous_version_in_days: 4
+          delete_previous_version_in_days: 5
           last_rotation_error: last_rotation_error
           number_of_versions_to_save: 9
         secure_remote_access_details:
@@ -17148,15 +17192,16 @@ components:
           category: category
           region: region
           ssh_password: true
-          bastion_issuer_id: 6
+          bastion_issuer_id: 8
         importer_info:
-          version: 7
+          version: 1
           external_item_id: external_item_id
         certificate_chain_info:
           certificate_issuer_name: certificate_issuer_name
           expiration_events:
           - seconds_before: 6
           - seconds_before: 6
+          certificate_issuer_item_id: 1
           certificate_pem: certificate_pem
           certificate_format: certificate_format
           certificate_chain:
@@ -17394,7 +17439,7 @@ components:
               last_status: last_status
               error_date: 2000-01-23T04:56:07.000+00:00
               last_error: last_error
-              version: 1
+              version: 6
           - external_kms_id:
               key_id: key_id
               key_reference: key_reference
@@ -17407,7 +17452,7 @@ components:
               last_status: last_status
               error_date: 2000-01-23T04:56:07.000+00:00
               last_error: last_error
-              version: 1
+              version: 6
           is_unexportable: true
           target_types:
           - target_types
@@ -17417,15 +17462,15 @@ components:
           use_capital_letters: true
           use_special_characters: true
           use_lower_letters: true
-          password_length: 1
+          password_length: 4
         tokenizer_info:
           vaultless_tokenizer_info:
             key_name: key_name
             tweak: tweak
             email_tokenizer_info:
               fixed_domain_suffix: fixed_domain_suffix
-              keep_prefix_length: 9
-              domain_suffix_length: 8
+              keep_prefix_length: 6
+              domain_suffix_length: 9
             template_type: template_type
             tweak_type: tweak_type
             regexp_tokenizer_info:
@@ -17438,7 +17483,7 @@ components:
         dynamic_secret_producer_details:
           k8s_allowed_namespaces: k8s_allowed_namespaces
           k8s_dynamic_mode: true
-          gw_cluster_id: 6
+          gw_cluster_id: 7
           producer_last_keep_alive: producer_last_keep_alive
           producer_type: producer_type
           producer_status: producer_status
@@ -17563,7 +17608,7 @@ components:
         target_type: target_type
         attributes:
           key: attributes
-        target_id: 6
+        target_id: 1
       properties:
         assoc_id:
           type: string
@@ -17599,7 +17644,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 1
+        version: 2
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -19185,7 +19230,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -19194,12 +19239,12 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 3
+          item_size: 6
           protection_key_type: protection_key_type
           is_enabled: true
           rotation_interval: 6
@@ -19213,7 +19258,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -19224,13 +19269,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 6
+          item_id: 3
           item_tags:
           - item_tags
           - item_tags
@@ -19312,13 +19357,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -19342,13 +19387,13 @@ components:
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 5
-              rotation_hour: 9
+              gw_cluster_id: 9
+              rotation_hour: 6
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 4
+              delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
             secure_remote_access_details:
@@ -19381,15 +19426,16 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 6
+              bastion_issuer_id: 8
             importer_info:
-              version: 7
+              version: 1
               external_item_id: external_item_id
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
               - seconds_before: 6
               - seconds_before: 6
+              certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
               certificate_chain:
@@ -19627,7 +19673,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               - external_kms_id:
                   key_id: key_id
                   key_reference: key_reference
@@ -19640,7 +19686,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               is_unexportable: true
               target_types:
               - target_types
@@ -19650,15 +19696,15 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 1
+              password_length: 4
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 9
-                  domain_suffix_length: 8
+                  keep_prefix_length: 6
+                  domain_suffix_length: 9
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -19671,7 +19717,7 @@ components:
             dynamic_secret_producer_details:
               k8s_allowed_namespaces: k8s_allowed_namespaces
               k8s_dynamic_mode: true
-              gw_cluster_id: 6
+              gw_cluster_id: 7
               producer_last_keep_alive: producer_last_keep_alive
               producer_type: producer_type
               producer_status: producer_status
@@ -19748,7 +19794,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 2
+          last_version: 6
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -19806,7 +19852,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -19815,12 +19861,12 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 3
+          item_size: 6
           protection_key_type: protection_key_type
           is_enabled: true
           rotation_interval: 6
@@ -19834,7 +19880,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -19845,13 +19891,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 6
+          item_id: 3
           item_tags:
           - item_tags
           - item_tags
@@ -19933,13 +19979,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -19963,13 +20009,13 @@ components:
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 5
-              rotation_hour: 9
+              gw_cluster_id: 9
+              rotation_hour: 6
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 4
+              delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
             secure_remote_access_details:
@@ -20002,15 +20048,16 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 6
+              bastion_issuer_id: 8
             importer_info:
-              version: 7
+              version: 1
               external_item_id: external_item_id
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
               - seconds_before: 6
               - seconds_before: 6
+              certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
               certificate_chain:
@@ -20248,7 +20295,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               - external_kms_id:
                   key_id: key_id
                   key_reference: key_reference
@@ -20261,7 +20308,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               is_unexportable: true
               target_types:
               - target_types
@@ -20271,15 +20318,15 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 1
+              password_length: 4
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 9
-                  domain_suffix_length: 8
+                  keep_prefix_length: 6
+                  domain_suffix_length: 9
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -20292,7 +20339,7 @@ components:
             dynamic_secret_producer_details:
               k8s_allowed_namespaces: k8s_allowed_namespaces
               k8s_dynamic_mode: true
-              gw_cluster_id: 6
+              gw_cluster_id: 7
               producer_last_keep_alive: producer_last_keep_alive
               producer_type: producer_type
               producer_status: producer_status
@@ -20369,7 +20416,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 2
+          last_version: 6
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -20449,7 +20496,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -20458,12 +20505,12 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 3
+          item_size: 6
           protection_key_type: protection_key_type
           is_enabled: true
           rotation_interval: 6
@@ -20477,7 +20524,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -20488,13 +20535,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 6
+          item_id: 3
           item_tags:
           - item_tags
           - item_tags
@@ -20576,13 +20623,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -20606,13 +20653,13 @@ components:
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 5
-              rotation_hour: 9
+              gw_cluster_id: 9
+              rotation_hour: 6
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 4
+              delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
             secure_remote_access_details:
@@ -20645,15 +20692,16 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 6
+              bastion_issuer_id: 8
             importer_info:
-              version: 7
+              version: 1
               external_item_id: external_item_id
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
               - seconds_before: 6
               - seconds_before: 6
+              certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
               certificate_chain:
@@ -20891,7 +20939,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               - external_kms_id:
                   key_id: key_id
                   key_reference: key_reference
@@ -20904,7 +20952,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               is_unexportable: true
               target_types:
               - target_types
@@ -20914,15 +20962,15 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 1
+              password_length: 4
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 9
-                  domain_suffix_length: 8
+                  keep_prefix_length: 6
+                  domain_suffix_length: 9
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -20935,7 +20983,7 @@ components:
             dynamic_secret_producer_details:
               k8s_allowed_namespaces: k8s_allowed_namespaces
               k8s_dynamic_mode: true
-              gw_cluster_id: 6
+              gw_cluster_id: 7
               producer_last_keep_alive: producer_last_keep_alive
               producer_type: producer_type
               producer_status: producer_status
@@ -21012,7 +21060,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 2
+          last_version: 6
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -21070,7 +21118,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21079,12 +21127,12 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 3
+          item_size: 6
           protection_key_type: protection_key_type
           is_enabled: true
           rotation_interval: 6
@@ -21098,7 +21146,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21109,13 +21157,13 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 6
+            version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           cert_issuer_signer_key_name: cert_issuer_signer_key_name
-          item_id: 6
+          item_id: 3
           item_tags:
           - item_tags
           - item_tags
@@ -21197,13 +21245,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
@@ -21227,13 +21275,13 @@ components:
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
-              gw_cluster_id: 5
-              rotation_hour: 9
+              gw_cluster_id: 9
+              rotation_hour: 6
               rotation_statement: rotation_statement
               rotator_status: rotator_status
               rotation_interval_min: true
               rotator_type: rotator_type
-              delete_previous_version_in_days: 4
+              delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
             secure_remote_access_details:
@@ -21266,15 +21314,16 @@ components:
               category: category
               region: region
               ssh_password: true
-              bastion_issuer_id: 6
+              bastion_issuer_id: 8
             importer_info:
-              version: 7
+              version: 1
               external_item_id: external_item_id
             certificate_chain_info:
               certificate_issuer_name: certificate_issuer_name
               expiration_events:
               - seconds_before: 6
               - seconds_before: 6
+              certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
               certificate_chain:
@@ -21512,7 +21561,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               - external_kms_id:
                   key_id: key_id
                   key_reference: key_reference
@@ -21525,7 +21574,7 @@ components:
                   last_status: last_status
                   error_date: 2000-01-23T04:56:07.000+00:00
                   last_error: last_error
-                  version: 1
+                  version: 6
               is_unexportable: true
               target_types:
               - target_types
@@ -21535,15 +21584,15 @@ components:
               use_capital_letters: true
               use_special_characters: true
               use_lower_letters: true
-              password_length: 1
+              password_length: 4
             tokenizer_info:
               vaultless_tokenizer_info:
                 key_name: key_name
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 9
-                  domain_suffix_length: 8
+                  keep_prefix_length: 6
+                  domain_suffix_length: 9
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -21556,7 +21605,7 @@ components:
             dynamic_secret_producer_details:
               k8s_allowed_namespaces: k8s_allowed_namespaces
               k8s_dynamic_mode: true
-              gw_cluster_id: 6
+              gw_cluster_id: 7
               producer_last_keep_alive: producer_last_keep_alive
               producer_type: producer_type
               producer_status: producer_status
@@ -21633,7 +21682,7 @@ components:
                 allowed_user_key_lengths:
                   key: 5
               cert_issuer_type: cert_issuer_type
-          last_version: 2
+          last_version: 6
           next_rotation_date: 2000-01-23T04:56:07.000+00:00
           delete_protection: true
           bastion_details:
@@ -21857,7 +21906,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21866,7 +21915,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -21911,7 +21960,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21920,7 +21969,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -21961,18 +22010,28 @@ components:
           splunk_source: splunk_source
           splunk_index: splunk_index
           splunk_sourcetype: splunk_sourcetype
+          splunk_enable_tls: true
+          splunk_tls_certificate: splunk_tls_certificate
           splunk_url: splunk_url
         logstash_config:
+          logstash_enable_tls: true
           logstash_protocol: logstash_protocol
           logstash_dns: logstash_dns
+          logstash_tls_certificate: logstash_tls_certificate
         logan_enable: true
         logz_io_config:
           target_logz_io_protocol: target_logz_io_protocol
           target_logz_io_token: target_logz_io_token
+        sumo_logic_config:
+          sumo_logic_endpoint: sumo_logic_endpoint
+          sumo_logic_host: sumo_logic_host
+          sumo_logic_tags: sumo_logic_tags
         syslog_config:
+          syslog_enable_tls: true
           syslog_host: syslog_host
           syslog_target_tag: syslog_target_tag
           syslog_formatter: syslog_formatter
+          syslog_tls_certificate: syslog_tls_certificate
           syslog_network: syslog_network
         target_log_type: target_log_type
         datadog_config:
@@ -21985,8 +22044,10 @@ components:
         elasticsearch_config:
           elasticsearch_index: elasticsearch_index
           elasticsearch_server_type: elasticsearch_server_type
+          elasticsearch_tls_certificate: elasticsearch_tls_certificate
           elasticsearch_user_name: elasticsearch_user_name
           elasticsearch_api_key: elasticsearch_api_key
+          elasticsearch_enable_tls: true
           elasticsearch_password: elasticsearch_password
           elasticsearch_cloud_id: elasticsearch_cloud_id
           elasticsearch_auth_type: elasticsearch_auth_type
@@ -22018,6 +22079,8 @@ components:
           x-go-name: PullIntervalSec
         splunk_config:
           $ref: '#/components/schemas/SplunkLogForwardingConfig'
+        sumo_logic_config:
+          $ref: '#/components/schemas/SumologicLogForwardingConfig'
         syslog_config:
           $ref: '#/components/schemas/SyslogLogForwardingConfig'
         target_log_type:
@@ -22027,15 +22090,23 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     LogstashLogForwardingConfig:
       example:
+        logstash_enable_tls: true
         logstash_protocol: logstash_protocol
         logstash_dns: logstash_dns
+        logstash_tls_certificate: logstash_tls_certificate
       properties:
         logstash_dns:
           type: string
           x-go-name: LogstashDns
+        logstash_enable_tls:
+          type: boolean
+          x-go-name: LogstashEnableTLS
         logstash_protocol:
           type: string
           x-go-name: LogstashProtocol
+        logstash_tls_certificate:
+          type: string
+          x-go-name: LogstashTlsCertificate
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     LogzIoLogForwardingConfig:
@@ -22725,7 +22796,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -22734,7 +22805,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
         is_enabled: true
@@ -23282,7 +23353,7 @@ components:
         use_capital_letters: true
         use_special_characters: true
         use_lower_letters: true
-        password_length: 1
+        password_length: 4
       properties:
         password_length:
           format: int64
@@ -23859,13 +23930,13 @@ components:
       example:
         same_password: true
         rotator_creds_type: rotator_creds_type
-        gw_cluster_id: 5
-        rotation_hour: 9
+        gw_cluster_id: 9
+        rotation_hour: 6
         rotation_statement: rotation_statement
         rotator_status: rotator_status
         rotation_interval_min: true
         rotator_type: rotator_type
-        delete_previous_version_in_days: 4
+        delete_previous_version_in_days: 5
         last_rotation_error: last_rotation_error
         number_of_versions_to_save: 9
       properties:
@@ -24258,7 +24329,7 @@ components:
         category: category
         region: region
         ssh_password: true
-        bastion_issuer_id: 6
+        bastion_issuer_id: 8
       properties:
         account_id:
           type: string
@@ -24424,7 +24495,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     SharingPolicyInfo:
       example:
-        default_share_link_ttl: 0
+        default_share_link_ttl: 6
       properties:
         default_share_link_ttl:
           format: int64
@@ -24455,8 +24526,13 @@ components:
         splunk_source: splunk_source
         splunk_index: splunk_index
         splunk_sourcetype: splunk_sourcetype
+        splunk_enable_tls: true
+        splunk_tls_certificate: splunk_tls_certificate
         splunk_url: splunk_url
       properties:
+        splunk_enable_tls:
+          type: boolean
+          x-go-name: SplunkEnableTLS
         splunk_index:
           type: string
           x-go-name: SplunkIndex
@@ -24466,6 +24542,9 @@ components:
         splunk_sourcetype:
           type: string
           x-go-name: SplunkSourcetype
+        splunk_tls_certificate:
+          type: string
+          x-go-name: SplunkTlsCertificate
         splunk_token:
           type: string
           x-go-name: SplunkToken
@@ -24517,13 +24596,35 @@ components:
           x-go-name: Websites
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    SumologicLogForwardingConfig:
+      example:
+        sumo_logic_endpoint: sumo_logic_endpoint
+        sumo_logic_host: sumo_logic_host
+        sumo_logic_tags: sumo_logic_tags
+      properties:
+        sumo_logic_endpoint:
+          type: string
+          x-go-name: SumologicEndPointURL
+        sumo_logic_host:
+          type: string
+          x-go-name: SumologicHost
+        sumo_logic_tags:
+          type: string
+          x-go-name: SumologicTags
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     SyslogLogForwardingConfig:
       example:
+        syslog_enable_tls: true
         syslog_host: syslog_host
         syslog_target_tag: syslog_target_tag
         syslog_formatter: syslog_formatter
+        syslog_tls_certificate: syslog_tls_certificate
         syslog_network: syslog_network
       properties:
+        syslog_enable_tls:
+          type: boolean
+          x-go-name: SyslogEnableTLS
         syslog_formatter:
           type: string
           x-go-name: SyslogFormatter
@@ -24536,6 +24637,9 @@ components:
         syslog_target_tag:
           type: string
           x-go-name: SyslogTargetTag
+        syslog_tls_certificate:
+          type: string
+          x-go-name: SyslogTlsCertificate
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     SystemAccessCredentialsReplyObj:
@@ -24579,9 +24683,9 @@ components:
       description: SystemAccessCredsSettings describes system access credential settings
         for account by minutes
       example:
-        jwt_ttl_maximum: 1
+        jwt_ttl_maximum: 5
         jwt_ttl_minimum: 5
-        jwt_ttl_default: 6
+        jwt_ttl_default: 1
       properties:
         jwt_ttl_default:
           format: int64
@@ -24634,7 +24738,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -24643,7 +24747,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 1
+          version: 2
           customer_fragment_id: customer_fragment_id
         modification_date: 2000-01-23T04:56:07.000+00:00
         attributes:
@@ -24780,7 +24884,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 6
+        version: 5
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -25434,8 +25538,8 @@ components:
           tweak: tweak
           email_tokenizer_info:
             fixed_domain_suffix: fixed_domain_suffix
-            keep_prefix_length: 9
-            domain_suffix_length: 8
+            keep_prefix_length: 6
+            domain_suffix_length: 9
           template_type: template_type
           tweak_type: tweak_type
           regexp_tokenizer_info:
@@ -25783,8 +25887,8 @@ components:
         tweak: tweak
         email_tokenizer_info:
           fixed_domain_suffix: fixed_domain_suffix
-          keep_prefix_length: 9
-          domain_suffix_length: 8
+          keep_prefix_length: 6
+          domain_suffix_length: 9
         template_type: template_type
         tweak_type: tweak_type
         regexp_tokenizer_info:
@@ -32075,13 +32179,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32192,7 +32296,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -32487,13 +32591,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -32604,7 +32708,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -32885,13 +32989,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33002,7 +33106,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -33238,13 +33342,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33355,7 +33459,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -33648,13 +33752,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -33765,7 +33869,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -34091,13 +34195,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34208,7 +34312,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -34438,13 +34542,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34555,7 +34659,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -34819,13 +34923,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -34936,7 +35040,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -35180,13 +35284,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35297,7 +35401,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -35531,13 +35635,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -35648,7 +35752,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -35903,13 +36007,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36020,7 +36124,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -36288,13 +36392,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36405,7 +36509,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -36656,13 +36760,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -36773,7 +36877,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -37041,13 +37145,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -37158,7 +37262,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -37443,13 +37547,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -37560,7 +37664,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -37841,13 +37945,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -37958,7 +38062,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -38255,13 +38359,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38372,7 +38476,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -38642,13 +38746,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -38759,7 +38863,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -39072,13 +39176,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39189,7 +39293,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -39463,13 +39567,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39580,7 +39684,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -39850,13 +39954,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -39967,7 +40071,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -40241,13 +40345,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40358,7 +40462,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -40606,13 +40710,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -40723,7 +40827,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -40980,13 +41084,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41097,7 +41201,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -41340,13 +41444,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -41457,7 +41561,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -43753,13 +43857,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -43870,7 +43974,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -44169,13 +44273,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44286,7 +44390,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -44571,13 +44675,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -44688,7 +44792,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -44928,13 +45032,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45045,7 +45149,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -45342,13 +45446,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45459,7 +45563,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -45793,13 +45897,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -45910,7 +46014,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -46144,13 +46248,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46261,7 +46365,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -46529,13 +46633,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -46646,7 +46750,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -46894,13 +46998,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47011,7 +47115,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -47249,13 +47353,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47366,7 +47470,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -47625,13 +47729,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -47742,7 +47846,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -48014,13 +48118,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48131,7 +48235,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -48386,13 +48490,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48503,7 +48607,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -48775,13 +48879,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -48892,7 +48996,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -49181,13 +49285,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -49298,7 +49402,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -49583,13 +49687,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -49700,7 +49804,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -50001,13 +50105,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -50118,7 +50222,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -50392,13 +50496,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -50509,7 +50613,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -50826,13 +50930,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -50943,7 +51047,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -51221,13 +51325,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -51338,7 +51442,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -51612,13 +51716,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -51729,7 +51833,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -52007,13 +52111,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -52124,7 +52228,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -52376,13 +52480,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -52493,7 +52597,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -52754,13 +52858,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -52871,7 +52975,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -53118,13 +53222,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 6
+            target_id: 1
           chef_server_username: chef_server_username
           tags:
           - tags
@@ -53235,7 +53339,7 @@ components:
             category: category
             region: region
             ssh_password: true
-            bastion_issuer_id: 6
+            bastion_issuer_id: 8
           ldap_group_dn: ldap_group_dn
           chef_server_host_name: chef_server_host_name
           k8s_role_type: k8s_role_type
@@ -53606,7 +53710,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -53615,7 +53719,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 1
+            version: 2
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
           is_enabled: true
@@ -56068,6 +56172,13 @@ components:
           description: Country
           type: string
           x-go-name: Country
+        default-key-name:
+          description: |-
+            Set the account default key based on the DFC key item name.
+            Use "set-original-akeyless-default-key" to revert to using the original default key of the account.
+            Empty string will change nothing.
+          type: string
+          x-go-name: DefaultKeyName
         default-share-link-ttl-minutes:
           description: Set the default ttl in minutes for sharing item number between
             60 and 43200
