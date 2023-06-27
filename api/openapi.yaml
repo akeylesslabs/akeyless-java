@@ -11090,7 +11090,8 @@ components:
       example:
         account_id: account_id
         auth_method_roles_assoc:
-        - role_name: role_name
+        - is_sub_claims_case_sensitive: true
+          role_name: role_name
           assoc_id: assoc_id
           allowed_ops:
           - allowed_ops
@@ -11132,7 +11133,8 @@ components:
             key:
             - auth_method_sub_claims
             - auth_method_sub_claims
-        - role_name: role_name
+        - is_sub_claims_case_sensitive: true
+          role_name: role_name
           assoc_id: assoc_id
           allowed_ops:
           - allowed_ops
@@ -11722,6 +11724,7 @@ components:
         AuthMethodRoleAssociation includes details of an association between an auth
         method and a role.
       example:
+        is_sub_claims_case_sensitive: true
         role_name: role_name
         assoc_id: assoc_id
         allowed_ops:
@@ -11780,6 +11783,9 @@ components:
             type: array
           type: object
           x-go-name: AuthMethodSubClaims
+        is_sub_claims_case_sensitive:
+          type: boolean
+          x-go-name: IsSubClaimsCaseSensitive
         role_name:
           type: string
           x-go-name: RoleName
@@ -18574,7 +18580,8 @@ components:
         auth_methods:
         - account_id: account_id
           auth_method_roles_assoc:
-          - role_name: role_name
+          - is_sub_claims_case_sensitive: true
+            role_name: role_name
             assoc_id: assoc_id
             allowed_ops:
             - allowed_ops
@@ -18616,7 +18623,8 @@ components:
               key:
               - auth_method_sub_claims
               - auth_method_sub_claims
-          - role_name: role_name
+          - is_sub_claims_case_sensitive: true
+            role_name: role_name
             assoc_id: assoc_id
             allowed_ops:
             - allowed_ops
@@ -18885,7 +18893,8 @@ components:
           auth_method_access_id: auth_method_access_id
         - account_id: account_id
           auth_method_roles_assoc:
-          - role_name: role_name
+          - is_sub_claims_case_sensitive: true
+            role_name: role_name
             assoc_id: assoc_id
             allowed_ops:
             - allowed_ops
@@ -18927,7 +18936,8 @@ components:
               key:
               - auth_method_sub_claims
               - auth_method_sub_claims
-          - role_name: role_name
+          - is_sub_claims_case_sensitive: true
+            role_name: role_name
             assoc_id: assoc_id
             allowed_ops:
             - allowed_ops
@@ -23541,7 +23551,8 @@ components:
       example:
         auth_method_name: auth_method_name
         assocs:
-        - role_name: role_name
+        - is_sub_claims_case_sensitive: true
+          role_name: role_name
           assoc_id: assoc_id
           allowed_ops:
           - allowed_ops
@@ -23583,7 +23594,8 @@ components:
             key:
             - auth_method_sub_claims
             - auth_method_sub_claims
-        - role_name: role_name
+        - is_sub_claims_case_sensitive: true
+          role_name: role_name
           assoc_id: assoc_id
           allowed_ops:
           - allowed_ops
@@ -23643,7 +23655,8 @@ components:
           key:
             auth_method_name: auth_method_name
             assocs:
-            - role_name: role_name
+            - is_sub_claims_case_sensitive: true
+              role_name: role_name
               assoc_id: assoc_id
               allowed_ops:
               - allowed_ops
@@ -23685,7 +23698,8 @@ components:
                 key:
                 - auth_method_sub_claims
                 - auth_method_sub_claims
-            - role_name: role_name
+            - is_sub_claims_case_sensitive: true
+              role_name: role_name
               assoc_id: assoc_id
               allowed_ops:
               - allowed_ops

@@ -47,6 +47,10 @@ public class AuthMethodRoleAssociation {
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_SUB_CLAIMS)
   private Map<String, List<String>> authMethodSubClaims = null;
 
+  public static final String SERIALIZED_NAME_IS_SUB_CLAIMS_CASE_SENSITIVE = "is_sub_claims_case_sensitive";
+  @SerializedName(SERIALIZED_NAME_IS_SUB_CLAIMS_CASE_SENSITIVE)
+  private Boolean isSubClaimsCaseSensitive;
+
   public static final String SERIALIZED_NAME_ROLE_NAME = "role_name";
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)
   private String roleName;
@@ -143,6 +147,29 @@ public class AuthMethodRoleAssociation {
   }
 
 
+  public AuthMethodRoleAssociation isSubClaimsCaseSensitive(Boolean isSubClaimsCaseSensitive) {
+    
+    this.isSubClaimsCaseSensitive = isSubClaimsCaseSensitive;
+    return this;
+  }
+
+   /**
+   * Get isSubClaimsCaseSensitive
+   * @return isSubClaimsCaseSensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIsSubClaimsCaseSensitive() {
+    return isSubClaimsCaseSensitive;
+  }
+
+
+  public void setIsSubClaimsCaseSensitive(Boolean isSubClaimsCaseSensitive) {
+    this.isSubClaimsCaseSensitive = isSubClaimsCaseSensitive;
+  }
+
+
   public AuthMethodRoleAssociation roleName(String roleName) {
     
     this.roleName = roleName;
@@ -201,13 +228,14 @@ public class AuthMethodRoleAssociation {
     return Objects.equals(this.allowedOps, authMethodRoleAssociation.allowedOps) &&
         Objects.equals(this.assocId, authMethodRoleAssociation.assocId) &&
         Objects.equals(this.authMethodSubClaims, authMethodRoleAssociation.authMethodSubClaims) &&
+        Objects.equals(this.isSubClaimsCaseSensitive, authMethodRoleAssociation.isSubClaimsCaseSensitive) &&
         Objects.equals(this.roleName, authMethodRoleAssociation.roleName) &&
         Objects.equals(this.rules, authMethodRoleAssociation.rules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedOps, assocId, authMethodSubClaims, roleName, rules);
+    return Objects.hash(allowedOps, assocId, authMethodSubClaims, isSubClaimsCaseSensitive, roleName, rules);
   }
 
   @Override
@@ -217,6 +245,7 @@ public class AuthMethodRoleAssociation {
     sb.append("    allowedOps: ").append(toIndentedString(allowedOps)).append("\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    authMethodSubClaims: ").append(toIndentedString(authMethodSubClaims)).append("\n");
+    sb.append("    isSubClaimsCaseSensitive: ").append(toIndentedString(isSubClaimsCaseSensitive)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
