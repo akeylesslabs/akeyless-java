@@ -17,10 +17,7 @@ docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
 docs/AkeylessGatewayConfig.md
 docs/AllowedAccess.md
-docs/AllowedAccessArgs.md
-docs/AllowedAccessDeleteArgs.md
 docs/AllowedAccessOld.md
-docs/AllowedAccessUpdateArgs.md
 docs/AssocRoleAuthMethod.md
 docs/AssocTargetItem.md
 docs/AttributeTypeAndValue.md
@@ -223,6 +220,7 @@ docs/GCPAccessRules.md
 docs/GCPPayload.md
 docs/GCPSecretsMigration.md
 docs/GatewayBasicInfo.md
+docs/GatewayCreateAllowedAccess.md
 docs/GatewayCreateK8SAuthConfig.md
 docs/GatewayCreateK8SAuthConfigOutput.md
 docs/GatewayCreateMigration.md
@@ -278,6 +276,7 @@ docs/GatewayCreateProducerRedshift.md
 docs/GatewayCreateProducerRedshiftOutput.md
 docs/GatewayCreateProducerSnowflake.md
 docs/GatewayCreateProducerSnowflakeOutput.md
+docs/GatewayDeleteAllowedAccess.md
 docs/GatewayDeleteAllowedAccessOutput.md
 docs/GatewayDeleteK8SAuthConfig.md
 docs/GatewayDeleteK8SAuthConfigOutput.md
@@ -286,6 +285,7 @@ docs/GatewayDeleteProducer.md
 docs/GatewayDeleteProducerOutput.md
 docs/GatewayDownloadCustomerFragments.md
 docs/GatewayDownloadCustomerFragmentsOutput.md
+docs/GatewayGetAllowedAccess.md
 docs/GatewayGetConfig.md
 docs/GatewayGetK8SAuthConfig.md
 docs/GatewayGetK8SAuthConfigOutput.md
@@ -313,6 +313,7 @@ docs/GatewayStatusMigration.md
 docs/GatewayStopProducer.md
 docs/GatewayStopProducerOutput.md
 docs/GatewaySyncMigration.md
+docs/GatewayUpdateAllowedAccess.md
 docs/GatewayUpdateItem.md
 docs/GatewayUpdateItemOutput.md
 docs/GatewayUpdateK8SAuthConfig.md
@@ -706,10 +707,7 @@ src/main/java/io/akeyless/client/model/AddGatewayAllowedAccessId.java
 src/main/java/io/akeyless/client/model/AdminsConfigPart.java
 src/main/java/io/akeyless/client/model/AkeylessGatewayConfig.java
 src/main/java/io/akeyless/client/model/AllowedAccess.java
-src/main/java/io/akeyless/client/model/AllowedAccessArgs.java
-src/main/java/io/akeyless/client/model/AllowedAccessDeleteArgs.java
 src/main/java/io/akeyless/client/model/AllowedAccessOld.java
-src/main/java/io/akeyless/client/model/AllowedAccessUpdateArgs.java
 src/main/java/io/akeyless/client/model/AssocRoleAuthMethod.java
 src/main/java/io/akeyless/client/model/AssocTargetItem.java
 src/main/java/io/akeyless/client/model/AttributeTypeAndValue.java
@@ -912,6 +910,7 @@ src/main/java/io/akeyless/client/model/GCPAccessRules.java
 src/main/java/io/akeyless/client/model/GCPPayload.java
 src/main/java/io/akeyless/client/model/GCPSecretsMigration.java
 src/main/java/io/akeyless/client/model/GatewayBasicInfo.java
+src/main/java/io/akeyless/client/model/GatewayCreateAllowedAccess.java
 src/main/java/io/akeyless/client/model/GatewayCreateK8SAuthConfig.java
 src/main/java/io/akeyless/client/model/GatewayCreateK8SAuthConfigOutput.java
 src/main/java/io/akeyless/client/model/GatewayCreateMigration.java
@@ -967,6 +966,7 @@ src/main/java/io/akeyless/client/model/GatewayCreateProducerRedshift.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerRedshiftOutput.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerSnowflake.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerSnowflakeOutput.java
+src/main/java/io/akeyless/client/model/GatewayDeleteAllowedAccess.java
 src/main/java/io/akeyless/client/model/GatewayDeleteAllowedAccessOutput.java
 src/main/java/io/akeyless/client/model/GatewayDeleteK8SAuthConfig.java
 src/main/java/io/akeyless/client/model/GatewayDeleteK8SAuthConfigOutput.java
@@ -975,6 +975,7 @@ src/main/java/io/akeyless/client/model/GatewayDeleteProducer.java
 src/main/java/io/akeyless/client/model/GatewayDeleteProducerOutput.java
 src/main/java/io/akeyless/client/model/GatewayDownloadCustomerFragments.java
 src/main/java/io/akeyless/client/model/GatewayDownloadCustomerFragmentsOutput.java
+src/main/java/io/akeyless/client/model/GatewayGetAllowedAccess.java
 src/main/java/io/akeyless/client/model/GatewayGetConfig.java
 src/main/java/io/akeyless/client/model/GatewayGetK8SAuthConfig.java
 src/main/java/io/akeyless/client/model/GatewayGetK8SAuthConfigOutput.java
@@ -1002,6 +1003,7 @@ src/main/java/io/akeyless/client/model/GatewayStatusMigration.java
 src/main/java/io/akeyless/client/model/GatewayStopProducer.java
 src/main/java/io/akeyless/client/model/GatewayStopProducerOutput.java
 src/main/java/io/akeyless/client/model/GatewaySyncMigration.java
+src/main/java/io/akeyless/client/model/GatewayUpdateAllowedAccess.java
 src/main/java/io/akeyless/client/model/GatewayUpdateItem.java
 src/main/java/io/akeyless/client/model/GatewayUpdateItemOutput.java
 src/main/java/io/akeyless/client/model/GatewayUpdateK8SAuthConfig.java
@@ -1354,9 +1356,7 @@ src/main/java/io/akeyless/client/model/VerifyJWTWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyPKCS1.java
 src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
-src/test/java/io/akeyless/client/model/AccessPermissionAssignmentTest.java
-src/test/java/io/akeyless/client/model/CreateAuthMethodEmailOutputTest.java
-src/test/java/io/akeyless/client/model/CreateAuthMethodEmailTest.java
-src/test/java/io/akeyless/client/model/EsmDeleteSecretOutputTest.java
-src/test/java/io/akeyless/client/model/GoogleChronicleForwardingConfigTest.java
-src/test/java/io/akeyless/client/model/OidcClientInfoTest.java
+src/test/java/io/akeyless/client/model/GatewayCreateAllowedAccessTest.java
+src/test/java/io/akeyless/client/model/GatewayDeleteAllowedAccessTest.java
+src/test/java/io/akeyless/client/model/GatewayGetAllowedAccessTest.java
+src/test/java/io/akeyless/client/model/GatewayUpdateAllowedAccessTest.java

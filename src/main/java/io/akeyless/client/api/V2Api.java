@@ -29,9 +29,6 @@ import java.io.IOException;
 
 import io.akeyless.client.model.AkeylessGatewayConfig;
 import io.akeyless.client.model.AllowedAccess;
-import io.akeyless.client.model.AllowedAccessArgs;
-import io.akeyless.client.model.AllowedAccessDeleteArgs;
-import io.akeyless.client.model.AllowedAccessUpdateArgs;
 import io.akeyless.client.model.AssocRoleAuthMethod;
 import io.akeyless.client.model.AssocTargetItem;
 import io.akeyless.client.model.Auth;
@@ -188,6 +185,7 @@ import io.akeyless.client.model.EsmUpdateSecretOutput;
 import io.akeyless.client.model.EventAction;
 import io.akeyless.client.model.ExportClassicKey;
 import io.akeyless.client.model.ExportClassicKeyOutput;
+import io.akeyless.client.model.GatewayCreateAllowedAccess;
 import io.akeyless.client.model.GatewayCreateK8SAuthConfig;
 import io.akeyless.client.model.GatewayCreateK8SAuthConfigOutput;
 import io.akeyless.client.model.GatewayCreateMigration;
@@ -241,6 +239,7 @@ import io.akeyless.client.model.GatewayCreateProducerRedshift;
 import io.akeyless.client.model.GatewayCreateProducerRedshiftOutput;
 import io.akeyless.client.model.GatewayCreateProducerSnowflake;
 import io.akeyless.client.model.GatewayCreateProducerSnowflakeOutput;
+import io.akeyless.client.model.GatewayDeleteAllowedAccess;
 import io.akeyless.client.model.GatewayDeleteAllowedAccessOutput;
 import io.akeyless.client.model.GatewayDeleteK8SAuthConfig;
 import io.akeyless.client.model.GatewayDeleteK8SAuthConfigOutput;
@@ -249,6 +248,7 @@ import io.akeyless.client.model.GatewayDeleteProducer;
 import io.akeyless.client.model.GatewayDeleteProducerOutput;
 import io.akeyless.client.model.GatewayDownloadCustomerFragments;
 import io.akeyless.client.model.GatewayDownloadCustomerFragmentsOutput;
+import io.akeyless.client.model.GatewayGetAllowedAccess;
 import io.akeyless.client.model.GatewayGetConfig;
 import io.akeyless.client.model.GatewayGetK8SAuthConfig;
 import io.akeyless.client.model.GatewayGetK8SAuthConfigOutput;
@@ -275,6 +275,7 @@ import io.akeyless.client.model.GatewayStatusMigration;
 import io.akeyless.client.model.GatewayStopProducer;
 import io.akeyless.client.model.GatewayStopProducerOutput;
 import io.akeyless.client.model.GatewaySyncMigration;
+import io.akeyless.client.model.GatewayUpdateAllowedAccess;
 import io.akeyless.client.model.GatewayUpdateItem;
 import io.akeyless.client.model.GatewayUpdateItemOutput;
 import io.akeyless.client.model.GatewayUpdateK8SAuthConfig;
@@ -11727,7 +11728,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayCreateAllowedAccessCall(AllowedAccessArgs body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gatewayCreateAllowedAccessCall(GatewayCreateAllowedAccess body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11774,7 +11775,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayCreateAllowedAccessValidateBeforeCall(AllowedAccessArgs body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gatewayCreateAllowedAccessValidateBeforeCall(GatewayCreateAllowedAccess body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -11800,7 +11801,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public AllowedAccess gatewayCreateAllowedAccess(AllowedAccessArgs body) throws ApiException {
+    public AllowedAccess gatewayCreateAllowedAccess(GatewayCreateAllowedAccess body) throws ApiException {
         ApiResponse<AllowedAccess> localVarResp = gatewayCreateAllowedAccessWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -11818,7 +11819,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AllowedAccess> gatewayCreateAllowedAccessWithHttpInfo(AllowedAccessArgs body) throws ApiException {
+    public ApiResponse<AllowedAccess> gatewayCreateAllowedAccessWithHttpInfo(GatewayCreateAllowedAccess body) throws ApiException {
         okhttp3.Call localVarCall = gatewayCreateAllowedAccessValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<AllowedAccess>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11838,7 +11839,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayCreateAllowedAccessAsync(AllowedAccessArgs body, final ApiCallback<AllowedAccess> _callback) throws ApiException {
+    public okhttp3.Call gatewayCreateAllowedAccessAsync(GatewayCreateAllowedAccess body, final ApiCallback<AllowedAccess> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayCreateAllowedAccessValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<AllowedAccess>(){}.getType();
@@ -15390,7 +15391,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayDeleteAllowedAccessCall(AllowedAccessDeleteArgs body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gatewayDeleteAllowedAccessCall(GatewayDeleteAllowedAccess body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -15437,7 +15438,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayDeleteAllowedAccessValidateBeforeCall(AllowedAccessDeleteArgs body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gatewayDeleteAllowedAccessValidateBeforeCall(GatewayDeleteAllowedAccess body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -15463,7 +15464,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public GatewayDeleteAllowedAccessOutput gatewayDeleteAllowedAccess(AllowedAccessDeleteArgs body) throws ApiException {
+    public GatewayDeleteAllowedAccessOutput gatewayDeleteAllowedAccess(GatewayDeleteAllowedAccess body) throws ApiException {
         ApiResponse<GatewayDeleteAllowedAccessOutput> localVarResp = gatewayDeleteAllowedAccessWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -15481,7 +15482,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GatewayDeleteAllowedAccessOutput> gatewayDeleteAllowedAccessWithHttpInfo(AllowedAccessDeleteArgs body) throws ApiException {
+    public ApiResponse<GatewayDeleteAllowedAccessOutput> gatewayDeleteAllowedAccessWithHttpInfo(GatewayDeleteAllowedAccess body) throws ApiException {
         okhttp3.Call localVarCall = gatewayDeleteAllowedAccessValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<GatewayDeleteAllowedAccessOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15501,7 +15502,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayDeleteAllowedAccessAsync(AllowedAccessDeleteArgs body, final ApiCallback<GatewayDeleteAllowedAccessOutput> _callback) throws ApiException {
+    public okhttp3.Call gatewayDeleteAllowedAccessAsync(GatewayDeleteAllowedAccess body, final ApiCallback<GatewayDeleteAllowedAccessOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayDeleteAllowedAccessValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<GatewayDeleteAllowedAccessOutput>(){}.getType();
@@ -16045,7 +16046,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayGetAllowedAccessCall(AllowedAccessArgs body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gatewayGetAllowedAccessCall(GatewayGetAllowedAccess body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -16092,7 +16093,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayGetAllowedAccessValidateBeforeCall(AllowedAccessArgs body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gatewayGetAllowedAccessValidateBeforeCall(GatewayGetAllowedAccess body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -16118,7 +16119,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public AllowedAccess gatewayGetAllowedAccess(AllowedAccessArgs body) throws ApiException {
+    public AllowedAccess gatewayGetAllowedAccess(GatewayGetAllowedAccess body) throws ApiException {
         ApiResponse<AllowedAccess> localVarResp = gatewayGetAllowedAccessWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -16136,7 +16137,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AllowedAccess> gatewayGetAllowedAccessWithHttpInfo(AllowedAccessArgs body) throws ApiException {
+    public ApiResponse<AllowedAccess> gatewayGetAllowedAccessWithHttpInfo(GatewayGetAllowedAccess body) throws ApiException {
         okhttp3.Call localVarCall = gatewayGetAllowedAccessValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<AllowedAccess>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -16156,7 +16157,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayGetAllowedAccessAsync(AllowedAccessArgs body, final ApiCallback<AllowedAccess> _callback) throws ApiException {
+    public okhttp3.Call gatewayGetAllowedAccessAsync(GatewayGetAllowedAccess body, final ApiCallback<AllowedAccess> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayGetAllowedAccessValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<AllowedAccess>(){}.getType();
@@ -18132,7 +18133,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayUpdateAllowedAccessCall(AllowedAccessUpdateArgs body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gatewayUpdateAllowedAccessCall(GatewayUpdateAllowedAccess body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -18179,7 +18180,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gatewayUpdateAllowedAccessValidateBeforeCall(AllowedAccessUpdateArgs body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gatewayUpdateAllowedAccessValidateBeforeCall(GatewayUpdateAllowedAccess body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -18205,7 +18206,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public AllowedAccess gatewayUpdateAllowedAccess(AllowedAccessUpdateArgs body) throws ApiException {
+    public AllowedAccess gatewayUpdateAllowedAccess(GatewayUpdateAllowedAccess body) throws ApiException {
         ApiResponse<AllowedAccess> localVarResp = gatewayUpdateAllowedAccessWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -18223,7 +18224,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AllowedAccess> gatewayUpdateAllowedAccessWithHttpInfo(AllowedAccessUpdateArgs body) throws ApiException {
+    public ApiResponse<AllowedAccess> gatewayUpdateAllowedAccessWithHttpInfo(GatewayUpdateAllowedAccess body) throws ApiException {
         okhttp3.Call localVarCall = gatewayUpdateAllowedAccessValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<AllowedAccess>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18243,7 +18244,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gatewayUpdateAllowedAccessAsync(AllowedAccessUpdateArgs body, final ApiCallback<AllowedAccess> _callback) throws ApiException {
+    public okhttp3.Call gatewayUpdateAllowedAccessAsync(GatewayUpdateAllowedAccess body, final ApiCallback<AllowedAccess> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayUpdateAllowedAccessValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<AllowedAccess>(){}.getType();

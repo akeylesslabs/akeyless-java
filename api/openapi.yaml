@@ -2461,7 +2461,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AllowedAccessArgs'
+              $ref: '#/components/schemas/gatewayCreateAllowedAccess'
         required: true
       responses:
         "200":
@@ -3274,7 +3274,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AllowedAccessDeleteArgs'
+              $ref: '#/components/schemas/gatewayDeleteAllowedAccess'
         required: true
       responses:
         "200":
@@ -3448,7 +3448,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AllowedAccessArgs'
+              $ref: '#/components/schemas/gatewayGetAllowedAccess'
         required: true
       responses:
         "200":
@@ -3940,7 +3940,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AllowedAccessUpdateArgs'
+              $ref: '#/components/schemas/gatewayUpdateAllowedAccess'
         required: true
       responses:
         "200":
@@ -11107,62 +11107,6 @@ components:
           x-go-name: UpdatedAt
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
-    AllowedAccessArgs:
-      example:
-        permissions: permissions
-        name: name
-        description: description
-        access-id: access-id
-        sub-claims:
-          key: sub-claims
-      properties:
-        access-id:
-          description: |-
-            Access ID
-            The access id to be attached to this allowed access. Auth method with this access id should already exist.
-          type: string
-          x-go-name: AccessID
-        description:
-          description: Allowed access description
-          type: string
-          x-go-name: Description
-        name:
-          description: Allowed access name
-          type: string
-          x-go-name: Name
-        permissions:
-          description: |-
-            Permissions
-
-            Comma-seperated list of permissions for this allowed access.
-            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general]
-          type: string
-          x-go-name: Permissions
-        sub-claims:
-          additionalProperties:
-            type: string
-          description: |-
-            Sub claims
-            key/val of sub claims, e.g group=admins,developers
-          type: object
-          x-go-name: SubClaims
-      required:
-      - access-id
-      - name
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    AllowedAccessDeleteArgs:
-      example:
-        name: name
-      properties:
-        name:
-          description: Allowed access name to delete
-          type: string
-          x-go-name: Name
-      required:
-      - name
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     AllowedAccessOld:
       description: 'Deprecated: AllowedAccessOld please use Gator allowed_access API
         structs such as AllowedAccessInput/AllowedAccess'
@@ -11225,55 +11169,6 @@ components:
           x-go-name: SubClaims
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
-    AllowedAccessUpdateArgs:
-      example:
-        permissions: permissions
-        name: name
-        description: description
-        access-id: access-id
-        sub-claims:
-          key: sub-claims
-        new-name: new-name
-      properties:
-        access-id:
-          description: |-
-            Access ID
-            The access id to be attached to this allowed access. Auth method with this access id should already exist.
-          type: string
-          x-go-name: AccessID
-        description:
-          description: Allowed access description
-          type: string
-          x-go-name: Description
-        name:
-          description: Allowed access name
-          type: string
-          x-go-name: Name
-        new-name:
-          description: New allowed access name
-          type: string
-          x-go-name: NewName
-        permissions:
-          description: |-
-            Permissions
-
-            Comma-seperated list of permissions for this allowed access.
-            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general]
-          type: string
-          x-go-name: Permissions
-        sub-claims:
-          additionalProperties:
-            type: string
-          description: |-
-            Sub claims
-            key/val of sub claims, e.g group=admins,developers
-          type: object
-          x-go-name: SubClaims
-      required:
-      - access-id
-      - name
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     AssocRelationship:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -32189,6 +32084,59 @@ components:
     eventActionOutput:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayCreateAllowedAccess:
+      description: gatewayCreateAllowedAccess is a command that creates allowed access
+        in Gator
+      properties:
+        access-id:
+          description: |-
+            Access ID
+            The access id to be attached to this allowed access. Auth method with this access id should already exist.
+          type: string
+          x-go-name: AccessID
+        description:
+          description: Allowed access description
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Allowed access name
+          type: string
+          x-go-name: Name
+        permissions:
+          description: |-
+            Permissions
+
+            Comma-seperated list of permissions for this allowed access.
+            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general]
+          type: string
+          x-go-name: Permissions
+        sub-claims:
+          additionalProperties:
+            type: string
+          description: |-
+            Sub claims
+            key/val of sub claims, e.g group=admins,developers
+          type: object
+          x-go-name: SubClaims
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - access-id
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayCreateK8SAuthConfig:
       description: gatewayCreateK8SAuth is a command that creates k8s auth config
       properties:
@@ -42309,6 +42257,32 @@ components:
           $ref: '#/components/schemas/DSProducerDetails'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayDeleteAllowedAccess:
+      description: gatewayDeleteAllowedAccess is a command that deletes allowed access
+        from gateway
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Allowed access name to delete
+          type: string
+          x-go-name: Name
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayDeleteAllowedAccessOutput:
       example:
         allowed_access_name: allowed_access_name
@@ -42501,6 +42475,32 @@ components:
             type: object
           type: object
           x-go-name: CfJson
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayGetAllowedAccess:
+      description: gatewayGetAllowedAccess is a command that gets allowed access from
+        gateway
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Allowed access name
+          type: string
+          x-go-name: Name
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayGetConfig:
@@ -43720,6 +43720,63 @@ components:
           type: string
           x-go-name: UIDToken
       required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateAllowedAccess:
+      description: gatewayUpdateAllowedAccess is a command that update allowed access
+        in Gator
+      properties:
+        access-id:
+          description: |-
+            Access ID
+            The access id to be attached to this allowed access. Auth method with this access id should already exist.
+          type: string
+          x-go-name: AccessID
+        description:
+          description: Allowed access description
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Allowed access name
+          type: string
+          x-go-name: Name
+        new-name:
+          description: New allowed access name
+          type: string
+          x-go-name: NewName
+        permissions:
+          description: |-
+            Permissions
+
+            Comma-seperated list of permissions for this allowed access.
+            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general]
+          type: string
+          x-go-name: Permissions
+        sub-claims:
+          additionalProperties:
+            type: string
+          description: |-
+            Sub claims
+            key/val of sub claims, e.g group=admins,developers
+          type: object
+          x-go-name: SubClaims
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - access-id
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands

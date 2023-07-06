@@ -5496,7 +5496,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    AllowedAccessArgs body = new AllowedAccessArgs(); // AllowedAccessArgs | 
+    GatewayCreateAllowedAccess body = new GatewayCreateAllowedAccess(); // GatewayCreateAllowedAccess | 
     try {
       AllowedAccess result = apiInstance.gatewayCreateAllowedAccess(body);
       System.out.println(result);
@@ -5515,7 +5515,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AllowedAccessArgs**](AllowedAccessArgs.md)|  |
+ **body** | [**GatewayCreateAllowedAccess**](GatewayCreateAllowedAccess.md)|  |
 
 ### Return type
 
@@ -7204,7 +7204,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    AllowedAccessDeleteArgs body = new AllowedAccessDeleteArgs(); // AllowedAccessDeleteArgs | 
+    GatewayDeleteAllowedAccess body = new GatewayDeleteAllowedAccess(); // GatewayDeleteAllowedAccess | 
     try {
       GatewayDeleteAllowedAccessOutput result = apiInstance.gatewayDeleteAllowedAccess(body);
       System.out.println(result);
@@ -7223,7 +7223,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AllowedAccessDeleteArgs**](AllowedAccessDeleteArgs.md)|  |
+ **body** | [**GatewayDeleteAllowedAccess**](GatewayDeleteAllowedAccess.md)|  |
 
 ### Return type
 
@@ -7509,7 +7509,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    AllowedAccessArgs body = new AllowedAccessArgs(); // AllowedAccessArgs | 
+    GatewayGetAllowedAccess body = new GatewayGetAllowedAccess(); // GatewayGetAllowedAccess | 
     try {
       AllowedAccess result = apiInstance.gatewayGetAllowedAccess(body);
       System.out.println(result);
@@ -7528,7 +7528,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AllowedAccessArgs**](AllowedAccessArgs.md)|  |
+ **body** | [**GatewayGetAllowedAccess**](GatewayGetAllowedAccess.md)|  |
 
 ### Return type
 
@@ -8484,7 +8484,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    AllowedAccessUpdateArgs body = new AllowedAccessUpdateArgs(); // AllowedAccessUpdateArgs | 
+    GatewayUpdateAllowedAccess body = new GatewayUpdateAllowedAccess(); // GatewayUpdateAllowedAccess | 
     try {
       AllowedAccess result = apiInstance.gatewayUpdateAllowedAccess(body);
       System.out.println(result);
@@ -8503,7 +8503,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AllowedAccessUpdateArgs**](AllowedAccessUpdateArgs.md)|  |
+ **body** | [**GatewayUpdateAllowedAccess**](GatewayUpdateAllowedAccess.md)|  |
 
 ### Return type
 
