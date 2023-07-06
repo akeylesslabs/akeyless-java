@@ -26,6 +26,7 @@ import io.akeyless.client.model.CertificateTemplateInfo;
 import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
 import io.akeyless.client.model.ImporterInfo;
+import io.akeyless.client.model.OidcClientInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.RotatedSecretDetailsInfo;
 import io.akeyless.client.model.SecureRemoteAccess;
@@ -71,6 +72,10 @@ public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_IMPORTER_INFO = "importer_info";
   @SerializedName(SERIALIZED_NAME_IMPORTER_INFO)
   private ImporterInfo importerInfo;
+
+  public static final String SERIALIZED_NAME_OIDC_CLIENT_INFO = "oidc_client_info";
+  @SerializedName(SERIALIZED_NAME_OIDC_CLIENT_INFO)
+  private OidcClientInfo oidcClientInfo;
 
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
@@ -279,6 +284,29 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo oidcClientInfo(OidcClientInfo oidcClientInfo) {
+    
+    this.oidcClientInfo = oidcClientInfo;
+    return this;
+  }
+
+   /**
+   * Get oidcClientInfo
+   * @return oidcClientInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OidcClientInfo getOidcClientInfo() {
+    return oidcClientInfo;
+  }
+
+
+  public void setOidcClientInfo(OidcClientInfo oidcClientInfo) {
+    this.oidcClientInfo = oidcClientInfo;
+  }
+
+
   public ItemGeneralInfo passwordPolicy(PasswordPolicyInfo passwordPolicy) {
     
     this.passwordPolicy = passwordPolicy;
@@ -411,6 +439,7 @@ public class ItemGeneralInfo {
         Objects.equals(this.displayMetadata, itemGeneralInfo.displayMetadata) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
         Objects.equals(this.importerInfo, itemGeneralInfo.importerInfo) &&
+        Objects.equals(this.oidcClientInfo, itemGeneralInfo.oidcClientInfo) &&
         Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
         Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails) &&
         Objects.equals(this.secureRemoteAccessDetails, itemGeneralInfo.secureRemoteAccessDetails) &&
@@ -420,7 +449,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, certificateChainInfo, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(certIssueDetails, certificateChainInfo, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
@@ -435,6 +464,7 @@ public class ItemGeneralInfo {
     sb.append("    displayMetadata: ").append(toIndentedString(displayMetadata)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
     sb.append("    importerInfo: ").append(toIndentedString(importerInfo)).append("\n");
+    sb.append("    oidcClientInfo: ").append(toIndentedString(oidcClientInfo)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
     sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");

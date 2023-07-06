@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**createAuthMethodAWSIAM**](V2Api.md#createAuthMethodAWSIAM) | **POST** /create-auth-method-aws-iam | 
 [**createAuthMethodAzureAD**](V2Api.md#createAuthMethodAzureAD) | **POST** /create-auth-method-azure-ad | 
 [**createAuthMethodCert**](V2Api.md#createAuthMethodCert) | **POST** /create-auth-method-cert | 
+[**createAuthMethodEmail**](V2Api.md#createAuthMethodEmail) | **POST** /create-auth-method-email | 
 [**createAuthMethodGCP**](V2Api.md#createAuthMethodGCP) | **POST** /create-auth-method-gcp | 
 [**createAuthMethodHuawei**](V2Api.md#createAuthMethodHuawei) | **POST** /create-auth-method-huawei | 
 [**createAuthMethodK8S**](V2Api.md#createAuthMethodK8S) | **POST** /create-auth-method-k8s | 
@@ -88,6 +89,7 @@ Method | HTTP request | Description
 [**esmUpdate**](V2Api.md#esmUpdate) | **POST** /esm-update | 
 [**eventAction**](V2Api.md#eventAction) | **POST** /event-action | 
 [**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
+[**gatewayCreateAllowedAccess**](V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
 [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 [**gatewayCreateMigration**](V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
 [**gatewayCreateProducerArtifactory**](V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
@@ -115,10 +117,12 @@ Method | HTTP request | Description
 [**gatewayCreateProducerRedis**](V2Api.md#gatewayCreateProducerRedis) | **POST** /gateway-create-producer-Redis | 
 [**gatewayCreateProducerRedshift**](V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
 [**gatewayCreateProducerSnowflake**](V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
+[**gatewayDeleteAllowedAccess**](V2Api.md#gatewayDeleteAllowedAccess) | **DELETE** /gateway-delete-allowed-access | 
 [**gatewayDeleteK8SAuthConfig**](V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
 [**gatewayDeleteMigration**](V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 [**gatewayDownloadCustomerFragments**](V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
+[**gatewayGetAllowedAccess**](V2Api.md#gatewayGetAllowedAccess) | **GET** /gateway-get-allowed-access | 
 [**gatewayGetConfig**](V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
 [**gatewayGetK8SAuthConfig**](V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
 [**gatewayGetLdapAuthConfig**](V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
@@ -134,6 +138,7 @@ Method | HTTP request | Description
 [**gatewayStatusMigration**](V2Api.md#gatewayStatusMigration) | **POST** /gateway-migration-status | 
 [**gatewayStopProducer**](V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
 [**gatewaySyncMigration**](V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
+[**gatewayUpdateAllowedAccess**](V2Api.md#gatewayUpdateAllowedAccess) | **POST** /gateway-update-allowed-access | 
 [**gatewayUpdateItem**](V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
 [**gatewayUpdateK8SAuthConfig**](V2Api.md#gatewayUpdateK8SAuthConfig) | **POST** /gateway-update-k8s-auth-config | 
 [**gatewayUpdateLdapAuthConfig**](V2Api.md#gatewayUpdateLdapAuthConfig) | **POST** /gateway-update-ldap-auth-config | 
@@ -957,6 +962,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createAuthMethodCertResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createAuthMethodEmail"></a>
+# **createAuthMethodEmail**
+> CreateAuthMethodEmailOutput createAuthMethodEmail(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateAuthMethodEmail body = new CreateAuthMethodEmail(); // CreateAuthMethodEmail | 
+    try {
+      CreateAuthMethodEmailOutput result = apiInstance.createAuthMethodEmail(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createAuthMethodEmail");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAuthMethodEmail**](CreateAuthMethodEmail.md)|  |
+
+### Return type
+
+[**CreateAuthMethodEmailOutput**](CreateAuthMethodEmailOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createAuthMethodEmailResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createAuthMethodGCP"></a>
@@ -5049,7 +5115,7 @@ No authorization required
 
 <a name="esmDelete"></a>
 # **esmDelete**
-> Object esmDelete(body)
+> EsmDeleteSecretOutput esmDelete(body)
 
 
 
@@ -5070,7 +5136,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     EsmDelete body = new EsmDelete(); // EsmDelete | 
     try {
-      Object result = apiInstance.esmDelete(body);
+      EsmDeleteSecretOutput result = apiInstance.esmDelete(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#esmDelete");
@@ -5091,7 +5157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**EsmDeleteSecretOutput**](EsmDeleteSecretOutput.md)
 
 ### Authorization
 
@@ -5407,6 +5473,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | ExportClassicKeyResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayCreateAllowedAccess"></a>
+# **gatewayCreateAllowedAccess**
+> AllowedAccess gatewayCreateAllowedAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AllowedAccessArgs body = new AllowedAccessArgs(); // AllowedAccessArgs | 
+    try {
+      AllowedAccess result = apiInstance.gatewayCreateAllowedAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayCreateAllowedAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AllowedAccessArgs**](AllowedAccessArgs.md)|  |
+
+### Return type
+
+[**AllowedAccess**](AllowedAccess.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayCreateAllowedAccessResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayCreateK8SAuthConfig"></a>
@@ -7056,6 +7183,67 @@ No authorization required
 **201** | gatewayCreateProducerSnowflakeResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayDeleteAllowedAccess"></a>
+# **gatewayDeleteAllowedAccess**
+> GatewayDeleteAllowedAccessOutput gatewayDeleteAllowedAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AllowedAccessDeleteArgs body = new AllowedAccessDeleteArgs(); // AllowedAccessDeleteArgs | 
+    try {
+      GatewayDeleteAllowedAccessOutput result = apiInstance.gatewayDeleteAllowedAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayDeleteAllowedAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AllowedAccessDeleteArgs**](AllowedAccessDeleteArgs.md)|  |
+
+### Return type
+
+[**GatewayDeleteAllowedAccessOutput**](GatewayDeleteAllowedAccessOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayDeleteAllowedAccessResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayDeleteK8SAuthConfig"></a>
 # **gatewayDeleteK8SAuthConfig**
 > GatewayDeleteK8SAuthConfigOutput gatewayDeleteK8SAuthConfig(body)
@@ -7298,6 +7486,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayDownloadCustomerFragmentsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayGetAllowedAccess"></a>
+# **gatewayGetAllowedAccess**
+> AllowedAccess gatewayGetAllowedAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AllowedAccessArgs body = new AllowedAccessArgs(); // AllowedAccessArgs | 
+    try {
+      AllowedAccess result = apiInstance.gatewayGetAllowedAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayGetAllowedAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AllowedAccessArgs**](AllowedAccessArgs.md)|  |
+
+### Return type
+
+[**AllowedAccess**](AllowedAccess.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayGetAllowedAccessResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayGetConfig"></a>
@@ -8212,6 +8461,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayMigrationSyncResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateAllowedAccess"></a>
+# **gatewayUpdateAllowedAccess**
+> AllowedAccess gatewayUpdateAllowedAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AllowedAccessUpdateArgs body = new AllowedAccessUpdateArgs(); // AllowedAccessUpdateArgs | 
+    try {
+      AllowedAccess result = apiInstance.gatewayUpdateAllowedAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateAllowedAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AllowedAccessUpdateArgs**](AllowedAccessUpdateArgs.md)|  |
+
+### Return type
+
+[**AllowedAccess**](AllowedAccess.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayCreateAllowedAccessResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayUpdateItem"></a>

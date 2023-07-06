@@ -25,26 +25,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * EsmUpdateSecretOutput
+ * EsmDeleteSecretOutput
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class EsmUpdateSecretOutput {
+public class EsmDeleteSecretOutput {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_SECRET_ID = "secret_id";
-  @SerializedName(SERIALIZED_NAME_SECRET_ID)
-  private String secretId;
-
-  public static final String SERIALIZED_NAME_VERSION_ID = "version_id";
-  @SerializedName(SERIALIZED_NAME_VERSION_ID)
-  private String versionId;
-
-  public EsmUpdateSecretOutput() { 
+  public EsmDeleteSecretOutput() { 
   }
 
-  public EsmUpdateSecretOutput name(String name) {
+  public EsmDeleteSecretOutput name(String name) {
     
     this.name = name;
     return this;
@@ -67,52 +59,6 @@ public class EsmUpdateSecretOutput {
   }
 
 
-  public EsmUpdateSecretOutput secretId(String secretId) {
-    
-    this.secretId = secretId;
-    return this;
-  }
-
-   /**
-   * Get secretId
-   * @return secretId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getSecretId() {
-    return secretId;
-  }
-
-
-  public void setSecretId(String secretId) {
-    this.secretId = secretId;
-  }
-
-
-  public EsmUpdateSecretOutput versionId(String versionId) {
-    
-    this.versionId = versionId;
-    return this;
-  }
-
-   /**
-   * Get versionId
-   * @return versionId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getVersionId() {
-    return versionId;
-  }
-
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,24 +67,20 @@ public class EsmUpdateSecretOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EsmUpdateSecretOutput esmUpdateSecretOutput = (EsmUpdateSecretOutput) o;
-    return Objects.equals(this.name, esmUpdateSecretOutput.name) &&
-        Objects.equals(this.secretId, esmUpdateSecretOutput.secretId) &&
-        Objects.equals(this.versionId, esmUpdateSecretOutput.versionId);
+    EsmDeleteSecretOutput esmDeleteSecretOutput = (EsmDeleteSecretOutput) o;
+    return Objects.equals(this.name, esmDeleteSecretOutput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, secretId, versionId);
+    return Objects.hash(name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EsmUpdateSecretOutput {\n");
+    sb.append("class EsmDeleteSecretOutput {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
-    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

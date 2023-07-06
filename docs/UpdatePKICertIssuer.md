@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **destinationPath** | **String** | A path in which to save generated certificates |  [optional]
 **expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional]
 **gwClusterUrl** | **String** | The GW cluster URL to issue the certificate from, required in Public CA mode |  [optional]
+**isCa** | **Boolean** | If set, the basic constraints extension will be added to certificate |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keyUsage** | **String** | key-usage |  [optional]
 **locality** | **String** | A comma-separated list of localities that will be set in the issued certificate |  [optional]

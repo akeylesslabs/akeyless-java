@@ -37,6 +37,10 @@ public class EsmGetSecretOutput {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
@@ -90,6 +94,29 @@ public class EsmGetSecretOutput {
   }
 
 
+  public EsmGetSecretOutput name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   public EsmGetSecretOutput value(String value) {
     
     this.value = value;
@@ -124,12 +151,13 @@ public class EsmGetSecretOutput {
     EsmGetSecretOutput esmGetSecretOutput = (EsmGetSecretOutput) o;
     return Objects.equals(this.binaryValue, esmGetSecretOutput.binaryValue) &&
         Objects.equals(this.metadata, esmGetSecretOutput.metadata) &&
+        Objects.equals(this.name, esmGetSecretOutput.name) &&
         Objects.equals(this.value, esmGetSecretOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, metadata, value);
+    return Objects.hash(binaryValue, metadata, name, value);
   }
 
   @Override
@@ -138,6 +166,7 @@ public class EsmGetSecretOutput {
     sb.append("class EsmGetSecretOutput {\n");
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

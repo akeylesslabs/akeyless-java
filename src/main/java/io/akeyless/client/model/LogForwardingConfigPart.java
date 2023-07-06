@@ -24,6 +24,7 @@ import io.akeyless.client.model.AwsS3LogForwardingConfig;
 import io.akeyless.client.model.AzureLogAnalyticsForwardingConfig;
 import io.akeyless.client.model.DatadogForwardingConfig;
 import io.akeyless.client.model.ElasticsearchLogForwardingConfig;
+import io.akeyless.client.model.GoogleChronicleForwardingConfig;
 import io.akeyless.client.model.LogstashLogForwardingConfig;
 import io.akeyless.client.model.LogzIoLogForwardingConfig;
 import io.akeyless.client.model.SplunkLogForwardingConfig;
@@ -53,6 +54,10 @@ public class LogForwardingConfigPart {
   public static final String SERIALIZED_NAME_ELASTICSEARCH_CONFIG = "elasticsearch_config";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_CONFIG)
   private ElasticsearchLogForwardingConfig elasticsearchConfig;
+
+  public static final String SERIALIZED_NAME_GOOGLE_CHRONICLE_CONFIG = "google_chronicle_config";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_CHRONICLE_CONFIG)
+  private GoogleChronicleForwardingConfig googleChronicleConfig;
 
   public static final String SERIALIZED_NAME_JSON_OUTPUT = "json_output";
   @SerializedName(SERIALIZED_NAME_JSON_OUTPUT)
@@ -186,6 +191,29 @@ public class LogForwardingConfigPart {
 
   public void setElasticsearchConfig(ElasticsearchLogForwardingConfig elasticsearchConfig) {
     this.elasticsearchConfig = elasticsearchConfig;
+  }
+
+
+  public LogForwardingConfigPart googleChronicleConfig(GoogleChronicleForwardingConfig googleChronicleConfig) {
+    
+    this.googleChronicleConfig = googleChronicleConfig;
+    return this;
+  }
+
+   /**
+   * Get googleChronicleConfig
+   * @return googleChronicleConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GoogleChronicleForwardingConfig getGoogleChronicleConfig() {
+    return googleChronicleConfig;
+  }
+
+
+  public void setGoogleChronicleConfig(GoogleChronicleForwardingConfig googleChronicleConfig) {
+    this.googleChronicleConfig = googleChronicleConfig;
   }
 
 
@@ -432,6 +460,7 @@ public class LogForwardingConfigPart {
         Objects.equals(this.azureAnalyticsConfig, logForwardingConfigPart.azureAnalyticsConfig) &&
         Objects.equals(this.datadogConfig, logForwardingConfigPart.datadogConfig) &&
         Objects.equals(this.elasticsearchConfig, logForwardingConfigPart.elasticsearchConfig) &&
+        Objects.equals(this.googleChronicleConfig, logForwardingConfigPart.googleChronicleConfig) &&
         Objects.equals(this.jsonOutput, logForwardingConfigPart.jsonOutput) &&
         Objects.equals(this.loganEnable, logForwardingConfigPart.loganEnable) &&
         Objects.equals(this.loganUrl, logForwardingConfigPart.loganUrl) &&
@@ -446,7 +475,7 @@ public class LogForwardingConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, jsonOutput, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, sumoLogicConfig, syslogConfig, targetLogType);
+    return Objects.hash(awsS3Config, azureAnalyticsConfig, datadogConfig, elasticsearchConfig, googleChronicleConfig, jsonOutput, loganEnable, loganUrl, logstashConfig, logzIoConfig, pullIntervalSec, splunkConfig, sumoLogicConfig, syslogConfig, targetLogType);
   }
 
   @Override
@@ -457,6 +486,7 @@ public class LogForwardingConfigPart {
     sb.append("    azureAnalyticsConfig: ").append(toIndentedString(azureAnalyticsConfig)).append("\n");
     sb.append("    datadogConfig: ").append(toIndentedString(datadogConfig)).append("\n");
     sb.append("    elasticsearchConfig: ").append(toIndentedString(elasticsearchConfig)).append("\n");
+    sb.append("    googleChronicleConfig: ").append(toIndentedString(googleChronicleConfig)).append("\n");
     sb.append("    jsonOutput: ").append(toIndentedString(jsonOutput)).append("\n");
     sb.append("    loganEnable: ").append(toIndentedString(loganEnable)).append("\n");
     sb.append("    loganUrl: ").append(toIndentedString(loganUrl)).append("\n");

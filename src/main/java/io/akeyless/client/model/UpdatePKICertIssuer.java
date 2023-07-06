@@ -83,6 +83,10 @@ public class UpdatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_URL)
   private String gwClusterUrl;
 
+  public static final String SERIALIZED_NAME_IS_CA = "is-ca";
+  @SerializedName(SERIALIZED_NAME_IS_CA)
+  private Boolean isCa;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -478,6 +482,29 @@ public class UpdatePKICertIssuer {
 
   public void setGwClusterUrl(String gwClusterUrl) {
     this.gwClusterUrl = gwClusterUrl;
+  }
+
+
+  public UpdatePKICertIssuer isCa(Boolean isCa) {
+    
+    this.isCa = isCa;
+    return this;
+  }
+
+   /**
+   * If set, the basic constraints extension will be added to certificate
+   * @return isCa
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set, the basic constraints extension will be added to certificate")
+
+  public Boolean getIsCa() {
+    return isCa;
+  }
+
+
+  public void setIsCa(Boolean isCa) {
+    this.isCa = isCa;
   }
 
 
@@ -971,6 +998,7 @@ public class UpdatePKICertIssuer {
         Objects.equals(this.destinationPath, updatePKICertIssuer.destinationPath) &&
         Objects.equals(this.expirationEventIn, updatePKICertIssuer.expirationEventIn) &&
         Objects.equals(this.gwClusterUrl, updatePKICertIssuer.gwClusterUrl) &&
+        Objects.equals(this.isCa, updatePKICertIssuer.isCa) &&
         Objects.equals(this.json, updatePKICertIssuer.json) &&
         Objects.equals(this.keyUsage, updatePKICertIssuer.keyUsage) &&
         Objects.equals(this.locality, updatePKICertIssuer.locality) &&
@@ -995,7 +1023,7 @@ public class UpdatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
+    return Objects.hash(addTag, allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, clientFlag, codeSigningFlag, country, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, newName, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, rmTag, serverFlag, signerKeyName, streetAddress, token, ttl, uidToken);
   }
 
   @Override
@@ -1015,6 +1043,7 @@ public class UpdatePKICertIssuer {
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
+    sb.append("    isCa: ").append(toIndentedString(isCa)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");

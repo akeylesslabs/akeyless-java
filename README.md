@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createAuthMethodAWSIAM**](docs/V2Api.md#createAuthMethodAWSIAM) | **POST** /create-auth-method-aws-iam | 
 *V2Api* | [**createAuthMethodAzureAD**](docs/V2Api.md#createAuthMethodAzureAD) | **POST** /create-auth-method-azure-ad | 
 *V2Api* | [**createAuthMethodCert**](docs/V2Api.md#createAuthMethodCert) | **POST** /create-auth-method-cert | 
+*V2Api* | [**createAuthMethodEmail**](docs/V2Api.md#createAuthMethodEmail) | **POST** /create-auth-method-email | 
 *V2Api* | [**createAuthMethodGCP**](docs/V2Api.md#createAuthMethodGCP) | **POST** /create-auth-method-gcp | 
 *V2Api* | [**createAuthMethodHuawei**](docs/V2Api.md#createAuthMethodHuawei) | **POST** /create-auth-method-huawei | 
 *V2Api* | [**createAuthMethodK8S**](docs/V2Api.md#createAuthMethodK8S) | **POST** /create-auth-method-k8s | 
@@ -189,6 +190,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**esmUpdate**](docs/V2Api.md#esmUpdate) | **POST** /esm-update | 
 *V2Api* | [**eventAction**](docs/V2Api.md#eventAction) | **POST** /event-action | 
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
+*V2Api* | [**gatewayCreateAllowedAccess**](docs/V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
 *V2Api* | [**gatewayCreateK8SAuthConfig**](docs/V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 *V2Api* | [**gatewayCreateMigration**](docs/V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
 *V2Api* | [**gatewayCreateProducerArtifactory**](docs/V2Api.md#gatewayCreateProducerArtifactory) | **POST** /gateway-create-producer-artifactory | 
@@ -216,10 +218,12 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayCreateProducerRedis**](docs/V2Api.md#gatewayCreateProducerRedis) | **POST** /gateway-create-producer-Redis | 
 *V2Api* | [**gatewayCreateProducerRedshift**](docs/V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
 *V2Api* | [**gatewayCreateProducerSnowflake**](docs/V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
+*V2Api* | [**gatewayDeleteAllowedAccess**](docs/V2Api.md#gatewayDeleteAllowedAccess) | **DELETE** /gateway-delete-allowed-access | 
 *V2Api* | [**gatewayDeleteK8SAuthConfig**](docs/V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
 *V2Api* | [**gatewayDeleteMigration**](docs/V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
 *V2Api* | [**gatewayDeleteProducer**](docs/V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 *V2Api* | [**gatewayDownloadCustomerFragments**](docs/V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
+*V2Api* | [**gatewayGetAllowedAccess**](docs/V2Api.md#gatewayGetAllowedAccess) | **GET** /gateway-get-allowed-access | 
 *V2Api* | [**gatewayGetConfig**](docs/V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
 *V2Api* | [**gatewayGetK8SAuthConfig**](docs/V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
 *V2Api* | [**gatewayGetLdapAuthConfig**](docs/V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
@@ -235,6 +239,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayStatusMigration**](docs/V2Api.md#gatewayStatusMigration) | **POST** /gateway-migration-status | 
 *V2Api* | [**gatewayStopProducer**](docs/V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
 *V2Api* | [**gatewaySyncMigration**](docs/V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
+*V2Api* | [**gatewayUpdateAllowedAccess**](docs/V2Api.md#gatewayUpdateAllowedAccess) | **POST** /gateway-update-allowed-access | 
 *V2Api* | [**gatewayUpdateItem**](docs/V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
 *V2Api* | [**gatewayUpdateK8SAuthConfig**](docs/V2Api.md#gatewayUpdateK8SAuthConfig) | **POST** /gateway-update-k8s-auth-config | 
 *V2Api* | [**gatewayUpdateLdapAuthConfig**](docs/V2Api.md#gatewayUpdateLdapAuthConfig) | **POST** /gateway-update-ldap-auth-config | 
@@ -394,6 +399,7 @@ Class | Method | HTTP request | Description
  - [AWSIAMAccessRules](docs/AWSIAMAccessRules.md)
  - [AWSPayload](docs/AWSPayload.md)
  - [AWSSecretsMigration](docs/AWSSecretsMigration.md)
+ - [AccessPermissionAssignment](docs/AccessPermissionAssignment.md)
  - [AccountGeneralSettings](docs/AccountGeneralSettings.md)
  - [AccountObjectVersionSettingsOutput](docs/AccountObjectVersionSettingsOutput.md)
  - [ActiveDirectoryMigration](docs/ActiveDirectoryMigration.md)
@@ -449,6 +455,8 @@ Class | Method | HTTP request | Description
  - [CreateAuthMethodAzureADOutput](docs/CreateAuthMethodAzureADOutput.md)
  - [CreateAuthMethodCert](docs/CreateAuthMethodCert.md)
  - [CreateAuthMethodCertOutput](docs/CreateAuthMethodCertOutput.md)
+ - [CreateAuthMethodEmail](docs/CreateAuthMethodEmail.md)
+ - [CreateAuthMethodEmailOutput](docs/CreateAuthMethodEmailOutput.md)
  - [CreateAuthMethodGCP](docs/CreateAuthMethodGCP.md)
  - [CreateAuthMethodGCPOutput](docs/CreateAuthMethodGCPOutput.md)
  - [CreateAuthMethodHuawei](docs/CreateAuthMethodHuawei.md)
@@ -590,6 +598,7 @@ Class | Method | HTTP request | Description
  - [EsmCreate](docs/EsmCreate.md)
  - [EsmCreateSecretOutput](docs/EsmCreateSecretOutput.md)
  - [EsmDelete](docs/EsmDelete.md)
+ - [EsmDeleteSecretOutput](docs/EsmDeleteSecretOutput.md)
  - [EsmGet](docs/EsmGet.md)
  - [EsmGetSecretOutput](docs/EsmGetSecretOutput.md)
  - [EsmList](docs/EsmList.md)
@@ -784,6 +793,7 @@ Class | Method | HTTP request | Description
  - [GetTarget](docs/GetTarget.md)
  - [GetTargetDetails](docs/GetTargetDetails.md)
  - [GetTargetDetailsOutput](docs/GetTargetDetailsOutput.md)
+ - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [HashiMigration](docs/HashiMigration.md)
  - [HashiPayload](docs/HashiPayload.md)
@@ -867,6 +877,7 @@ Class | Method | HTTP request | Description
  - [OIDCAccessRules](docs/OIDCAccessRules.md)
  - [OIDCCustomClaim](docs/OIDCCustomClaim.md)
  - [ObjectVersionSettingsOutput](docs/ObjectVersionSettingsOutput.md)
+ - [OidcClientInfo](docs/OidcClientInfo.md)
  - [OnePasswordMigration](docs/OnePasswordMigration.md)
  - [OnePasswordPayload](docs/OnePasswordPayload.md)
  - [PKICertificateIssueDetails](docs/PKICertificateIssueDetails.md)

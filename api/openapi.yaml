@@ -308,6 +308,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /create-auth-method-email:
+    post:
+      operationId: createAuthMethodEmail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createAuthMethodEmail'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createAuthMethodEmailOutput'
+          description: createAuthMethodEmailResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /create-auth-method-gcp:
     post:
       operationId: createAuthMethodGCP
@@ -2425,6 +2454,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-create-allowed-access:
+    post:
+      operationId: gatewayCreateAllowedAccess
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AllowedAccessArgs'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedAccess'
+          description: gatewayCreateAllowedAccessResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-create-k8s-auth-config:
     post:
       operationId: gatewayCreateK8SAuthConfig
@@ -3209,6 +3267,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-delete-allowed-access:
+    delete:
+      operationId: gatewayDeleteAllowedAccess
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AllowedAccessDeleteArgs'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayDeleteAllowedAccessOutput'
+          description: gatewayDeleteAllowedAccessResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-delete-allowed-management-access:
     post:
       operationId: deleteGatewayAllowedAccessId
@@ -3341,6 +3428,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayDownloadCustomerFragmentsOutput'
           description: gatewayDownloadCustomerFragmentsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-get-allowed-access:
+    get:
+      operationId: gatewayGetAllowedAccess
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AllowedAccessArgs'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedAccess'
+          description: gatewayGetAllowedAccessResponse wraps response body.
         default:
           content:
             application/json:
@@ -3804,6 +3920,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayMigrationSyncOutput'
           description: gatewayMigrationSyncResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-allowed-access:
+    post:
+      operationId: gatewayUpdateAllowedAccess
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AllowedAccessUpdateArgs'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedAccess'
+          description: gatewayCreateAllowedAccessResponse wraps response body.
         default:
           content:
             application/json:
@@ -8263,6 +8408,12 @@ components:
           schema:
             $ref: '#/components/schemas/createAuthMethodCertOutput'
       description: createAuthMethodCertResponse wraps response body.
+    createAuthMethodEmailResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createAuthMethodEmailOutput'
+      description: createAuthMethodEmailResponse wraps response body.
     createAuthMethodGCPResponse:
       content:
         application/json:
@@ -10022,6 +10173,26 @@ components:
     AccessPermission:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    AccessPermissionAssignment:
+      example:
+        sub_claims:
+          key:
+          - sub_claims
+          - sub_claims
+        access_id: access_id
+      properties:
+        access_id:
+          type: string
+          x-go-name: AccessID
+        sub_claims:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+          x-go-name: SubClaims
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
     AccountGeneralSettings:
       description: AccountGeneralSettings describes general settings for an account
       example:
@@ -10688,6 +10859,11 @@ components:
             logstash_dns: logstash_dns
             logstash_tls_certificate: logstash_tls_certificate
           logan_enable: true
+          google_chronicle_config:
+            log_type: log_type
+            service_account_key: service_account_key
+            customer_id: customer_id
+            region: region
           logz_io_config:
             target_logz_io_protocol: target_logz_io_protocol
             target_logz_io_token: target_logz_io_token
@@ -10860,6 +11036,25 @@ components:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AllowedAccess:
+      example:
+        sub_claims:
+          key:
+          - sub_claims
+          - sub_claims
+        access_type: access_type
+        editable: true
+        created_at: 2000-01-23T04:56:07.000+00:00
+        description: description
+        error: error
+        cluster_id: 0
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        permissions:
+        - null
+        - null
+        is_valid: true
+        name: name
+        access_id: access_id
+        id: 6
       properties:
         access_id:
           type: string
@@ -10913,6 +11108,13 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     AllowedAccessArgs:
+      example:
+        permissions: permissions
+        name: name
+        description: description
+        access-id: access-id
+        sub-claims:
+          key: sub-claims
       properties:
         access-id:
           description: |-
@@ -10950,6 +11152,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     AllowedAccessDeleteArgs:
+      example:
+        name: name
       properties:
         name:
           description: Allowed access name to delete
@@ -11022,6 +11226,14 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     AllowedAccessUpdateArgs:
+      example:
+        permissions: permissions
+        name: name
+        description: description
+        access-id: access-id
+        sub-claims:
+          key: sub-claims
+        new-name: new-name
       properties:
         access-id:
           description: |-
@@ -13477,6 +13689,7 @@ components:
         tag:
         - tag
         - tag
+        is-ca: true
         ca-target: ca-target
         protect-certificates: true
         code-signing-flag: true
@@ -13559,6 +13772,10 @@ components:
             in Public CA mode
           type: string
           x-go-name: GWClusterURL
+        is-ca:
+          description: If set, the basic constraints extension will be added to certificate
+          type: boolean
+          x-go-name: IsCA
         json:
           default: false
           description: Set output format to JSON
@@ -15114,11 +15331,18 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     EsmDeleteSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     EsmGetSecretOutput:
       example:
         metadata: '{}'
+        name: name
         value: value
         binary_value: true
       properties:
@@ -15128,6 +15352,9 @@ components:
         metadata:
           type: object
           x-go-name: Metadata
+        name:
+          type: string
+          x-go-name: Name
         value:
           type: string
           x-go-name: Value
@@ -15169,8 +15396,12 @@ components:
     EsmUpdateSecretOutput:
       example:
         secret_id: secret_id
+        name: name
         version_id: version_id
       properties:
+        name:
+          type: string
+          x-go-name: Name
         secret_id:
           type: string
           x-go-name: SecretId
@@ -16161,6 +16392,27 @@ components:
       title: GetTargetDetailsOutput defines output of GetTargetDetails operation.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GoogleChronicleForwardingConfig:
+      example:
+        log_type: log_type
+        service_account_key: service_account_key
+        customer_id: customer_id
+        region: region
+      properties:
+        customer_id:
+          type: string
+          x-go-name: CustomerID
+        log_type:
+          type: string
+          x-go-name: LogType
+        region:
+          type: string
+          x-go-name: Region
+        service_account_key:
+          type: string
+          x-go-name: ServiceAccountKey
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     GwClusterIdentity:
       example:
         cluster_url: cluster_url
@@ -16549,6 +16801,38 @@ components:
             - websites
             - websites
             username: username
+          oidc_client_info:
+            audience:
+            - audience
+            - audience
+            grant_types:
+            - grant_types
+            - grant_types
+            public: true
+            logout_uris:
+            - logout_uris
+            - logout_uris
+            redirect_uris:
+            - redirect_uris
+            - redirect_uris
+            scopes:
+            - scopes
+            - scopes
+            client-id: client-id
+            access_permission_assignment:
+            - sub_claims:
+                key:
+                - sub_claims
+                - sub_claims
+              access_id: access_id
+            - sub_claims:
+                key:
+                - sub_claims
+                - sub_claims
+              access_id: access_id
+            response_types:
+            - response_types
+            - response_types
           rotated_secret_details:
             same_password: true
             rotator_creds_type: rotator_creds_type
@@ -17156,6 +17440,38 @@ components:
           - websites
           - websites
           username: username
+        oidc_client_info:
+          audience:
+          - audience
+          - audience
+          grant_types:
+          - grant_types
+          - grant_types
+          public: true
+          logout_uris:
+          - logout_uris
+          - logout_uris
+          redirect_uris:
+          - redirect_uris
+          - redirect_uris
+          scopes:
+          - scopes
+          - scopes
+          client-id: client-id
+          access_permission_assignment:
+          - sub_claims:
+              key:
+              - sub_claims
+              - sub_claims
+            access_id: access_id
+          - sub_claims:
+              key:
+              - sub_claims
+              - sub_claims
+            access_id: access_id
+          response_types:
+          - response_types
+          - response_types
         rotated_secret_details:
           same_password: true
           rotator_creds_type: rotator_creds_type
@@ -17585,6 +17901,8 @@ components:
           $ref: '#/components/schemas/DynamicSecretProducerInfo'
         importer_info:
           $ref: '#/components/schemas/ImporterInfo'
+        oidc_client_info:
+          $ref: '#/components/schemas/OidcClientInfo'
         password_policy:
           $ref: '#/components/schemas/PasswordPolicyInfo'
         rotated_secret_details:
@@ -19394,6 +19712,38 @@ components:
               - websites
               - websites
               username: username
+            oidc_client_info:
+              audience:
+              - audience
+              - audience
+              grant_types:
+              - grant_types
+              - grant_types
+              public: true
+              logout_uris:
+              - logout_uris
+              - logout_uris
+              redirect_uris:
+              - redirect_uris
+              - redirect_uris
+              scopes:
+              - scopes
+              - scopes
+              client-id: client-id
+              access_permission_assignment:
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              response_types:
+              - response_types
+              - response_types
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
@@ -20016,6 +20366,38 @@ components:
               - websites
               - websites
               username: username
+            oidc_client_info:
+              audience:
+              - audience
+              - audience
+              grant_types:
+              - grant_types
+              - grant_types
+              public: true
+              logout_uris:
+              - logout_uris
+              - logout_uris
+              redirect_uris:
+              - redirect_uris
+              - redirect_uris
+              scopes:
+              - scopes
+              - scopes
+              client-id: client-id
+              access_permission_assignment:
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              response_types:
+              - response_types
+              - response_types
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
@@ -20660,6 +21042,38 @@ components:
               - websites
               - websites
               username: username
+            oidc_client_info:
+              audience:
+              - audience
+              - audience
+              grant_types:
+              - grant_types
+              - grant_types
+              public: true
+              logout_uris:
+              - logout_uris
+              - logout_uris
+              redirect_uris:
+              - redirect_uris
+              - redirect_uris
+              scopes:
+              - scopes
+              - scopes
+              client-id: client-id
+              access_permission_assignment:
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              response_types:
+              - response_types
+              - response_types
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
@@ -21282,6 +21696,38 @@ components:
               - websites
               - websites
               username: username
+            oidc_client_info:
+              audience:
+              - audience
+              - audience
+              grant_types:
+              - grant_types
+              - grant_types
+              public: true
+              logout_uris:
+              - logout_uris
+              - logout_uris
+              redirect_uris:
+              - redirect_uris
+              - redirect_uris
+              scopes:
+              - scopes
+              - scopes
+              client-id: client-id
+              access_permission_assignment:
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              - sub_claims:
+                  key:
+                  - sub_claims
+                  - sub_claims
+                access_id: access_id
+              response_types:
+              - response_types
+              - response_types
             rotated_secret_details:
               same_password: true
               rotator_creds_type: rotator_creds_type
@@ -22029,6 +22475,11 @@ components:
           logstash_dns: logstash_dns
           logstash_tls_certificate: logstash_tls_certificate
         logan_enable: true
+        google_chronicle_config:
+          log_type: log_type
+          service_account_key: service_account_key
+          customer_id: customer_id
+          region: region
         logz_io_config:
           target_logz_io_protocol: target_logz_io_protocol
           target_logz_io_token: target_logz_io_token
@@ -22071,6 +22522,8 @@ components:
           $ref: '#/components/schemas/DatadogForwardingConfig'
         elasticsearch_config:
           $ref: '#/components/schemas/ElasticsearchLogForwardingConfig'
+        google_chronicle_config:
+          $ref: '#/components/schemas/GoogleChronicleForwardingConfig'
         json_output:
           type: boolean
           x-go-name: JsonOutput
@@ -23130,6 +23583,83 @@ components:
           x-go-name: MaxVersions
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    OidcClientInfo:
+      example:
+        audience:
+        - audience
+        - audience
+        grant_types:
+        - grant_types
+        - grant_types
+        public: true
+        logout_uris:
+        - logout_uris
+        - logout_uris
+        redirect_uris:
+        - redirect_uris
+        - redirect_uris
+        scopes:
+        - scopes
+        - scopes
+        client-id: client-id
+        access_permission_assignment:
+        - sub_claims:
+            key:
+            - sub_claims
+            - sub_claims
+          access_id: access_id
+        - sub_claims:
+            key:
+            - sub_claims
+            - sub_claims
+          access_id: access_id
+        response_types:
+        - response_types
+        - response_types
+      properties:
+        access_permission_assignment:
+          items:
+            $ref: '#/components/schemas/AccessPermissionAssignment'
+          type: array
+          x-go-name: AccessPermissionAssignment
+        audience:
+          items:
+            type: string
+          type: array
+          x-go-name: Audience
+        client-id:
+          type: string
+          x-go-name: ClientId
+        grant_types:
+          items:
+            type: string
+          type: array
+          x-go-name: GrantTypes
+        logout_uris:
+          items:
+            type: string
+          type: array
+          x-go-name: LogoutURIs
+        public:
+          type: boolean
+          x-go-name: Public
+        redirect_uris:
+          items:
+            type: string
+          type: array
+          x-go-name: RedirectURIs
+        response_types:
+          items:
+            type: string
+          type: array
+          x-go-name: ResponseTypes
+        scopes:
+          items:
+            type: string
+          type: array
+          x-go-name: Scopes
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     OnePasswordMigration:
       example:
         general:
@@ -25697,6 +26227,7 @@ components:
         - expiration-event-in
         - expiration-event-in
         signer-key-name: dummy_signer_key
+        is-ca: true
         protect-certificates: true
         code-signing-flag: true
         locality: locality
@@ -25779,6 +26310,10 @@ components:
             in Public CA mode
           type: string
           x-go-name: GWClusterURL
+        is-ca:
+          description: If set, the basic constraints extension will be added to certificate
+          type: boolean
+          x-go-name: IsCA
         json:
           default: false
           description: Set output format to JSON
@@ -26876,6 +27411,79 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createAuthMethodCertOutput:
+      example:
+        access_id: access_id
+      properties:
+        access_id:
+          type: string
+          x-go-name: AccessID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createAuthMethodEmail:
+      description: |-
+        createAuthMethodEmail is a command that creates a new auth method that will
+        be able to authenticate using email.
+      properties:
+        access-expires:
+          default: 0
+          description: |-
+            Access expiration date in Unix timestamp (select 0 for access without
+            expiry date)
+          format: int64
+          type: integer
+          x-go-name: AccessExpires
+        bound-ips:
+          description: A CIDR whitelist with the IPs that the access is restricted
+            to
+          items:
+            type: string
+          type: array
+          x-go-name: CIDRWhitelist
+        email:
+          description: An email address to be invited to have access
+          type: string
+          x-go-name: EmailAddress
+        force-sub-claims:
+          description: 'if true: enforce role-association must include sub claims'
+          type: boolean
+          x-go-name: ForceSubClaims
+        gw-bound-ips:
+          description: A CIDR whitelist with the GW IPs that the access is restricted
+            to
+          items:
+            type: string
+          type: array
+          x-go-name: GWCIDRWhitelist
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        jwt-ttl:
+          default: 0
+          description: Jwt TTL
+          format: int64
+          type: integer
+          x-go-name: JwtTtl
+        name:
+          description: Auth Method name
+          type: string
+          x-go-name: AuthMethodName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - email
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createAuthMethodEmailOutput:
       example:
         access_id: access_id
       properties:
@@ -41702,6 +42310,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayDeleteAllowedAccessOutput:
+      example:
+        allowed_access_name: allowed_access_name
       properties:
         allowed_access_name:
           type: string

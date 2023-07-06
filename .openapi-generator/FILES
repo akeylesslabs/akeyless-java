@@ -8,6 +8,7 @@ docs/APIKeyAccessRules.md
 docs/AWSIAMAccessRules.md
 docs/AWSPayload.md
 docs/AWSSecretsMigration.md
+docs/AccessPermissionAssignment.md
 docs/AccountGeneralSettings.md
 docs/AccountObjectVersionSettingsOutput.md
 docs/ActiveDirectoryMigration.md
@@ -63,6 +64,8 @@ docs/CreateAuthMethodAzureAD.md
 docs/CreateAuthMethodAzureADOutput.md
 docs/CreateAuthMethodCert.md
 docs/CreateAuthMethodCertOutput.md
+docs/CreateAuthMethodEmail.md
+docs/CreateAuthMethodEmailOutput.md
 docs/CreateAuthMethodGCP.md
 docs/CreateAuthMethodGCPOutput.md
 docs/CreateAuthMethodHuawei.md
@@ -204,6 +207,7 @@ docs/EncryptWithClassicKeyOutput.md
 docs/EsmCreate.md
 docs/EsmCreateSecretOutput.md
 docs/EsmDelete.md
+docs/EsmDeleteSecretOutput.md
 docs/EsmGet.md
 docs/EsmGetSecretOutput.md
 docs/EsmList.md
@@ -398,6 +402,7 @@ docs/GetTags.md
 docs/GetTarget.md
 docs/GetTargetDetails.md
 docs/GetTargetDetailsOutput.md
+docs/GoogleChronicleForwardingConfig.md
 docs/GwClusterIdentity.md
 docs/HashiMigration.md
 docs/HashiPayload.md
@@ -481,6 +486,7 @@ docs/OAuth2CustomClaim.md
 docs/OIDCAccessRules.md
 docs/OIDCCustomClaim.md
 docs/ObjectVersionSettingsOutput.md
+docs/OidcClientInfo.md
 docs/OnePasswordMigration.md
 docs/OnePasswordPayload.md
 docs/PKICertificateIssueDetails.md
@@ -691,6 +697,7 @@ src/main/java/io/akeyless/client/model/APIKeyAccessRules.java
 src/main/java/io/akeyless/client/model/AWSIAMAccessRules.java
 src/main/java/io/akeyless/client/model/AWSPayload.java
 src/main/java/io/akeyless/client/model/AWSSecretsMigration.java
+src/main/java/io/akeyless/client/model/AccessPermissionAssignment.java
 src/main/java/io/akeyless/client/model/AccountGeneralSettings.java
 src/main/java/io/akeyless/client/model/AccountObjectVersionSettingsOutput.java
 src/main/java/io/akeyless/client/model/ActiveDirectoryMigration.java
@@ -746,6 +753,8 @@ src/main/java/io/akeyless/client/model/CreateAuthMethodAzureAD.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodAzureADOutput.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodCert.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodCertOutput.java
+src/main/java/io/akeyless/client/model/CreateAuthMethodEmail.java
+src/main/java/io/akeyless/client/model/CreateAuthMethodEmailOutput.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodGCP.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodGCPOutput.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodHuawei.java
@@ -887,6 +896,7 @@ src/main/java/io/akeyless/client/model/EncryptWithClassicKeyOutput.java
 src/main/java/io/akeyless/client/model/EsmCreate.java
 src/main/java/io/akeyless/client/model/EsmCreateSecretOutput.java
 src/main/java/io/akeyless/client/model/EsmDelete.java
+src/main/java/io/akeyless/client/model/EsmDeleteSecretOutput.java
 src/main/java/io/akeyless/client/model/EsmGet.java
 src/main/java/io/akeyless/client/model/EsmGetSecretOutput.java
 src/main/java/io/akeyless/client/model/EsmList.java
@@ -1081,6 +1091,7 @@ src/main/java/io/akeyless/client/model/GetTags.java
 src/main/java/io/akeyless/client/model/GetTarget.java
 src/main/java/io/akeyless/client/model/GetTargetDetails.java
 src/main/java/io/akeyless/client/model/GetTargetDetailsOutput.java
+src/main/java/io/akeyless/client/model/GoogleChronicleForwardingConfig.java
 src/main/java/io/akeyless/client/model/GwClusterIdentity.java
 src/main/java/io/akeyless/client/model/HashiMigration.java
 src/main/java/io/akeyless/client/model/HashiPayload.java
@@ -1164,6 +1175,7 @@ src/main/java/io/akeyless/client/model/OAuth2CustomClaim.java
 src/main/java/io/akeyless/client/model/OIDCAccessRules.java
 src/main/java/io/akeyless/client/model/OIDCCustomClaim.java
 src/main/java/io/akeyless/client/model/ObjectVersionSettingsOutput.java
+src/main/java/io/akeyless/client/model/OidcClientInfo.java
 src/main/java/io/akeyless/client/model/OnePasswordMigration.java
 src/main/java/io/akeyless/client/model/OnePasswordPayload.java
 src/main/java/io/akeyless/client/model/PKICertificateIssueDetails.java
@@ -1342,3 +1354,9 @@ src/main/java/io/akeyless/client/model/VerifyJWTWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyPKCS1.java
 src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
+src/test/java/io/akeyless/client/model/AccessPermissionAssignmentTest.java
+src/test/java/io/akeyless/client/model/CreateAuthMethodEmailOutputTest.java
+src/test/java/io/akeyless/client/model/CreateAuthMethodEmailTest.java
+src/test/java/io/akeyless/client/model/EsmDeleteSecretOutputTest.java
+src/test/java/io/akeyless/client/model/GoogleChronicleForwardingConfigTest.java
+src/test/java/io/akeyless/client/model/OidcClientInfoTest.java
