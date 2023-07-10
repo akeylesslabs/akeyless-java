@@ -3268,7 +3268,7 @@ paths:
       x-contentType: application/json
       x-accepts: application/json
   /gateway-delete-allowed-access:
-    delete:
+    post:
       operationId: gatewayDeleteAllowedAccess
       requestBody:
         content:
@@ -3442,7 +3442,7 @@ paths:
       x-contentType: application/json
       x-accepts: application/json
   /gateway-get-allowed-access:
-    get:
+    post:
       operationId: gatewayGetAllowedAccess
       requestBody:
         content:
@@ -4846,6 +4846,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayUpdateTlsCertOutput'
           description: GatewayUpdateTlsCertResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /generate-csr:
+    post:
+      operationId: generateCsr
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generateCsr'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generateCsrOutput'
+          description: generateCsrResponse wraps response body.
         default:
           content:
             application/json:
@@ -9338,6 +9367,12 @@ components:
           schema:
             $ref: '#/components/schemas/CustomerFragmentsJson'
       description: genCustomerFragmentResponse wraps response body.
+    generateCsrResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generateCsrOutput'
+      description: generateCsrResponse wraps response body.
     getAccountLogoResponse:
       content:
         application/json:
@@ -16713,7 +16748,7 @@ components:
             scopes:
             - scopes
             - scopes
-            client-id: client-id
+            client_id: client_id
             access_permission_assignment:
             - sub_claims:
                 key:
@@ -17352,7 +17387,7 @@ components:
           scopes:
           - scopes
           - scopes
-          client-id: client-id
+          client_id: client_id
           access_permission_assignment:
           - sub_claims:
               key:
@@ -19624,7 +19659,7 @@ components:
               scopes:
               - scopes
               - scopes
-              client-id: client-id
+              client_id: client_id
               access_permission_assignment:
               - sub_claims:
                   key:
@@ -20278,7 +20313,7 @@ components:
               scopes:
               - scopes
               - scopes
-              client-id: client-id
+              client_id: client_id
               access_permission_assignment:
               - sub_claims:
                   key:
@@ -20954,7 +20989,7 @@ components:
               scopes:
               - scopes
               - scopes
-              client-id: client-id
+              client_id: client_id
               access_permission_assignment:
               - sub_claims:
                   key:
@@ -21608,7 +21643,7 @@ components:
               scopes:
               - scopes
               - scopes
-              client-id: client-id
+              client_id: client_id
               access_permission_assignment:
               - sub_claims:
                   key:
@@ -23496,7 +23531,7 @@ components:
         scopes:
         - scopes
         - scopes
-        client-id: client-id
+        client_id: client_id
         access_permission_assignment:
         - sub_claims:
             key:
@@ -23522,7 +23557,7 @@ components:
             type: string
           type: array
           x-go-name: Audience
-        client-id:
+        client_id:
           type: string
           x-go-name: ClientId
         grant_types:
@@ -27883,12 +27918,6 @@ components:
             base64 encoded string
           type: string
           x-go-name: JWKeySetJsonData
-        jwks-json-file:
-          description: |-
-            JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the
-            authorization server.
-          type: string
-          x-go-name: JWKeySetJsonFile
         jwks-uri:
           default: default_jwks_url
           description: |-
@@ -54200,6 +54229,115 @@ components:
       title: genCustomerFragment is a command that generates customer fragment.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    generateCsr:
+      properties:
+        alg:
+          title: ClassicKeyType defines types of keys that can be managed by ClassicKey
+            supported by AKEYLESS.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        alt-names:
+          description: |-
+            The DNS Alternative Names to be included in the CSR certificate
+            (in a comma-separated list)
+          type: string
+          x-go-name: DNSNames
+        certificate-type:
+          description: The certificateType to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)
+          type: string
+          x-go-name: CertificateType
+        city:
+          description: The city to be included in the CSR certificate
+          type: string
+          x-go-name: City
+        common-name:
+          description: The commonName to be included in the CSR certificate
+          type: string
+          x-go-name: CommonName
+        country:
+          description: The country to be included in the CSR certificate
+          type: string
+          x-go-name: Country
+        critical:
+          description: Add critical to the key usage extension (will be false if not
+            added)
+          type: boolean
+          x-go-name: Critical
+        dep:
+          description: The department to be included in the CSR certificate
+          type: string
+          x-go-name: Department
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        email-addresses:
+          description: |-
+            The email addresses Alternative Names to be included in the CSR certificate
+            (in a comma-separated list)
+          type: string
+          x-go-name: EmailAddresses
+        generate-key:
+          description: Generate a new csr key
+          type: boolean
+          x-go-name: GenerateKey
+        ip-addresses:
+          description: |-
+            The ip addresses Alternative Names to be included in the CSR certificate
+            (in a comma-separated list)
+          type: string
+          x-go-name: IpAddresses
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        metadata:
+          description: Deprecated - use description
+          type: string
+          x-go-name: Metadata
+        name:
+          description: Key name in akeyless
+          type: string
+          x-go-name: KeyName
+        org:
+          description: The organization to be included in the CSR certificate
+          type: string
+          x-go-name: Organization
+        state:
+          description: The state to be included in the CSR certificate
+          type: string
+          x-go-name: State
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        uri-sans:
+          description: |-
+            The URI Subject Alternative Names to be included in the CSR certificate
+            (in a comma-separated list)
+          type: string
+          x-go-name: URISANs
+      required:
+      - common-name
+      - name
+      title: GenerateCsr is a command that generates CSR.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    generateCsrOutput:
+      example:
+        data: data
+      properties:
+        data:
+          type: string
+          x-go-name: Data
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getAccountSettings:
       properties:
         json:
@@ -57919,12 +58057,6 @@ components:
             base64 encoded string
           type: string
           x-go-name: JWKeySetJsonData
-        jwks-json-file:
-          description: |-
-            JSON Web Key Set (JWKS) JSON file path that will be used to verify any JSON Web Token (JWT) issued by the
-            authorization server.
-          type: string
-          x-go-name: JWKeySetJsonFile
         jwks-uri:
           default: default_jwks_url
           description: |-

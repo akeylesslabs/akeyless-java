@@ -117,12 +117,12 @@ Method | HTTP request | Description
 [**gatewayCreateProducerRedis**](V2Api.md#gatewayCreateProducerRedis) | **POST** /gateway-create-producer-Redis | 
 [**gatewayCreateProducerRedshift**](V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
 [**gatewayCreateProducerSnowflake**](V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
-[**gatewayDeleteAllowedAccess**](V2Api.md#gatewayDeleteAllowedAccess) | **DELETE** /gateway-delete-allowed-access | 
+[**gatewayDeleteAllowedAccess**](V2Api.md#gatewayDeleteAllowedAccess) | **POST** /gateway-delete-allowed-access | 
 [**gatewayDeleteK8SAuthConfig**](V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
 [**gatewayDeleteMigration**](V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 [**gatewayDownloadCustomerFragments**](V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
-[**gatewayGetAllowedAccess**](V2Api.md#gatewayGetAllowedAccess) | **GET** /gateway-get-allowed-access | 
+[**gatewayGetAllowedAccess**](V2Api.md#gatewayGetAllowedAccess) | **POST** /gateway-get-allowed-access | 
 [**gatewayGetConfig**](V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
 [**gatewayGetK8SAuthConfig**](V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
 [**gatewayGetLdapAuthConfig**](V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
@@ -170,6 +170,7 @@ Method | HTTP request | Description
 [**gatewayUpdateProducerSnowflake**](V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
 [**gatewayUpdateTlsCert**](V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 [**gatewayUpdateTmpUsers**](V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
+[**generateCsr**](V2Api.md#generateCsr) | **POST** /generate-csr | 
 [**getAccountLogo**](V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 [**getAccountSettings**](V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
 [**getAuthMethod**](V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
@@ -10412,6 +10413,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayUpdateTmpUsersResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="generateCsr"></a>
+# **generateCsr**
+> GenerateCsrOutput generateCsr(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GenerateCsr body = new GenerateCsr(); // GenerateCsr | 
+    try {
+      GenerateCsrOutput result = apiInstance.generateCsr(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#generateCsr");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GenerateCsr**](GenerateCsr.md)|  |
+
+### Return type
+
+[**GenerateCsrOutput**](GenerateCsrOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | generateCsrResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="getAccountLogo"></a>

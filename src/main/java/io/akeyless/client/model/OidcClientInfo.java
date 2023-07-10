@@ -40,7 +40,7 @@ public class OidcClientInfo {
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private List<String> audience = null;
 
-  public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
+  public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
   private String clientId;
 

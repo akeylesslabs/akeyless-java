@@ -218,12 +218,12 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayCreateProducerRedis**](docs/V2Api.md#gatewayCreateProducerRedis) | **POST** /gateway-create-producer-Redis | 
 *V2Api* | [**gatewayCreateProducerRedshift**](docs/V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
 *V2Api* | [**gatewayCreateProducerSnowflake**](docs/V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
-*V2Api* | [**gatewayDeleteAllowedAccess**](docs/V2Api.md#gatewayDeleteAllowedAccess) | **DELETE** /gateway-delete-allowed-access | 
+*V2Api* | [**gatewayDeleteAllowedAccess**](docs/V2Api.md#gatewayDeleteAllowedAccess) | **POST** /gateway-delete-allowed-access | 
 *V2Api* | [**gatewayDeleteK8SAuthConfig**](docs/V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
 *V2Api* | [**gatewayDeleteMigration**](docs/V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
 *V2Api* | [**gatewayDeleteProducer**](docs/V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 *V2Api* | [**gatewayDownloadCustomerFragments**](docs/V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
-*V2Api* | [**gatewayGetAllowedAccess**](docs/V2Api.md#gatewayGetAllowedAccess) | **GET** /gateway-get-allowed-access | 
+*V2Api* | [**gatewayGetAllowedAccess**](docs/V2Api.md#gatewayGetAllowedAccess) | **POST** /gateway-get-allowed-access | 
 *V2Api* | [**gatewayGetConfig**](docs/V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
 *V2Api* | [**gatewayGetK8SAuthConfig**](docs/V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
 *V2Api* | [**gatewayGetLdapAuthConfig**](docs/V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateProducerSnowflake**](docs/V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
 *V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
+*V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
 *V2Api* | [**getAccountLogo**](docs/V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 *V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
 *V2Api* | [**getAuthMethod**](docs/V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
@@ -770,6 +771,8 @@ Class | Method | HTTP request | Description
  - [GatewaysListResponse](docs/GatewaysListResponse.md)
  - [GenCustomerFragment](docs/GenCustomerFragment.md)
  - [GeneralConfigPart](docs/GeneralConfigPart.md)
+ - [GenerateCsr](docs/GenerateCsr.md)
+ - [GenerateCsrOutput](docs/GenerateCsrOutput.md)
  - [GetAccountSettings](docs/GetAccountSettings.md)
  - [GetAccountSettingsCommandOutput](docs/GetAccountSettingsCommandOutput.md)
  - [GetAuthMethod](docs/GetAuthMethod.md)
