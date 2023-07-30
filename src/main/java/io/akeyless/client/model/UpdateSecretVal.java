@@ -414,11 +414,11 @@ public class UpdateSecretVal {
   }
 
    /**
-   * The new secret value
+   * The secret value (only relevant for type &#39;generic&#39;)
    * @return value
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The new secret value")
+  @ApiModelProperty(required = true, value = "The secret value (only relevant for type 'generic')")
 
   public String getValue() {
     return value;

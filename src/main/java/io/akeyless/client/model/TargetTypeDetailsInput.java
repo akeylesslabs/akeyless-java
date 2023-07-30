@@ -20,3337 +20,715 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AWSTargetDetails;
+import io.akeyless.client.model.ArtifactoryTargetDetails;
+import io.akeyless.client.model.AzureTargetDetails;
+import io.akeyless.client.model.ChefTargetDetails;
+import io.akeyless.client.model.CustomTargetDetails;
+import io.akeyless.client.model.DbTargetDetails;
+import io.akeyless.client.model.DockerhubTargetDetails;
+import io.akeyless.client.model.EKSTargetDetails;
+import io.akeyless.client.model.GKETargetDetails;
+import io.akeyless.client.model.GcpTargetDetails;
+import io.akeyless.client.model.GithubTargetDetails;
+import io.akeyless.client.model.GlobalSignAtlasTargetDetails;
+import io.akeyless.client.model.GlobalSignGCCTargetDetails;
+import io.akeyless.client.model.LdapTargetDetails;
+import io.akeyless.client.model.LinkedTargetDetails;
+import io.akeyless.client.model.MongoDBTargetDetails;
+import io.akeyless.client.model.NativeK8sTargetDetails;
+import io.akeyless.client.model.PingTargetDetails;
+import io.akeyless.client.model.RabbitMQTargetDetails;
+import io.akeyless.client.model.SSHTargetDetails;
+import io.akeyless.client.model.SalesforceTargetDetails;
+import io.akeyless.client.model.VenafiTargetDetails;
+import io.akeyless.client.model.WebTargetDetails;
+import io.akeyless.client.model.WindowsTargetDetails;
+import io.akeyless.client.model.ZeroSSLTargetDetails;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * TargetTypeDetailsInput
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TargetTypeDetailsInput {
-  public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative_port";
-  @SerializedName(SERIALIZED_NAME_ADMINISTRATIVE_PORT)
-  private String administrativePort;
-
-  public static final String SERIALIZED_NAME_API_KEY = "api_key";
-  @SerializedName(SERIALIZED_NAME_API_KEY)
-  private String apiKey;
-
-  public static final String SERIALIZED_NAME_APP_PRIVATE_KEY = "app_private_key";
-  @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY)
-  private List<Integer> appPrivateKey = null;
-
-  public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY = "artifactory_admin_apikey";
-  @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY)
-  private String artifactoryAdminApikey;
-
-  public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_USERNAME = "artifactory_admin_username";
-  @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_USERNAME)
-  private String artifactoryAdminUsername;
-
-  public static final String SERIALIZED_NAME_ARTIFACTORY_BASE_URL = "artifactory_base_url";
-  @SerializedName(SERIALIZED_NAME_ARTIFACTORY_BASE_URL)
-  private String artifactoryBaseUrl;
-
-  public static final String SERIALIZED_NAME_AUTH_FLOW = "auth_flow";
-  @SerializedName(SERIALIZED_NAME_AUTH_FLOW)
-  private String authFlow;
-
-  public static final String SERIALIZED_NAME_AUTHORIZATION_PORT = "authorization_port";
-  @SerializedName(SERIALIZED_NAME_AUTHORIZATION_PORT)
-  private String authorizationPort;
-
-  public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws_access_key_id";
-  @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
-  private String awsAccessKeyId;
-
-  public static final String SERIALIZED_NAME_AWS_REGION = "aws_region";
-  @SerializedName(SERIALIZED_NAME_AWS_REGION)
-  private String awsRegion;
-
-  public static final String SERIALIZED_NAME_AWS_SECRET_ACCESS_KEY = "aws_secret_access_key";
-  @SerializedName(SERIALIZED_NAME_AWS_SECRET_ACCESS_KEY)
-  private String awsSecretAccessKey;
-
-  public static final String SERIALIZED_NAME_AWS_SESSION_TOKEN = "aws_session_token";
-  @SerializedName(SERIALIZED_NAME_AWS_SESSION_TOKEN)
-  private String awsSessionToken;
-
-  public static final String SERIALIZED_NAME_AZURE_CLIENT_ID = "azure_client_id";
-  @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_ID)
-  private String azureClientId;
-
-  public static final String SERIALIZED_NAME_AZURE_CLIENT_SECRET = "azure_client_secret";
-  @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_SECRET)
-  private String azureClientSecret;
-
-  public static final String SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME = "azure_resource_group_name";
-  @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME)
-  private String azureResourceGroupName;
-
-  public static final String SERIALIZED_NAME_AZURE_RESOURCE_NAME = "azure_resource_name";
-  @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_NAME)
-  private String azureResourceName;
-
-  public static final String SERIALIZED_NAME_AZURE_SUBSCRIPTION_ID = "azure_subscription_id";
-  @SerializedName(SERIALIZED_NAME_AZURE_SUBSCRIPTION_ID)
-  private String azureSubscriptionId;
-
-  public static final String SERIALIZED_NAME_AZURE_TENANT_ID = "azure_tenant_id";
-  @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
-  private String azureTenantId;
-
-  public static final String SERIALIZED_NAME_CA_CERT_DATA = "ca_cert_data";
-  @SerializedName(SERIALIZED_NAME_CA_CERT_DATA)
-  private List<Integer> caCertData = null;
-
-  public static final String SERIALIZED_NAME_CA_CERT_NAME = "ca_cert_name";
-  @SerializedName(SERIALIZED_NAME_CA_CERT_NAME)
-  private String caCertName;
-
-  public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE)
-  private String certificate;
-
-  public static final String SERIALIZED_NAME_CHEF_SERVER_HOST_NAME = "chef_server_host_name";
-  @SerializedName(SERIALIZED_NAME_CHEF_SERVER_HOST_NAME)
-  private String chefServerHostName;
-
-  public static final String SERIALIZED_NAME_CHEF_SERVER_KEY = "chef_server_key";
-  @SerializedName(SERIALIZED_NAME_CHEF_SERVER_KEY)
-  private String chefServerKey;
-
-  public static final String SERIALIZED_NAME_CHEF_SERVER_PORT = "chef_server_port";
-  @SerializedName(SERIALIZED_NAME_CHEF_SERVER_PORT)
-  private String chefServerPort;
-
-  public static final String SERIALIZED_NAME_CHEF_SERVER_URL = "chef_server_url";
-  @SerializedName(SERIALIZED_NAME_CHEF_SERVER_URL)
-  private String chefServerUrl;
-
-  public static final String SERIALIZED_NAME_CHEF_SERVER_USERNAME = "chef_server_username";
-  @SerializedName(SERIALIZED_NAME_CHEF_SERVER_USERNAME)
-  private String chefServerUsername;
-
-  public static final String SERIALIZED_NAME_CHEF_SKIP_SSL = "chef_skip_ssl";
-  @SerializedName(SERIALIZED_NAME_CHEF_SKIP_SSL)
-  private Boolean chefSkipSsl;
-
-  public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
-  @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-  private String clientId;
-
-  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
-  @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
-  private String clientSecret;
-
-  public static final String SERIALIZED_NAME_DB_HOST_NAME = "db_host_name";
-  @SerializedName(SERIALIZED_NAME_DB_HOST_NAME)
-  private String dbHostName;
-
-  public static final String SERIALIZED_NAME_DB_NAME = "db_name";
-  @SerializedName(SERIALIZED_NAME_DB_NAME)
-  private String dbName;
-
-  public static final String SERIALIZED_NAME_DB_PORT = "db_port";
-  @SerializedName(SERIALIZED_NAME_DB_PORT)
-  private String dbPort;
-
-  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY = "db_private_key";
-  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY)
-  private String dbPrivateKey;
-
-  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE = "db_private_key_passphrase";
-  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE)
-  private String dbPrivateKeyPassphrase;
-
-  public static final String SERIALIZED_NAME_DB_PWD = "db_pwd";
-  @SerializedName(SERIALIZED_NAME_DB_PWD)
-  private String dbPwd;
-
-  public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db_server_certificates";
-  @SerializedName(SERIALIZED_NAME_DB_SERVER_CERTIFICATES)
-  private String dbServerCertificates;
-
-  public static final String SERIALIZED_NAME_DB_SERVER_NAME = "db_server_name";
-  @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
-  private String dbServerName;
-
-  public static final String SERIALIZED_NAME_DB_USER_NAME = "db_user_name";
-  @SerializedName(SERIALIZED_NAME_DB_USER_NAME)
-  private String dbUserName;
-
-  public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
-  @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
-  private String domainName;
-
-  public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks_access_key_id";
-  @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
-  private String eksAccessKeyId;
-
-  public static final String SERIALIZED_NAME_EKS_CLUSTER_CA_CERTIFICATE = "eks_cluster_ca_certificate";
-  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_CA_CERTIFICATE)
-  private String eksClusterCaCertificate;
-
-  public static final String SERIALIZED_NAME_EKS_CLUSTER_ENDPOINT = "eks_cluster_endpoint";
-  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_ENDPOINT)
-  private String eksClusterEndpoint;
-
-  public static final String SERIALIZED_NAME_EKS_CLUSTER_NAME = "eks_cluster_name";
-  @SerializedName(SERIALIZED_NAME_EKS_CLUSTER_NAME)
-  private String eksClusterName;
-
-  public static final String SERIALIZED_NAME_EKS_REGION = "eks_region";
-  @SerializedName(SERIALIZED_NAME_EKS_REGION)
-  private String eksRegion;
-
-  public static final String SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY = "eks_secret_access_key";
-  @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
-  private String eksSecretAccessKey;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
-  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  private String firstName;
-
-  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp_service_account_email";
-  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
-  private String gcpServiceAccountEmail;
-
-  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY = "gcp_service_account_key";
-  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY)
-  private String gcpServiceAccountKey;
-
-  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_BASE64 = "gcp_service_account_key_base64";
-  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_BASE64)
-  private String gcpServiceAccountKeyBase64;
-
-  public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github_app_id";
-  @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
-  private Long githubAppId;
-
-  public static final String SERIALIZED_NAME_GITHUB_APP_PRIVATE_KEY = "github_app_private_key";
-  @SerializedName(SERIALIZED_NAME_GITHUB_APP_PRIVATE_KEY)
-  private String githubAppPrivateKey;
-
-  public static final String SERIALIZED_NAME_GITHUB_BASE_URL = "github_base_url";
-  @SerializedName(SERIALIZED_NAME_GITHUB_BASE_URL)
-  private String githubBaseUrl;
-
-  public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
-  @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
-  private String gkeClusterCaCertificate;
-
-  public static final String SERIALIZED_NAME_GKE_CLUSTER_ENDPOINT = "gke_cluster_endpoint";
-  @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_ENDPOINT)
-  private String gkeClusterEndpoint;
-
-  public static final String SERIALIZED_NAME_GKE_CLUSTER_NAME = "gke_cluster_name";
-  @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_NAME)
-  private String gkeClusterName;
-
-  public static final String SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_KEY = "gke_service_account_key";
-  @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_KEY)
-  private String gkeServiceAccountKey;
-
-  public static final String SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_NAME = "gke_service_account_name";
-  @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_NAME)
-  private String gkeServiceAccountName;
-
-  public static final String SERIALIZED_NAME_HOST = "host";
-  @SerializedName(SERIALIZED_NAME_HOST)
-  private String host;
-
-  public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
-  @SerializedName(SERIALIZED_NAME_HOSTNAME)
-  private String hostname;
-
-  public static final String SERIALIZED_NAME_HOSTS = "hosts";
-  @SerializedName(SERIALIZED_NAME_HOSTS)
-  private Map<String, String> hosts = null;
-
-  public static final String SERIALIZED_NAME_IMAP_FQDN = "imap_fqdn";
-  @SerializedName(SERIALIZED_NAME_IMAP_FQDN)
-  private String imapFqdn;
-
-  public static final String SERIALIZED_NAME_IMAP_PASSWORD = "imap_password";
-  @SerializedName(SERIALIZED_NAME_IMAP_PASSWORD)
-  private String imapPassword;
-
-  public static final String SERIALIZED_NAME_IMAP_PORT = "imap_port";
-  @SerializedName(SERIALIZED_NAME_IMAP_PORT)
-  private String imapPort;
-
-  public static final String SERIALIZED_NAME_IMAP_USER = "imap_user";
-  @SerializedName(SERIALIZED_NAME_IMAP_USER)
-  private String imapUser;
-
-  public static final String SERIALIZED_NAME_IMPLEMENTATION_TYPE = "implementation_type";
-  @SerializedName(SERIALIZED_NAME_IMPLEMENTATION_TYPE)
-  private String implementationType;
-
-  public static final String SERIALIZED_NAME_K8S_BEARER_TOKEN = "k8s_bearer_token";
-  @SerializedName(SERIALIZED_NAME_K8S_BEARER_TOKEN)
-  private String k8sBearerToken;
-
-  public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE = "k8s_cluster_ca_certificate";
-  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE)
-  private String k8sClusterCaCertificate;
-
-  public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s_cluster_endpoint";
-  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
-  private String k8sClusterEndpoint;
-
-  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  private String lastName;
-
-  public static final String SERIALIZED_NAME_LDAP_AUDIENCE = "ldap_audience";
-  @SerializedName(SERIALIZED_NAME_LDAP_AUDIENCE)
-  private String ldapAudience;
-
-  public static final String SERIALIZED_NAME_LDAP_BIND_DN = "ldap_bind_dn";
-  @SerializedName(SERIALIZED_NAME_LDAP_BIND_DN)
-  private String ldapBindDn;
-
-  public static final String SERIALIZED_NAME_LDAP_BIND_PASSWORD = "ldap_bind_password";
-  @SerializedName(SERIALIZED_NAME_LDAP_BIND_PASSWORD)
-  private String ldapBindPassword;
-
-  public static final String SERIALIZED_NAME_LDAP_CERTIFICATE = "ldap_certificate";
-  @SerializedName(SERIALIZED_NAME_LDAP_CERTIFICATE)
-  private String ldapCertificate;
-
-  public static final String SERIALIZED_NAME_LDAP_TOKEN_EXPIRATION = "ldap_token_expiration";
-  @SerializedName(SERIALIZED_NAME_LDAP_TOKEN_EXPIRATION)
-  private String ldapTokenExpiration;
-
-  public static final String SERIALIZED_NAME_LDAP_URL = "ldap_url";
-  @SerializedName(SERIALIZED_NAME_LDAP_URL)
-  private String ldapUrl;
-
-  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
-  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
-  private String mongodbAtlasApiPrivateKey;
-
-  public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY = "mongodb_atlas_api_public_key";
-  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PUBLIC_KEY)
-  private String mongodbAtlasApiPublicKey;
-
-  public static final String SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID = "mongodb_atlas_project_id";
-  @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_PROJECT_ID)
-  private String mongodbAtlasProjectId;
-
-  public static final String SERIALIZED_NAME_MONGODB_DB_NAME = "mongodb_db_name";
-  @SerializedName(SERIALIZED_NAME_MONGODB_DB_NAME)
-  private String mongodbDbName;
-
-  public static final String SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB = "mongodb_default_auth_db";
-  @SerializedName(SERIALIZED_NAME_MONGODB_DEFAULT_AUTH_DB)
-  private String mongodbDefaultAuthDb;
-
-  public static final String SERIALIZED_NAME_MONGODB_HOST_PORT = "mongodb_host_port";
-  @SerializedName(SERIALIZED_NAME_MONGODB_HOST_PORT)
-  private String mongodbHostPort;
-
-  public static final String SERIALIZED_NAME_MONGODB_IS_ATLAS = "mongodb_is_atlas";
-  @SerializedName(SERIALIZED_NAME_MONGODB_IS_ATLAS)
-  private Boolean mongodbIsAtlas;
-
-  public static final String SERIALIZED_NAME_MONGODB_PASSWORD = "mongodb_password";
-  @SerializedName(SERIALIZED_NAME_MONGODB_PASSWORD)
-  private String mongodbPassword;
-
-  public static final String SERIALIZED_NAME_MONGODB_URI_CONNECTION = "mongodb_uri_connection";
-  @SerializedName(SERIALIZED_NAME_MONGODB_URI_CONNECTION)
-  private String mongodbUriConnection;
-
-  public static final String SERIALIZED_NAME_MONGODB_URI_OPTIONS = "mongodb_uri_options";
-  @SerializedName(SERIALIZED_NAME_MONGODB_URI_OPTIONS)
-  private String mongodbUriOptions;
-
-  public static final String SERIALIZED_NAME_MONGODB_USERNAME = "mongodb_username";
-  @SerializedName(SERIALIZED_NAME_MONGODB_USERNAME)
-  private String mongodbUsername;
-
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
-  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
-  @SerializedName(SERIALIZED_NAME_PAYLOAD)
-  private String payload;
-
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  private String phone;
-
-  public static final String SERIALIZED_NAME_PING_URL = "ping_url";
-  @SerializedName(SERIALIZED_NAME_PING_URL)
-  private String pingUrl;
-
-  public static final String SERIALIZED_NAME_PORT = "port";
-  @SerializedName(SERIALIZED_NAME_PORT)
-  private String port;
-
-  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private_key";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
-  private String privateKey;
-
-  public static final String SERIALIZED_NAME_PRIVATE_KEY_PASSWORD = "private_key_password";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PASSWORD)
-  private String privateKeyPassword;
-
-  public static final String SERIALIZED_NAME_PRIVILEGED_USER = "privileged_user";
-  @SerializedName(SERIALIZED_NAME_PRIVILEGED_USER)
-  private String privilegedUser;
-
-  public static final String SERIALIZED_NAME_PROFILE_ID = "profile_id";
-  @SerializedName(SERIALIZED_NAME_PROFILE_ID)
-  private String profileId;
-
-  public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
-  @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
-  private String rabbitmqServerPassword;
-
-  public static final String SERIALIZED_NAME_RABBITMQ_SERVER_URI = "rabbitmq_server_uri";
-  @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_URI)
-  private String rabbitmqServerUri;
-
-  public static final String SERIALIZED_NAME_RABBITMQ_SERVER_USER = "rabbitmq_server_user";
-  @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_USER)
-  private String rabbitmqServerUser;
-
-  public static final String SERIALIZED_NAME_SECURITY_TOKEN = "security_token";
-  @SerializedName(SERIALIZED_NAME_SECURITY_TOKEN)
-  private String securityToken;
-
-  public static final String SERIALIZED_NAME_SF_ACCOUNT = "sf_account";
-  @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
-  private String sfAccount;
-
-  public static final String SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE = "ssl_connection_certificate";
-  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE)
-  private String sslConnectionCertificate;
-
-  public static final String SERIALIZED_NAME_SSL_CONNECTION_MODE = "ssl_connection_mode";
-  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_MODE)
-  private Boolean sslConnectionMode;
-
-  public static final String SERIALIZED_NAME_TENANT_URL = "tenant_url";
-  @SerializedName(SERIALIZED_NAME_TENANT_URL)
-  private String tenantUrl;
-
-  public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
-  @SerializedName(SERIALIZED_NAME_TIMEOUT)
-  private Long timeout;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
-
-  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
-  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
-  private Boolean useGwCloudIdentity;
-
-  public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use_gw_service_account";
-  @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
-  private Boolean useGwServiceAccount;
-
-  public static final String SERIALIZED_NAME_USE_TLS = "use_tls";
-  @SerializedName(SERIALIZED_NAME_USE_TLS)
-  private Boolean useTls;
-
-  public static final String SERIALIZED_NAME_USER_NAME = "user_name";
-  @SerializedName(SERIALIZED_NAME_USER_NAME)
-  private String userName;
-
-  public static final String SERIALIZED_NAME_USER_PASSWORD = "user_password";
-  @SerializedName(SERIALIZED_NAME_USER_PASSWORD)
-  private String userPassword;
-
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
-
-  public static final String SERIALIZED_NAME_VALIDATION_EMAIL = "validation_email";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_EMAIL)
-  private String validationEmail;
-
-  public static final String SERIALIZED_NAME_VENAFI_API_KEY = "venafi_api_key";
-  @SerializedName(SERIALIZED_NAME_VENAFI_API_KEY)
-  private String venafiApiKey;
-
-  public static final String SERIALIZED_NAME_VENAFI_BASE_URL = "venafi_base_url";
-  @SerializedName(SERIALIZED_NAME_VENAFI_BASE_URL)
-  private String venafiBaseUrl;
-
-  public static final String SERIALIZED_NAME_VENAFI_TPP_ACCESS_TOKEN = "venafi_tpp_access_token";
-  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_ACCESS_TOKEN)
-  private String venafiTppAccessToken;
-
-  public static final String SERIALIZED_NAME_VENAFI_TPP_CLIENT_ID = "venafi_tpp_client_id";
-  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_CLIENT_ID)
-  private String venafiTppClientId;
-
-  public static final String SERIALIZED_NAME_VENAFI_TPP_PASSWORD = "venafi_tpp_password";
-  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_PASSWORD)
-  private String venafiTppPassword;
-
-  public static final String SERIALIZED_NAME_VENAFI_TPP_REFRESH_TOKEN = "venafi_tpp_refresh_token";
-  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_REFRESH_TOKEN)
-  private String venafiTppRefreshToken;
-
-  public static final String SERIALIZED_NAME_VENAFI_TPP_USERNAME = "venafi_tpp_username";
-  @SerializedName(SERIALIZED_NAME_VENAFI_TPP_USERNAME)
-  private String venafiTppUsername;
-
-  public static final String SERIALIZED_NAME_VENAFI_USE_TPP = "venafi_use_tpp";
-  @SerializedName(SERIALIZED_NAME_VENAFI_USE_TPP)
-  private Boolean venafiUseTpp;
-
-  public static final String SERIALIZED_NAME_VENAFI_ZONE = "venafi_zone";
-  @SerializedName(SERIALIZED_NAME_VENAFI_ZONE)
-  private String venafiZone;
+  public static final String SERIALIZED_NAME_ARTIFACTORY_TARGET_DETAILS = "artifactory_target_details";
+  @SerializedName(SERIALIZED_NAME_ARTIFACTORY_TARGET_DETAILS)
+  private ArtifactoryTargetDetails artifactoryTargetDetails;
+
+  public static final String SERIALIZED_NAME_AWS_TARGET_DETAILS = "aws_target_details";
+  @SerializedName(SERIALIZED_NAME_AWS_TARGET_DETAILS)
+  private AWSTargetDetails awsTargetDetails;
+
+  public static final String SERIALIZED_NAME_AZURE_TARGET_DETAILS = "azure_target_details";
+  @SerializedName(SERIALIZED_NAME_AZURE_TARGET_DETAILS)
+  private AzureTargetDetails azureTargetDetails;
+
+  public static final String SERIALIZED_NAME_CHEF_TARGET_DETAILS = "chef_target_details";
+  @SerializedName(SERIALIZED_NAME_CHEF_TARGET_DETAILS)
+  private ChefTargetDetails chefTargetDetails;
+
+  public static final String SERIALIZED_NAME_CUSTOM_TARGET_DETAILS = "custom_target_details";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_TARGET_DETAILS)
+  private CustomTargetDetails customTargetDetails;
+
+  public static final String SERIALIZED_NAME_DB_TARGET_DETAILS = "db_target_details";
+  @SerializedName(SERIALIZED_NAME_DB_TARGET_DETAILS)
+  private DbTargetDetails dbTargetDetails;
+
+  public static final String SERIALIZED_NAME_DOCKERHUB_TARGET_DETAILS = "dockerhub_target_details";
+  @SerializedName(SERIALIZED_NAME_DOCKERHUB_TARGET_DETAILS)
+  private DockerhubTargetDetails dockerhubTargetDetails;
+
+  public static final String SERIALIZED_NAME_EKS_TARGET_DETAILS = "eks_target_details";
+  @SerializedName(SERIALIZED_NAME_EKS_TARGET_DETAILS)
+  private EKSTargetDetails eksTargetDetails;
+
+  public static final String SERIALIZED_NAME_GCP_TARGET_DETAILS = "gcp_target_details";
+  @SerializedName(SERIALIZED_NAME_GCP_TARGET_DETAILS)
+  private GcpTargetDetails gcpTargetDetails;
+
+  public static final String SERIALIZED_NAME_GITHUB_TARGET_DETAILS = "github_target_details";
+  @SerializedName(SERIALIZED_NAME_GITHUB_TARGET_DETAILS)
+  private GithubTargetDetails githubTargetDetails;
+
+  public static final String SERIALIZED_NAME_GKE_TARGET_DETAILS = "gke_target_details";
+  @SerializedName(SERIALIZED_NAME_GKE_TARGET_DETAILS)
+  private GKETargetDetails gkeTargetDetails;
+
+  public static final String SERIALIZED_NAME_GLOBALSIGN_ATLAS_TARGET_DETAILS = "globalsign_atlas_target_details";
+  @SerializedName(SERIALIZED_NAME_GLOBALSIGN_ATLAS_TARGET_DETAILS)
+  private GlobalSignAtlasTargetDetails globalsignAtlasTargetDetails;
+
+  public static final String SERIALIZED_NAME_GLOBALSIGN_TARGET_DETAILS = "globalsign_target_details";
+  @SerializedName(SERIALIZED_NAME_GLOBALSIGN_TARGET_DETAILS)
+  private GlobalSignGCCTargetDetails globalsignTargetDetails;
+
+  public static final String SERIALIZED_NAME_LDAP_TARGET_DETAILS = "ldap_target_details";
+  @SerializedName(SERIALIZED_NAME_LDAP_TARGET_DETAILS)
+  private LdapTargetDetails ldapTargetDetails;
+
+  public static final String SERIALIZED_NAME_LINKED_TARGET_DETAILS = "linked_target_details";
+  @SerializedName(SERIALIZED_NAME_LINKED_TARGET_DETAILS)
+  private LinkedTargetDetails linkedTargetDetails;
+
+  public static final String SERIALIZED_NAME_MONGO_DB_TARGET_DETAILS = "mongo_db_target_details";
+  @SerializedName(SERIALIZED_NAME_MONGO_DB_TARGET_DETAILS)
+  private MongoDBTargetDetails mongoDbTargetDetails;
+
+  public static final String SERIALIZED_NAME_NATIVE_K8S_TARGET_DETAILS = "native_k8s_target_details";
+  @SerializedName(SERIALIZED_NAME_NATIVE_K8S_TARGET_DETAILS)
+  private NativeK8sTargetDetails nativeK8sTargetDetails;
+
+  public static final String SERIALIZED_NAME_PING_TARGET_DETAILS = "ping_target_details";
+  @SerializedName(SERIALIZED_NAME_PING_TARGET_DETAILS)
+  private PingTargetDetails pingTargetDetails;
+
+  public static final String SERIALIZED_NAME_RABBIT_MQ_TARGET_DETAILS = "rabbit_mq_target_details";
+  @SerializedName(SERIALIZED_NAME_RABBIT_MQ_TARGET_DETAILS)
+  private RabbitMQTargetDetails rabbitMqTargetDetails;
+
+  public static final String SERIALIZED_NAME_SALESFORCE_TARGET_DETAILS = "salesforce_target_details";
+  @SerializedName(SERIALIZED_NAME_SALESFORCE_TARGET_DETAILS)
+  private SalesforceTargetDetails salesforceTargetDetails;
+
+  public static final String SERIALIZED_NAME_SSH_TARGET_DETAILS = "ssh_target_details";
+  @SerializedName(SERIALIZED_NAME_SSH_TARGET_DETAILS)
+  private SSHTargetDetails sshTargetDetails;
+
+  public static final String SERIALIZED_NAME_VENAFI_TARGET_DETAILS = "venafi_target_details";
+  @SerializedName(SERIALIZED_NAME_VENAFI_TARGET_DETAILS)
+  private VenafiTargetDetails venafiTargetDetails;
+
+  public static final String SERIALIZED_NAME_WEB_TARGET_DETAILS = "web_target_details";
+  @SerializedName(SERIALIZED_NAME_WEB_TARGET_DETAILS)
+  private WebTargetDetails webTargetDetails;
+
+  public static final String SERIALIZED_NAME_WINDOWS_TARGET_DETAILS = "windows_target_details";
+  @SerializedName(SERIALIZED_NAME_WINDOWS_TARGET_DETAILS)
+  private WindowsTargetDetails windowsTargetDetails;
+
+  public static final String SERIALIZED_NAME_ZEROSSL_TARGET_DETAILS = "zerossl_target_details";
+  @SerializedName(SERIALIZED_NAME_ZEROSSL_TARGET_DETAILS)
+  private ZeroSSLTargetDetails zerosslTargetDetails;
 
   public TargetTypeDetailsInput() { 
   }
 
-  public TargetTypeDetailsInput administrativePort(String administrativePort) {
+  public TargetTypeDetailsInput artifactoryTargetDetails(ArtifactoryTargetDetails artifactoryTargetDetails) {
     
-    this.administrativePort = administrativePort;
+    this.artifactoryTargetDetails = artifactoryTargetDetails;
     return this;
   }
 
    /**
-   * Get administrativePort
-   * @return administrativePort
+   * Get artifactoryTargetDetails
+   * @return artifactoryTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getAdministrativePort() {
-    return administrativePort;
+  public ArtifactoryTargetDetails getArtifactoryTargetDetails() {
+    return artifactoryTargetDetails;
   }
 
 
-  public void setAdministrativePort(String administrativePort) {
-    this.administrativePort = administrativePort;
+  public void setArtifactoryTargetDetails(ArtifactoryTargetDetails artifactoryTargetDetails) {
+    this.artifactoryTargetDetails = artifactoryTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput apiKey(String apiKey) {
+  public TargetTypeDetailsInput awsTargetDetails(AWSTargetDetails awsTargetDetails) {
     
-    this.apiKey = apiKey;
+    this.awsTargetDetails = awsTargetDetails;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get awsTargetDetails
+   * @return awsTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getApiKey() {
-    return apiKey;
+  public AWSTargetDetails getAwsTargetDetails() {
+    return awsTargetDetails;
   }
 
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setAwsTargetDetails(AWSTargetDetails awsTargetDetails) {
+    this.awsTargetDetails = awsTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput appPrivateKey(List<Integer> appPrivateKey) {
+  public TargetTypeDetailsInput azureTargetDetails(AzureTargetDetails azureTargetDetails) {
     
-    this.appPrivateKey = appPrivateKey;
+    this.azureTargetDetails = azureTargetDetails;
     return this;
   }
 
-  public TargetTypeDetailsInput addAppPrivateKeyItem(Integer appPrivateKeyItem) {
-    if (this.appPrivateKey == null) {
-      this.appPrivateKey = new ArrayList<Integer>();
-    }
-    this.appPrivateKey.add(appPrivateKeyItem);
-    return this;
-  }
-
-   /**
-   * params needed for jwt auth AppPrivateKey is the rsa private key in PEM format
-   * @return appPrivateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "params needed for jwt auth AppPrivateKey is the rsa private key in PEM format")
-
-  public List<Integer> getAppPrivateKey() {
-    return appPrivateKey;
-  }
-
-
-  public void setAppPrivateKey(List<Integer> appPrivateKey) {
-    this.appPrivateKey = appPrivateKey;
-  }
-
-
-  public TargetTypeDetailsInput artifactoryAdminApikey(String artifactoryAdminApikey) {
-    
-    this.artifactoryAdminApikey = artifactoryAdminApikey;
-    return this;
-  }
-
-   /**
-   * Get artifactoryAdminApikey
-   * @return artifactoryAdminApikey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getArtifactoryAdminApikey() {
-    return artifactoryAdminApikey;
-  }
-
-
-  public void setArtifactoryAdminApikey(String artifactoryAdminApikey) {
-    this.artifactoryAdminApikey = artifactoryAdminApikey;
-  }
-
-
-  public TargetTypeDetailsInput artifactoryAdminUsername(String artifactoryAdminUsername) {
-    
-    this.artifactoryAdminUsername = artifactoryAdminUsername;
-    return this;
-  }
-
-   /**
-   * Get artifactoryAdminUsername
-   * @return artifactoryAdminUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getArtifactoryAdminUsername() {
-    return artifactoryAdminUsername;
-  }
-
-
-  public void setArtifactoryAdminUsername(String artifactoryAdminUsername) {
-    this.artifactoryAdminUsername = artifactoryAdminUsername;
-  }
-
-
-  public TargetTypeDetailsInput artifactoryBaseUrl(String artifactoryBaseUrl) {
-    
-    this.artifactoryBaseUrl = artifactoryBaseUrl;
-    return this;
-  }
-
-   /**
-   * Get artifactoryBaseUrl
-   * @return artifactoryBaseUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getArtifactoryBaseUrl() {
-    return artifactoryBaseUrl;
-  }
-
-
-  public void setArtifactoryBaseUrl(String artifactoryBaseUrl) {
-    this.artifactoryBaseUrl = artifactoryBaseUrl;
-  }
-
-
-  public TargetTypeDetailsInput authFlow(String authFlow) {
-    
-    this.authFlow = authFlow;
-    return this;
-  }
-
-   /**
-   * Get authFlow
-   * @return authFlow
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAuthFlow() {
-    return authFlow;
-  }
-
-
-  public void setAuthFlow(String authFlow) {
-    this.authFlow = authFlow;
-  }
-
-
-  public TargetTypeDetailsInput authorizationPort(String authorizationPort) {
-    
-    this.authorizationPort = authorizationPort;
-    return this;
-  }
-
-   /**
-   * Get authorizationPort
-   * @return authorizationPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAuthorizationPort() {
-    return authorizationPort;
-  }
-
-
-  public void setAuthorizationPort(String authorizationPort) {
-    this.authorizationPort = authorizationPort;
-  }
-
-
-  public TargetTypeDetailsInput awsAccessKeyId(String awsAccessKeyId) {
-    
-    this.awsAccessKeyId = awsAccessKeyId;
-    return this;
-  }
-
-   /**
-   * Get awsAccessKeyId
-   * @return awsAccessKeyId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAwsAccessKeyId() {
-    return awsAccessKeyId;
-  }
-
-
-  public void setAwsAccessKeyId(String awsAccessKeyId) {
-    this.awsAccessKeyId = awsAccessKeyId;
-  }
-
-
-  public TargetTypeDetailsInput awsRegion(String awsRegion) {
-    
-    this.awsRegion = awsRegion;
-    return this;
-  }
-
-   /**
-   * Get awsRegion
-   * @return awsRegion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAwsRegion() {
-    return awsRegion;
-  }
-
-
-  public void setAwsRegion(String awsRegion) {
-    this.awsRegion = awsRegion;
-  }
-
-
-  public TargetTypeDetailsInput awsSecretAccessKey(String awsSecretAccessKey) {
-    
-    this.awsSecretAccessKey = awsSecretAccessKey;
-    return this;
-  }
-
-   /**
-   * Get awsSecretAccessKey
-   * @return awsSecretAccessKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAwsSecretAccessKey() {
-    return awsSecretAccessKey;
-  }
-
-
-  public void setAwsSecretAccessKey(String awsSecretAccessKey) {
-    this.awsSecretAccessKey = awsSecretAccessKey;
-  }
-
-
-  public TargetTypeDetailsInput awsSessionToken(String awsSessionToken) {
-    
-    this.awsSessionToken = awsSessionToken;
-    return this;
-  }
-
-   /**
-   * Get awsSessionToken
-   * @return awsSessionToken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAwsSessionToken() {
-    return awsSessionToken;
-  }
-
-
-  public void setAwsSessionToken(String awsSessionToken) {
-    this.awsSessionToken = awsSessionToken;
-  }
-
-
-  public TargetTypeDetailsInput azureClientId(String azureClientId) {
-    
-    this.azureClientId = azureClientId;
-    return this;
-  }
-
-   /**
-   * Get azureClientId
-   * @return azureClientId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAzureClientId() {
-    return azureClientId;
-  }
-
-
-  public void setAzureClientId(String azureClientId) {
-    this.azureClientId = azureClientId;
-  }
-
-
-  public TargetTypeDetailsInput azureClientSecret(String azureClientSecret) {
-    
-    this.azureClientSecret = azureClientSecret;
-    return this;
-  }
-
-   /**
-   * Get azureClientSecret
-   * @return azureClientSecret
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAzureClientSecret() {
-    return azureClientSecret;
-  }
-
-
-  public void setAzureClientSecret(String azureClientSecret) {
-    this.azureClientSecret = azureClientSecret;
-  }
-
-
-  public TargetTypeDetailsInput azureResourceGroupName(String azureResourceGroupName) {
-    
-    this.azureResourceGroupName = azureResourceGroupName;
-    return this;
-  }
-
-   /**
-   * Get azureResourceGroupName
-   * @return azureResourceGroupName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAzureResourceGroupName() {
-    return azureResourceGroupName;
-  }
-
-
-  public void setAzureResourceGroupName(String azureResourceGroupName) {
-    this.azureResourceGroupName = azureResourceGroupName;
-  }
-
-
-  public TargetTypeDetailsInput azureResourceName(String azureResourceName) {
-    
-    this.azureResourceName = azureResourceName;
-    return this;
-  }
-
-   /**
-   * Get azureResourceName
-   * @return azureResourceName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAzureResourceName() {
-    return azureResourceName;
-  }
-
-
-  public void setAzureResourceName(String azureResourceName) {
-    this.azureResourceName = azureResourceName;
-  }
-
-
-  public TargetTypeDetailsInput azureSubscriptionId(String azureSubscriptionId) {
-    
-    this.azureSubscriptionId = azureSubscriptionId;
-    return this;
-  }
-
-   /**
-   * Get azureSubscriptionId
-   * @return azureSubscriptionId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAzureSubscriptionId() {
-    return azureSubscriptionId;
-  }
-
-
-  public void setAzureSubscriptionId(String azureSubscriptionId) {
-    this.azureSubscriptionId = azureSubscriptionId;
-  }
-
-
-  public TargetTypeDetailsInput azureTenantId(String azureTenantId) {
-    
-    this.azureTenantId = azureTenantId;
-    return this;
-  }
-
-   /**
-   * Get azureTenantId
-   * @return azureTenantId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getAzureTenantId() {
-    return azureTenantId;
-  }
-
-
-  public void setAzureTenantId(String azureTenantId) {
-    this.azureTenantId = azureTenantId;
-  }
-
-
-  public TargetTypeDetailsInput caCertData(List<Integer> caCertData) {
-    
-    this.caCertData = caCertData;
-    return this;
-  }
-
-  public TargetTypeDetailsInput addCaCertDataItem(Integer caCertDataItem) {
-    if (this.caCertData == null) {
-      this.caCertData = new ArrayList<Integer>();
-    }
-    this.caCertData.add(caCertDataItem);
-    return this;
-  }
-
-   /**
-   * CACertData is the rsa 4096 certificate data in PEM format
-   * @return caCertData
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CACertData is the rsa 4096 certificate data in PEM format")
-
-  public List<Integer> getCaCertData() {
-    return caCertData;
-  }
-
-
-  public void setCaCertData(List<Integer> caCertData) {
-    this.caCertData = caCertData;
-  }
-
-
-  public TargetTypeDetailsInput caCertName(String caCertName) {
-    
-    this.caCertName = caCertName;
-    return this;
-  }
-
-   /**
-   * CACertName is the name of the certificate in SalesForce tenant
-   * @return caCertName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CACertName is the name of the certificate in SalesForce tenant")
-
-  public String getCaCertName() {
-    return caCertName;
-  }
-
-
-  public void setCaCertName(String caCertName) {
-    this.caCertName = caCertName;
-  }
-
-
-  public TargetTypeDetailsInput certificate(String certificate) {
-    
-    this.certificate = certificate;
-    return this;
-  }
-
-   /**
-   * Get certificate
-   * @return certificate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getCertificate() {
-    return certificate;
-  }
-
-
-  public void setCertificate(String certificate) {
-    this.certificate = certificate;
-  }
-
-
-  public TargetTypeDetailsInput chefServerHostName(String chefServerHostName) {
-    
-    this.chefServerHostName = chefServerHostName;
-    return this;
-  }
-
-   /**
-   * Get chefServerHostName
-   * @return chefServerHostName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getChefServerHostName() {
-    return chefServerHostName;
-  }
-
-
-  public void setChefServerHostName(String chefServerHostName) {
-    this.chefServerHostName = chefServerHostName;
-  }
-
-
-  public TargetTypeDetailsInput chefServerKey(String chefServerKey) {
-    
-    this.chefServerKey = chefServerKey;
-    return this;
-  }
-
-   /**
-   * Get chefServerKey
-   * @return chefServerKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getChefServerKey() {
-    return chefServerKey;
-  }
-
-
-  public void setChefServerKey(String chefServerKey) {
-    this.chefServerKey = chefServerKey;
-  }
-
-
-  public TargetTypeDetailsInput chefServerPort(String chefServerPort) {
-    
-    this.chefServerPort = chefServerPort;
-    return this;
-  }
-
-   /**
-   * Get chefServerPort
-   * @return chefServerPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getChefServerPort() {
-    return chefServerPort;
-  }
-
-
-  public void setChefServerPort(String chefServerPort) {
-    this.chefServerPort = chefServerPort;
-  }
-
-
-  public TargetTypeDetailsInput chefServerUrl(String chefServerUrl) {
-    
-    this.chefServerUrl = chefServerUrl;
-    return this;
-  }
-
-   /**
-   * Get chefServerUrl
-   * @return chefServerUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getChefServerUrl() {
-    return chefServerUrl;
-  }
-
-
-  public void setChefServerUrl(String chefServerUrl) {
-    this.chefServerUrl = chefServerUrl;
-  }
-
-
-  public TargetTypeDetailsInput chefServerUsername(String chefServerUsername) {
-    
-    this.chefServerUsername = chefServerUsername;
-    return this;
-  }
-
-   /**
-   * Get chefServerUsername
-   * @return chefServerUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getChefServerUsername() {
-    return chefServerUsername;
-  }
-
-
-  public void setChefServerUsername(String chefServerUsername) {
-    this.chefServerUsername = chefServerUsername;
-  }
-
-
-  public TargetTypeDetailsInput chefSkipSsl(Boolean chefSkipSsl) {
-    
-    this.chefSkipSsl = chefSkipSsl;
-    return this;
-  }
-
-   /**
-   * Get chefSkipSsl
-   * @return chefSkipSsl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getChefSkipSsl() {
-    return chefSkipSsl;
-  }
-
-
-  public void setChefSkipSsl(Boolean chefSkipSsl) {
-    this.chefSkipSsl = chefSkipSsl;
-  }
-
-
-  public TargetTypeDetailsInput clientId(String clientId) {
-    
-    this.clientId = clientId;
-    return this;
-  }
-
-   /**
-   * Get clientId
-   * @return clientId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getClientId() {
-    return clientId;
-  }
-
-
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-
-  public TargetTypeDetailsInput clientSecret(String clientSecret) {
-    
-    this.clientSecret = clientSecret;
-    return this;
-  }
-
-   /**
-   * params needed for password auth
-   * @return clientSecret
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "params needed for password auth")
-
-  public String getClientSecret() {
-    return clientSecret;
-  }
-
-
-  public void setClientSecret(String clientSecret) {
-    this.clientSecret = clientSecret;
-  }
-
-
-  public TargetTypeDetailsInput dbHostName(String dbHostName) {
-    
-    this.dbHostName = dbHostName;
-    return this;
-  }
-
-   /**
-   * Get dbHostName
-   * @return dbHostName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDbHostName() {
-    return dbHostName;
-  }
-
-
-  public void setDbHostName(String dbHostName) {
-    this.dbHostName = dbHostName;
-  }
-
-
-  public TargetTypeDetailsInput dbName(String dbName) {
-    
-    this.dbName = dbName;
-    return this;
-  }
-
-   /**
-   * Get dbName
-   * @return dbName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDbName() {
-    return dbName;
-  }
-
-
-  public void setDbName(String dbName) {
-    this.dbName = dbName;
-  }
-
-
-  public TargetTypeDetailsInput dbPort(String dbPort) {
-    
-    this.dbPort = dbPort;
-    return this;
-  }
-
-   /**
-   * Get dbPort
-   * @return dbPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDbPort() {
-    return dbPort;
-  }
-
-
-  public void setDbPort(String dbPort) {
-    this.dbPort = dbPort;
-  }
-
-
-  public TargetTypeDetailsInput dbPrivateKey(String dbPrivateKey) {
-    
-    this.dbPrivateKey = dbPrivateKey;
-    return this;
-  }
-
-   /**
-   * (Optional) Private Key in PEM format
-   * @return dbPrivateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Optional) Private Key in PEM format")
-
-  public String getDbPrivateKey() {
-    return dbPrivateKey;
-  }
-
-
-  public void setDbPrivateKey(String dbPrivateKey) {
-    this.dbPrivateKey = dbPrivateKey;
-  }
-
-
-  public TargetTypeDetailsInput dbPrivateKeyPassphrase(String dbPrivateKeyPassphrase) {
-    
-    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
-    return this;
-  }
-
-   /**
-   * Get dbPrivateKeyPassphrase
-   * @return dbPrivateKeyPassphrase
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDbPrivateKeyPassphrase() {
-    return dbPrivateKeyPassphrase;
-  }
-
-
-  public void setDbPrivateKeyPassphrase(String dbPrivateKeyPassphrase) {
-    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
-  }
-
-
-  public TargetTypeDetailsInput dbPwd(String dbPwd) {
-    
-    this.dbPwd = dbPwd;
-    return this;
-  }
-
-   /**
-   * Get dbPwd
-   * @return dbPwd
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDbPwd() {
-    return dbPwd;
-  }
-
-
-  public void setDbPwd(String dbPwd) {
-    this.dbPwd = dbPwd;
-  }
-
-
-  public TargetTypeDetailsInput dbServerCertificates(String dbServerCertificates) {
-    
-    this.dbServerCertificates = dbServerCertificates;
-    return this;
-  }
-
-   /**
-   * (Optional) DBServerCertificates defines the set of root certificate authorities that clients use when verifying server certificates. If DBServerCertificates is empty, TLS uses the host&#39;s root CA set.
-   * @return dbServerCertificates
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Optional) DBServerCertificates defines the set of root certificate authorities that clients use when verifying server certificates. If DBServerCertificates is empty, TLS uses the host's root CA set.")
-
-  public String getDbServerCertificates() {
-    return dbServerCertificates;
-  }
-
-
-  public void setDbServerCertificates(String dbServerCertificates) {
-    this.dbServerCertificates = dbServerCertificates;
-  }
-
-
-  public TargetTypeDetailsInput dbServerName(String dbServerName) {
-    
-    this.dbServerName = dbServerName;
-    return this;
-  }
-
-   /**
-   * (Optional) ServerName is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client&#39;s handshake to support virtual hosting unless it is an IP address.
-   * @return dbServerName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Optional) ServerName is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address.")
-
-  public String getDbServerName() {
-    return dbServerName;
-  }
-
-
-  public void setDbServerName(String dbServerName) {
-    this.dbServerName = dbServerName;
-  }
-
-
-  public TargetTypeDetailsInput dbUserName(String dbUserName) {
-    
-    this.dbUserName = dbUserName;
-    return this;
-  }
-
-   /**
-   * Get dbUserName
-   * @return dbUserName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDbUserName() {
-    return dbUserName;
-  }
-
-
-  public void setDbUserName(String dbUserName) {
-    this.dbUserName = dbUserName;
-  }
-
-
-  public TargetTypeDetailsInput domainName(String domainName) {
-    
-    this.domainName = domainName;
-    return this;
-  }
-
-   /**
-   * Get domainName
-   * @return domainName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDomainName() {
-    return domainName;
-  }
-
-
-  public void setDomainName(String domainName) {
-    this.domainName = domainName;
-  }
-
-
-  public TargetTypeDetailsInput eksAccessKeyId(String eksAccessKeyId) {
-    
-    this.eksAccessKeyId = eksAccessKeyId;
-    return this;
-  }
-
-   /**
-   * Get eksAccessKeyId
-   * @return eksAccessKeyId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksAccessKeyId() {
-    return eksAccessKeyId;
-  }
-
-
-  public void setEksAccessKeyId(String eksAccessKeyId) {
-    this.eksAccessKeyId = eksAccessKeyId;
-  }
-
-
-  public TargetTypeDetailsInput eksClusterCaCertificate(String eksClusterCaCertificate) {
-    
-    this.eksClusterCaCertificate = eksClusterCaCertificate;
-    return this;
-  }
-
-   /**
-   * Get eksClusterCaCertificate
-   * @return eksClusterCaCertificate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksClusterCaCertificate() {
-    return eksClusterCaCertificate;
-  }
-
-
-  public void setEksClusterCaCertificate(String eksClusterCaCertificate) {
-    this.eksClusterCaCertificate = eksClusterCaCertificate;
-  }
-
-
-  public TargetTypeDetailsInput eksClusterEndpoint(String eksClusterEndpoint) {
-    
-    this.eksClusterEndpoint = eksClusterEndpoint;
-    return this;
-  }
-
-   /**
-   * Get eksClusterEndpoint
-   * @return eksClusterEndpoint
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksClusterEndpoint() {
-    return eksClusterEndpoint;
-  }
-
-
-  public void setEksClusterEndpoint(String eksClusterEndpoint) {
-    this.eksClusterEndpoint = eksClusterEndpoint;
-  }
-
-
-  public TargetTypeDetailsInput eksClusterName(String eksClusterName) {
-    
-    this.eksClusterName = eksClusterName;
-    return this;
-  }
-
-   /**
-   * Get eksClusterName
-   * @return eksClusterName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksClusterName() {
-    return eksClusterName;
-  }
-
-
-  public void setEksClusterName(String eksClusterName) {
-    this.eksClusterName = eksClusterName;
-  }
-
-
-  public TargetTypeDetailsInput eksRegion(String eksRegion) {
-    
-    this.eksRegion = eksRegion;
-    return this;
-  }
-
-   /**
-   * Get eksRegion
-   * @return eksRegion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksRegion() {
-    return eksRegion;
-  }
-
-
-  public void setEksRegion(String eksRegion) {
-    this.eksRegion = eksRegion;
-  }
-
-
-  public TargetTypeDetailsInput eksSecretAccessKey(String eksSecretAccessKey) {
-    
-    this.eksSecretAccessKey = eksSecretAccessKey;
-    return this;
-  }
-
-   /**
-   * Get eksSecretAccessKey
-   * @return eksSecretAccessKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEksSecretAccessKey() {
-    return eksSecretAccessKey;
-  }
-
-
-  public void setEksSecretAccessKey(String eksSecretAccessKey) {
-    this.eksSecretAccessKey = eksSecretAccessKey;
-  }
-
-
-  public TargetTypeDetailsInput email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Get email
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public TargetTypeDetailsInput firstName(String firstName) {
-    
-    this.firstName = firstName;
-    return this;
-  }
-
-   /**
-   * Contact Info - GlobalSign requires this to be sent with every certificate creation request
-   * @return firstName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contact Info - GlobalSign requires this to be sent with every certificate creation request")
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-
-  public TargetTypeDetailsInput gcpServiceAccountEmail(String gcpServiceAccountEmail) {
-    
-    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
-    return this;
-  }
-
-   /**
-   * deprecated
-   * @return gcpServiceAccountEmail
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecated")
-
-  public String getGcpServiceAccountEmail() {
-    return gcpServiceAccountEmail;
-  }
-
-
-  public void setGcpServiceAccountEmail(String gcpServiceAccountEmail) {
-    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
-  }
-
-
-  public TargetTypeDetailsInput gcpServiceAccountKey(String gcpServiceAccountKey) {
-    
-    this.gcpServiceAccountKey = gcpServiceAccountKey;
-    return this;
-  }
-
-   /**
-   * Get gcpServiceAccountKey
-   * @return gcpServiceAccountKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGcpServiceAccountKey() {
-    return gcpServiceAccountKey;
-  }
-
-
-  public void setGcpServiceAccountKey(String gcpServiceAccountKey) {
-    this.gcpServiceAccountKey = gcpServiceAccountKey;
-  }
-
-
-  public TargetTypeDetailsInput gcpServiceAccountKeyBase64(String gcpServiceAccountKeyBase64) {
-    
-    this.gcpServiceAccountKeyBase64 = gcpServiceAccountKeyBase64;
-    return this;
-  }
-
-   /**
-   * Get gcpServiceAccountKeyBase64
-   * @return gcpServiceAccountKeyBase64
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGcpServiceAccountKeyBase64() {
-    return gcpServiceAccountKeyBase64;
-  }
-
-
-  public void setGcpServiceAccountKeyBase64(String gcpServiceAccountKeyBase64) {
-    this.gcpServiceAccountKeyBase64 = gcpServiceAccountKeyBase64;
-  }
-
-
-  public TargetTypeDetailsInput githubAppId(Long githubAppId) {
-    
-    this.githubAppId = githubAppId;
-    return this;
-  }
-
-   /**
-   * Get githubAppId
-   * @return githubAppId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Long getGithubAppId() {
-    return githubAppId;
-  }
-
-
-  public void setGithubAppId(Long githubAppId) {
-    this.githubAppId = githubAppId;
-  }
-
-
-  public TargetTypeDetailsInput githubAppPrivateKey(String githubAppPrivateKey) {
-    
-    this.githubAppPrivateKey = githubAppPrivateKey;
-    return this;
-  }
-
-   /**
-   * Get githubAppPrivateKey
-   * @return githubAppPrivateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGithubAppPrivateKey() {
-    return githubAppPrivateKey;
-  }
-
-
-  public void setGithubAppPrivateKey(String githubAppPrivateKey) {
-    this.githubAppPrivateKey = githubAppPrivateKey;
-  }
-
-
-  public TargetTypeDetailsInput githubBaseUrl(String githubBaseUrl) {
-    
-    this.githubBaseUrl = githubBaseUrl;
-    return this;
-  }
-
-   /**
-   * Get githubBaseUrl
-   * @return githubBaseUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGithubBaseUrl() {
-    return githubBaseUrl;
-  }
-
-
-  public void setGithubBaseUrl(String githubBaseUrl) {
-    this.githubBaseUrl = githubBaseUrl;
-  }
-
-
-  public TargetTypeDetailsInput gkeClusterCaCertificate(String gkeClusterCaCertificate) {
-    
-    this.gkeClusterCaCertificate = gkeClusterCaCertificate;
-    return this;
-  }
-
-   /**
-   * Get gkeClusterCaCertificate
-   * @return gkeClusterCaCertificate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeClusterCaCertificate() {
-    return gkeClusterCaCertificate;
-  }
-
-
-  public void setGkeClusterCaCertificate(String gkeClusterCaCertificate) {
-    this.gkeClusterCaCertificate = gkeClusterCaCertificate;
-  }
-
-
-  public TargetTypeDetailsInput gkeClusterEndpoint(String gkeClusterEndpoint) {
-    
-    this.gkeClusterEndpoint = gkeClusterEndpoint;
-    return this;
-  }
-
-   /**
-   * Get gkeClusterEndpoint
-   * @return gkeClusterEndpoint
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeClusterEndpoint() {
-    return gkeClusterEndpoint;
-  }
-
-
-  public void setGkeClusterEndpoint(String gkeClusterEndpoint) {
-    this.gkeClusterEndpoint = gkeClusterEndpoint;
-  }
-
-
-  public TargetTypeDetailsInput gkeClusterName(String gkeClusterName) {
-    
-    this.gkeClusterName = gkeClusterName;
-    return this;
-  }
-
-   /**
-   * Get gkeClusterName
-   * @return gkeClusterName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeClusterName() {
-    return gkeClusterName;
-  }
-
-
-  public void setGkeClusterName(String gkeClusterName) {
-    this.gkeClusterName = gkeClusterName;
-  }
-
-
-  public TargetTypeDetailsInput gkeServiceAccountKey(String gkeServiceAccountKey) {
-    
-    this.gkeServiceAccountKey = gkeServiceAccountKey;
-    return this;
-  }
-
-   /**
-   * Get gkeServiceAccountKey
-   * @return gkeServiceAccountKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeServiceAccountKey() {
-    return gkeServiceAccountKey;
-  }
-
-
-  public void setGkeServiceAccountKey(String gkeServiceAccountKey) {
-    this.gkeServiceAccountKey = gkeServiceAccountKey;
-  }
-
-
-  public TargetTypeDetailsInput gkeServiceAccountName(String gkeServiceAccountName) {
-    
-    this.gkeServiceAccountName = gkeServiceAccountName;
-    return this;
-  }
-
-   /**
-   * Get gkeServiceAccountName
-   * @return gkeServiceAccountName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getGkeServiceAccountName() {
-    return gkeServiceAccountName;
-  }
-
-
-  public void setGkeServiceAccountName(String gkeServiceAccountName) {
-    this.gkeServiceAccountName = gkeServiceAccountName;
-  }
-
-
-  public TargetTypeDetailsInput host(String host) {
-    
-    this.host = host;
-    return this;
-  }
-
-   /**
-   * Get host
-   * @return host
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getHost() {
-    return host;
-  }
-
-
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-
-  public TargetTypeDetailsInput hostname(String hostname) {
-    
-    this.hostname = hostname;
-    return this;
-  }
-
-   /**
-   * Get hostname
-   * @return hostname
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getHostname() {
-    return hostname;
-  }
-
-
-  public void setHostname(String hostname) {
-    this.hostname = hostname;
-  }
-
-
-  public TargetTypeDetailsInput hosts(Map<String, String> hosts) {
-    
-    this.hosts = hosts;
-    return this;
-  }
-
-  public TargetTypeDetailsInput putHostsItem(String key, String hostsItem) {
-    if (this.hosts == null) {
-      this.hosts = new HashMap<String, String>();
-    }
-    this.hosts.put(key, hostsItem);
-    return this;
-  }
-
-   /**
-   * key hostname, value description
-   * @return hosts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "key hostname, value description")
-
-  public Map<String, String> getHosts() {
-    return hosts;
-  }
-
-
-  public void setHosts(Map<String, String> hosts) {
-    this.hosts = hosts;
-  }
-
-
-  public TargetTypeDetailsInput imapFqdn(String imapFqdn) {
-    
-    this.imapFqdn = imapFqdn;
-    return this;
-  }
-
-   /**
-   * Get imapFqdn
-   * @return imapFqdn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getImapFqdn() {
-    return imapFqdn;
-  }
-
-
-  public void setImapFqdn(String imapFqdn) {
-    this.imapFqdn = imapFqdn;
-  }
-
-
-  public TargetTypeDetailsInput imapPassword(String imapPassword) {
-    
-    this.imapPassword = imapPassword;
-    return this;
-  }
-
-   /**
-   * Get imapPassword
-   * @return imapPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getImapPassword() {
-    return imapPassword;
-  }
-
-
-  public void setImapPassword(String imapPassword) {
-    this.imapPassword = imapPassword;
-  }
-
-
-  public TargetTypeDetailsInput imapPort(String imapPort) {
-    
-    this.imapPort = imapPort;
-    return this;
-  }
-
-   /**
-   * Get imapPort
-   * @return imapPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getImapPort() {
-    return imapPort;
-  }
-
-
-  public void setImapPort(String imapPort) {
-    this.imapPort = imapPort;
-  }
-
-
-  public TargetTypeDetailsInput imapUser(String imapUser) {
-    
-    this.imapUser = imapUser;
-    return this;
-  }
-
-   /**
-   * Get imapUser
-   * @return imapUser
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getImapUser() {
-    return imapUser;
-  }
-
-
-  public void setImapUser(String imapUser) {
-    this.imapUser = imapUser;
-  }
-
-
-  public TargetTypeDetailsInput implementationType(String implementationType) {
-    
-    this.implementationType = implementationType;
-    return this;
-  }
-
-   /**
-   * Get implementationType
-   * @return implementationType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getImplementationType() {
-    return implementationType;
-  }
-
-
-  public void setImplementationType(String implementationType) {
-    this.implementationType = implementationType;
-  }
-
-
-  public TargetTypeDetailsInput k8sBearerToken(String k8sBearerToken) {
-    
-    this.k8sBearerToken = k8sBearerToken;
-    return this;
-  }
-
-   /**
-   * Get k8sBearerToken
-   * @return k8sBearerToken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getK8sBearerToken() {
-    return k8sBearerToken;
-  }
-
-
-  public void setK8sBearerToken(String k8sBearerToken) {
-    this.k8sBearerToken = k8sBearerToken;
-  }
-
-
-  public TargetTypeDetailsInput k8sClusterCaCertificate(String k8sClusterCaCertificate) {
-    
-    this.k8sClusterCaCertificate = k8sClusterCaCertificate;
-    return this;
-  }
-
-   /**
-   * Get k8sClusterCaCertificate
-   * @return k8sClusterCaCertificate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getK8sClusterCaCertificate() {
-    return k8sClusterCaCertificate;
-  }
-
-
-  public void setK8sClusterCaCertificate(String k8sClusterCaCertificate) {
-    this.k8sClusterCaCertificate = k8sClusterCaCertificate;
-  }
-
-
-  public TargetTypeDetailsInput k8sClusterEndpoint(String k8sClusterEndpoint) {
-    
-    this.k8sClusterEndpoint = k8sClusterEndpoint;
-    return this;
-  }
-
-   /**
-   * Get k8sClusterEndpoint
-   * @return k8sClusterEndpoint
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getK8sClusterEndpoint() {
-    return k8sClusterEndpoint;
-  }
-
-
-  public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
-    this.k8sClusterEndpoint = k8sClusterEndpoint;
-  }
-
-
-  public TargetTypeDetailsInput lastName(String lastName) {
-    
-    this.lastName = lastName;
-    return this;
-  }
-
-   /**
-   * Get lastName
-   * @return lastName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLastName() {
-    return lastName;
-  }
-
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-
-  public TargetTypeDetailsInput ldapAudience(String ldapAudience) {
-    
-    this.ldapAudience = ldapAudience;
-    return this;
-  }
-
-   /**
-   * Get ldapAudience
-   * @return ldapAudience
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapAudience() {
-    return ldapAudience;
-  }
-
-
-  public void setLdapAudience(String ldapAudience) {
-    this.ldapAudience = ldapAudience;
-  }
-
-
-  public TargetTypeDetailsInput ldapBindDn(String ldapBindDn) {
-    
-    this.ldapBindDn = ldapBindDn;
-    return this;
-  }
-
-   /**
-   * Get ldapBindDn
-   * @return ldapBindDn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapBindDn() {
-    return ldapBindDn;
-  }
-
-
-  public void setLdapBindDn(String ldapBindDn) {
-    this.ldapBindDn = ldapBindDn;
-  }
-
-
-  public TargetTypeDetailsInput ldapBindPassword(String ldapBindPassword) {
-    
-    this.ldapBindPassword = ldapBindPassword;
-    return this;
-  }
-
-   /**
-   * Get ldapBindPassword
-   * @return ldapBindPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapBindPassword() {
-    return ldapBindPassword;
-  }
-
-
-  public void setLdapBindPassword(String ldapBindPassword) {
-    this.ldapBindPassword = ldapBindPassword;
-  }
-
-
-  public TargetTypeDetailsInput ldapCertificate(String ldapCertificate) {
-    
-    this.ldapCertificate = ldapCertificate;
-    return this;
-  }
-
-   /**
-   * Get ldapCertificate
-   * @return ldapCertificate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapCertificate() {
-    return ldapCertificate;
-  }
-
-
-  public void setLdapCertificate(String ldapCertificate) {
-    this.ldapCertificate = ldapCertificate;
-  }
-
-
-  public TargetTypeDetailsInput ldapTokenExpiration(String ldapTokenExpiration) {
-    
-    this.ldapTokenExpiration = ldapTokenExpiration;
-    return this;
-  }
-
-   /**
-   * Get ldapTokenExpiration
-   * @return ldapTokenExpiration
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapTokenExpiration() {
-    return ldapTokenExpiration;
-  }
-
-
-  public void setLdapTokenExpiration(String ldapTokenExpiration) {
-    this.ldapTokenExpiration = ldapTokenExpiration;
-  }
-
-
-  public TargetTypeDetailsInput ldapUrl(String ldapUrl) {
-    
-    this.ldapUrl = ldapUrl;
-    return this;
-  }
-
-   /**
-   * Get ldapUrl
-   * @return ldapUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLdapUrl() {
-    return ldapUrl;
-  }
-
-
-  public void setLdapUrl(String ldapUrl) {
-    this.ldapUrl = ldapUrl;
-  }
-
-
-  public TargetTypeDetailsInput mongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
-    
-    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
-    return this;
-  }
-
-   /**
-   * Get mongodbAtlasApiPrivateKey
-   * @return mongodbAtlasApiPrivateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbAtlasApiPrivateKey() {
-    return mongodbAtlasApiPrivateKey;
-  }
-
-
-  public void setMongodbAtlasApiPrivateKey(String mongodbAtlasApiPrivateKey) {
-    this.mongodbAtlasApiPrivateKey = mongodbAtlasApiPrivateKey;
-  }
-
-
-  public TargetTypeDetailsInput mongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
-    
-    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
-    return this;
-  }
-
-   /**
-   * Get mongodbAtlasApiPublicKey
-   * @return mongodbAtlasApiPublicKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbAtlasApiPublicKey() {
-    return mongodbAtlasApiPublicKey;
-  }
-
-
-  public void setMongodbAtlasApiPublicKey(String mongodbAtlasApiPublicKey) {
-    this.mongodbAtlasApiPublicKey = mongodbAtlasApiPublicKey;
-  }
-
-
-  public TargetTypeDetailsInput mongodbAtlasProjectId(String mongodbAtlasProjectId) {
-    
-    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
-    return this;
-  }
-
-   /**
-   * mongodb atlas fields
-   * @return mongodbAtlasProjectId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "mongodb atlas fields")
-
-  public String getMongodbAtlasProjectId() {
-    return mongodbAtlasProjectId;
-  }
-
-
-  public void setMongodbAtlasProjectId(String mongodbAtlasProjectId) {
-    this.mongodbAtlasProjectId = mongodbAtlasProjectId;
-  }
-
-
-  public TargetTypeDetailsInput mongodbDbName(String mongodbDbName) {
-    
-    this.mongodbDbName = mongodbDbName;
-    return this;
-  }
-
-   /**
-   * common fields
-   * @return mongodbDbName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "common fields")
-
-  public String getMongodbDbName() {
-    return mongodbDbName;
-  }
-
-
-  public void setMongodbDbName(String mongodbDbName) {
-    this.mongodbDbName = mongodbDbName;
-  }
-
-
-  public TargetTypeDetailsInput mongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
-    
-    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
-    return this;
-  }
-
-   /**
-   * Get mongodbDefaultAuthDb
-   * @return mongodbDefaultAuthDb
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbDefaultAuthDb() {
-    return mongodbDefaultAuthDb;
-  }
-
-
-  public void setMongodbDefaultAuthDb(String mongodbDefaultAuthDb) {
-    this.mongodbDefaultAuthDb = mongodbDefaultAuthDb;
-  }
-
-
-  public TargetTypeDetailsInput mongodbHostPort(String mongodbHostPort) {
-    
-    this.mongodbHostPort = mongodbHostPort;
-    return this;
-  }
-
-   /**
-   * Get mongodbHostPort
-   * @return mongodbHostPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbHostPort() {
-    return mongodbHostPort;
-  }
-
-
-  public void setMongodbHostPort(String mongodbHostPort) {
-    this.mongodbHostPort = mongodbHostPort;
-  }
-
-
-  public TargetTypeDetailsInput mongodbIsAtlas(Boolean mongodbIsAtlas) {
-    
-    this.mongodbIsAtlas = mongodbIsAtlas;
-    return this;
-  }
-
-   /**
-   * Get mongodbIsAtlas
-   * @return mongodbIsAtlas
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getMongodbIsAtlas() {
-    return mongodbIsAtlas;
-  }
-
-
-  public void setMongodbIsAtlas(Boolean mongodbIsAtlas) {
-    this.mongodbIsAtlas = mongodbIsAtlas;
-  }
-
-
-  public TargetTypeDetailsInput mongodbPassword(String mongodbPassword) {
-    
-    this.mongodbPassword = mongodbPassword;
-    return this;
-  }
-
-   /**
-   * Get mongodbPassword
-   * @return mongodbPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbPassword() {
-    return mongodbPassword;
-  }
-
-
-  public void setMongodbPassword(String mongodbPassword) {
-    this.mongodbPassword = mongodbPassword;
-  }
-
-
-  public TargetTypeDetailsInput mongodbUriConnection(String mongodbUriConnection) {
-    
-    this.mongodbUriConnection = mongodbUriConnection;
-    return this;
-  }
-
-   /**
-   * mongodb fields
-   * @return mongodbUriConnection
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "mongodb fields")
-
-  public String getMongodbUriConnection() {
-    return mongodbUriConnection;
-  }
-
-
-  public void setMongodbUriConnection(String mongodbUriConnection) {
-    this.mongodbUriConnection = mongodbUriConnection;
-  }
-
-
-  public TargetTypeDetailsInput mongodbUriOptions(String mongodbUriOptions) {
-    
-    this.mongodbUriOptions = mongodbUriOptions;
-    return this;
-  }
-
-   /**
-   * Get mongodbUriOptions
-   * @return mongodbUriOptions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbUriOptions() {
-    return mongodbUriOptions;
-  }
-
-
-  public void setMongodbUriOptions(String mongodbUriOptions) {
-    this.mongodbUriOptions = mongodbUriOptions;
-  }
-
-
-  public TargetTypeDetailsInput mongodbUsername(String mongodbUsername) {
-    
-    this.mongodbUsername = mongodbUsername;
-    return this;
-  }
-
-   /**
-   * Get mongodbUsername
-   * @return mongodbUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMongodbUsername() {
-    return mongodbUsername;
-  }
-
-
-  public void setMongodbUsername(String mongodbUsername) {
-    this.mongodbUsername = mongodbUsername;
-  }
-
-
-  public TargetTypeDetailsInput password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Get password
-   * @return password
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPassword() {
-    return password;
-  }
-
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-
-  public TargetTypeDetailsInput payload(String payload) {
-    
-    this.payload = payload;
-    return this;
-  }
-
-   /**
-   * Get payload
-   * @return payload
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPayload() {
-    return payload;
-  }
-
-
-  public void setPayload(String payload) {
-    this.payload = payload;
-  }
-
-
-  public TargetTypeDetailsInput phone(String phone) {
-    
-    this.phone = phone;
-    return this;
-  }
-
-   /**
-   * Get phone
-   * @return phone
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPhone() {
-    return phone;
-  }
-
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public TargetTypeDetailsInput pingUrl(String pingUrl) {
-    
-    this.pingUrl = pingUrl;
-    return this;
-  }
-
-   /**
-   * Get pingUrl
-   * @return pingUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPingUrl() {
-    return pingUrl;
-  }
-
-
-  public void setPingUrl(String pingUrl) {
-    this.pingUrl = pingUrl;
-  }
-
-
-  public TargetTypeDetailsInput port(String port) {
-    
-    this.port = port;
-    return this;
-  }
-
-   /**
-   * Get port
-   * @return port
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPort() {
-    return port;
-  }
-
-
-  public void setPort(String port) {
-    this.port = port;
-  }
-
-
-  public TargetTypeDetailsInput privateKey(String privateKey) {
-    
-    this.privateKey = privateKey;
-    return this;
-  }
-
-   /**
-   * Get privateKey
-   * @return privateKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPrivateKey() {
-    return privateKey;
-  }
-
-
-  public void setPrivateKey(String privateKey) {
-    this.privateKey = privateKey;
-  }
-
-
-  public TargetTypeDetailsInput privateKeyPassword(String privateKeyPassword) {
-    
-    this.privateKeyPassword = privateKeyPassword;
-    return this;
-  }
-
-   /**
-   * Get privateKeyPassword
-   * @return privateKeyPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getPrivateKeyPassword() {
-    return privateKeyPassword;
-  }
-
-
-  public void setPrivateKeyPassword(String privateKeyPassword) {
-    this.privateKeyPassword = privateKeyPassword;
-  }
-
-
-  public TargetTypeDetailsInput privilegedUser(String privilegedUser) {
-    
-    this.privilegedUser = privilegedUser;
-    return this;
-  }
-
    /**
-   * Get privilegedUser
-   * @return privilegedUser
+   * Get azureTargetDetails
+   * @return azureTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getPrivilegedUser() {
-    return privilegedUser;
+  public AzureTargetDetails getAzureTargetDetails() {
+    return azureTargetDetails;
   }
 
 
-  public void setPrivilegedUser(String privilegedUser) {
-    this.privilegedUser = privilegedUser;
+  public void setAzureTargetDetails(AzureTargetDetails azureTargetDetails) {
+    this.azureTargetDetails = azureTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput profileId(String profileId) {
+  public TargetTypeDetailsInput chefTargetDetails(ChefTargetDetails chefTargetDetails) {
     
-    this.profileId = profileId;
+    this.chefTargetDetails = chefTargetDetails;
     return this;
   }
 
    /**
-   * Get profileId
-   * @return profileId
+   * Get chefTargetDetails
+   * @return chefTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getProfileId() {
-    return profileId;
+  public ChefTargetDetails getChefTargetDetails() {
+    return chefTargetDetails;
   }
 
 
-  public void setProfileId(String profileId) {
-    this.profileId = profileId;
+  public void setChefTargetDetails(ChefTargetDetails chefTargetDetails) {
+    this.chefTargetDetails = chefTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput rabbitmqServerPassword(String rabbitmqServerPassword) {
+  public TargetTypeDetailsInput customTargetDetails(CustomTargetDetails customTargetDetails) {
     
-    this.rabbitmqServerPassword = rabbitmqServerPassword;
+    this.customTargetDetails = customTargetDetails;
     return this;
   }
 
    /**
-   * Get rabbitmqServerPassword
-   * @return rabbitmqServerPassword
+   * Get customTargetDetails
+   * @return customTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRabbitmqServerPassword() {
-    return rabbitmqServerPassword;
+  public CustomTargetDetails getCustomTargetDetails() {
+    return customTargetDetails;
   }
 
 
-  public void setRabbitmqServerPassword(String rabbitmqServerPassword) {
-    this.rabbitmqServerPassword = rabbitmqServerPassword;
+  public void setCustomTargetDetails(CustomTargetDetails customTargetDetails) {
+    this.customTargetDetails = customTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput rabbitmqServerUri(String rabbitmqServerUri) {
+  public TargetTypeDetailsInput dbTargetDetails(DbTargetDetails dbTargetDetails) {
     
-    this.rabbitmqServerUri = rabbitmqServerUri;
+    this.dbTargetDetails = dbTargetDetails;
     return this;
   }
 
    /**
-   * Get rabbitmqServerUri
-   * @return rabbitmqServerUri
+   * Get dbTargetDetails
+   * @return dbTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRabbitmqServerUri() {
-    return rabbitmqServerUri;
+  public DbTargetDetails getDbTargetDetails() {
+    return dbTargetDetails;
   }
 
 
-  public void setRabbitmqServerUri(String rabbitmqServerUri) {
-    this.rabbitmqServerUri = rabbitmqServerUri;
+  public void setDbTargetDetails(DbTargetDetails dbTargetDetails) {
+    this.dbTargetDetails = dbTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput rabbitmqServerUser(String rabbitmqServerUser) {
+  public TargetTypeDetailsInput dockerhubTargetDetails(DockerhubTargetDetails dockerhubTargetDetails) {
     
-    this.rabbitmqServerUser = rabbitmqServerUser;
+    this.dockerhubTargetDetails = dockerhubTargetDetails;
     return this;
   }
 
    /**
-   * Get rabbitmqServerUser
-   * @return rabbitmqServerUser
+   * Get dockerhubTargetDetails
+   * @return dockerhubTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRabbitmqServerUser() {
-    return rabbitmqServerUser;
+  public DockerhubTargetDetails getDockerhubTargetDetails() {
+    return dockerhubTargetDetails;
   }
 
 
-  public void setRabbitmqServerUser(String rabbitmqServerUser) {
-    this.rabbitmqServerUser = rabbitmqServerUser;
+  public void setDockerhubTargetDetails(DockerhubTargetDetails dockerhubTargetDetails) {
+    this.dockerhubTargetDetails = dockerhubTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput securityToken(String securityToken) {
+  public TargetTypeDetailsInput eksTargetDetails(EKSTargetDetails eksTargetDetails) {
     
-    this.securityToken = securityToken;
+    this.eksTargetDetails = eksTargetDetails;
     return this;
   }
 
    /**
-   * Get securityToken
-   * @return securityToken
+   * Get eksTargetDetails
+   * @return eksTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSecurityToken() {
-    return securityToken;
+  public EKSTargetDetails getEksTargetDetails() {
+    return eksTargetDetails;
   }
 
 
-  public void setSecurityToken(String securityToken) {
-    this.securityToken = securityToken;
+  public void setEksTargetDetails(EKSTargetDetails eksTargetDetails) {
+    this.eksTargetDetails = eksTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput sfAccount(String sfAccount) {
+  public TargetTypeDetailsInput gcpTargetDetails(GcpTargetDetails gcpTargetDetails) {
     
-    this.sfAccount = sfAccount;
+    this.gcpTargetDetails = gcpTargetDetails;
     return this;
   }
 
    /**
-   * Get sfAccount
-   * @return sfAccount
+   * Get gcpTargetDetails
+   * @return gcpTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-
-  public String getSfAccount() {
-    return sfAccount;
-  }
-
-
-  public void setSfAccount(String sfAccount) {
-    this.sfAccount = sfAccount;
-  }
 
-
-  public TargetTypeDetailsInput sslConnectionCertificate(String sslConnectionCertificate) {
-    
-    this.sslConnectionCertificate = sslConnectionCertificate;
-    return this;
-  }
-
-   /**
-   * (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field
-   * @return sslConnectionCertificate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field")
-
-  public String getSslConnectionCertificate() {
-    return sslConnectionCertificate;
-  }
-
-
-  public void setSslConnectionCertificate(String sslConnectionCertificate) {
-    this.sslConnectionCertificate = sslConnectionCertificate;
-  }
-
-
-  public TargetTypeDetailsInput sslConnectionMode(Boolean sslConnectionMode) {
-    
-    this.sslConnectionMode = sslConnectionMode;
-    return this;
-  }
-
-   /**
-   * (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB
-   * @return sslConnectionMode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB")
-
-  public Boolean getSslConnectionMode() {
-    return sslConnectionMode;
+  public GcpTargetDetails getGcpTargetDetails() {
+    return gcpTargetDetails;
   }
 
 
-  public void setSslConnectionMode(Boolean sslConnectionMode) {
-    this.sslConnectionMode = sslConnectionMode;
+  public void setGcpTargetDetails(GcpTargetDetails gcpTargetDetails) {
+    this.gcpTargetDetails = gcpTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput tenantUrl(String tenantUrl) {
+  public TargetTypeDetailsInput githubTargetDetails(GithubTargetDetails githubTargetDetails) {
     
-    this.tenantUrl = tenantUrl;
+    this.githubTargetDetails = githubTargetDetails;
     return this;
   }
 
    /**
-   * Get tenantUrl
-   * @return tenantUrl
+   * Get githubTargetDetails
+   * @return githubTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-
-  public String getTenantUrl() {
-    return tenantUrl;
-  }
-
-
-  public void setTenantUrl(String tenantUrl) {
-    this.tenantUrl = tenantUrl;
-  }
-
-
-  public TargetTypeDetailsInput timeout(Long timeout) {
-    
-    this.timeout = timeout;
-    return this;
-  }
-
-   /**
-   * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
-   * @return timeout
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.")
 
-  public Long getTimeout() {
-    return timeout;
+  public GithubTargetDetails getGithubTargetDetails() {
+    return githubTargetDetails;
   }
 
 
-  public void setTimeout(Long timeout) {
-    this.timeout = timeout;
+  public void setGithubTargetDetails(GithubTargetDetails githubTargetDetails) {
+    this.githubTargetDetails = githubTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput url(String url) {
+  public TargetTypeDetailsInput gkeTargetDetails(GKETargetDetails gkeTargetDetails) {
     
-    this.url = url;
+    this.gkeTargetDetails = gkeTargetDetails;
     return this;
   }
 
    /**
-   * Get url
-   * @return url
+   * Get gkeTargetDetails
+   * @return gkeTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getUrl() {
-    return url;
+  public GKETargetDetails getGkeTargetDetails() {
+    return gkeTargetDetails;
   }
 
 
-  public void setUrl(String url) {
-    this.url = url;
+  public void setGkeTargetDetails(GKETargetDetails gkeTargetDetails) {
+    this.gkeTargetDetails = gkeTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput useGwCloudIdentity(Boolean useGwCloudIdentity) {
+  public TargetTypeDetailsInput globalsignAtlasTargetDetails(GlobalSignAtlasTargetDetails globalsignAtlasTargetDetails) {
     
-    this.useGwCloudIdentity = useGwCloudIdentity;
+    this.globalsignAtlasTargetDetails = globalsignAtlasTargetDetails;
     return this;
   }
 
    /**
-   * Get useGwCloudIdentity
-   * @return useGwCloudIdentity
+   * Get globalsignAtlasTargetDetails
+   * @return globalsignAtlasTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getUseGwCloudIdentity() {
-    return useGwCloudIdentity;
+  public GlobalSignAtlasTargetDetails getGlobalsignAtlasTargetDetails() {
+    return globalsignAtlasTargetDetails;
   }
 
 
-  public void setUseGwCloudIdentity(Boolean useGwCloudIdentity) {
-    this.useGwCloudIdentity = useGwCloudIdentity;
+  public void setGlobalsignAtlasTargetDetails(GlobalSignAtlasTargetDetails globalsignAtlasTargetDetails) {
+    this.globalsignAtlasTargetDetails = globalsignAtlasTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput useGwServiceAccount(Boolean useGwServiceAccount) {
+  public TargetTypeDetailsInput globalsignTargetDetails(GlobalSignGCCTargetDetails globalsignTargetDetails) {
     
-    this.useGwServiceAccount = useGwServiceAccount;
+    this.globalsignTargetDetails = globalsignTargetDetails;
     return this;
   }
 
    /**
-   * Get useGwServiceAccount
-   * @return useGwServiceAccount
+   * Get globalsignTargetDetails
+   * @return globalsignTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getUseGwServiceAccount() {
-    return useGwServiceAccount;
+  public GlobalSignGCCTargetDetails getGlobalsignTargetDetails() {
+    return globalsignTargetDetails;
   }
 
 
-  public void setUseGwServiceAccount(Boolean useGwServiceAccount) {
-    this.useGwServiceAccount = useGwServiceAccount;
+  public void setGlobalsignTargetDetails(GlobalSignGCCTargetDetails globalsignTargetDetails) {
+    this.globalsignTargetDetails = globalsignTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput useTls(Boolean useTls) {
+  public TargetTypeDetailsInput ldapTargetDetails(LdapTargetDetails ldapTargetDetails) {
     
-    this.useTls = useTls;
+    this.ldapTargetDetails = ldapTargetDetails;
     return this;
   }
 
    /**
-   * Get useTls
-   * @return useTls
+   * Get ldapTargetDetails
+   * @return ldapTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getUseTls() {
-    return useTls;
+  public LdapTargetDetails getLdapTargetDetails() {
+    return ldapTargetDetails;
   }
 
 
-  public void setUseTls(Boolean useTls) {
-    this.useTls = useTls;
+  public void setLdapTargetDetails(LdapTargetDetails ldapTargetDetails) {
+    this.ldapTargetDetails = ldapTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput userName(String userName) {
+  public TargetTypeDetailsInput linkedTargetDetails(LinkedTargetDetails linkedTargetDetails) {
     
-    this.userName = userName;
+    this.linkedTargetDetails = linkedTargetDetails;
     return this;
   }
 
    /**
-   * Get userName
-   * @return userName
+   * Get linkedTargetDetails
+   * @return linkedTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getUserName() {
-    return userName;
+  public LinkedTargetDetails getLinkedTargetDetails() {
+    return linkedTargetDetails;
   }
 
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setLinkedTargetDetails(LinkedTargetDetails linkedTargetDetails) {
+    this.linkedTargetDetails = linkedTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput userPassword(String userPassword) {
+  public TargetTypeDetailsInput mongoDbTargetDetails(MongoDBTargetDetails mongoDbTargetDetails) {
     
-    this.userPassword = userPassword;
+    this.mongoDbTargetDetails = mongoDbTargetDetails;
     return this;
   }
 
    /**
-   * Get userPassword
-   * @return userPassword
+   * Get mongoDbTargetDetails
+   * @return mongoDbTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getUserPassword() {
-    return userPassword;
+  public MongoDBTargetDetails getMongoDbTargetDetails() {
+    return mongoDbTargetDetails;
   }
 
 
-  public void setUserPassword(String userPassword) {
-    this.userPassword = userPassword;
+  public void setMongoDbTargetDetails(MongoDBTargetDetails mongoDbTargetDetails) {
+    this.mongoDbTargetDetails = mongoDbTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput username(String username) {
+  public TargetTypeDetailsInput nativeK8sTargetDetails(NativeK8sTargetDetails nativeK8sTargetDetails) {
     
-    this.username = username;
+    this.nativeK8sTargetDetails = nativeK8sTargetDetails;
     return this;
   }
 
    /**
-   * Get username
-   * @return username
+   * Get nativeK8sTargetDetails
+   * @return nativeK8sTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getUsername() {
-    return username;
+  public NativeK8sTargetDetails getNativeK8sTargetDetails() {
+    return nativeK8sTargetDetails;
   }
 
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setNativeK8sTargetDetails(NativeK8sTargetDetails nativeK8sTargetDetails) {
+    this.nativeK8sTargetDetails = nativeK8sTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput validationEmail(String validationEmail) {
+  public TargetTypeDetailsInput pingTargetDetails(PingTargetDetails pingTargetDetails) {
     
-    this.validationEmail = validationEmail;
+    this.pingTargetDetails = pingTargetDetails;
     return this;
   }
 
    /**
-   * Get validationEmail
-   * @return validationEmail
+   * Get pingTargetDetails
+   * @return pingTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getValidationEmail() {
-    return validationEmail;
+  public PingTargetDetails getPingTargetDetails() {
+    return pingTargetDetails;
   }
 
 
-  public void setValidationEmail(String validationEmail) {
-    this.validationEmail = validationEmail;
+  public void setPingTargetDetails(PingTargetDetails pingTargetDetails) {
+    this.pingTargetDetails = pingTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiApiKey(String venafiApiKey) {
+  public TargetTypeDetailsInput rabbitMqTargetDetails(RabbitMQTargetDetails rabbitMqTargetDetails) {
     
-    this.venafiApiKey = venafiApiKey;
+    this.rabbitMqTargetDetails = rabbitMqTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiApiKey
-   * @return venafiApiKey
+   * Get rabbitMqTargetDetails
+   * @return rabbitMqTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getVenafiApiKey() {
-    return venafiApiKey;
+  public RabbitMQTargetDetails getRabbitMqTargetDetails() {
+    return rabbitMqTargetDetails;
   }
 
 
-  public void setVenafiApiKey(String venafiApiKey) {
-    this.venafiApiKey = venafiApiKey;
+  public void setRabbitMqTargetDetails(RabbitMQTargetDetails rabbitMqTargetDetails) {
+    this.rabbitMqTargetDetails = rabbitMqTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiBaseUrl(String venafiBaseUrl) {
+  public TargetTypeDetailsInput salesforceTargetDetails(SalesforceTargetDetails salesforceTargetDetails) {
     
-    this.venafiBaseUrl = venafiBaseUrl;
+    this.salesforceTargetDetails = salesforceTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiBaseUrl
-   * @return venafiBaseUrl
+   * Get salesforceTargetDetails
+   * @return salesforceTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getVenafiBaseUrl() {
-    return venafiBaseUrl;
+  public SalesforceTargetDetails getSalesforceTargetDetails() {
+    return salesforceTargetDetails;
   }
 
 
-  public void setVenafiBaseUrl(String venafiBaseUrl) {
-    this.venafiBaseUrl = venafiBaseUrl;
+  public void setSalesforceTargetDetails(SalesforceTargetDetails salesforceTargetDetails) {
+    this.salesforceTargetDetails = salesforceTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiTppAccessToken(String venafiTppAccessToken) {
+  public TargetTypeDetailsInput sshTargetDetails(SSHTargetDetails sshTargetDetails) {
     
-    this.venafiTppAccessToken = venafiTppAccessToken;
+    this.sshTargetDetails = sshTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiTppAccessToken
-   * @return venafiTppAccessToken
+   * Get sshTargetDetails
+   * @return sshTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getVenafiTppAccessToken() {
-    return venafiTppAccessToken;
+  public SSHTargetDetails getSshTargetDetails() {
+    return sshTargetDetails;
   }
 
 
-  public void setVenafiTppAccessToken(String venafiTppAccessToken) {
-    this.venafiTppAccessToken = venafiTppAccessToken;
+  public void setSshTargetDetails(SSHTargetDetails sshTargetDetails) {
+    this.sshTargetDetails = sshTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiTppClientId(String venafiTppClientId) {
+  public TargetTypeDetailsInput venafiTargetDetails(VenafiTargetDetails venafiTargetDetails) {
     
-    this.venafiTppClientId = venafiTppClientId;
+    this.venafiTargetDetails = venafiTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiTppClientId
-   * @return venafiTppClientId
+   * Get venafiTargetDetails
+   * @return venafiTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-
-  public String getVenafiTppClientId() {
-    return venafiTppClientId;
-  }
-
-
-  public void setVenafiTppClientId(String venafiTppClientId) {
-    this.venafiTppClientId = venafiTppClientId;
-  }
-
-
-  public TargetTypeDetailsInput venafiTppPassword(String venafiTppPassword) {
-    
-    this.venafiTppPassword = venafiTppPassword;
-    return this;
-  }
-
-   /**
-   * Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead
-   * @return venafiTppPassword
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead")
 
-  public String getVenafiTppPassword() {
-    return venafiTppPassword;
+  public VenafiTargetDetails getVenafiTargetDetails() {
+    return venafiTargetDetails;
   }
 
 
-  public void setVenafiTppPassword(String venafiTppPassword) {
-    this.venafiTppPassword = venafiTppPassword;
+  public void setVenafiTargetDetails(VenafiTargetDetails venafiTargetDetails) {
+    this.venafiTargetDetails = venafiTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiTppRefreshToken(String venafiTppRefreshToken) {
+  public TargetTypeDetailsInput webTargetDetails(WebTargetDetails webTargetDetails) {
     
-    this.venafiTppRefreshToken = venafiTppRefreshToken;
+    this.webTargetDetails = webTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiTppRefreshToken
-   * @return venafiTppRefreshToken
+   * Get webTargetDetails
+   * @return webTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-
-  public String getVenafiTppRefreshToken() {
-    return venafiTppRefreshToken;
-  }
-
-
-  public void setVenafiTppRefreshToken(String venafiTppRefreshToken) {
-    this.venafiTppRefreshToken = venafiTppRefreshToken;
-  }
-
-
-  public TargetTypeDetailsInput venafiTppUsername(String venafiTppUsername) {
-    
-    this.venafiTppUsername = venafiTppUsername;
-    return this;
-  }
-
-   /**
-   * Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead
-   * @return venafiTppUsername
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated: VenafiAccessToken and VenafiRefreshToken should be used instead")
 
-  public String getVenafiTppUsername() {
-    return venafiTppUsername;
+  public WebTargetDetails getWebTargetDetails() {
+    return webTargetDetails;
   }
 
 
-  public void setVenafiTppUsername(String venafiTppUsername) {
-    this.venafiTppUsername = venafiTppUsername;
+  public void setWebTargetDetails(WebTargetDetails webTargetDetails) {
+    this.webTargetDetails = webTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiUseTpp(Boolean venafiUseTpp) {
+  public TargetTypeDetailsInput windowsTargetDetails(WindowsTargetDetails windowsTargetDetails) {
     
-    this.venafiUseTpp = venafiUseTpp;
+    this.windowsTargetDetails = windowsTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiUseTpp
-   * @return venafiUseTpp
+   * Get windowsTargetDetails
+   * @return windowsTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getVenafiUseTpp() {
-    return venafiUseTpp;
+  public WindowsTargetDetails getWindowsTargetDetails() {
+    return windowsTargetDetails;
   }
 
 
-  public void setVenafiUseTpp(Boolean venafiUseTpp) {
-    this.venafiUseTpp = venafiUseTpp;
+  public void setWindowsTargetDetails(WindowsTargetDetails windowsTargetDetails) {
+    this.windowsTargetDetails = windowsTargetDetails;
   }
 
 
-  public TargetTypeDetailsInput venafiZone(String venafiZone) {
+  public TargetTypeDetailsInput zerosslTargetDetails(ZeroSSLTargetDetails zerosslTargetDetails) {
     
-    this.venafiZone = venafiZone;
+    this.zerosslTargetDetails = zerosslTargetDetails;
     return this;
   }
 
    /**
-   * Get venafiZone
-   * @return venafiZone
+   * Get zerosslTargetDetails
+   * @return zerosslTargetDetails
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getVenafiZone() {
-    return venafiZone;
+  public ZeroSSLTargetDetails getZerosslTargetDetails() {
+    return zerosslTargetDetails;
   }
 
 
-  public void setVenafiZone(String venafiZone) {
-    this.venafiZone = venafiZone;
+  public void setZerosslTargetDetails(ZeroSSLTargetDetails zerosslTargetDetails) {
+    this.zerosslTargetDetails = zerosslTargetDetails;
   }
 
 
@@ -3363,261 +741,67 @@ public class TargetTypeDetailsInput {
       return false;
     }
     TargetTypeDetailsInput targetTypeDetailsInput = (TargetTypeDetailsInput) o;
-    return Objects.equals(this.administrativePort, targetTypeDetailsInput.administrativePort) &&
-        Objects.equals(this.apiKey, targetTypeDetailsInput.apiKey) &&
-        Objects.equals(this.appPrivateKey, targetTypeDetailsInput.appPrivateKey) &&
-        Objects.equals(this.artifactoryAdminApikey, targetTypeDetailsInput.artifactoryAdminApikey) &&
-        Objects.equals(this.artifactoryAdminUsername, targetTypeDetailsInput.artifactoryAdminUsername) &&
-        Objects.equals(this.artifactoryBaseUrl, targetTypeDetailsInput.artifactoryBaseUrl) &&
-        Objects.equals(this.authFlow, targetTypeDetailsInput.authFlow) &&
-        Objects.equals(this.authorizationPort, targetTypeDetailsInput.authorizationPort) &&
-        Objects.equals(this.awsAccessKeyId, targetTypeDetailsInput.awsAccessKeyId) &&
-        Objects.equals(this.awsRegion, targetTypeDetailsInput.awsRegion) &&
-        Objects.equals(this.awsSecretAccessKey, targetTypeDetailsInput.awsSecretAccessKey) &&
-        Objects.equals(this.awsSessionToken, targetTypeDetailsInput.awsSessionToken) &&
-        Objects.equals(this.azureClientId, targetTypeDetailsInput.azureClientId) &&
-        Objects.equals(this.azureClientSecret, targetTypeDetailsInput.azureClientSecret) &&
-        Objects.equals(this.azureResourceGroupName, targetTypeDetailsInput.azureResourceGroupName) &&
-        Objects.equals(this.azureResourceName, targetTypeDetailsInput.azureResourceName) &&
-        Objects.equals(this.azureSubscriptionId, targetTypeDetailsInput.azureSubscriptionId) &&
-        Objects.equals(this.azureTenantId, targetTypeDetailsInput.azureTenantId) &&
-        Objects.equals(this.caCertData, targetTypeDetailsInput.caCertData) &&
-        Objects.equals(this.caCertName, targetTypeDetailsInput.caCertName) &&
-        Objects.equals(this.certificate, targetTypeDetailsInput.certificate) &&
-        Objects.equals(this.chefServerHostName, targetTypeDetailsInput.chefServerHostName) &&
-        Objects.equals(this.chefServerKey, targetTypeDetailsInput.chefServerKey) &&
-        Objects.equals(this.chefServerPort, targetTypeDetailsInput.chefServerPort) &&
-        Objects.equals(this.chefServerUrl, targetTypeDetailsInput.chefServerUrl) &&
-        Objects.equals(this.chefServerUsername, targetTypeDetailsInput.chefServerUsername) &&
-        Objects.equals(this.chefSkipSsl, targetTypeDetailsInput.chefSkipSsl) &&
-        Objects.equals(this.clientId, targetTypeDetailsInput.clientId) &&
-        Objects.equals(this.clientSecret, targetTypeDetailsInput.clientSecret) &&
-        Objects.equals(this.dbHostName, targetTypeDetailsInput.dbHostName) &&
-        Objects.equals(this.dbName, targetTypeDetailsInput.dbName) &&
-        Objects.equals(this.dbPort, targetTypeDetailsInput.dbPort) &&
-        Objects.equals(this.dbPrivateKey, targetTypeDetailsInput.dbPrivateKey) &&
-        Objects.equals(this.dbPrivateKeyPassphrase, targetTypeDetailsInput.dbPrivateKeyPassphrase) &&
-        Objects.equals(this.dbPwd, targetTypeDetailsInput.dbPwd) &&
-        Objects.equals(this.dbServerCertificates, targetTypeDetailsInput.dbServerCertificates) &&
-        Objects.equals(this.dbServerName, targetTypeDetailsInput.dbServerName) &&
-        Objects.equals(this.dbUserName, targetTypeDetailsInput.dbUserName) &&
-        Objects.equals(this.domainName, targetTypeDetailsInput.domainName) &&
-        Objects.equals(this.eksAccessKeyId, targetTypeDetailsInput.eksAccessKeyId) &&
-        Objects.equals(this.eksClusterCaCertificate, targetTypeDetailsInput.eksClusterCaCertificate) &&
-        Objects.equals(this.eksClusterEndpoint, targetTypeDetailsInput.eksClusterEndpoint) &&
-        Objects.equals(this.eksClusterName, targetTypeDetailsInput.eksClusterName) &&
-        Objects.equals(this.eksRegion, targetTypeDetailsInput.eksRegion) &&
-        Objects.equals(this.eksSecretAccessKey, targetTypeDetailsInput.eksSecretAccessKey) &&
-        Objects.equals(this.email, targetTypeDetailsInput.email) &&
-        Objects.equals(this.firstName, targetTypeDetailsInput.firstName) &&
-        Objects.equals(this.gcpServiceAccountEmail, targetTypeDetailsInput.gcpServiceAccountEmail) &&
-        Objects.equals(this.gcpServiceAccountKey, targetTypeDetailsInput.gcpServiceAccountKey) &&
-        Objects.equals(this.gcpServiceAccountKeyBase64, targetTypeDetailsInput.gcpServiceAccountKeyBase64) &&
-        Objects.equals(this.githubAppId, targetTypeDetailsInput.githubAppId) &&
-        Objects.equals(this.githubAppPrivateKey, targetTypeDetailsInput.githubAppPrivateKey) &&
-        Objects.equals(this.githubBaseUrl, targetTypeDetailsInput.githubBaseUrl) &&
-        Objects.equals(this.gkeClusterCaCertificate, targetTypeDetailsInput.gkeClusterCaCertificate) &&
-        Objects.equals(this.gkeClusterEndpoint, targetTypeDetailsInput.gkeClusterEndpoint) &&
-        Objects.equals(this.gkeClusterName, targetTypeDetailsInput.gkeClusterName) &&
-        Objects.equals(this.gkeServiceAccountKey, targetTypeDetailsInput.gkeServiceAccountKey) &&
-        Objects.equals(this.gkeServiceAccountName, targetTypeDetailsInput.gkeServiceAccountName) &&
-        Objects.equals(this.host, targetTypeDetailsInput.host) &&
-        Objects.equals(this.hostname, targetTypeDetailsInput.hostname) &&
-        Objects.equals(this.hosts, targetTypeDetailsInput.hosts) &&
-        Objects.equals(this.imapFqdn, targetTypeDetailsInput.imapFqdn) &&
-        Objects.equals(this.imapPassword, targetTypeDetailsInput.imapPassword) &&
-        Objects.equals(this.imapPort, targetTypeDetailsInput.imapPort) &&
-        Objects.equals(this.imapUser, targetTypeDetailsInput.imapUser) &&
-        Objects.equals(this.implementationType, targetTypeDetailsInput.implementationType) &&
-        Objects.equals(this.k8sBearerToken, targetTypeDetailsInput.k8sBearerToken) &&
-        Objects.equals(this.k8sClusterCaCertificate, targetTypeDetailsInput.k8sClusterCaCertificate) &&
-        Objects.equals(this.k8sClusterEndpoint, targetTypeDetailsInput.k8sClusterEndpoint) &&
-        Objects.equals(this.lastName, targetTypeDetailsInput.lastName) &&
-        Objects.equals(this.ldapAudience, targetTypeDetailsInput.ldapAudience) &&
-        Objects.equals(this.ldapBindDn, targetTypeDetailsInput.ldapBindDn) &&
-        Objects.equals(this.ldapBindPassword, targetTypeDetailsInput.ldapBindPassword) &&
-        Objects.equals(this.ldapCertificate, targetTypeDetailsInput.ldapCertificate) &&
-        Objects.equals(this.ldapTokenExpiration, targetTypeDetailsInput.ldapTokenExpiration) &&
-        Objects.equals(this.ldapUrl, targetTypeDetailsInput.ldapUrl) &&
-        Objects.equals(this.mongodbAtlasApiPrivateKey, targetTypeDetailsInput.mongodbAtlasApiPrivateKey) &&
-        Objects.equals(this.mongodbAtlasApiPublicKey, targetTypeDetailsInput.mongodbAtlasApiPublicKey) &&
-        Objects.equals(this.mongodbAtlasProjectId, targetTypeDetailsInput.mongodbAtlasProjectId) &&
-        Objects.equals(this.mongodbDbName, targetTypeDetailsInput.mongodbDbName) &&
-        Objects.equals(this.mongodbDefaultAuthDb, targetTypeDetailsInput.mongodbDefaultAuthDb) &&
-        Objects.equals(this.mongodbHostPort, targetTypeDetailsInput.mongodbHostPort) &&
-        Objects.equals(this.mongodbIsAtlas, targetTypeDetailsInput.mongodbIsAtlas) &&
-        Objects.equals(this.mongodbPassword, targetTypeDetailsInput.mongodbPassword) &&
-        Objects.equals(this.mongodbUriConnection, targetTypeDetailsInput.mongodbUriConnection) &&
-        Objects.equals(this.mongodbUriOptions, targetTypeDetailsInput.mongodbUriOptions) &&
-        Objects.equals(this.mongodbUsername, targetTypeDetailsInput.mongodbUsername) &&
-        Objects.equals(this.password, targetTypeDetailsInput.password) &&
-        Objects.equals(this.payload, targetTypeDetailsInput.payload) &&
-        Objects.equals(this.phone, targetTypeDetailsInput.phone) &&
-        Objects.equals(this.pingUrl, targetTypeDetailsInput.pingUrl) &&
-        Objects.equals(this.port, targetTypeDetailsInput.port) &&
-        Objects.equals(this.privateKey, targetTypeDetailsInput.privateKey) &&
-        Objects.equals(this.privateKeyPassword, targetTypeDetailsInput.privateKeyPassword) &&
-        Objects.equals(this.privilegedUser, targetTypeDetailsInput.privilegedUser) &&
-        Objects.equals(this.profileId, targetTypeDetailsInput.profileId) &&
-        Objects.equals(this.rabbitmqServerPassword, targetTypeDetailsInput.rabbitmqServerPassword) &&
-        Objects.equals(this.rabbitmqServerUri, targetTypeDetailsInput.rabbitmqServerUri) &&
-        Objects.equals(this.rabbitmqServerUser, targetTypeDetailsInput.rabbitmqServerUser) &&
-        Objects.equals(this.securityToken, targetTypeDetailsInput.securityToken) &&
-        Objects.equals(this.sfAccount, targetTypeDetailsInput.sfAccount) &&
-        Objects.equals(this.sslConnectionCertificate, targetTypeDetailsInput.sslConnectionCertificate) &&
-        Objects.equals(this.sslConnectionMode, targetTypeDetailsInput.sslConnectionMode) &&
-        Objects.equals(this.tenantUrl, targetTypeDetailsInput.tenantUrl) &&
-        Objects.equals(this.timeout, targetTypeDetailsInput.timeout) &&
-        Objects.equals(this.url, targetTypeDetailsInput.url) &&
-        Objects.equals(this.useGwCloudIdentity, targetTypeDetailsInput.useGwCloudIdentity) &&
-        Objects.equals(this.useGwServiceAccount, targetTypeDetailsInput.useGwServiceAccount) &&
-        Objects.equals(this.useTls, targetTypeDetailsInput.useTls) &&
-        Objects.equals(this.userName, targetTypeDetailsInput.userName) &&
-        Objects.equals(this.userPassword, targetTypeDetailsInput.userPassword) &&
-        Objects.equals(this.username, targetTypeDetailsInput.username) &&
-        Objects.equals(this.validationEmail, targetTypeDetailsInput.validationEmail) &&
-        Objects.equals(this.venafiApiKey, targetTypeDetailsInput.venafiApiKey) &&
-        Objects.equals(this.venafiBaseUrl, targetTypeDetailsInput.venafiBaseUrl) &&
-        Objects.equals(this.venafiTppAccessToken, targetTypeDetailsInput.venafiTppAccessToken) &&
-        Objects.equals(this.venafiTppClientId, targetTypeDetailsInput.venafiTppClientId) &&
-        Objects.equals(this.venafiTppPassword, targetTypeDetailsInput.venafiTppPassword) &&
-        Objects.equals(this.venafiTppRefreshToken, targetTypeDetailsInput.venafiTppRefreshToken) &&
-        Objects.equals(this.venafiTppUsername, targetTypeDetailsInput.venafiTppUsername) &&
-        Objects.equals(this.venafiUseTpp, targetTypeDetailsInput.venafiUseTpp) &&
-        Objects.equals(this.venafiZone, targetTypeDetailsInput.venafiZone);
+    return Objects.equals(this.artifactoryTargetDetails, targetTypeDetailsInput.artifactoryTargetDetails) &&
+        Objects.equals(this.awsTargetDetails, targetTypeDetailsInput.awsTargetDetails) &&
+        Objects.equals(this.azureTargetDetails, targetTypeDetailsInput.azureTargetDetails) &&
+        Objects.equals(this.chefTargetDetails, targetTypeDetailsInput.chefTargetDetails) &&
+        Objects.equals(this.customTargetDetails, targetTypeDetailsInput.customTargetDetails) &&
+        Objects.equals(this.dbTargetDetails, targetTypeDetailsInput.dbTargetDetails) &&
+        Objects.equals(this.dockerhubTargetDetails, targetTypeDetailsInput.dockerhubTargetDetails) &&
+        Objects.equals(this.eksTargetDetails, targetTypeDetailsInput.eksTargetDetails) &&
+        Objects.equals(this.gcpTargetDetails, targetTypeDetailsInput.gcpTargetDetails) &&
+        Objects.equals(this.githubTargetDetails, targetTypeDetailsInput.githubTargetDetails) &&
+        Objects.equals(this.gkeTargetDetails, targetTypeDetailsInput.gkeTargetDetails) &&
+        Objects.equals(this.globalsignAtlasTargetDetails, targetTypeDetailsInput.globalsignAtlasTargetDetails) &&
+        Objects.equals(this.globalsignTargetDetails, targetTypeDetailsInput.globalsignTargetDetails) &&
+        Objects.equals(this.ldapTargetDetails, targetTypeDetailsInput.ldapTargetDetails) &&
+        Objects.equals(this.linkedTargetDetails, targetTypeDetailsInput.linkedTargetDetails) &&
+        Objects.equals(this.mongoDbTargetDetails, targetTypeDetailsInput.mongoDbTargetDetails) &&
+        Objects.equals(this.nativeK8sTargetDetails, targetTypeDetailsInput.nativeK8sTargetDetails) &&
+        Objects.equals(this.pingTargetDetails, targetTypeDetailsInput.pingTargetDetails) &&
+        Objects.equals(this.rabbitMqTargetDetails, targetTypeDetailsInput.rabbitMqTargetDetails) &&
+        Objects.equals(this.salesforceTargetDetails, targetTypeDetailsInput.salesforceTargetDetails) &&
+        Objects.equals(this.sshTargetDetails, targetTypeDetailsInput.sshTargetDetails) &&
+        Objects.equals(this.venafiTargetDetails, targetTypeDetailsInput.venafiTargetDetails) &&
+        Objects.equals(this.webTargetDetails, targetTypeDetailsInput.webTargetDetails) &&
+        Objects.equals(this.windowsTargetDetails, targetTypeDetailsInput.windowsTargetDetails) &&
+        Objects.equals(this.zerosslTargetDetails, targetTypeDetailsInput.zerosslTargetDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, apiKey, appPrivateKey, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, authFlow, authorizationPort, awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, caCertData, caCertName, certificate, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientId, clientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, domainName, eksAccessKeyId, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, email, firstName, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, githubAppId, githubAppPrivateKey, githubBaseUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, host, hostname, hosts, imapFqdn, imapPassword, imapPort, imapUser, implementationType, k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, lastName, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbUriConnection, mongodbUriOptions, mongodbUsername, password, payload, phone, pingUrl, port, privateKey, privateKeyPassword, privilegedUser, profileId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, securityToken, sfAccount, sslConnectionCertificate, sslConnectionMode, tenantUrl, timeout, url, useGwCloudIdentity, useGwServiceAccount, useTls, userName, userPassword, username, validationEmail, venafiApiKey, venafiBaseUrl, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetTypeDetailsInput {\n");
-    sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    appPrivateKey: ").append(toIndentedString(appPrivateKey)).append("\n");
-    sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
-    sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
-    sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");
-    sb.append("    authFlow: ").append(toIndentedString(authFlow)).append("\n");
-    sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
-    sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
-    sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
-    sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");
-    sb.append("    awsSessionToken: ").append(toIndentedString(awsSessionToken)).append("\n");
-    sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
-    sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
-    sb.append("    azureResourceGroupName: ").append(toIndentedString(azureResourceGroupName)).append("\n");
-    sb.append("    azureResourceName: ").append(toIndentedString(azureResourceName)).append("\n");
-    sb.append("    azureSubscriptionId: ").append(toIndentedString(azureSubscriptionId)).append("\n");
-    sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
-    sb.append("    caCertData: ").append(toIndentedString(caCertData)).append("\n");
-    sb.append("    caCertName: ").append(toIndentedString(caCertName)).append("\n");
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    chefServerHostName: ").append(toIndentedString(chefServerHostName)).append("\n");
-    sb.append("    chefServerKey: ").append(toIndentedString(chefServerKey)).append("\n");
-    sb.append("    chefServerPort: ").append(toIndentedString(chefServerPort)).append("\n");
-    sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
-    sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
-    sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
-    sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
-    sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
-    sb.append("    dbPort: ").append(toIndentedString(dbPort)).append("\n");
-    sb.append("    dbPrivateKey: ").append(toIndentedString(dbPrivateKey)).append("\n");
-    sb.append("    dbPrivateKeyPassphrase: ").append(toIndentedString(dbPrivateKeyPassphrase)).append("\n");
-    sb.append("    dbPwd: ").append(toIndentedString(dbPwd)).append("\n");
-    sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
-    sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
-    sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
-    sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
-    sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
-    sb.append("    eksClusterCaCertificate: ").append(toIndentedString(eksClusterCaCertificate)).append("\n");
-    sb.append("    eksClusterEndpoint: ").append(toIndentedString(eksClusterEndpoint)).append("\n");
-    sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
-    sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
-    sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
-    sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
-    sb.append("    gcpServiceAccountKeyBase64: ").append(toIndentedString(gcpServiceAccountKeyBase64)).append("\n");
-    sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
-    sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
-    sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
-    sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
-    sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
-    sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
-    sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
-    sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
-    sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
-    sb.append("    imapFqdn: ").append(toIndentedString(imapFqdn)).append("\n");
-    sb.append("    imapPassword: ").append(toIndentedString(imapPassword)).append("\n");
-    sb.append("    imapPort: ").append(toIndentedString(imapPort)).append("\n");
-    sb.append("    imapUser: ").append(toIndentedString(imapUser)).append("\n");
-    sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
-    sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
-    sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
-    sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    ldapAudience: ").append(toIndentedString(ldapAudience)).append("\n");
-    sb.append("    ldapBindDn: ").append(toIndentedString(ldapBindDn)).append("\n");
-    sb.append("    ldapBindPassword: ").append(toIndentedString(ldapBindPassword)).append("\n");
-    sb.append("    ldapCertificate: ").append(toIndentedString(ldapCertificate)).append("\n");
-    sb.append("    ldapTokenExpiration: ").append(toIndentedString(ldapTokenExpiration)).append("\n");
-    sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
-    sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
-    sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");
-    sb.append("    mongodbAtlasProjectId: ").append(toIndentedString(mongodbAtlasProjectId)).append("\n");
-    sb.append("    mongodbDbName: ").append(toIndentedString(mongodbDbName)).append("\n");
-    sb.append("    mongodbDefaultAuthDb: ").append(toIndentedString(mongodbDefaultAuthDb)).append("\n");
-    sb.append("    mongodbHostPort: ").append(toIndentedString(mongodbHostPort)).append("\n");
-    sb.append("    mongodbIsAtlas: ").append(toIndentedString(mongodbIsAtlas)).append("\n");
-    sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
-    sb.append("    mongodbUriConnection: ").append(toIndentedString(mongodbUriConnection)).append("\n");
-    sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
-    sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    pingUrl: ").append(toIndentedString(pingUrl)).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
-    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
-    sb.append("    privateKeyPassword: ").append(toIndentedString(privateKeyPassword)).append("\n");
-    sb.append("    privilegedUser: ").append(toIndentedString(privilegedUser)).append("\n");
-    sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
-    sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
-    sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
-    sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
-    sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
-    sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
-    sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
-    sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
-    sb.append("    tenantUrl: ").append(toIndentedString(tenantUrl)).append("\n");
-    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
-    sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
-    sb.append("    useTls: ").append(toIndentedString(useTls)).append("\n");
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-    sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    validationEmail: ").append(toIndentedString(validationEmail)).append("\n");
-    sb.append("    venafiApiKey: ").append(toIndentedString(venafiApiKey)).append("\n");
-    sb.append("    venafiBaseUrl: ").append(toIndentedString(venafiBaseUrl)).append("\n");
-    sb.append("    venafiTppAccessToken: ").append(toIndentedString(venafiTppAccessToken)).append("\n");
-    sb.append("    venafiTppClientId: ").append(toIndentedString(venafiTppClientId)).append("\n");
-    sb.append("    venafiTppPassword: ").append(toIndentedString(venafiTppPassword)).append("\n");
-    sb.append("    venafiTppRefreshToken: ").append(toIndentedString(venafiTppRefreshToken)).append("\n");
-    sb.append("    venafiTppUsername: ").append(toIndentedString(venafiTppUsername)).append("\n");
-    sb.append("    venafiUseTpp: ").append(toIndentedString(venafiUseTpp)).append("\n");
-    sb.append("    venafiZone: ").append(toIndentedString(venafiZone)).append("\n");
+    sb.append("    artifactoryTargetDetails: ").append(toIndentedString(artifactoryTargetDetails)).append("\n");
+    sb.append("    awsTargetDetails: ").append(toIndentedString(awsTargetDetails)).append("\n");
+    sb.append("    azureTargetDetails: ").append(toIndentedString(azureTargetDetails)).append("\n");
+    sb.append("    chefTargetDetails: ").append(toIndentedString(chefTargetDetails)).append("\n");
+    sb.append("    customTargetDetails: ").append(toIndentedString(customTargetDetails)).append("\n");
+    sb.append("    dbTargetDetails: ").append(toIndentedString(dbTargetDetails)).append("\n");
+    sb.append("    dockerhubTargetDetails: ").append(toIndentedString(dockerhubTargetDetails)).append("\n");
+    sb.append("    eksTargetDetails: ").append(toIndentedString(eksTargetDetails)).append("\n");
+    sb.append("    gcpTargetDetails: ").append(toIndentedString(gcpTargetDetails)).append("\n");
+    sb.append("    githubTargetDetails: ").append(toIndentedString(githubTargetDetails)).append("\n");
+    sb.append("    gkeTargetDetails: ").append(toIndentedString(gkeTargetDetails)).append("\n");
+    sb.append("    globalsignAtlasTargetDetails: ").append(toIndentedString(globalsignAtlasTargetDetails)).append("\n");
+    sb.append("    globalsignTargetDetails: ").append(toIndentedString(globalsignTargetDetails)).append("\n");
+    sb.append("    ldapTargetDetails: ").append(toIndentedString(ldapTargetDetails)).append("\n");
+    sb.append("    linkedTargetDetails: ").append(toIndentedString(linkedTargetDetails)).append("\n");
+    sb.append("    mongoDbTargetDetails: ").append(toIndentedString(mongoDbTargetDetails)).append("\n");
+    sb.append("    nativeK8sTargetDetails: ").append(toIndentedString(nativeK8sTargetDetails)).append("\n");
+    sb.append("    pingTargetDetails: ").append(toIndentedString(pingTargetDetails)).append("\n");
+    sb.append("    rabbitMqTargetDetails: ").append(toIndentedString(rabbitMqTargetDetails)).append("\n");
+    sb.append("    salesforceTargetDetails: ").append(toIndentedString(salesforceTargetDetails)).append("\n");
+    sb.append("    sshTargetDetails: ").append(toIndentedString(sshTargetDetails)).append("\n");
+    sb.append("    venafiTargetDetails: ").append(toIndentedString(venafiTargetDetails)).append("\n");
+    sb.append("    webTargetDetails: ").append(toIndentedString(webTargetDetails)).append("\n");
+    sb.append("    windowsTargetDetails: ").append(toIndentedString(windowsTargetDetails)).append("\n");
+    sb.append("    zerosslTargetDetails: ").append(toIndentedString(zerosslTargetDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

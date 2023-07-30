@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **adminPwd** | **String** | Workstation Admin password |  [optional]
 **comment** | **String** | Deprecated - use description |  [optional]
 **description** | **String** | Description of the object |  [optional]
-**emailTo** | **String** | A comma seperated list of email addresses to send event to (relevant only for \\\&quot;email\\\&quot; Event Forwarder) |  [optional]
+**emailTo** | **String** | A comma seperated list of email addresses to send event to (relevant only for \&quot;email\&quot; Event Forwarder) |  [optional]
 **eventSourceLocations** | **List&lt;String&gt;** | Event sources | 
-**eventSourceType** | **String** | Event Source type [item, target] |  [optional]
-**eventTypes** | **List&lt;String&gt;** | Event types |  [optional]
+**eventSourceType** | **String** | Event Source type [item, target, auth_method] |  [optional]
+**eventTypes** | **List&lt;String&gt;** | List of event types to notify about [request-access, certificate-pending-expiration, certificate-expired, auth-method-pending-expiration, auth-method-expired, rotated-secret-success, rotated-secret-failure, dynamic-secret-failure, multi-auth-failure] |  [optional]
 **every** | **String** | Rate of periodic runner repetition in hours |  [optional]
 **forwarderType** | **String** |  | 
 **host** | **String** | Workstation Host |  [optional]

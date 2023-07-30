@@ -61,10 +61,6 @@ public class GenerateCsr {
   @SerializedName(SERIALIZED_NAME_DEP)
   private String dep;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
   public static final String SERIALIZED_NAME_EMAIL_ADDRESSES = "email-addresses";
   @SerializedName(SERIALIZED_NAME_EMAIL_ADDRESSES)
   private String emailAddresses;
@@ -80,10 +76,6 @@ public class GenerateCsr {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
-
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private String metadata;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -142,11 +134,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The DNS Alternative Names to be included in the CSR certificate (in a comma-separated list)
+   * A comma-separated list of dns alternative names
    * @return altNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The DNS Alternative Names to be included in the CSR certificate (in a comma-separated list)")
+  @ApiModelProperty(value = "A comma-separated list of dns alternative names")
 
   public String getAltNames() {
     return altNames;
@@ -165,11 +157,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The certificateType to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)
+   * The certificate type to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)
    * @return certificateType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The certificateType to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)")
+  @ApiModelProperty(value = "The certificate type to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)")
 
   public String getCertificateType() {
     return certificateType;
@@ -211,11 +203,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The commonName to be included in the CSR certificate
+   * The common name to be included in the CSR certificate
    * @return commonName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The commonName to be included in the CSR certificate")
+  @ApiModelProperty(required = true, value = "The common name to be included in the CSR certificate")
 
   public String getCommonName() {
     return commonName;
@@ -296,29 +288,6 @@ public class GenerateCsr {
   }
 
 
-  public GenerateCsr description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Description of the object
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the object")
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
   public GenerateCsr emailAddresses(String emailAddresses) {
     
     this.emailAddresses = emailAddresses;
@@ -326,11 +295,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The email addresses Alternative Names to be included in the CSR certificate (in a comma-separated list)
+   * A comma-separated list of email addresses alternative names
    * @return emailAddresses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email addresses Alternative Names to be included in the CSR certificate (in a comma-separated list)")
+  @ApiModelProperty(value = "A comma-separated list of email addresses alternative names")
 
   public String getEmailAddresses() {
     return emailAddresses;
@@ -349,11 +318,11 @@ public class GenerateCsr {
   }
 
    /**
-   * Generate a new csr key
+   * Generate a new classic key for the csr
    * @return generateKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Generate a new csr key")
+  @ApiModelProperty(value = "Generate a new classic key for the csr")
 
   public Boolean getGenerateKey() {
     return generateKey;
@@ -372,11 +341,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The ip addresses Alternative Names to be included in the CSR certificate (in a comma-separated list)
+   * A comma-separated list of ip addresses alternative names
    * @return ipAddresses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ip addresses Alternative Names to be included in the CSR certificate (in a comma-separated list)")
+  @ApiModelProperty(value = "A comma-separated list of ip addresses alternative names")
 
   public String getIpAddresses() {
     return ipAddresses;
@@ -411,29 +380,6 @@ public class GenerateCsr {
   }
 
 
-  public GenerateCsr metadata(String metadata) {
-    
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * Deprecated - use description
-   * @return metadata
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated - use description")
-
-  public String getMetadata() {
-    return metadata;
-  }
-
-
-  public void setMetadata(String metadata) {
-    this.metadata = metadata;
-  }
-
-
   public GenerateCsr name(String name) {
     
     this.name = name;
@@ -441,11 +387,11 @@ public class GenerateCsr {
   }
 
    /**
-   * Key name in akeyless
+   * The classic key name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key name in akeyless")
+  @ApiModelProperty(required = true, value = "The classic key name")
 
   public String getName() {
     return name;
@@ -556,11 +502,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The URI Subject Alternative Names to be included in the CSR certificate (in a comma-separated list)
+   * A comma-separated list of uri alternative names
    * @return uriSans
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URI Subject Alternative Names to be included in the CSR certificate (in a comma-separated list)")
+  @ApiModelProperty(value = "A comma-separated list of uri alternative names")
 
   public String getUriSans() {
     return uriSans;
@@ -589,12 +535,10 @@ public class GenerateCsr {
         Objects.equals(this.country, generateCsr.country) &&
         Objects.equals(this.critical, generateCsr.critical) &&
         Objects.equals(this.dep, generateCsr.dep) &&
-        Objects.equals(this.description, generateCsr.description) &&
         Objects.equals(this.emailAddresses, generateCsr.emailAddresses) &&
         Objects.equals(this.generateKey, generateCsr.generateKey) &&
         Objects.equals(this.ipAddresses, generateCsr.ipAddresses) &&
         Objects.equals(this.json, generateCsr.json) &&
-        Objects.equals(this.metadata, generateCsr.metadata) &&
         Objects.equals(this.name, generateCsr.name) &&
         Objects.equals(this.org, generateCsr.org) &&
         Objects.equals(this.state, generateCsr.state) &&
@@ -605,7 +549,7 @@ public class GenerateCsr {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, description, emailAddresses, generateKey, ipAddresses, json, metadata, name, org, state, token, uidToken, uriSans);
+    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, generateKey, ipAddresses, json, name, org, state, token, uidToken, uriSans);
   }
 
   @Override
@@ -620,12 +564,10 @@ public class GenerateCsr {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
     sb.append("    dep: ").append(toIndentedString(dep)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailAddresses: ").append(toIndentedString(emailAddresses)).append("\n");
     sb.append("    generateKey: ").append(toIndentedString(generateKey)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    org: ").append(toIndentedString(org)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createGKETarget**](docs/V2Api.md#createGKETarget) | **POST** /create-gke-target | 
 *V2Api* | [**createGcpTarget**](docs/V2Api.md#createGcpTarget) | **POST** /create-gcp-target | 
 *V2Api* | [**createGithubTarget**](docs/V2Api.md#createGithubTarget) | **POST** /create-github-target | 
+*V2Api* | [**createGlobalSignAtlasTarget**](docs/V2Api.md#createGlobalSignAtlasTarget) | **POST** /create-globalsign-atlas-target | 
 *V2Api* | [**createGlobalSignTarget**](docs/V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
 *V2Api* | [**createKey**](docs/V2Api.md#createKey) | **POST** /create-key | 
 *V2Api* | [**createLinkedTarget**](docs/V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
@@ -360,6 +361,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateGKETarget**](docs/V2Api.md#updateGKETarget) | **POST** /update-gke-target | 
 *V2Api* | [**updateGcpTarget**](docs/V2Api.md#updateGcpTarget) | **POST** /update-gcp-target | 
 *V2Api* | [**updateGithubTarget**](docs/V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
+*V2Api* | [**updateGlobalSignAtlasTarget**](docs/V2Api.md#updateGlobalSignAtlasTarget) | **POST** /update-globalsign-atlas-target | 
 *V2Api* | [**updateGlobalSignTarget**](docs/V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
 *V2Api* | [**updateItem**](docs/V2Api.md#updateItem) | **POST** /update-item | 
 *V2Api* | [**updateLdapTarget**](docs/V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
@@ -400,6 +402,7 @@ Class | Method | HTTP request | Description
  - [AWSIAMAccessRules](docs/AWSIAMAccessRules.md)
  - [AWSPayload](docs/AWSPayload.md)
  - [AWSSecretsMigration](docs/AWSSecretsMigration.md)
+ - [AWSTargetDetails](docs/AWSTargetDetails.md)
  - [AccessPermissionAssignment](docs/AccessPermissionAssignment.md)
  - [AccountGeneralSettings](docs/AccountGeneralSettings.md)
  - [AccountObjectVersionSettingsOutput](docs/AccountObjectVersionSettingsOutput.md)
@@ -410,6 +413,7 @@ Class | Method | HTTP request | Description
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
  - [AllowedAccess](docs/AllowedAccess.md)
  - [AllowedAccessOld](docs/AllowedAccessOld.md)
+ - [ArtifactoryTargetDetails](docs/ArtifactoryTargetDetails.md)
  - [AssocRoleAuthMethod](docs/AssocRoleAuthMethod.md)
  - [AssocTargetItem](docs/AssocTargetItem.md)
  - [AttributeTypeAndValue](docs/AttributeTypeAndValue.md)
@@ -423,6 +427,7 @@ Class | Method | HTTP request | Description
  - [AzureKeyVaultMigration](docs/AzureKeyVaultMigration.md)
  - [AzureLogAnalyticsForwardingConfig](docs/AzureLogAnalyticsForwardingConfig.md)
  - [AzurePayload](docs/AzurePayload.md)
+ - [AzureTargetDetails](docs/AzureTargetDetails.md)
  - [BastionListEntry](docs/BastionListEntry.md)
  - [BastionsList](docs/BastionsList.md)
  - [CFConfigPart](docs/CFConfigPart.md)
@@ -433,6 +438,7 @@ Class | Method | HTTP request | Description
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
  - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
+ - [ChefTargetDetails](docs/ChefTargetDetails.md)
  - [ClassicKeyDetailsInfo](docs/ClassicKeyDetailsInfo.md)
  - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
  - [ClassicKeyTargetInfo](docs/ClassicKeyTargetInfo.md)
@@ -497,6 +503,8 @@ Class | Method | HTTP request | Description
  - [CreateGcpTargetOutput](docs/CreateGcpTargetOutput.md)
  - [CreateGithubTarget](docs/CreateGithubTarget.md)
  - [CreateGithubTargetOutput](docs/CreateGithubTargetOutput.md)
+ - [CreateGlobalSignAtlasTarget](docs/CreateGlobalSignAtlasTarget.md)
+ - [CreateGlobalSignAtlasTargetOutput](docs/CreateGlobalSignAtlasTargetOutput.md)
  - [CreateGlobalSignTarget](docs/CreateGlobalSignTarget.md)
  - [CreateGlobalSignTargetOutput](docs/CreateGlobalSignTargetOutput.md)
  - [CreateKey](docs/CreateKey.md)
@@ -534,12 +542,14 @@ Class | Method | HTTP request | Description
  - [CreateWindowsTargetOutput](docs/CreateWindowsTargetOutput.md)
  - [CreateZeroSSLTarget](docs/CreateZeroSSLTarget.md)
  - [CreateZeroSSLTargetOutput](docs/CreateZeroSSLTargetOutput.md)
+ - [CustomTargetDetails](docs/CustomTargetDetails.md)
  - [CustomerFragment](docs/CustomerFragment.md)
  - [CustomerFragmentsJson](docs/CustomerFragmentsJson.md)
  - [CustomerFullAddress](docs/CustomerFullAddress.md)
  - [DSProducerDetails](docs/DSProducerDetails.md)
  - [DataProtectionSection](docs/DataProtectionSection.md)
  - [DatadogForwardingConfig](docs/DatadogForwardingConfig.md)
+ - [DbTargetDetails](docs/DbTargetDetails.md)
  - [Decrypt](docs/Decrypt.md)
  - [DecryptFile](docs/DecryptFile.md)
  - [DecryptFileOutput](docs/DecryptFileOutput.md)
@@ -580,7 +590,9 @@ Class | Method | HTTP request | Description
  - [DescribeSubClaimsOutput](docs/DescribeSubClaimsOutput.md)
  - [Detokenize](docs/Detokenize.md)
  - [DetokenizeOutput](docs/DetokenizeOutput.md)
+ - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
  - [DynamicSecretProducerInfo](docs/DynamicSecretProducerInfo.md)
+ - [EKSTargetDetails](docs/EKSTargetDetails.md)
  - [ElasticsearchLogForwardingConfig](docs/ElasticsearchLogForwardingConfig.md)
  - [EmailEntry](docs/EmailEntry.md)
  - [EmailPassAccessRules](docs/EmailPassAccessRules.md)
@@ -611,6 +623,7 @@ Class | Method | HTTP request | Description
  - [GCPAccessRules](docs/GCPAccessRules.md)
  - [GCPPayload](docs/GCPPayload.md)
  - [GCPSecretsMigration](docs/GCPSecretsMigration.md)
+ - [GKETargetDetails](docs/GKETargetDetails.md)
  - [GatewayBasicInfo](docs/GatewayBasicInfo.md)
  - [GatewayCreateAllowedAccess](docs/GatewayCreateAllowedAccess.md)
  - [GatewayCreateK8SAuthConfig](docs/GatewayCreateK8SAuthConfig.md)
@@ -769,6 +782,7 @@ Class | Method | HTTP request | Description
  - [GatewayUpdateTlsCertOutput](docs/GatewayUpdateTlsCertOutput.md)
  - [GatewayUpdateTmpUsers](docs/GatewayUpdateTmpUsers.md)
  - [GatewaysListResponse](docs/GatewaysListResponse.md)
+ - [GcpTargetDetails](docs/GcpTargetDetails.md)
  - [GenCustomerFragment](docs/GenCustomerFragment.md)
  - [GeneralConfigPart](docs/GeneralConfigPart.md)
  - [GenerateCsr](docs/GenerateCsr.md)
@@ -797,6 +811,9 @@ Class | Method | HTTP request | Description
  - [GetTarget](docs/GetTarget.md)
  - [GetTargetDetails](docs/GetTargetDetails.md)
  - [GetTargetDetailsOutput](docs/GetTargetDetailsOutput.md)
+ - [GithubTargetDetails](docs/GithubTargetDetails.md)
+ - [GlobalSignAtlasTargetDetails](docs/GlobalSignAtlasTargetDetails.md)
+ - [GlobalSignGCCTargetDetails](docs/GlobalSignGCCTargetDetails.md)
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [HashiMigration](docs/HashiMigration.md)
@@ -848,8 +865,10 @@ Class | Method | HTTP request | Description
  - [LastConfigChange](docs/LastConfigChange.md)
  - [LastStatusInfo](docs/LastStatusInfo.md)
  - [LdapConfigPart](docs/LdapConfigPart.md)
+ - [LdapTargetDetails](docs/LdapTargetDetails.md)
  - [LeadershipConfigPart](docs/LeadershipConfigPart.md)
  - [LinkedDetails](docs/LinkedDetails.md)
+ - [LinkedTargetDetails](docs/LinkedTargetDetails.md)
  - [ListAuthMethods](docs/ListAuthMethods.md)
  - [ListAuthMethodsOutput](docs/ListAuthMethodsOutput.md)
  - [ListGateways](docs/ListGateways.md)
@@ -873,8 +892,10 @@ Class | Method | HTTP request | Description
  - [MigrationsConfigPart](docs/MigrationsConfigPart.md)
  - [MockMigration](docs/MockMigration.md)
  - [MockPayload](docs/MockPayload.md)
+ - [MongoDBTargetDetails](docs/MongoDBTargetDetails.md)
  - [MoveObjects](docs/MoveObjects.md)
  - [Name](docs/Name.md)
+ - [NativeK8sTargetDetails](docs/NativeK8sTargetDetails.md)
  - [NotiForwarder](docs/NotiForwarder.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
@@ -887,8 +908,10 @@ Class | Method | HTTP request | Description
  - [PKICertificateIssueDetails](docs/PKICertificateIssueDetails.md)
  - [PasswordPolicyInfo](docs/PasswordPolicyInfo.md)
  - [PathRule](docs/PathRule.md)
+ - [PingTargetDetails](docs/PingTargetDetails.md)
  - [Producer](docs/Producer.md)
  - [ProducersConfigPart](docs/ProducersConfigPart.md)
+ - [RabbitMQTargetDetails](docs/RabbitMQTargetDetails.md)
  - [RawCreds](docs/RawCreds.md)
  - [RefreshKey](docs/RefreshKey.md)
  - [RefreshKeyOutput](docs/RefreshKeyOutput.md)
@@ -917,6 +940,8 @@ Class | Method | HTTP request | Description
  - [SAMLAccessRules](docs/SAMLAccessRules.md)
  - [SAMLAttribute](docs/SAMLAttribute.md)
  - [SSHCertificateIssueDetails](docs/SSHCertificateIssueDetails.md)
+ - [SSHTargetDetails](docs/SSHTargetDetails.md)
+ - [SalesforceTargetDetails](docs/SalesforceTargetDetails.md)
  - [SecretInfo](docs/SecretInfo.md)
  - [SecureRemoteAccess](docs/SecureRemoteAccess.md)
  - [ServerInventoryMigration](docs/ServerInventoryMigration.md)
@@ -1006,6 +1031,8 @@ Class | Method | HTTP request | Description
  - [UpdateGcpTargetOutput](docs/UpdateGcpTargetOutput.md)
  - [UpdateGithubTarget](docs/UpdateGithubTarget.md)
  - [UpdateGithubTargetOutput](docs/UpdateGithubTargetOutput.md)
+ - [UpdateGlobalSignAtlasTarget](docs/UpdateGlobalSignAtlasTarget.md)
+ - [UpdateGlobalSignAtlasTargetOutput](docs/UpdateGlobalSignAtlasTargetOutput.md)
  - [UpdateGlobalSignTarget](docs/UpdateGlobalSignTarget.md)
  - [UpdateGlobalSignTargetOutput](docs/UpdateGlobalSignTargetOutput.md)
  - [UpdateItem](docs/UpdateItem.md)
@@ -1053,6 +1080,7 @@ Class | Method | HTTP request | Description
  - [ValidateToken](docs/ValidateToken.md)
  - [ValidateTokenOutput](docs/ValidateTokenOutput.md)
  - [VaultlessTokenizerInfo](docs/VaultlessTokenizerInfo.md)
+ - [VenafiTargetDetails](docs/VenafiTargetDetails.md)
  - [VerifyDataWithClassicKey](docs/VerifyDataWithClassicKey.md)
  - [VerifyGPG](docs/VerifyGPG.md)
  - [VerifyJWTOutput](docs/VerifyJWTOutput.md)
@@ -1060,6 +1088,9 @@ Class | Method | HTTP request | Description
  - [VerifyPKCS1](docs/VerifyPKCS1.md)
  - [VerifyPKICertOutput](docs/VerifyPKICertOutput.md)
  - [VerifyPKICertWithClassicKey](docs/VerifyPKICertWithClassicKey.md)
+ - [WebTargetDetails](docs/WebTargetDetails.md)
+ - [WindowsTargetDetails](docs/WindowsTargetDetails.md)
+ - [ZeroSSLTargetDetails](docs/ZeroSSLTargetDetails.md)
 
 
 ## Documentation for Authorization

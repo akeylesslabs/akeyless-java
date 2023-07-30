@@ -8,10 +8,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
+**autoPagination** | **String** | Retrieve all items using pagination, when disabled retrieving only first 1000 items |  [optional]
 **filter** | **String** | Filter by item name or part of it |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **minimalView** | **Boolean** |  |  [optional]
-**pagination** | **String** | Retrieve items with pagination |  [optional]
 **paginationToken** | **String** | Next page reference |  [optional]
 **path** | **String** | Path to folder |  [optional]
 **sraOnly** | **Boolean** | Filter by items with SRA functionality enabled |  [optional]

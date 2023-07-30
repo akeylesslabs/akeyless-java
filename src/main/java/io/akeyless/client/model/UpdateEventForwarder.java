@@ -139,11 +139,11 @@ public class UpdateEventForwarder {
   }
 
    /**
-   * A comma seperated list of email addresses to send event to (relevant only for \\\&quot;email\\\&quot; Event Forwarder)
+   * A comma seperated list of email addresses to send event to (relevant only for \&quot;email\&quot; Event Forwarder)
    * @return emailTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma seperated list of email addresses to send event to (relevant only for \\\"email\\\" Event Forwarder)")
+  @ApiModelProperty(value = "A comma seperated list of email addresses to send event to (relevant only for \"email\" Event Forwarder)")
 
   public String getEmailTo() {
     return emailTo;

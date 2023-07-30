@@ -49,6 +49,10 @@ public class DecryptPKCS1 {
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
+  public static final String SERIALIZED_NAME_OUTPUT_FORMAT = "output-format";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_FORMAT)
+  private String outputFormat;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -56,6 +60,10 @@ public class DecryptPKCS1 {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
   public DecryptPKCS1() { 
   }
@@ -175,6 +183,29 @@ public class DecryptPKCS1 {
   }
 
 
+  public DecryptPKCS1 outputFormat(String outputFormat) {
+    
+    this.outputFormat = outputFormat;
+    return this;
+  }
+
+   /**
+   * If specified, the output will be formatted accordingly. options: [base64]
+   * @return outputFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If specified, the output will be formatted accordingly. options: [base64]")
+
+  public String getOutputFormat() {
+    return outputFormat;
+  }
+
+
+  public void setOutputFormat(String outputFormat) {
+    this.outputFormat = outputFormat;
+  }
+
+
   public DecryptPKCS1 token(String token) {
     
     this.token = token;
@@ -221,6 +252,29 @@ public class DecryptPKCS1 {
   }
 
 
+  public DecryptPKCS1 version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * key version (relevant only for classic key)
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "key version (relevant only for classic key)")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -235,13 +289,15 @@ public class DecryptPKCS1 {
         Objects.equals(this.itemId, decryptPKCS1.itemId) &&
         Objects.equals(this.json, decryptPKCS1.json) &&
         Objects.equals(this.keyName, decryptPKCS1.keyName) &&
+        Objects.equals(this.outputFormat, decryptPKCS1.outputFormat) &&
         Objects.equals(this.token, decryptPKCS1.token) &&
-        Objects.equals(this.uidToken, decryptPKCS1.uidToken);
+        Objects.equals(this.uidToken, decryptPKCS1.uidToken) &&
+        Objects.equals(this.version, decryptPKCS1.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, itemId, json, keyName, token, uidToken);
+    return Objects.hash(ciphertext, displayId, itemId, json, keyName, outputFormat, token, uidToken, version);
   }
 
   @Override
@@ -253,8 +309,10 @@ public class DecryptPKCS1 {
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | For Password Management use |  [optional]
-**value** | **String** | The new secret value | 
+**value** | **String** | The secret value (only relevant for type &#39;generic&#39;) | 
 
 
 

@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **type** | **String** | The secret sub type [generic/password] |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | For Password Management use |  [optional]
-**value** | **String** | The secret value | 
+**value** | **String** | The secret value (only relevant for type &#39;generic&#39;) | 
 
 
 

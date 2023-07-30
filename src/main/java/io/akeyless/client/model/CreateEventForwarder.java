@@ -201,11 +201,11 @@ public class CreateEventForwarder {
   }
 
    /**
-   * A comma seperated list of email addresses to send event to (relevant only for \\\&quot;email\\\&quot; Event Forwarder)
+   * A comma seperated list of email addresses to send event to (relevant only for \&quot;email\&quot; Event Forwarder)
    * @return emailTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma seperated list of email addresses to send event to (relevant only for \\\"email\\\" Event Forwarder)")
+  @ApiModelProperty(value = "A comma seperated list of email addresses to send event to (relevant only for \"email\" Event Forwarder)")
 
   public String getEmailTo() {
     return emailTo;
@@ -252,11 +252,11 @@ public class CreateEventForwarder {
   }
 
    /**
-   * Event Source type [item, target]
+   * Event Source type [item, target, auth_method]
    * @return eventSourceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Event Source type [item, target]")
+  @ApiModelProperty(value = "Event Source type [item, target, auth_method]")
 
   public String getEventSourceType() {
     return eventSourceType;
@@ -283,11 +283,11 @@ public class CreateEventForwarder {
   }
 
    /**
-   * Event types
+   * List of event types to notify about [request-access, certificate-pending-expiration, certificate-expired, auth-method-pending-expiration, auth-method-expired, rotated-secret-success, rotated-secret-failure, dynamic-secret-failure, multi-auth-failure]
    * @return eventTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Event types")
+  @ApiModelProperty(value = "List of event types to notify about [request-access, certificate-pending-expiration, certificate-expired, auth-method-pending-expiration, auth-method-expired, rotated-secret-success, rotated-secret-failure, dynamic-secret-failure, multi-auth-failure]")
 
   public List<String> getEventTypes() {
     return eventTypes;

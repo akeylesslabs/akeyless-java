@@ -35,6 +35,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_AUTO_PAGINATION = "auto-pagination";
+  @SerializedName(SERIALIZED_NAME_AUTO_PAGINATION)
+  private String autoPagination = "enabled";
+
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
@@ -46,10 +50,6 @@ public class ListItems {
   public static final String SERIALIZED_NAME_MINIMAL_VIEW = "minimal-view";
   @SerializedName(SERIALIZED_NAME_MINIMAL_VIEW)
   private Boolean minimalView;
-
-  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
-  @SerializedName(SERIALIZED_NAME_PAGINATION)
-  private String pagination = "enabled";
 
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
@@ -106,6 +106,29 @@ public class ListItems {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public ListItems autoPagination(String autoPagination) {
+    
+    this.autoPagination = autoPagination;
+    return this;
+  }
+
+   /**
+   * Retrieve all items using pagination, when disabled retrieving only first 1000 items
+   * @return autoPagination
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Retrieve all items using pagination, when disabled retrieving only first 1000 items")
+
+  public String getAutoPagination() {
+    return autoPagination;
+  }
+
+
+  public void setAutoPagination(String autoPagination) {
+    this.autoPagination = autoPagination;
   }
 
 
@@ -175,29 +198,6 @@ public class ListItems {
 
   public void setMinimalView(Boolean minimalView) {
     this.minimalView = minimalView;
-  }
-
-
-  public ListItems pagination(String pagination) {
-    
-    this.pagination = pagination;
-    return this;
-  }
-
-   /**
-   * Retrieve items with pagination
-   * @return pagination
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Retrieve items with pagination")
-
-  public String getPagination() {
-    return pagination;
-  }
-
-
-  public void setPagination(String pagination) {
-    this.pagination = pagination;
   }
 
 
@@ -411,10 +411,10 @@ public class ListItems {
     }
     ListItems listItems = (ListItems) o;
     return Objects.equals(this.accessibility, listItems.accessibility) &&
+        Objects.equals(this.autoPagination, listItems.autoPagination) &&
         Objects.equals(this.filter, listItems.filter) &&
         Objects.equals(this.json, listItems.json) &&
         Objects.equals(this.minimalView, listItems.minimalView) &&
-        Objects.equals(this.pagination, listItems.pagination) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
         Objects.equals(this.sraOnly, listItems.sraOnly) &&
@@ -427,7 +427,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, filter, json, minimalView, pagination, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, autoPagination, filter, json, minimalView, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
   }
 
   @Override
@@ -435,10 +435,10 @@ public class ListItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListItems {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    autoPagination: ").append(toIndentedString(autoPagination)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
-    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    sraOnly: ").append(toIndentedString(sraOnly)).append("\n");
