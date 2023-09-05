@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **defaultShareLinkTtlMinutes** | **String** | Set the default ttl in minutes for sharing item number between 60 and 43200 |  [optional]
 **defaultVersioning** | **String** | If set to true, new item version will be created on each update [true/false] |  [optional]
 **dpEnableClassicKeyProtection** | **String** | Set to update protection with classic keys state [true/false] |  [optional]
+**invalidCharacters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. |  [optional]
 **itemType** | **String** | VersionSettingsObjectType defines object types for account version settings |  [optional]
 **itemsDeletionProtection** | **String** | Set or unset the default behaviour of items deletion protection [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

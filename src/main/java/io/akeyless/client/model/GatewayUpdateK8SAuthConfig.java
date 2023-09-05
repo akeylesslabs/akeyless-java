@@ -50,9 +50,21 @@ public class GatewayUpdateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_K8S_AUTH_TYPE = "k8s-auth-type";
+  @SerializedName(SERIALIZED_NAME_K8S_AUTH_TYPE)
+  private String k8sAuthType = "token";
+
   public static final String SERIALIZED_NAME_K8S_CA_CERT = "k8s-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CA_CERT)
   private String k8sCaCert;
+
+  public static final String SERIALIZED_NAME_K8S_CLIENT_CERTIFICATE = "k8s-client-certificate";
+  @SerializedName(SERIALIZED_NAME_K8S_CLIENT_CERTIFICATE)
+  private String k8sClientCertificate;
+
+  public static final String SERIALIZED_NAME_K8S_CLIENT_KEY = "k8s-client-key";
+  @SerializedName(SERIALIZED_NAME_K8S_CLIENT_KEY)
+  private String k8sClientKey;
 
   public static final String SERIALIZED_NAME_K8S_HOST = "k8s-host";
   @SerializedName(SERIALIZED_NAME_K8S_HOST)
@@ -220,6 +232,29 @@ public class GatewayUpdateK8SAuthConfig {
   }
 
 
+  public GatewayUpdateK8SAuthConfig k8sAuthType(String k8sAuthType) {
+    
+    this.k8sAuthType = k8sAuthType;
+    return this;
+  }
+
+   /**
+   * K8S auth type [token/certificate]. (relevant for \&quot;native_k8s\&quot; only)
+   * @return k8sAuthType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S auth type [token/certificate]. (relevant for \"native_k8s\" only)")
+
+  public String getK8sAuthType() {
+    return k8sAuthType;
+  }
+
+
+  public void setK8sAuthType(String k8sAuthType) {
+    this.k8sAuthType = k8sAuthType;
+  }
+
+
   public GatewayUpdateK8SAuthConfig k8sCaCert(String k8sCaCert) {
     
     this.k8sCaCert = k8sCaCert;
@@ -240,6 +275,52 @@ public class GatewayUpdateK8SAuthConfig {
 
   public void setK8sCaCert(String k8sCaCert) {
     this.k8sCaCert = k8sCaCert;
+  }
+
+
+  public GatewayUpdateK8SAuthConfig k8sClientCertificate(String k8sClientCertificate) {
+    
+    this.k8sClientCertificate = k8sClientCertificate;
+    return this;
+  }
+
+   /**
+   * Content of the k8 client certificate (PEM format) in a Base64 format (relevant for \&quot;native_k8s\&quot; only)
+   * @return k8sClientCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Content of the k8 client certificate (PEM format) in a Base64 format (relevant for \"native_k8s\" only)")
+
+  public String getK8sClientCertificate() {
+    return k8sClientCertificate;
+  }
+
+
+  public void setK8sClientCertificate(String k8sClientCertificate) {
+    this.k8sClientCertificate = k8sClientCertificate;
+  }
+
+
+  public GatewayUpdateK8SAuthConfig k8sClientKey(String k8sClientKey) {
+    
+    this.k8sClientKey = k8sClientKey;
+    return this;
+  }
+
+   /**
+   * Content of the k8 client private key (PEM format) in a Base64 format (relevant for \&quot;native_k8s\&quot; only)
+   * @return k8sClientKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Content of the k8 client private key (PEM format) in a Base64 format (relevant for \"native_k8s\" only)")
+
+  public String getK8sClientKey() {
+    return k8sClientKey;
+  }
+
+
+  public void setK8sClientKey(String k8sClientKey) {
+    this.k8sClientKey = k8sClientKey;
   }
 
 
@@ -533,7 +614,10 @@ public class GatewayUpdateK8SAuthConfig {
         Objects.equals(this.configEncryptionKeyName, gatewayUpdateK8SAuthConfig.configEncryptionKeyName) &&
         Objects.equals(this.disableIssuerValidation, gatewayUpdateK8SAuthConfig.disableIssuerValidation) &&
         Objects.equals(this.json, gatewayUpdateK8SAuthConfig.json) &&
+        Objects.equals(this.k8sAuthType, gatewayUpdateK8SAuthConfig.k8sAuthType) &&
         Objects.equals(this.k8sCaCert, gatewayUpdateK8SAuthConfig.k8sCaCert) &&
+        Objects.equals(this.k8sClientCertificate, gatewayUpdateK8SAuthConfig.k8sClientCertificate) &&
+        Objects.equals(this.k8sClientKey, gatewayUpdateK8SAuthConfig.k8sClientKey) &&
         Objects.equals(this.k8sHost, gatewayUpdateK8SAuthConfig.k8sHost) &&
         Objects.equals(this.k8sIssuer, gatewayUpdateK8SAuthConfig.k8sIssuer) &&
         Objects.equals(this.name, gatewayUpdateK8SAuthConfig.name) &&
@@ -550,7 +634,7 @@ public class GatewayUpdateK8SAuthConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, disableIssuerValidation, json, k8sCaCert, k8sHost, k8sIssuer, name, newName, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
+    return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, disableIssuerValidation, json, k8sAuthType, k8sCaCert, k8sClientCertificate, k8sClientKey, k8sHost, k8sIssuer, name, newName, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
   }
 
   @Override
@@ -562,7 +646,10 @@ public class GatewayUpdateK8SAuthConfig {
     sb.append("    configEncryptionKeyName: ").append(toIndentedString(configEncryptionKeyName)).append("\n");
     sb.append("    disableIssuerValidation: ").append(toIndentedString(disableIssuerValidation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    k8sAuthType: ").append(toIndentedString(k8sAuthType)).append("\n");
     sb.append("    k8sCaCert: ").append(toIndentedString(k8sCaCert)).append("\n");
+    sb.append("    k8sClientCertificate: ").append(toIndentedString(k8sClientCertificate)).append("\n");
+    sb.append("    k8sClientKey: ").append(toIndentedString(k8sClientKey)).append("\n");
     sb.append("    k8sHost: ").append(toIndentedString(k8sHost)).append("\n");
     sb.append("    k8sIssuer: ").append(toIndentedString(k8sIssuer)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

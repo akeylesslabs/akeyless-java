@@ -1033,6 +1033,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /create-group:
+    post:
+      operationId: createGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createGroup'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateGroupOutput'
+          description: createGroupResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /create-k8s-target:
     post:
       operationId: createNativeK8STarget
@@ -1136,6 +1165,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/createLinkedTargetOutput'
           description: createLinkedTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /create-oidc-app:
+    post:
+      operationId: createOidcApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createOidcApp'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOidcAppOutput'
+          description: createOidcAppResponse wraps response body.
         default:
           content:
             application/json:
@@ -1426,6 +1484,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/createTokenizerOutput'
           description: createTokenizerResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /create-user-event:
+    post:
+      operationId: createUserEvent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createUserEvent'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createUserEventOutput'
+          description: createUserEventResponse wraps response body.
         default:
           content:
             application/json:
@@ -1803,6 +1890,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/deleteGwClusterOutput'
           description: deleteGwClusterResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /delete-group:
+    post:
+      operationId: deleteGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deleteGroup'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteGroupOutput'
+          description: deleteGroupResponse wraps response body.
         default:
           content:
             application/json:
@@ -5087,6 +5203,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /get-group:
+    post:
+      operationId: getGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getGroup'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGroupOutput'
+          description: getGroupResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /get-kube-exec-creds:
     post:
       operationId: getKubeExecCreds
@@ -5876,6 +6021,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /list-group:
+    post:
+      operationId: listGroups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/listGroups'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGroupsOutput'
+          description: listGroupsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /list-items:
     post:
       operationId: listItems
@@ -6229,6 +6403,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/RotateKeyOutput'
           description: rotateKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /rotate-oidc-client-secret:
+    post:
+      operationId: rotateOidcClientSecret
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rotateOidcClientSecret'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RotateOidcClientOutput'
+          description: rotateOidcClientResponse wraps response body.
         default:
           content:
             application/json:
@@ -7486,6 +7689,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /update-group:
+    post:
+      operationId: updateGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateGroup'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateGroupOutput'
+          description: updateGroupResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /update-item:
     post:
       operationId: updateItem
@@ -7618,6 +7850,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/updateLinkedTargetOutput'
           description: updateLinkedTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /update-oidc-app:
+    post:
+      operationId: updateOidcApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateOidcApp'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateOidcAppOutput'
+          description: updateOidcAppResponse wraps response body.
         default:
           content:
             application/json:
@@ -8203,6 +8464,27 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /user-event-last-status:
+    post:
+      operationId: getUserLastEventStatus
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserEventStatusOutput'
+          description: getLastUserEventStatusResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-accepts: application/json
   /validate-token:
     post:
       operationId: validateToken
@@ -8633,6 +8915,12 @@ components:
           schema:
             $ref: '#/components/schemas/createGlobalSignTargetOutput'
       description: createGlobalSignTargetResponse wraps response body.
+    createGroupResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateGroupOutput'
+      description: createGroupResponse wraps response body.
     createKeyResponse:
       content:
         application/json:
@@ -8651,6 +8939,12 @@ components:
           schema:
             $ref: '#/components/schemas/createNativeK8STargetOutput'
       description: createNativeK8STargetResponse wraps response body.
+    createOidcAppResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateOidcAppOutput'
+      description: createOidcAppResponse wraps response body.
     createPKICertIssuerResponse:
       content:
         application/json:
@@ -8711,6 +9005,12 @@ components:
           schema:
             $ref: '#/components/schemas/createTokenizerOutput'
       description: createTokenizerResponse wraps response body.
+    createUserEventResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createUserEventOutput'
+      description: createUserEventResponse wraps response body.
     createWebTargetResponse:
       content:
         application/json:
@@ -8789,6 +9089,12 @@ components:
           schema:
             $ref: '#/components/schemas/deleteGatewayAllowedAccessIdOutput'
       description: deleteGatewayAllowedAccessIdResponse wraps response body.
+    deleteGroupResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeleteGroupOutput'
+      description: deleteGroupResponse wraps response body.
     deleteGwClusterResponse:
       content:
         application/json:
@@ -9477,12 +9783,24 @@ components:
           schema:
             $ref: '#/components/schemas/getEventForwarderOutput'
       description: getEventForwarderResponse wraps response body.
+    getGroupResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetGroupOutput'
+      description: getGroupResponse wraps response body.
     getKubeExecCredsResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/getKubeExecCredsOutput'
       description: getKubeExecCredsResponse wraps response body.
+    getLastUserEventStatusResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetUserEventStatusOutput'
+      description: getLastUserEventStatusResponse wraps response body.
     getPKICertificateResponse:
       content:
         application/json:
@@ -9645,6 +9963,12 @@ components:
           schema:
             $ref: '#/components/schemas/GatewaysListResponse'
       description: listGatewaysResponse wraps response body.
+    listGroupsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ListGroupsOutput'
+      description: listGroupsResponse wraps response body.
     listItemsResponse:
       content:
         application/json:
@@ -9723,6 +10047,12 @@ components:
           schema:
             $ref: '#/components/schemas/RotateKeyOutput'
       description: rotateKeyResponse wraps response body.
+    rotateOidcClientResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RotateOidcClientOutput'
+      description: rotateOidcClientResponse wraps response body.
     rotateSecretResponse:
       content:
         application/json:
@@ -9981,6 +10311,12 @@ components:
           schema:
             $ref: '#/components/schemas/updateGlobalSignTargetOutput'
       description: updateGlobalSignTargetResponse wraps response body.
+    updateGroupResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateGroupOutput'
+      description: updateGroupResponse wraps response body.
     updateItemResponse:
       content:
         application/json:
@@ -10005,6 +10341,12 @@ components:
           schema:
             $ref: '#/components/schemas/updateNativeK8STargetOutput'
       description: updateNativeK8STargetResponse wraps response body.
+    updateOidcAppResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateOidcAppOutput'
+      description: updateOidcAppResponse wraps response body.
     updatePKICertIssuerResponse:
       content:
         application/json:
@@ -10301,6 +10643,39 @@ components:
       title: AWSTargetDetails ...
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    AccessOrGroupPermissionAssignment:
+      example:
+        sub_claims:
+          key:
+          - sub_claims
+          - sub_claims
+        group_id: group_id
+        assignment_type: assignment_type
+        access_id: access_id
+      properties:
+        access_id:
+          type: string
+          x-go-name: AccessID
+        assignment_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
+        group_id:
+          type: string
+          x-go-name: GroupId
+        sub_claims:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+          x-go-name: SubClaims
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
+    AccessOrGroupPermissionAssignments:
+      items:
+        $ref: '#/components/schemas/AccessOrGroupPermissionAssignment'
+      type: array
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
     AccessPermission:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
@@ -10324,6 +10699,9 @@ components:
           x-go-name: SubClaims
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
+    AccessRequestStatus:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AccountGeneralSettings:
       description: AccountGeneralSettings describes general settings for an account
       example:
@@ -10341,6 +10719,7 @@ components:
         enable_request_for_access: true
         protect_items_by_default: true
         account_default_key_item_id: 0
+        invalid_characters: invalid_characters
       properties:
         account_default_key_item_id:
           description: AccountDefaultKeyItemID is the item ID of the DFC key item
@@ -10361,6 +10740,11 @@ components:
         enable_request_for_access:
           type: boolean
           x-go-name: EnableRequestForAccess
+        invalid_characters:
+          description: InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder
+            naming convention
+          type: string
+          x-go-name: InvalidCharacters
         password_policy:
           $ref: '#/components/schemas/PasswordPolicyInfo'
         protect_items_by_default:
@@ -10559,13 +10943,16 @@ components:
           - k8s_ca_cert: k8s_ca_cert
             k8s_host: k8s_host
             k8s_token_reviewer_jwt: k8s_token_reviewer_jwt
+            k8s_auth_type: k8s_auth_type
             cluster_api_type: cluster_api_type
             k8s_issuer: k8s_issuer
             protection_key: protection_key
             auth_method_access_id: auth_method_access_id
+            k8s_client_cert_data: k8s_client_cert_data
             k8s_pub_keys_pem:
             - k8s_pub_keys_pem
             - k8s_pub_keys_pem
+            k8s_client_key_data: k8s_client_key_data
             rancher_api_key: rancher_api_key
             am_token_expiration: 6
             name: name
@@ -10577,13 +10964,16 @@ components:
           - k8s_ca_cert: k8s_ca_cert
             k8s_host: k8s_host
             k8s_token_reviewer_jwt: k8s_token_reviewer_jwt
+            k8s_auth_type: k8s_auth_type
             cluster_api_type: cluster_api_type
             k8s_issuer: k8s_issuer
             protection_key: protection_key
             auth_method_access_id: auth_method_access_id
+            k8s_client_cert_data: k8s_client_cert_data
             k8s_pub_keys_pem:
             - k8s_pub_keys_pem
             - k8s_pub_keys_pem
+            k8s_client_key_data: k8s_client_key_data
             rancher_api_key: rancher_api_key
             am_token_expiration: 6
             name: name
@@ -11318,6 +11708,9 @@ components:
       title: ArtifactoryTargetDetails ...
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    AssignmentType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
     AssocRelationship:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -13450,6 +13843,7 @@ components:
         ssh-command: ssh-command
         via-bastion: via-bastion
         identity-file: identity-file
+        use-ssh-agent: true
         bastion-ctrl-subdomain: bastion-ctrl-subdomain
         uid-token: uid-token
         bastion-ctrl-path: bastion-ctrl-path
@@ -13533,6 +13927,10 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        use-ssh-agent:
+          description: Enable ssh-agent
+          type: boolean
+          x-go-name: UseSshAgent
         via-bastion:
           description: The jump box server
           type: string
@@ -13773,6 +14171,40 @@ components:
         external_secret_manager_name:
           type: string
           x-go-name: ESMName
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    CreateGroupOutput:
+      example:
+        name: name
+        id: id
+        group_alias: group_alias
+      properties:
+        group_alias:
+          type: string
+          x-go-name: GroupAlias
+        id:
+          type: string
+          x-go-name: Id
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    CreateOidcAppOutput:
+      example:
+        name: name
+        client_secret: client_secret
+        client_id: client_id
+      properties:
+        client_id:
+          type: string
+          x-go-name: ClientId
+        client_secret:
+          type: string
+          x-go-name: ClientSecret
+        name:
+          type: string
+          x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreatePKICertIssuer:
@@ -14128,6 +14560,7 @@ components:
             key: attributes
           target_id: 1
         chef_server_username: chef_server_username
+        k8s_client_cert_data: k8s_client_cert_data
         tags:
         - tags
         - tags
@@ -14180,6 +14613,7 @@ components:
         aws_user_console_access: true
         azure_resource_group_name: azure_resource_group_name
         user_principal_name: user_principal_name
+        k8s_client_key_data: k8s_client_key_data
         azure_subscription_id: azure_subscription_id
         gcp_key_algo: gcp_key_algo
         venafi_zone: venafi_zone
@@ -14347,6 +14781,7 @@ components:
         - grant_types
         - grant_types
         github_base_url: github_base_url
+        k8s_auth_type: k8s_auth_type
         groups: groups
         chef_organizations: chef_organizations
         dynamic_secret_id: 6
@@ -14732,9 +15167,19 @@ components:
             which signifies that any namespace is allowed
           type: string
           x-go-name: AllowedNamespaces
+        k8s_auth_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         k8s_bearer_token:
           type: string
           x-go-name: K8sBearerToken
+        k8s_client_cert_data:
+          description: For K8s Client certificates authentication
+          type: string
+          x-go-name: K8sClientCertData
+        k8s_client_key_data:
+          type: string
+          x-go-name: K8sClientKeyData
         k8s_cluster_ca_certificate:
           type: string
           x-go-name: K8sClusterCACertificate
@@ -15199,6 +15644,15 @@ components:
           x-go-name: SamlAccessId
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    DeleteGroupOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     DeleteItemOutput:
       example:
         version_deleted: 6
@@ -15646,6 +16100,9 @@ components:
           x-go-name: VersionId
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    EventSource:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     EventType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -16277,6 +16734,7 @@ components:
           enable_request_for_access: true
           protect_items_by_default: true
           account_default_key_item_id: 0
+          invalid_characters: invalid_characters
         secret_management:
           tier: tier
           sla: sla
@@ -16325,6 +16783,57 @@ components:
         private_key_pem:
           type: string
           x-go-name: PrivateKeyPem
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    GetGroupOutput:
+      example:
+        account_id: account_id
+        user_assignments:
+        - sub_claims:
+            key:
+            - sub_claims
+            - sub_claims
+          access_id: access_id
+        - sub_claims:
+            key:
+            - sub_claims
+            - sub_claims
+          access_id: access_id
+        group_id: group_id
+        group_name: group_name
+        modification_date: 2000-01-23T04:56:07.000+00:00
+        description: description
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        group_alias: group_alias
+      properties:
+        account_id:
+          type: string
+          x-go-name: AccountId
+        creation_date:
+          format: date-time
+          type: string
+          x-go-name: CreationDate
+        description:
+          type: string
+          x-go-name: Description
+        group_alias:
+          type: string
+          x-go-name: GroupAlias
+        group_id:
+          type: string
+          x-go-name: GroupId
+        group_name:
+          type: string
+          x-go-name: GroupName
+        modification_date:
+          format: date-time
+          type: string
+          x-go-name: ModificationDate
+        user_assignments:
+          items:
+            $ref: '#/components/schemas/AccessPermissionAssignment'
+          type: array
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     GetPKICertificate:
@@ -16530,10 +17039,13 @@ components:
             private_key: private_key
             username: username
           native_k8s_target_details:
+            k8s_client_key_data: k8s_client_key_data
             k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
             k8s_bearer_token: k8s_bearer_token
+            k8s_auth_type: k8s_auth_type
             use_gw_service_account: true
             k8s_cluster_endpoint: k8s_cluster_endpoint
+            k8s_client_cert_data: k8s_client_cert_data
           ldap_target_details:
             ldap_bind_password: ldap_bind_password
             ldap_certificate: ldap_certificate
@@ -16726,6 +17238,24 @@ components:
       title: GetTargetDetailsOutput defines output of GetTargetDetails operation.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GetUserEventStatusOutput:
+      example:
+        event_created_at: 2000-01-23T04:56:07.000+00:00
+        access_status: access_status
+        status: status
+      properties:
+        access_status:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        event_created_at:
+          format: date-time
+          type: string
+          x-go-name: EventCreatedAt
+        status:
+          type: string
+          x-go-name: Status
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GithubTargetDetails:
       example:
         github_base_url: github_base_url
@@ -16842,6 +17372,62 @@ components:
           x-go-name: ServiceAccountKey
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    Group:
+      example:
+        account_id: account_id
+        user_assignments:
+        - sub_claims:
+            key:
+            - sub_claims
+            - sub_claims
+          access_id: access_id
+        - sub_claims:
+            key:
+            - sub_claims
+            - sub_claims
+          access_id: access_id
+        group_id: group_id
+        group_name: group_name
+        modification_date: 2000-01-23T04:56:07.000+00:00
+        description: description
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        group_alias: group_alias
+      properties:
+        account_id:
+          type: string
+          x-go-name: AccountId
+        creation_date:
+          format: date-time
+          type: string
+          x-go-name: CreationDate
+        description:
+          type: string
+          x-go-name: Description
+        group_alias:
+          type: string
+          x-go-name: GroupAlias
+        group_id:
+          type: string
+          x-go-name: GroupId
+        group_name:
+          type: string
+          x-go-name: GroupName
+        modification_date:
+          format: date-time
+          type: string
+          x-go-name: ModificationDate
+        user_assignments:
+          items:
+            $ref: '#/components/schemas/AccessPermissionAssignment'
+          type: array
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GroupPermissionsAssignments:
+      items:
+        $ref: '#/components/schemas/AccessPermissionAssignment'
+      type: array
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GwClusterIdentity:
       example:
         cluster_url: cluster_url
@@ -17234,6 +17820,7 @@ components:
             audience:
             - audience
             - audience
+            issuer_url: issuer_url
             grant_types:
             - grant_types
             - grant_types
@@ -17253,11 +17840,15 @@ components:
                 key:
                 - sub_claims
                 - sub_claims
+              group_id: group_id
+              assignment_type: assignment_type
               access_id: access_id
             - sub_claims:
                 key:
                 - sub_claims
                 - sub_claims
+              group_id: group_id
+              assignment_type: assignment_type
               access_id: access_id
             response_types:
             - response_types
@@ -17873,6 +18464,7 @@ components:
           audience:
           - audience
           - audience
+          issuer_url: issuer_url
           grant_types:
           - grant_types
           - grant_types
@@ -17892,11 +18484,15 @@ components:
               key:
               - sub_claims
               - sub_claims
+            group_id: group_id
+            assignment_type: assignment_type
             access_id: access_id
           - sub_claims:
               key:
               - sub_claims
               - sub_claims
+            group_id: group_id
+            assignment_type: assignment_type
             access_id: access_id
           response_types:
           - response_types
@@ -18449,13 +19045,16 @@ components:
         k8s_ca_cert: k8s_ca_cert
         k8s_host: k8s_host
         k8s_token_reviewer_jwt: k8s_token_reviewer_jwt
+        k8s_auth_type: k8s_auth_type
         cluster_api_type: cluster_api_type
         k8s_issuer: k8s_issuer
         protection_key: protection_key
         auth_method_access_id: auth_method_access_id
+        k8s_client_cert_data: k8s_client_cert_data
         k8s_pub_keys_pem:
         - k8s_pub_keys_pem
         - k8s_pub_keys_pem
+        k8s_client_key_data: k8s_client_key_data
         rancher_api_key: rancher_api_key
         am_token_expiration: 6
         name: name
@@ -18492,11 +19091,24 @@ components:
         id:
           type: string
           x-go-name: Id
+        k8s_auth_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         k8s_ca_cert:
           description: K8SCACert is the CA Cert to use to call into the kubernetes
             API
           type: string
           x-go-name: K8SCACert
+        k8s_client_cert_data:
+          description: K8sClientCertData is the client certificate for k8s client
+            certificate authentication
+          type: string
+          x-go-name: K8sClientCertData
+        k8s_client_key_data:
+          description: K8sClientKeyData is the client key for k8s client certificate
+            authentication
+          type: string
+          x-go-name: K8sClientKeyData
         k8s_host:
           description: K8SHost is the url string for the kubernetes API
           type: string
@@ -18575,13 +19187,16 @@ components:
         - k8s_ca_cert: k8s_ca_cert
           k8s_host: k8s_host
           k8s_token_reviewer_jwt: k8s_token_reviewer_jwt
+          k8s_auth_type: k8s_auth_type
           cluster_api_type: cluster_api_type
           k8s_issuer: k8s_issuer
           protection_key: protection_key
           auth_method_access_id: auth_method_access_id
+          k8s_client_cert_data: k8s_client_cert_data
           k8s_pub_keys_pem:
           - k8s_pub_keys_pem
           - k8s_pub_keys_pem
+          k8s_client_key_data: k8s_client_key_data
           rancher_api_key: rancher_api_key
           am_token_expiration: 6
           name: name
@@ -18593,13 +19208,16 @@ components:
         - k8s_ca_cert: k8s_ca_cert
           k8s_host: k8s_host
           k8s_token_reviewer_jwt: k8s_token_reviewer_jwt
+          k8s_auth_type: k8s_auth_type
           cluster_api_type: cluster_api_type
           k8s_issuer: k8s_issuer
           protection_key: protection_key
           auth_method_access_id: auth_method_access_id
+          k8s_client_cert_data: k8s_client_cert_data
           k8s_pub_keys_pem:
           - k8s_pub_keys_pem
           - k8s_pub_keys_pem
+          k8s_client_key_data: k8s_client_key_data
           rancher_api_key: rancher_api_key
           am_token_expiration: 6
           name: name
@@ -20011,6 +20629,57 @@ components:
       title: ListAuthMethodsOutput is a list of auth methods.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ListGroupsOutput:
+      example:
+        next_page: next_page
+        groups:
+        - account_id: account_id
+          user_assignments:
+          - sub_claims:
+              key:
+              - sub_claims
+              - sub_claims
+            access_id: access_id
+          - sub_claims:
+              key:
+              - sub_claims
+              - sub_claims
+            access_id: access_id
+          group_id: group_id
+          group_name: group_name
+          modification_date: 2000-01-23T04:56:07.000+00:00
+          description: description
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          group_alias: group_alias
+        - account_id: account_id
+          user_assignments:
+          - sub_claims:
+              key:
+              - sub_claims
+              - sub_claims
+            access_id: access_id
+          - sub_claims:
+              key:
+              - sub_claims
+              - sub_claims
+            access_id: access_id
+          group_id: group_id
+          group_name: group_name
+          modification_date: 2000-01-23T04:56:07.000+00:00
+          description: description
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          group_alias: group_alias
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/Group'
+          type: array
+          x-go-name: Groups
+        next_page:
+          type: string
+          x-go-name: NextPage
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     ListItemsInPathOutput:
       example:
         next_page: next_page
@@ -20193,6 +20862,7 @@ components:
               audience:
               - audience
               - audience
+              issuer_url: issuer_url
               grant_types:
               - grant_types
               - grant_types
@@ -20212,11 +20882,15 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               response_types:
               - response_types
@@ -20847,6 +21521,7 @@ components:
               audience:
               - audience
               - audience
+              issuer_url: issuer_url
               grant_types:
               - grant_types
               - grant_types
@@ -20866,11 +21541,15 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               response_types:
               - response_types
@@ -21523,6 +22202,7 @@ components:
               audience:
               - audience
               - audience
+              issuer_url: issuer_url
               grant_types:
               - grant_types
               - grant_types
@@ -21542,11 +22222,15 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               response_types:
               - response_types
@@ -22177,6 +22861,7 @@ components:
               audience:
               - audience
               - audience
+              issuer_url: issuer_url
               grant_types:
               - grant_types
               - grant_types
@@ -22196,11 +22881,15 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                group_id: group_id
+                assignment_type: assignment_type
                 access_id: access_id
               response_types:
               - response_types
@@ -23769,16 +24458,32 @@ components:
           x-go-name: PostalCode
       type: object
       x-go-package: crypto/x509/pkix
+    NativeK8sAuthType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     NativeK8sTargetDetails:
       example:
+        k8s_client_key_data: k8s_client_key_data
         k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
         k8s_bearer_token: k8s_bearer_token
+        k8s_auth_type: k8s_auth_type
         use_gw_service_account: true
         k8s_cluster_endpoint: k8s_cluster_endpoint
+        k8s_client_cert_data: k8s_client_cert_data
       properties:
+        k8s_auth_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         k8s_bearer_token:
           type: string
           x-go-name: K8sBearerToken
+        k8s_client_cert_data:
+          description: For K8s Client certificates authentication
+          type: string
+          x-go-name: K8sClientCertData
+        k8s_client_key_data:
+          type: string
+          x-go-name: K8sClientKeyData
         k8s_cluster_ca_certificate:
           type: string
           x-go-name: K8sClusterCACertificate
@@ -24140,6 +24845,7 @@ components:
         audience:
         - audience
         - audience
+        issuer_url: issuer_url
         grant_types:
         - grant_types
         - grant_types
@@ -24159,11 +24865,15 @@ components:
             key:
             - sub_claims
             - sub_claims
+          group_id: group_id
+          assignment_type: assignment_type
           access_id: access_id
         - sub_claims:
             key:
             - sub_claims
             - sub_claims
+          group_id: group_id
+          assignment_type: assignment_type
           access_id: access_id
         response_types:
         - response_types
@@ -24171,9 +24881,9 @@ components:
       properties:
         access_permission_assignment:
           items:
-            $ref: '#/components/schemas/AccessPermissionAssignment'
+            $ref: '#/components/schemas/AccessOrGroupPermissionAssignment'
           type: array
-          x-go-name: AccessPermissionAssignment
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
         audience:
           items:
             type: string
@@ -24187,6 +24897,9 @@ components:
             type: string
           type: array
           x-go-name: GrantTypes
+        issuer_url:
+          type: string
+          x-go-name: IssuerUrl
         logout_uris:
           items:
             type: string
@@ -25065,6 +25778,15 @@ components:
           x-go-name: NextRotationDate
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RotateOidcClientOutput:
+      example:
+        new_secret: new_secret
+      properties:
+        new_secret:
+          type: string
+          x-go-name: NewSecret
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     RotatedSecretDetailsInfo:
       description: RotatedSecretDetailsInfo The rotated secret rotator info
       example:
@@ -26208,10 +26930,13 @@ components:
           private_key: private_key
           username: username
         native_k8s_target_details:
+          k8s_client_key_data: k8s_client_key_data
           k8s_cluster_ca_certificate: k8s_cluster_ca_certificate
           k8s_bearer_token: k8s_bearer_token
+          k8s_auth_type: k8s_auth_type
           use_gw_service_account: true
           k8s_cluster_endpoint: k8s_cluster_endpoint
+          k8s_client_cert_data: k8s_client_cert_data
         ldap_target_details:
           ldap_bind_password: ldap_bind_password
           ldap_certificate: ldap_certificate
@@ -26570,6 +27295,26 @@ components:
       title: UniversalIdentityDetails Universal identity type.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    UpdateGroupOutput:
+      example:
+        group_name: group_name
+        name: name
+        id: id
+      properties:
+        group_name:
+          type: string
+          x-go-name: GroupName
+        id:
+          type: string
+          x-go-name: Id
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UpdateOidcAppOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     UpdatePKICertIssuer:
       example:
         key-usage: DigitalSignature,KeyAgreement,KeyEncipherment
@@ -29473,7 +30218,7 @@ components:
           description: List of event types to notify about [request-access, certificate-pending-expiration,
             certificate-expired, auth-method-pending-expiration, auth-method-expired,
             rotated-secret-success, rotated-secret-failure, dynamic-secret-failure,
-            multi-auth-failure]
+            multi-auth-failure, uid-rotation-failure]
           items:
             type: string
           type: array
@@ -29892,6 +30637,45 @@ components:
           x-go-name: TargetID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createGroup:
+      properties:
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        group-alias:
+          description: A short group alias
+          type: string
+          x-go-name: GroupAlias
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Group name
+          type: string
+          x-go-name: NName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-assignment:
+          description: A json string defining the access permission assignment for
+            this client
+          type: string
+          x-go-name: UserAssignment
+      required:
+      - group-alias
+      - name
+      title: createGroup is a command that creates a new group.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createKey:
       description: 'createKey is a command that creates a new key. [Deprecated: Use
         command create-dfc-key]'
@@ -30162,6 +30946,21 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        k8s-auth-type:
+          default: token
+          description: K8S auth type [token/certificate]
+          type: string
+          x-go-name: K8sAuthType
+        k8s-client-certificate:
+          description: Content of the k8 client certificate (PEM format) in a Base64
+            format
+          type: string
+          x-go-name: K8sClientCertificate
+        k8s-client-key:
+          description: Content of the k8 client private key (PEM format) in a Base64
+            format
+          type: string
+          x-go-name: K8sClientKey
         k8s-cluster-ca-cert:
           default: dummy_val
           description: K8S cluster CA certificate
@@ -30216,6 +31015,81 @@ components:
           format: int64
           type: integer
           x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createOidcApp:
+      properties:
+        accessibility:
+          default: regular
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
+        audience:
+          description: A comma separated list of allowed audiences
+          type: string
+          x-go-name: Audience
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          description: The name of a key that used to encrypt the OIDC application
+            (if empty, the account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        metadata:
+          description: Deprecated - use description
+          type: string
+          x-go-name: Metadata
+        name:
+          description: OIDC application name
+          type: string
+          x-go-name: OidcClientName
+        permission-assignment:
+          description: A json string defining the access permission assignment for
+            this app
+          type: string
+          x-go-name: AccessPermissionAssignment
+        public:
+          description: Set to true if the app is public (cannot keep secrets)
+          type: boolean
+          x-go-name: Public
+        redirect-uris:
+          description: A comma separated list of allowed redirect uris
+          type: string
+          x-go-name: RedirectURIs
+        scopes:
+          default: openid
+          description: A comma separated list of allowed scopes
+          type: string
+          x-go-name: Scopes
+        tags:
+          description: Add tags attached to this object
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: createOidcApp is a command that creates an oidc client.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createPKICertIssuerOutput:
@@ -30411,6 +31285,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        usage-reports-access:
+          description: |-
+            Allow this role to view Usage Report. Currently only 'none' and
+            'all' values are supported.
+          type: string
+          x-go-name: UsageReportsAccess
       required:
       - name
       title: createRole is a command that creates a new role .
@@ -31135,6 +32015,75 @@ components:
           x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createUserEvent:
+      properties:
+        capabilities:
+          description: |-
+            List of the required capabilities options: [read, update, delete,sra_transparently_connect].
+            Relevant only for request-access event types
+          items:
+            type: string
+          type: array
+          x-go-name: Capabilities
+        comment:
+          description: Deprecated - use description
+          type: string
+          x-go-name: Comment
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        event-source:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        event-type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        item-name:
+          description: Event item name
+          type: string
+          x-go-name: EventItemName
+        item-type:
+          description: |-
+            Event item type can be either "target" or type of item eg "static_secret"/"dynamic_secret"
+            To get type of some item run `akeyless describe-item -n {ITEM_NAME} --jq-expression .item_type`
+          type: string
+          x-go-name: EventItemType
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        request-access-ttl:
+          description: TTL in minutes for how long to grant the requested access
+          format: int64
+          type: integer
+          x-go-name: RequestAccessTtlMin
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - event-type
+      - item-name
+      - item-type
+      title: createUserEvent is a command that creates user event.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createUserEventOutput:
+      example:
+        response: response
+      properties:
+        response:
+          type: string
+          x-go-name: Response
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createWebTarget:
       properties:
         comment:
@@ -31772,6 +32721,31 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteGatewayAllowedAccessIdOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    deleteGroup:
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Group name
+          type: string
+          x-go-name: NName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: deleteGroup is a command that deletes a group.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteGwCluster:
@@ -32849,11 +33823,27 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        k8s-auth-type:
+          default: token
+          description: K8S auth type [token/certificate]. (relevant for "native_k8s"
+            only)
+          type: string
+          x-go-name: K8sAuthType
         k8s-ca-cert:
           description: The CA Certificate (base64 encoded) to use to call into the
             kubernetes API server
           type: string
           x-go-name: K8SCACert
+        k8s-client-certificate:
+          description: Content of the k8 client certificate (PEM format) in a Base64
+            format (relevant for "native_k8s" only)
+          type: string
+          x-go-name: K8sClientCertificate
+        k8s-client-key:
+          description: Content of the k8 client private key (PEM format) in a Base64
+            format (relevant for "native_k8s" only)
+          type: string
+          x-go-name: K8sClientKey
         k8s-host:
           description: The URL of the kubernetes API server
           type: string
@@ -33444,6 +34434,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -33496,6 +34487,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -33663,6 +34655,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -33856,6 +34849,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -33908,6 +34902,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -34075,6 +35070,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -34254,6 +35250,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -34306,6 +35303,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -34473,6 +35471,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -34607,6 +35606,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -34659,6 +35659,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -34826,6 +35827,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -35017,6 +36019,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -35069,6 +36072,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -35236,6 +36240,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -35460,6 +36465,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -35512,6 +36518,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -35679,6 +36686,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -35807,6 +36815,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -35859,6 +36868,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -36026,6 +37036,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -36188,6 +37199,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -36240,6 +37252,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -36407,6 +37420,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -36549,6 +37563,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -36601,6 +37616,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -36768,6 +37784,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -36900,6 +37917,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -36952,6 +37970,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -37119,6 +38138,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -37272,6 +38292,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -37324,6 +38345,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -37491,6 +38513,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -37657,6 +38680,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -37709,6 +38733,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -37876,6 +38901,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -38025,6 +39051,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -38077,6 +39104,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -38244,6 +39272,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -38410,6 +39439,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -38462,6 +39492,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -38629,6 +39660,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -38812,6 +39844,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -38864,6 +39897,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -39031,6 +40065,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -39210,6 +40245,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -39262,6 +40298,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -39429,6 +40466,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -39624,6 +40662,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -39676,6 +40715,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -39843,6 +40883,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -40011,6 +41052,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -40063,6 +41105,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -40230,6 +41273,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -40441,6 +41485,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -40493,6 +41538,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -40660,6 +41706,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -40832,6 +41879,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -40884,6 +41932,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -41051,6 +42100,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -41219,6 +42269,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -41271,6 +42322,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -41438,6 +42490,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -41610,6 +42663,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -41662,6 +42716,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -41829,6 +42884,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -41975,6 +43031,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -42027,6 +43084,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -42194,6 +43252,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -42349,6 +43408,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -42401,6 +43461,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -42568,6 +43629,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -42709,6 +43771,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -42761,6 +43824,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -42928,6 +43992,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -43239,13 +44304,16 @@ components:
         k8s_ca_cert: k8s_ca_cert
         k8s_host: k8s_host
         k8s_token_reviewer_jwt: k8s_token_reviewer_jwt
+        k8s_auth_type: k8s_auth_type
         cluster_api_type: cluster_api_type
         k8s_issuer: k8s_issuer
         protection_key: protection_key
         auth_method_access_id: auth_method_access_id
+        k8s_client_cert_data: k8s_client_cert_data
         k8s_pub_keys_pem:
         - k8s_pub_keys_pem
         - k8s_pub_keys_pem
+        k8s_client_key_data: k8s_client_key_data
         rancher_api_key: rancher_api_key
         am_token_expiration: 0
         name: name
@@ -43282,11 +44350,24 @@ components:
         id:
           type: string
           x-go-name: Id
+        k8s_auth_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         k8s_ca_cert:
           description: K8SCACert is the CA Cert to use to call into the kubernetes
             API
           type: string
           x-go-name: K8SCACert
+        k8s_client_cert_data:
+          description: K8sClientCertData is the client certificate for k8s client
+            certificate authentication
+          type: string
+          x-go-name: K8sClientCertData
+        k8s_client_key_data:
+          description: K8sClientKeyData is the client key for k8s client certificate
+            authentication
+          type: string
+          x-go-name: K8sClientKeyData
         k8s_host:
           description: K8SHost is the url string for the kubernetes API
           type: string
@@ -44625,11 +45706,27 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        k8s-auth-type:
+          default: token
+          description: K8S auth type [token/certificate]. (relevant for "native_k8s"
+            only)
+          type: string
+          x-go-name: K8sAuthType
         k8s-ca-cert:
           description: The CA Certificate (base64 encoded) to use to call into the
             kubernetes API server
           type: string
           x-go-name: K8SCACert
+        k8s-client-certificate:
+          description: Content of the k8 client certificate (PEM format) in a Base64
+            format (relevant for "native_k8s" only)
+          type: string
+          x-go-name: K8sClientCertificate
+        k8s-client-key:
+          description: Content of the k8 client private key (PEM format) in a Base64
+            format (relevant for "native_k8s" only)
+          type: string
+          x-go-name: K8sClientKey
         k8s-host:
           description: The URL of the kubernetes API server
           type: string
@@ -45233,6 +46330,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -45285,6 +46383,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -45452,6 +46551,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -45649,6 +46749,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -45701,6 +46802,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -45868,6 +46970,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -46051,6 +47154,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -46103,6 +47207,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -46270,6 +47375,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -46408,6 +47514,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -46460,6 +47567,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -46627,6 +47735,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -46822,6 +47931,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -46874,6 +47984,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -47041,6 +48152,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -47273,6 +48385,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -47325,6 +48438,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -47492,6 +48606,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -47624,6 +48739,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -47676,6 +48792,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -47843,6 +48960,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -48009,6 +49127,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -48061,6 +49180,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -48228,6 +49348,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -48374,6 +49495,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -48426,6 +49548,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -48593,6 +49716,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -48729,6 +49853,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -48781,6 +49906,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -48948,6 +50074,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -49105,6 +50232,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -49157,6 +50285,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -49324,6 +50453,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -49494,6 +50624,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -49546,6 +50677,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -49713,6 +50845,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -49866,6 +50999,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -49918,6 +51052,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -50085,6 +51220,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -50255,6 +51391,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -50307,6 +51444,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -50474,6 +51612,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -50661,6 +51800,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -50713,6 +51853,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -50880,6 +52021,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -51063,6 +52205,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -51115,6 +52258,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -51282,6 +52426,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -51481,6 +52626,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -51533,6 +52679,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -51700,6 +52847,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -51872,6 +53020,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -51924,6 +53073,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -52091,6 +53241,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -52306,6 +53457,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -52358,6 +53510,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -52525,6 +53678,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -52701,6 +53855,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -52753,6 +53908,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -52920,6 +54076,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -53092,6 +54249,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -53144,6 +54302,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -53311,6 +54470,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -53487,6 +54647,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -53539,6 +54700,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -53706,6 +54868,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -53856,6 +55019,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -53908,6 +55072,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -54075,6 +55240,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -54234,6 +55400,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -54286,6 +55453,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -54453,6 +55621,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -54598,6 +55767,7 @@ components:
               key: attributes
             target_id: 1
           chef_server_username: chef_server_username
+          k8s_client_cert_data: k8s_client_cert_data
           tags:
           - tags
           - tags
@@ -54650,6 +55820,7 @@ components:
           aws_user_console_access: true
           azure_resource_group_name: azure_resource_group_name
           user_principal_name: user_principal_name
+          k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
@@ -54817,6 +55988,7 @@ components:
           - grant_types
           - grant_types
           github_base_url: github_base_url
+          k8s_auth_type: k8s_auth_type
           groups: groups
           chef_organizations: chef_organizations
           dynamic_secret_id: 6
@@ -55040,6 +56212,12 @@ components:
           description: Certificate display ID
           type: string
           x-go-name: CertificateDisplayID
+        ignore-cache:
+          default: "false"
+          description: Retrieve the Secret value without checking the Gateway's cache
+            [true/false]. This flag is only relevant when using the RestAPI
+          type: string
+          x-go-name: IgnoreCache
         issuance-token:
           description: Token for getting the issued certificate
           type: string
@@ -55207,6 +56385,31 @@ components:
           $ref: '#/components/schemas/NotiForwarder'
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    getGroup:
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Group name
+          type: string
+          x-go-name: NName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: getGroup is a command that returns a group's info.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getKubeExecCreds:
       description: |-
         getKubeExecCreds is a command that gets credentials for authentication with
@@ -55296,6 +56499,52 @@ components:
           x-go-name: Kind
         status:
           $ref: '#/components/schemas/clientData'
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    getLastUserEventStatus:
+      properties:
+        event-source:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        event-type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        item-name:
+          description: Event item name
+          type: string
+          x-go-name: EventItemName
+        item-type:
+          description: |-
+            Event item type can be either "target" or type of item eg "static_secret"/"dynamic_secret"
+            To get type of some item run `akeyless describe-item -n {ITEM_NAME} --jq-expression .item_type`
+          type: string
+          x-go-name: EventItemType
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        time-back:
+          description: |-
+            The time back to search the event, can be passed as string representation.
+            For example if the value is "5m" we will return the last user event issued in the last 5 minutes
+            By default we will search without any time boundary
+          type: string
+          x-go-name: TimeBack
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - event-type
+      - item-name
+      - item-type
+      title: getUserLastEventStatus is a command that get last user event status.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getPKICertificateOutput:
@@ -56198,6 +57447,33 @@ components:
       title: listGateways is a command that returns a list of gateways.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    listGroups:
+      properties:
+        filter:
+          description: Filter by auth method name or part of it
+          type: string
+          x-go-name: Filter
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        pagination-token:
+          description: Next page reference
+          type: string
+          x-go-name: PaginationToken
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      title: listGroups is a command that lists groups.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     listItems:
       properties:
         accessibility:
@@ -56205,6 +57481,10 @@ components:
           description: for personal password manager
           type: string
           x-go-name: ItemAccessibilityString
+        advanced-filter:
+          description: Filter by item name/username/website or part of it
+          type: string
+          x-go-name: MultiFieldFilter
         auto-pagination:
           default: enabled
           description: Retrieve all items using pagination, when disabled retrieving
@@ -56647,6 +57927,31 @@ components:
       - name
       title: rotateKey is a command that rotates an existing key, by creating a new
         version of the key.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    rotateOidcClientSecret:
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: OIDC application name
+          type: string
+          x-go-name: OidcClientName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: rotateOidcClientSecret is a command that rotates an OIDC client secret.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     rotateSecret:
@@ -57656,6 +58961,13 @@ components:
           description: Set to update protection with classic keys state [true/false]
           type: string
           x-go-name: EnableClassicKeyProtection
+        invalid-characters:
+          default: notReceivedInvalidCharacter
+          description: |-
+            Characters that cannot be used for items/targets/roles/auths/event_forwarder names.
+            Empty string will enforce nothing.
+          type: string
+          x-go-name: InvalidCharacters
         item-type:
           description: VersionSettingsObjectType defines object types for account
             version settings
@@ -60078,6 +61390,49 @@ components:
           x-go-name: TargetID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateGroup:
+      properties:
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        group-alias:
+          description: A short group alias
+          type: string
+          x-go-name: GroupAlias
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Group name
+          type: string
+          x-go-name: NName
+        new-name:
+          description: Group new name
+          type: string
+          x-go-name: NewName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-assignment:
+          description: A json string defining the access permission assignment for
+            this client
+          type: string
+          x-go-name: UserAssignment
+      required:
+      - group-alias
+      - name
+      title: updateGroup is a command that updates a group.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateItem:
       properties:
         accessibility:
@@ -60488,6 +61843,21 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        k8s-auth-type:
+          default: token
+          description: K8S auth type [token/certificate]
+          type: string
+          x-go-name: K8sAuthType
+        k8s-client-certificate:
+          description: Content of the k8 client certificate (PEM format) in a Base64
+            format
+          type: string
+          x-go-name: K8sClientCertificate
+        k8s-client-key:
+          description: Content of the k8 client private key (PEM format) in a Base64
+            format
+          type: string
+          x-go-name: K8sClientKey
         k8s-cluster-ca-cert:
           default: dummy_val
           description: K8S cluster CA certificate
@@ -60555,6 +61925,58 @@ components:
           format: int64
           type: integer
           x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateOidcApp:
+      properties:
+        audience:
+          description: A comma separated list of allowed audiences
+          type: string
+          x-go-name: Audience
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          description: The name of a key that used to encrypt the OIDC application
+            (if empty, the account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        name:
+          description: OIDC application name
+          type: string
+          x-go-name: OidcClientName
+        permission-assignment:
+          description: A json string defining the access permission assignment for
+            this app
+          type: string
+          x-go-name: AccessPermissionAssignment
+        public:
+          description: Set to true if the app is public (cannot keep secrets)
+          type: boolean
+          x-go-name: Public
+        redirect-uris:
+          description: A comma separated list of allowed redirect uris
+          type: string
+          x-go-name: RedirectURIs
+        scopes:
+          default: openid
+          description: A comma separated list of allowed scopes
+          type: string
+          x-go-name: Scopes
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: updateOidcApp is a command that updates an oidc application.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateOutput:
@@ -60894,6 +62316,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        usage-reports-access:
+          description: |-
+            Allow this role to view Usage Report. Currently only 'none' and
+            'all' values are supported.
+          type: string
+          x-go-name: UsageReportsAccess
       required:
       - name
       title: updateRole is a command that updates an existing role.

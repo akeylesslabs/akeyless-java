@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **comment** | **String** | Deprecated - use description |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**k8sAuthType** | **String** | K8S auth type [token/certificate] |  [optional]
+**k8sClientCertificate** | **String** | Content of the k8 client certificate (PEM format) in a Base64 format |  [optional]
+**k8sClientKey** | **String** | Content of the k8 client private key (PEM format) in a Base64 format |  [optional]
 **k8sClusterCaCert** | **String** | K8S cluster CA certificate | 
 **k8sClusterEndpoint** | **String** | K8S cluster URL endpoint | 
 **k8sClusterToken** | **String** | K8S cluster Bearer token | 

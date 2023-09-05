@@ -94,6 +94,10 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_SSH_AGENT = "use-ssh-agent";
+  @SerializedName(SERIALIZED_NAME_USE_SSH_AGENT)
+  private Boolean useSshAgent;
+
   public static final String SERIALIZED_NAME_VIA_BASTION = "via-bastion";
   @SerializedName(SERIALIZED_NAME_VIA_BASTION)
   private String viaBastion;
@@ -469,6 +473,29 @@ public class Connect {
   }
 
 
+  public Connect useSshAgent(Boolean useSshAgent) {
+    
+    this.useSshAgent = useSshAgent;
+    return this;
+  }
+
+   /**
+   * Enable ssh-agent
+   * @return useSshAgent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable ssh-agent")
+
+  public Boolean getUseSshAgent() {
+    return useSshAgent;
+  }
+
+
+  public void setUseSshAgent(Boolean useSshAgent) {
+    this.useSshAgent = useSshAgent;
+  }
+
+
   public Connect viaBastion(String viaBastion) {
     
     this.viaBastion = viaBastion;
@@ -517,12 +544,13 @@ public class Connect {
         Objects.equals(this.target, connect.target) &&
         Objects.equals(this.token, connect.token) &&
         Objects.equals(this.uidToken, connect.uidToken) &&
+        Objects.equals(this.useSshAgent, connect.useSshAgent) &&
         Objects.equals(this.viaBastion, connect.viaBastion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, viaBastion);
+    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion);
   }
 
   @Override
@@ -545,6 +573,7 @@ public class Connect {
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useSshAgent: ").append(toIndentedString(useSshAgent)).append("\n");
     sb.append("    viaBastion: ").append(toIndentedString(viaBastion)).append("\n");
     sb.append("}");
     return sb.toString();

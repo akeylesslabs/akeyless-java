@@ -49,6 +49,10 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS)
   private Boolean enableRequestForAccess;
 
+  public static final String SERIALIZED_NAME_INVALID_CHARACTERS = "invalid_characters";
+  @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
+  private String invalidCharacters;
+
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
   private PasswordPolicyInfo passwordPolicy;
@@ -156,6 +160,29 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings invalidCharacters(String invalidCharacters) {
+    
+    this.invalidCharacters = invalidCharacters;
+    return this;
+  }
+
+   /**
+   * InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention
+   * @return invalidCharacters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention")
+
+  public String getInvalidCharacters() {
+    return invalidCharacters;
+  }
+
+
+  public void setInvalidCharacters(String invalidCharacters) {
+    this.invalidCharacters = invalidCharacters;
+  }
+
+
   public AccountGeneralSettings passwordPolicy(PasswordPolicyInfo passwordPolicy) {
     
     this.passwordPolicy = passwordPolicy;
@@ -238,6 +265,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
         Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
+        Objects.equals(this.invalidCharacters, accountGeneralSettings.invalidCharacters) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
         Objects.equals(this.sharingPolicy, accountGeneralSettings.sharingPolicy);
@@ -245,7 +273,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, dataProtectionSection, enableRequestForAccess, passwordPolicy, protectItemsByDefault, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, dataProtectionSection, enableRequestForAccess, invalidCharacters, passwordPolicy, protectItemsByDefault, sharingPolicy);
   }
 
   @Override
@@ -256,6 +284,7 @@ public class AccountGeneralSettings {
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
+    sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
     sb.append("    sharingPolicy: ").append(toIndentedString(sharingPolicy)).append("\n");

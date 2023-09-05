@@ -29,9 +29,21 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NativeK8sTargetDetails {
+  public static final String SERIALIZED_NAME_K8S_AUTH_TYPE = "k8s_auth_type";
+  @SerializedName(SERIALIZED_NAME_K8S_AUTH_TYPE)
+  private String k8sAuthType;
+
   public static final String SERIALIZED_NAME_K8S_BEARER_TOKEN = "k8s_bearer_token";
   @SerializedName(SERIALIZED_NAME_K8S_BEARER_TOKEN)
   private String k8sBearerToken;
+
+  public static final String SERIALIZED_NAME_K8S_CLIENT_CERT_DATA = "k8s_client_cert_data";
+  @SerializedName(SERIALIZED_NAME_K8S_CLIENT_CERT_DATA)
+  private String k8sClientCertData;
+
+  public static final String SERIALIZED_NAME_K8S_CLIENT_KEY_DATA = "k8s_client_key_data";
+  @SerializedName(SERIALIZED_NAME_K8S_CLIENT_KEY_DATA)
+  private String k8sClientKeyData;
 
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE = "k8s_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERTIFICATE)
@@ -47,6 +59,29 @@ public class NativeK8sTargetDetails {
 
   public NativeK8sTargetDetails() { 
   }
+
+  public NativeK8sTargetDetails k8sAuthType(String k8sAuthType) {
+    
+    this.k8sAuthType = k8sAuthType;
+    return this;
+  }
+
+   /**
+   * Get k8sAuthType
+   * @return k8sAuthType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sAuthType() {
+    return k8sAuthType;
+  }
+
+
+  public void setK8sAuthType(String k8sAuthType) {
+    this.k8sAuthType = k8sAuthType;
+  }
+
 
   public NativeK8sTargetDetails k8sBearerToken(String k8sBearerToken) {
     
@@ -68,6 +103,52 @@ public class NativeK8sTargetDetails {
 
   public void setK8sBearerToken(String k8sBearerToken) {
     this.k8sBearerToken = k8sBearerToken;
+  }
+
+
+  public NativeK8sTargetDetails k8sClientCertData(String k8sClientCertData) {
+    
+    this.k8sClientCertData = k8sClientCertData;
+    return this;
+  }
+
+   /**
+   * For K8s Client certificates authentication
+   * @return k8sClientCertData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For K8s Client certificates authentication")
+
+  public String getK8sClientCertData() {
+    return k8sClientCertData;
+  }
+
+
+  public void setK8sClientCertData(String k8sClientCertData) {
+    this.k8sClientCertData = k8sClientCertData;
+  }
+
+
+  public NativeK8sTargetDetails k8sClientKeyData(String k8sClientKeyData) {
+    
+    this.k8sClientKeyData = k8sClientKeyData;
+    return this;
+  }
+
+   /**
+   * Get k8sClientKeyData
+   * @return k8sClientKeyData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClientKeyData() {
+    return k8sClientKeyData;
+  }
+
+
+  public void setK8sClientKeyData(String k8sClientKeyData) {
+    this.k8sClientKeyData = k8sClientKeyData;
   }
 
 
@@ -149,7 +230,10 @@ public class NativeK8sTargetDetails {
       return false;
     }
     NativeK8sTargetDetails nativeK8sTargetDetails = (NativeK8sTargetDetails) o;
-    return Objects.equals(this.k8sBearerToken, nativeK8sTargetDetails.k8sBearerToken) &&
+    return Objects.equals(this.k8sAuthType, nativeK8sTargetDetails.k8sAuthType) &&
+        Objects.equals(this.k8sBearerToken, nativeK8sTargetDetails.k8sBearerToken) &&
+        Objects.equals(this.k8sClientCertData, nativeK8sTargetDetails.k8sClientCertData) &&
+        Objects.equals(this.k8sClientKeyData, nativeK8sTargetDetails.k8sClientKeyData) &&
         Objects.equals(this.k8sClusterCaCertificate, nativeK8sTargetDetails.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, nativeK8sTargetDetails.k8sClusterEndpoint) &&
         Objects.equals(this.useGwServiceAccount, nativeK8sTargetDetails.useGwServiceAccount);
@@ -157,14 +241,17 @@ public class NativeK8sTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sBearerToken, k8sClusterCaCertificate, k8sClusterEndpoint, useGwServiceAccount);
+    return Objects.hash(k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, useGwServiceAccount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NativeK8sTargetDetails {\n");
+    sb.append("    k8sAuthType: ").append(toIndentedString(k8sAuthType)).append("\n");
     sb.append("    k8sBearerToken: ").append(toIndentedString(k8sBearerToken)).append("\n");
+    sb.append("    k8sClientCertData: ").append(toIndentedString(k8sClientCertData)).append("\n");
+    sb.append("    k8sClientKeyData: ").append(toIndentedString(k8sClientKeyData)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");

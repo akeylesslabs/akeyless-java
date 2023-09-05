@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **target** | **String** | The target |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
+**useSshAgent** | **Boolean** | Enable ssh-agent |  [optional]
 **viaBastion** | **String** | The jump box server |  [optional]
 
 

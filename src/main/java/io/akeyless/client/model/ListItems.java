@@ -35,6 +35,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_ADVANCED_FILTER = "advanced-filter";
+  @SerializedName(SERIALIZED_NAME_ADVANCED_FILTER)
+  private String advancedFilter;
+
   public static final String SERIALIZED_NAME_AUTO_PAGINATION = "auto-pagination";
   @SerializedName(SERIALIZED_NAME_AUTO_PAGINATION)
   private String autoPagination = "enabled";
@@ -106,6 +110,29 @@ public class ListItems {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public ListItems advancedFilter(String advancedFilter) {
+    
+    this.advancedFilter = advancedFilter;
+    return this;
+  }
+
+   /**
+   * Filter by item name/username/website or part of it
+   * @return advancedFilter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by item name/username/website or part of it")
+
+  public String getAdvancedFilter() {
+    return advancedFilter;
+  }
+
+
+  public void setAdvancedFilter(String advancedFilter) {
+    this.advancedFilter = advancedFilter;
   }
 
 
@@ -411,6 +438,7 @@ public class ListItems {
     }
     ListItems listItems = (ListItems) o;
     return Objects.equals(this.accessibility, listItems.accessibility) &&
+        Objects.equals(this.advancedFilter, listItems.advancedFilter) &&
         Objects.equals(this.autoPagination, listItems.autoPagination) &&
         Objects.equals(this.filter, listItems.filter) &&
         Objects.equals(this.json, listItems.json) &&
@@ -427,7 +455,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, autoPagination, filter, json, minimalView, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, advancedFilter, autoPagination, filter, json, minimalView, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
   }
 
   @Override
@@ -435,6 +463,7 @@ public class ListItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListItems {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    advancedFilter: ").append(toIndentedString(advancedFilter)).append("\n");
     sb.append("    autoPagination: ").append(toIndentedString(autoPagination)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

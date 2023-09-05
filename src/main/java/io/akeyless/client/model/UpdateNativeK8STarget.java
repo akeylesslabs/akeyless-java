@@ -41,6 +41,18 @@ public class UpdateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_K8S_AUTH_TYPE = "k8s-auth-type";
+  @SerializedName(SERIALIZED_NAME_K8S_AUTH_TYPE)
+  private String k8sAuthType = "token";
+
+  public static final String SERIALIZED_NAME_K8S_CLIENT_CERTIFICATE = "k8s-client-certificate";
+  @SerializedName(SERIALIZED_NAME_K8S_CLIENT_CERTIFICATE)
+  private String k8sClientCertificate;
+
+  public static final String SERIALIZED_NAME_K8S_CLIENT_KEY = "k8s-client-key";
+  @SerializedName(SERIALIZED_NAME_K8S_CLIENT_KEY)
+  private String k8sClientKey;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_CA_CERT = "k8s-cluster-ca-cert";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_CA_CERT)
   private String k8sClusterCaCert = "dummy_val";
@@ -154,6 +166,75 @@ public class UpdateNativeK8STarget {
 
   public void setJson(Boolean json) {
     this.json = json;
+  }
+
+
+  public UpdateNativeK8STarget k8sAuthType(String k8sAuthType) {
+    
+    this.k8sAuthType = k8sAuthType;
+    return this;
+  }
+
+   /**
+   * K8S auth type [token/certificate]
+   * @return k8sAuthType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S auth type [token/certificate]")
+
+  public String getK8sAuthType() {
+    return k8sAuthType;
+  }
+
+
+  public void setK8sAuthType(String k8sAuthType) {
+    this.k8sAuthType = k8sAuthType;
+  }
+
+
+  public UpdateNativeK8STarget k8sClientCertificate(String k8sClientCertificate) {
+    
+    this.k8sClientCertificate = k8sClientCertificate;
+    return this;
+  }
+
+   /**
+   * Content of the k8 client certificate (PEM format) in a Base64 format
+   * @return k8sClientCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Content of the k8 client certificate (PEM format) in a Base64 format")
+
+  public String getK8sClientCertificate() {
+    return k8sClientCertificate;
+  }
+
+
+  public void setK8sClientCertificate(String k8sClientCertificate) {
+    this.k8sClientCertificate = k8sClientCertificate;
+  }
+
+
+  public UpdateNativeK8STarget k8sClientKey(String k8sClientKey) {
+    
+    this.k8sClientKey = k8sClientKey;
+    return this;
+  }
+
+   /**
+   * Content of the k8 client private key (PEM format) in a Base64 format
+   * @return k8sClientKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Content of the k8 client private key (PEM format) in a Base64 format")
+
+  public String getK8sClientKey() {
+    return k8sClientKey;
+  }
+
+
+  public void setK8sClientKey(String k8sClientKey) {
+    this.k8sClientKey = k8sClientKey;
   }
 
 
@@ -422,6 +503,9 @@ public class UpdateNativeK8STarget {
     return Objects.equals(this.comment, updateNativeK8STarget.comment) &&
         Objects.equals(this.description, updateNativeK8STarget.description) &&
         Objects.equals(this.json, updateNativeK8STarget.json) &&
+        Objects.equals(this.k8sAuthType, updateNativeK8STarget.k8sAuthType) &&
+        Objects.equals(this.k8sClientCertificate, updateNativeK8STarget.k8sClientCertificate) &&
+        Objects.equals(this.k8sClientKey, updateNativeK8STarget.k8sClientKey) &&
         Objects.equals(this.k8sClusterCaCert, updateNativeK8STarget.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, updateNativeK8STarget.k8sClusterEndpoint) &&
         Objects.equals(this.k8sClusterToken, updateNativeK8STarget.k8sClusterToken) &&
@@ -437,7 +521,7 @@ public class UpdateNativeK8STarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, json, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
+    return Objects.hash(comment, description, json, k8sAuthType, k8sClientCertificate, k8sClientKey, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
   }
 
   @Override
@@ -447,6 +531,9 @@ public class UpdateNativeK8STarget {
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    k8sAuthType: ").append(toIndentedString(k8sAuthType)).append("\n");
+    sb.append("    k8sClientCertificate: ").append(toIndentedString(k8sClientCertificate)).append("\n");
+    sb.append("    k8sClientKey: ").append(toIndentedString(k8sClientKey)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **sraReportsAccess** | **String** | Allow this role to view SRA Clusters. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported. |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
+**usageReportsAccess** | **String** | Allow this role to view Usage Report. Currently only &#39;none&#39; and &#39;all&#39; values are supported. |  [optional]
 
 
 

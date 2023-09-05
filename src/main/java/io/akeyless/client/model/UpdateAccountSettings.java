@@ -61,6 +61,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_DP_ENABLE_CLASSIC_KEY_PROTECTION)
   private String dpEnableClassicKeyProtection;
 
+  public static final String SERIALIZED_NAME_INVALID_CHARACTERS = "invalid-characters";
+  @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
+  private String invalidCharacters = "notReceivedInvalidCharacter";
+
   public static final String SERIALIZED_NAME_ITEM_TYPE = "item-type";
   @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
   private String itemType;
@@ -309,6 +313,29 @@ public class UpdateAccountSettings {
 
   public void setDpEnableClassicKeyProtection(String dpEnableClassicKeyProtection) {
     this.dpEnableClassicKeyProtection = dpEnableClassicKeyProtection;
+  }
+
+
+  public UpdateAccountSettings invalidCharacters(String invalidCharacters) {
+    
+    this.invalidCharacters = invalidCharacters;
+    return this;
+  }
+
+   /**
+   * Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing.
+   * @return invalidCharacters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing.")
+
+  public String getInvalidCharacters() {
+    return invalidCharacters;
+  }
+
+
+  public void setInvalidCharacters(String invalidCharacters) {
+    this.invalidCharacters = invalidCharacters;
   }
 
 
@@ -697,6 +724,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.defaultShareLinkTtlMinutes, updateAccountSettings.defaultShareLinkTtlMinutes) &&
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
+        Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.itemsDeletionProtection, updateAccountSettings.itemsDeletionProtection) &&
         Objects.equals(this.json, updateAccountSettings.json) &&
@@ -717,7 +745,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -732,6 +760,7 @@ public class UpdateAccountSettings {
     sb.append("    defaultShareLinkTtlMinutes: ").append(toIndentedString(defaultShareLinkTtlMinutes)).append("\n");
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
+    sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemsDeletionProtection: ").append(toIndentedString(itemsDeletionProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

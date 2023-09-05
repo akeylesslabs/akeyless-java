@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **accountDefaultKeyName** | **String** | AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will. |  [optional]
 **dataProtectionSection** | [**DataProtectionSection**](DataProtectionSection.md) |  |  [optional]
 **enableRequestForAccess** | **Boolean** |  |  [optional]
+**invalidCharacters** | **String** | InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention |  [optional]
 **passwordPolicy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional]
 **protectItemsByDefault** | **Boolean** |  |  [optional]
 **sharingPolicy** | [**SharingPolicyInfo**](SharingPolicyInfo.md) |  |  [optional]

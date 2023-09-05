@@ -69,6 +69,10 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USAGE_REPORTS_ACCESS = "usage-reports-access";
+  @SerializedName(SERIALIZED_NAME_USAGE_REPORTS_ACCESS)
+  private String usageReportsAccess;
+
   public CreateRole() { 
   }
 
@@ -302,6 +306,29 @@ public class CreateRole {
   }
 
 
+  public CreateRole usageReportsAccess(String usageReportsAccess) {
+    
+    this.usageReportsAccess = usageReportsAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view Usage Report. Currently only &#39;none&#39; and &#39;all&#39; values are supported.
+   * @return usageReportsAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view Usage Report. Currently only 'none' and 'all' values are supported.")
+
+  public String getUsageReportsAccess() {
+    return usageReportsAccess;
+  }
+
+
+  public void setUsageReportsAccess(String usageReportsAccess) {
+    this.usageReportsAccess = usageReportsAccess;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -320,12 +347,13 @@ public class CreateRole {
         Objects.equals(this.name, createRole.name) &&
         Objects.equals(this.sraReportsAccess, createRole.sraReportsAccess) &&
         Objects.equals(this.token, createRole.token) &&
-        Objects.equals(this.uidToken, createRole.uidToken);
+        Objects.equals(this.uidToken, createRole.uidToken) &&
+        Objects.equals(this.usageReportsAccess, createRole.usageReportsAccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, description, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken);
+    return Objects.hash(analyticsAccess, auditAccess, comment, description, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -342,6 +370,7 @@ public class CreateRole {
     sb.append("    sraReportsAccess: ").append(toIndentedString(sraReportsAccess)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    usageReportsAccess: ").append(toIndentedString(usageReportsAccess)).append("\n");
     sb.append("}");
     return sb.toString();
   }

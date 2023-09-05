@@ -41,6 +41,10 @@ public class GetCertificateValue {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
+  private String ignoreCache = "false";
+
   public static final String SERIALIZED_NAME_ISSUANCE_TOKEN = "issuance-token";
   @SerializedName(SERIALIZED_NAME_ISSUANCE_TOKEN)
   private String issuanceToken;
@@ -138,6 +142,29 @@ public class GetCertificateValue {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public GetCertificateValue ignoreCache(String ignoreCache) {
+    
+    this.ignoreCache = ignoreCache;
+    return this;
+  }
+
+   /**
+   * Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
+   * @return ignoreCache
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI")
+
+  public String getIgnoreCache() {
+    return ignoreCache;
+  }
+
+
+  public void setIgnoreCache(String ignoreCache) {
+    this.ignoreCache = ignoreCache;
   }
 
 
@@ -314,6 +341,7 @@ public class GetCertificateValue {
     return Objects.equals(this.certIssuerName, getCertificateValue.certIssuerName) &&
         Objects.equals(this.certificateFileOutput, getCertificateValue.certificateFileOutput) &&
         Objects.equals(this.displayId, getCertificateValue.displayId) &&
+        Objects.equals(this.ignoreCache, getCertificateValue.ignoreCache) &&
         Objects.equals(this.issuanceToken, getCertificateValue.issuanceToken) &&
         Objects.equals(this.json, getCertificateValue.json) &&
         Objects.equals(this.name, getCertificateValue.name) &&
@@ -325,7 +353,7 @@ public class GetCertificateValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssuerName, certificateFileOutput, displayId, issuanceToken, json, name, privateKeyFileOutput, token, uidToken, version);
+    return Objects.hash(certIssuerName, certificateFileOutput, displayId, ignoreCache, issuanceToken, json, name, privateKeyFileOutput, token, uidToken, version);
   }
 
   @Override
@@ -335,6 +363,7 @@ public class GetCertificateValue {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    certificateFileOutput: ").append(toIndentedString(certificateFileOutput)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    issuanceToken: ").append(toIndentedString(issuanceToken)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

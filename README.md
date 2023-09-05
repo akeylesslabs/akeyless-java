@@ -140,9 +140,11 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createGithubTarget**](docs/V2Api.md#createGithubTarget) | **POST** /create-github-target | 
 *V2Api* | [**createGlobalSignAtlasTarget**](docs/V2Api.md#createGlobalSignAtlasTarget) | **POST** /create-globalsign-atlas-target | 
 *V2Api* | [**createGlobalSignTarget**](docs/V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
+*V2Api* | [**createGroup**](docs/V2Api.md#createGroup) | **POST** /create-group | 
 *V2Api* | [**createKey**](docs/V2Api.md#createKey) | **POST** /create-key | 
 *V2Api* | [**createLinkedTarget**](docs/V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
 *V2Api* | [**createNativeK8STarget**](docs/V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
+*V2Api* | [**createOidcApp**](docs/V2Api.md#createOidcApp) | **POST** /create-oidc-app | 
 *V2Api* | [**createPKICertIssuer**](docs/V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
 *V2Api* | [**createPingTarget**](docs/V2Api.md#createPingTarget) | **POST** /create-ping-target | 
 *V2Api* | [**createRabbitMQTarget**](docs/V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitmq-target | 
@@ -153,6 +155,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createSalesforceTarget**](docs/V2Api.md#createSalesforceTarget) | **POST** /create-salesforce-target | 
 *V2Api* | [**createSecret**](docs/V2Api.md#createSecret) | **POST** /create-secret | 
 *V2Api* | [**createTokenizer**](docs/V2Api.md#createTokenizer) | **POST** /create-tokenizer | 
+*V2Api* | [**createUserEvent**](docs/V2Api.md#createUserEvent) | **POST** /create-user-event | 
 *V2Api* | [**createWebTarget**](docs/V2Api.md#createWebTarget) | **POST** /create-web-target | 
 *V2Api* | [**createWindowsTarget**](docs/V2Api.md#createWindowsTarget) | **POST** /create-windows-target | 
 *V2Api* | [**createZeroSSLTarget**](docs/V2Api.md#createZeroSSLTarget) | **POST** /create-zerossl-target | 
@@ -165,6 +168,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**deleteAuthMethods**](docs/V2Api.md#deleteAuthMethods) | **POST** /delete-auth-methods | 
 *V2Api* | [**deleteEventForwarder**](docs/V2Api.md#deleteEventForwarder) | **POST** /delete-event-forwarder | 
 *V2Api* | [**deleteGatewayAllowedAccessId**](docs/V2Api.md#deleteGatewayAllowedAccessId) | **POST** /gateway-delete-allowed-management-access | 
+*V2Api* | [**deleteGroup**](docs/V2Api.md#deleteGroup) | **POST** /delete-group | 
 *V2Api* | [**deleteGwCluster**](docs/V2Api.md#deleteGwCluster) | **POST** /delete-gateway-cluster | 
 *V2Api* | [**deleteItem**](docs/V2Api.md#deleteItem) | **POST** /delete-item | 
 *V2Api* | [**deleteItems**](docs/V2Api.md#deleteItems) | **POST** /delete-items | 
@@ -279,6 +283,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getCertificateValue**](docs/V2Api.md#getCertificateValue) | **POST** /get-certificate-value | 
 *V2Api* | [**getDynamicSecretValue**](docs/V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
 *V2Api* | [**getEventForwarder**](docs/V2Api.md#getEventForwarder) | **POST** /get-event-forwarder | 
+*V2Api* | [**getGroup**](docs/V2Api.md#getGroup) | **POST** /get-group | 
 *V2Api* | [**getKubeExecCreds**](docs/V2Api.md#getKubeExecCreds) | **POST** /get-kube-exec-creds | 
 *V2Api* | [**getPKICertificate**](docs/V2Api.md#getPKICertificate) | **POST** /get-pki-certificate | 
 *V2Api* | [**getRSAPublic**](docs/V2Api.md#getRSAPublic) | **POST** /get-rsa-public | 
@@ -289,6 +294,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getTags**](docs/V2Api.md#getTags) | **POST** /get-tags | 
 *V2Api* | [**getTarget**](docs/V2Api.md#getTarget) | **POST** /get-target | 
 *V2Api* | [**getTargetDetails**](docs/V2Api.md#getTargetDetails) | **POST** /get-target-details | 
+*V2Api* | [**getUserLastEventStatus**](docs/V2Api.md#getUserLastEventStatus) | **POST** /user-event-last-status | 
 *V2Api* | [**hmac**](docs/V2Api.md#hmac) | **POST** /hmac | 
 *V2Api* | [**importPasswords**](docs/V2Api.md#importPasswords) | **POST** /import-passwords | 
 *V2Api* | [**kmipClientDeleteRule**](docs/V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 
@@ -306,6 +312,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**kmipSetServerState**](docs/V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
 *V2Api* | [**listAuthMethods**](docs/V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
 *V2Api* | [**listGateways**](docs/V2Api.md#listGateways) | **POST** /list-gateways | 
+*V2Api* | [**listGroups**](docs/V2Api.md#listGroups) | **POST** /list-group | 
 *V2Api* | [**listItems**](docs/V2Api.md#listItems) | **POST** /list-items | 
 *V2Api* | [**listRoles**](docs/V2Api.md#listRoles) | **POST** /list-roles | 
 *V2Api* | [**listSRABastions**](docs/V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
@@ -319,6 +326,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**revokeCreds**](docs/V2Api.md#revokeCreds) | **POST** /revoke-creds | 
 *V2Api* | [**rollbackSecret**](docs/V2Api.md#rollbackSecret) | **POST** /rollback-secret | 
 *V2Api* | [**rotateKey**](docs/V2Api.md#rotateKey) | **POST** /rotate-key | 
+*V2Api* | [**rotateOidcClientSecret**](docs/V2Api.md#rotateOidcClientSecret) | **POST** /rotate-oidc-client-secret | 
 *V2Api* | [**rotateSecret**](docs/V2Api.md#rotateSecret) | **POST** /gateway-rotate-secret | 
 *V2Api* | [**setItemState**](docs/V2Api.md#setItemState) | **POST** /set-item-state | 
 *V2Api* | [**setRoleRule**](docs/V2Api.md#setRoleRule) | **POST** /set-role-rule | 
@@ -363,11 +371,13 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateGithubTarget**](docs/V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
 *V2Api* | [**updateGlobalSignAtlasTarget**](docs/V2Api.md#updateGlobalSignAtlasTarget) | **POST** /update-globalsign-atlas-target | 
 *V2Api* | [**updateGlobalSignTarget**](docs/V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
+*V2Api* | [**updateGroup**](docs/V2Api.md#updateGroup) | **POST** /update-group | 
 *V2Api* | [**updateItem**](docs/V2Api.md#updateItem) | **POST** /update-item | 
 *V2Api* | [**updateLdapTarget**](docs/V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
 *V2Api* | [**updateLdapTargetDetails**](docs/V2Api.md#updateLdapTargetDetails) | **POST** /update-ldap-target-details | 
 *V2Api* | [**updateLinkedTarget**](docs/V2Api.md#updateLinkedTarget) | **POST** /update-linked-target | 
 *V2Api* | [**updateNativeK8STarget**](docs/V2Api.md#updateNativeK8STarget) | **POST** /update-k8s-target | 
+*V2Api* | [**updateOidcApp**](docs/V2Api.md#updateOidcApp) | **POST** /update-oidc-app | 
 *V2Api* | [**updatePKICertIssuer**](docs/V2Api.md#updatePKICertIssuer) | **POST** /update-pki-cert-issuer | 
 *V2Api* | [**updatePingTarget**](docs/V2Api.md#updatePingTarget) | **POST** /update-ping-target | 
 *V2Api* | [**updateRDPTargetDetails**](docs/V2Api.md#updateRDPTargetDetails) | **POST** /update-rdp-target-details | 
@@ -403,6 +413,7 @@ Class | Method | HTTP request | Description
  - [AWSPayload](docs/AWSPayload.md)
  - [AWSSecretsMigration](docs/AWSSecretsMigration.md)
  - [AWSTargetDetails](docs/AWSTargetDetails.md)
+ - [AccessOrGroupPermissionAssignment](docs/AccessOrGroupPermissionAssignment.md)
  - [AccessPermissionAssignment](docs/AccessPermissionAssignment.md)
  - [AccountGeneralSettings](docs/AccountGeneralSettings.md)
  - [AccountObjectVersionSettingsOutput](docs/AccountObjectVersionSettingsOutput.md)
@@ -507,6 +518,8 @@ Class | Method | HTTP request | Description
  - [CreateGlobalSignAtlasTargetOutput](docs/CreateGlobalSignAtlasTargetOutput.md)
  - [CreateGlobalSignTarget](docs/CreateGlobalSignTarget.md)
  - [CreateGlobalSignTargetOutput](docs/CreateGlobalSignTargetOutput.md)
+ - [CreateGroup](docs/CreateGroup.md)
+ - [CreateGroupOutput](docs/CreateGroupOutput.md)
  - [CreateKey](docs/CreateKey.md)
  - [CreateKeyOutput](docs/CreateKeyOutput.md)
  - [CreateLdapTarget](docs/CreateLdapTarget.md)
@@ -515,6 +528,8 @@ Class | Method | HTTP request | Description
  - [CreateLinkedTargetOutput](docs/CreateLinkedTargetOutput.md)
  - [CreateNativeK8STarget](docs/CreateNativeK8STarget.md)
  - [CreateNativeK8STargetOutput](docs/CreateNativeK8STargetOutput.md)
+ - [CreateOidcApp](docs/CreateOidcApp.md)
+ - [CreateOidcAppOutput](docs/CreateOidcAppOutput.md)
  - [CreatePKICertIssuer](docs/CreatePKICertIssuer.md)
  - [CreatePKICertIssuerOutput](docs/CreatePKICertIssuerOutput.md)
  - [CreatePingTarget](docs/CreatePingTarget.md)
@@ -536,6 +551,8 @@ Class | Method | HTTP request | Description
  - [CreateTargetItemAssocOutput](docs/CreateTargetItemAssocOutput.md)
  - [CreateTokenizer](docs/CreateTokenizer.md)
  - [CreateTokenizerOutput](docs/CreateTokenizerOutput.md)
+ - [CreateUserEvent](docs/CreateUserEvent.md)
+ - [CreateUserEventOutput](docs/CreateUserEventOutput.md)
  - [CreateWebTarget](docs/CreateWebTarget.md)
  - [CreateWebTargetOutput](docs/CreateWebTargetOutput.md)
  - [CreateWindowsTarget](docs/CreateWindowsTarget.md)
@@ -567,6 +584,8 @@ Class | Method | HTTP request | Description
  - [DeleteAuthMethodsOutput](docs/DeleteAuthMethodsOutput.md)
  - [DeleteEventForwarder](docs/DeleteEventForwarder.md)
  - [DeleteGatewayAllowedAccessId](docs/DeleteGatewayAllowedAccessId.md)
+ - [DeleteGroup](docs/DeleteGroup.md)
+ - [DeleteGroupOutput](docs/DeleteGroupOutput.md)
  - [DeleteGwCluster](docs/DeleteGwCluster.md)
  - [DeleteItem](docs/DeleteItem.md)
  - [DeleteItemOutput](docs/DeleteItemOutput.md)
@@ -795,8 +814,11 @@ Class | Method | HTTP request | Description
  - [GetDynamicSecretValue](docs/GetDynamicSecretValue.md)
  - [GetEventForwarder](docs/GetEventForwarder.md)
  - [GetEventForwarderOutput](docs/GetEventForwarderOutput.md)
+ - [GetGroup](docs/GetGroup.md)
+ - [GetGroupOutput](docs/GetGroupOutput.md)
  - [GetKubeExecCreds](docs/GetKubeExecCreds.md)
  - [GetKubeExecCredsOutput](docs/GetKubeExecCredsOutput.md)
+ - [GetLastUserEventStatus](docs/GetLastUserEventStatus.md)
  - [GetPKICertificate](docs/GetPKICertificate.md)
  - [GetPKICertificateOutput](docs/GetPKICertificateOutput.md)
  - [GetProducersListReplyObj](docs/GetProducersListReplyObj.md)
@@ -811,10 +833,12 @@ Class | Method | HTTP request | Description
  - [GetTarget](docs/GetTarget.md)
  - [GetTargetDetails](docs/GetTargetDetails.md)
  - [GetTargetDetailsOutput](docs/GetTargetDetailsOutput.md)
+ - [GetUserEventStatusOutput](docs/GetUserEventStatusOutput.md)
  - [GithubTargetDetails](docs/GithubTargetDetails.md)
  - [GlobalSignAtlasTargetDetails](docs/GlobalSignAtlasTargetDetails.md)
  - [GlobalSignGCCTargetDetails](docs/GlobalSignGCCTargetDetails.md)
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
+ - [Group](docs/Group.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [HashiMigration](docs/HashiMigration.md)
  - [HashiPayload](docs/HashiPayload.md)
@@ -872,6 +896,8 @@ Class | Method | HTTP request | Description
  - [ListAuthMethods](docs/ListAuthMethods.md)
  - [ListAuthMethodsOutput](docs/ListAuthMethodsOutput.md)
  - [ListGateways](docs/ListGateways.md)
+ - [ListGroups](docs/ListGroups.md)
+ - [ListGroupsOutput](docs/ListGroupsOutput.md)
  - [ListItems](docs/ListItems.md)
  - [ListItemsInPathOutput](docs/ListItemsInPathOutput.md)
  - [ListItemsOutput](docs/ListItemsOutput.md)
@@ -930,6 +956,8 @@ Class | Method | HTTP request | Description
  - [RollbackSecretOutput](docs/RollbackSecretOutput.md)
  - [RotateKey](docs/RotateKey.md)
  - [RotateKeyOutput](docs/RotateKeyOutput.md)
+ - [RotateOidcClientOutput](docs/RotateOidcClientOutput.md)
+ - [RotateOidcClientSecret](docs/RotateOidcClientSecret.md)
  - [RotateSecret](docs/RotateSecret.md)
  - [RotatedSecretDetailsInfo](docs/RotatedSecretDetailsInfo.md)
  - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
@@ -1035,6 +1063,8 @@ Class | Method | HTTP request | Description
  - [UpdateGlobalSignAtlasTargetOutput](docs/UpdateGlobalSignAtlasTargetOutput.md)
  - [UpdateGlobalSignTarget](docs/UpdateGlobalSignTarget.md)
  - [UpdateGlobalSignTargetOutput](docs/UpdateGlobalSignTargetOutput.md)
+ - [UpdateGroup](docs/UpdateGroup.md)
+ - [UpdateGroupOutput](docs/UpdateGroupOutput.md)
  - [UpdateItem](docs/UpdateItem.md)
  - [UpdateItemOutput](docs/UpdateItemOutput.md)
  - [UpdateLdapTarget](docs/UpdateLdapTarget.md)
@@ -1043,6 +1073,7 @@ Class | Method | HTTP request | Description
  - [UpdateLinkedTarget](docs/UpdateLinkedTarget.md)
  - [UpdateNativeK8STarget](docs/UpdateNativeK8STarget.md)
  - [UpdateNativeK8STargetOutput](docs/UpdateNativeK8STargetOutput.md)
+ - [UpdateOidcApp](docs/UpdateOidcApp.md)
  - [UpdateOutput](docs/UpdateOutput.md)
  - [UpdatePKICertIssuer](docs/UpdatePKICertIssuer.md)
  - [UpdatePKICertIssuerOutput](docs/UpdatePKICertIssuerOutput.md)

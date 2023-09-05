@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.akeyless.client.model.AccessPermissionAssignment;
+import io.akeyless.client.model.AccessOrGroupPermissionAssignment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,7 +34,7 @@ import java.util.List;
 public class OidcClientInfo {
   public static final String SERIALIZED_NAME_ACCESS_PERMISSION_ASSIGNMENT = "access_permission_assignment";
   @SerializedName(SERIALIZED_NAME_ACCESS_PERMISSION_ASSIGNMENT)
-  private List<AccessPermissionAssignment> accessPermissionAssignment = null;
+  private List<AccessOrGroupPermissionAssignment> accessPermissionAssignment = null;
 
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
@@ -47,6 +47,10 @@ public class OidcClientInfo {
   public static final String SERIALIZED_NAME_GRANT_TYPES = "grant_types";
   @SerializedName(SERIALIZED_NAME_GRANT_TYPES)
   private List<String> grantTypes = null;
+
+  public static final String SERIALIZED_NAME_ISSUER_URL = "issuer_url";
+  @SerializedName(SERIALIZED_NAME_ISSUER_URL)
+  private String issuerUrl;
 
   public static final String SERIALIZED_NAME_LOGOUT_URIS = "logout_uris";
   @SerializedName(SERIALIZED_NAME_LOGOUT_URIS)
@@ -71,15 +75,15 @@ public class OidcClientInfo {
   public OidcClientInfo() { 
   }
 
-  public OidcClientInfo accessPermissionAssignment(List<AccessPermissionAssignment> accessPermissionAssignment) {
+  public OidcClientInfo accessPermissionAssignment(List<AccessOrGroupPermissionAssignment> accessPermissionAssignment) {
     
     this.accessPermissionAssignment = accessPermissionAssignment;
     return this;
   }
 
-  public OidcClientInfo addAccessPermissionAssignmentItem(AccessPermissionAssignment accessPermissionAssignmentItem) {
+  public OidcClientInfo addAccessPermissionAssignmentItem(AccessOrGroupPermissionAssignment accessPermissionAssignmentItem) {
     if (this.accessPermissionAssignment == null) {
-      this.accessPermissionAssignment = new ArrayList<AccessPermissionAssignment>();
+      this.accessPermissionAssignment = new ArrayList<AccessOrGroupPermissionAssignment>();
     }
     this.accessPermissionAssignment.add(accessPermissionAssignmentItem);
     return this;
@@ -92,12 +96,12 @@ public class OidcClientInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<AccessPermissionAssignment> getAccessPermissionAssignment() {
+  public List<AccessOrGroupPermissionAssignment> getAccessPermissionAssignment() {
     return accessPermissionAssignment;
   }
 
 
-  public void setAccessPermissionAssignment(List<AccessPermissionAssignment> accessPermissionAssignment) {
+  public void setAccessPermissionAssignment(List<AccessOrGroupPermissionAssignment> accessPermissionAssignment) {
     this.accessPermissionAssignment = accessPermissionAssignment;
   }
 
@@ -184,6 +188,29 @@ public class OidcClientInfo {
 
   public void setGrantTypes(List<String> grantTypes) {
     this.grantTypes = grantTypes;
+  }
+
+
+  public OidcClientInfo issuerUrl(String issuerUrl) {
+    
+    this.issuerUrl = issuerUrl;
+    return this;
+  }
+
+   /**
+   * Get issuerUrl
+   * @return issuerUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getIssuerUrl() {
+    return issuerUrl;
+  }
+
+
+  public void setIssuerUrl(String issuerUrl) {
+    this.issuerUrl = issuerUrl;
   }
 
 
@@ -347,6 +374,7 @@ public class OidcClientInfo {
         Objects.equals(this.audience, oidcClientInfo.audience) &&
         Objects.equals(this.clientId, oidcClientInfo.clientId) &&
         Objects.equals(this.grantTypes, oidcClientInfo.grantTypes) &&
+        Objects.equals(this.issuerUrl, oidcClientInfo.issuerUrl) &&
         Objects.equals(this.logoutUris, oidcClientInfo.logoutUris) &&
         Objects.equals(this._public, oidcClientInfo._public) &&
         Objects.equals(this.redirectUris, oidcClientInfo.redirectUris) &&
@@ -356,7 +384,7 @@ public class OidcClientInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPermissionAssignment, audience, clientId, grantTypes, logoutUris, _public, redirectUris, responseTypes, scopes);
+    return Objects.hash(accessPermissionAssignment, audience, clientId, grantTypes, issuerUrl, logoutUris, _public, redirectUris, responseTypes, scopes);
   }
 
   @Override
@@ -367,6 +395,7 @@ public class OidcClientInfo {
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    grantTypes: ").append(toIndentedString(grantTypes)).append("\n");
+    sb.append("    issuerUrl: ").append(toIndentedString(issuerUrl)).append("\n");
     sb.append("    logoutUris: ").append(toIndentedString(logoutUris)).append("\n");
     sb.append("    _public: ").append(toIndentedString(_public)).append("\n");
     sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
