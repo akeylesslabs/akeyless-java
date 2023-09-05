@@ -285,6 +285,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getEventForwarder**](docs/V2Api.md#getEventForwarder) | **POST** /get-event-forwarder | 
 *V2Api* | [**getGroup**](docs/V2Api.md#getGroup) | **POST** /get-group | 
 *V2Api* | [**getKubeExecCreds**](docs/V2Api.md#getKubeExecCreds) | **POST** /get-kube-exec-creds | 
+*V2Api* | [**getLastUserEventStatus**](docs/V2Api.md#getLastUserEventStatus) | **POST** /user-event-last-status | 
 *V2Api* | [**getPKICertificate**](docs/V2Api.md#getPKICertificate) | **POST** /get-pki-certificate | 
 *V2Api* | [**getRSAPublic**](docs/V2Api.md#getRSAPublic) | **POST** /get-rsa-public | 
 *V2Api* | [**getRole**](docs/V2Api.md#getRole) | **POST** /get-role | 
@@ -294,7 +295,6 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getTags**](docs/V2Api.md#getTags) | **POST** /get-tags | 
 *V2Api* | [**getTarget**](docs/V2Api.md#getTarget) | **POST** /get-target | 
 *V2Api* | [**getTargetDetails**](docs/V2Api.md#getTargetDetails) | **POST** /get-target-details | 
-*V2Api* | [**getUserLastEventStatus**](docs/V2Api.md#getUserLastEventStatus) | **POST** /user-event-last-status | 
 *V2Api* | [**hmac**](docs/V2Api.md#hmac) | **POST** /hmac | 
 *V2Api* | [**importPasswords**](docs/V2Api.md#importPasswords) | **POST** /import-passwords | 
 *V2Api* | [**kmipClientDeleteRule**](docs/V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 

@@ -184,6 +184,7 @@ Method | HTTP request | Description
 [**getEventForwarder**](V2Api.md#getEventForwarder) | **POST** /get-event-forwarder | 
 [**getGroup**](V2Api.md#getGroup) | **POST** /get-group | 
 [**getKubeExecCreds**](V2Api.md#getKubeExecCreds) | **POST** /get-kube-exec-creds | 
+[**getLastUserEventStatus**](V2Api.md#getLastUserEventStatus) | **POST** /user-event-last-status | 
 [**getPKICertificate**](V2Api.md#getPKICertificate) | **POST** /get-pki-certificate | 
 [**getRSAPublic**](V2Api.md#getRSAPublic) | **POST** /get-rsa-public | 
 [**getRole**](V2Api.md#getRole) | **POST** /get-role | 
@@ -193,7 +194,6 @@ Method | HTTP request | Description
 [**getTags**](V2Api.md#getTags) | **POST** /get-tags | 
 [**getTarget**](V2Api.md#getTarget) | **POST** /get-target | 
 [**getTargetDetails**](V2Api.md#getTargetDetails) | **POST** /get-target-details | 
-[**getUserLastEventStatus**](V2Api.md#getUserLastEventStatus) | **POST** /user-event-last-status | 
 [**hmac**](V2Api.md#hmac) | **POST** /hmac | 
 [**importPasswords**](V2Api.md#importPasswords) | **POST** /import-passwords | 
 [**kmipClientDeleteRule**](V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 
@@ -11277,6 +11277,67 @@ No authorization required
 **200** | getKubeExecCredsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="getLastUserEventStatus"></a>
+# **getLastUserEventStatus**
+> GetUserEventStatusOutput getLastUserEventStatus(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GetLastUserEventStatus body = new GetLastUserEventStatus(); // GetLastUserEventStatus | 
+    try {
+      GetUserEventStatusOutput result = apiInstance.getLastUserEventStatus(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getLastUserEventStatus");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GetLastUserEventStatus**](GetLastUserEventStatus.md)|  |
+
+### Return type
+
+[**GetUserEventStatusOutput**](GetUserEventStatusOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | getLastUserEventStatusResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="getPKICertificate"></a>
 # **getPKICertificate**
 > GetPKICertificateOutput getPKICertificate(body)
@@ -11824,63 +11885,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | getTargetDetailsResponse wraps response body. |  -  |
-**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
-
-<a name="getUserLastEventStatus"></a>
-# **getUserLastEventStatus**
-> GetUserEventStatusOutput getUserLastEventStatus()
-
-
-
-### Example
-```java
-// Import classes:
-import io.akeyless.client.ApiClient;
-import io.akeyless.client.ApiException;
-import io.akeyless.client.Configuration;
-import io.akeyless.client.models.*;
-import io.akeyless.client.api.V2Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.akeyless.io");
-
-    V2Api apiInstance = new V2Api(defaultClient);
-    try {
-      GetUserEventStatusOutput result = apiInstance.getUserLastEventStatus();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling V2Api#getUserLastEventStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**GetUserEventStatusOutput**](GetUserEventStatusOutput.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | getLastUserEventStatusResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="hmac"></a>

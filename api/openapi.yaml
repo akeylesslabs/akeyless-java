@@ -8466,7 +8466,13 @@ paths:
       x-accepts: application/json
   /user-event-last-status:
     post:
-      operationId: getUserLastEventStatus
+      operationId: getLastUserEventStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getLastUserEventStatus'
+        required: true
       responses:
         "200":
           content:
@@ -8484,6 +8490,8 @@ paths:
             field.
       tags:
       - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
       x-accepts: application/json
   /validate-token:
     post:
@@ -56544,7 +56552,7 @@ components:
       - event-type
       - item-name
       - item-type
-      title: getUserLastEventStatus is a command that get last user event status.
+      title: getLastUserEventStatus is a command that get last user event status.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getPKICertificateOutput:
