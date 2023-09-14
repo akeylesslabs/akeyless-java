@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **isWeb** | **Boolean** |  |  [optional]
 **isolated** | **Boolean** |  |  [optional]
 **_native** | **Boolean** |  |  [optional]
+**rdGatewayServer** | **String** |  |  [optional]
 **rdpUser** | **String** |  |  [optional]
 **region** | **String** |  |  [optional]
 **rotateAfterDisconnect** | **Boolean** |  |  [optional]

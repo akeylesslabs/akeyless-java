@@ -30,6 +30,22 @@ import java.io.IOException;
 @ApiModel(description = "DbTargetDetails")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DbTargetDetails {
+  public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud_service_provider";
+  @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
+  private String cloudServiceProvider;
+
+  public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection_type";
+  @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
+  private String connectionType;
+
+  public static final String SERIALIZED_NAME_DB_CLIENT_ID = "db_client_id";
+  @SerializedName(SERIALIZED_NAME_DB_CLIENT_ID)
+  private String dbClientId;
+
+  public static final String SERIALIZED_NAME_DB_CLIENT_SECRET = "db_client_secret";
+  @SerializedName(SERIALIZED_NAME_DB_CLIENT_SECRET)
+  private String dbClientSecret;
+
   public static final String SERIALIZED_NAME_DB_HOST_NAME = "db_host_name";
   @SerializedName(SERIALIZED_NAME_DB_HOST_NAME)
   private String dbHostName;
@@ -62,6 +78,10 @@ public class DbTargetDetails {
   @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
   private String dbServerName;
 
+  public static final String SERIALIZED_NAME_DB_TENANT_ID = "db_tenant_id";
+  @SerializedName(SERIALIZED_NAME_DB_TENANT_ID)
+  private String dbTenantId;
+
   public static final String SERIALIZED_NAME_DB_USER_NAME = "db_user_name";
   @SerializedName(SERIALIZED_NAME_DB_USER_NAME)
   private String dbUserName;
@@ -80,6 +100,98 @@ public class DbTargetDetails {
 
   public DbTargetDetails() { 
   }
+
+  public DbTargetDetails cloudServiceProvider(String cloudServiceProvider) {
+    
+    this.cloudServiceProvider = cloudServiceProvider;
+    return this;
+  }
+
+   /**
+   * Get cloudServiceProvider
+   * @return cloudServiceProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
+  }
+
+
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
+  }
+
+
+  public DbTargetDetails connectionType(String connectionType) {
+    
+    this.connectionType = connectionType;
+    return this;
+  }
+
+   /**
+   * Get connectionType
+   * @return connectionType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getConnectionType() {
+    return connectionType;
+  }
+
+
+  public void setConnectionType(String connectionType) {
+    this.connectionType = connectionType;
+  }
+
+
+  public DbTargetDetails dbClientId(String dbClientId) {
+    
+    this.dbClientId = dbClientId;
+    return this;
+  }
+
+   /**
+   * Get dbClientId
+   * @return dbClientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbClientId() {
+    return dbClientId;
+  }
+
+
+  public void setDbClientId(String dbClientId) {
+    this.dbClientId = dbClientId;
+  }
+
+
+  public DbTargetDetails dbClientSecret(String dbClientSecret) {
+    
+    this.dbClientSecret = dbClientSecret;
+    return this;
+  }
+
+   /**
+   * Get dbClientSecret
+   * @return dbClientSecret
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbClientSecret() {
+    return dbClientSecret;
+  }
+
+
+  public void setDbClientSecret(String dbClientSecret) {
+    this.dbClientSecret = dbClientSecret;
+  }
+
 
   public DbTargetDetails dbHostName(String dbHostName) {
     
@@ -265,6 +377,29 @@ public class DbTargetDetails {
   }
 
 
+  public DbTargetDetails dbTenantId(String dbTenantId) {
+    
+    this.dbTenantId = dbTenantId;
+    return this;
+  }
+
+   /**
+   * Get dbTenantId
+   * @return dbTenantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbTenantId() {
+    return dbTenantId;
+  }
+
+
+  public void setDbTenantId(String dbTenantId) {
+    this.dbTenantId = dbTenantId;
+  }
+
+
   public DbTargetDetails dbUserName(String dbUserName) {
     
     this.dbUserName = dbUserName;
@@ -366,7 +501,11 @@ public class DbTargetDetails {
       return false;
     }
     DbTargetDetails dbTargetDetails = (DbTargetDetails) o;
-    return Objects.equals(this.dbHostName, dbTargetDetails.dbHostName) &&
+    return Objects.equals(this.cloudServiceProvider, dbTargetDetails.cloudServiceProvider) &&
+        Objects.equals(this.connectionType, dbTargetDetails.connectionType) &&
+        Objects.equals(this.dbClientId, dbTargetDetails.dbClientId) &&
+        Objects.equals(this.dbClientSecret, dbTargetDetails.dbClientSecret) &&
+        Objects.equals(this.dbHostName, dbTargetDetails.dbHostName) &&
         Objects.equals(this.dbName, dbTargetDetails.dbName) &&
         Objects.equals(this.dbPort, dbTargetDetails.dbPort) &&
         Objects.equals(this.dbPrivateKey, dbTargetDetails.dbPrivateKey) &&
@@ -374,6 +513,7 @@ public class DbTargetDetails {
         Objects.equals(this.dbPwd, dbTargetDetails.dbPwd) &&
         Objects.equals(this.dbServerCertificates, dbTargetDetails.dbServerCertificates) &&
         Objects.equals(this.dbServerName, dbTargetDetails.dbServerName) &&
+        Objects.equals(this.dbTenantId, dbTargetDetails.dbTenantId) &&
         Objects.equals(this.dbUserName, dbTargetDetails.dbUserName) &&
         Objects.equals(this.sfAccount, dbTargetDetails.sfAccount) &&
         Objects.equals(this.sslConnectionCertificate, dbTargetDetails.sslConnectionCertificate) &&
@@ -382,13 +522,17 @@ public class DbTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, sfAccount, sslConnectionCertificate, sslConnectionMode);
+    return Objects.hash(cloudServiceProvider, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, sfAccount, sslConnectionCertificate, sslConnectionMode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbTargetDetails {\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
+    sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
+    sb.append("    dbClientId: ").append(toIndentedString(dbClientId)).append("\n");
+    sb.append("    dbClientSecret: ").append(toIndentedString(dbClientSecret)).append("\n");
     sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    dbPort: ").append(toIndentedString(dbPort)).append("\n");
@@ -397,6 +541,7 @@ public class DbTargetDetails {
     sb.append("    dbPwd: ").append(toIndentedString(dbPwd)).append("\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
+    sb.append("    dbTenantId: ").append(toIndentedString(dbTenantId)).append("\n");
     sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");

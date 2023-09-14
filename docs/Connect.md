@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **certIssuerName** | **String** | The Akeyless certificate issuer name |  [optional]
 **identityFile** | **String** | The file from which the identity (private key) for public key authentication is read |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**justification** | **String** |  |  [optional]
 **name** | **String** | The Secret name (for database and AWS producers - producer name) |  [optional]
 **sshCommand** | **String** | Path to SSH executable. e.g. /usr/bin/ssh |  [optional]
 **sshExtraArgs** | **String** | The Use to add offical SSH arguments (except -i) |  [optional]

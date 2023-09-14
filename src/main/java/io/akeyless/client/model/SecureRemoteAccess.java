@@ -103,6 +103,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_NATIVE)
   private Boolean _native;
 
+  public static final String SERIALIZED_NAME_RD_GATEWAY_SERVER = "rd_gateway_server";
+  @SerializedName(SERIALIZED_NAME_RD_GATEWAY_SERVER)
+  private String rdGatewayServer;
+
   public static final String SERIALIZED_NAME_RDP_USER = "rdp_user";
   @SerializedName(SERIALIZED_NAME_RDP_USER)
   private String rdpUser;
@@ -568,6 +572,29 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess rdGatewayServer(String rdGatewayServer) {
+    
+    this.rdGatewayServer = rdGatewayServer;
+    return this;
+  }
+
+   /**
+   * Get rdGatewayServer
+   * @return rdGatewayServer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRdGatewayServer() {
+    return rdGatewayServer;
+  }
+
+
+  public void setRdGatewayServer(String rdGatewayServer) {
+    this.rdGatewayServer = rdGatewayServer;
+  }
+
+
   public SecureRemoteAccess rdpUser(String rdpUser) {
     
     this.rdpUser = rdpUser;
@@ -825,6 +852,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.isWeb, secureRemoteAccess.isWeb) &&
         Objects.equals(this.isolated, secureRemoteAccess.isolated) &&
         Objects.equals(this._native, secureRemoteAccess._native) &&
+        Objects.equals(this.rdGatewayServer, secureRemoteAccess.rdGatewayServer) &&
         Objects.equals(this.rdpUser, secureRemoteAccess.rdpUser) &&
         Objects.equals(this.region, secureRemoteAccess.region) &&
         Objects.equals(this.rotateAfterDisconnect, secureRemoteAccess.rotateAfterDisconnect) &&
@@ -839,7 +867,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -864,6 +892,7 @@ public class SecureRemoteAccess {
     sb.append("    isWeb: ").append(toIndentedString(isWeb)).append("\n");
     sb.append("    isolated: ").append(toIndentedString(isolated)).append("\n");
     sb.append("    _native: ").append(toIndentedString(_native)).append("\n");
+    sb.append("    rdGatewayServer: ").append(toIndentedString(rdGatewayServer)).append("\n");
     sb.append("    rdpUser: ").append(toIndentedString(rdpUser)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");

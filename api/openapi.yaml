@@ -13864,6 +13864,7 @@ components:
         json: false
         ssh-extra-args: ssh-extra-args
         RcFileOverride: RcFileOverride
+        justification: justification
       properties:
         Helper:
           type: object
@@ -13903,6 +13904,9 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        justification:
+          type: string
+          x-go-name: Justification
         name:
           description: The Secret name (for database and AWS producers - producer
             name)
@@ -14552,6 +14556,7 @@ components:
         fixed_user_only: fixed_user_only
         rabbitmq_server_password: rabbitmq_server_password
         aws_user_policies: aws_user_policies
+        db_client_secret: db_client_secret
         aws_role_arns: aws_role_arns
         active: true
         item_targets_assoc:
@@ -14594,6 +14599,8 @@ components:
           key: github_installation_token_permissions
         timeout_seconds: 2
         eks_assume_role: eks_assume_role
+        connection_type: connection_type
+        cloud_service_provider: cloud_service_provider
         db_max_idle_conns: db_max_idle_conns
         admin_name: admin_name
         rabbitmq_server_user: rabbitmq_server_user
@@ -14658,6 +14665,7 @@ components:
           allow_port_forwarding: true
           is_web: true
           endpoint: endpoint
+          rd_gateway_server: rd_gateway_server
           native: true
           enable: true
           host:
@@ -14718,6 +14726,7 @@ components:
         k8s_role_name: k8s_role_name
         db_port: db_port
         artifactory_base_url: artifactory_base_url
+        db_client_id: db_client_id
         mysql_revocation_statements: mysql_revocation_statements
         create_sync_url: create_sync_url
         aws_session_token: aws_session_token
@@ -14752,6 +14761,7 @@ components:
         host_port: host_port
         enable_admin_rotation: true
         client_authentication_type: client_authentication_type
+        db_tenant_id: db_tenant_id
         mongodb_uri_connection: mongodb_uri_connection
         db_user_name: db_user_name
         eks_region: eks_region
@@ -14943,9 +14953,21 @@ components:
         client_authentication_type:
           type: string
           x-go-name: ClientAuthenticationType
+        cloud_service_provider:
+          type: string
+          x-go-name: CloudServiceProvider
+        connection_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         create_sync_url:
           type: string
           x-go-name: CreateSyncURL
+        db_client_id:
+          type: string
+          x-go-name: MssqlAzureClientID
+        db_client_secret:
+          type: string
+          x-go-name: MssqlAzureClientSecret
         db_host_name:
           type: string
           x-go-name: DbHostName
@@ -14989,6 +15011,9 @@ components:
             an IP address.
           type: string
           x-go-name: DBServerName
+        db_tenant_id:
+          type: string
+          x-go-name: MssqlAzureTenantID
         db_user_name:
           type: string
           x-go-name: DbUserName
@@ -15557,22 +15582,42 @@ components:
           x-go-name: DatadogLogTags
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    DbConnectionType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     DbTargetDetails:
       description: DbTargetDetails
       example:
         db_private_key: db_private_key
-        db_name: db_name
+        connection_type: connection_type
         sf_account: sf_account
-        db_user_name: db_user_name
-        db_server_certificates: db_server_certificates
+        cloud_service_provider: cloud_service_provider
+        db_client_secret: db_client_secret
         ssl_connection_mode: true
         db_pwd: db_pwd
-        db_port: db_port
-        db_server_name: db_server_name
         db_private_key_passphrase: db_private_key_passphrase
         ssl_connection_certificate: ssl_connection_certificate
+        db_tenant_id: db_tenant_id
         db_host_name: db_host_name
+        db_name: db_name
+        db_user_name: db_user_name
+        db_server_certificates: db_server_certificates
+        db_port: db_port
+        db_server_name: db_server_name
+        db_client_id: db_client_id
       properties:
+        cloud_service_provider:
+          type: string
+          x-go-name: CloudServiceProvider
+        connection_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        db_client_id:
+          type: string
+          x-go-name: MssqlAzureClientID
+        db_client_secret:
+          type: string
+          x-go-name: MssqlAzureClientSecret
         db_host_name:
           type: string
           x-go-name: DbHostName
@@ -15607,6 +15652,9 @@ components:
             an IP address.
           type: string
           x-go-name: DBServerName
+        db_tenant_id:
+          type: string
+          x-go-name: MssqlAzureTenantID
         db_user_name:
           type: string
           x-go-name: DbUserName
@@ -17162,17 +17210,22 @@ components:
             azure_tenant_id: azure_tenant_id
           db_target_details:
             db_private_key: db_private_key
-            db_name: db_name
+            connection_type: connection_type
             sf_account: sf_account
-            db_user_name: db_user_name
-            db_server_certificates: db_server_certificates
+            cloud_service_provider: cloud_service_provider
+            db_client_secret: db_client_secret
             ssl_connection_mode: true
             db_pwd: db_pwd
-            db_port: db_port
-            db_server_name: db_server_name
             db_private_key_passphrase: db_private_key_passphrase
             ssl_connection_certificate: ssl_connection_certificate
+            db_tenant_id: db_tenant_id
             db_host_name: db_host_name
+            db_name: db_name
+            db_user_name: db_user_name
+            db_server_certificates: db_server_certificates
+            db_port: db_port
+            db_server_name: db_server_name
+            db_client_id: db_client_id
           zerossl_target_details:
             imap_port: imap_port
             api_key: api_key
@@ -17882,6 +17935,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -18526,6 +18580,7 @@ components:
           allow_port_forwarding: true
           is_web: true
           endpoint: endpoint
+          rd_gateway_server: rd_gateway_server
           native: true
           enable: true
           host:
@@ -20924,6 +20979,7 @@ components:
               allow_port_forwarding: true
               is_web: true
               endpoint: endpoint
+              rd_gateway_server: rd_gateway_server
               native: true
               enable: true
               host:
@@ -21583,6 +21639,7 @@ components:
               allow_port_forwarding: true
               is_web: true
               endpoint: endpoint
+              rd_gateway_server: rd_gateway_server
               native: true
               enable: true
               host:
@@ -22264,6 +22321,7 @@ components:
               allow_port_forwarding: true
               is_web: true
               endpoint: endpoint
+              rd_gateway_server: rd_gateway_server
               native: true
               enable: true
               host:
@@ -22923,6 +22981,7 @@ components:
               allow_port_forwarding: true
               is_web: true
               endpoint: endpoint
+              rd_gateway_server: rd_gateway_server
               native: true
               enable: true
               host:
@@ -26270,6 +26329,7 @@ components:
         allow_port_forwarding: true
         is_web: true
         endpoint: endpoint
+        rd_gateway_server: rd_gateway_server
         native: true
         enable: true
         host:
@@ -26350,6 +26410,9 @@ components:
         native:
           type: boolean
           x-go-name: AwsNativeCli
+        rd_gateway_server:
+          type: string
+          x-go-name: RDGatewayServer
         rdp_user:
           type: string
           x-go-name: RDPUser
@@ -27053,17 +27116,22 @@ components:
           azure_tenant_id: azure_tenant_id
         db_target_details:
           db_private_key: db_private_key
-          db_name: db_name
+          connection_type: connection_type
           sf_account: sf_account
-          db_user_name: db_user_name
-          db_server_certificates: db_server_certificates
+          cloud_service_provider: cloud_service_provider
+          db_client_secret: db_client_secret
           ssl_connection_mode: true
           db_pwd: db_pwd
-          db_port: db_port
-          db_server_name: db_server_name
           db_private_key_passphrase: db_private_key_passphrase
           ssl_connection_certificate: ssl_connection_certificate
+          db_tenant_id: db_tenant_id
           db_host_name: db_host_name
+          db_name: db_name
+          db_user_name: db_user_name
+          db_server_certificates: db_server_certificates
+          db_port: db_port
+          db_server_name: db_server_name
+          db_client_id: db_client_id
         zerossl_target_details:
           imap_port: imap_port
           api_key: api_key
@@ -29759,10 +29827,38 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createDBTarget:
       properties:
+        DBDefinedConnectionType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        azure-client-id:
+          description: (Optional) Client id (relevant for "cloud-service-provider"
+            only)
+          type: string
+          x-go-name: MssqlAzureClientID
+        azure-client-secret:
+          description: (Optional) Client secret (relevant for "cloud-service-provider"
+            only)
+          type: string
+          x-go-name: MssqlAzureClientSecret
+        azure-tenant-id:
+          description: (Optional) Tenant id (relevant for "cloud-service-provider"
+            only)
+          type: string
+          x-go-name: MssqlAzureTenantID
+        cloud-service-provider:
+          description: (Optional) Cloud service provider (currently only supports
+            Azure)
+          type: string
+          x-go-name: CloudServiceProvider
         comment:
           description: Deprecated - use description
           type: string
           x-go-name: Comment
+        connection-type:
+          default: credentials
+          description: (Optional) Type of connection to mssql database [credentials/cloud-identity]
+          type: string
+          x-go-name: DBConnectionType
         db-name:
           type: string
           x-go-name: DbName
@@ -29865,6 +29961,7 @@ components:
           type: string
           x-go-name: DbUserName
       required:
+      - connection-type
       - db-type
       - name
       title: createDBTarget is a command that creates a new target.
@@ -32048,13 +32145,11 @@ components:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         item-name:
-          description: Event item name
+          description: EventItemName Event item name
           type: string
           x-go-name: EventItemName
         item-type:
-          description: |-
-            Event item type can be either "target" or type of item eg "static_secret"/"dynamic_secret"
-            To get type of some item run `akeyless describe-item -n {ITEM_NAME} --jq-expression .item_type`
+          description: EventItemType Event item type
           type: string
           x-go-name: EventItemType
         json:
@@ -32063,7 +32158,7 @@ components:
           type: boolean
           x-go-name: Json
         request-access-ttl:
-          description: TTL in minutes for how long to grant the requested access
+          description: For how long to grant the requested access, in minutes
           format: int64
           type: integer
           x-go-name: RequestAccessTtlMin
@@ -34426,6 +34521,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -34468,6 +34564,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -34532,6 +34630,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -34592,6 +34691,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -34626,6 +34726,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -34841,6 +34942,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -34883,6 +34985,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -34947,6 +35051,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -35007,6 +35112,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -35041,6 +35147,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -35242,6 +35349,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -35284,6 +35392,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -35348,6 +35458,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -35408,6 +35519,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -35442,6 +35554,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -35598,6 +35711,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -35640,6 +35754,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -35704,6 +35820,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -35764,6 +35881,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -35798,6 +35916,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -36011,6 +36130,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -36053,6 +36173,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -36117,6 +36239,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -36177,6 +36300,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -36211,6 +36335,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -36457,6 +36582,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -36499,6 +36625,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -36563,6 +36691,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -36623,6 +36752,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -36657,6 +36787,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -36807,6 +36938,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -36849,6 +36981,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -36913,6 +37047,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -36973,6 +37108,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -37007,6 +37143,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -37191,6 +37328,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -37233,6 +37371,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -37297,6 +37437,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -37357,6 +37498,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -37391,6 +37533,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -37555,6 +37698,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -37597,6 +37741,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -37661,6 +37807,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -37721,6 +37868,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -37755,6 +37903,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -37909,6 +38058,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -37951,6 +38101,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -38015,6 +38167,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -38075,6 +38228,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -38109,6 +38263,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -38284,6 +38439,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -38326,6 +38482,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -38390,6 +38548,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -38450,6 +38609,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -38484,6 +38644,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -38672,6 +38833,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -38714,6 +38876,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -38778,6 +38942,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -38838,6 +39003,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -38872,6 +39038,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -39043,6 +39210,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -39085,6 +39253,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -39149,6 +39319,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -39209,6 +39380,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -39243,6 +39415,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -39431,6 +39604,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -39473,6 +39647,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -39537,6 +39713,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -39597,6 +39774,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -39631,6 +39809,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -39836,6 +40015,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -39878,6 +40058,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -39942,6 +40124,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -40002,6 +40185,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -40036,6 +40220,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -40237,6 +40422,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -40279,6 +40465,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -40343,6 +40531,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -40403,6 +40592,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -40437,6 +40627,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -40654,6 +40845,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -40696,6 +40888,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -40760,6 +40954,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -40820,6 +41015,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -40854,6 +41050,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -41044,6 +41241,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -41086,6 +41284,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -41150,6 +41350,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -41210,6 +41411,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -41244,6 +41446,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -41477,6 +41680,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -41519,6 +41723,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -41583,6 +41789,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -41643,6 +41850,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -41677,6 +41885,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -41871,6 +42080,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -41913,6 +42123,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -41977,6 +42189,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -42037,6 +42250,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -42071,6 +42285,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -42261,6 +42476,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -42303,6 +42519,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -42367,6 +42585,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -42427,6 +42646,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -42461,6 +42681,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -42582,6 +42803,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
         secure-access-rdp-domain:
           description: Required when the Dynamic Secret is used for a domain user
           type: string
@@ -42655,6 +42880,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -42697,6 +42923,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -42761,6 +42989,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -42821,6 +43050,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -42855,6 +43085,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -43023,6 +43254,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -43065,6 +43297,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -43129,6 +43363,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -43189,6 +43424,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -43223,6 +43459,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -43400,6 +43637,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -43442,6 +43680,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -43506,6 +43746,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -43566,6 +43807,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -43600,6 +43842,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -43763,6 +44006,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -43805,6 +44049,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -43869,6 +44115,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -43929,6 +44176,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -43963,6 +44211,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -46322,6 +46571,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -46364,6 +46614,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -46428,6 +46680,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -46488,6 +46741,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -46522,6 +46776,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -46741,6 +46996,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -46783,6 +47039,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -46847,6 +47105,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -46907,6 +47166,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -46941,6 +47201,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -47146,6 +47407,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -47188,6 +47450,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -47252,6 +47516,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -47312,6 +47577,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -47346,6 +47612,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -47506,6 +47773,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -47548,6 +47816,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -47612,6 +47882,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -47672,6 +47943,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -47706,6 +47978,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -47923,6 +48196,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -47965,6 +48239,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -48029,6 +48305,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -48089,6 +48366,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -48123,6 +48401,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -48377,6 +48656,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -48419,6 +48699,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -48483,6 +48765,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -48543,6 +48826,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -48577,6 +48861,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -48731,6 +49016,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -48773,6 +49059,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -48837,6 +49125,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -48897,6 +49186,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -48931,6 +49221,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -49119,6 +49410,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -49161,6 +49453,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -49225,6 +49519,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -49285,6 +49580,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -49319,6 +49615,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -49487,6 +49784,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -49529,6 +49827,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -49593,6 +49893,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -49653,6 +49954,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -49687,6 +49989,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -49845,6 +50148,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -49887,6 +50191,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -49951,6 +50257,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -50011,6 +50318,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -50045,6 +50353,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -50224,6 +50533,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -50266,6 +50576,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -50330,6 +50642,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -50390,6 +50703,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -50424,6 +50738,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -50616,6 +50931,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -50658,6 +50974,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -50722,6 +51040,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -50782,6 +51101,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -50816,6 +51136,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -50991,6 +51312,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -51033,6 +51355,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -51097,6 +51421,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -51157,6 +51482,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -51191,6 +51517,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -51383,6 +51710,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -51425,6 +51753,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -51489,6 +51819,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -51549,6 +51880,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -51583,6 +51915,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -51792,6 +52125,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -51834,6 +52168,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -51898,6 +52234,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -51958,6 +52295,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -51992,6 +52330,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -52197,6 +52536,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -52239,6 +52579,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -52303,6 +52645,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -52363,6 +52706,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -52397,6 +52741,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -52618,6 +52963,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -52660,6 +53006,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -52724,6 +53072,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -52784,6 +53133,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -52818,6 +53168,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -53012,6 +53363,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -53054,6 +53406,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -53118,6 +53472,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -53178,6 +53533,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -53212,6 +53568,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -53449,6 +53806,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -53491,6 +53849,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -53555,6 +53915,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -53615,6 +53976,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -53649,6 +54011,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -53847,6 +54210,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -53889,6 +54253,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -53953,6 +54319,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -54013,6 +54380,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -54047,6 +54415,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -54241,6 +54610,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -54283,6 +54653,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -54347,6 +54719,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -54407,6 +54780,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -54441,6 +54815,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -54566,6 +54941,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
         secure-access-rdp-domain:
           description: Required when the Dynamic Secret is used for a domain user
           type: string
@@ -54639,6 +55018,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -54681,6 +55061,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -54745,6 +55127,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -54805,6 +55188,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -54839,6 +55223,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -55011,6 +55396,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -55053,6 +55439,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -55117,6 +55505,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -55177,6 +55566,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -55211,6 +55601,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -55392,6 +55783,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -55434,6 +55826,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -55498,6 +55892,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -55558,6 +55953,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -55592,6 +55988,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -55759,6 +56156,7 @@ components:
           fixed_user_only: fixed_user_only
           rabbitmq_server_password: rabbitmq_server_password
           aws_user_policies: aws_user_policies
+          db_client_secret: db_client_secret
           aws_role_arns: aws_role_arns
           active: true
           item_targets_assoc:
@@ -55801,6 +56199,8 @@ components:
             key: github_installation_token_permissions
           timeout_seconds: 2
           eks_assume_role: eks_assume_role
+          connection_type: connection_type
+          cloud_service_provider: cloud_service_provider
           db_max_idle_conns: db_max_idle_conns
           admin_name: admin_name
           rabbitmq_server_user: rabbitmq_server_user
@@ -55865,6 +56265,7 @@ components:
             allow_port_forwarding: true
             is_web: true
             endpoint: endpoint
+            rd_gateway_server: rd_gateway_server
             native: true
             enable: true
             host:
@@ -55925,6 +56326,7 @@ components:
           k8s_role_name: k8s_role_name
           db_port: db_port
           artifactory_base_url: artifactory_base_url
+          db_client_id: db_client_id
           mysql_revocation_statements: mysql_revocation_statements
           create_sync_url: create_sync_url
           aws_session_token: aws_session_token
@@ -55959,6 +56361,7 @@ components:
           host_port: host_port
           enable_admin_rotation: true
           client_authentication_type: client_authentication_type
+          db_tenant_id: db_tenant_id
           mongodb_uri_connection: mongodb_uri_connection
           db_user_name: db_user_name
           eks_region: eks_region
@@ -56534,9 +56937,8 @@ components:
           x-go-name: Json
         time-back:
           description: |-
-            The time back to search the event, can be passed as string representation.
-            For example if the value is "5m" we will return the last user event issued in the last 5 minutes
-            By default we will search without any time boundary
+            The time back to search the event, for example if the value is "5m" we will return the last user event issued in the last 5 minutes.
+            By default, we will search without any time boundary.
           type: string
           x-go-name: TimeBack
         token:
@@ -60544,10 +60946,38 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateDBTarget:
       properties:
+        DBDefinedConnectionType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        azure-client-id:
+          description: (Optional) Client id (relevant for "cloud-service-provider"
+            only)
+          type: string
+          x-go-name: MssqlAzureClientID
+        azure-client-secret:
+          description: (Optional) Client secret (relevant for "cloud-service-provider"
+            only)
+          type: string
+          x-go-name: MssqlAzureClientSecret
+        azure-tenant-id:
+          description: (Optional) Tenant id (relevant for "cloud-service-provider"
+            only)
+          type: string
+          x-go-name: MssqlAzureTenantID
+        cloud-service-provider:
+          description: (Optional) Cloud service provider (currently only supports
+            Azure)
+          type: string
+          x-go-name: CloudServiceProvider
         comment:
           description: Deprecated - use description
           type: string
           x-go-name: Comment
+        connection-type:
+          default: credentials
+          description: (Optional) Type of connection to mssql database [credentials/cloud-identity]
+          type: string
+          x-go-name: DBConnectionType
         db-name:
           type: string
           x-go-name: DbName
@@ -60663,6 +61093,7 @@ components:
           type: string
           x-go-name: DbUserName
       required:
+      - connection-type
       - db-type
       - name
       title: updateDBTarget is a command that updates an existing target.
@@ -61568,6 +61999,10 @@ components:
             type: string
           type: array
           x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server (relevant only for rdp)
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
         secure-access-rdp-domain:
           description: Required when the Dynamic Secret is used for a domain user
             (relevant only for RDP Dynamic-Secret)

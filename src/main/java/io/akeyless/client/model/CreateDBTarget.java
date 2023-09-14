@@ -29,9 +29,33 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDBTarget {
+  public static final String SERIALIZED_NAME_DB_DEFINED_CONNECTION_TYPE = "DBDefinedConnectionType";
+  @SerializedName(SERIALIZED_NAME_DB_DEFINED_CONNECTION_TYPE)
+  private String dbDefinedConnectionType;
+
+  public static final String SERIALIZED_NAME_AZURE_CLIENT_ID = "azure-client-id";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_ID)
+  private String azureClientId;
+
+  public static final String SERIALIZED_NAME_AZURE_CLIENT_SECRET = "azure-client-secret";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_SECRET)
+  private String azureClientSecret;
+
+  public static final String SERIALIZED_NAME_AZURE_TENANT_ID = "azure-tenant-id";
+  @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
+  private String azureTenantId;
+
+  public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud-service-provider";
+  @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
+  private String cloudServiceProvider;
+
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
+
+  public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection-type";
+  @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
+  private String connectionType = "credentials";
 
   public static final String SERIALIZED_NAME_DB_NAME = "db-name";
   @SerializedName(SERIALIZED_NAME_DB_NAME)
@@ -140,6 +164,121 @@ public class CreateDBTarget {
   public CreateDBTarget() { 
   }
 
+  public CreateDBTarget dbDefinedConnectionType(String dbDefinedConnectionType) {
+    
+    this.dbDefinedConnectionType = dbDefinedConnectionType;
+    return this;
+  }
+
+   /**
+   * Get dbDefinedConnectionType
+   * @return dbDefinedConnectionType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbDefinedConnectionType() {
+    return dbDefinedConnectionType;
+  }
+
+
+  public void setDbDefinedConnectionType(String dbDefinedConnectionType) {
+    this.dbDefinedConnectionType = dbDefinedConnectionType;
+  }
+
+
+  public CreateDBTarget azureClientId(String azureClientId) {
+    
+    this.azureClientId = azureClientId;
+    return this;
+  }
+
+   /**
+   * (Optional) Client id (relevant for \&quot;cloud-service-provider\&quot; only)
+   * @return azureClientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Client id (relevant for \"cloud-service-provider\" only)")
+
+  public String getAzureClientId() {
+    return azureClientId;
+  }
+
+
+  public void setAzureClientId(String azureClientId) {
+    this.azureClientId = azureClientId;
+  }
+
+
+  public CreateDBTarget azureClientSecret(String azureClientSecret) {
+    
+    this.azureClientSecret = azureClientSecret;
+    return this;
+  }
+
+   /**
+   * (Optional) Client secret (relevant for \&quot;cloud-service-provider\&quot; only)
+   * @return azureClientSecret
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Client secret (relevant for \"cloud-service-provider\" only)")
+
+  public String getAzureClientSecret() {
+    return azureClientSecret;
+  }
+
+
+  public void setAzureClientSecret(String azureClientSecret) {
+    this.azureClientSecret = azureClientSecret;
+  }
+
+
+  public CreateDBTarget azureTenantId(String azureTenantId) {
+    
+    this.azureTenantId = azureTenantId;
+    return this;
+  }
+
+   /**
+   * (Optional) Tenant id (relevant for \&quot;cloud-service-provider\&quot; only)
+   * @return azureTenantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Tenant id (relevant for \"cloud-service-provider\" only)")
+
+  public String getAzureTenantId() {
+    return azureTenantId;
+  }
+
+
+  public void setAzureTenantId(String azureTenantId) {
+    this.azureTenantId = azureTenantId;
+  }
+
+
+  public CreateDBTarget cloudServiceProvider(String cloudServiceProvider) {
+    
+    this.cloudServiceProvider = cloudServiceProvider;
+    return this;
+  }
+
+   /**
+   * (Optional) Cloud service provider (currently only supports Azure)
+   * @return cloudServiceProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(Optional) Cloud service provider (currently only supports Azure)")
+
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
+  }
+
+
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
+  }
+
+
   public CreateDBTarget comment(String comment) {
     
     this.comment = comment;
@@ -160,6 +299,29 @@ public class CreateDBTarget {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateDBTarget connectionType(String connectionType) {
+    
+    this.connectionType = connectionType;
+    return this;
+  }
+
+   /**
+   * (Optional) Type of connection to mssql database [credentials/cloud-identity]
+   * @return connectionType
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "(Optional) Type of connection to mssql database [credentials/cloud-identity]")
+
+  public String getConnectionType() {
+    return connectionType;
+  }
+
+
+  public void setConnectionType(String connectionType) {
+    this.connectionType = connectionType;
   }
 
 
@@ -770,7 +932,13 @@ public class CreateDBTarget {
       return false;
     }
     CreateDBTarget createDBTarget = (CreateDBTarget) o;
-    return Objects.equals(this.comment, createDBTarget.comment) &&
+    return Objects.equals(this.dbDefinedConnectionType, createDBTarget.dbDefinedConnectionType) &&
+        Objects.equals(this.azureClientId, createDBTarget.azureClientId) &&
+        Objects.equals(this.azureClientSecret, createDBTarget.azureClientSecret) &&
+        Objects.equals(this.azureTenantId, createDBTarget.azureTenantId) &&
+        Objects.equals(this.cloudServiceProvider, createDBTarget.cloudServiceProvider) &&
+        Objects.equals(this.comment, createDBTarget.comment) &&
+        Objects.equals(this.connectionType, createDBTarget.connectionType) &&
         Objects.equals(this.dbName, createDBTarget.dbName) &&
         Objects.equals(this.dbServerCertificates, createDBTarget.dbServerCertificates) &&
         Objects.equals(this.dbServerName, createDBTarget.dbServerName) &&
@@ -801,14 +969,20 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBTarget {\n");
+    sb.append("    dbDefinedConnectionType: ").append(toIndentedString(dbDefinedConnectionType)).append("\n");
+    sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
+    sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
+    sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");

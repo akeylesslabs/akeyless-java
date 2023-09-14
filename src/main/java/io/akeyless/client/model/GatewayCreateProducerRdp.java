@@ -88,6 +88,10 @@ public class GatewayCreateProducerRdp {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RD_GATEWAY_SERVER = "secure-access-rd-gateway-server";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RD_GATEWAY_SERVER)
+  private String secureAccessRdGatewayServer;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
   private String secureAccessRdpDomain;
@@ -453,6 +457,29 @@ public class GatewayCreateProducerRdp {
   }
 
 
+  public GatewayCreateProducerRdp secureAccessRdGatewayServer(String secureAccessRdGatewayServer) {
+    
+    this.secureAccessRdGatewayServer = secureAccessRdGatewayServer;
+    return this;
+  }
+
+   /**
+   * RD Gateway server
+   * @return secureAccessRdGatewayServer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RD Gateway server")
+
+  public String getSecureAccessRdGatewayServer() {
+    return secureAccessRdGatewayServer;
+  }
+
+
+  public void setSecureAccessRdGatewayServer(String secureAccessRdGatewayServer) {
+    this.secureAccessRdGatewayServer = secureAccessRdGatewayServer;
+  }
+
+
   public GatewayCreateProducerRdp secureAccessRdpDomain(String secureAccessRdpDomain) {
     
     this.secureAccessRdpDomain = secureAccessRdpDomain;
@@ -668,6 +695,7 @@ public class GatewayCreateProducerRdp {
         Objects.equals(this.secureAccessAllowExternalUser, gatewayCreateProducerRdp.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerRdp.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerRdp.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdGatewayServer, gatewayCreateProducerRdp.secureAccessRdGatewayServer) &&
         Objects.equals(this.secureAccessRdpDomain, gatewayCreateProducerRdp.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, gatewayCreateProducerRdp.secureAccessRdpUser) &&
         Objects.equals(this.tags, gatewayCreateProducerRdp.tags) &&
@@ -680,7 +708,7 @@ public class GatewayCreateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -701,6 +729,7 @@ public class GatewayCreateProducerRdp {
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdGatewayServer: ").append(toIndentedString(secureAccessRdGatewayServer)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

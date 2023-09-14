@@ -208,11 +208,11 @@ public class CreateUserEvent {
   }
 
    /**
-   * Event item name
+   * EventItemName Event item name
    * @return itemName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Event item name")
+  @ApiModelProperty(required = true, value = "EventItemName Event item name")
 
   public String getItemName() {
     return itemName;
@@ -231,11 +231,11 @@ public class CreateUserEvent {
   }
 
    /**
-   * Event item type can be either \&quot;target\&quot; or type of item eg \&quot;static_secret\&quot;/\&quot;dynamic_secret\&quot; To get type of some item run &#x60;akeyless describe-item -n {ITEM_NAME} --jq-expression .item_type&#x60;
+   * EventItemType Event item type
    * @return itemType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Event item type can be either \"target\" or type of item eg \"static_secret\"/\"dynamic_secret\" To get type of some item run `akeyless describe-item -n {ITEM_NAME} --jq-expression .item_type`")
+  @ApiModelProperty(required = true, value = "EventItemType Event item type")
 
   public String getItemType() {
     return itemType;
@@ -277,11 +277,11 @@ public class CreateUserEvent {
   }
 
    /**
-   * TTL in minutes for how long to grant the requested access
+   * For how long to grant the requested access, in minutes
    * @return requestAccessTtl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TTL in minutes for how long to grant the requested access")
+  @ApiModelProperty(value = "For how long to grant the requested access, in minutes")
 
   public Long getRequestAccessTtl() {
     return requestAccessTtl;

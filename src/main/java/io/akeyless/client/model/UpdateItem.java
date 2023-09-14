@@ -135,6 +135,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RD_GATEWAY_SERVER = "secure-access-rd-gateway-server";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RD_GATEWAY_SERVER)
+  private String secureAccessRdGatewayServer;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
   private String secureAccessRdpDomain;
@@ -812,6 +816,29 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem secureAccessRdGatewayServer(String secureAccessRdGatewayServer) {
+    
+    this.secureAccessRdGatewayServer = secureAccessRdGatewayServer;
+    return this;
+  }
+
+   /**
+   * RD Gateway server (relevant only for rdp)
+   * @return secureAccessRdGatewayServer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RD Gateway server (relevant only for rdp)")
+
+  public String getSecureAccessRdGatewayServer() {
+    return secureAccessRdGatewayServer;
+  }
+
+
+  public void setSecureAccessRdGatewayServer(String secureAccessRdGatewayServer) {
+    this.secureAccessRdGatewayServer = secureAccessRdGatewayServer;
+  }
+
+
   public UpdateItem secureAccessRdpDomain(String secureAccessRdpDomain) {
     
     this.secureAccessRdpDomain = secureAccessRdpDomain;
@@ -1108,6 +1135,7 @@ public class UpdateItem {
         Objects.equals(this.secureAccessDbSchema, updateItem.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessEnable, updateItem.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, updateItem.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdGatewayServer, updateItem.secureAccessRdGatewayServer) &&
         Objects.equals(this.secureAccessRdpDomain, updateItem.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, updateItem.secureAccessRdpUser) &&
         Objects.equals(this.secureAccessRmHost, updateItem.secureAccessRmHost) &&
@@ -1123,7 +1151,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, description, json, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, description, json, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
   @Override
@@ -1156,6 +1184,7 @@ public class UpdateItem {
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdGatewayServer: ").append(toIndentedString(secureAccessRdGatewayServer)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    secureAccessRmHost: ").append(toIndentedString(secureAccessRmHost)).append("\n");

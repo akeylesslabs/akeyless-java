@@ -219,9 +219,25 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_CLIENT_AUTHENTICATION_TYPE)
   private String clientAuthenticationType;
 
+  public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud_service_provider";
+  @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
+  private String cloudServiceProvider;
+
+  public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection_type";
+  @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
+  private String connectionType;
+
   public static final String SERIALIZED_NAME_CREATE_SYNC_URL = "create_sync_url";
   @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
   private String createSyncUrl;
+
+  public static final String SERIALIZED_NAME_DB_CLIENT_ID = "db_client_id";
+  @SerializedName(SERIALIZED_NAME_DB_CLIENT_ID)
+  private String dbClientId;
+
+  public static final String SERIALIZED_NAME_DB_CLIENT_SECRET = "db_client_secret";
+  @SerializedName(SERIALIZED_NAME_DB_CLIENT_SECRET)
+  private String dbClientSecret;
 
   public static final String SERIALIZED_NAME_DB_HOST_NAME = "db_host_name";
   @SerializedName(SERIALIZED_NAME_DB_HOST_NAME)
@@ -266,6 +282,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_DB_SERVER_NAME = "db_server_name";
   @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
   private String dbServerName;
+
+  public static final String SERIALIZED_NAME_DB_TENANT_ID = "db_tenant_id";
+  @SerializedName(SERIALIZED_NAME_DB_TENANT_ID)
+  private String dbTenantId;
 
   public static final String SERIALIZED_NAME_DB_USER_NAME = "db_user_name";
   @SerializedName(SERIALIZED_NAME_DB_USER_NAME)
@@ -1952,6 +1972,52 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails cloudServiceProvider(String cloudServiceProvider) {
+    
+    this.cloudServiceProvider = cloudServiceProvider;
+    return this;
+  }
+
+   /**
+   * Get cloudServiceProvider
+   * @return cloudServiceProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
+  }
+
+
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
+  }
+
+
+  public DSProducerDetails connectionType(String connectionType) {
+    
+    this.connectionType = connectionType;
+    return this;
+  }
+
+   /**
+   * Get connectionType
+   * @return connectionType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getConnectionType() {
+    return connectionType;
+  }
+
+
+  public void setConnectionType(String connectionType) {
+    this.connectionType = connectionType;
+  }
+
+
   public DSProducerDetails createSyncUrl(String createSyncUrl) {
     
     this.createSyncUrl = createSyncUrl;
@@ -1972,6 +2038,52 @@ public class DSProducerDetails {
 
   public void setCreateSyncUrl(String createSyncUrl) {
     this.createSyncUrl = createSyncUrl;
+  }
+
+
+  public DSProducerDetails dbClientId(String dbClientId) {
+    
+    this.dbClientId = dbClientId;
+    return this;
+  }
+
+   /**
+   * Get dbClientId
+   * @return dbClientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbClientId() {
+    return dbClientId;
+  }
+
+
+  public void setDbClientId(String dbClientId) {
+    this.dbClientId = dbClientId;
+  }
+
+
+  public DSProducerDetails dbClientSecret(String dbClientSecret) {
+    
+    this.dbClientSecret = dbClientSecret;
+    return this;
+  }
+
+   /**
+   * Get dbClientSecret
+   * @return dbClientSecret
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbClientSecret() {
+    return dbClientSecret;
+  }
+
+
+  public void setDbClientSecret(String dbClientSecret) {
+    this.dbClientSecret = dbClientSecret;
   }
 
 
@@ -2225,6 +2337,29 @@ public class DSProducerDetails {
 
   public void setDbServerName(String dbServerName) {
     this.dbServerName = dbServerName;
+  }
+
+
+  public DSProducerDetails dbTenantId(String dbTenantId) {
+    
+    this.dbTenantId = dbTenantId;
+    return this;
+  }
+
+   /**
+   * Get dbTenantId
+   * @return dbTenantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDbTenantId() {
+    return dbTenantId;
+  }
+
+
+  public void setDbTenantId(String dbTenantId) {
+    this.dbTenantId = dbTenantId;
   }
 
 
@@ -5921,7 +6056,11 @@ public class DSProducerDetails {
         Objects.equals(this.chefServerUsername, dsProducerDetails.chefServerUsername) &&
         Objects.equals(this.chefSkipSsl, dsProducerDetails.chefSkipSsl) &&
         Objects.equals(this.clientAuthenticationType, dsProducerDetails.clientAuthenticationType) &&
+        Objects.equals(this.cloudServiceProvider, dsProducerDetails.cloudServiceProvider) &&
+        Objects.equals(this.connectionType, dsProducerDetails.connectionType) &&
         Objects.equals(this.createSyncUrl, dsProducerDetails.createSyncUrl) &&
+        Objects.equals(this.dbClientId, dsProducerDetails.dbClientId) &&
+        Objects.equals(this.dbClientSecret, dsProducerDetails.dbClientSecret) &&
         Objects.equals(this.dbHostName, dsProducerDetails.dbHostName) &&
         Objects.equals(this.dbIsolationLevel, dsProducerDetails.dbIsolationLevel) &&
         Objects.equals(this.dbMaxIdleConns, dsProducerDetails.dbMaxIdleConns) &&
@@ -5933,6 +6072,7 @@ public class DSProducerDetails {
         Objects.equals(this.dbPwd, dsProducerDetails.dbPwd) &&
         Objects.equals(this.dbServerCertificates, dsProducerDetails.dbServerCertificates) &&
         Objects.equals(this.dbServerName, dsProducerDetails.dbServerName) &&
+        Objects.equals(this.dbTenantId, dsProducerDetails.dbTenantId) &&
         Objects.equals(this.dbUserName, dsProducerDetails.dbUserName) &&
         Objects.equals(this.deleteProtection, dsProducerDetails.deleteProtection) &&
         Objects.equals(this.dynamicSecretId, dsProducerDetails.dynamicSecretId) &&
@@ -6091,7 +6231,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, createSyncUrl, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6144,7 +6284,11 @@ public class DSProducerDetails {
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
     sb.append("    clientAuthenticationType: ").append(toIndentedString(clientAuthenticationType)).append("\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
+    sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
+    sb.append("    dbClientId: ").append(toIndentedString(dbClientId)).append("\n");
+    sb.append("    dbClientSecret: ").append(toIndentedString(dbClientSecret)).append("\n");
     sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
     sb.append("    dbIsolationLevel: ").append(toIndentedString(dbIsolationLevel)).append("\n");
     sb.append("    dbMaxIdleConns: ").append(toIndentedString(dbMaxIdleConns)).append("\n");
@@ -6156,6 +6300,7 @@ public class DSProducerDetails {
     sb.append("    dbPwd: ").append(toIndentedString(dbPwd)).append("\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
+    sb.append("    dbTenantId: ").append(toIndentedString(dbTenantId)).append("\n");
     sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    dynamicSecretId: ").append(toIndentedString(dynamicSecretId)).append("\n");

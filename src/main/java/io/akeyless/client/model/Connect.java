@@ -66,6 +66,10 @@ public class Connect {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_JUSTIFICATION = "justification";
+  @SerializedName(SERIALIZED_NAME_JUSTIFICATION)
+  private String justification;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -312,6 +316,29 @@ public class Connect {
   }
 
 
+  public Connect justification(String justification) {
+    
+    this.justification = justification;
+    return this;
+  }
+
+   /**
+   * Get justification
+   * @return justification
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getJustification() {
+    return justification;
+  }
+
+
+  public void setJustification(String justification) {
+    this.justification = justification;
+  }
+
+
   public Connect name(String name) {
     
     this.name = name;
@@ -537,6 +564,7 @@ public class Connect {
         Objects.equals(this.certIssuerName, connect.certIssuerName) &&
         Objects.equals(this.identityFile, connect.identityFile) &&
         Objects.equals(this.json, connect.json) &&
+        Objects.equals(this.justification, connect.justification) &&
         Objects.equals(this.name, connect.name) &&
         Objects.equals(this.sshCommand, connect.sshCommand) &&
         Objects.equals(this.sshExtraArgs, connect.sshExtraArgs) &&
@@ -550,7 +578,7 @@ public class Connect {
 
   @Override
   public int hashCode() {
-    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion);
+    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, justification, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion);
   }
 
   @Override
@@ -566,6 +594,7 @@ public class Connect {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    identityFile: ").append(toIndentedString(identityFile)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    justification: ").append(toIndentedString(justification)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sshCommand: ").append(toIndentedString(sshCommand)).append("\n");
     sb.append("    sshExtraArgs: ").append(toIndentedString(sshExtraArgs)).append("\n");
