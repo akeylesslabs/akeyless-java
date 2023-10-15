@@ -52,6 +52,10 @@ public class UpdateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
+  private String gatewayUrl;
+
   public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   private List<String> gwBoundIps = null;
@@ -83,6 +87,10 @@ public class UpdateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_SUBCLAIMS_DELIMITERS = "subclaims-delimiters";
+  @SerializedName(SERIALIZED_NAME_SUBCLAIMS_DELIMITERS)
+  private List<String> subclaimsDelimiters = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -227,6 +235,29 @@ public class UpdateAuthMethodOAuth2 {
 
   public void setForceSubClaims(Boolean forceSubClaims) {
     this.forceSubClaims = forceSubClaims;
+  }
+
+
+  public UpdateAuthMethodOAuth2 gatewayUrl(String gatewayUrl) {
+    
+    this.gatewayUrl = gatewayUrl;
+    return this;
+  }
+
+   /**
+   * Akeyless Gateway URL (Configuration Management port). Relevant only when the jwks-uri is accessible only from the gateway.
+   * @return gatewayUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Akeyless Gateway URL (Configuration Management port). Relevant only when the jwks-uri is accessible only from the gateway.")
+
+  public String getGatewayUrl() {
+    return gatewayUrl;
+  }
+
+
+  public void setGatewayUrl(String gatewayUrl) {
+    this.gatewayUrl = gatewayUrl;
   }
 
 
@@ -422,6 +453,37 @@ public class UpdateAuthMethodOAuth2 {
   }
 
 
+  public UpdateAuthMethodOAuth2 subclaimsDelimiters(List<String> subclaimsDelimiters) {
+    
+    this.subclaimsDelimiters = subclaimsDelimiters;
+    return this;
+  }
+
+  public UpdateAuthMethodOAuth2 addSubclaimsDelimitersItem(String subclaimsDelimitersItem) {
+    if (this.subclaimsDelimiters == null) {
+      this.subclaimsDelimiters = new ArrayList<String>();
+    }
+    this.subclaimsDelimiters.add(subclaimsDelimitersItem);
+    return this;
+  }
+
+   /**
+   * A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT)
+   * @return subclaimsDelimiters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT)")
+
+  public List<String> getSubclaimsDelimiters() {
+    return subclaimsDelimiters;
+  }
+
+
+  public void setSubclaimsDelimiters(List<String> subclaimsDelimiters) {
+    this.subclaimsDelimiters = subclaimsDelimiters;
+  }
+
+
   public UpdateAuthMethodOAuth2 token(String token) {
     
     this.token = token;
@@ -505,6 +567,7 @@ public class UpdateAuthMethodOAuth2 {
         Objects.equals(this.boundClientIds, updateAuthMethodOAuth2.boundClientIds) &&
         Objects.equals(this.boundIps, updateAuthMethodOAuth2.boundIps) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOAuth2.forceSubClaims) &&
+        Objects.equals(this.gatewayUrl, updateAuthMethodOAuth2.gatewayUrl) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodOAuth2.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodOAuth2.issuer) &&
         Objects.equals(this.json, updateAuthMethodOAuth2.json) &&
@@ -513,6 +576,7 @@ public class UpdateAuthMethodOAuth2 {
         Objects.equals(this.jwtTtl, updateAuthMethodOAuth2.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodOAuth2.name) &&
         Objects.equals(this.newName, updateAuthMethodOAuth2.newName) &&
+        Objects.equals(this.subclaimsDelimiters, updateAuthMethodOAuth2.subclaimsDelimiters) &&
         Objects.equals(this.token, updateAuthMethodOAuth2.token) &&
         Objects.equals(this.uidToken, updateAuthMethodOAuth2.uidToken) &&
         Objects.equals(this.uniqueIdentifier, updateAuthMethodOAuth2.uniqueIdentifier);
@@ -520,7 +584,7 @@ public class UpdateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, newName, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, newName, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -532,6 +596,7 @@ public class UpdateAuthMethodOAuth2 {
     sb.append("    boundClientIds: ").append(toIndentedString(boundClientIds)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -540,6 +605,7 @@ public class UpdateAuthMethodOAuth2 {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");

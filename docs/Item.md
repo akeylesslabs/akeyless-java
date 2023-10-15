@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessDate** | **OffsetDateTime** |  |  [optional]
+**accessDateDisplay** | **String** |  |  [optional]
 **accessRequestStatus** | **String** |  |  [optional]
 **autoRotate** | **Boolean** |  |  [optional]
 **bastionDetails** | [**BastionsList**](BastionsList.md) |  |  [optional]

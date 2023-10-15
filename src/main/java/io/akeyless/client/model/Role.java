@@ -38,6 +38,10 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
+  private String accessDateDisplay;
+
   public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   private List<String> clientPermissions = null;
@@ -89,6 +93,29 @@ public class Role {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public Role accessDateDisplay(String accessDateDisplay) {
+    
+    this.accessDateDisplay = accessDateDisplay;
+    return this;
+  }
+
+   /**
+   * Get accessDateDisplay
+   * @return accessDateDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessDateDisplay() {
+    return accessDateDisplay;
+  }
+
+
+  public void setAccessDateDisplay(String accessDateDisplay) {
+    this.accessDateDisplay = accessDateDisplay;
   }
 
 
@@ -279,6 +306,7 @@ public class Role {
     }
     Role role = (Role) o;
     return Objects.equals(this.accessDate, role.accessDate) &&
+        Objects.equals(this.accessDateDisplay, role.accessDateDisplay) &&
         Objects.equals(this.clientPermissions, role.clientPermissions) &&
         Objects.equals(this.comment, role.comment) &&
         Objects.equals(this.creationDate, role.creationDate) &&
@@ -290,7 +318,7 @@ public class Role {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, clientPermissions, comment, creationDate, modificationDate, roleAuthMethodsAssoc, roleName, rules);
+    return Objects.hash(accessDate, accessDateDisplay, clientPermissions, comment, creationDate, modificationDate, roleAuthMethodsAssoc, roleName, rules);
   }
 
   @Override
@@ -298,6 +326,7 @@ public class Role {
     StringBuilder sb = new StringBuilder();
     sb.append("class Role {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");

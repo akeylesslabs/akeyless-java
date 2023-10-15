@@ -53,6 +53,10 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
   private String invalidCharacters;
 
+  public static final String SERIALIZED_NAME_LOCK_DEFAULT_KEY = "lock_default_key";
+  @SerializedName(SERIALIZED_NAME_LOCK_DEFAULT_KEY)
+  private Boolean lockDefaultKey;
+
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
   private PasswordPolicyInfo passwordPolicy;
@@ -183,6 +187,29 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings lockDefaultKey(Boolean lockDefaultKey) {
+    
+    this.lockDefaultKey = lockDefaultKey;
+    return this;
+  }
+
+   /**
+   * LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty
+   * @return lockDefaultKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty")
+
+  public Boolean getLockDefaultKey() {
+    return lockDefaultKey;
+  }
+
+
+  public void setLockDefaultKey(Boolean lockDefaultKey) {
+    this.lockDefaultKey = lockDefaultKey;
+  }
+
+
   public AccountGeneralSettings passwordPolicy(PasswordPolicyInfo passwordPolicy) {
     
     this.passwordPolicy = passwordPolicy;
@@ -266,6 +293,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.invalidCharacters, accountGeneralSettings.invalidCharacters) &&
+        Objects.equals(this.lockDefaultKey, accountGeneralSettings.lockDefaultKey) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
         Objects.equals(this.sharingPolicy, accountGeneralSettings.sharingPolicy);
@@ -273,7 +301,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, dataProtectionSection, enableRequestForAccess, invalidCharacters, passwordPolicy, protectItemsByDefault, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, dataProtectionSection, enableRequestForAccess, invalidCharacters, lockDefaultKey, passwordPolicy, protectItemsByDefault, sharingPolicy);
   }
 
   @Override
@@ -285,6 +313,7 @@ public class AccountGeneralSettings {
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
+    sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
     sb.append("    sharingPolicy: ").append(toIndentedString(sharingPolicy)).append("\n");

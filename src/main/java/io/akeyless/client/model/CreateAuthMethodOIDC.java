@@ -88,6 +88,10 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPES_PREFIX)
   private String requiredScopesPrefix;
 
+  public static final String SERIALIZED_NAME_SUBCLAIMS_DELIMITERS = "subclaims-delimiters";
+  @SerializedName(SERIALIZED_NAME_SUBCLAIMS_DELIMITERS)
+  private List<String> subclaimsDelimiters = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -457,6 +461,37 @@ public class CreateAuthMethodOIDC {
   }
 
 
+  public CreateAuthMethodOIDC subclaimsDelimiters(List<String> subclaimsDelimiters) {
+    
+    this.subclaimsDelimiters = subclaimsDelimiters;
+    return this;
+  }
+
+  public CreateAuthMethodOIDC addSubclaimsDelimitersItem(String subclaimsDelimitersItem) {
+    if (this.subclaimsDelimiters == null) {
+      this.subclaimsDelimiters = new ArrayList<String>();
+    }
+    this.subclaimsDelimiters.add(subclaimsDelimitersItem);
+    return this;
+  }
+
+   /**
+   * A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT)
+   * @return subclaimsDelimiters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT)")
+
+  public List<String> getSubclaimsDelimiters() {
+    return subclaimsDelimiters;
+  }
+
+
+  public void setSubclaimsDelimiters(List<String> subclaimsDelimiters) {
+    this.subclaimsDelimiters = subclaimsDelimiters;
+  }
+
+
   public CreateAuthMethodOIDC token(String token) {
     
     this.token = token;
@@ -549,6 +584,7 @@ public class CreateAuthMethodOIDC {
         Objects.equals(this.name, createAuthMethodOIDC.name) &&
         Objects.equals(this.requiredScopes, createAuthMethodOIDC.requiredScopes) &&
         Objects.equals(this.requiredScopesPrefix, createAuthMethodOIDC.requiredScopesPrefix) &&
+        Objects.equals(this.subclaimsDelimiters, createAuthMethodOIDC.subclaimsDelimiters) &&
         Objects.equals(this.token, createAuthMethodOIDC.token) &&
         Objects.equals(this.uidToken, createAuthMethodOIDC.uidToken) &&
         Objects.equals(this.uniqueIdentifier, createAuthMethodOIDC.uniqueIdentifier);
@@ -556,7 +592,7 @@ public class CreateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, requiredScopes, requiredScopesPrefix, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -577,6 +613,7 @@ public class CreateAuthMethodOIDC {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    requiredScopes: ").append(toIndentedString(requiredScopes)).append("\n");
     sb.append("    requiredScopesPrefix: ").append(toIndentedString(requiredScopesPrefix)).append("\n");
+    sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");

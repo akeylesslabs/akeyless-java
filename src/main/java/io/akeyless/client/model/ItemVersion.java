@@ -34,6 +34,10 @@ public class ItemVersion {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
+  private String accessDateDisplay;
+
   public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
@@ -89,6 +93,29 @@ public class ItemVersion {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public ItemVersion accessDateDisplay(String accessDateDisplay) {
+    
+    this.accessDateDisplay = accessDateDisplay;
+    return this;
+  }
+
+   /**
+   * Get accessDateDisplay
+   * @return accessDateDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessDateDisplay() {
+    return accessDateDisplay;
+  }
+
+
+  public void setAccessDateDisplay(String accessDateDisplay) {
+    this.accessDateDisplay = accessDateDisplay;
   }
 
 
@@ -286,6 +313,7 @@ public class ItemVersion {
     }
     ItemVersion itemVersion = (ItemVersion) o;
     return Objects.equals(this.accessDate, itemVersion.accessDate) &&
+        Objects.equals(this.accessDateDisplay, itemVersion.accessDateDisplay) &&
         Objects.equals(this.creationDate, itemVersion.creationDate) &&
         Objects.equals(this.customerFragmentId, itemVersion.customerFragmentId) &&
         Objects.equals(this.deletionDate, itemVersion.deletionDate) &&
@@ -298,7 +326,7 @@ public class ItemVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, creationDate, customerFragmentId, deletionDate, itemVersionState, modificationDate, protectionKeyName, version, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, creationDate, customerFragmentId, deletionDate, itemVersionState, modificationDate, protectionKeyName, version, withCustomerFragment);
   }
 
   @Override
@@ -306,6 +334,7 @@ public class ItemVersion {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemVersion {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");

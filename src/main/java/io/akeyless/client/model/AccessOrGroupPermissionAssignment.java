@@ -36,6 +36,14 @@ public class AccessOrGroupPermissionAssignment {
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
 
+  public static final String SERIALIZED_NAME_ACCESS_TYPE = "access_type";
+  @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
+  private String accessType;
+
+  public static final String SERIALIZED_NAME_ASSIGNMENT_NAME = "assignment_name";
+  @SerializedName(SERIALIZED_NAME_ASSIGNMENT_NAME)
+  private String assignmentName;
+
   public static final String SERIALIZED_NAME_ASSIGNMENT_TYPE = "assignment_type";
   @SerializedName(SERIALIZED_NAME_ASSIGNMENT_TYPE)
   private String assignmentType;
@@ -71,6 +79,52 @@ public class AccessOrGroupPermissionAssignment {
 
   public void setAccessId(String accessId) {
     this.accessId = accessId;
+  }
+
+
+  public AccessOrGroupPermissionAssignment accessType(String accessType) {
+    
+    this.accessType = accessType;
+    return this;
+  }
+
+   /**
+   * Get accessType
+   * @return accessType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessType() {
+    return accessType;
+  }
+
+
+  public void setAccessType(String accessType) {
+    this.accessType = accessType;
+  }
+
+
+  public AccessOrGroupPermissionAssignment assignmentName(String assignmentName) {
+    
+    this.assignmentName = assignmentName;
+    return this;
+  }
+
+   /**
+   * Get assignmentName
+   * @return assignmentName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAssignmentName() {
+    return assignmentName;
+  }
+
+
+  public void setAssignmentName(String assignmentName) {
+    this.assignmentName = assignmentName;
   }
 
 
@@ -161,6 +215,8 @@ public class AccessOrGroupPermissionAssignment {
     }
     AccessOrGroupPermissionAssignment accessOrGroupPermissionAssignment = (AccessOrGroupPermissionAssignment) o;
     return Objects.equals(this.accessId, accessOrGroupPermissionAssignment.accessId) &&
+        Objects.equals(this.accessType, accessOrGroupPermissionAssignment.accessType) &&
+        Objects.equals(this.assignmentName, accessOrGroupPermissionAssignment.assignmentName) &&
         Objects.equals(this.assignmentType, accessOrGroupPermissionAssignment.assignmentType) &&
         Objects.equals(this.groupId, accessOrGroupPermissionAssignment.groupId) &&
         Objects.equals(this.subClaims, accessOrGroupPermissionAssignment.subClaims);
@@ -168,7 +224,7 @@ public class AccessOrGroupPermissionAssignment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, assignmentType, groupId, subClaims);
+    return Objects.hash(accessId, accessType, assignmentName, assignmentType, groupId, subClaims);
   }
 
   @Override
@@ -176,6 +232,8 @@ public class AccessOrGroupPermissionAssignment {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccessOrGroupPermissionAssignment {\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
+    sb.append("    assignmentName: ").append(toIndentedString(assignmentName)).append("\n");
     sb.append("    assignmentType: ").append(toIndentedString(assignmentType)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");

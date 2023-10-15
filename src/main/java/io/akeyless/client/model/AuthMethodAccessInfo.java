@@ -36,6 +36,8 @@ import io.akeyless.client.model.UniversalIdentityAccessRules;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AuthMethodAccessInfo
@@ -117,6 +119,10 @@ public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_SAML_ACCESS_RULES = "saml_access_rules";
   @SerializedName(SERIALIZED_NAME_SAML_ACCESS_RULES)
   private SAMLAccessRules samlAccessRules;
+
+  public static final String SERIALIZED_NAME_SUB_CLAIMS_DELIMITERS = "sub_claims_delimiters";
+  @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_DELIMITERS)
+  private List<String> subClaimsDelimiters = null;
 
   public static final String SERIALIZED_NAME_UNIVERSAL_IDENTITY_ACCESS_RULES = "universal_identity_access_rules";
   @SerializedName(SERIALIZED_NAME_UNIVERSAL_IDENTITY_ACCESS_RULES)
@@ -562,6 +568,37 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo subClaimsDelimiters(List<String> subClaimsDelimiters) {
+    
+    this.subClaimsDelimiters = subClaimsDelimiters;
+    return this;
+  }
+
+  public AuthMethodAccessInfo addSubClaimsDelimitersItem(String subClaimsDelimitersItem) {
+    if (this.subClaimsDelimiters == null) {
+      this.subClaimsDelimiters = new ArrayList<String>();
+    }
+    this.subClaimsDelimiters.add(subClaimsDelimitersItem);
+    return this;
+  }
+
+   /**
+   * Get subClaimsDelimiters
+   * @return subClaimsDelimiters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getSubClaimsDelimiters() {
+    return subClaimsDelimiters;
+  }
+
+
+  public void setSubClaimsDelimiters(List<String> subClaimsDelimiters) {
+    this.subClaimsDelimiters = subClaimsDelimiters;
+  }
+
+
   public AuthMethodAccessInfo universalIdentityAccessRules(UniversalIdentityAccessRules universalIdentityAccessRules) {
     
     this.universalIdentityAccessRules = universalIdentityAccessRules;
@@ -613,12 +650,13 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.oidcAccessRules, authMethodAccessInfo.oidcAccessRules) &&
         Objects.equals(this.rulesType, authMethodAccessInfo.rulesType) &&
         Objects.equals(this.samlAccessRules, authMethodAccessInfo.samlAccessRules) &&
+        Objects.equals(this.subClaimsDelimiters, authMethodAccessInfo.subClaimsDelimiters) &&
         Objects.equals(this.universalIdentityAccessRules, authMethodAccessInfo.universalIdentityAccessRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
   }
 
   @Override
@@ -644,6 +682,7 @@ public class AuthMethodAccessInfo {
     sb.append("    oidcAccessRules: ").append(toIndentedString(oidcAccessRules)).append("\n");
     sb.append("    rulesType: ").append(toIndentedString(rulesType)).append("\n");
     sb.append("    samlAccessRules: ").append(toIndentedString(samlAccessRules)).append("\n");
+    sb.append("    subClaimsDelimiters: ").append(toIndentedString(subClaimsDelimiters)).append("\n");
     sb.append("    universalIdentityAccessRules: ").append(toIndentedString(universalIdentityAccessRules)).append("\n");
     sb.append("}");
     return sb.toString();

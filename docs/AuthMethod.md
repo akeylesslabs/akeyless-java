@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessDate** | **OffsetDateTime** |  |  [optional]
+**accessDateDisplay** | **String** |  |  [optional]
 **accessInfo** | [**AuthMethodAccessInfo**](AuthMethodAccessInfo.md) |  |  [optional]
 **accountId** | **String** |  |  [optional]
 **associatedGwIds** | **List&lt;Long&gt;** |  |  [optional]

@@ -34,6 +34,10 @@ public class TargetItemVersion {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
+  private String accessDateDisplay;
+
   public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
@@ -97,6 +101,29 @@ public class TargetItemVersion {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public TargetItemVersion accessDateDisplay(String accessDateDisplay) {
+    
+    this.accessDateDisplay = accessDateDisplay;
+    return this;
+  }
+
+   /**
+   * Get accessDateDisplay
+   * @return accessDateDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessDateDisplay() {
+    return accessDateDisplay;
+  }
+
+
+  public void setAccessDateDisplay(String accessDateDisplay) {
+    this.accessDateDisplay = accessDateDisplay;
   }
 
 
@@ -340,6 +367,7 @@ public class TargetItemVersion {
     }
     TargetItemVersion targetItemVersion = (TargetItemVersion) o;
     return Objects.equals(this.accessDate, targetItemVersion.accessDate) &&
+        Objects.equals(this.accessDateDisplay, targetItemVersion.accessDateDisplay) &&
         Objects.equals(this.creationDate, targetItemVersion.creationDate) &&
         Objects.equals(this.customerFragmentId, targetItemVersion.customerFragmentId) &&
         Objects.equals(this.deletionDate, targetItemVersion.deletionDate) &&
@@ -354,7 +382,7 @@ public class TargetItemVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, creationDate, customerFragmentId, deletionDate, itemVersionState, latestVersion, modificationDate, protectionKeyName, targetName, version, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, creationDate, customerFragmentId, deletionDate, itemVersionState, latestVersion, modificationDate, protectionKeyName, targetName, version, withCustomerFragment);
   }
 
   @Override
@@ -362,6 +390,7 @@ public class TargetItemVersion {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetItemVersion {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");

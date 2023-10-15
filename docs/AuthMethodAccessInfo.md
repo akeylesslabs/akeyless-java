@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **oidcAccessRules** | [**OIDCAccessRules**](OIDCAccessRules.md) |  |  [optional]
 **rulesType** | **String** |  |  [optional]
 **samlAccessRules** | [**SAMLAccessRules**](SAMLAccessRules.md) |  |  [optional]
+**subClaimsDelimiters** | **List&lt;String&gt;** |  |  [optional]
 **universalIdentityAccessRules** | [**UniversalIdentityAccessRules**](UniversalIdentityAccessRules.md) |  |  [optional]
 
 

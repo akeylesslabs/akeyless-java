@@ -37,6 +37,10 @@ public class CustomerFragment {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
@@ -90,6 +94,29 @@ public class CustomerFragment {
   }
 
 
+  public CustomerFragment name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   public CustomerFragment value(String value) {
     
     this.value = value;
@@ -124,12 +151,13 @@ public class CustomerFragment {
     CustomerFragment customerFragment = (CustomerFragment) o;
     return Objects.equals(this.description, customerFragment.description) &&
         Objects.equals(this.id, customerFragment.id) &&
+        Objects.equals(this.name, customerFragment.name) &&
         Objects.equals(this.value, customerFragment.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, value);
+    return Objects.hash(description, id, name, value);
   }
 
   @Override
@@ -138,6 +166,7 @@ public class CustomerFragment {
     sb.append("class CustomerFragment {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

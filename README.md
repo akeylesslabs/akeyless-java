@@ -332,10 +332,12 @@ Class | Method | HTTP request | Description
 *V2Api* | [**setRoleRule**](docs/V2Api.md#setRoleRule) | **POST** /set-role-rule | 
 *V2Api* | [**shareItem**](docs/V2Api.md#shareItem) | **POST** /share-item | 
 *V2Api* | [**signDataWithClassicKey**](docs/V2Api.md#signDataWithClassicKey) | **POST** /sign-data-with-classic-key | 
+*V2Api* | [**signEcDsa**](docs/V2Api.md#signEcDsa) | **POST** /sign-ecdsa | 
 *V2Api* | [**signGPG**](docs/V2Api.md#signGPG) | **POST** /sign-gpg | 
 *V2Api* | [**signJWTWithClassicKey**](docs/V2Api.md#signJWTWithClassicKey) | **POST** /sign-jwt-with-classic-key | 
 *V2Api* | [**signPKCS1**](docs/V2Api.md#signPKCS1) | **POST** /sign-pkcs1 | 
 *V2Api* | [**signPKICertWithClassicKey**](docs/V2Api.md#signPKICertWithClassicKey) | **POST** /sign-pki-cert-with-classic-key | 
+*V2Api* | [**signRsaSsaPss**](docs/V2Api.md#signRsaSsaPss) | **POST** /sign-rsassa-pss | 
 *V2Api* | [**staticCredsAuth**](docs/V2Api.md#staticCredsAuth) | **POST** /static-creds-auth | 
 *V2Api* | [**tokenize**](docs/V2Api.md#tokenize) | **POST** /tokenize | 
 *V2Api* | [**uidCreateChildToken**](docs/V2Api.md#uidCreateChildToken) | **POST** /uid-create-child-token | 
@@ -400,10 +402,12 @@ Class | Method | HTTP request | Description
 *V2Api* | [**uploadRSA**](docs/V2Api.md#uploadRSA) | **POST** /upload-rsa | 
 *V2Api* | [**validateToken**](docs/V2Api.md#validateToken) | **POST** /validate-token | 
 *V2Api* | [**verifyDataWithClassicKey**](docs/V2Api.md#verifyDataWithClassicKey) | **POST** /verify-data-with-classic-key | 
+*V2Api* | [**verifyEcDsa**](docs/V2Api.md#verifyEcDsa) | **POST** /verify-ecdsa | 
 *V2Api* | [**verifyGPG**](docs/V2Api.md#verifyGPG) | **POST** /verify-gpg | 
 *V2Api* | [**verifyJWTWithClassicKey**](docs/V2Api.md#verifyJWTWithClassicKey) | **POST** /verify-jwt-with-classic-key | 
 *V2Api* | [**verifyPKCS1**](docs/V2Api.md#verifyPKCS1) | **POST** /verify-pkcs1 | 
 *V2Api* | [**verifyPKICertWithClassicKey**](docs/V2Api.md#verifyPKICertWithClassicKey) | **POST** /verify-pki-cert-with-classic-key | 
+*V2Api* | [**verifyRsaSsaPss**](docs/V2Api.md#verifyRsaSsaPss) | **POST** /verify-rsassa-pss | 
 
 
 ## Documentation for Models
@@ -449,6 +453,7 @@ Class | Method | HTTP request | Description
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
  - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
+ - [CfInfo](docs/CfInfo.md)
  - [ChefTargetDetails](docs/ChefTargetDetails.md)
  - [ClassicKeyDetailsInfo](docs/ClassicKeyDetailsInfo.md)
  - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
@@ -979,6 +984,8 @@ Class | Method | HTTP request | Description
  - [ShareItem](docs/ShareItem.md)
  - [SharingPolicyInfo](docs/SharingPolicyInfo.md)
  - [SignDataWithClassicKey](docs/SignDataWithClassicKey.md)
+ - [SignEcDsa](docs/SignEcDsa.md)
+ - [SignEcDsaOutput](docs/SignEcDsaOutput.md)
  - [SignGPG](docs/SignGPG.md)
  - [SignGPGOutput](docs/SignGPGOutput.md)
  - [SignJWTOutput](docs/SignJWTOutput.md)
@@ -988,6 +995,8 @@ Class | Method | HTTP request | Description
  - [SignPKCS1Output](docs/SignPKCS1Output.md)
  - [SignPKICertOutput](docs/SignPKICertOutput.md)
  - [SignPKICertWithClassicKey](docs/SignPKICertWithClassicKey.md)
+ - [SignRsaSsaPss](docs/SignRsaSsaPss.md)
+ - [SignRsaSsaPssOutput](docs/SignRsaSsaPssOutput.md)
  - [SmInfo](docs/SmInfo.md)
  - [SplunkLogForwardingConfig](docs/SplunkLogForwardingConfig.md)
  - [SraInfo](docs/SraInfo.md)
@@ -1113,12 +1122,14 @@ Class | Method | HTTP request | Description
  - [VaultlessTokenizerInfo](docs/VaultlessTokenizerInfo.md)
  - [VenafiTargetDetails](docs/VenafiTargetDetails.md)
  - [VerifyDataWithClassicKey](docs/VerifyDataWithClassicKey.md)
+ - [VerifyEcDsa](docs/VerifyEcDsa.md)
  - [VerifyGPG](docs/VerifyGPG.md)
  - [VerifyJWTOutput](docs/VerifyJWTOutput.md)
  - [VerifyJWTWithClassicKey](docs/VerifyJWTWithClassicKey.md)
  - [VerifyPKCS1](docs/VerifyPKCS1.md)
  - [VerifyPKICertOutput](docs/VerifyPKICertOutput.md)
  - [VerifyPKICertWithClassicKey](docs/VerifyPKICertWithClassicKey.md)
+ - [VerifyRsaSsaPss](docs/VerifyRsaSsaPss.md)
  - [WebTargetDetails](docs/WebTargetDetails.md)
  - [WindowsTargetDetails](docs/WindowsTargetDetails.md)
  - [ZeroSSLTargetDetails](docs/ZeroSSLTargetDetails.md)

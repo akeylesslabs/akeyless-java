@@ -322,11 +322,11 @@ public class Auth {
   }
 
    /**
-   * Gateway URL for the K8S authenticated (relevant only for access-type&#x3D;k8s)
+   * Gateway URL for the K8S/OAUTH2 authenticated (relevant only for access-type&#x3D;k8s/oauth2)
    * @return gatewayUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway URL for the K8S authenticated (relevant only for access-type=k8s)")
+  @ApiModelProperty(value = "Gateway URL for the K8S/OAUTH2 authenticated (relevant only for access-type=k8s/oauth2)")
 
   public String getGatewayUrl() {
     return gatewayUrl;

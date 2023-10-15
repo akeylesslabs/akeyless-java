@@ -45,6 +45,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
+  private String accessDateDisplay;
+
   public static final String SERIALIZED_NAME_ACCESS_REQUEST_STATUS = "access_request_status";
   @SerializedName(SERIALIZED_NAME_ACCESS_REQUEST_STATUS)
   private String accessRequestStatus;
@@ -220,6 +224,29 @@ public class Item {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public Item accessDateDisplay(String accessDateDisplay) {
+    
+    this.accessDateDisplay = accessDateDisplay;
+    return this;
+  }
+
+   /**
+   * Get accessDateDisplay
+   * @return accessDateDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessDateDisplay() {
+    return accessDateDisplay;
+  }
+
+
+  public void setAccessDateDisplay(String accessDateDisplay) {
+    this.accessDateDisplay = accessDateDisplay;
   }
 
 
@@ -1155,6 +1182,7 @@ public class Item {
     }
     Item item = (Item) o;
     return Objects.equals(this.accessDate, item.accessDate) &&
+        Objects.equals(this.accessDateDisplay, item.accessDateDisplay) &&
         Objects.equals(this.accessRequestStatus, item.accessRequestStatus) &&
         Objects.equals(this.autoRotate, item.autoRotate) &&
         Objects.equals(this.bastionDetails, item.bastionDetails) &&
@@ -1197,7 +1225,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
   @Override
@@ -1205,6 +1233,7 @@ public class Item {
     StringBuilder sb = new StringBuilder();
     sb.append("class Item {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
     sb.append("    accessRequestStatus: ").append(toIndentedString(accessRequestStatus)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    bastionDetails: ").append(toIndentedString(bastionDetails)).append("\n");

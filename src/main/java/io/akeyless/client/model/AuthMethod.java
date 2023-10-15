@@ -38,6 +38,10 @@ public class AuthMethod {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
+  private String accessDateDisplay;
+
   public static final String SERIALIZED_NAME_ACCESS_INFO = "access_info";
   @SerializedName(SERIALIZED_NAME_ACCESS_INFO)
   private AuthMethodAccessInfo accessInfo;
@@ -101,6 +105,29 @@ public class AuthMethod {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public AuthMethod accessDateDisplay(String accessDateDisplay) {
+    
+    this.accessDateDisplay = accessDateDisplay;
+    return this;
+  }
+
+   /**
+   * Get accessDateDisplay
+   * @return accessDateDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessDateDisplay() {
+    return accessDateDisplay;
+  }
+
+
+  public void setAccessDateDisplay(String accessDateDisplay) {
+    this.accessDateDisplay = accessDateDisplay;
   }
 
 
@@ -368,6 +395,7 @@ public class AuthMethod {
     }
     AuthMethod authMethod = (AuthMethod) o;
     return Objects.equals(this.accessDate, authMethod.accessDate) &&
+        Objects.equals(this.accessDateDisplay, authMethod.accessDateDisplay) &&
         Objects.equals(this.accessInfo, authMethod.accessInfo) &&
         Objects.equals(this.accountId, authMethod.accountId) &&
         Objects.equals(this.associatedGwIds, authMethod.associatedGwIds) &&
@@ -382,7 +410,7 @@ public class AuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, isApproved, modificationDate);
+    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, isApproved, modificationDate);
   }
 
   @Override
@@ -390,6 +418,7 @@ public class AuthMethod {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethod {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
     sb.append("    accessInfo: ").append(toIndentedString(accessInfo)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associatedGwIds: ").append(toIndentedString(associatedGwIds)).append("\n");

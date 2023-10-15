@@ -33,6 +33,10 @@ public class MigrationGeneral {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_LAST_MIGRATION = "last_migration";
+  @SerializedName(SERIALIZED_NAME_LAST_MIGRATION)
+  private String lastMigration;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -80,6 +84,29 @@ public class MigrationGeneral {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public MigrationGeneral lastMigration(String lastMigration) {
+    
+    this.lastMigration = lastMigration;
+    return this;
+  }
+
+   /**
+   * Get lastMigration
+   * @return lastMigration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastMigration() {
+    return lastMigration;
+  }
+
+
+  public void setLastMigration(String lastMigration) {
+    this.lastMigration = lastMigration;
   }
 
 
@@ -231,6 +258,7 @@ public class MigrationGeneral {
     }
     MigrationGeneral migrationGeneral = (MigrationGeneral) o;
     return Objects.equals(this.id, migrationGeneral.id) &&
+        Objects.equals(this.lastMigration, migrationGeneral.lastMigration) &&
         Objects.equals(this.name, migrationGeneral.name) &&
         Objects.equals(this.newName, migrationGeneral.newName) &&
         Objects.equals(this.prefix, migrationGeneral.prefix) &&
@@ -241,7 +269,7 @@ public class MigrationGeneral {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, newName, prefix, protectionKey, status, type);
+    return Objects.hash(id, lastMigration, name, newName, prefix, protectionKey, status, type);
   }
 
   @Override
@@ -249,6 +277,7 @@ public class MigrationGeneral {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationGeneral {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastMigration: ").append(toIndentedString(lastMigration)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");

@@ -36,6 +36,10 @@ public class AccessPermissionAssignment {
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
 
+  public static final String SERIALIZED_NAME_ACCESS_TYPE = "access_type";
+  @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
+  private String accessType;
+
   public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub_claims";
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
   private Map<String, List<String>> subClaims = null;
@@ -63,6 +67,29 @@ public class AccessPermissionAssignment {
 
   public void setAccessId(String accessId) {
     this.accessId = accessId;
+  }
+
+
+  public AccessPermissionAssignment accessType(String accessType) {
+    
+    this.accessType = accessType;
+    return this;
+  }
+
+   /**
+   * Get accessType
+   * @return accessType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessType() {
+    return accessType;
+  }
+
+
+  public void setAccessType(String accessType) {
+    this.accessType = accessType;
   }
 
 
@@ -107,12 +134,13 @@ public class AccessPermissionAssignment {
     }
     AccessPermissionAssignment accessPermissionAssignment = (AccessPermissionAssignment) o;
     return Objects.equals(this.accessId, accessPermissionAssignment.accessId) &&
+        Objects.equals(this.accessType, accessPermissionAssignment.accessType) &&
         Objects.equals(this.subClaims, accessPermissionAssignment.subClaims);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, subClaims);
+    return Objects.hash(accessId, accessType, subClaims);
   }
 
   @Override
@@ -120,6 +148,7 @@ public class AccessPermissionAssignment {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccessPermissionAssignment {\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("}");
     return sb.toString();

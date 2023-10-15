@@ -37,6 +37,10 @@ public class OAuth2AccessRules {
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience;
 
+  public static final String SERIALIZED_NAME_AUTHORIZED_GW_CLUSTER_NAME = "authorized_gw_cluster_name";
+  @SerializedName(SERIALIZED_NAME_AUTHORIZED_GW_CLUSTER_NAME)
+  private String authorizedGwClusterName;
+
   public static final String SERIALIZED_NAME_BOUND_CLAIMS = "bound_claims";
   @SerializedName(SERIALIZED_NAME_BOUND_CLAIMS)
   private List<OAuth2CustomClaim> boundClaims = null;
@@ -84,6 +88,29 @@ public class OAuth2AccessRules {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public OAuth2AccessRules authorizedGwClusterName(String authorizedGwClusterName) {
+    
+    this.authorizedGwClusterName = authorizedGwClusterName;
+    return this;
+  }
+
+   /**
+   * The gateway cluster name that is authorized to access JWKeySetURL
+   * @return authorizedGwClusterName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The gateway cluster name that is authorized to access JWKeySetURL")
+
+  public String getAuthorizedGwClusterName() {
+    return authorizedGwClusterName;
+  }
+
+
+  public void setAuthorizedGwClusterName(String authorizedGwClusterName) {
+    this.authorizedGwClusterName = authorizedGwClusterName;
   }
 
 
@@ -251,6 +278,7 @@ public class OAuth2AccessRules {
     }
     OAuth2AccessRules oauth2AccessRules = (OAuth2AccessRules) o;
     return Objects.equals(this.audience, oauth2AccessRules.audience) &&
+        Objects.equals(this.authorizedGwClusterName, oauth2AccessRules.authorizedGwClusterName) &&
         Objects.equals(this.boundClaims, oauth2AccessRules.boundClaims) &&
         Objects.equals(this.boundClientsId, oauth2AccessRules.boundClientsId) &&
         Objects.equals(this.issuer, oauth2AccessRules.issuer) &&
@@ -261,7 +289,7 @@ public class OAuth2AccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, boundClaims, boundClientsId, issuer, jwksJsonData, jwksUri, uniqueIdentifier);
+    return Objects.hash(audience, authorizedGwClusterName, boundClaims, boundClientsId, issuer, jwksJsonData, jwksUri, uniqueIdentifier);
   }
 
   @Override
@@ -269,6 +297,7 @@ public class OAuth2AccessRules {
     StringBuilder sb = new StringBuilder();
     sb.append("class OAuth2AccessRules {\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    authorizedGwClusterName: ").append(toIndentedString(authorizedGwClusterName)).append("\n");
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    boundClientsId: ").append(toIndentedString(boundClientsId)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");

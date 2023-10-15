@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CfInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -54,6 +55,10 @@ public class GwClusterIdentity {
   public static final String SERIALIZED_NAME_CUSTOMER_FRAGMENT_IDS = "customer_fragment_ids";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRAGMENT_IDS)
   private List<String> customerFragmentIds = null;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_FRAGMENTS = "customer_fragments";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_FRAGMENTS)
+  private List<CfInfo> customerFragments = null;
 
   public static final String SERIALIZED_NAME_DEFAULT_PROTECTION_KEY_ID = "default_protection_key_id";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PROTECTION_KEY_ID)
@@ -220,11 +225,11 @@ public class GwClusterIdentity {
   }
 
    /**
-   * Get customerFragmentIds
+   * Deprecated - use CustomerFragments instead
    * @return customerFragmentIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated - use CustomerFragments instead")
 
   public List<String> getCustomerFragmentIds() {
     return customerFragmentIds;
@@ -233,6 +238,37 @@ public class GwClusterIdentity {
 
   public void setCustomerFragmentIds(List<String> customerFragmentIds) {
     this.customerFragmentIds = customerFragmentIds;
+  }
+
+
+  public GwClusterIdentity customerFragments(List<CfInfo> customerFragments) {
+    
+    this.customerFragments = customerFragments;
+    return this;
+  }
+
+  public GwClusterIdentity addCustomerFragmentsItem(CfInfo customerFragmentsItem) {
+    if (this.customerFragments == null) {
+      this.customerFragments = new ArrayList<CfInfo>();
+    }
+    this.customerFragments.add(customerFragmentsItem);
+    return this;
+  }
+
+   /**
+   * Get customerFragments
+   * @return customerFragments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<CfInfo> getCustomerFragments() {
+    return customerFragments;
+  }
+
+
+  public void setCustomerFragments(List<CfInfo> customerFragments) {
+    this.customerFragments = customerFragments;
   }
 
 
@@ -389,6 +425,7 @@ public class GwClusterIdentity {
         Objects.equals(this.clusterUrl, gwClusterIdentity.clusterUrl) &&
         Objects.equals(this.currentGw, gwClusterIdentity.currentGw) &&
         Objects.equals(this.customerFragmentIds, gwClusterIdentity.customerFragmentIds) &&
+        Objects.equals(this.customerFragments, gwClusterIdentity.customerFragments) &&
         Objects.equals(this.defaultProtectionKeyId, gwClusterIdentity.defaultProtectionKeyId) &&
         Objects.equals(this.defaultSecretLocation, gwClusterIdentity.defaultSecretLocation) &&
         Objects.equals(this.displayName, gwClusterIdentity.displayName) &&
@@ -399,7 +436,7 @@ public class GwClusterIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, defaultProtectionKeyId, defaultSecretLocation, displayName, id, status, statusDescription);
+    return Objects.hash(allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, customerFragments, defaultProtectionKeyId, defaultSecretLocation, displayName, id, status, statusDescription);
   }
 
   @Override
@@ -412,6 +449,7 @@ public class GwClusterIdentity {
     sb.append("    clusterUrl: ").append(toIndentedString(clusterUrl)).append("\n");
     sb.append("    currentGw: ").append(toIndentedString(currentGw)).append("\n");
     sb.append("    customerFragmentIds: ").append(toIndentedString(customerFragmentIds)).append("\n");
+    sb.append("    customerFragments: ").append(toIndentedString(customerFragments)).append("\n");
     sb.append("    defaultProtectionKeyId: ").append(toIndentedString(defaultProtectionKeyId)).append("\n");
     sb.append("    defaultSecretLocation: ").append(toIndentedString(defaultSecretLocation)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");

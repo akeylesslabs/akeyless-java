@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessDate** | **OffsetDateTime** |  |  [optional]
+**accessDateDisplay** | **String** |  |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **comment** | **String** |  |  [optional]
 **creationDate** | **OffsetDateTime** |  |  [optional]

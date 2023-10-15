@@ -41,6 +41,10 @@ public class GenCustomerFragment {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
   public GenCustomerFragment() { 
   }
 
@@ -113,6 +117,29 @@ public class GenCustomerFragment {
   }
 
 
+  public GenCustomerFragment name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Customer fragment name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Customer fragment name")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,12 +151,13 @@ public class GenCustomerFragment {
     GenCustomerFragment genCustomerFragment = (GenCustomerFragment) o;
     return Objects.equals(this.description, genCustomerFragment.description) &&
         Objects.equals(this.json, genCustomerFragment.json) &&
-        Objects.equals(this.metadata, genCustomerFragment.metadata);
+        Objects.equals(this.metadata, genCustomerFragment.metadata) &&
+        Objects.equals(this.name, genCustomerFragment.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, json, metadata);
+    return Objects.hash(description, json, metadata, name);
   }
 
   @Override
@@ -139,6 +167,7 @@ public class GenCustomerFragment {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

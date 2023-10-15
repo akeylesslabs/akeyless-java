@@ -89,6 +89,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_JWT_TTL_MIN)
   private Long jwtTtlMin;
 
+  public static final String SERIALIZED_NAME_LOCK_DEFAULT_KEY = "lock-default-key";
+  @SerializedName(SERIALIZED_NAME_LOCK_DEFAULT_KEY)
+  private String lockDefaultKey;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   private String maxVersions;
@@ -231,11 +235,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * Set the account default key based on the DFC key item name. Use \&quot;set-original-akeyless-default-key\&quot; to revert to using the original default key of the account. Empty string will change nothing.
+   * Set the account default key based on the DFC key name. Use \&quot;set-original-akeyless-default-key\&quot; to revert to using the original default key of the account.
    * @return defaultKeyName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set the account default key based on the DFC key item name. Use \"set-original-akeyless-default-key\" to revert to using the original default key of the account. Empty string will change nothing.")
+  @ApiModelProperty(value = "Set the account default key based on the DFC key name. Use \"set-original-akeyless-default-key\" to revert to using the original default key of the account.")
 
   public String getDefaultKeyName() {
     return defaultKeyName;
@@ -474,6 +478,29 @@ public class UpdateAccountSettings {
 
   public void setJwtTtlMin(Long jwtTtlMin) {
     this.jwtTtlMin = jwtTtlMin;
+  }
+
+
+  public UpdateAccountSettings lockDefaultKey(String lockDefaultKey) {
+    
+    this.lockDefaultKey = lockDefaultKey;
+    return this;
+  }
+
+   /**
+   * Lock the account&#39;s default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false]
+   * @return lockDefaultKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Lock the account's default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false]")
+
+  public String getLockDefaultKey() {
+    return lockDefaultKey;
+  }
+
+
+  public void setLockDefaultKey(String lockDefaultKey) {
+    this.lockDefaultKey = lockDefaultKey;
   }
 
 
@@ -731,6 +758,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
+        Objects.equals(this.lockDefaultKey, updateAccountSettings.lockDefaultKey) &&
         Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
         Objects.equals(this.passwordLength, updateAccountSettings.passwordLength) &&
         Objects.equals(this.phone, updateAccountSettings.phone) &&
@@ -745,7 +773,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -767,6 +795,7 @@ public class UpdateAccountSettings {
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");
+    sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");

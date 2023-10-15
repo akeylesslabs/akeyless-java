@@ -40,6 +40,10 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
   private OffsetDateTime accessDate;
 
+  public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
+  @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
+  private String accessDateDisplay;
+
   public static final String SERIALIZED_NAME_ACCESS_REQUEST_STATUS = "access_request_status";
   @SerializedName(SERIALIZED_NAME_ACCESS_REQUEST_STATUS)
   private String accessRequestStatus;
@@ -135,6 +139,29 @@ public class Target {
 
   public void setAccessDate(OffsetDateTime accessDate) {
     this.accessDate = accessDate;
+  }
+
+
+  public Target accessDateDisplay(String accessDateDisplay) {
+    
+    this.accessDateDisplay = accessDateDisplay;
+    return this;
+  }
+
+   /**
+   * Get accessDateDisplay
+   * @return accessDateDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAccessDateDisplay() {
+    return accessDateDisplay;
+  }
+
+
+  public void setAccessDateDisplay(String accessDateDisplay) {
+    this.accessDateDisplay = accessDateDisplay;
   }
 
 
@@ -594,6 +621,7 @@ public class Target {
     }
     Target target = (Target) o;
     return Objects.equals(this.accessDate, target.accessDate) &&
+        Objects.equals(this.accessDateDisplay, target.accessDateDisplay) &&
         Objects.equals(this.accessRequestStatus, target.accessRequestStatus) &&
         Objects.equals(this.attributes, target.attributes) &&
         Objects.equals(this.clientPermissions, target.clientPermissions) &&
@@ -616,7 +644,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessRequestStatus, attributes, clientPermissions, comment, creationDate, credentialsLess, isAccessRequestEnabled, lastVersion, modificationDate, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, credentialsLess, isAccessRequestEnabled, lastVersion, modificationDate, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
   }
 
   @Override
@@ -624,6 +652,7 @@ public class Target {
     StringBuilder sb = new StringBuilder();
     sb.append("class Target {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
+    sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
     sb.append("    accessRequestStatus: ").append(toIndentedString(accessRequestStatus)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");

@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
+**lastMigration** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **newName** | **String** |  |  [optional]
 **prefix** | **String** |  |  [optional]

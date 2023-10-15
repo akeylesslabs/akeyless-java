@@ -6558,6 +6558,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /sign-ecdsa:
+    post:
+      operationId: signEcDsa
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/signEcDsa'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignEcDsaOutput'
+          description: signEcDsaResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /sign-gpg:
     post:
       operationId: signGPG
@@ -6661,6 +6690,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/signPKICertOutput'
           description: signPKICertWithClassicKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /sign-rsassa-pss:
+    post:
+      operationId: signRsaSsaPss
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/signRsaSsaPss'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignRsaSsaPssOutput'
+          description: signRsaSsaPssResponse wraps response body.
         default:
           content:
             application/json:
@@ -8559,6 +8617,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /verify-ecdsa:
+    post:
+      operationId: verifyEcDsa
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verifyEcDsa'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verifyEcDsaOutput'
+          description: verifyEcDsaResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /verify-gpg:
     post:
       operationId: verifyGPG
@@ -8662,6 +8749,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/verifyPKICertOutput'
           description: verifyPKICertWithClassicKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /verify-rsassa-pss:
+    post:
+      operationId: verifyRsaSsaPss
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verifyRsaSsaPss'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verifyRsaSsaPssOutput'
+          description: verifyRsaSsaPssResponse wraps response body.
         default:
           content:
             application/json:
@@ -10091,6 +10207,12 @@ components:
           schema:
             $ref: '#/components/schemas/signOutput'
       description: signDataWithClassicKeyResponse wraps response body.
+    signEcDsaResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SignEcDsaOutput'
+      description: signEcDsaResponse wraps response body.
     signGPGResponse:
       content:
         application/json:
@@ -10115,6 +10237,12 @@ components:
           schema:
             $ref: '#/components/schemas/signPKICertOutput'
       description: signPKICertWithClassicKeyResponse wraps response body.
+    signRsaSsaPssResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SignRsaSsaPssOutput'
+      description: signRsaSsaPssResponse wraps response body.
     staticCredsAuthResponse:
       content:
         application/json:
@@ -10469,6 +10597,12 @@ components:
           schema:
             $ref: '#/components/schemas/verifyPKICertOutput'
       description: verifyDataWithClassicKeyResponse wraps response body.
+    verifyEcDsaResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/verifyEcDsaOutput'
+      description: verifyEcDsaResponse wraps response body.
     verifyGPGResponse:
       content:
         application/json:
@@ -10493,6 +10627,12 @@ components:
           schema:
             $ref: '#/components/schemas/verifyPKICertOutput'
       description: verifyPKICertWithClassicKeyResponse wraps response body.
+    verifyRsaSsaPssResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/verifyRsaSsaPssOutput'
+      description: verifyRsaSsaPssResponse wraps response body.
   schemas:
     APIKeyAccessRules:
       example:
@@ -10612,6 +10752,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -10657,13 +10798,21 @@ components:
           key:
           - sub_claims
           - sub_claims
+        access_type: access_type
         group_id: group_id
         assignment_type: assignment_type
         access_id: access_id
+        assignment_name: assignment_name
       properties:
         access_id:
           type: string
           x-go-name: AccessID
+        access_type:
+          type: string
+          x-go-name: AccessType
+        assignment_name:
+          type: string
+          x-go-name: AssignmentName
         assignment_type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
@@ -10693,11 +10842,15 @@ components:
           key:
           - sub_claims
           - sub_claims
+        access_type: access_type
         access_id: access_id
       properties:
         access_id:
           type: string
           x-go-name: AccessID
+        access_type:
+          type: string
+          x-go-name: AccessType
         sub_claims:
           additionalProperties:
             items:
@@ -10723,6 +10876,7 @@ components:
           default_share_link_ttl: 6
         data_protection_section:
           enable_classic_key_protection: true
+        lock_default_key: true
         account_default_key_name: account_default_key_name
         enable_request_for_access: true
         protect_items_by_default: true
@@ -10753,6 +10907,15 @@ components:
             naming convention
           type: string
           x-go-name: InvalidCharacters
+        lock_default_key:
+          description: |-
+            LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis
+            true - all requests use the configured default key
+            false - every request can determine its protection key (default)
+            nil - change nothing (every request can determine its protection key (default))
+            This parameter is only relevant if AccountDefaultKeyItemID is not empty
+          type: boolean
+          x-go-name: LockDefaultKey
         password_policy:
           $ref: '#/components/schemas/PasswordPolicyInfo'
         protect_items_by_default:
@@ -10789,6 +10952,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -11055,6 +11219,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11070,6 +11235,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11086,6 +11252,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11104,6 +11271,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11123,6 +11291,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11136,6 +11305,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11150,6 +11320,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11174,6 +11345,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11199,6 +11371,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11211,6 +11384,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11224,6 +11398,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11236,6 +11411,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11249,6 +11425,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11265,6 +11442,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11282,6 +11460,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11312,6 +11491,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11343,6 +11523,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11353,6 +11534,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -11907,6 +12089,7 @@ components:
               name: name
             audience: audience
             unique_identifier: unique_identifier
+            authorized_gw_cluster_name: authorized_gw_cluster_name
             jwks_uri: jwks_uri
             bound_clients_id:
             - bound_clients_id
@@ -12047,6 +12230,9 @@ components:
             alg: alg
             gen_key_pair: gen_key_pair
             pub_key: pub_key
+          sub_claims_delimiters:
+          - sub_claims_delimiters
+          - sub_claims_delimiters
           rules_type: rules_type
           access_expires: 0
           access_id_alias: access_id_alias
@@ -12056,6 +12242,7 @@ components:
             alg: alg
             email: email
         creation_date: 2000-01-23T04:56:07.000+00:00
+        access_date_display: access_date_display
         auth_method_name: auth_method_name
         auth_method_access_id: auth_method_access_id
       properties:
@@ -12063,6 +12250,9 @@ components:
           format: date-time
           type: string
           x-go-name: AccessDate
+        access_date_display:
+          type: string
+          x-go-name: AccessDateDisplay
         access_info:
           $ref: '#/components/schemas/AuthMethodAccessInfo'
         account_id:
@@ -12170,6 +12360,7 @@ components:
             name: name
           audience: audience
           unique_identifier: unique_identifier
+          authorized_gw_cluster_name: authorized_gw_cluster_name
           jwks_uri: jwks_uri
           bound_clients_id:
           - bound_clients_id
@@ -12310,6 +12501,9 @@ components:
           alg: alg
           gen_key_pair: gen_key_pair
           pub_key: pub_key
+        sub_claims_delimiters:
+        - sub_claims_delimiters
+        - sub_claims_delimiters
         rules_type: rules_type
         access_expires: 0
         access_id_alias: access_id_alias
@@ -12371,6 +12565,11 @@ components:
           x-go-name: AccessRulesType
         saml_access_rules:
           $ref: '#/components/schemas/SAMLAccessRules'
+        sub_claims_delimiters:
+          items:
+            type: string
+          type: array
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         universal_identity_access_rules:
           $ref: '#/components/schemas/UniversalIdentityAccessRules'
       title: AuthMethodAccessInfo includes auth method access information.
@@ -12616,6 +12815,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -13494,6 +13694,27 @@ components:
           format: int64
           type: integer
           x-go-name: TTL
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    CfInfo:
+      example:
+        cf_name: cf_name
+        description: description
+        id: id
+        hash: hash
+      properties:
+        cf_name:
+          type: string
+          x-go-name: Name
+        description:
+          type: string
+          x-go-name: Description
+        hash:
+          type: string
+          x-go-name: Hash
+        id:
+          type: string
+          x-go-name: Id
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ChefAccessMode:
@@ -14490,6 +14711,9 @@ components:
         id:
           type: string
           x-go-name: Id
+        name:
+          type: string
+          x-go-name: Name
         value:
           type: string
           x-go-name: Value
@@ -16360,6 +16584,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -16632,8 +16857,7 @@ components:
       description: GatewaysListResponse Gateway cluster identity list
       example:
         clusters:
-        - cluster_url: cluster_url
-          cluster_name: cluster_name
+        - cluster_name: cluster_name
           current_gw: true
           status_description: status_description
           customer_fragment_ids:
@@ -16643,13 +16867,22 @@ components:
           allowed_access_ids:
           - allowed_access_ids
           - allowed_access_ids
+          display_name: display_name
+          cluster_url: cluster_url
           default_protection_key_id: 0
           id: 6
-          display_name: display_name
+          customer_fragments:
+          - cf_name: cf_name
+            description: description
+            id: id
+            hash: hash
+          - cf_name: cf_name
+            description: description
+            id: id
+            hash: hash
           default_secret_location: default_secret_location
           status: status
-        - cluster_url: cluster_url
-          cluster_name: cluster_name
+        - cluster_name: cluster_name
           current_gw: true
           status_description: status_description
           customer_fragment_ids:
@@ -16659,9 +16892,19 @@ components:
           allowed_access_ids:
           - allowed_access_ids
           - allowed_access_ids
+          display_name: display_name
+          cluster_url: cluster_url
           default_protection_key_id: 0
           id: 6
-          display_name: display_name
+          customer_fragments:
+          - cf_name: cf_name
+            description: description
+            id: id
+            hash: hash
+          - cf_name: cf_name
+            description: description
+            id: id
+            hash: hash
           default_secret_location: default_secret_location
           status: status
       properties:
@@ -16786,6 +17029,7 @@ components:
             default_share_link_ttl: 6
           data_protection_section:
             enable_classic_key_protection: true
+          lock_default_key: true
           account_default_key_name: account_default_key_name
           enable_request_for_access: true
           protect_items_by_default: true
@@ -16849,11 +17093,13 @@ components:
             key:
             - sub_claims
             - sub_claims
+          access_type: access_type
           access_id: access_id
         - sub_claims:
             key:
             - sub_claims
             - sub_claims
+          access_type: access_type
           access_id: access_id
         group_id: group_id
         group_name: group_name
@@ -17272,6 +17518,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -17281,6 +17528,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
@@ -17288,6 +17536,7 @@ components:
             key: '{}'
           comment: comment
           protection_key_name: protection_key_name
+          access_date_display: access_date_display
           access_request_status: access_request_status
           target_details: target_details
           target_sub_type: target_sub_type
@@ -17441,11 +17690,13 @@ components:
             key:
             - sub_claims
             - sub_claims
+          access_type: access_type
           access_id: access_id
         - sub_claims:
             key:
             - sub_claims
             - sub_claims
+          access_type: access_type
           access_id: access_id
         group_id: group_id
         group_name: group_name
@@ -17491,7 +17742,6 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GwClusterIdentity:
       example:
-        cluster_url: cluster_url
         cluster_name: cluster_name
         current_gw: true
         status_description: status_description
@@ -17502,9 +17752,19 @@ components:
         allowed_access_ids:
         - allowed_access_ids
         - allowed_access_ids
+        display_name: display_name
+        cluster_url: cluster_url
         default_protection_key_id: 0
         id: 6
-        display_name: display_name
+        customer_fragments:
+        - cf_name: cf_name
+          description: description
+          id: id
+          hash: hash
+        - cf_name: cf_name
+          description: description
+          id: id
+          hash: hash
         default_secret_location: default_secret_location
         status: status
       properties:
@@ -17526,10 +17786,16 @@ components:
           type: boolean
           x-go-name: CurrentGW
         customer_fragment_ids:
+          description: Deprecated - use CustomerFragments instead
           items:
             type: string
           type: array
           x-go-name: CustomerFragmentIDs
+        customer_fragments:
+          items:
+            $ref: '#/components/schemas/CfInfo'
+          type: array
+          x-go-name: CustomerFragments
         default_protection_key_id:
           format: int64
           type: integer
@@ -17556,6 +17822,10 @@ components:
       title: HashAlgorithm is a type that represents a single hash algorithm.
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    HashFunction:
+      description: HashFunction defines the hash function (e.g. sha-256)
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     HashiMigration:
       example:
         general:
@@ -17564,6 +17834,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -17723,6 +17994,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
@@ -17732,6 +18004,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 2
           customer_fragment_id: customer_fragment_id
         shared_by:
@@ -17751,6 +18024,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 5
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
@@ -17762,6 +18036,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 5
           customer_fragment_id: customer_fragment_id
         item_metadata: item_metadata
@@ -17901,16 +18176,20 @@ components:
                 key:
                 - sub_claims
                 - sub_claims
+              access_type: access_type
               group_id: group_id
               assignment_type: assignment_type
               access_id: access_id
+              assignment_name: assignment_name
             - sub_claims:
                 key:
                 - sub_claims
                 - sub_claims
+              access_type: access_type
               group_id: group_id
               assignment_type: assignment_type
               access_id: access_id
+              assignment_name: assignment_name
             response_types:
             - response_types
             - response_types
@@ -18364,6 +18643,7 @@ components:
         with_customer_fragment: true
         certificates: certificates
         deletion_date: 2000-01-23T04:56:07.000+00:00
+        access_date_display: access_date_display
         access_request_status: access_request_status
         public_value: public_value
       properties:
@@ -18371,6 +18651,9 @@ components:
           format: date-time
           type: string
           x-go-name: AccessDate
+        access_date_display:
+          type: string
+          x-go-name: AccessDateDisplay
         access_request_status:
           type: string
           x-go-name: AccessRequestStatus
@@ -18546,16 +18829,20 @@ components:
               key:
               - sub_claims
               - sub_claims
+            access_type: access_type
             group_id: group_id
             assignment_type: assignment_type
             access_id: access_id
+            assignment_name: assignment_name
           - sub_claims:
               key:
               - sub_claims
               - sub_claims
+            access_type: access_type
             group_id: group_id
             assignment_type: assignment_type
             access_id: access_id
+            assignment_name: assignment_name
           response_types:
           - response_types
           - response_types
@@ -19056,6 +19343,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
+        access_date_display: access_date_display
         version: 2
         customer_fragment_id: customer_fragment_id
       properties:
@@ -19063,6 +19351,9 @@ components:
           format: date-time
           type: string
           x-go-name: AccessDate
+        access_date_display:
+          type: string
+          x-go-name: AccessDateDisplay
         creation_date:
           format: date-time
           type: string
@@ -19305,6 +19596,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -20216,6 +20508,7 @@ components:
                 name: name
               audience: audience
               unique_identifier: unique_identifier
+              authorized_gw_cluster_name: authorized_gw_cluster_name
               jwks_uri: jwks_uri
               bound_clients_id:
               - bound_clients_id
@@ -20356,6 +20649,9 @@ components:
               alg: alg
               gen_key_pair: gen_key_pair
               pub_key: pub_key
+            sub_claims_delimiters:
+            - sub_claims_delimiters
+            - sub_claims_delimiters
             rules_type: rules_type
             access_expires: 0
             access_id_alias: access_id_alias
@@ -20365,6 +20661,7 @@ components:
               alg: alg
               email: email
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           auth_method_name: auth_method_name
           auth_method_access_id: auth_method_access_id
         - account_id: account_id
@@ -20529,6 +20826,7 @@ components:
                 name: name
               audience: audience
               unique_identifier: unique_identifier
+              authorized_gw_cluster_name: authorized_gw_cluster_name
               jwks_uri: jwks_uri
               bound_clients_id:
               - bound_clients_id
@@ -20669,6 +20967,9 @@ components:
               alg: alg
               gen_key_pair: gen_key_pair
               pub_key: pub_key
+            sub_claims_delimiters:
+            - sub_claims_delimiters
+            - sub_claims_delimiters
             rules_type: rules_type
             access_expires: 0
             access_id_alias: access_id_alias
@@ -20678,6 +20979,7 @@ components:
               alg: alg
               email: email
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           auth_method_name: auth_method_name
           auth_method_access_id: auth_method_access_id
       properties:
@@ -20702,11 +21004,13 @@ components:
               key:
               - sub_claims
               - sub_claims
+            access_type: access_type
             access_id: access_id
           - sub_claims:
               key:
               - sub_claims
               - sub_claims
+            access_type: access_type
             access_id: access_id
           group_id: group_id
           group_name: group_name
@@ -20720,11 +21024,13 @@ components:
               key:
               - sub_claims
               - sub_claims
+            access_type: access_type
             access_id: access_id
           - sub_claims:
               key:
               - sub_claims
               - sub_claims
+            access_type: access_type
             access_id: access_id
           group_id: group_id
           group_name: group_name
@@ -20767,6 +21073,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -20776,6 +21083,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
@@ -20795,6 +21103,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -20806,6 +21115,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
@@ -20945,16 +21255,20 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               response_types:
               - response_types
               - response_types
@@ -21408,6 +21722,7 @@ components:
           with_customer_fragment: true
           certificates: certificates
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           access_request_status: access_request_status
           public_value: public_value
         - item_accessibility: 9
@@ -21427,6 +21742,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -21436,6 +21752,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
@@ -21455,6 +21772,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -21466,6 +21784,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
@@ -21605,16 +21924,20 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               response_types:
               - response_types
               - response_types
@@ -22068,6 +22391,7 @@ components:
           with_customer_fragment: true
           certificates: certificates
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           access_request_status: access_request_status
           public_value: public_value
       properties:
@@ -22109,6 +22433,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -22118,6 +22443,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
@@ -22137,6 +22463,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -22148,6 +22475,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
@@ -22287,16 +22615,20 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               response_types:
               - response_types
               - response_types
@@ -22750,6 +23082,7 @@ components:
           with_customer_fragment: true
           certificates: certificates
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           access_request_status: access_request_status
           public_value: public_value
         - item_accessibility: 9
@@ -22769,6 +23102,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -22778,6 +23112,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           shared_by:
@@ -22797,6 +23132,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -22808,6 +23144,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 5
             customer_fragment_id: customer_fragment_id
           item_metadata: item_metadata
@@ -22947,16 +23284,20 @@ components:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               - sub_claims:
                   key:
                   - sub_claims
                   - sub_claims
+                access_type: access_type
                 group_id: group_id
                 assignment_type: assignment_type
                 access_id: access_id
+                assignment_name: assignment_name
               response_types:
               - response_types
               - response_types
@@ -23410,6 +23751,7 @@ components:
           with_customer_fragment: true
           certificates: certificates
           deletion_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           access_request_status: access_request_status
           public_value: public_value
       properties:
@@ -23486,6 +23828,7 @@ components:
               ttl: 7
             admin: true
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
         - role_name: role_name
           client_permissions:
           - client_permissions
@@ -23544,6 +23887,7 @@ components:
               ttl: 7
             admin: true
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
       properties:
         next_page:
           type: string
@@ -23595,6 +23939,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -23604,6 +23949,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
@@ -23611,6 +23957,7 @@ components:
             key: '{}'
           comment: comment
           protection_key_name: protection_key_name
+          access_date_display: access_date_display
           access_request_status: access_request_status
           target_details: target_details
           target_sub_type: target_sub_type
@@ -23649,6 +23996,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -23658,6 +24006,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
@@ -23665,6 +24014,7 @@ components:
             key: '{}'
           comment: comment
           protection_key_name: protection_key_name
+          access_date_display: access_date_display
           access_request_status: access_request_status
           target_details: target_details
           target_sub_type: target_sub_type
@@ -23828,12 +24178,16 @@ components:
         id: id
         type: type
         protection_key: protection_key
+        last_migration: last_migration
         new_name: new_name
         status: status
       properties:
         id:
           type: string
           x-go-name: Id
+        last_migration:
+          type: string
+          x-go-name: LastMigrationTime
         name:
           type: string
           x-go-name: Name
@@ -24015,6 +24369,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24030,6 +24385,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24046,6 +24402,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24064,6 +24421,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24083,6 +24441,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24096,6 +24455,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24110,6 +24470,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24134,6 +24495,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24159,6 +24521,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24171,6 +24534,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24184,6 +24548,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24196,6 +24561,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24209,6 +24575,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24225,6 +24592,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24242,6 +24610,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24272,6 +24641,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24303,6 +24673,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24313,6 +24684,7 @@ components:
             id: id
             type: type
             protection_key: protection_key
+            last_migration: last_migration
             new_name: new_name
             status: status
           payload:
@@ -24373,6 +24745,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -24583,6 +24956,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
@@ -24592,6 +24966,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 2
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
@@ -24714,6 +25089,7 @@ components:
           name: name
         audience: audience
         unique_identifier: unique_identifier
+        authorized_gw_cluster_name: authorized_gw_cluster_name
         jwks_uri: jwks_uri
         bound_clients_id:
         - bound_clients_id
@@ -24725,6 +25101,10 @@ components:
           description: The audience in the JWT.
           type: string
           x-go-name: Audience
+        authorized_gw_cluster_name:
+          description: The gateway cluster name that is authorized to access JWKeySetURL
+          type: string
+          x-go-name: AuthorizedGwClusterName
         bound_claims:
           description: The claims that login is restricted to.
           items:
@@ -24932,16 +25312,20 @@ components:
             key:
             - sub_claims
             - sub_claims
+          access_type: access_type
           group_id: group_id
           assignment_type: assignment_type
           access_id: access_id
+          assignment_name: assignment_name
         - sub_claims:
             key:
             - sub_claims
             - sub_claims
+          access_type: access_type
           group_id: group_id
           assignment_type: assignment_type
           access_id: access_id
+          assignment_name: assignment_name
         response_types:
         - response_types
         - response_types
@@ -25000,6 +25384,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -25716,11 +26101,15 @@ components:
             ttl: 7
           admin: true
         creation_date: 2000-01-23T04:56:07.000+00:00
+        access_date_display: access_date_display
       properties:
         access_date:
           format: date-time
           type: string
           x-go-name: AccessDate
+        access_date_display:
+          type: string
+          x-go-name: AccessDateDisplay
         client_permissions:
           items:
             type: string
@@ -26456,6 +26845,7 @@ components:
           id: id
           type: type
           protection_key: protection_key
+          last_migration: last_migration
           new_name: new_name
           status: status
         payload:
@@ -26528,6 +26918,24 @@ components:
           x-go-name: DefaultShareLinkTTL
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    SignEcDsaOutput:
+      example:
+        result: result
+      properties:
+        result:
+          type: string
+          x-go-name: Result
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    SignRsaSsaPssOutput:
+      example:
+        result: result
+      properties:
+        result:
+          type: string
+          x-go-name: Result
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     SmInfo:
       example:
         tier: tier
@@ -26620,6 +27028,11 @@ components:
           type: array
           x-go-name: Websites
       type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    SubClaimsDelimiters:
+      items:
+        type: string
+      type: array
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     SumologicLogForwardingConfig:
       example:
@@ -26763,6 +27176,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 2
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
@@ -26772,6 +27186,7 @@ components:
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          access_date_display: access_date_display
           version: 2
           customer_fragment_id: customer_fragment_id
         modification_date: 2000-01-23T04:56:07.000+00:00
@@ -26779,6 +27194,7 @@ components:
           key: '{}'
         comment: comment
         protection_key_name: protection_key_name
+        access_date_display: access_date_display
         access_request_status: access_request_status
         target_details: target_details
         target_sub_type: target_sub_type
@@ -26787,6 +27203,9 @@ components:
           format: date-time
           type: string
           x-go-name: AccessDate
+        access_date_display:
+          type: string
+          x-go-name: AccessDateDisplay
         access_request_status:
           type: string
           x-go-name: AccessRequestStatus
@@ -26909,6 +27328,7 @@ components:
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
+        access_date_display: access_date_display
         version: 5
         customer_fragment_id: customer_fragment_id
       properties:
@@ -26916,6 +27336,9 @@ components:
           format: date-time
           type: string
           x-go-name: AccessDate
+        access_date_display:
+          type: string
+          x-go-name: AccessDateDisplay
         creation_date:
           format: date-time
           type: string
@@ -28006,7 +28429,8 @@ components:
           type: boolean
           x-go-name: Debug
         gateway-url:
-          description: Gateway URL for the K8S authenticated (relevant only for access-type=k8s)
+          description: Gateway URL for the K8S/OAUTH2 authenticated (relevant only
+            for access-type=k8s/oauth2)
           type: string
           x-go-name: GatewayURL
         gcp-audience:
@@ -29283,6 +29707,11 @@ components:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
           x-go-name: ForceSubClaims
+        gateway-url:
+          description: Akeyless Gateway URL (Configuration Management port). Relevant
+            only when the jwks-uri is accessible only from the gateway.
+          type: string
+          x-go-name: GatewayUrl
         gw-bound-ips:
           description: A CIDR whitelist with the GW IPs that the access is restricted
             to
@@ -29325,6 +29754,13 @@ components:
           description: Auth Method name
           type: string
           x-go-name: AuthMethodName
+        subclaims-delimiters:
+          description: A list of additional sub claims delimiters (relevant only for
+            SAML, OIDC, OAuth2/JWT)
+          items:
+            type: string
+          type: array
+          x-go-name: SubClaimsDelimiters
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -29444,6 +29880,13 @@ components:
             ID URI)
           type: string
           x-go-name: RequiredScopesPrefix
+        subclaims-delimiters:
+          description: A list of additional sub claims delimiters (relevant only for
+            SAML, OIDC, OAuth2/JWT)
+          items:
+            type: string
+          type: array
+          x-go-name: SubClaimsDelimiters
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -29556,6 +29999,13 @@ components:
           description: Auth Method name
           type: string
           x-go-name: AuthMethodName
+        subclaims-delimiters:
+          description: A list of additional sub claims delimiters (relevant only for
+            SAML, OIDC, OAuth2/JWT)
+          items:
+            type: string
+          type: array
+          x-go-name: SubClaimsDelimiters
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -44957,6 +45407,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -44972,6 +45423,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -44988,6 +45440,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45006,6 +45459,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45025,6 +45479,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45038,6 +45493,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45052,6 +45508,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45076,6 +45533,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45101,6 +45559,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45113,6 +45572,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45126,6 +45586,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45138,6 +45599,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45151,6 +45613,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45167,6 +45630,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45184,6 +45648,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45214,6 +45679,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45245,6 +45711,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45255,6 +45722,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45274,6 +45742,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45289,6 +45758,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45305,6 +45775,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45323,6 +45794,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45342,6 +45814,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45355,6 +45828,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45369,6 +45843,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45393,6 +45868,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45418,6 +45894,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45430,6 +45907,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45443,6 +45921,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45455,6 +45934,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45468,6 +45948,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45484,6 +45965,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45501,6 +45983,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45531,6 +46014,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45562,6 +46046,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -45572,6 +46057,7 @@ components:
               id: id
               type: type
               protection_key: protection_key
+              last_migration: last_migration
               new_name: new_name
               status: status
             payload:
@@ -56467,6 +56953,10 @@ components:
           description: Deprecated - use description
           type: string
           x-go-name: Metadata
+        name:
+          description: Customer fragment name
+          type: string
+          x-go-name: CfName
       title: genCustomerFragment is a command that generates customer fragment.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -56761,6 +57251,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
@@ -56770,6 +57261,7 @@ components:
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
+            access_date_display: access_date_display
             version: 2
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
@@ -58588,6 +59080,46 @@ components:
         key.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    signEcDsa:
+      description: |-
+        signEcDsa Calculates the signature of a given message using ECDSA
+        and a sha hash algorithm matching the key size
+      properties:
+        display-id:
+          description: The display id of the EC key to use for the signing process
+          type: string
+          x-go-name: DisplayId
+        item-id:
+          description: The item id of the EC key to use for the signing process
+          format: int64
+          type: integer
+          x-go-name: ItemId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key-name:
+          description: The name of the EC key to use for the signing process
+          type: string
+          x-go-name: KeyName
+        message:
+          description: The input message to sign in a base64 format
+          type: string
+          x-go-name: Message
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - message
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     signGPG:
       properties:
         display-id:
@@ -58870,6 +59402,49 @@ components:
       - version
       title: signPKICertWithClassicKey is a command that signs PKI certificate by
         using an Classic key.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    signRsaSsaPss:
+      description: signRsaSsaPss is a command that calculates the signature of a given
+        message using rsassa-pss
+      properties:
+        display-id:
+          description: The display id of the RSA key to use in the signing process
+          type: string
+          x-go-name: DisplayId
+        hash-function:
+          description: HashFunction defines the hash function (e.g. sha-256)
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        item-id:
+          description: The item id of the RSA key to use in the signing process
+          format: int64
+          type: integer
+          x-go-name: ItemId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key-name:
+          description: The name of the RSA key to use in the signing process
+          type: string
+          x-go-name: KeyName
+        message:
+          description: The input message to sign in a base64 format
+          type: string
+          x-go-name: Message
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - message
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     staticCredsAuth:
@@ -59352,9 +59927,8 @@ components:
           x-go-name: Country
         default-key-name:
           description: |-
-            Set the account default key based on the DFC key item name.
+            Set the account default key based on the DFC key name.
             Use "set-original-akeyless-default-key" to revert to using the original default key of the account.
-            Empty string will change nothing.
           type: string
           x-go-name: DefaultKeyName
         default-share-link-ttl-minutes:
@@ -59408,6 +59982,12 @@ components:
           format: int64
           type: integer
           x-go-name: JwtTtlMin
+        lock-default-key:
+          description: |-
+            Lock the account's default protection key, if set - users will not be able to use a different protection key,
+            relevant only if default-key-name is configured [true/false]
+          type: string
+          x-go-name: LockDefaultKey
         max-versions:
           description: Max versions
           type: string
@@ -60399,6 +60979,11 @@ components:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
           x-go-name: ForceSubClaims
+        gateway-url:
+          description: Akeyless Gateway URL (Configuration Management port). Relevant
+            only when the jwks-uri is accessible only from the gateway.
+          type: string
+          x-go-name: GatewayUrl
         gw-bound-ips:
           description: A CIDR whitelist with the GW IPs that the access is restricted
             to
@@ -60445,6 +61030,13 @@ components:
           description: Auth Method new name
           type: string
           x-go-name: AuthMethodNewName
+        subclaims-delimiters:
+          description: A list of additional sub claims delimiters (relevant only for
+            SAML, OIDC, OAuth2/JWT)
+          items:
+            type: string
+          type: array
+          x-go-name: SubClaimsDelimiters
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -60562,6 +61154,13 @@ components:
             ID URI)
           type: string
           x-go-name: RequiredScopesPrefix
+        subclaims-delimiters:
+          description: A list of additional sub claims delimiters (relevant only for
+            SAML, OIDC, OAuth2/JWT)
+          items:
+            type: string
+          type: array
+          x-go-name: SubClaimsDelimiters
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -60664,6 +61263,13 @@ components:
           description: Auth Method new name
           type: string
           x-go-name: AuthMethodNewName
+        subclaims-delimiters:
+          description: A list of additional sub claims delimiters (relevant only for
+            SAML, OIDC, OAuth2/JWT)
+          items:
+            type: string
+          type: array
+          x-go-name: SubClaimsDelimiters
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -64082,6 +64688,54 @@ components:
         a Classic key.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    verifyEcDsa:
+      description: |-
+        verifyEcDsa is a command that verifies an ECDSA signature
+        using a sha hash algorithm matching the key size
+      properties:
+        display-id:
+          description: The display id of the EC key to use for the verification process
+          type: string
+          x-go-name: DisplayId
+        item-id:
+          description: The item id of the EC key to use for the verification process
+          format: int64
+          type: integer
+          x-go-name: ItemId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key-name:
+          description: The name of the EC key to use for the verification process
+          type: string
+          x-go-name: KeyName
+        message:
+          description: The message to be verified in a base64 format
+          type: string
+          x-go-name: Message
+        signature:
+          description: The message's signature
+          type: string
+          x-go-name: Signature
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - message
+      - signature
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    verifyEcDsaOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     verifyGPG:
       properties:
         display-id:
@@ -64270,6 +64924,56 @@ components:
       - version
       title: verifyPKICertWithClassicKey is a command that verifys PKICert by using
         an Classic key.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    verifyRsaSsaPss:
+      description: verifyRsaSsaPss is a command that Verifies an rsassa-pss signature
+      properties:
+        display-id:
+          description: The display id of the RSA key to use in the verification process
+          type: string
+          x-go-name: DisplayId
+        hash-function:
+          description: HashFunction defines the hash function (e.g. sha-256)
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        item-id:
+          description: The item id of the RSA key to use in the verification process
+          format: int64
+          type: integer
+          x-go-name: ItemId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key-name:
+          description: The name of the RSA key to use in the verification process
+          type: string
+          x-go-name: KeyName
+        message:
+          description: The input message to verify in a base64 format
+          type: string
+          x-go-name: Message
+        signature:
+          description: The message's signature
+          type: string
+          x-go-name: Signature
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - message
+      - signature
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    verifyRsaSsaPssOutput:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
 x-original-swagger-version: "2.0"
