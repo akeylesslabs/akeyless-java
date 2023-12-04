@@ -33,10 +33,6 @@ public class GetCertificateValue {
   @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
   private String certIssuerName;
 
-  public static final String SERIALIZED_NAME_CERTIFICATE_FILE_OUTPUT = "certificate-file-output";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FILE_OUTPUT)
-  private String certificateFileOutput;
-
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
@@ -56,10 +52,6 @@ public class GetCertificateValue {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name = "dummy_certificate_name";
-
-  public static final String SERIALIZED_NAME_PRIVATE_KEY_FILE_OUTPUT = "private-key-file-output";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_FILE_OUTPUT)
-  private String privateKeyFileOutput;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -96,29 +88,6 @@ public class GetCertificateValue {
 
   public void setCertIssuerName(String certIssuerName) {
     this.certIssuerName = certIssuerName;
-  }
-
-
-  public GetCertificateValue certificateFileOutput(String certificateFileOutput) {
-    
-    this.certificateFileOutput = certificateFileOutput;
-    return this;
-  }
-
-   /**
-   * File to write the certificates to.
-   * @return certificateFileOutput
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File to write the certificates to.")
-
-  public String getCertificateFileOutput() {
-    return certificateFileOutput;
-  }
-
-
-  public void setCertificateFileOutput(String certificateFileOutput) {
-    this.certificateFileOutput = certificateFileOutput;
   }
 
 
@@ -237,29 +206,6 @@ public class GetCertificateValue {
   }
 
 
-  public GetCertificateValue privateKeyFileOutput(String privateKeyFileOutput) {
-    
-    this.privateKeyFileOutput = privateKeyFileOutput;
-    return this;
-  }
-
-   /**
-   * File to write the private key to.
-   * @return privateKeyFileOutput
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File to write the private key to.")
-
-  public String getPrivateKeyFileOutput() {
-    return privateKeyFileOutput;
-  }
-
-
-  public void setPrivateKeyFileOutput(String privateKeyFileOutput) {
-    this.privateKeyFileOutput = privateKeyFileOutput;
-  }
-
-
   public GetCertificateValue token(String token) {
     
     this.token = token;
@@ -339,13 +285,11 @@ public class GetCertificateValue {
     }
     GetCertificateValue getCertificateValue = (GetCertificateValue) o;
     return Objects.equals(this.certIssuerName, getCertificateValue.certIssuerName) &&
-        Objects.equals(this.certificateFileOutput, getCertificateValue.certificateFileOutput) &&
         Objects.equals(this.displayId, getCertificateValue.displayId) &&
         Objects.equals(this.ignoreCache, getCertificateValue.ignoreCache) &&
         Objects.equals(this.issuanceToken, getCertificateValue.issuanceToken) &&
         Objects.equals(this.json, getCertificateValue.json) &&
         Objects.equals(this.name, getCertificateValue.name) &&
-        Objects.equals(this.privateKeyFileOutput, getCertificateValue.privateKeyFileOutput) &&
         Objects.equals(this.token, getCertificateValue.token) &&
         Objects.equals(this.uidToken, getCertificateValue.uidToken) &&
         Objects.equals(this.version, getCertificateValue.version);
@@ -353,7 +297,7 @@ public class GetCertificateValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssuerName, certificateFileOutput, displayId, ignoreCache, issuanceToken, json, name, privateKeyFileOutput, token, uidToken, version);
+    return Objects.hash(certIssuerName, displayId, ignoreCache, issuanceToken, json, name, token, uidToken, version);
   }
 
   @Override
@@ -361,13 +305,11 @@ public class GetCertificateValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCertificateValue {\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
-    sb.append("    certificateFileOutput: ").append(toIndentedString(certificateFileOutput)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    issuanceToken: ").append(toIndentedString(issuanceToken)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    privateKeyFileOutput: ").append(toIndentedString(privateKeyFileOutput)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

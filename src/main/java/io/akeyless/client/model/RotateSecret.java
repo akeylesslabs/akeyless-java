@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RotateSecret {
+  public static final String SERIALIZED_NAME_ROTATE_ALL_SERVICES_BOOLEAN = "RotateAllServicesBoolean";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ALL_SERVICES_BOOLEAN)
+  private Boolean rotateAllServicesBoolean;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -36,6 +40,10 @@ public class RotateSecret {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_ROTATE_ALL_SERVICES = "rotate-all-services";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ALL_SERVICES)
+  private String rotateAllServices = "false";
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -47,6 +55,29 @@ public class RotateSecret {
 
   public RotateSecret() { 
   }
+
+  public RotateSecret rotateAllServicesBoolean(Boolean rotateAllServicesBoolean) {
+    
+    this.rotateAllServicesBoolean = rotateAllServicesBoolean;
+    return this;
+  }
+
+   /**
+   * Get rotateAllServicesBoolean
+   * @return rotateAllServicesBoolean
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getRotateAllServicesBoolean() {
+    return rotateAllServicesBoolean;
+  }
+
+
+  public void setRotateAllServicesBoolean(Boolean rotateAllServicesBoolean) {
+    this.rotateAllServicesBoolean = rotateAllServicesBoolean;
+  }
+
 
   public RotateSecret json(Boolean json) {
     
@@ -91,6 +122,29 @@ public class RotateSecret {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public RotateSecret rotateAllServices(String rotateAllServices) {
+    
+    this.rotateAllServices = rotateAllServices;
+    return this;
+  }
+
+   /**
+   * Rotate all associated services
+   * @return rotateAllServices
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rotate all associated services")
+
+  public String getRotateAllServices() {
+    return rotateAllServices;
+  }
+
+
+  public void setRotateAllServices(String rotateAllServices) {
+    this.rotateAllServices = rotateAllServices;
   }
 
 
@@ -149,23 +203,27 @@ public class RotateSecret {
       return false;
     }
     RotateSecret rotateSecret = (RotateSecret) o;
-    return Objects.equals(this.json, rotateSecret.json) &&
+    return Objects.equals(this.rotateAllServicesBoolean, rotateSecret.rotateAllServicesBoolean) &&
+        Objects.equals(this.json, rotateSecret.json) &&
         Objects.equals(this.name, rotateSecret.name) &&
+        Objects.equals(this.rotateAllServices, rotateSecret.rotateAllServices) &&
         Objects.equals(this.token, rotateSecret.token) &&
         Objects.equals(this.uidToken, rotateSecret.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, token, uidToken);
+    return Objects.hash(rotateAllServicesBoolean, json, name, rotateAllServices, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateSecret {\n");
+    sb.append("    rotateAllServicesBoolean: ").append(toIndentedString(rotateAllServicesBoolean)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rotateAllServices: ").append(toIndentedString(rotateAllServices)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

@@ -7,6 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**authType** | **String** |  |  [optional]
+**clientId** | **String** | Auth - JWT |  [optional]
 **clientPermissions** | **List&lt;String&gt;** |  |  [optional]
 **comment** | **String** |  |  [optional]
 **creationDate** | **OffsetDateTime** |  |  [optional]
@@ -25,7 +27,8 @@ Name | Type | Description | Notes
 **runnerType** | **String** |  |  [optional]
 **timespanInSeconds** | **Long** |  |  [optional]
 **toEmails** | [**List&lt;EmailEntry&gt;**](EmailEntry.md) |  |  [optional]
-**username** | **String** |  |  [optional]
+**userEmail** | **String** |  |  [optional]
+**username** | **String** | Auth - User Password |  [optional]
 **withCustomerFragment** | **Boolean** |  |  [optional]
 
 

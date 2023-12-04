@@ -28,9 +28,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * TargetItemAssociation includes details of an association between a target and an item.
+ * TargetItemAssociation includes details of an association between a target and an item. Also, between targets in case of CredentialsLess target or Linked target.
  */
-@ApiModel(description = "TargetItemAssociation includes details of an association between a target and an item.")
+@ApiModel(description = "TargetItemAssociation includes details of an association between a target and an item. Also, between targets in case of CredentialsLess target or Linked target.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TargetItemAssociation {
   public static final String SERIALIZED_NAME_ASSOC_ID = "assoc_id";

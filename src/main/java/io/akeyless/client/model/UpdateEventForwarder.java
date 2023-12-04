@@ -35,6 +35,14 @@ public class UpdateEventForwarder {
   @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
   private String adminName;
 
+  public static final String SERIALIZED_NAME_AUTH_TYPE = "auth-type";
+  @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
+  private String authType = "user-pass";
+
+  public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
+  @SerializedName(SERIALIZED_NAME_CLIENT_ID)
+  private String clientId;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description = "default_comment";
@@ -83,6 +91,10 @@ public class UpdateEventForwarder {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USER_EMAIL = "user-email";
+  @SerializedName(SERIALIZED_NAME_USER_EMAIL)
+  private String userEmail;
+
   public UpdateEventForwarder() { 
   }
 
@@ -106,6 +118,52 @@ public class UpdateEventForwarder {
 
   public void setAdminName(String adminName) {
     this.adminName = adminName;
+  }
+
+
+  public UpdateEventForwarder authType(String authType) {
+    
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * The authentication type to use when connecting to ServiceNow (user-pass / jwt)
+   * @return authType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The authentication type to use when connecting to ServiceNow (user-pass / jwt)")
+
+  public String getAuthType() {
+    return authType;
+  }
+
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+
+  public UpdateEventForwarder clientId(String clientId) {
+    
+    this.clientId = clientId;
+    return this;
+  }
+
+   /**
+   * The client ID to use when connecting to ServiceNow with jwt authentication
+   * @return clientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The client ID to use when connecting to ServiceNow with jwt authentication")
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
   }
 
 
@@ -401,6 +459,29 @@ public class UpdateEventForwarder {
   }
 
 
+  public UpdateEventForwarder userEmail(String userEmail) {
+    
+    this.userEmail = userEmail;
+    return this;
+  }
+
+   /**
+   * The user email to use when connecting to ServiceNow with jwt authentication
+   * @return userEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The user email to use when connecting to ServiceNow with jwt authentication")
+
+  public String getUserEmail() {
+    return userEmail;
+  }
+
+
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -411,6 +492,8 @@ public class UpdateEventForwarder {
     }
     UpdateEventForwarder updateEventForwarder = (UpdateEventForwarder) o;
     return Objects.equals(this.adminName, updateEventForwarder.adminName) &&
+        Objects.equals(this.authType, updateEventForwarder.authType) &&
+        Objects.equals(this.clientId, updateEventForwarder.clientId) &&
         Objects.equals(this.description, updateEventForwarder.description) &&
         Objects.equals(this.emailTo, updateEventForwarder.emailTo) &&
         Objects.equals(this.enable, updateEventForwarder.enable) &&
@@ -422,12 +505,13 @@ public class UpdateEventForwarder {
         Objects.equals(this.newComment, updateEventForwarder.newComment) &&
         Objects.equals(this.newName, updateEventForwarder.newName) &&
         Objects.equals(this.token, updateEventForwarder.token) &&
-        Objects.equals(this.uidToken, updateEventForwarder.uidToken);
+        Objects.equals(this.uidToken, updateEventForwarder.uidToken) &&
+        Objects.equals(this.userEmail, updateEventForwarder.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, description, emailTo, enable, eventSourceLocations, eventTypes, host, json, name, newComment, newName, token, uidToken);
+    return Objects.hash(adminName, authType, clientId, description, emailTo, enable, eventSourceLocations, eventTypes, host, json, name, newComment, newName, token, uidToken, userEmail);
   }
 
   @Override
@@ -435,6 +519,8 @@ public class UpdateEventForwarder {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateEventForwarder {\n");
     sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailTo: ").append(toIndentedString(emailTo)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
@@ -447,6 +533,7 @@ public class UpdateEventForwarder {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.TargetNameWithHosts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -87,6 +88,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_HOST)
   private List<String> host = null;
 
+  public static final String SERIALIZED_NAME_HOST_PROVIDER_TYPE = "host_provider_type";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER_TYPE)
+  private String hostProviderType;
+
   public static final String SERIALIZED_NAME_IS_CLI = "is_cli";
   @SerializedName(SERIALIZED_NAME_IS_CLI)
   private Boolean isCli;
@@ -134,6 +139,10 @@ public class SecureRemoteAccess {
   public static final String SERIALIZED_NAME_SSH_USER = "ssh_user";
   @SerializedName(SERIALIZED_NAME_SSH_USER)
   private String sshUser;
+
+  public static final String SERIALIZED_NAME_TARGET_HOSTS = "target_hosts";
+  @SerializedName(SERIALIZED_NAME_TARGET_HOSTS)
+  private List<TargetNameWithHosts> targetHosts = null;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
@@ -480,6 +489,29 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess hostProviderType(String hostProviderType) {
+    
+    this.hostProviderType = hostProviderType;
+    return this;
+  }
+
+   /**
+   * Get hostProviderType
+   * @return hostProviderType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getHostProviderType() {
+    return hostProviderType;
+  }
+
+
+  public void setHostProviderType(String hostProviderType) {
+    this.hostProviderType = hostProviderType;
+  }
+
+
   public SecureRemoteAccess isCli(Boolean isCli) {
     
     this.isCli = isCli;
@@ -756,6 +788,37 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess targetHosts(List<TargetNameWithHosts> targetHosts) {
+    
+    this.targetHosts = targetHosts;
+    return this;
+  }
+
+  public SecureRemoteAccess addTargetHostsItem(TargetNameWithHosts targetHostsItem) {
+    if (this.targetHosts == null) {
+      this.targetHosts = new ArrayList<TargetNameWithHosts>();
+    }
+    this.targetHosts.add(targetHostsItem);
+    return this;
+  }
+
+   /**
+   * Get targetHosts
+   * @return targetHosts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<TargetNameWithHosts> getTargetHosts() {
+    return targetHosts;
+  }
+
+
+  public void setTargetHosts(List<TargetNameWithHosts> targetHosts) {
+    this.targetHosts = targetHosts;
+  }
+
+
   public SecureRemoteAccess url(String url) {
     
     this.url = url;
@@ -848,6 +911,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.enable, secureRemoteAccess.enable) &&
         Objects.equals(this.endpoint, secureRemoteAccess.endpoint) &&
         Objects.equals(this.host, secureRemoteAccess.host) &&
+        Objects.equals(this.hostProviderType, secureRemoteAccess.hostProviderType) &&
         Objects.equals(this.isCli, secureRemoteAccess.isCli) &&
         Objects.equals(this.isWeb, secureRemoteAccess.isWeb) &&
         Objects.equals(this.isolated, secureRemoteAccess.isolated) &&
@@ -860,6 +924,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.sshPassword, secureRemoteAccess.sshPassword) &&
         Objects.equals(this.sshPrivateKey, secureRemoteAccess.sshPrivateKey) &&
         Objects.equals(this.sshUser, secureRemoteAccess.sshUser) &&
+        Objects.equals(this.targetHosts, secureRemoteAccess.targetHosts) &&
         Objects.equals(this.url, secureRemoteAccess.url) &&
         Objects.equals(this.useInternalBastion, secureRemoteAccess.useInternalBastion) &&
         Objects.equals(this.webProxy, secureRemoteAccess.webProxy);
@@ -867,7 +932,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, targetHosts, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -888,6 +953,7 @@ public class SecureRemoteAccess {
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    hostProviderType: ").append(toIndentedString(hostProviderType)).append("\n");
     sb.append("    isCli: ").append(toIndentedString(isCli)).append("\n");
     sb.append("    isWeb: ").append(toIndentedString(isWeb)).append("\n");
     sb.append("    isolated: ").append(toIndentedString(isolated)).append("\n");
@@ -900,6 +966,7 @@ public class SecureRemoteAccess {
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshPrivateKey: ").append(toIndentedString(sshPrivateKey)).append("\n");
     sb.append("    sshUser: ").append(toIndentedString(sshUser)).append("\n");
+    sb.append("    targetHosts: ").append(toIndentedString(targetHosts)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useInternalBastion: ").append(toIndentedString(useInternalBastion)).append("\n");
     sb.append("    webProxy: ").append(toIndentedString(webProxy)).append("\n");

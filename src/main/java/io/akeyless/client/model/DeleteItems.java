@@ -23,19 +23,25 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DeleteItems
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteItems {
+  public static final String SERIALIZED_NAME_ITEM = "item";
+  @SerializedName(SERIALIZED_NAME_ITEM)
+  private List<String> item = null;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
-  private String path;
+  private String path = "dummy_path";
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -47,6 +53,37 @@ public class DeleteItems {
 
   public DeleteItems() { 
   }
+
+  public DeleteItems item(List<String> item) {
+    
+    this.item = item;
+    return this;
+  }
+
+  public DeleteItems addItemItem(String itemItem) {
+    if (this.item == null) {
+      this.item = new ArrayList<String>();
+    }
+    this.item.add(itemItem);
+    return this;
+  }
+
+   /**
+   * A list of items to delete, To specify multiple items use argument multiple times
+   * @return item
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of items to delete, To specify multiple items use argument multiple times")
+
+  public List<String> getItem() {
+    return item;
+  }
+
+
+  public void setItem(List<String> item) {
+    this.item = item;
+  }
+
 
   public DeleteItems json(Boolean json) {
     
@@ -149,7 +186,8 @@ public class DeleteItems {
       return false;
     }
     DeleteItems deleteItems = (DeleteItems) o;
-    return Objects.equals(this.json, deleteItems.json) &&
+    return Objects.equals(this.item, deleteItems.item) &&
+        Objects.equals(this.json, deleteItems.json) &&
         Objects.equals(this.path, deleteItems.path) &&
         Objects.equals(this.token, deleteItems.token) &&
         Objects.equals(this.uidToken, deleteItems.uidToken);
@@ -157,13 +195,14 @@ public class DeleteItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, path, token, uidToken);
+    return Objects.hash(item, json, path, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteItems {\n");
+    sb.append("    item: ").append(toIndentedString(item)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

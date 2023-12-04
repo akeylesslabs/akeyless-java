@@ -94,7 +94,7 @@ public class CreateKey {
 
   public static final String SERIALIZED_NAME_SPLIT_LEVEL = "split-level";
   @SerializedName(SERIALIZED_NAME_SPLIT_LEVEL)
-  private Long splitLevel = 2l;
+  private Long splitLevel = 3l;
 
   public static final String SERIALIZED_NAME_TAG = "tag";
   @SerializedName(SERIALIZED_NAME_TAG)

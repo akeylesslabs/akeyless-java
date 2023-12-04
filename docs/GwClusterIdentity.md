@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actionAllowed** | **Boolean** |  |  [optional]
 **allowed** | **Boolean** |  |  [optional]
 **allowedAccessIds** | **List&lt;String&gt;** |  |  [optional]
 **clusterName** | **String** |  |  [optional]

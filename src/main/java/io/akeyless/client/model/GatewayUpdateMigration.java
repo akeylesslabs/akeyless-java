@@ -52,6 +52,10 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_1PASSWORD_VAULTS)
   private List<String> _1passwordVaults = null;
 
+  public static final String SERIALIZED_NAME_AD_DISCOVER_SERVICES = "ad-discover-services";
+  @SerializedName(SERIALIZED_NAME_AD_DISCOVER_SERVICES)
+  private String adDiscoverServices = "false";
+
   public static final String SERIALIZED_NAME_AD_SSH_PORT = "ad-ssh-port";
   @SerializedName(SERIALIZED_NAME_AD_SSH_PORT)
   private String adSshPort = "22";
@@ -391,6 +395,29 @@ public class GatewayUpdateMigration {
 
   public void set1passwordVaults(List<String> _1passwordVaults) {
     this._1passwordVaults = _1passwordVaults;
+  }
+
+
+  public GatewayUpdateMigration adDiscoverServices(String adDiscoverServices) {
+    
+    this.adDiscoverServices = adDiscoverServices;
+    return this;
+  }
+
+   /**
+   * Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
+   * @return adDiscoverServices
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)")
+
+  public String getAdDiscoverServices() {
+    return adDiscoverServices;
+  }
+
+
+  public void setAdDiscoverServices(String adDiscoverServices) {
+    this.adDiscoverServices = adDiscoverServices;
   }
 
 
@@ -1682,6 +1709,7 @@ public class GatewayUpdateMigration {
         Objects.equals(this._1passwordSecretKey, gatewayUpdateMigration._1passwordSecretKey) &&
         Objects.equals(this._1passwordUrl, gatewayUpdateMigration._1passwordUrl) &&
         Objects.equals(this._1passwordVaults, gatewayUpdateMigration._1passwordVaults) &&
+        Objects.equals(this.adDiscoverServices, gatewayUpdateMigration.adDiscoverServices) &&
         Objects.equals(this.adSshPort, gatewayUpdateMigration.adSshPort) &&
         Objects.equals(this.adTargetsType, gatewayUpdateMigration.adTargetsType) &&
         Objects.equals(this.adWinrmOverHttp, gatewayUpdateMigration.adWinrmOverHttp) &&
@@ -1740,7 +1768,7 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken);
   }
 
   @Override
@@ -1752,6 +1780,7 @@ public class GatewayUpdateMigration {
     sb.append("    _1passwordSecretKey: ").append(toIndentedString(_1passwordSecretKey)).append("\n");
     sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
     sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
+    sb.append("    adDiscoverServices: ").append(toIndentedString(adDiscoverServices)).append("\n");
     sb.append("    adSshPort: ").append(toIndentedString(adSshPort)).append("\n");
     sb.append("    adTargetsType: ").append(toIndentedString(adTargetsType)).append("\n");
     sb.append("    adWinrmOverHttp: ").append(toIndentedString(adWinrmOverHttp)).append("\n");

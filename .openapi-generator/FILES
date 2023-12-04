@@ -602,6 +602,7 @@ docs/SystemAccessCredsSettings.md
 docs/Target.md
 docs/TargetItemAssociation.md
 docs/TargetItemVersion.md
+docs/TargetNameWithHosts.md
 docs/TargetTypeDetailsInput.md
 docs/TmpUserData.md
 docs/Tokenize.md
@@ -709,6 +710,7 @@ docs/UpdateZeroSSLTarget.md
 docs/UpdateZeroSSLTargetOutput.md
 docs/UploadPKCS12.md
 docs/UploadRSA.md
+docs/UsageEventSetting.md
 docs/V2Api.md
 docs/ValidateToken.md
 docs/ValidateTokenOutput.md
@@ -724,6 +726,8 @@ docs/VerifyPKICertOutput.md
 docs/VerifyPKICertWithClassicKey.md
 docs/VerifyRsaSsaPss.md
 docs/WebTargetDetails.md
+docs/WindowsService.md
+docs/WindowsServiceAttributes.md
 docs/WindowsTargetDetails.md
 docs/ZeroSSLTargetDetails.md
 git_push.sh
@@ -1351,6 +1355,7 @@ src/main/java/io/akeyless/client/model/SystemAccessCredsSettings.java
 src/main/java/io/akeyless/client/model/Target.java
 src/main/java/io/akeyless/client/model/TargetItemAssociation.java
 src/main/java/io/akeyless/client/model/TargetItemVersion.java
+src/main/java/io/akeyless/client/model/TargetNameWithHosts.java
 src/main/java/io/akeyless/client/model/TargetTypeDetailsInput.java
 src/main/java/io/akeyless/client/model/TmpUserData.java
 src/main/java/io/akeyless/client/model/Tokenize.java
@@ -1458,6 +1463,7 @@ src/main/java/io/akeyless/client/model/UpdateZeroSSLTarget.java
 src/main/java/io/akeyless/client/model/UpdateZeroSSLTargetOutput.java
 src/main/java/io/akeyless/client/model/UploadPKCS12.java
 src/main/java/io/akeyless/client/model/UploadRSA.java
+src/main/java/io/akeyless/client/model/UsageEventSetting.java
 src/main/java/io/akeyless/client/model/ValidateToken.java
 src/main/java/io/akeyless/client/model/ValidateTokenOutput.java
 src/main/java/io/akeyless/client/model/VaultlessTokenizerInfo.java
@@ -1472,12 +1478,11 @@ src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyRsaSsaPss.java
 src/main/java/io/akeyless/client/model/WebTargetDetails.java
+src/main/java/io/akeyless/client/model/WindowsService.java
+src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/CfInfoTest.java
-src/test/java/io/akeyless/client/model/SignEcDsaOutputTest.java
-src/test/java/io/akeyless/client/model/SignEcDsaTest.java
-src/test/java/io/akeyless/client/model/SignRsaSsaPssOutputTest.java
-src/test/java/io/akeyless/client/model/SignRsaSsaPssTest.java
-src/test/java/io/akeyless/client/model/VerifyEcDsaTest.java
-src/test/java/io/akeyless/client/model/VerifyRsaSsaPssTest.java
+src/test/java/io/akeyless/client/model/TargetNameWithHostsTest.java
+src/test/java/io/akeyless/client/model/UsageEventSettingTest.java
+src/test/java/io/akeyless/client/model/WindowsServiceAttributesTest.java
+src/test/java/io/akeyless/client/model/WindowsServiceTest.java

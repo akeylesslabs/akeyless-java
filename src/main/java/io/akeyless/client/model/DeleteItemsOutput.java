@@ -23,18 +23,92 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * DeleteItemsOutput
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteItemsOutput {
+  public static final String SERIALIZED_NAME_DELETED_ITEMS = "deleted_items";
+  @SerializedName(SERIALIZED_NAME_DELETED_ITEMS)
+  private List<String> deletedItems = null;
+
+  public static final String SERIALIZED_NAME_FAILED_DELETED_ITEMS = "failed_deleted_items";
+  @SerializedName(SERIALIZED_NAME_FAILED_DELETED_ITEMS)
+  private Map<String, String> failedDeletedItems = null;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
   public DeleteItemsOutput() { 
   }
+
+  public DeleteItemsOutput deletedItems(List<String> deletedItems) {
+    
+    this.deletedItems = deletedItems;
+    return this;
+  }
+
+  public DeleteItemsOutput addDeletedItemsItem(String deletedItemsItem) {
+    if (this.deletedItems == null) {
+      this.deletedItems = new ArrayList<String>();
+    }
+    this.deletedItems.add(deletedItemsItem);
+    return this;
+  }
+
+   /**
+   * Get deletedItems
+   * @return deletedItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getDeletedItems() {
+    return deletedItems;
+  }
+
+
+  public void setDeletedItems(List<String> deletedItems) {
+    this.deletedItems = deletedItems;
+  }
+
+
+  public DeleteItemsOutput failedDeletedItems(Map<String, String> failedDeletedItems) {
+    
+    this.failedDeletedItems = failedDeletedItems;
+    return this;
+  }
+
+  public DeleteItemsOutput putFailedDeletedItemsItem(String key, String failedDeletedItemsItem) {
+    if (this.failedDeletedItems == null) {
+      this.failedDeletedItems = new HashMap<String, String>();
+    }
+    this.failedDeletedItems.put(key, failedDeletedItemsItem);
+    return this;
+  }
+
+   /**
+   * Get failedDeletedItems
+   * @return failedDeletedItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getFailedDeletedItems() {
+    return failedDeletedItems;
+  }
+
+
+  public void setFailedDeletedItems(Map<String, String> failedDeletedItems) {
+    this.failedDeletedItems = failedDeletedItems;
+  }
+
 
   public DeleteItemsOutput path(String path) {
     
@@ -68,18 +142,22 @@ public class DeleteItemsOutput {
       return false;
     }
     DeleteItemsOutput deleteItemsOutput = (DeleteItemsOutput) o;
-    return Objects.equals(this.path, deleteItemsOutput.path);
+    return Objects.equals(this.deletedItems, deleteItemsOutput.deletedItems) &&
+        Objects.equals(this.failedDeletedItems, deleteItemsOutput.failedDeletedItems) &&
+        Objects.equals(this.path, deleteItemsOutput.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path);
+    return Objects.hash(deletedItems, failedDeletedItems, path);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteItemsOutput {\n");
+    sb.append("    deletedItems: ").append(toIndentedString(deletedItems)).append("\n");
+    sb.append("    failedDeletedItems: ").append(toIndentedString(failedDeletedItems)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();

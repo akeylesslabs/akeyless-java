@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.DataProtectionSection;
 import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.SharingPolicyInfo;
+import io.akeyless.client.model.UsageEventSetting;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -41,6 +42,10 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_NAME)
   private String accountDefaultKeyName;
 
+  public static final String SERIALIZED_NAME_AUTH_USAGE_EVENT = "auth_usage_event";
+  @SerializedName(SERIALIZED_NAME_AUTH_USAGE_EVENT)
+  private UsageEventSetting authUsageEvent;
+
   public static final String SERIALIZED_NAME_DATA_PROTECTION_SECTION = "data_protection_section";
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
   private DataProtectionSection dataProtectionSection;
@@ -52,6 +57,10 @@ public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_INVALID_CHARACTERS = "invalid_characters";
   @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
   private String invalidCharacters;
+
+  public static final String SERIALIZED_NAME_ITEM_USAGE_EVENT = "item_usage_event";
+  @SerializedName(SERIALIZED_NAME_ITEM_USAGE_EVENT)
+  private UsageEventSetting itemUsageEvent;
 
   public static final String SERIALIZED_NAME_LOCK_DEFAULT_KEY = "lock_default_key";
   @SerializedName(SERIALIZED_NAME_LOCK_DEFAULT_KEY)
@@ -115,6 +124,29 @@ public class AccountGeneralSettings {
 
   public void setAccountDefaultKeyName(String accountDefaultKeyName) {
     this.accountDefaultKeyName = accountDefaultKeyName;
+  }
+
+
+  public AccountGeneralSettings authUsageEvent(UsageEventSetting authUsageEvent) {
+    
+    this.authUsageEvent = authUsageEvent;
+    return this;
+  }
+
+   /**
+   * Get authUsageEvent
+   * @return authUsageEvent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UsageEventSetting getAuthUsageEvent() {
+    return authUsageEvent;
+  }
+
+
+  public void setAuthUsageEvent(UsageEventSetting authUsageEvent) {
+    this.authUsageEvent = authUsageEvent;
   }
 
 
@@ -184,6 +216,29 @@ public class AccountGeneralSettings {
 
   public void setInvalidCharacters(String invalidCharacters) {
     this.invalidCharacters = invalidCharacters;
+  }
+
+
+  public AccountGeneralSettings itemUsageEvent(UsageEventSetting itemUsageEvent) {
+    
+    this.itemUsageEvent = itemUsageEvent;
+    return this;
+  }
+
+   /**
+   * Get itemUsageEvent
+   * @return itemUsageEvent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UsageEventSetting getItemUsageEvent() {
+    return itemUsageEvent;
+  }
+
+
+  public void setItemUsageEvent(UsageEventSetting itemUsageEvent) {
+    this.itemUsageEvent = itemUsageEvent;
   }
 
 
@@ -290,9 +345,11 @@ public class AccountGeneralSettings {
     AccountGeneralSettings accountGeneralSettings = (AccountGeneralSettings) o;
     return Objects.equals(this.accountDefaultKeyItemId, accountGeneralSettings.accountDefaultKeyItemId) &&
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
+        Objects.equals(this.authUsageEvent, accountGeneralSettings.authUsageEvent) &&
         Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.invalidCharacters, accountGeneralSettings.invalidCharacters) &&
+        Objects.equals(this.itemUsageEvent, accountGeneralSettings.itemUsageEvent) &&
         Objects.equals(this.lockDefaultKey, accountGeneralSettings.lockDefaultKey) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
@@ -301,7 +358,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, dataProtectionSection, enableRequestForAccess, invalidCharacters, lockDefaultKey, passwordPolicy, protectItemsByDefault, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, authUsageEvent, dataProtectionSection, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordPolicy, protectItemsByDefault, sharingPolicy);
   }
 
   @Override
@@ -310,9 +367,11 @@ public class AccountGeneralSettings {
     sb.append("class AccountGeneralSettings {\n");
     sb.append("    accountDefaultKeyItemId: ").append(toIndentedString(accountDefaultKeyItemId)).append("\n");
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
+    sb.append("    authUsageEvent: ").append(toIndentedString(authUsageEvent)).append("\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
+    sb.append("    itemUsageEvent: ").append(toIndentedString(itemUsageEvent)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **migrated** | **Long** |  |  [optional]
 **skipped** | **Long** |  |  [optional]
 **total** | **Long** |  |  [optional]
+**updated** | **Long** |  |  [optional]
 
 
 

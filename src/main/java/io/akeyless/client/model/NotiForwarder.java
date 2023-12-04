@@ -34,6 +34,14 @@ import org.threeten.bp.OffsetDateTime;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotiForwarder {
+  public static final String SERIALIZED_NAME_AUTH_TYPE = "auth_type";
+  @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
+  private String authType;
+
+  public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
+  @SerializedName(SERIALIZED_NAME_CLIENT_ID)
+  private String clientId;
+
   public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   private List<String> clientPermissions = null;
@@ -106,6 +114,10 @@ public class NotiForwarder {
   @SerializedName(SERIALIZED_NAME_TO_EMAILS)
   private List<EmailEntry> toEmails = null;
 
+  public static final String SERIALIZED_NAME_USER_EMAIL = "user_email";
+  @SerializedName(SERIALIZED_NAME_USER_EMAIL)
+  private String userEmail;
+
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
@@ -116,6 +128,52 @@ public class NotiForwarder {
 
   public NotiForwarder() { 
   }
+
+  public NotiForwarder authType(String authType) {
+    
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * Get authType
+   * @return authType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAuthType() {
+    return authType;
+  }
+
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+
+  public NotiForwarder clientId(String clientId) {
+    
+    this.clientId = clientId;
+    return this;
+  }
+
+   /**
+   * Auth - JWT
+   * @return clientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth - JWT")
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
+
 
   public NotiForwarder clientPermissions(List<String> clientPermissions) {
     
@@ -571,6 +629,29 @@ public class NotiForwarder {
   }
 
 
+  public NotiForwarder userEmail(String userEmail) {
+    
+    this.userEmail = userEmail;
+    return this;
+  }
+
+   /**
+   * Get userEmail
+   * @return userEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUserEmail() {
+    return userEmail;
+  }
+
+
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
+  }
+
+
   public NotiForwarder username(String username) {
     
     this.username = username;
@@ -578,11 +659,11 @@ public class NotiForwarder {
   }
 
    /**
-   * Get username
+   * Auth - User Password
    * @return username
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Auth - User Password")
 
   public String getUsername() {
     return username;
@@ -626,7 +707,9 @@ public class NotiForwarder {
       return false;
     }
     NotiForwarder notiForwarder = (NotiForwarder) o;
-    return Objects.equals(this.clientPermissions, notiForwarder.clientPermissions) &&
+    return Objects.equals(this.authType, notiForwarder.authType) &&
+        Objects.equals(this.clientId, notiForwarder.clientId) &&
+        Objects.equals(this.clientPermissions, notiForwarder.clientPermissions) &&
         Objects.equals(this.comment, notiForwarder.comment) &&
         Objects.equals(this.creationDate, notiForwarder.creationDate) &&
         Objects.equals(this.endpoint, notiForwarder.endpoint) &&
@@ -644,19 +727,22 @@ public class NotiForwarder {
         Objects.equals(this.runnerType, notiForwarder.runnerType) &&
         Objects.equals(this.timespanInSeconds, notiForwarder.timespanInSeconds) &&
         Objects.equals(this.toEmails, notiForwarder.toEmails) &&
+        Objects.equals(this.userEmail, notiForwarder.userEmail) &&
         Objects.equals(this.username, notiForwarder.username) &&
         Objects.equals(this.withCustomerFragment, notiForwarder.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, paths, protectionKey, runnerType, timespanInSeconds, toEmails, username, withCustomerFragment);
+    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, paths, protectionKey, runnerType, timespanInSeconds, toEmails, userEmail, username, withCustomerFragment);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NotiForwarder {\n");
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
@@ -675,6 +761,7 @@ public class NotiForwarder {
     sb.append("    runnerType: ").append(toIndentedString(runnerType)).append("\n");
     sb.append("    timespanInSeconds: ").append(toIndentedString(timespanInSeconds)).append("\n");
     sb.append("    toEmails: ").append(toIndentedString(toEmails)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");

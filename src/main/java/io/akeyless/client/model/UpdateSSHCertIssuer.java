@@ -33,6 +33,10 @@ import java.util.Map;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSSHCertIssuer {
+  public static final String SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER = "SshCertIssuerHostProvider";
+  @SerializedName(SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER)
+  private String sshCertIssuerHostProvider;
+
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
   private List<String> addTag = null;
@@ -52,6 +56,10 @@ public class UpdateSSHCertIssuer {
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
   private Map<String, String> extensions = null;
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  private String hostProvider = "explicit";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -119,6 +127,29 @@ public class UpdateSSHCertIssuer {
 
   public UpdateSSHCertIssuer() { 
   }
+
+  public UpdateSSHCertIssuer sshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
+    
+    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+    return this;
+  }
+
+   /**
+   * Get sshCertIssuerHostProvider
+   * @return sshCertIssuerHostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshCertIssuerHostProvider() {
+    return sshCertIssuerHostProvider;
+  }
+
+
+  public void setSshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
+    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+  }
+
 
   public UpdateSSHCertIssuer addTag(List<String> addTag) {
     
@@ -248,6 +279,29 @@ public class UpdateSSHCertIssuer {
 
   public void setExtensions(Map<String, String> extensions) {
     this.extensions = extensions;
+  }
+
+
+  public UpdateSSHCertIssuer hostProvider(String hostProvider) {
+    
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+   /**
+   * Host provider type [explicit/target]
+   * @return hostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Host provider type [explicit/target]")
+
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+
+  public void setHostProvider(String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -644,11 +698,13 @@ public class UpdateSSHCertIssuer {
       return false;
     }
     UpdateSSHCertIssuer updateSSHCertIssuer = (UpdateSSHCertIssuer) o;
-    return Objects.equals(this.addTag, updateSSHCertIssuer.addTag) &&
+    return Objects.equals(this.sshCertIssuerHostProvider, updateSSHCertIssuer.sshCertIssuerHostProvider) &&
+        Objects.equals(this.addTag, updateSSHCertIssuer.addTag) &&
         Objects.equals(this.allowedUsers, updateSSHCertIssuer.allowedUsers) &&
         Objects.equals(this.deleteProtection, updateSSHCertIssuer.deleteProtection) &&
         Objects.equals(this.description, updateSSHCertIssuer.description) &&
         Objects.equals(this.extensions, updateSSHCertIssuer.extensions) &&
+        Objects.equals(this.hostProvider, updateSSHCertIssuer.hostProvider) &&
         Objects.equals(this.json, updateSSHCertIssuer.json) &&
         Objects.equals(this.metadata, updateSSHCertIssuer.metadata) &&
         Objects.equals(this.name, updateSSHCertIssuer.name) &&
@@ -669,18 +725,20 @@ public class UpdateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, allowedUsers, deleteProtection, description, extensions, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
+    return Objects.hash(sshCertIssuerHostProvider, addTag, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHCertIssuer {\n");
+    sb.append("    sshCertIssuerHostProvider: ").append(toIndentedString(sshCertIssuerHostProvider)).append("\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

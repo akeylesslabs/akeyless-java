@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.WindowsService;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * RotatedSecretDetailsInfo The rotated secret rotator info
@@ -73,6 +76,10 @@ public class RotatedSecretDetailsInfo {
   public static final String SERIALIZED_NAME_SAME_PASSWORD = "same_password";
   @SerializedName(SERIALIZED_NAME_SAME_PASSWORD)
   private Boolean samePassword;
+
+  public static final String SERIALIZED_NAME_SERVICES_DETAILS = "services_details";
+  @SerializedName(SERIALIZED_NAME_SERVICES_DETAILS)
+  private List<WindowsService> servicesDetails = null;
 
   public RotatedSecretDetailsInfo() { 
   }
@@ -330,6 +337,37 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo servicesDetails(List<WindowsService> servicesDetails) {
+    
+    this.servicesDetails = servicesDetails;
+    return this;
+  }
+
+  public RotatedSecretDetailsInfo addServicesDetailsItem(WindowsService servicesDetailsItem) {
+    if (this.servicesDetails == null) {
+      this.servicesDetails = new ArrayList<WindowsService>();
+    }
+    this.servicesDetails.add(servicesDetailsItem);
+    return this;
+  }
+
+   /**
+   * Get servicesDetails
+   * @return servicesDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<WindowsService> getServicesDetails() {
+    return servicesDetails;
+  }
+
+
+  public void setServicesDetails(List<WindowsService> servicesDetails) {
+    this.servicesDetails = servicesDetails;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -349,12 +387,13 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.rotatorCredsType, rotatedSecretDetailsInfo.rotatorCredsType) &&
         Objects.equals(this.rotatorStatus, rotatedSecretDetailsInfo.rotatorStatus) &&
         Objects.equals(this.rotatorType, rotatedSecretDetailsInfo.rotatorType) &&
-        Objects.equals(this.samePassword, rotatedSecretDetailsInfo.samePassword);
+        Objects.equals(this.samePassword, rotatedSecretDetailsInfo.samePassword) &&
+        Objects.equals(this.servicesDetails, rotatedSecretDetailsInfo.servicesDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword);
+    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails);
   }
 
   @Override
@@ -372,6 +411,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    rotatorStatus: ").append(toIndentedString(rotatorStatus)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
     sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
+    sb.append("    servicesDetails: ").append(toIndentedString(servicesDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

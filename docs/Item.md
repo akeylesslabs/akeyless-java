@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **itemTargetsAssoc** | [**List&lt;ItemTargetAssociation&gt;**](ItemTargetAssociation.md) |  |  [optional]
 **itemType** | **String** |  |  [optional]
 **itemVersions** | [**List&lt;ItemVersion&gt;**](ItemVersion.md) |  |  [optional]
+**lastRotationDate** | **OffsetDateTime** |  |  [optional]
 **lastVersion** | **Integer** |  |  [optional]
 **linkedDetails** | [**LinkedDetails**](LinkedDetails.md) |  |  [optional]
 **modificationDate** | **OffsetDateTime** |  |  [optional]

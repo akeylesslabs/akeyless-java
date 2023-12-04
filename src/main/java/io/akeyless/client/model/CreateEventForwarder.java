@@ -39,6 +39,22 @@ public class CreateEventForwarder {
   @SerializedName(SERIALIZED_NAME_ADMIN_PWD)
   private String adminPwd;
 
+  public static final String SERIALIZED_NAME_APP_PRIVATE_KEY_BASE64 = "app-private-key-base64";
+  @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY_BASE64)
+  private String appPrivateKeyBase64;
+
+  public static final String SERIALIZED_NAME_AUTH_TYPE = "auth-type";
+  @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
+  private String authType = "user-pass";
+
+  public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
+  @SerializedName(SERIALIZED_NAME_CLIENT_ID)
+  private String clientId;
+
+  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client-secret";
+  @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
+  private String clientSecret;
+
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
@@ -99,6 +115,10 @@ public class CreateEventForwarder {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USER_EMAIL = "user-email";
+  @SerializedName(SERIALIZED_NAME_USER_EMAIL)
+  private String userEmail;
+
   public CreateEventForwarder() { 
   }
 
@@ -145,6 +165,98 @@ public class CreateEventForwarder {
 
   public void setAdminPwd(String adminPwd) {
     this.adminPwd = adminPwd;
+  }
+
+
+  public CreateEventForwarder appPrivateKeyBase64(String appPrivateKeyBase64) {
+    
+    this.appPrivateKeyBase64 = appPrivateKeyBase64;
+    return this;
+  }
+
+   /**
+   * The RSA Private Key PEM formatted in base64 to use when connecting to ServiceNow with jwt authentication
+   * @return appPrivateKeyBase64
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The RSA Private Key PEM formatted in base64 to use when connecting to ServiceNow with jwt authentication")
+
+  public String getAppPrivateKeyBase64() {
+    return appPrivateKeyBase64;
+  }
+
+
+  public void setAppPrivateKeyBase64(String appPrivateKeyBase64) {
+    this.appPrivateKeyBase64 = appPrivateKeyBase64;
+  }
+
+
+  public CreateEventForwarder authType(String authType) {
+    
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * The authentication type to use when connecting to ServiceNow (user-pass / jwt)
+   * @return authType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The authentication type to use when connecting to ServiceNow (user-pass / jwt)")
+
+  public String getAuthType() {
+    return authType;
+  }
+
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+
+  public CreateEventForwarder clientId(String clientId) {
+    
+    this.clientId = clientId;
+    return this;
+  }
+
+   /**
+   * The client ID to use when connecting to ServiceNow with jwt authentication
+   * @return clientId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The client ID to use when connecting to ServiceNow with jwt authentication")
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
+
+
+  public CreateEventForwarder clientSecret(String clientSecret) {
+    
+    this.clientSecret = clientSecret;
+    return this;
+  }
+
+   /**
+   * The client secret to use when connecting to ServiceNow with jwt authentication
+   * @return clientSecret
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The client secret to use when connecting to ServiceNow with jwt authentication")
+
+  public String getClientSecret() {
+    return clientSecret;
+  }
+
+
+  public void setClientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
   }
 
 
@@ -506,6 +618,29 @@ public class CreateEventForwarder {
   }
 
 
+  public CreateEventForwarder userEmail(String userEmail) {
+    
+    this.userEmail = userEmail;
+    return this;
+  }
+
+   /**
+   * The user email to use when connecting to ServiceNow with jwt authentication
+   * @return userEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The user email to use when connecting to ServiceNow with jwt authentication")
+
+  public String getUserEmail() {
+    return userEmail;
+  }
+
+
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -517,6 +652,10 @@ public class CreateEventForwarder {
     CreateEventForwarder createEventForwarder = (CreateEventForwarder) o;
     return Objects.equals(this.adminName, createEventForwarder.adminName) &&
         Objects.equals(this.adminPwd, createEventForwarder.adminPwd) &&
+        Objects.equals(this.appPrivateKeyBase64, createEventForwarder.appPrivateKeyBase64) &&
+        Objects.equals(this.authType, createEventForwarder.authType) &&
+        Objects.equals(this.clientId, createEventForwarder.clientId) &&
+        Objects.equals(this.clientSecret, createEventForwarder.clientSecret) &&
         Objects.equals(this.comment, createEventForwarder.comment) &&
         Objects.equals(this.description, createEventForwarder.description) &&
         Objects.equals(this.emailTo, createEventForwarder.emailTo) &&
@@ -531,12 +670,13 @@ public class CreateEventForwarder {
         Objects.equals(this.name, createEventForwarder.name) &&
         Objects.equals(this.runnerType, createEventForwarder.runnerType) &&
         Objects.equals(this.token, createEventForwarder.token) &&
-        Objects.equals(this.uidToken, createEventForwarder.uidToken);
+        Objects.equals(this.uidToken, createEventForwarder.uidToken) &&
+        Objects.equals(this.userEmail, createEventForwarder.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminName, adminPwd, comment, description, emailTo, eventSourceLocations, eventSourceType, eventTypes, every, forwarderType, host, json, key, name, runnerType, token, uidToken);
+    return Objects.hash(adminName, adminPwd, appPrivateKeyBase64, authType, clientId, clientSecret, comment, description, emailTo, eventSourceLocations, eventSourceType, eventTypes, every, forwarderType, host, json, key, name, runnerType, token, uidToken, userEmail);
   }
 
   @Override
@@ -545,6 +685,10 @@ public class CreateEventForwarder {
     sb.append("class CreateEventForwarder {\n");
     sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
     sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
+    sb.append("    appPrivateKeyBase64: ").append(toIndentedString(appPrivateKeyBase64)).append("\n");
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    emailTo: ").append(toIndentedString(emailTo)).append("\n");
@@ -560,6 +704,7 @@ public class CreateEventForwarder {
     sb.append("    runnerType: ").append(toIndentedString(runnerType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

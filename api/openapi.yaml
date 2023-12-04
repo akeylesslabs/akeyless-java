@@ -2411,7 +2411,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/esmUpdate'
+              $ref: '#/components/schemas/esmCreate'
         required: true
       responses:
         "200":
@@ -2523,6 +2523,12 @@ paths:
   /esm-update:
     post:
       operationId: esmUpdate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/esmUpdate'
+        required: true
       responses:
         "200":
           content:
@@ -2540,6 +2546,8 @@ paths:
             field.
       tags:
       - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
       x-accepts: application/json
   /event-action:
     post:
@@ -10636,6 +10644,7 @@ components:
   schemas:
     APIKeyAccessRules:
       example:
+        modification_date: 2000-01-23T04:56:07.000+00:00
         alg: alg
         key: key
       properties:
@@ -10647,6 +10656,10 @@ components:
           description: The public key value of the API-key.
           type: string
           x-go-name: PubKeyValue
+        modification_date:
+          format: date-time
+          type: string
+          x-go-name: ModificationDate
       title: APIKeyAccessRules is a set of rules for API Key access type.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -10866,6 +10879,10 @@ components:
     AccountGeneralSettings:
       description: AccountGeneralSettings describes general settings for an account
       example:
+        auth_usage_event:
+          enable: true
+          enable_time: 2000-01-23T04:56:07.000+00:00
+          interval_by_days: 6
         password_policy:
           use_numbers: true
           use_capital_letters: true
@@ -10873,13 +10890,17 @@ components:
           use_lower_letters: true
           password_length: 4
         sharing_policy:
-          default_share_link_ttl: 6
+          default_share_link_ttl: 1
         data_protection_section:
           enable_classic_key_protection: true
         lock_default_key: true
         account_default_key_name: account_default_key_name
         enable_request_for_access: true
         protect_items_by_default: true
+        item_usage_event:
+          enable: true
+          enable_time: 2000-01-23T04:56:07.000+00:00
+          interval_by_days: 6
         account_default_key_item_id: 0
         invalid_characters: invalid_characters
       properties:
@@ -10897,6 +10918,8 @@ components:
             It will not be saved to the DB, only the AccountDefaultKeyItemID will.
           type: string
           x-go-name: AccountDefaultKeyName
+        auth_usage_event:
+          $ref: '#/components/schemas/UsageEventSetting'
         data_protection_section:
           $ref: '#/components/schemas/DataProtectionSection'
         enable_request_for_access:
@@ -10907,6 +10930,8 @@ components:
             naming convention
           type: string
           x-go-name: InvalidCharacters
+        item_usage_event:
+          $ref: '#/components/schemas/UsageEventSetting'
         lock_default_key:
           description: |-
             LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis
@@ -10962,6 +10987,7 @@ components:
           winrm_port: winrm_port
           auto_rotate_interval_in_days: 1
           active_directory_target_id: 1
+          discover_services: true
           winrm_over_http: true
           local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
           targets_type: targets_type
@@ -10992,6 +11018,7 @@ components:
         winrm_port: winrm_port
         auto_rotate_interval_in_days: 1
         active_directory_target_id: 1
+        discover_services: true
         winrm_over_http: true
         local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
         targets_type: targets_type
@@ -11029,6 +11056,9 @@ components:
         discover_local_users:
           type: boolean
           x-go-name: DiscoverLocalUsers
+        discover_services:
+          type: boolean
+          x-go-name: DiscoverServices
         domain_name:
           type: string
           x-go-name: DomainName
@@ -11470,6 +11500,7 @@ components:
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
+              discover_services: true
               winrm_over_http: true
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
               targets_type: targets_type
@@ -11501,6 +11532,7 @@ components:
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
+              discover_services: true
               winrm_over_http: true
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
               targets_type: targets_type
@@ -12136,6 +12168,7 @@ components:
               name: name
             idp_metadata_xml: idp_metadata_xml
           api_key_access_rules:
+            modification_date: 2000-01-23T04:56:07.000+00:00
             alg: alg
             key: key
           cidr_whitelist: cidr_whitelist
@@ -12407,6 +12440,7 @@ components:
             name: name
           idp_metadata_xml: idp_metadata_xml
         api_key_access_rules:
+          modification_date: 2000-01-23T04:56:07.000+00:00
           alg: alg
           key: key
         cidr_whitelist: cidr_whitelist
@@ -14882,9 +14916,19 @@ components:
         sf_account: sf_account
         secure_remote_access_details:
           schema: schema
+          host_provider_type: host_provider_type
           web_proxy: true
           bastion_ssh: bastion_ssh
           isolated: true
+          target_hosts:
+          - target_name: target_name
+            hosts:
+            - hosts
+            - hosts
+          - target_name: target_name
+            hosts:
+            - hosts
+            - hosts
           ssh_private_key: true
           allow_port_forwarding: true
           is_web: true
@@ -16857,7 +16901,8 @@ components:
       description: GatewaysListResponse Gateway cluster identity list
       example:
         clusters:
-        - cluster_name: cluster_name
+        - action_allowed: true
+          cluster_name: cluster_name
           current_gw: true
           status_description: status_description
           customer_fragment_ids:
@@ -16882,7 +16927,8 @@ components:
             hash: hash
           default_secret_location: default_secret_location
           status: status
-        - cluster_name: cluster_name
+        - action_allowed: true
+          cluster_name: cluster_name
           current_gw: true
           status_description: status_description
           customer_fragment_ids:
@@ -17019,6 +17065,10 @@ components:
           - item-type: item-type
             max-versions: max-versions
         general_settings:
+          auth_usage_event:
+            enable: true
+            enable_time: 2000-01-23T04:56:07.000+00:00
+            interval_by_days: 6
           password_policy:
             use_numbers: true
             use_capital_letters: true
@@ -17026,13 +17076,17 @@ components:
             use_lower_letters: true
             password_length: 4
           sharing_policy:
-            default_share_link_ttl: 6
+            default_share_link_ttl: 1
           data_protection_section:
             enable_classic_key_protection: true
           lock_default_key: true
           account_default_key_name: account_default_key_name
           enable_request_for_access: true
           protect_items_by_default: true
+          item_usage_event:
+            enable: true
+            enable_time: 2000-01-23T04:56:07.000+00:00
+            interval_by_days: 6
           account_default_key_item_id: 0
           invalid_characters: invalid_characters
         secret_management:
@@ -17040,8 +17094,8 @@ components:
           sla: sla
         system_access_creds_settings:
           jwt_ttl_maximum: 5
-          jwt_ttl_minimum: 5
-          jwt_ttl_default: 1
+          jwt_ttl_minimum: 2
+          jwt_ttl_default: 5
         email: email
       properties:
         account_id:
@@ -17742,6 +17796,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GwClusterIdentity:
       example:
+        action_allowed: true
         cluster_name: cluster_name
         current_gw: true
         status_description: status_description
@@ -17768,6 +17823,9 @@ components:
         default_secret_location: default_secret_location
         status: status
       properties:
+        action_allowed:
+          type: boolean
+          x-go-name: ActionAllowed
         allowed:
           type: boolean
           x-go-name: Allowed
@@ -17876,6 +17934,9 @@ components:
           x-go-name: Url
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    HostProviderType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     HuaweiAccessRules:
       example:
         domain_id:
@@ -18134,6 +18195,7 @@ components:
           target_id: 1
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
+        last_rotation_date: 2000-01-23T04:56:07.000+00:00
         gateway_details:
         - cluster_url: cluster_url
           cluster_name: cluster_name
@@ -18205,11 +18267,34 @@ components:
             delete_previous_version_in_days: 5
             last_rotation_error: last_rotation_error
             number_of_versions_to_save: 9
+            services_details:
+            - host: host
+              name: name
+              attributes:
+                use_tls: true
+                connection_type: connection_type
+                port: port
+            - host: host
+              name: name
+              attributes:
+                use_tls: true
+                connection_type: connection_type
+                port: port
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -18751,6 +18836,10 @@ components:
             $ref: '#/components/schemas/ItemVersion'
           type: array
           x-go-name: ItemVersions
+        last_rotation_date:
+          format: date-time
+          type: string
+          x-go-name: LastRotationDate
         last_version:
           format: int32
           type: integer
@@ -18858,11 +18947,34 @@ components:
           delete_previous_version_in_days: 5
           last_rotation_error: last_rotation_error
           number_of_versions_to_save: 9
+          services_details:
+          - host: host
+            name: name
+            attributes:
+              use_tls: true
+              connection_type: connection_type
+              port: port
+          - host: host
+            name: name
+            attributes:
+              use_tls: true
+              connection_type: connection_type
+              port: port
         secure_remote_access_details:
           schema: schema
+          host_provider_type: host_provider_type
           web_proxy: true
           bastion_ssh: bastion_ssh
           isolated: true
+          target_hosts:
+          - target_name: target_name
+            hosts:
+            - hosts
+            - hosts
+          - target_name: target_name
+            hosts:
+            - hosts
+            - hosts
           ssh_private_key: true
           allow_port_forwarding: true
           is_web: true
@@ -20555,6 +20667,7 @@ components:
                 name: name
               idp_metadata_xml: idp_metadata_xml
             api_key_access_rules:
+              modification_date: 2000-01-23T04:56:07.000+00:00
               alg: alg
               key: key
             cidr_whitelist: cidr_whitelist
@@ -20873,6 +20986,7 @@ components:
                 name: name
               idp_metadata_xml: idp_metadata_xml
             api_key_access_rules:
+              modification_date: 2000-01-23T04:56:07.000+00:00
               alg: alg
               key: key
             cidr_whitelist: cidr_whitelist
@@ -21213,6 +21327,7 @@ components:
             target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          last_rotation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
           - cluster_url: cluster_url
             cluster_name: cluster_name
@@ -21284,11 +21399,34 @@ components:
               delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
+              services_details:
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
             secure_remote_access_details:
               schema: schema
+              host_provider_type: host_provider_type
               web_proxy: true
               bastion_ssh: bastion_ssh
               isolated: true
+              target_hosts:
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -21882,6 +22020,7 @@ components:
             target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          last_rotation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
           - cluster_url: cluster_url
             cluster_name: cluster_name
@@ -21953,11 +22092,34 @@ components:
               delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
+              services_details:
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
             secure_remote_access_details:
               schema: schema
+              host_provider_type: host_provider_type
               web_proxy: true
               bastion_ssh: bastion_ssh
               isolated: true
+              target_hosts:
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -22573,6 +22735,7 @@ components:
             target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          last_rotation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
           - cluster_url: cluster_url
             cluster_name: cluster_name
@@ -22644,11 +22807,34 @@ components:
               delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
+              services_details:
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
             secure_remote_access_details:
               schema: schema
+              host_provider_type: host_provider_type
               web_proxy: true
               bastion_ssh: bastion_ssh
               isolated: true
+              target_hosts:
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -23242,6 +23428,7 @@ components:
             target_id: 1
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
+          last_rotation_date: 2000-01-23T04:56:07.000+00:00
           gateway_details:
           - cluster_url: cluster_url
             cluster_name: cluster_name
@@ -23313,11 +23500,34 @@ components:
               delete_previous_version_in_days: 5
               last_rotation_error: last_rotation_error
               number_of_versions_to_save: 9
+              services_details:
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
+              - host: host
+                name: name
+                attributes:
+                  use_tls: true
+                  connection_type: connection_type
+                  port: port
             secure_remote_access_details:
               schema: schema
+              host_provider_type: host_provider_type
               web_proxy: true
               bastion_ssh: bastion_ssh
               isolated: true
+              target_hosts:
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
+              - target_name: target_name
+                hosts:
+                - hosts
+                - hosts
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -24213,6 +24423,7 @@ components:
         total: 5
         failed: 0
         migrated: 6
+        updated: 5
         skipped: 1
       properties:
         failed:
@@ -24231,6 +24442,10 @@ components:
           format: int64
           type: integer
           x-go-name: Total
+        updated:
+          format: int64
+          type: integer
+          x-go-name: Updated
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/importer/report
     MigrationStatus:
@@ -24268,17 +24483,20 @@ components:
           total: 5
           failed: 0
           migrated: 6
+          updated: 5
           skipped: 1
         migration_items:
           total: 5
           failed: 0
           migrated: 6
+          updated: 5
           skipped: 1
         migration_state: migration_state
         rotated_secrets:
           total: 5
           failed: 0
           migrated: 6
+          updated: 5
           skipped: 1
         start_time: start_time
         migration_type_name: migration_type_name
@@ -24620,6 +24838,7 @@ components:
             winrm_port: winrm_port
             auto_rotate_interval_in_days: 1
             active_directory_target_id: 1
+            discover_services: true
             winrm_over_http: true
             local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
             targets_type: targets_type
@@ -24651,6 +24870,7 @@ components:
             winrm_port: winrm_port
             auto_rotate_interval_in_days: 1
             active_directory_target_id: 1
+            discover_services: true
             winrm_over_http: true
             local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
             targets_type: targets_type
@@ -24943,6 +25163,8 @@ components:
           to_name: to_name
         - to_email: to_email
           to_name: to_name
+        auth_type: auth_type
+        user_email: user_email
         gateway_cluster_id: 0
         noti_forwarder_id: 1
         runner_type: runner_type
@@ -24970,6 +25192,7 @@ components:
           version: 2
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
+        client_id: client_id
         is_enabled: true
         last_version: 6
         endpoint: endpoint
@@ -24989,6 +25212,13 @@ components:
         comment: comment
         username: username
       properties:
+        auth_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        client_id:
+          description: Auth - JWT
+          type: string
+          x-go-name: ClientID
         client_permissions:
           items:
             type: string
@@ -25059,7 +25289,11 @@ components:
             $ref: '#/components/schemas/EmailEntry'
           type: array
           x-go-name: ToEmails
+        user_email:
+          type: string
+          x-go-name: UserEmail
         username:
+          description: Auth - User Password
           type: string
           x-go-name: Username
         with_customer_fragment:
@@ -26257,6 +26491,19 @@ components:
         delete_previous_version_in_days: 5
         last_rotation_error: last_rotation_error
         number_of_versions_to_save: 9
+        services_details:
+        - host: host
+          name: name
+          attributes:
+            use_tls: true
+            connection_type: connection_type
+            port: port
+        - host: host
+          name: name
+          attributes:
+            use_tls: true
+            connection_type: connection_type
+            port: port
       properties:
         delete_previous_version_in_days:
           format: int32
@@ -26299,6 +26546,11 @@ components:
         same_password:
           type: boolean
           x-go-name: SamePassword
+        services_details:
+          items:
+            $ref: '#/components/schemas/WindowsService'
+          type: array
+          x-go-name: ServicesDetails
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     RotatedSecretOutput:
@@ -26711,9 +26963,19 @@ components:
     SecureRemoteAccess:
       example:
         schema: schema
+        host_provider_type: host_provider_type
         web_proxy: true
         bastion_ssh: bastion_ssh
         isolated: true
+        target_hosts:
+        - target_name: target_name
+          hosts:
+          - hosts
+          - hosts
+        - target_name: target_name
+          hosts:
+          - hosts
+          - hosts
         ssh_private_key: true
         allow_port_forwarding: true
         is_web: true
@@ -26787,6 +27049,9 @@ components:
             type: string
           type: array
           x-go-name: Host
+        host_provider_type:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         is_cli:
           type: boolean
           x-go-name: AccessCliCategory
@@ -26823,6 +27088,11 @@ components:
         ssh_user:
           type: string
           x-go-name: SSHUser
+        target_hosts:
+          items:
+            $ref: '#/components/schemas/TargetNameWithHosts'
+          type: array
+          x-go-name: TargetNameWithHosts
         url:
           type: string
           x-go-name: URL
@@ -26908,9 +27178,12 @@ components:
           x-go-name: UsersRotatedSecretsPathTemplate
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    ServiceNowAuthType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     SharingPolicyInfo:
       example:
-        default_share_link_ttl: 6
+        default_share_link_ttl: 1
       properties:
         default_share_link_ttl:
           format: int64
@@ -27122,8 +27395,8 @@ components:
         for account by minutes
       example:
         jwt_ttl_maximum: 5
-        jwt_ttl_minimum: 5
-        jwt_ttl_default: 1
+        jwt_ttl_minimum: 2
+        jwt_ttl_default: 5
       properties:
         jwt_ttl_default:
           format: int64
@@ -27283,7 +27556,7 @@ components:
     TargetItemAssociation:
       description: |-
         TargetItemAssociation includes details of an association between a target
-        and an item.
+        and an item. Also, between targets in case of CredentialsLess target or Linked target.
       example:
         cluster_id: 1
         assoc_id: assoc_id
@@ -27375,6 +27648,23 @@ components:
           type: boolean
           x-go-name: WithCustomerFragment
       title: TargetItemVersion describes an item version in AKEYLESS.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    TargetNameWithHosts:
+      example:
+        target_name: target_name
+        hosts:
+        - hosts
+        - hosts
+      properties:
+        hosts:
+          items:
+            type: string
+          type: array
+          x-go-name: TargetHosts
+        target_name:
+          type: string
+          x-go-name: TargetName
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     TargetSubType:
@@ -28043,6 +28333,25 @@ components:
           x-go-name: Name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UsageEventSetting:
+      example:
+        enable: true
+        enable_time: 2000-01-23T04:56:07.000+00:00
+        interval_by_days: 6
+      properties:
+        enable:
+          type: boolean
+          x-go-name: Enable
+        enable_time:
+          format: date-time
+          type: string
+          x-go-name: EnableTime
+        interval_by_days:
+          format: int64
+          type: integer
+          x-go-name: IntervalByDays
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     VaultlessTokenizerInfo:
       example:
         key_name: key_name
@@ -28137,6 +28446,43 @@ components:
           type: string
           x-go-name: URL
       title: WebTargetDetails ...
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    WindowsService:
+      example:
+        host: host
+        name: name
+        attributes:
+          use_tls: true
+          connection_type: connection_type
+          port: port
+      properties:
+        attributes:
+          $ref: '#/components/schemas/WindowsServiceAttributes'
+        host:
+          type: string
+          x-go-name: Host
+        name:
+          type: string
+          x-go-name: Name
+      title: WindowsService defines types supported by AKEYLESS.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    WindowsServiceAttributes:
+      example:
+        use_tls: true
+        connection_type: connection_type
+        port: port
+      properties:
+        connection_type:
+          type: string
+          x-go-name: ConnectionType
+        port:
+          type: string
+          x-go-name: Port
+        use_tls:
+          type: boolean
+          x-go-name: UseTLS
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     WindowsTargetDetails:
@@ -30745,6 +31091,27 @@ components:
           description: Workstation Admin password
           type: string
           x-go-name: AdminPwd
+        app-private-key-base64:
+          description: The RSA Private Key PEM formatted in base64 to use when connecting
+            to ServiceNow with jwt authentication
+          type: string
+          x-go-name: AppPrivateKeyBase64
+        auth-type:
+          default: user-pass
+          description: The authentication type to use when connecting to ServiceNow
+            (user-pass / jwt)
+          type: string
+          x-go-name: AuthType
+        client-id:
+          description: The client ID to use when connecting to ServiceNow with jwt
+            authentication
+          type: string
+          x-go-name: ClientID
+        client-secret:
+          description: The client secret to use when connecting to ServiceNow with
+            jwt authentication
+          type: string
+          x-go-name: ClientSecret
         comment:
           description: Deprecated - use description
           type: string
@@ -30815,6 +31182,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        user-email:
+          description: The user email to use when connecting to ServiceNow with jwt
+            authentication
+          type: string
+          x-go-name: UserEmail
       required:
       - event-source-locations
       - forwarder-type
@@ -31309,7 +31681,7 @@ components:
           type: string
           x-go-name: KeyName
         split-level:
-          default: 2
+          default: 3
           description: |-
             The number of fragments that the item will be split into (not includes
             customer fragment)
@@ -32074,6 +32446,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createSSHCertIssuer:
       properties:
+        SshCertIssuerHostProvider:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         allowed-users:
           description: Users allowed to fetch the certificate, e.g root,ubuntu
           type: string
@@ -32092,6 +32467,11 @@ components:
           description: Signed certificates with extensions, e.g permit-port-forwarding=\"\"
           type: object
           x-go-name: Extensions
+        host-provider:
+          default: explicit
+          description: Host provider type [explicit/target]
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -32147,6 +32527,14 @@ components:
             type: string
           type: array
           x-go-name: Tags
+        target:
+          description: A list of existing targets to be associated, Relevant only
+            for Secure Remote Access, To specify multiple targets use argument multiple
+            times
+          items:
+            type: string
+          type: array
+          x-go-name: TargetNames
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -33386,12 +33774,20 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     deleteItems:
       properties:
+        item:
+          description: A list of items to delete, To specify multiple items use argument
+            multiple times
+          items:
+            type: string
+          type: array
+          x-go-name: Items
         json:
           default: false
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
         path:
+          default: dummy_path
           description: Path to delete the items from
           type: string
           x-go-name: Path
@@ -33412,7 +33808,22 @@ components:
     deleteItemsOutput:
       example:
         path: path
+        deleted_items:
+        - deleted_items
+        - deleted_items
+        failed_deleted_items:
+          key: failed_deleted_items
       properties:
+        deleted_items:
+          items:
+            type: string
+          type: array
+          x-go-name: DeletedItems
+        failed_deleted_items:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: FailedDeletedItems
         path:
           type: string
           x-go-name: Path
@@ -33690,6 +34101,11 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     describeItem:
       properties:
+        accessibility:
+          default: regular
+          description: for personal password manager
+          type: string
+          x-go-name: ItemAccessibilityString
         bastion-details:
           default: false
           description: Indicate if the item should return with ztb cluster details
@@ -33720,6 +34136,11 @@ components:
           description: Item name
           type: string
           x-go-name: ItemName
+        services-details:
+          default: false
+          description: Include all associated services details
+          type: boolean
+          x-go-name: WithServicesDetails
         show-versions:
           default: false
           description: Include all item versions in reply
@@ -34553,6 +34974,13 @@ components:
             type: string
           type: array
           x-go-name: Vaults
+        ad-discover-services:
+          default: "false"
+          description: Enable/Disable discovery of Windows services from each domain
+            server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant
+            only for Active Directory migration)
+          type: string
+          x-go-name: AdDiscoverServices
         ad-ssh-port:
           default: "22"
           description: Set the SSH Port for further connection to the domain servers.
@@ -35073,9 +35501,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -35494,9 +35932,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -35901,9 +36349,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -36263,9 +36721,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -36682,9 +37150,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -37134,9 +37612,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -37490,9 +37978,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -37880,9 +38378,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -38250,9 +38758,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -38610,9 +39128,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -38991,9 +39519,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -39385,9 +39923,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -39762,9 +40310,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -40156,9 +40714,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -40567,9 +41135,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -40974,9 +41552,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -41397,9 +41985,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -41793,9 +42391,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -42232,9 +42840,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -42632,9 +43250,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -43028,9 +43656,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -43432,9 +44070,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -43806,9 +44454,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -44189,9 +44847,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -44558,9 +45226,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -45391,6 +46069,7 @@ components:
           total: 5
           failed: 0
           migrated: 6
+          updated: 5
           skipped: 1
       properties:
         migration_items:
@@ -45658,6 +46337,7 @@ components:
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
+              discover_services: true
               winrm_over_http: true
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
               targets_type: targets_type
@@ -45689,6 +46369,7 @@ components:
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
+              discover_services: true
               winrm_over_http: true
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
               targets_type: targets_type
@@ -45993,6 +46674,7 @@ components:
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
+              discover_services: true
               winrm_over_http: true
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
               targets_type: targets_type
@@ -46024,6 +46706,7 @@ components:
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
+              discover_services: true
               winrm_over_http: true
               local_users_rotated_secrets_path_template: local_users_rotated_secrets_path_template
               targets_type: targets_type
@@ -46631,6 +47314,13 @@ components:
             type: string
           type: array
           x-go-name: Vaults
+        ad-discover-services:
+          default: "false"
+          description: Enable/Disable discovery of Windows services from each domain
+            server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant
+            only for Active Directory migration)
+          type: string
+          x-go-name: AdDiscoverServices
         ad-ssh-port:
           default: "22"
           description: Set the SSH Port for further connection to the domain servers.
@@ -47159,9 +47849,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -47584,9 +48284,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -47995,9 +48705,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -48361,9 +49081,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -48784,9 +49514,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -49244,9 +49984,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -49604,9 +50354,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -49998,9 +50758,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -50372,9 +51142,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -50736,9 +51516,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -51121,9 +51911,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -51519,9 +52319,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -51900,9 +52710,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -52298,9 +53118,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -52713,9 +53543,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -53124,9 +53964,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -53551,9 +54401,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -53951,9 +54811,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -54394,9 +55264,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -54798,9 +55678,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -55198,9 +56088,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -55606,9 +56506,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -55984,9 +56894,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -56371,9 +57291,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -56744,9 +57674,19 @@ components:
           sf_account: sf_account
           secure_remote_access_details:
             schema: schema
+            host_provider_type: host_provider_type
             web_proxy: true
             bastion_ssh: bastion_ssh
             isolated: true
+            target_hosts:
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
+            - target_name: target_name
+              hosts:
+              - hosts
+              - hosts
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -57105,10 +58045,6 @@ components:
             required when used with display-id and token
           type: string
           x-go-name: CertIssuerName
-        certificate-file-output:
-          description: File to write the certificates to.
-          type: string
-          x-go-name: CertFileOutput
         display-id:
           description: Certificate display ID
           type: string
@@ -57133,10 +58069,6 @@ components:
           description: Certificate name
           type: string
           x-go-name: CertificateName
-        private-key-file-output:
-          description: File to write the private key to.
-          type: string
-          x-go-name: PkFileOutput
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -57238,6 +58170,8 @@ components:
             to_name: to_name
           - to_email: to_email
             to_name: to_name
+          auth_type: auth_type
+          user_email: user_email
           gateway_cluster_id: 0
           noti_forwarder_id: 1
           runner_type: runner_type
@@ -57265,6 +58199,7 @@ components:
             version: 2
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
+          client_id: client_id
           is_enabled: true
           last_version: 6
           endpoint: endpoint
@@ -58858,6 +59793,8 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     rotateSecret:
       properties:
+        RotateAllServicesBoolean:
+          type: boolean
         json:
           default: false
           description: Set output format to JSON
@@ -58867,6 +59804,11 @@ components:
           description: Secret name (Rotated Secret or Custom Dynamic Secret)
           type: string
           x-go-name: SecretName
+        rotate-all-services:
+          default: "false"
+          description: Rotate all associated services
+          type: string
+          x-go-name: RotateAllServices
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -60014,6 +60956,22 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        usage-event-enable:
+          description: Enable event for objects that have not been used or changed
+            [true/false]
+          type: string
+          x-go-name: UsageEventEnable
+        usage-event-interval:
+          description: Interval by days for unused objects. Default and minimum interval
+            is 90 days
+          format: int64
+          type: integer
+          x-go-name: UsageEventInterval
+        usage-event-object-type:
+          description: Usage event is supported for auth method or secrets-and-keys
+            [auth/item]
+          type: string
+          x-go-name: UsageEventObjectType
         use-lower-letters:
           description: Password must contain lower case letters [true/false]
           type: string
@@ -61945,6 +62903,17 @@ components:
           description: Workstation Admin Name
           type: string
           x-go-name: AdminName
+        auth-type:
+          default: user-pass
+          description: The authentication type to use when connecting to ServiceNow
+            (user-pass / jwt)
+          type: string
+          x-go-name: AuthType
+        client-id:
+          description: The client ID to use when connecting to ServiceNow with jwt
+            authentication
+          type: string
+          x-go-name: ClientID
         description:
           default: default_comment
           description: Description of the object
@@ -62003,6 +62972,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        user-email:
+          description: The user email to use when connecting to ServiceNow with jwt
+            authentication
+          type: string
+          x-go-name: UserEmail
       required:
       - name
       title: updateEventForwarder is a command that updates an event forwarder.
@@ -63643,6 +64617,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateSSHCertIssuer:
       properties:
+        SshCertIssuerHostProvider:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         add-tag:
           description: List of the new tags that will be attached to this item
           items:
@@ -63667,6 +64644,11 @@ components:
           description: Signed certificates with extensions, e.g permit-port-forwarding=\"\"
           type: object
           x-go-name: Extensions
+        host-provider:
+          default: explicit
+          description: Host provider type [explicit/target]
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -64493,7 +65475,7 @@ components:
           type: string
           x-go-name: Passphrase
         split-level:
-          default: 2
+          default: 3
           description: The number of fragments that the item will be split into
           format: int64
           type: integer
@@ -64571,7 +65553,7 @@ components:
           type: string
           x-go-name: RSAFileData
         split-level:
-          default: 2
+          default: 3
           description: The number of fragments that the item will be split into
           format: int64
           type: integer

@@ -183,6 +183,7 @@ import io.akeyless.client.model.EncryptGPG;
 import io.akeyless.client.model.EncryptGPGOutput;
 import io.akeyless.client.model.EncryptOutput;
 import io.akeyless.client.model.EncryptWithClassicKey;
+import io.akeyless.client.model.EsmCreate;
 import io.akeyless.client.model.EsmCreateSecretOutput;
 import io.akeyless.client.model.EsmDelete;
 import io.akeyless.client.model.EsmDeleteSecretOutput;
@@ -11506,7 +11507,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call esmCreateCall(EsmUpdate body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call esmCreateCall(EsmCreate body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11553,7 +11554,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call esmCreateValidateBeforeCall(EsmUpdate body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call esmCreateValidateBeforeCall(EsmCreate body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -11579,7 +11580,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public EsmCreateSecretOutput esmCreate(EsmUpdate body) throws ApiException {
+    public EsmCreateSecretOutput esmCreate(EsmCreate body) throws ApiException {
         ApiResponse<EsmCreateSecretOutput> localVarResp = esmCreateWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -11597,7 +11598,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EsmCreateSecretOutput> esmCreateWithHttpInfo(EsmUpdate body) throws ApiException {
+    public ApiResponse<EsmCreateSecretOutput> esmCreateWithHttpInfo(EsmCreate body) throws ApiException {
         okhttp3.Call localVarCall = esmCreateValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<EsmCreateSecretOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11617,7 +11618,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call esmCreateAsync(EsmUpdate body, final ApiCallback<EsmCreateSecretOutput> _callback) throws ApiException {
+    public okhttp3.Call esmCreateAsync(EsmCreate body, final ApiCallback<EsmCreateSecretOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = esmCreateValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<EsmCreateSecretOutput>(){}.getType();
@@ -12019,6 +12020,7 @@ public class V2Api {
     }
     /**
      * Build call for esmUpdate
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -12029,7 +12031,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call esmUpdateCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call esmUpdateCall(EsmUpdate body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -12044,7 +12046,7 @@ public class V2Api {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/esm-update";
@@ -12064,7 +12066,7 @@ public class V2Api {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12076,10 +12078,15 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call esmUpdateValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call esmUpdateValidateBeforeCall(EsmUpdate body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling esmUpdate(Async)");
+        }
         
 
-        okhttp3.Call localVarCall = esmUpdateCall(_callback);
+        okhttp3.Call localVarCall = esmUpdateCall(body, _callback);
         return localVarCall;
 
     }
@@ -12087,6 +12094,7 @@ public class V2Api {
     /**
      * 
      * 
+     * @param body  (required)
      * @return EsmUpdateSecretOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -12096,14 +12104,15 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public EsmUpdateSecretOutput esmUpdate() throws ApiException {
-        ApiResponse<EsmUpdateSecretOutput> localVarResp = esmUpdateWithHttpInfo();
+    public EsmUpdateSecretOutput esmUpdate(EsmUpdate body) throws ApiException {
+        ApiResponse<EsmUpdateSecretOutput> localVarResp = esmUpdateWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
+     * @param body  (required)
      * @return ApiResponse&lt;EsmUpdateSecretOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -12113,8 +12122,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EsmUpdateSecretOutput> esmUpdateWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = esmUpdateValidateBeforeCall(null);
+    public ApiResponse<EsmUpdateSecretOutput> esmUpdateWithHttpInfo(EsmUpdate body) throws ApiException {
+        okhttp3.Call localVarCall = esmUpdateValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<EsmUpdateSecretOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -12122,6 +12131,7 @@ public class V2Api {
     /**
      *  (asynchronously)
      * 
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12132,9 +12142,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call esmUpdateAsync(final ApiCallback<EsmUpdateSecretOutput> _callback) throws ApiException {
+    public okhttp3.Call esmUpdateAsync(EsmUpdate body, final ApiCallback<EsmUpdateSecretOutput> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = esmUpdateValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = esmUpdateValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<EsmUpdateSecretOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -33,6 +33,10 @@ import java.util.Map;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSSHCertIssuer {
+  public static final String SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER = "SshCertIssuerHostProvider";
+  @SerializedName(SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER)
+  private String sshCertIssuerHostProvider;
+
   public static final String SERIALIZED_NAME_ALLOWED_USERS = "allowed-users";
   @SerializedName(SERIALIZED_NAME_ALLOWED_USERS)
   private String allowedUsers;
@@ -48,6 +52,10 @@ public class CreateSSHCertIssuer {
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
   private Map<String, String> extensions = null;
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  private String hostProvider = "explicit";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -97,6 +105,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_TAG)
   private List<String> tag = null;
 
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  private List<String> target = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -111,6 +123,29 @@ public class CreateSSHCertIssuer {
 
   public CreateSSHCertIssuer() { 
   }
+
+  public CreateSSHCertIssuer sshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
+    
+    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+    return this;
+  }
+
+   /**
+   * Get sshCertIssuerHostProvider
+   * @return sshCertIssuerHostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshCertIssuerHostProvider() {
+    return sshCertIssuerHostProvider;
+  }
+
+
+  public void setSshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
+    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+  }
+
 
   public CreateSSHCertIssuer allowedUsers(String allowedUsers) {
     
@@ -209,6 +244,29 @@ public class CreateSSHCertIssuer {
 
   public void setExtensions(Map<String, String> extensions) {
     this.extensions = extensions;
+  }
+
+
+  public CreateSSHCertIssuer hostProvider(String hostProvider) {
+    
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+   /**
+   * Host provider type [explicit/target]
+   * @return hostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Host provider type [explicit/target]")
+
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+
+  public void setHostProvider(String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -504,6 +562,37 @@ public class CreateSSHCertIssuer {
   }
 
 
+  public CreateSSHCertIssuer target(List<String> target) {
+    
+    this.target = target;
+    return this;
+  }
+
+  public CreateSSHCertIssuer addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<String>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+   /**
+   * A list of existing targets to be associated, Relevant only for Secure Remote Access, To specify multiple targets use argument multiple times
+   * @return target
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of existing targets to be associated, Relevant only for Secure Remote Access, To specify multiple targets use argument multiple times")
+
+  public List<String> getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(List<String> target) {
+    this.target = target;
+  }
+
+
   public CreateSSHCertIssuer token(String token) {
     
     this.token = token;
@@ -582,10 +671,12 @@ public class CreateSSHCertIssuer {
       return false;
     }
     CreateSSHCertIssuer createSSHCertIssuer = (CreateSSHCertIssuer) o;
-    return Objects.equals(this.allowedUsers, createSSHCertIssuer.allowedUsers) &&
+    return Objects.equals(this.sshCertIssuerHostProvider, createSSHCertIssuer.sshCertIssuerHostProvider) &&
+        Objects.equals(this.allowedUsers, createSSHCertIssuer.allowedUsers) &&
         Objects.equals(this.deleteProtection, createSSHCertIssuer.deleteProtection) &&
         Objects.equals(this.description, createSSHCertIssuer.description) &&
         Objects.equals(this.extensions, createSSHCertIssuer.extensions) &&
+        Objects.equals(this.hostProvider, createSSHCertIssuer.hostProvider) &&
         Objects.equals(this.json, createSSHCertIssuer.json) &&
         Objects.equals(this.metadata, createSSHCertIssuer.metadata) &&
         Objects.equals(this.name, createSSHCertIssuer.name) &&
@@ -598,6 +689,7 @@ public class CreateSSHCertIssuer {
         Objects.equals(this.secureAccessUseInternalBastion, createSSHCertIssuer.secureAccessUseInternalBastion) &&
         Objects.equals(this.signerKeyName, createSSHCertIssuer.signerKeyName) &&
         Objects.equals(this.tag, createSSHCertIssuer.tag) &&
+        Objects.equals(this.target, createSSHCertIssuer.target) &&
         Objects.equals(this.token, createSSHCertIssuer.token) &&
         Objects.equals(this.ttl, createSSHCertIssuer.ttl) &&
         Objects.equals(this.uidToken, createSSHCertIssuer.uidToken);
@@ -605,17 +697,19 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUsers, deleteProtection, description, extensions, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, token, ttl, uidToken);
+    return Objects.hash(sshCertIssuerHostProvider, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, target, token, ttl, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSSHCertIssuer {\n");
+    sb.append("    sshCertIssuerHostProvider: ").append(toIndentedString(sshCertIssuerHostProvider)).append("\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -628,6 +722,7 @@ public class CreateSSHCertIssuer {
     sb.append("    secureAccessUseInternalBastion: ").append(toIndentedString(secureAccessUseInternalBastion)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

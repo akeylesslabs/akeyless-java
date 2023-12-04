@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DescribeItem {
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility = "regular";
+
   public static final String SERIALIZED_NAME_BASTION_DETAILS = "bastion-details";
   @SerializedName(SERIALIZED_NAME_BASTION_DETAILS)
   private Boolean bastionDetails = false;
@@ -53,6 +57,10 @@ public class DescribeItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_SERVICES_DETAILS = "services-details";
+  @SerializedName(SERIALIZED_NAME_SERVICES_DETAILS)
+  private Boolean servicesDetails = false;
+
   public static final String SERIALIZED_NAME_SHOW_VERSIONS = "show-versions";
   @SerializedName(SERIALIZED_NAME_SHOW_VERSIONS)
   private Boolean showVersions = false;
@@ -67,6 +75,29 @@ public class DescribeItem {
 
   public DescribeItem() { 
   }
+
+  public DescribeItem accessibility(String accessibility) {
+    
+    this.accessibility = accessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return accessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getAccessibility() {
+    return accessibility;
+  }
+
+
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
+  }
+
 
   public DescribeItem bastionDetails(Boolean bastionDetails) {
     
@@ -206,6 +237,29 @@ public class DescribeItem {
   }
 
 
+  public DescribeItem servicesDetails(Boolean servicesDetails) {
+    
+    this.servicesDetails = servicesDetails;
+    return this;
+  }
+
+   /**
+   * Include all associated services details
+   * @return servicesDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Include all associated services details")
+
+  public Boolean getServicesDetails() {
+    return servicesDetails;
+  }
+
+
+  public void setServicesDetails(Boolean servicesDetails) {
+    this.servicesDetails = servicesDetails;
+  }
+
+
   public DescribeItem showVersions(Boolean showVersions) {
     
     this.showVersions = showVersions;
@@ -284,12 +338,14 @@ public class DescribeItem {
       return false;
     }
     DescribeItem describeItem = (DescribeItem) o;
-    return Objects.equals(this.bastionDetails, describeItem.bastionDetails) &&
+    return Objects.equals(this.accessibility, describeItem.accessibility) &&
+        Objects.equals(this.bastionDetails, describeItem.bastionDetails) &&
         Objects.equals(this.displayId, describeItem.displayId) &&
         Objects.equals(this.gatewayDetails, describeItem.gatewayDetails) &&
         Objects.equals(this.itemId, describeItem.itemId) &&
         Objects.equals(this.json, describeItem.json) &&
         Objects.equals(this.name, describeItem.name) &&
+        Objects.equals(this.servicesDetails, describeItem.servicesDetails) &&
         Objects.equals(this.showVersions, describeItem.showVersions) &&
         Objects.equals(this.token, describeItem.token) &&
         Objects.equals(this.uidToken, describeItem.uidToken);
@@ -297,19 +353,21 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bastionDetails, displayId, gatewayDetails, itemId, json, name, showVersions, token, uidToken);
+    return Objects.hash(accessibility, bastionDetails, displayId, gatewayDetails, itemId, json, name, servicesDetails, showVersions, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeItem {\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    bastionDetails: ").append(toIndentedString(bastionDetails)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    servicesDetails: ").append(toIndentedString(servicesDetails)).append("\n");
     sb.append("    showVersions: ").append(toIndentedString(showVersions)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

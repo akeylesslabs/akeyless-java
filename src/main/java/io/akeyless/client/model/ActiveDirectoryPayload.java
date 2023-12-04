@@ -57,6 +57,10 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_DISCOVER_LOCAL_USERS)
   private Boolean discoverLocalUsers;
 
+  public static final String SERIALIZED_NAME_DISCOVER_SERVICES = "discover_services";
+  @SerializedName(SERIALIZED_NAME_DISCOVER_SERVICES)
+  private Boolean discoverServices;
+
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
   private String domainName;
@@ -243,6 +247,29 @@ public class ActiveDirectoryPayload {
 
   public void setDiscoverLocalUsers(Boolean discoverLocalUsers) {
     this.discoverLocalUsers = discoverLocalUsers;
+  }
+
+
+  public ActiveDirectoryPayload discoverServices(Boolean discoverServices) {
+    
+    this.discoverServices = discoverServices;
+    return this;
+  }
+
+   /**
+   * Get discoverServices
+   * @return discoverServices
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getDiscoverServices() {
+    return discoverServices;
+  }
+
+
+  public void setDiscoverServices(Boolean discoverServices) {
+    this.discoverServices = discoverServices;
   }
 
 
@@ -553,6 +580,7 @@ public class ActiveDirectoryPayload {
         Objects.equals(this.autoRotateRotationHour, activeDirectoryPayload.autoRotateRotationHour) &&
         Objects.equals(this.computerBaseDn, activeDirectoryPayload.computerBaseDn) &&
         Objects.equals(this.discoverLocalUsers, activeDirectoryPayload.discoverLocalUsers) &&
+        Objects.equals(this.discoverServices, activeDirectoryPayload.discoverServices) &&
         Objects.equals(this.domainName, activeDirectoryPayload.domainName) &&
         Objects.equals(this.domainServerTargetsPathTemplate, activeDirectoryPayload.domainServerTargetsPathTemplate) &&
         Objects.equals(this.domainUsersRotatedSecretsPathTemplate, activeDirectoryPayload.domainUsersRotatedSecretsPathTemplate) &&
@@ -569,7 +597,7 @@ public class ActiveDirectoryPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, sshPort, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
+    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, discoverServices, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, sshPort, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
 
   @Override
@@ -582,6 +610,7 @@ public class ActiveDirectoryPayload {
     sb.append("    autoRotateRotationHour: ").append(toIndentedString(autoRotateRotationHour)).append("\n");
     sb.append("    computerBaseDn: ").append(toIndentedString(computerBaseDn)).append("\n");
     sb.append("    discoverLocalUsers: ").append(toIndentedString(discoverLocalUsers)).append("\n");
+    sb.append("    discoverServices: ").append(toIndentedString(discoverServices)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    domainServerTargetsPathTemplate: ").append(toIndentedString(domainServerTargetsPathTemplate)).append("\n");
     sb.append("    domainUsersRotatedSecretsPathTemplate: ").append(toIndentedString(domainUsersRotatedSecretsPathTemplate)).append("\n");

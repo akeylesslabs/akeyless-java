@@ -117,6 +117,18 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USAGE_EVENT_ENABLE = "usage-event-enable";
+  @SerializedName(SERIALIZED_NAME_USAGE_EVENT_ENABLE)
+  private String usageEventEnable;
+
+  public static final String SERIALIZED_NAME_USAGE_EVENT_INTERVAL = "usage-event-interval";
+  @SerializedName(SERIALIZED_NAME_USAGE_EVENT_INTERVAL)
+  private Long usageEventInterval;
+
+  public static final String SERIALIZED_NAME_USAGE_EVENT_OBJECT_TYPE = "usage-event-object-type";
+  @SerializedName(SERIALIZED_NAME_USAGE_EVENT_OBJECT_TYPE)
+  private String usageEventObjectType;
+
   public static final String SERIALIZED_NAME_USE_LOWER_LETTERS = "use-lower-letters";
   @SerializedName(SERIALIZED_NAME_USE_LOWER_LETTERS)
   private String useLowerLetters;
@@ -642,6 +654,75 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings usageEventEnable(String usageEventEnable) {
+    
+    this.usageEventEnable = usageEventEnable;
+    return this;
+  }
+
+   /**
+   * Enable event for objects that have not been used or changed [true/false]
+   * @return usageEventEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable event for objects that have not been used or changed [true/false]")
+
+  public String getUsageEventEnable() {
+    return usageEventEnable;
+  }
+
+
+  public void setUsageEventEnable(String usageEventEnable) {
+    this.usageEventEnable = usageEventEnable;
+  }
+
+
+  public UpdateAccountSettings usageEventInterval(Long usageEventInterval) {
+    
+    this.usageEventInterval = usageEventInterval;
+    return this;
+  }
+
+   /**
+   * Interval by days for unused objects. Default and minimum interval is 90 days
+   * @return usageEventInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Interval by days for unused objects. Default and minimum interval is 90 days")
+
+  public Long getUsageEventInterval() {
+    return usageEventInterval;
+  }
+
+
+  public void setUsageEventInterval(Long usageEventInterval) {
+    this.usageEventInterval = usageEventInterval;
+  }
+
+
+  public UpdateAccountSettings usageEventObjectType(String usageEventObjectType) {
+    
+    this.usageEventObjectType = usageEventObjectType;
+    return this;
+  }
+
+   /**
+   * Usage event is supported for auth method or secrets-and-keys [auth/item]
+   * @return usageEventObjectType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Usage event is supported for auth method or secrets-and-keys [auth/item]")
+
+  public String getUsageEventObjectType() {
+    return usageEventObjectType;
+  }
+
+
+  public void setUsageEventObjectType(String usageEventObjectType) {
+    this.usageEventObjectType = usageEventObjectType;
+  }
+
+
   public UpdateAccountSettings useLowerLetters(String useLowerLetters) {
     
     this.useLowerLetters = useLowerLetters;
@@ -765,6 +846,9 @@ public class UpdateAccountSettings {
         Objects.equals(this.postalCode, updateAccountSettings.postalCode) &&
         Objects.equals(this.token, updateAccountSettings.token) &&
         Objects.equals(this.uidToken, updateAccountSettings.uidToken) &&
+        Objects.equals(this.usageEventEnable, updateAccountSettings.usageEventEnable) &&
+        Objects.equals(this.usageEventInterval, updateAccountSettings.usageEventInterval) &&
+        Objects.equals(this.usageEventObjectType, updateAccountSettings.usageEventObjectType) &&
         Objects.equals(this.useLowerLetters, updateAccountSettings.useLowerLetters) &&
         Objects.equals(this.useNumbers, updateAccountSettings.useNumbers) &&
         Objects.equals(this.useSpecialCharacters, updateAccountSettings.useSpecialCharacters) &&
@@ -773,7 +857,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxVersions, passwordLength, phone, postalCode, token, uidToken, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -802,6 +886,9 @@ public class UpdateAccountSettings {
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    usageEventEnable: ").append(toIndentedString(usageEventEnable)).append("\n");
+    sb.append("    usageEventInterval: ").append(toIndentedString(usageEventInterval)).append("\n");
+    sb.append("    usageEventObjectType: ").append(toIndentedString(usageEventObjectType)).append("\n");
     sb.append("    useLowerLetters: ").append(toIndentedString(useLowerLetters)).append("\n");
     sb.append("    useNumbers: ").append(toIndentedString(useNumbers)).append("\n");
     sb.append("    useSpecialCharacters: ").append(toIndentedString(useSpecialCharacters)).append("\n");

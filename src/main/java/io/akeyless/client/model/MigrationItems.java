@@ -45,6 +45,10 @@ public class MigrationItems {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Long total;
 
+  public static final String SERIALIZED_NAME_UPDATED = "updated";
+  @SerializedName(SERIALIZED_NAME_UPDATED)
+  private Long updated;
+
   public MigrationItems() { 
   }
 
@@ -140,6 +144,29 @@ public class MigrationItems {
   }
 
 
+  public MigrationItems updated(Long updated) {
+    
+    this.updated = updated;
+    return this;
+  }
+
+   /**
+   * Get updated
+   * @return updated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getUpdated() {
+    return updated;
+  }
+
+
+  public void setUpdated(Long updated) {
+    this.updated = updated;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,12 +179,13 @@ public class MigrationItems {
     return Objects.equals(this.failed, migrationItems.failed) &&
         Objects.equals(this.migrated, migrationItems.migrated) &&
         Objects.equals(this.skipped, migrationItems.skipped) &&
-        Objects.equals(this.total, migrationItems.total);
+        Objects.equals(this.total, migrationItems.total) &&
+        Objects.equals(this.updated, migrationItems.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failed, migrated, skipped, total);
+    return Objects.hash(failed, migrated, skipped, total, updated);
   }
 
   @Override
@@ -168,6 +196,7 @@ public class MigrationItems {
     sb.append("    migrated: ").append(toIndentedString(migrated)).append("\n");
     sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
     return sb.toString();
   }

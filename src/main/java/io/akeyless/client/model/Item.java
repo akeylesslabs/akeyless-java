@@ -157,6 +157,10 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_ITEM_VERSIONS)
   private List<ItemVersion> itemVersions = null;
 
+  public static final String SERIALIZED_NAME_LAST_ROTATION_DATE = "last_rotation_date";
+  @SerializedName(SERIALIZED_NAME_LAST_ROTATION_DATE)
+  private OffsetDateTime lastRotationDate;
+
   public static final String SERIALIZED_NAME_LAST_VERSION = "last_version";
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
   private Integer lastVersion;
@@ -911,6 +915,29 @@ public class Item {
   }
 
 
+  public Item lastRotationDate(OffsetDateTime lastRotationDate) {
+    
+    this.lastRotationDate = lastRotationDate;
+    return this;
+  }
+
+   /**
+   * Get lastRotationDate
+   * @return lastRotationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getLastRotationDate() {
+    return lastRotationDate;
+  }
+
+
+  public void setLastRotationDate(OffsetDateTime lastRotationDate) {
+    this.lastRotationDate = lastRotationDate;
+  }
+
+
   public Item lastVersion(Integer lastVersion) {
     
     this.lastVersion = lastVersion;
@@ -1210,6 +1237,7 @@ public class Item {
         Objects.equals(this.itemTargetsAssoc, item.itemTargetsAssoc) &&
         Objects.equals(this.itemType, item.itemType) &&
         Objects.equals(this.itemVersions, item.itemVersions) &&
+        Objects.equals(this.lastRotationDate, item.lastRotationDate) &&
         Objects.equals(this.lastVersion, item.lastVersion) &&
         Objects.equals(this.linkedDetails, item.linkedDetails) &&
         Objects.equals(this.modificationDate, item.modificationDate) &&
@@ -1225,7 +1253,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, withCustomerFragment);
   }
 
   @Override
@@ -1261,6 +1289,7 @@ public class Item {
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemVersions: ").append(toIndentedString(itemVersions)).append("\n");
+    sb.append("    lastRotationDate: ").append(toIndentedString(lastRotationDate)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    linkedDetails: ").append(toIndentedString(linkedDetails)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");

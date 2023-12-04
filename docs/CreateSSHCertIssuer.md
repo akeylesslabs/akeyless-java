@@ -7,10 +7,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**sshCertIssuerHostProvider** | **String** |  |  [optional]
 **allowedUsers** | **String** | Users allowed to fetch the certificate, e.g root,ubuntu | 
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **extensions** | **Map&lt;String, String&gt;** | Signed certificates with extensions, e.g permit-port-forwarding&#x3D;\\\&quot;\\\&quot; |  [optional]
+**hostProvider** | **String** | Host provider type [explicit/target] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **metadata** | **String** | Deprecated - use description |  [optional]
 **name** | **String** | SSH certificate issuer name | 
@@ -23,6 +25,7 @@ Name | Type | Description | Notes
 **secureAccessUseInternalBastion** | **Boolean** | Use internal SSH Bastion |  [optional]
 **signerKeyName** | **String** | A key to sign the certificate with | 
 **tag** | **List&lt;String&gt;** | List of the tags attached to this key |  [optional]
+**target** | **List&lt;String&gt;** | A list of existing targets to be associated, Relevant only for Secure Remote Access, To specify multiple targets use argument multiple times |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **ttl** | **Long** | The requested Time To Live for the certificate, in seconds | 
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

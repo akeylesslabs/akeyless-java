@@ -32,6 +32,10 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GwClusterIdentity {
+  public static final String SERIALIZED_NAME_ACTION_ALLOWED = "action_allowed";
+  @SerializedName(SERIALIZED_NAME_ACTION_ALLOWED)
+  private Boolean actionAllowed;
+
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
   private Boolean allowed;
@@ -86,6 +90,29 @@ public class GwClusterIdentity {
 
   public GwClusterIdentity() { 
   }
+
+  public GwClusterIdentity actionAllowed(Boolean actionAllowed) {
+    
+    this.actionAllowed = actionAllowed;
+    return this;
+  }
+
+   /**
+   * Get actionAllowed
+   * @return actionAllowed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getActionAllowed() {
+    return actionAllowed;
+  }
+
+
+  public void setActionAllowed(Boolean actionAllowed) {
+    this.actionAllowed = actionAllowed;
+  }
+
 
   public GwClusterIdentity allowed(Boolean allowed) {
     
@@ -419,7 +446,8 @@ public class GwClusterIdentity {
       return false;
     }
     GwClusterIdentity gwClusterIdentity = (GwClusterIdentity) o;
-    return Objects.equals(this.allowed, gwClusterIdentity.allowed) &&
+    return Objects.equals(this.actionAllowed, gwClusterIdentity.actionAllowed) &&
+        Objects.equals(this.allowed, gwClusterIdentity.allowed) &&
         Objects.equals(this.allowedAccessIds, gwClusterIdentity.allowedAccessIds) &&
         Objects.equals(this.clusterName, gwClusterIdentity.clusterName) &&
         Objects.equals(this.clusterUrl, gwClusterIdentity.clusterUrl) &&
@@ -436,13 +464,14 @@ public class GwClusterIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, customerFragments, defaultProtectionKeyId, defaultSecretLocation, displayName, id, status, statusDescription);
+    return Objects.hash(actionAllowed, allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, customerFragments, defaultProtectionKeyId, defaultSecretLocation, displayName, id, status, statusDescription);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GwClusterIdentity {\n");
+    sb.append("    actionAllowed: ").append(toIndentedString(actionAllowed)).append("\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    allowedAccessIds: ").append(toIndentedString(allowedAccessIds)).append("\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");

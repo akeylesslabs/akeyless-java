@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * APIKeyAccessRules
@@ -36,6 +37,10 @@ public class APIKeyAccessRules {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
+
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
 
   public APIKeyAccessRules() { 
   }
@@ -86,6 +91,29 @@ public class APIKeyAccessRules {
   }
 
 
+  public APIKeyAccessRules modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * Get modificationDate
+   * @return modificationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,12 +124,13 @@ public class APIKeyAccessRules {
     }
     APIKeyAccessRules apIKeyAccessRules = (APIKeyAccessRules) o;
     return Objects.equals(this.alg, apIKeyAccessRules.alg) &&
-        Objects.equals(this.key, apIKeyAccessRules.key);
+        Objects.equals(this.key, apIKeyAccessRules.key) &&
+        Objects.equals(this.modificationDate, apIKeyAccessRules.modificationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, key);
+    return Objects.hash(alg, key, modificationDate);
   }
 
   @Override
@@ -110,6 +139,7 @@ public class APIKeyAccessRules {
     sb.append("class APIKeyAccessRules {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

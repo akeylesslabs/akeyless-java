@@ -5395,7 +5395,7 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    EsmUpdate body = new EsmUpdate(); // EsmUpdate | 
+    EsmCreate body = new EsmCreate(); // EsmCreate | 
     try {
       EsmCreateSecretOutput result = apiInstance.esmCreate(body);
       System.out.println(result);
@@ -5414,7 +5414,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**EsmUpdate**](EsmUpdate.md)|  |
+ **body** | [**EsmCreate**](EsmCreate.md)|  |
 
 ### Return type
 
@@ -5620,7 +5620,7 @@ No authorization required
 
 <a name="esmUpdate"></a>
 # **esmUpdate**
-> EsmUpdateSecretOutput esmUpdate()
+> EsmUpdateSecretOutput esmUpdate(body)
 
 
 
@@ -5639,8 +5639,9 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
+    EsmUpdate body = new EsmUpdate(); // EsmUpdate | 
     try {
-      EsmUpdateSecretOutput result = apiInstance.esmUpdate();
+      EsmUpdateSecretOutput result = apiInstance.esmUpdate(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#esmUpdate");
@@ -5654,7 +5655,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EsmUpdate**](EsmUpdate.md)|  |
 
 ### Return type
 
@@ -5666,7 +5670,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
