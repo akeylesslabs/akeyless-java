@@ -68,6 +68,10 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
   private Long certificateTtl;
 
+  public static final String SERIALIZED_NAME_CONF_FILE_DATA = "conf-file-data";
+  @SerializedName(SERIALIZED_NAME_CONF_FILE_DATA)
+  private String confFileData;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
@@ -323,6 +327,29 @@ public class CreateClassicKey {
 
   public void setCertificateTtl(Long certificateTtl) {
     this.certificateTtl = certificateTtl;
+  }
+
+
+  public CreateClassicKey confFileData(String confFileData) {
+    
+    this.confFileData = confFileData;
+    return this;
+  }
+
+   /**
+   * The csr config data in base64 encoding
+   * @return confFileData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The csr config data in base64 encoding")
+
+  public String getConfFileData() {
+    return confFileData;
+  }
+
+
+  public void setConfFileData(String confFileData) {
+    this.confFileData = confFileData;
   }
 
 
@@ -628,6 +655,7 @@ public class CreateClassicKey {
         Objects.equals(this.certificateOrganization, createClassicKey.certificateOrganization) &&
         Objects.equals(this.certificateProvince, createClassicKey.certificateProvince) &&
         Objects.equals(this.certificateTtl, createClassicKey.certificateTtl) &&
+        Objects.equals(this.confFileData, createClassicKey.confFileData) &&
         Objects.equals(this.deleteProtection, createClassicKey.deleteProtection) &&
         Objects.equals(this.description, createClassicKey.description) &&
         Objects.equals(this.generateSelfSignedCertificate, createClassicKey.generateSelfSignedCertificate) &&
@@ -644,7 +672,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, deleteProtection, description, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
+    return Objects.hash(alg, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
   }
 
   @Override
@@ -660,6 +688,7 @@ public class CreateClassicKey {
     sb.append("    certificateOrganization: ").append(toIndentedString(certificateOrganization)).append("\n");
     sb.append("    certificateProvince: ").append(toIndentedString(certificateProvince)).append("\n");
     sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
+    sb.append("    confFileData: ").append(toIndentedString(confFileData)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");

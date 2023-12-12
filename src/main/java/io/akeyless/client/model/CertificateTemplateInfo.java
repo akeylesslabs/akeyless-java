@@ -37,6 +37,10 @@ public class CertificateTemplateInfo {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_CSR_CNF_BASE64 = "csr_cnf_base_64";
+  @SerializedName(SERIALIZED_NAME_CSR_CNF_BASE64)
+  private String csrCnfBase64;
+
   public static final String SERIALIZED_NAME_DIGEST_ALGO = "digest_algo";
   @SerializedName(SERIALIZED_NAME_DIGEST_ALGO)
   private String digestAlgo;
@@ -107,6 +111,29 @@ public class CertificateTemplateInfo {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+
+  public CertificateTemplateInfo csrCnfBase64(String csrCnfBase64) {
+    
+    this.csrCnfBase64 = csrCnfBase64;
+    return this;
+  }
+
+   /**
+   * Get csrCnfBase64
+   * @return csrCnfBase64
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCsrCnfBase64() {
+    return csrCnfBase64;
+  }
+
+
+  public void setCsrCnfBase64(String csrCnfBase64) {
+    this.csrCnfBase64 = csrCnfBase64;
   }
 
 
@@ -259,6 +286,7 @@ public class CertificateTemplateInfo {
     CertificateTemplateInfo certificateTemplateInfo = (CertificateTemplateInfo) o;
     return Objects.equals(this.commonName, certificateTemplateInfo.commonName) &&
         Objects.equals(this.country, certificateTemplateInfo.country) &&
+        Objects.equals(this.csrCnfBase64, certificateTemplateInfo.csrCnfBase64) &&
         Objects.equals(this.digestAlgo, certificateTemplateInfo.digestAlgo) &&
         Objects.equals(this.locality, certificateTemplateInfo.locality) &&
         Objects.equals(this.organization, certificateTemplateInfo.organization) &&
@@ -269,7 +297,7 @@ public class CertificateTemplateInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonName, country, digestAlgo, locality, organization, province, selfSignedEnabled, ttl);
+    return Objects.hash(commonName, country, csrCnfBase64, digestAlgo, locality, organization, province, selfSignedEnabled, ttl);
   }
 
   @Override
@@ -278,6 +306,7 @@ public class CertificateTemplateInfo {
     sb.append("class CertificateTemplateInfo {\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    csrCnfBase64: ").append(toIndentedString(csrCnfBase64)).append("\n");
     sb.append("    digestAlgo: ").append(toIndentedString(digestAlgo)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");

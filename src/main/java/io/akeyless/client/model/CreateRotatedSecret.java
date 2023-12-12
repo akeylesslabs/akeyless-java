@@ -71,6 +71,14 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
 
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp-service-account-email";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
+  private String gcpServiceAccountEmail;
+
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID = "gcp-service-account-key-id";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID)
+  private String gcpServiceAccountKeyId;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -441,6 +449,52 @@ public class CreateRotatedSecret {
 
   public void setGcpKey(String gcpKey) {
     this.gcpKey = gcpKey;
+  }
+
+
+  public CreateRotatedSecret gcpServiceAccountEmail(String gcpServiceAccountEmail) {
+    
+    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+    return this;
+  }
+
+   /**
+   * The email of the gcp service account to rotate
+   * @return gcpServiceAccountEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The email of the gcp service account to rotate")
+
+  public String getGcpServiceAccountEmail() {
+    return gcpServiceAccountEmail;
+  }
+
+
+  public void setGcpServiceAccountEmail(String gcpServiceAccountEmail) {
+    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+  }
+
+
+  public CreateRotatedSecret gcpServiceAccountKeyId(String gcpServiceAccountKeyId) {
+    
+    this.gcpServiceAccountKeyId = gcpServiceAccountKeyId;
+    return this;
+  }
+
+   /**
+   * The key id of the gcp service account to rotate
+   * @return gcpServiceAccountKeyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The key id of the gcp service account to rotate")
+
+  public String getGcpServiceAccountKeyId() {
+    return gcpServiceAccountKeyId;
+  }
+
+
+  public void setGcpServiceAccountKeyId(String gcpServiceAccountKeyId) {
+    this.gcpServiceAccountKeyId = gcpServiceAccountKeyId;
   }
 
 
@@ -1284,6 +1338,8 @@ public class CreateRotatedSecret {
         Objects.equals(this.deleteProtection, createRotatedSecret.deleteProtection) &&
         Objects.equals(this.description, createRotatedSecret.description) &&
         Objects.equals(this.gcpKey, createRotatedSecret.gcpKey) &&
+        Objects.equals(this.gcpServiceAccountEmail, createRotatedSecret.gcpServiceAccountEmail) &&
+        Objects.equals(this.gcpServiceAccountKeyId, createRotatedSecret.gcpServiceAccountKeyId) &&
         Objects.equals(this.json, createRotatedSecret.json) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
@@ -1323,7 +1379,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1340,6 +1396,8 @@ public class CreateRotatedSecret {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
+    sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
+    sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

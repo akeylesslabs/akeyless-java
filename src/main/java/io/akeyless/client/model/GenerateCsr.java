@@ -77,6 +77,10 @@ public class GenerateCsr {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_KEY_TYPE = "key-type";
+  @SerializedName(SERIALIZED_NAME_KEY_TYPE)
+  private String keyType = "classic-key";
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -84,6 +88,10 @@ public class GenerateCsr {
   public static final String SERIALIZED_NAME_ORG = "org";
   @SerializedName(SERIALIZED_NAME_ORG)
   private String org;
+
+  public static final String SERIALIZED_NAME_SPLIT_LEVEL = "split-level";
+  @SerializedName(SERIALIZED_NAME_SPLIT_LEVEL)
+  private Long splitLevel = 3l;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
@@ -380,6 +388,29 @@ public class GenerateCsr {
   }
 
 
+  public GenerateCsr keyType(String keyType) {
+    
+    this.keyType = keyType;
+    return this;
+  }
+
+   /**
+   * The type of the key to generate (classic-key/dfc)
+   * @return keyType
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The type of the key to generate (classic-key/dfc)")
+
+  public String getKeyType() {
+    return keyType;
+  }
+
+
+  public void setKeyType(String keyType) {
+    this.keyType = keyType;
+  }
+
+
   public GenerateCsr name(String name) {
     
     this.name = name;
@@ -423,6 +454,29 @@ public class GenerateCsr {
 
   public void setOrg(String org) {
     this.org = org;
+  }
+
+
+  public GenerateCsr splitLevel(Long splitLevel) {
+    
+    this.splitLevel = splitLevel;
+    return this;
+  }
+
+   /**
+   * The number of fragments that the item will be split into (not includes customer fragment)
+   * @return splitLevel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of fragments that the item will be split into (not includes customer fragment)")
+
+  public Long getSplitLevel() {
+    return splitLevel;
+  }
+
+
+  public void setSplitLevel(Long splitLevel) {
+    this.splitLevel = splitLevel;
   }
 
 
@@ -539,8 +593,10 @@ public class GenerateCsr {
         Objects.equals(this.generateKey, generateCsr.generateKey) &&
         Objects.equals(this.ipAddresses, generateCsr.ipAddresses) &&
         Objects.equals(this.json, generateCsr.json) &&
+        Objects.equals(this.keyType, generateCsr.keyType) &&
         Objects.equals(this.name, generateCsr.name) &&
         Objects.equals(this.org, generateCsr.org) &&
+        Objects.equals(this.splitLevel, generateCsr.splitLevel) &&
         Objects.equals(this.state, generateCsr.state) &&
         Objects.equals(this.token, generateCsr.token) &&
         Objects.equals(this.uidToken, generateCsr.uidToken) &&
@@ -549,7 +605,7 @@ public class GenerateCsr {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, generateKey, ipAddresses, json, name, org, state, token, uidToken, uriSans);
+    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, generateKey, ipAddresses, json, keyType, name, org, splitLevel, state, token, uidToken, uriSans);
   }
 
   @Override
@@ -568,8 +624,10 @@ public class GenerateCsr {
     sb.append("    generateKey: ").append(toIndentedString(generateKey)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    org: ").append(toIndentedString(org)).append("\n");
+    sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -19,8 +19,10 @@ Name | Type | Description | Notes
 **generateKey** | **Boolean** | Generate a new classic key for the csr |  [optional]
 **ipAddresses** | **String** | A comma-separated list of ip addresses alternative names |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**keyType** | **String** | The type of the key to generate (classic-key/dfc) | 
 **name** | **String** | The classic key name | 
 **org** | **String** | The organization to be included in the CSR certificate |  [optional]
+**splitLevel** | **Long** | The number of fragments that the item will be split into (not includes customer fragment) |  [optional]
 **state** | **String** | The state to be included in the CSR certificate |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

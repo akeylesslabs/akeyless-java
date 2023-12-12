@@ -56,6 +56,14 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_AD_DISCOVER_SERVICES)
   private String adDiscoverServices = "false";
 
+  public static final String SERIALIZED_NAME_AD_DISCOVERY_TYPES = "ad-discovery-types";
+  @SerializedName(SERIALIZED_NAME_AD_DISCOVERY_TYPES)
+  private List<String> adDiscoveryTypes = null;
+
+  public static final String SERIALIZED_NAME_AD_OS_FILTER = "ad-os-filter";
+  @SerializedName(SERIALIZED_NAME_AD_OS_FILTER)
+  private String adOsFilter;
+
   public static final String SERIALIZED_NAME_AD_SSH_PORT = "ad-ssh-port";
   @SerializedName(SERIALIZED_NAME_AD_SSH_PORT)
   private String adSshPort = "22";
@@ -417,6 +425,60 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration adDiscoveryTypes(List<String> adDiscoveryTypes) {
+    
+    this.adDiscoveryTypes = adDiscoveryTypes;
+    return this;
+  }
+
+  public GatewayCreateMigration addAdDiscoveryTypesItem(String adDiscoveryTypesItem) {
+    if (this.adDiscoveryTypes == null) {
+      this.adDiscoveryTypes = new ArrayList<String>();
+    }
+    this.adDiscoveryTypes.add(adDiscoveryTypesItem);
+    return this;
+  }
+
+   /**
+   * Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration)
+   * @return adDiscoveryTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration)")
+
+  public List<String> getAdDiscoveryTypes() {
+    return adDiscoveryTypes;
+  }
+
+
+  public void setAdDiscoveryTypes(List<String> adDiscoveryTypes) {
+    this.adDiscoveryTypes = adDiscoveryTypes;
+  }
+
+
+  public GatewayCreateMigration adOsFilter(String adOsFilter) {
+    
+    this.adOsFilter = adOsFilter;
+    return this;
+  }
+
+   /**
+   * Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration)
+   * @return adOsFilter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration)")
+
+  public String getAdOsFilter() {
+    return adOsFilter;
+  }
+
+
+  public void setAdOsFilter(String adOsFilter) {
+    this.adOsFilter = adOsFilter;
+  }
+
+
   public GatewayCreateMigration adSshPort(String adSshPort) {
     
     this.adSshPort = adSshPort;
@@ -562,11 +624,11 @@ public class GatewayCreateMigration {
   }
 
    /**
-   * Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
+   * Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration) Deprecated: use AdDiscoverTypes
    * @return adDiscoverLocalUsers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)")
+  @ApiModelProperty(value = "Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration) Deprecated: use AdDiscoverTypes")
 
   public String getAdDiscoverLocalUsers() {
     return adDiscoverLocalUsers;
@@ -1683,6 +1745,8 @@ public class GatewayCreateMigration {
         Objects.equals(this._1passwordUrl, gatewayCreateMigration._1passwordUrl) &&
         Objects.equals(this._1passwordVaults, gatewayCreateMigration._1passwordVaults) &&
         Objects.equals(this.adDiscoverServices, gatewayCreateMigration.adDiscoverServices) &&
+        Objects.equals(this.adDiscoveryTypes, gatewayCreateMigration.adDiscoveryTypes) &&
+        Objects.equals(this.adOsFilter, gatewayCreateMigration.adOsFilter) &&
         Objects.equals(this.adSshPort, gatewayCreateMigration.adSshPort) &&
         Objects.equals(this.adTargetsType, gatewayCreateMigration.adTargetsType) &&
         Objects.equals(this.adWinrmOverHttp, gatewayCreateMigration.adWinrmOverHttp) &&
@@ -1740,7 +1804,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
   }
 
   @Override
@@ -1753,6 +1817,8 @@ public class GatewayCreateMigration {
     sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
     sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
     sb.append("    adDiscoverServices: ").append(toIndentedString(adDiscoverServices)).append("\n");
+    sb.append("    adDiscoveryTypes: ").append(toIndentedString(adDiscoveryTypes)).append("\n");
+    sb.append("    adOsFilter: ").append(toIndentedString(adOsFilter)).append("\n");
     sb.append("    adSshPort: ").append(toIndentedString(adSshPort)).append("\n");
     sb.append("    adTargetsType: ").append(toIndentedString(adTargetsType)).append("\n");
     sb.append("    adWinrmOverHttp: ").append(toIndentedString(adWinrmOverHttp)).append("\n");

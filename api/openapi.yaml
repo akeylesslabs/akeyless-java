@@ -7465,6 +7465,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /update-classic-key-certificate:
+    post:
+      operationId: UpdateClassicKeyCertificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClassicKeyCertificate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateClassicKeyCertificateOutput'
+          description: UpdateClassicKeyCertificateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /update-db-target:
     post:
       operationId: updateDBTarget
@@ -8843,6 +8872,12 @@ components:
           schema:
             $ref: '#/components/schemas/GatewayUpdateTlsCertOutput'
       description: GatewayUpdateTlsCertResponse wraps response body.
+    UpdateClassicKeyCertificateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateClassicKeyCertificateOutput'
+      description: UpdateClassicKeyCertificateResponse wraps response body.
     addGatewayAllowedAccessIdResponse:
       content:
         application/json:
@@ -10984,6 +11019,9 @@ components:
           auto_rotate: true
           ssh_port: ssh_port
           discover_local_users: true
+          discovery_types:
+          - null
+          - null
           winrm_port: winrm_port
           auto_rotate_interval_in_days: 1
           active_directory_target_id: 1
@@ -11000,6 +11038,7 @@ components:
           domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
           local_users_ignore_list:
             key: true
+          os_filter: os_filter
           user_groups:
           - user_groups
           - user_groups
@@ -11015,6 +11054,9 @@ components:
         auto_rotate: true
         ssh_port: ssh_port
         discover_local_users: true
+        discovery_types:
+        - null
+        - null
         winrm_port: winrm_port
         auto_rotate_interval_in_days: 1
         active_directory_target_id: 1
@@ -11031,6 +11073,7 @@ components:
         domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
         local_users_ignore_list:
           key: true
+        os_filter: os_filter
         user_groups:
         - user_groups
         - user_groups
@@ -11054,11 +11097,17 @@ components:
           type: string
           x-go-name: ComputerBaseDN
         discover_local_users:
+          description: Deprecated
           type: boolean
           x-go-name: DiscoverLocalUsers
         discover_services:
           type: boolean
           x-go-name: DiscoverServices
+        discovery_types:
+          items:
+            $ref: '#/components/schemas/DiscoveryType'
+          type: array
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         domain_name:
           type: string
           x-go-name: DomainName
@@ -11079,6 +11128,9 @@ components:
         local_users_rotated_secrets_path_template:
           type: string
           x-go-name: LocalUsersRotatedSecretsPathTemplate
+        os_filter:
+          type: string
+          x-go-name: OsFilter
         ssh_port:
           type: string
           x-go-name: SshPort
@@ -11497,6 +11549,9 @@ components:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
+              discovery_types:
+              - null
+              - null
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
@@ -11513,6 +11568,7 @@ components:
               domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
               local_users_ignore_list:
                 key: true
+              os_filter: os_filter
               user_groups:
               - user_groups
               - user_groups
@@ -11529,6 +11585,9 @@ components:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
+              discovery_types:
+              - null
+              - null
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
@@ -11545,6 +11604,7 @@ components:
               domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
               local_users_ignore_list:
                 key: true
+              os_filter: os_filter
               user_groups:
               - user_groups
               - user_groups
@@ -13699,6 +13759,7 @@ components:
         digest_algo: digest_algo
         organization: organization
         locality: locality
+        csr_cnf_base_64: csr_cnf_base_64
         common_name: common_name
         ttl: 1
         self_signed_enabled: true
@@ -13709,6 +13770,9 @@ components:
         country:
           type: string
           x-go-name: Country
+        csr_cnf_base_64:
+          type: string
+          x-go-name: CsrCNFBase64
         digest_algo:
           type: string
           x-go-name: DigestAlgo
@@ -14214,6 +14278,7 @@ components:
         metadata: metadata
         certificate-digest-algo: certificate-digest-algo
         certificate-locality: certificate-locality
+        conf-file-data: conf-file-data
         generate-self-signed-certificate: true
         description: description
         certificate-ttl: 0
@@ -14278,6 +14343,10 @@ components:
           format: int64
           type: integer
           x-go-name: CertificateTTL
+        conf-file-data:
+          description: The csr config data in base64 encoding
+          type: string
+          x-go-name: ConfFileData
         delete_protection:
           description: Protection from accidental deletion of this item [true/false]
           type: string
@@ -14888,6 +14957,7 @@ components:
         user_principal_name: user_principal_name
         k8s_client_key_data: k8s_client_key_data
         azure_subscription_id: azure_subscription_id
+        gcp_service_account_key_id: gcp_service_account_key_id
         gcp_key_algo: gcp_key_algo
         venafi_zone: venafi_zone
         github_installation_token_repositories:
@@ -15359,6 +15429,9 @@ components:
         gcp_service_account_key_base64:
           type: string
           x-go-name: GCPServiceAccountKeyBase64
+        gcp_service_account_key_id:
+          type: string
+          x-go-name: GCPServiceAccountKeyId
         gcp_service_account_type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
@@ -16111,6 +16184,14 @@ components:
       title: DescribePermissionsOutput defines output of DescribePermissionsOutput
         operation.
       type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    DiscoveryType:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    DiscoveryTypes:
+      items:
+        $ref: '#/components/schemas/DiscoveryType'
+      type: array
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     DockerhubTargetDetails:
       description: DockerhubTargetDetails
@@ -16964,12 +17045,12 @@ components:
     GcpTargetDetails:
       example:
         use_gw_cloud_identity: true
+        gcp_service_account_key_id: gcp_service_account_key_id
         gcp_service_account_key_base64: gcp_service_account_key_base64
         gcp_service_account_email: gcp_service_account_email
         gcp_service_account_key: gcp_service_account_key
       properties:
         gcp_service_account_email:
-          description: deprecated
           type: string
           x-go-name: GCPServiceAccountEmail
         gcp_service_account_key:
@@ -16978,6 +17059,9 @@ components:
         gcp_service_account_key_base64:
           type: string
           x-go-name: GCPServiceAccountKeyBase64
+        gcp_service_account_key_id:
+          type: string
+          x-go-name: GCPServiceAccountKeyId
         use_gw_cloud_identity:
           type: boolean
           x-go-name: GCPUseDefaultIdentity
@@ -17443,6 +17527,7 @@ components:
             username: username
           gcp_target_details:
             use_gw_cloud_identity: true
+            gcp_service_account_key_id: gcp_service_account_key_id
             gcp_service_account_key_base64: gcp_service_account_key_base64
             gcp_service_account_email: gcp_service_account_email
             gcp_service_account_key: gcp_service_account_key
@@ -18539,6 +18624,7 @@ components:
             digest_algo: digest_algo
             organization: organization
             locality: locality
+            csr_cnf_base_64: csr_cnf_base_64
             common_name: common_name
             ttl: 1
             self_signed_enabled: true
@@ -19219,6 +19305,7 @@ components:
           digest_algo: digest_algo
           organization: organization
           locality: locality
+          csr_cnf_base_64: csr_cnf_base_64
           common_name: common_name
           ttl: 1
           self_signed_enabled: true
@@ -21671,6 +21758,7 @@ components:
               digest_algo: digest_algo
               organization: organization
               locality: locality
+              csr_cnf_base_64: csr_cnf_base_64
               common_name: common_name
               ttl: 1
               self_signed_enabled: true
@@ -22364,6 +22452,7 @@ components:
               digest_algo: digest_algo
               organization: organization
               locality: locality
+              csr_cnf_base_64: csr_cnf_base_64
               common_name: common_name
               ttl: 1
               self_signed_enabled: true
@@ -23079,6 +23168,7 @@ components:
               digest_algo: digest_algo
               organization: organization
               locality: locality
+              csr_cnf_base_64: csr_cnf_base_64
               common_name: common_name
               ttl: 1
               self_signed_enabled: true
@@ -23772,6 +23862,7 @@ components:
               digest_algo: digest_algo
               organization: organization
               locality: locality
+              csr_cnf_base_64: csr_cnf_base_64
               common_name: common_name
               ttl: 1
               self_signed_enabled: true
@@ -24835,6 +24926,9 @@ components:
             auto_rotate: true
             ssh_port: ssh_port
             discover_local_users: true
+            discovery_types:
+            - null
+            - null
             winrm_port: winrm_port
             auto_rotate_interval_in_days: 1
             active_directory_target_id: 1
@@ -24851,6 +24945,7 @@ components:
             domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
             local_users_ignore_list:
               key: true
+            os_filter: os_filter
             user_groups:
             - user_groups
             - user_groups
@@ -24867,6 +24962,9 @@ components:
             auto_rotate: true
             ssh_port: ssh_port
             discover_local_users: true
+            discovery_types:
+            - null
+            - null
             winrm_port: winrm_port
             auto_rotate_interval_in_days: 1
             active_directory_target_id: 1
@@ -24883,6 +24981,7 @@ components:
             domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
             local_users_ignore_list:
               key: true
+            os_filter: os_filter
             user_groups:
             - user_groups
             - user_groups
@@ -27762,6 +27861,7 @@ components:
           username: username
         gcp_target_details:
           use_gw_cloud_identity: true
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_service_account_key_base64: gcp_service_account_key_base64
           gcp_service_account_email: gcp_service_account_email
           gcp_service_account_key: gcp_service_account_key
@@ -28084,6 +28184,46 @@ components:
       title: UniversalIdentityDetails Universal identity type.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    UpdateClassicKeyCertificate:
+      description: UpdateClassicKeyCertificate is a command that updates the certificate
+        for a classic key
+      example:
+        name: name
+        json: false
+        cert-file-data: cert-file-data
+        uid-token: uid-token
+        token: token
+      properties:
+        cert-file-data:
+          description: PEM Certificate in a Base64 format. Used for updating RSA keys'
+            certificates.
+          type: string
+          x-go-name: CertFileData
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: ClassicKey name
+          type: string
+          x-go-name: ClassicKeyName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UpdateClassicKeyCertificateOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     UpdateGroupOutput:
       example:
         group_name: group_name
@@ -30816,6 +30956,10 @@ components:
           format: int64
           type: integer
           x-go-name: CertificateTTL
+        conf-file-data:
+          description: The csr config data in base64 encoding
+          type: string
+          x-go-name: ConfFileData
         customer-frg-id:
           description: The customer fragment ID that will be used to create the DFC
             key (if empty, the key will be created independently of a customer fragment)
@@ -31648,6 +31792,10 @@ components:
           format: int64
           type: integer
           x-go-name: CertificateTTL
+        conf-file-data:
+          description: The csr config data in base64 encoding
+          type: string
+          x-go-name: ConfFileData
         customer-frg-id:
           description: |-
             The customer fragment ID that will be used to create the key (if empty,
@@ -32273,6 +32421,14 @@ components:
           description: Base64-encoded service account private key text
           type: string
           x-go-name: ServiceAccountKey
+        gcp-service-account-email:
+          description: The email of the gcp service account to rotate
+          type: string
+          x-go-name: GcpServiceAccountEmail
+        gcp-service-account-key-id:
+          description: The key id of the gcp service account to rotate
+          type: string
+          x-go-name: GcpServiceAccountKeyId
         json:
           default: false
           description: Set output format to JSON
@@ -34981,6 +35137,18 @@ components:
             only for Active Directory migration)
           type: string
           x-go-name: AdDiscoverServices
+        ad-discovery-types:
+          description: Set migration discovery types (domain-users, computers, local-users).
+            (Relevant only for Active Directory migration)
+          items:
+            type: string
+          type: array
+          x-go-name: AdDiscoverTypes
+        ad-os-filter:
+          description: Filter by Operating System to run the migration, can be used
+            with wildcards, e.g. SRV20* (Relevant only for Active Directory migration)
+          type: string
+          x-go-name: AdOsFilter
         ad-ssh-port:
           default: "22"
           description: Set the SSH Port for further connection to the domain servers.
@@ -35019,14 +35187,11 @@ components:
           type: string
           x-go-name: AdComputerBaseDN
         ad_discover_local_users:
-          description: 'Enable/Disable discovery of local users from each domain server
-            and migrate them as SSH/Windows Rotated Secrets. Default is false: only
-            domain users will be migrated. Discovery of local users might require
-            further installation of SSH on the servers, based on the supplied computer
-            base DN. This will be implemented automatically as part of the migration
-            process (Relevant only for Active Directory migration)'
+          description: |-
+            Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
+            Deprecated: use AdDiscoverTypes
           type: string
-          x-go-name: AdDiscoverLocalUsers
+          x-go-name: AdDiscoverLocalUsersDeprecated
         ad_domain_name:
           description: Active Directory Domain Name (Relevant only for Active Directory
             migration)
@@ -35473,6 +35638,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -35904,6 +36070,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -36321,6 +36488,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -36693,6 +36861,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -37122,6 +37291,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -37584,6 +37754,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -37950,6 +38121,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -38350,6 +38522,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -38730,6 +38903,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -39100,6 +39274,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -39491,6 +39666,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -39895,6 +40071,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -40282,6 +40459,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -40686,6 +40864,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -41107,6 +41286,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -41524,6 +41704,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -41957,6 +42138,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -42363,6 +42545,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -42812,6 +42995,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -43222,6 +43406,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -43628,6 +43813,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -44042,6 +44228,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -44426,6 +44613,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -44819,6 +45007,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -45198,6 +45387,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -46334,6 +46524,9 @@ components:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
+              discovery_types:
+              - null
+              - null
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
@@ -46350,6 +46543,7 @@ components:
               domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
               local_users_ignore_list:
                 key: true
+              os_filter: os_filter
               user_groups:
               - user_groups
               - user_groups
@@ -46366,6 +46560,9 @@ components:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
+              discovery_types:
+              - null
+              - null
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
@@ -46382,6 +46579,7 @@ components:
               domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
               local_users_ignore_list:
                 key: true
+              os_filter: os_filter
               user_groups:
               - user_groups
               - user_groups
@@ -46671,6 +46869,9 @@ components:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
+              discovery_types:
+              - null
+              - null
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
@@ -46687,6 +46888,7 @@ components:
               domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
               local_users_ignore_list:
                 key: true
+              os_filter: os_filter
               user_groups:
               - user_groups
               - user_groups
@@ -46703,6 +46905,9 @@ components:
               auto_rotate: true
               ssh_port: ssh_port
               discover_local_users: true
+              discovery_types:
+              - null
+              - null
               winrm_port: winrm_port
               auto_rotate_interval_in_days: 1
               active_directory_target_id: 1
@@ -46719,6 +46924,7 @@ components:
               domain_users_rotated_secrets_path_template: domain_users_rotated_secrets_path_template
               local_users_ignore_list:
                 key: true
+              os_filter: os_filter
               user_groups:
               - user_groups
               - user_groups
@@ -47014,6 +47220,14 @@ components:
           description: Base64-encoded service account private key text
           type: string
           x-go-name: ServiceAccountKey
+        gcp-service-account-email:
+          description: The email of the gcp service account to rotate
+          type: string
+          x-go-name: GcpServiceAccountEmail
+        gcp-service-account-key-id:
+          description: The key id of the gcp service account to rotate
+          type: string
+          x-go-name: GcpServiceAccountKeyId
         json:
           default: false
           description: Set output format to JSON
@@ -47321,6 +47535,18 @@ components:
             only for Active Directory migration)
           type: string
           x-go-name: AdDiscoverServices
+        ad-discovery-types:
+          description: Set migration discovery types (domain-users, computers, local-users).
+            (Relevant only for Active Directory migration)
+          items:
+            type: string
+          type: array
+          x-go-name: AdDiscoverTypes
+        ad-os-filter:
+          description: Filter by Operating System to run the migration, can be used
+            with wildcards, e.g. SRV20* (Relevant only for Active Directory migration)
+          type: string
+          x-go-name: AdOsFilter
         ad-ssh-port:
           default: "22"
           description: Set the SSH Port for further connection to the domain servers.
@@ -47359,14 +47585,11 @@ components:
           type: string
           x-go-name: AdComputerBaseDN
         ad_discover_local_users:
-          description: 'Enable/Disable discovery of local users from each domain server
-            and migrate them as SSH/Windows Rotated Secrets. Default is false: only
-            domain users will be migrated. Discovery of local users might require
-            further installation of SSH on the servers, based on the supplied computer
-            base DN. This will be implemented automatically as part of the migration
-            process (Relevant only for Active Directory migration)'
+          description: |-
+            Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
+            Deprecated: use AdDiscoverTypes
           type: string
-          x-go-name: AdDiscoverLocalUsers
+          x-go-name: AdDiscoverLocalUsersDeprecated
         ad_domain_name:
           description: Active Directory Domain Name (Relevant only for Active Directory
             migration)
@@ -47821,6 +48044,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -48256,6 +48480,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -48677,6 +48902,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -49053,6 +49279,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -49486,6 +49713,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -49956,6 +50184,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -50326,6 +50555,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -50730,6 +50960,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -51114,6 +51345,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -51488,6 +51720,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -51883,6 +52116,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -52291,6 +52525,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -52682,6 +52917,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -53090,6 +53326,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -53515,6 +53752,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -53936,6 +54174,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -54373,6 +54612,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -54783,6 +55023,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -55236,6 +55477,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -55650,6 +55892,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -56060,6 +56303,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -56478,6 +56722,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -56866,6 +57111,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -57263,6 +57509,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -57646,6 +57893,7 @@ components:
           user_principal_name: user_principal_name
           k8s_client_key_data: k8s_client_key_data
           azure_subscription_id: azure_subscription_id
+          gcp_service_account_key_id: gcp_service_account_key_id
           gcp_key_algo: gcp_key_algo
           venafi_zone: venafi_zone
           github_installation_token_repositories:
@@ -57954,6 +58202,11 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        key-type:
+          default: classic-key
+          description: The type of the key to generate (classic-key/dfc)
+          type: string
+          x-go-name: KeyType
         name:
           description: The classic key name
           type: string
@@ -57962,6 +58215,14 @@ components:
           description: The organization to be included in the CSR certificate
           type: string
           x-go-name: Organization
+        split-level:
+          default: 3
+          description: |-
+            The number of fragments that the item will be split into (not includes
+            customer fragment)
+          format: int64
+          type: integer
+          x-go-name: SplitLevel
         state:
           description: The state to be included in the CSR certificate
           type: string
@@ -57981,6 +58242,7 @@ components:
           x-go-name: URISANs
       required:
       - common-name
+      - key-type
       - name
       title: GenerateCsr is a command that generates CSR.
       type: object

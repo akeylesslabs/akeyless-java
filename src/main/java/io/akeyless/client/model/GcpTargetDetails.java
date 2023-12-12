@@ -41,6 +41,10 @@ public class GcpTargetDetails {
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_BASE64)
   private String gcpServiceAccountKeyBase64;
 
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID = "gcp_service_account_key_id";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID)
+  private String gcpServiceAccountKeyId;
+
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
@@ -55,11 +59,11 @@ public class GcpTargetDetails {
   }
 
    /**
-   * deprecated
+   * Get gcpServiceAccountEmail
    * @return gcpServiceAccountEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecated")
+  @ApiModelProperty(value = "")
 
   public String getGcpServiceAccountEmail() {
     return gcpServiceAccountEmail;
@@ -117,6 +121,29 @@ public class GcpTargetDetails {
   }
 
 
+  public GcpTargetDetails gcpServiceAccountKeyId(String gcpServiceAccountKeyId) {
+    
+    this.gcpServiceAccountKeyId = gcpServiceAccountKeyId;
+    return this;
+  }
+
+   /**
+   * Get gcpServiceAccountKeyId
+   * @return gcpServiceAccountKeyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGcpServiceAccountKeyId() {
+    return gcpServiceAccountKeyId;
+  }
+
+
+  public void setGcpServiceAccountKeyId(String gcpServiceAccountKeyId) {
+    this.gcpServiceAccountKeyId = gcpServiceAccountKeyId;
+  }
+
+
   public GcpTargetDetails useGwCloudIdentity(Boolean useGwCloudIdentity) {
     
     this.useGwCloudIdentity = useGwCloudIdentity;
@@ -152,12 +179,13 @@ public class GcpTargetDetails {
     return Objects.equals(this.gcpServiceAccountEmail, gcpTargetDetails.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKey, gcpTargetDetails.gcpServiceAccountKey) &&
         Objects.equals(this.gcpServiceAccountKeyBase64, gcpTargetDetails.gcpServiceAccountKeyBase64) &&
+        Objects.equals(this.gcpServiceAccountKeyId, gcpTargetDetails.gcpServiceAccountKeyId) &&
         Objects.equals(this.useGwCloudIdentity, gcpTargetDetails.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, useGwCloudIdentity);
+    return Objects.hash(gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, useGwCloudIdentity);
   }
 
   @Override
@@ -167,6 +195,7 @@ public class GcpTargetDetails {
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
     sb.append("    gcpServiceAccountKeyBase64: ").append(toIndentedString(gcpServiceAccountKeyBase64)).append("\n");
+    sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("}");
     return sb.toString();

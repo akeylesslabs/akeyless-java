@@ -61,6 +61,10 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_DISCOVER_SERVICES)
   private Boolean discoverServices;
 
+  public static final String SERIALIZED_NAME_DISCOVERY_TYPES = "discovery_types";
+  @SerializedName(SERIALIZED_NAME_DISCOVERY_TYPES)
+  private List<String> discoveryTypes = null;
+
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
   private String domainName;
@@ -84,6 +88,10 @@ public class ActiveDirectoryPayload {
   public static final String SERIALIZED_NAME_LOCAL_USERS_ROTATED_SECRETS_PATH_TEMPLATE = "local_users_rotated_secrets_path_template";
   @SerializedName(SERIALIZED_NAME_LOCAL_USERS_ROTATED_SECRETS_PATH_TEMPLATE)
   private String localUsersRotatedSecretsPathTemplate;
+
+  public static final String SERIALIZED_NAME_OS_FILTER = "os_filter";
+  @SerializedName(SERIALIZED_NAME_OS_FILTER)
+  private String osFilter;
 
   public static final String SERIALIZED_NAME_SSH_PORT = "ssh_port";
   @SerializedName(SERIALIZED_NAME_SSH_PORT)
@@ -234,11 +242,11 @@ public class ActiveDirectoryPayload {
   }
 
    /**
-   * Get discoverLocalUsers
+   * Deprecated
    * @return discoverLocalUsers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated")
 
   public Boolean getDiscoverLocalUsers() {
     return discoverLocalUsers;
@@ -270,6 +278,37 @@ public class ActiveDirectoryPayload {
 
   public void setDiscoverServices(Boolean discoverServices) {
     this.discoverServices = discoverServices;
+  }
+
+
+  public ActiveDirectoryPayload discoveryTypes(List<String> discoveryTypes) {
+    
+    this.discoveryTypes = discoveryTypes;
+    return this;
+  }
+
+  public ActiveDirectoryPayload addDiscoveryTypesItem(String discoveryTypesItem) {
+    if (this.discoveryTypes == null) {
+      this.discoveryTypes = new ArrayList<String>();
+    }
+    this.discoveryTypes.add(discoveryTypesItem);
+    return this;
+  }
+
+   /**
+   * Get discoveryTypes
+   * @return discoveryTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getDiscoveryTypes() {
+    return discoveryTypes;
+  }
+
+
+  public void setDiscoveryTypes(List<String> discoveryTypes) {
+    this.discoveryTypes = discoveryTypes;
   }
 
 
@@ -416,6 +455,29 @@ public class ActiveDirectoryPayload {
 
   public void setLocalUsersRotatedSecretsPathTemplate(String localUsersRotatedSecretsPathTemplate) {
     this.localUsersRotatedSecretsPathTemplate = localUsersRotatedSecretsPathTemplate;
+  }
+
+
+  public ActiveDirectoryPayload osFilter(String osFilter) {
+    
+    this.osFilter = osFilter;
+    return this;
+  }
+
+   /**
+   * Get osFilter
+   * @return osFilter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getOsFilter() {
+    return osFilter;
+  }
+
+
+  public void setOsFilter(String osFilter) {
+    this.osFilter = osFilter;
   }
 
 
@@ -581,12 +643,14 @@ public class ActiveDirectoryPayload {
         Objects.equals(this.computerBaseDn, activeDirectoryPayload.computerBaseDn) &&
         Objects.equals(this.discoverLocalUsers, activeDirectoryPayload.discoverLocalUsers) &&
         Objects.equals(this.discoverServices, activeDirectoryPayload.discoverServices) &&
+        Objects.equals(this.discoveryTypes, activeDirectoryPayload.discoveryTypes) &&
         Objects.equals(this.domainName, activeDirectoryPayload.domainName) &&
         Objects.equals(this.domainServerTargetsPathTemplate, activeDirectoryPayload.domainServerTargetsPathTemplate) &&
         Objects.equals(this.domainUsersRotatedSecretsPathTemplate, activeDirectoryPayload.domainUsersRotatedSecretsPathTemplate) &&
         Objects.equals(this.enableRdpSra, activeDirectoryPayload.enableRdpSra) &&
         Objects.equals(this.localUsersIgnoreList, activeDirectoryPayload.localUsersIgnoreList) &&
         Objects.equals(this.localUsersRotatedSecretsPathTemplate, activeDirectoryPayload.localUsersRotatedSecretsPathTemplate) &&
+        Objects.equals(this.osFilter, activeDirectoryPayload.osFilter) &&
         Objects.equals(this.sshPort, activeDirectoryPayload.sshPort) &&
         Objects.equals(this.targetsType, activeDirectoryPayload.targetsType) &&
         Objects.equals(this.userBaseDn, activeDirectoryPayload.userBaseDn) &&
@@ -597,7 +661,7 @@ public class ActiveDirectoryPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, discoverServices, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, sshPort, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
+    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
 
   @Override
@@ -611,12 +675,14 @@ public class ActiveDirectoryPayload {
     sb.append("    computerBaseDn: ").append(toIndentedString(computerBaseDn)).append("\n");
     sb.append("    discoverLocalUsers: ").append(toIndentedString(discoverLocalUsers)).append("\n");
     sb.append("    discoverServices: ").append(toIndentedString(discoverServices)).append("\n");
+    sb.append("    discoveryTypes: ").append(toIndentedString(discoveryTypes)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    domainServerTargetsPathTemplate: ").append(toIndentedString(domainServerTargetsPathTemplate)).append("\n");
     sb.append("    domainUsersRotatedSecretsPathTemplate: ").append(toIndentedString(domainUsersRotatedSecretsPathTemplate)).append("\n");
     sb.append("    enableRdpSra: ").append(toIndentedString(enableRdpSra)).append("\n");
     sb.append("    localUsersIgnoreList: ").append(toIndentedString(localUsersIgnoreList)).append("\n");
     sb.append("    localUsersRotatedSecretsPathTemplate: ").append(toIndentedString(localUsersRotatedSecretsPathTemplate)).append("\n");
+    sb.append("    osFilter: ").append(toIndentedString(osFilter)).append("\n");
     sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
     sb.append("    targetsType: ").append(toIndentedString(targetsType)).append("\n");
     sb.append("    userBaseDn: ").append(toIndentedString(userBaseDn)).append("\n");

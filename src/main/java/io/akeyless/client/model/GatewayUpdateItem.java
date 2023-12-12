@@ -64,6 +64,14 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
 
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp-service-account-email";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
+  private String gcpServiceAccountEmail;
+
+  public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID = "gcp-service-account-key-id";
+  @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID)
+  private String gcpServiceAccountKeyId;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -320,6 +328,52 @@ public class GatewayUpdateItem {
 
   public void setGcpKey(String gcpKey) {
     this.gcpKey = gcpKey;
+  }
+
+
+  public GatewayUpdateItem gcpServiceAccountEmail(String gcpServiceAccountEmail) {
+    
+    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+    return this;
+  }
+
+   /**
+   * The email of the gcp service account to rotate
+   * @return gcpServiceAccountEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The email of the gcp service account to rotate")
+
+  public String getGcpServiceAccountEmail() {
+    return gcpServiceAccountEmail;
+  }
+
+
+  public void setGcpServiceAccountEmail(String gcpServiceAccountEmail) {
+    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+  }
+
+
+  public GatewayUpdateItem gcpServiceAccountKeyId(String gcpServiceAccountKeyId) {
+    
+    this.gcpServiceAccountKeyId = gcpServiceAccountKeyId;
+    return this;
+  }
+
+   /**
+   * The key id of the gcp service account to rotate
+   * @return gcpServiceAccountKeyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The key id of the gcp service account to rotate")
+
+  public String getGcpServiceAccountKeyId() {
+    return gcpServiceAccountKeyId;
+  }
+
+
+  public void setGcpServiceAccountKeyId(String gcpServiceAccountKeyId) {
+    this.gcpServiceAccountKeyId = gcpServiceAccountKeyId;
   }
 
 
@@ -716,6 +770,8 @@ public class GatewayUpdateItem {
         Objects.equals(this.deleteProtection, gatewayUpdateItem.deleteProtection) &&
         Objects.equals(this.description, gatewayUpdateItem.description) &&
         Objects.equals(this.gcpKey, gatewayUpdateItem.gcpKey) &&
+        Objects.equals(this.gcpServiceAccountEmail, gatewayUpdateItem.gcpServiceAccountEmail) &&
+        Objects.equals(this.gcpServiceAccountKeyId, gatewayUpdateItem.gcpServiceAccountKeyId) &&
         Objects.equals(this.json, gatewayUpdateItem.json) &&
         Objects.equals(this.keepPrevVersion, gatewayUpdateItem.keepPrevVersion) &&
         Objects.equals(this.key, gatewayUpdateItem.key) &&
@@ -736,7 +792,7 @@ public class GatewayUpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, description, gcpKey, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
   @Override
@@ -751,6 +807,8 @@ public class GatewayUpdateItem {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
+    sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
+    sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

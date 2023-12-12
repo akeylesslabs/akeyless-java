@@ -647,6 +647,7 @@ docs/UpdateAzureTarget.md
 docs/UpdateAzureTargetOutput.md
 docs/UpdateCertificateOutput.md
 docs/UpdateCertificateValue.md
+docs/UpdateClassicKeyCertificate.md
 docs/UpdateDBTarget.md
 docs/UpdateDBTargetDetails.md
 docs/UpdateDBTargetOutput.md
@@ -1400,6 +1401,7 @@ src/main/java/io/akeyless/client/model/UpdateAzureTarget.java
 src/main/java/io/akeyless/client/model/UpdateAzureTargetOutput.java
 src/main/java/io/akeyless/client/model/UpdateCertificateOutput.java
 src/main/java/io/akeyless/client/model/UpdateCertificateValue.java
+src/main/java/io/akeyless/client/model/UpdateClassicKeyCertificate.java
 src/main/java/io/akeyless/client/model/UpdateDBTarget.java
 src/main/java/io/akeyless/client/model/UpdateDBTargetDetails.java
 src/main/java/io/akeyless/client/model/UpdateDBTargetOutput.java
@@ -1482,7 +1484,4 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/TargetNameWithHostsTest.java
-src/test/java/io/akeyless/client/model/UsageEventSettingTest.java
-src/test/java/io/akeyless/client/model/WindowsServiceAttributesTest.java
-src/test/java/io/akeyless/client/model/WindowsServiceTest.java
+src/test/java/io/akeyless/client/model/UpdateClassicKeyCertificateTest.java

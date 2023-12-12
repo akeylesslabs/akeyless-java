@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **certificateOrganization** | **String** | Organization name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateProvince** | **String** | Province name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateTtl** | **Long** | TTL in days for the generated certificate. Required only for generate-self-signed-certificate. |  [optional]
+**confFileData** | **String** | The csr config data in base64 encoding |  [optional]
 **customerFrgId** | **String** | The customer fragment ID that will be used to create the key (if empty, the key will be created independently of a customer fragment) |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]

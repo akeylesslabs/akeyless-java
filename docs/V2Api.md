@@ -262,6 +262,7 @@ Method | HTTP request | Description
 [**updateAuthMethodUniversalIdentity**](V2Api.md#updateAuthMethodUniversalIdentity) | **POST** /update-auth-method-universal-identity | 
 [**updateAzureTarget**](V2Api.md#updateAzureTarget) | **POST** /update-azure-target | 
 [**updateCertificateValue**](V2Api.md#updateCertificateValue) | **POST** /update-certificate-value | 
+[**updateClassicKeyCertificate**](V2Api.md#updateClassicKeyCertificate) | **POST** /update-classic-key-certificate | 
 [**updateDBTarget**](V2Api.md#updateDBTarget) | **POST** /update-db-target | 
 [**updateDBTargetDetails**](V2Api.md#updateDBTargetDetails) | **POST** /update-db-target-details | 
 [**updateDockerhubTarget**](V2Api.md#updateDockerhubTarget) | **POST** /update-dockerhub-target | 
@@ -16035,6 +16036,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateCertificateValueResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateClassicKeyCertificate"></a>
+# **updateClassicKeyCertificate**
+> Object updateClassicKeyCertificate(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateClassicKeyCertificate body = new UpdateClassicKeyCertificate(); // UpdateClassicKeyCertificate | 
+    try {
+      Object result = apiInstance.updateClassicKeyCertificate(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateClassicKeyCertificate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateClassicKeyCertificate**](UpdateClassicKeyCertificate.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | UpdateClassicKeyCertificateResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateDBTarget"></a>

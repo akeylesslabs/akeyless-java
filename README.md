@@ -363,6 +363,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateAuthMethodUniversalIdentity**](docs/V2Api.md#updateAuthMethodUniversalIdentity) | **POST** /update-auth-method-universal-identity | 
 *V2Api* | [**updateAzureTarget**](docs/V2Api.md#updateAzureTarget) | **POST** /update-azure-target | 
 *V2Api* | [**updateCertificateValue**](docs/V2Api.md#updateCertificateValue) | **POST** /update-certificate-value | 
+*V2Api* | [**updateClassicKeyCertificate**](docs/V2Api.md#updateClassicKeyCertificate) | **POST** /update-classic-key-certificate | 
 *V2Api* | [**updateDBTarget**](docs/V2Api.md#updateDBTarget) | **POST** /update-db-target | 
 *V2Api* | [**updateDBTargetDetails**](docs/V2Api.md#updateDBTargetDetails) | **POST** /update-db-target-details | 
 *V2Api* | [**updateDockerhubTarget**](docs/V2Api.md#updateDockerhubTarget) | **POST** /update-dockerhub-target | 
@@ -1055,6 +1056,7 @@ Class | Method | HTTP request | Description
  - [UpdateAzureTargetOutput](docs/UpdateAzureTargetOutput.md)
  - [UpdateCertificateOutput](docs/UpdateCertificateOutput.md)
  - [UpdateCertificateValue](docs/UpdateCertificateValue.md)
+ - [UpdateClassicKeyCertificate](docs/UpdateClassicKeyCertificate.md)
  - [UpdateDBTarget](docs/UpdateDBTarget.md)
  - [UpdateDBTargetDetails](docs/UpdateDBTargetDetails.md)
  - [UpdateDBTargetOutput](docs/UpdateDBTargetOutput.md)
