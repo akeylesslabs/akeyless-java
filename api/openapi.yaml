@@ -11268,15 +11268,16 @@ components:
         general:
           tcp_port: tcp_port
           api_token_ttl: api_token_ttl
-          gw_cluster_url: gw_cluster_url
           enable_tls: true
           enable_tls_curl: true
           tls_key: tls_key
           enable_tls_configure: true
-          enable_tls_hvp: true
           tls_cert: tls_cert
           akeyless_url: akeyless_url
           display_name: display_name
+          gw_cluster_url: gw_cluster_url
+          enable_tls_hvp: true
+          notify_on_status_change: true
           enable_sni_proxy: true
         ldap:
           ldap_anonymous_search: true
@@ -17072,15 +17073,16 @@ components:
       example:
         tcp_port: tcp_port
         api_token_ttl: api_token_ttl
-        gw_cluster_url: gw_cluster_url
         enable_tls: true
         enable_tls_curl: true
         tls_key: tls_key
         enable_tls_configure: true
-        enable_tls_hvp: true
         tls_cert: tls_cert
         akeyless_url: akeyless_url
         display_name: display_name
+        gw_cluster_url: gw_cluster_url
+        enable_tls_hvp: true
+        notify_on_status_change: true
         enable_sni_proxy: true
       properties:
         akeyless_url:
@@ -17116,6 +17118,9 @@ components:
         gw_cluster_url:
           type: string
           x-go-name: GwClusterUrl
+        notify_on_status_change:
+          type: boolean
+          x-go-name: NotifyOnStatusChange
         tcp_port:
           type: string
           x-go-name: TcpPort

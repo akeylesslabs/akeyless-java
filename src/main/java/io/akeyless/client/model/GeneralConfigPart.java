@@ -65,6 +65,10 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_URL)
   private String gwClusterUrl;
 
+  public static final String SERIALIZED_NAME_NOTIFY_ON_STATUS_CHANGE = "notify_on_status_change";
+  @SerializedName(SERIALIZED_NAME_NOTIFY_ON_STATUS_CHANGE)
+  private Boolean notifyOnStatusChange;
+
   public static final String SERIALIZED_NAME_TCP_PORT = "tcp_port";
   @SerializedName(SERIALIZED_NAME_TCP_PORT)
   private String tcpPort;
@@ -287,6 +291,29 @@ public class GeneralConfigPart {
   }
 
 
+  public GeneralConfigPart notifyOnStatusChange(Boolean notifyOnStatusChange) {
+    
+    this.notifyOnStatusChange = notifyOnStatusChange;
+    return this;
+  }
+
+   /**
+   * Get notifyOnStatusChange
+   * @return notifyOnStatusChange
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getNotifyOnStatusChange() {
+    return notifyOnStatusChange;
+  }
+
+
+  public void setNotifyOnStatusChange(Boolean notifyOnStatusChange) {
+    this.notifyOnStatusChange = notifyOnStatusChange;
+  }
+
+
   public GeneralConfigPart tcpPort(String tcpPort) {
     
     this.tcpPort = tcpPort;
@@ -374,6 +401,7 @@ public class GeneralConfigPart {
         Objects.equals(this.enableTlsCurl, generalConfigPart.enableTlsCurl) &&
         Objects.equals(this.enableTlsHvp, generalConfigPart.enableTlsHvp) &&
         Objects.equals(this.gwClusterUrl, generalConfigPart.gwClusterUrl) &&
+        Objects.equals(this.notifyOnStatusChange, generalConfigPart.notifyOnStatusChange) &&
         Objects.equals(this.tcpPort, generalConfigPart.tcpPort) &&
         Objects.equals(this.tlsCert, generalConfigPart.tlsCert) &&
         Objects.equals(this.tlsKey, generalConfigPart.tlsKey);
@@ -381,7 +409,7 @@ public class GeneralConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, tcpPort, tlsCert, tlsKey);
+    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, notifyOnStatusChange, tcpPort, tlsCert, tlsKey);
   }
 
   @Override
@@ -397,6 +425,7 @@ public class GeneralConfigPart {
     sb.append("    enableTlsCurl: ").append(toIndentedString(enableTlsCurl)).append("\n");
     sb.append("    enableTlsHvp: ").append(toIndentedString(enableTlsHvp)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
+    sb.append("    notifyOnStatusChange: ").append(toIndentedString(notifyOnStatusChange)).append("\n");
     sb.append("    tcpPort: ").append(toIndentedString(tcpPort)).append("\n");
     sb.append("    tlsCert: ").append(toIndentedString(tlsCert)).append("\n");
     sb.append("    tlsKey: ").append(toIndentedString(tlsKey)).append("\n");

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **enableTlsCurl** | **Boolean** |  |  [optional]
 **enableTlsHvp** | **Boolean** |  |  [optional]
 **gwClusterUrl** | **String** |  |  [optional]
+**notifyOnStatusChange** | **Boolean** |  |  [optional]
 **tcpPort** | **String** |  |  [optional]
 **tlsCert** | **String** |  |  [optional]
 **tlsKey** | **String** |  |  [optional]
