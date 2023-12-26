@@ -166,6 +166,7 @@ Name | Type | Description | Notes
 **mysqlCreationStatements** | **String** |  |  [optional]
 **mysqlRevocationStatements** | **String** |  |  [optional]
 **oracleCreationStatements** | **String** |  |  [optional]
+**oracleRevocationStatements** | **String** |  |  [optional]
 **password** | **String** |  |  [optional]
 **passwordLength** | **Long** |  |  [optional]
 **passwordPolicy** | **String** |  |  [optional]

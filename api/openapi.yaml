@@ -1497,6 +1497,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /create-usc:
+    post:
+      operationId: CreateUSC
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUSC'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUSCOutput'
+          description: CreateUniversalSecretsConnectorResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /create-user-event:
     post:
       operationId: createUserEvent
@@ -8559,6 +8588,143 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /usc-create:
+    post:
+      operationId: uscCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/uscUpdate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UscCreateSecretOutput'
+          description: uscCreateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /usc-delete:
+    post:
+      operationId: uscDelete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/uscDelete'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UscDeleteSecretOutput'
+          description: uscDeleteResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /usc-get:
+    post:
+      operationId: uscGet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/uscGet'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UscGetSecretOutput'
+          description: uscGetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /usc-list:
+    post:
+      operationId: uscList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/uscList'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UscListSecretsOutput'
+          description: uscListResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /usc-update:
+    post:
+      operationId: uscUpdate
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UscUpdateSecretOutput'
+          description: uscUpdateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-accepts: application/json
   /user-event-last-status:
     post:
       operationId: getLastUserEventStatus
@@ -8842,6 +9008,12 @@ components:
           schema:
             $ref: '#/components/schemas/CreateESMOutput'
       description: CreateExternalSecretsManagerResponse wraps response body.
+    CreateUniversalSecretsConnectorResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateUSCOutput'
+      description: CreateUniversalSecretsConnectorResponse wraps response body.
     DeriveKeyResponse:
       content:
         application/json:
@@ -10628,6 +10800,36 @@ components:
           schema:
             $ref: '#/components/schemas/uploadRSAOutput'
       description: uploadRSAResponse wraps response body.
+    uscCreateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UscCreateSecretOutput'
+      description: uscCreateResponse wraps response body.
+    uscDeleteResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UscDeleteSecretOutput'
+      description: uscDeleteResponse wraps response body.
+    uscGetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UscGetSecretOutput'
+      description: uscGetResponse wraps response body.
+    uscListResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UscListSecretsOutput'
+      description: uscListResponse wraps response body.
+    uscUpdateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UscUpdateSecretOutput'
+      description: uscUpdateResponse wraps response body.
     validateTokenResponse:
       content:
         application/json:
@@ -11849,6 +12051,7 @@ components:
         editable: true
         created_at: 2000-01-23T04:56:07.000+00:00
         description: description
+        sub_claims_case_insensitive: true
         error: error
         cluster_id: 0
         updated_at: 2000-01-23T04:56:07.000+00:00
@@ -11905,6 +12108,9 @@ components:
             type: array
           type: object
           x-go-name: SubClaims
+        sub_claims_case_insensitive:
+          type: boolean
+          x-go-name: SubClaimsCaseInsensitive
         updated_at:
           format: date-time
           type: string
@@ -14432,7 +14638,8 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CreateESM:
-      description: CreateESM is a command that creates an External Secrets Manager
+      description: 'CreateESM is a command that creates an External Secrets Manager.
+        [Deprecated: Use command create-usc]'
       example:
         target-to-associate: target-to-associate
         delete_protection: delete_protection
@@ -14798,6 +15005,85 @@ components:
           x-go-name: AssociationID
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    CreateUSC:
+      description: CreateUSC is a command that creates a Universal Secrets Connector
+      example:
+        target-to-associate: target-to-associate
+        delete_protection: delete_protection
+        name: name
+        description: description
+        json: false
+        k8s-namespace: k8s-namespace
+        azure-kv-name: azure-kv-name
+        uid-token: uid-token
+        tags:
+        - tags
+        - tags
+        token: token
+      properties:
+        azure-kv-name:
+          description: Azure Key Vault name (Relevant only for Azure targets)
+          type: string
+          x-go-name: AzureVault
+        delete_protection:
+          description: Protection from accidental deletion of this item [true/false]
+          type: string
+          x-go-name: ItemProtected
+        description:
+          description: Description of the Universal Secrets Connector
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        k8s-namespace:
+          description: K8s namespace (Relevant to Kubernetes targets)
+          type: string
+          x-go-name: K8sNamespace
+        name:
+          description: Universal Secrets Connector name
+          type: string
+          x-go-name: ESMName
+        tags:
+          description: List of the tags attached to this Universal Secrets Connector
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-to-associate:
+          description: Target Universal Secrets Connector to connect
+          type: string
+          x-go-name: TargetToAssociate
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      - target-to-associate
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    CreateUSCOutput:
+      example:
+        universal_secrets_connector_id: 0
+        universal_secrets_connector_name: universal_secrets_connector_name
+      properties:
+        universal_secrets_connector_id:
+          format: int64
+          type: integer
+          x-go-name: ESMId
+        universal_secrets_connector_name:
+          type: string
+          x-go-name: ESMName
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CustomTargetDetails:
       example:
         payload: payload
@@ -15114,6 +15400,7 @@ components:
         venafi_tpp_username: venafi_tpp_username
         azure_user_portal_access: true
         venafi_root_first_in_chain: true
+        oracle_revocation_statements: oracle_revocation_statements
         venafi_auto_generated_folder: venafi_auto_generated_folder
         db_pwd: db_pwd
         signing_algorithm: signing_algorithm
@@ -15683,6 +15970,9 @@ components:
         oracle_creation_statements:
           type: string
           x-go-name: OracleDBCreationStatements
+        oracle_revocation_statements:
+          type: string
+          x-go-name: OracleDBRevocationStatements
         password:
           type: string
           x-go-name: Password
@@ -28497,6 +28787,99 @@ components:
           x-go-name: IntervalByDays
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    UscCreateSecretOutput:
+      example:
+        secret_id: secret_id
+        version_id: version_id
+      properties:
+        secret_id:
+          type: string
+          x-go-name: SecretId
+        version_id:
+          type: string
+          x-go-name: VersionId
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UscDeleteSecretOutput:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UscGetSecretOutput:
+      example:
+        metadata: '{}'
+        name: name
+        value: value
+        binary_value: true
+      properties:
+        binary_value:
+          type: boolean
+          x-go-name: BinaryValue
+        metadata:
+          type: object
+          x-go-name: Metadata
+        name:
+          type: string
+          x-go-name: Name
+        value:
+          type: string
+          x-go-name: Value
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UscListSecretsOutput:
+      example:
+        secrets_list:
+        - secret_id: secret_id
+          created: 2000-01-23T04:56:07.000+00:00
+          last_retrieved: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          expiration: 2000-01-23T04:56:07.000+00:00
+          location: '{}'
+          type: type
+          status: true
+          tags:
+            key: tags
+        - secret_id: secret_id
+          created: 2000-01-23T04:56:07.000+00:00
+          last_retrieved: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          expiration: 2000-01-23T04:56:07.000+00:00
+          location: '{}'
+          type: type
+          status: true
+          tags:
+            key: tags
+      properties:
+        secrets_list:
+          items:
+            $ref: '#/components/schemas/SecretInfo'
+          type: array
+          x-go-name: SecretsList
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UscUpdateSecretOutput:
+      example:
+        secret_id: secret_id
+        name: name
+        version_id: version_id
+      properties:
+        name:
+          type: string
+          x-go-name: Name
+        secret_id:
+          type: string
+          x-go-name: SecretId
+        version_id:
+          type: string
+          x-go-name: VersionId
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     VaultlessTokenizerInfo:
       example:
         key_name: key_name
@@ -31282,7 +31665,7 @@ components:
           x-go-name: EventSources
         event-source-type:
           default: item
-          description: Event Source type [item, target, auth_method]
+          description: Event Source type [item, target, auth_method, gateway]
           type: string
           x-go-name: EventSourceType
         event-types:
@@ -34884,12 +35267,19 @@ components:
       description: gatewayCreateAllowedAccess is a command that creates allowed access
         in Gator
       properties:
+        SubClaimsCaseInsensitive:
+          type: boolean
         access-id:
           description: |-
             Access ID
             The access id to be attached to this allowed access. Auth method with this access id should already exist.
           type: string
           x-go-name: AccessID
+        case-sensitive:
+          default: "true"
+          description: Treat sub claims as case-sensitive [true/false]
+          type: string
+          x-go-name: IsSubClaimsCaseSensitive
         description:
           description: Allowed access description
           type: string
@@ -35799,6 +36189,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -36231,6 +36622,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -36649,6 +37041,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -37022,6 +37415,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -37452,6 +37846,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -37915,6 +38310,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -38282,6 +38678,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -38683,6 +39080,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -39064,6 +39462,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -39435,6 +39834,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -39827,6 +40227,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -40232,6 +40633,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -40620,6 +41022,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -41025,6 +41428,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -41447,6 +41851,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -41865,6 +42270,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -42299,6 +42705,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -42379,6 +42786,10 @@ components:
           description: Oracle Port
           type: string
           x-go-name: DBPort
+        oracle-revocation-statements:
+          description: Oracle Revocation statements
+          type: string
+          x-go-name: RevocationStatements
         oracle-screation-statements:
           description: Oracle Creation statements
           type: string
@@ -42706,6 +43117,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -43156,6 +43568,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -43567,6 +43980,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -43974,6 +44388,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -44389,6 +44804,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -44774,6 +45190,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -45168,6 +45585,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -45548,6 +45966,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -47132,12 +47551,19 @@ components:
       description: gatewayUpdateAllowedAccess is a command that update allowed access
         in Gator
       properties:
+        SubClaimsCaseInsensitive:
+          type: boolean
         access-id:
           description: |-
             Access ID
             The access id to be attached to this allowed access. Auth method with this access id should already exist.
           type: string
           x-go-name: AccessID
+        case-sensitive:
+          default: "true"
+          description: Treat sub claims as case-sensitive [true/false]
+          type: string
+          x-go-name: IsSubClaimsCaseSensitive
         description:
           description: Allowed access description
           type: string
@@ -48205,6 +48631,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -48641,6 +49068,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -49063,6 +49491,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -49440,6 +49869,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -49874,6 +50304,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -50345,6 +50776,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -50716,6 +51148,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -51121,6 +51554,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -51506,6 +51940,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -51881,6 +52316,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -52277,6 +52713,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -52686,6 +53123,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -53078,6 +53516,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -53487,6 +53926,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -53913,6 +54353,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -54335,6 +54776,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -54773,6 +55215,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -54857,6 +55300,10 @@ components:
           description: Oracle Port
           type: string
           x-go-name: DBPort
+        oracle-revocation-statements:
+          description: Oracle Revocation statements
+          type: string
+          x-go-name: RevocationStatements
         oracle-screation-statements:
           description: Oracle Creation statements
           type: string
@@ -55184,6 +55631,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -55638,6 +56086,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -56053,6 +56502,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -56464,6 +56914,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -56883,6 +57334,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -57272,6 +57724,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -57670,6 +58123,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -58054,6 +58508,7 @@ components:
           venafi_tpp_username: venafi_tpp_username
           azure_user_portal_access: true
           venafi_root_first_in_chain: true
+          oracle_revocation_statements: oracle_revocation_statements
           venafi_auto_generated_folder: venafi_auto_generated_folder
           db_pwd: db_pwd
           signing_algorithm: signing_algorithm
@@ -59605,8 +60060,14 @@ components:
           type: boolean
           x-go-name: Json
         minimal-view:
+          description: Show only basic information of the items
           type: boolean
           x-go-name: BasicData
+        modified-after:
+          description: List only secrets modified after specified date (in unix time)
+          format: int64
+          type: integer
+          x-go-name: ModifiedAfterDate
         pagination-token:
           description: Next page reference
           type: string
@@ -65847,6 +66308,201 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     uploadRSAOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    uscCreate:
+      description: uscCreate is a command that creates a new secret in a Universal
+        Secrets Connector
+      properties:
+        binary-value:
+          description: Use this option if the universal secrets value is a base64
+            encoded binary
+          type: boolean
+          x-go-name: BinaryValue
+        description:
+          description: Description of the universal secrets
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-name:
+          description: Name for the new universal secrets
+          type: string
+          x-go-name: SecretName
+        tags:
+          additionalProperties:
+            type: string
+          description: Tags for the universal secrets
+          type: object
+          x-go-name: Tags
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        usc-name:
+          description: Name of the Universal Secrets Connector item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        value:
+          description: Value of the universal secrets item, either text or base64
+            encoded binary
+          type: string
+          x-go-name: Value
+      required:
+      - secret-name
+      - usc-name
+      - value
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    uscDelete:
+      description: uscDelete is a command that deletes a secret from a Universal Secrets
+        Connector
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-id:
+          description: The universal secrets id (or name, for AWS, Azure or K8s targets)
+            to delete
+          type: string
+          x-go-name: SecretId
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        usc-name:
+          description: Name of the Universal Secrets Connector item
+          type: string
+          x-go-name: ExternalSecretManagerName
+      required:
+      - secret-id
+      - usc-name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    uscGet:
+      description: uscGet is a command that gets the value and internal details of
+        a secret from a Universal Secrets Connector
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-id:
+          description: The secret id (or name, for AWS, Azure or K8s targets) to get
+            from the Universal Secrets Connector
+          type: string
+          x-go-name: SecretId
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        usc-name:
+          description: Name of the Universal Secrets Connector item
+          type: string
+          x-go-name: ExternalSecretManagerName
+      required:
+      - secret-id
+      - usc-name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    uscList:
+      description: uscList is a command that lists the secrets of a Universal Secrets
+        Connector
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        usc-name:
+          description: Name of the Universal Secrets Connector item
+          type: string
+          x-go-name: ExternalSecretManagerName
+      required:
+      - usc-name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    uscUpdate:
+      description: uscUpdate is a command that updates a secret in a Universal Secrets
+        Connector
+      properties:
+        binary-value:
+          description: Use this option if the universal secrets value is a base64
+            encoded binary
+          type: boolean
+          x-go-name: BinaryValue
+        description:
+          description: Description of the universal secrets
+          type: string
+          x-go-name: Description
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        secret-id:
+          description: The universal secrets id (or name, for AWS, Azure or K8s targets)
+            to update
+          type: string
+          x-go-name: SecretId
+        tags:
+          additionalProperties:
+            type: string
+          description: Tags for the universal secrets
+          type: object
+          x-go-name: Tags
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        usc-name:
+          description: Name of the Universal Secrets Connector item
+          type: string
+          x-go-name: ExternalSecretManagerName
+        value:
+          description: Value of the universal secrets item, either text or base64
+            encoded binary
+          type: string
+          x-go-name: Value
+      required:
+      - secret-id
+      - usc-name
+      - value
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     validateToken:

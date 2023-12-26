@@ -82,6 +82,10 @@ public class AllowedAccess {
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
   private Map<String, List<String>> subClaims = null;
 
+  public static final String SERIALIZED_NAME_SUB_CLAIMS_CASE_INSENSITIVE = "sub_claims_case_insensitive";
+  @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_CASE_INSENSITIVE)
+  private Boolean subClaimsCaseInsensitive;
+
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
@@ -381,6 +385,29 @@ public class AllowedAccess {
   }
 
 
+  public AllowedAccess subClaimsCaseInsensitive(Boolean subClaimsCaseInsensitive) {
+    
+    this.subClaimsCaseInsensitive = subClaimsCaseInsensitive;
+    return this;
+  }
+
+   /**
+   * Get subClaimsCaseInsensitive
+   * @return subClaimsCaseInsensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSubClaimsCaseInsensitive() {
+    return subClaimsCaseInsensitive;
+  }
+
+
+  public void setSubClaimsCaseInsensitive(Boolean subClaimsCaseInsensitive) {
+    this.subClaimsCaseInsensitive = subClaimsCaseInsensitive;
+  }
+
+
   public AllowedAccess updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
@@ -425,12 +452,13 @@ public class AllowedAccess {
         Objects.equals(this.name, allowedAccess.name) &&
         Objects.equals(this.permissions, allowedAccess.permissions) &&
         Objects.equals(this.subClaims, allowedAccess.subClaims) &&
+        Objects.equals(this.subClaimsCaseInsensitive, allowedAccess.subClaimsCaseInsensitive) &&
         Objects.equals(this.updatedAt, allowedAccess.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessType, clusterId, createdAt, description, editable, error, id, isValid, name, permissions, subClaims, updatedAt);
+    return Objects.hash(accessId, accessType, clusterId, createdAt, description, editable, error, id, isValid, name, permissions, subClaims, subClaimsCaseInsensitive, updatedAt);
   }
 
   @Override
@@ -449,6 +477,7 @@ public class AllowedAccess {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
+    sb.append("    subClaimsCaseInsensitive: ").append(toIndentedString(subClaimsCaseInsensitive)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

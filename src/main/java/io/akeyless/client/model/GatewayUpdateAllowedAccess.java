@@ -33,9 +33,17 @@ import java.util.Map;
 @ApiModel(description = "gatewayUpdateAllowedAccess is a command that update allowed access in Gator")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateAllowedAccess {
+  public static final String SERIALIZED_NAME_SUB_CLAIMS_CASE_INSENSITIVE = "SubClaimsCaseInsensitive";
+  @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_CASE_INSENSITIVE)
+  private Boolean subClaimsCaseInsensitive;
+
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
+
+  public static final String SERIALIZED_NAME_CASE_SENSITIVE = "case-sensitive";
+  @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
+  private String caseSensitive = "true";
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -72,6 +80,29 @@ public class GatewayUpdateAllowedAccess {
   public GatewayUpdateAllowedAccess() { 
   }
 
+  public GatewayUpdateAllowedAccess subClaimsCaseInsensitive(Boolean subClaimsCaseInsensitive) {
+    
+    this.subClaimsCaseInsensitive = subClaimsCaseInsensitive;
+    return this;
+  }
+
+   /**
+   * Get subClaimsCaseInsensitive
+   * @return subClaimsCaseInsensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSubClaimsCaseInsensitive() {
+    return subClaimsCaseInsensitive;
+  }
+
+
+  public void setSubClaimsCaseInsensitive(Boolean subClaimsCaseInsensitive) {
+    this.subClaimsCaseInsensitive = subClaimsCaseInsensitive;
+  }
+
+
   public GatewayUpdateAllowedAccess accessId(String accessId) {
     
     this.accessId = accessId;
@@ -92,6 +123,29 @@ public class GatewayUpdateAllowedAccess {
 
   public void setAccessId(String accessId) {
     this.accessId = accessId;
+  }
+
+
+  public GatewayUpdateAllowedAccess caseSensitive(String caseSensitive) {
+    
+    this.caseSensitive = caseSensitive;
+    return this;
+  }
+
+   /**
+   * Treat sub claims as case-sensitive [true/false]
+   * @return caseSensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Treat sub claims as case-sensitive [true/false]")
+
+  public String getCaseSensitive() {
+    return caseSensitive;
+  }
+
+
+  public void setCaseSensitive(String caseSensitive) {
+    this.caseSensitive = caseSensitive;
   }
 
 
@@ -296,7 +350,9 @@ public class GatewayUpdateAllowedAccess {
       return false;
     }
     GatewayUpdateAllowedAccess gatewayUpdateAllowedAccess = (GatewayUpdateAllowedAccess) o;
-    return Objects.equals(this.accessId, gatewayUpdateAllowedAccess.accessId) &&
+    return Objects.equals(this.subClaimsCaseInsensitive, gatewayUpdateAllowedAccess.subClaimsCaseInsensitive) &&
+        Objects.equals(this.accessId, gatewayUpdateAllowedAccess.accessId) &&
+        Objects.equals(this.caseSensitive, gatewayUpdateAllowedAccess.caseSensitive) &&
         Objects.equals(this.description, gatewayUpdateAllowedAccess.description) &&
         Objects.equals(this.json, gatewayUpdateAllowedAccess.json) &&
         Objects.equals(this.name, gatewayUpdateAllowedAccess.name) &&
@@ -309,14 +365,16 @@ public class GatewayUpdateAllowedAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, description, json, name, newName, permissions, subClaims, token, uidToken);
+    return Objects.hash(subClaimsCaseInsensitive, accessId, caseSensitive, description, json, name, newName, permissions, subClaims, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateAllowedAccess {\n");
+    sb.append("    subClaimsCaseInsensitive: ").append(toIndentedString(subClaimsCaseInsensitive)).append("\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

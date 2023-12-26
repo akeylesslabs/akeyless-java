@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createSalesforceTarget**](docs/V2Api.md#createSalesforceTarget) | **POST** /create-salesforce-target | 
 *V2Api* | [**createSecret**](docs/V2Api.md#createSecret) | **POST** /create-secret | 
 *V2Api* | [**createTokenizer**](docs/V2Api.md#createTokenizer) | **POST** /create-tokenizer | 
+*V2Api* | [**createUSC**](docs/V2Api.md#createUSC) | **POST** /create-usc | 
 *V2Api* | [**createUserEvent**](docs/V2Api.md#createUserEvent) | **POST** /create-user-event | 
 *V2Api* | [**createWebTarget**](docs/V2Api.md#createWebTarget) | **POST** /create-web-target | 
 *V2Api* | [**createWindowsTarget**](docs/V2Api.md#createWindowsTarget) | **POST** /create-windows-target | 
@@ -401,6 +402,11 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateWindowsTarget**](docs/V2Api.md#updateWindowsTarget) | **POST** /update-windows-target | 
 *V2Api* | [**updateZeroSSLTarget**](docs/V2Api.md#updateZeroSSLTarget) | **POST** /update-zerossl-target | 
 *V2Api* | [**uploadRSA**](docs/V2Api.md#uploadRSA) | **POST** /upload-rsa | 
+*V2Api* | [**uscCreate**](docs/V2Api.md#uscCreate) | **POST** /usc-create | 
+*V2Api* | [**uscDelete**](docs/V2Api.md#uscDelete) | **POST** /usc-delete | 
+*V2Api* | [**uscGet**](docs/V2Api.md#uscGet) | **POST** /usc-get | 
+*V2Api* | [**uscList**](docs/V2Api.md#uscList) | **POST** /usc-list | 
+*V2Api* | [**uscUpdate**](docs/V2Api.md#uscUpdate) | **POST** /usc-update | 
 *V2Api* | [**validateToken**](docs/V2Api.md#validateToken) | **POST** /validate-token | 
 *V2Api* | [**verifyDataWithClassicKey**](docs/V2Api.md#verifyDataWithClassicKey) | **POST** /verify-data-with-classic-key | 
 *V2Api* | [**verifyEcDsa**](docs/V2Api.md#verifyEcDsa) | **POST** /verify-ecdsa | 
@@ -557,6 +563,8 @@ Class | Method | HTTP request | Description
  - [CreateTargetItemAssocOutput](docs/CreateTargetItemAssocOutput.md)
  - [CreateTokenizer](docs/CreateTokenizer.md)
  - [CreateTokenizerOutput](docs/CreateTokenizerOutput.md)
+ - [CreateUSC](docs/CreateUSC.md)
+ - [CreateUSCOutput](docs/CreateUSCOutput.md)
  - [CreateUserEvent](docs/CreateUserEvent.md)
  - [CreateUserEventOutput](docs/CreateUserEventOutput.md)
  - [CreateWebTarget](docs/CreateWebTarget.md)
@@ -1121,6 +1129,16 @@ Class | Method | HTTP request | Description
  - [UploadPKCS12](docs/UploadPKCS12.md)
  - [UploadRSA](docs/UploadRSA.md)
  - [UsageEventSetting](docs/UsageEventSetting.md)
+ - [UscCreate](docs/UscCreate.md)
+ - [UscCreateSecretOutput](docs/UscCreateSecretOutput.md)
+ - [UscDelete](docs/UscDelete.md)
+ - [UscDeleteSecretOutput](docs/UscDeleteSecretOutput.md)
+ - [UscGet](docs/UscGet.md)
+ - [UscGetSecretOutput](docs/UscGetSecretOutput.md)
+ - [UscList](docs/UscList.md)
+ - [UscListSecretsOutput](docs/UscListSecretsOutput.md)
+ - [UscUpdate](docs/UscUpdate.md)
+ - [UscUpdateSecretOutput](docs/UscUpdateSecretOutput.md)
  - [ValidateToken](docs/ValidateToken.md)
  - [ValidateTokenOutput](docs/ValidateTokenOutput.md)
  - [VaultlessTokenizerInfo](docs/VaultlessTokenizerInfo.md)

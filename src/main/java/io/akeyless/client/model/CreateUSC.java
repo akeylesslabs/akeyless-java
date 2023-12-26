@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CreateESM is a command that creates an External Secrets Manager. [Deprecated: Use command create-usc]
+ * CreateUSC is a command that creates a Universal Secrets Connector
  */
-@ApiModel(description = "CreateESM is a command that creates an External Secrets Manager. [Deprecated: Use command create-usc]")
+@ApiModel(description = "CreateUSC is a command that creates a Universal Secrets Connector")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateESM {
+public class CreateUSC {
   public static final String SERIALIZED_NAME_AZURE_KV_NAME = "azure-kv-name";
   @SerializedName(SERIALIZED_NAME_AZURE_KV_NAME)
   private String azureKvName;
@@ -72,10 +72,10 @@ public class CreateESM {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public CreateESM() { 
+  public CreateUSC() { 
   }
 
-  public CreateESM azureKvName(String azureKvName) {
+  public CreateUSC azureKvName(String azureKvName) {
     
     this.azureKvName = azureKvName;
     return this;
@@ -98,7 +98,7 @@ public class CreateESM {
   }
 
 
-  public CreateESM deleteProtection(String deleteProtection) {
+  public CreateUSC deleteProtection(String deleteProtection) {
     
     this.deleteProtection = deleteProtection;
     return this;
@@ -121,18 +121,18 @@ public class CreateESM {
   }
 
 
-  public CreateESM description(String description) {
+  public CreateUSC description(String description) {
     
     this.description = description;
     return this;
   }
 
    /**
-   * Description of the External Secrets Manager
+   * Description of the Universal Secrets Connector
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the External Secrets Manager")
+  @ApiModelProperty(value = "Description of the Universal Secrets Connector")
 
   public String getDescription() {
     return description;
@@ -144,7 +144,7 @@ public class CreateESM {
   }
 
 
-  public CreateESM json(Boolean json) {
+  public CreateUSC json(Boolean json) {
     
     this.json = json;
     return this;
@@ -167,7 +167,7 @@ public class CreateESM {
   }
 
 
-  public CreateESM k8sNamespace(String k8sNamespace) {
+  public CreateUSC k8sNamespace(String k8sNamespace) {
     
     this.k8sNamespace = k8sNamespace;
     return this;
@@ -190,18 +190,18 @@ public class CreateESM {
   }
 
 
-  public CreateESM name(String name) {
+  public CreateUSC name(String name) {
     
     this.name = name;
     return this;
   }
 
    /**
-   * External Secrets Manager name
+   * Universal Secrets Connector name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "External Secrets Manager name")
+  @ApiModelProperty(required = true, value = "Universal Secrets Connector name")
 
   public String getName() {
     return name;
@@ -213,13 +213,13 @@ public class CreateESM {
   }
 
 
-  public CreateESM tags(List<String> tags) {
+  public CreateUSC tags(List<String> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public CreateESM addTagsItem(String tagsItem) {
+  public CreateUSC addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<String>();
     }
@@ -228,11 +228,11 @@ public class CreateESM {
   }
 
    /**
-   * List of the tags attached to this External Secrets Manager
+   * List of the tags attached to this Universal Secrets Connector
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of the tags attached to this External Secrets Manager")
+  @ApiModelProperty(value = "List of the tags attached to this Universal Secrets Connector")
 
   public List<String> getTags() {
     return tags;
@@ -244,18 +244,18 @@ public class CreateESM {
   }
 
 
-  public CreateESM targetToAssociate(String targetToAssociate) {
+  public CreateUSC targetToAssociate(String targetToAssociate) {
     
     this.targetToAssociate = targetToAssociate;
     return this;
   }
 
    /**
-   * Target External Secrets Manager to connect
+   * Target Universal Secrets Connector to connect
    * @return targetToAssociate
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Target External Secrets Manager to connect")
+  @ApiModelProperty(required = true, value = "Target Universal Secrets Connector to connect")
 
   public String getTargetToAssociate() {
     return targetToAssociate;
@@ -267,7 +267,7 @@ public class CreateESM {
   }
 
 
-  public CreateESM token(String token) {
+  public CreateUSC token(String token) {
     
     this.token = token;
     return this;
@@ -290,7 +290,7 @@ public class CreateESM {
   }
 
 
-  public CreateESM uidToken(String uidToken) {
+  public CreateUSC uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -321,17 +321,17 @@ public class CreateESM {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateESM createESM = (CreateESM) o;
-    return Objects.equals(this.azureKvName, createESM.azureKvName) &&
-        Objects.equals(this.deleteProtection, createESM.deleteProtection) &&
-        Objects.equals(this.description, createESM.description) &&
-        Objects.equals(this.json, createESM.json) &&
-        Objects.equals(this.k8sNamespace, createESM.k8sNamespace) &&
-        Objects.equals(this.name, createESM.name) &&
-        Objects.equals(this.tags, createESM.tags) &&
-        Objects.equals(this.targetToAssociate, createESM.targetToAssociate) &&
-        Objects.equals(this.token, createESM.token) &&
-        Objects.equals(this.uidToken, createESM.uidToken);
+    CreateUSC createUSC = (CreateUSC) o;
+    return Objects.equals(this.azureKvName, createUSC.azureKvName) &&
+        Objects.equals(this.deleteProtection, createUSC.deleteProtection) &&
+        Objects.equals(this.description, createUSC.description) &&
+        Objects.equals(this.json, createUSC.json) &&
+        Objects.equals(this.k8sNamespace, createUSC.k8sNamespace) &&
+        Objects.equals(this.name, createUSC.name) &&
+        Objects.equals(this.tags, createUSC.tags) &&
+        Objects.equals(this.targetToAssociate, createUSC.targetToAssociate) &&
+        Objects.equals(this.token, createUSC.token) &&
+        Objects.equals(this.uidToken, createUSC.uidToken);
   }
 
   @Override
@@ -342,7 +342,7 @@ public class CreateESM {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateESM {\n");
+    sb.append("class CreateUSC {\n");
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

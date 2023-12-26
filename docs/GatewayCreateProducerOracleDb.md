@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **oracleHost** | **String** | Oracle Host |  [optional]
 **oraclePassword** | **String** | Oracle Password |  [optional]
 **oraclePort** | **String** | Oracle Port |  [optional]
+**oracleRevocationStatements** | **String** | Oracle Revocation statements |  [optional]
 **oracleScreationStatements** | **String** | Oracle Creation statements |  [optional]
 **oracleServiceName** | **String** | Oracle DB Name |  [optional]
 **oracleUsername** | **String** | Oracle Username |  [optional]

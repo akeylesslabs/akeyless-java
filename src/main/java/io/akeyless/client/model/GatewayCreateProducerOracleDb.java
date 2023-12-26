@@ -64,6 +64,10 @@ public class GatewayCreateProducerOracleDb {
   @SerializedName(SERIALIZED_NAME_ORACLE_PORT)
   private String oraclePort = "1521";
 
+  public static final String SERIALIZED_NAME_ORACLE_REVOCATION_STATEMENTS = "oracle-revocation-statements";
+  @SerializedName(SERIALIZED_NAME_ORACLE_REVOCATION_STATEMENTS)
+  private String oracleRevocationStatements;
+
   public static final String SERIALIZED_NAME_ORACLE_SCREATION_STATEMENTS = "oracle-screation-statements";
   @SerializedName(SERIALIZED_NAME_ORACLE_SCREATION_STATEMENTS)
   private String oracleScreationStatements;
@@ -300,6 +304,29 @@ public class GatewayCreateProducerOracleDb {
 
   public void setOraclePort(String oraclePort) {
     this.oraclePort = oraclePort;
+  }
+
+
+  public GatewayCreateProducerOracleDb oracleRevocationStatements(String oracleRevocationStatements) {
+    
+    this.oracleRevocationStatements = oracleRevocationStatements;
+    return this;
+  }
+
+   /**
+   * Oracle Revocation statements
+   * @return oracleRevocationStatements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Oracle Revocation statements")
+
+  public String getOracleRevocationStatements() {
+    return oracleRevocationStatements;
+  }
+
+
+  public void setOracleRevocationStatements(String oracleRevocationStatements) {
+    this.oracleRevocationStatements = oracleRevocationStatements;
   }
 
 
@@ -635,6 +662,7 @@ public class GatewayCreateProducerOracleDb {
         Objects.equals(this.oracleHost, gatewayCreateProducerOracleDb.oracleHost) &&
         Objects.equals(this.oraclePassword, gatewayCreateProducerOracleDb.oraclePassword) &&
         Objects.equals(this.oraclePort, gatewayCreateProducerOracleDb.oraclePort) &&
+        Objects.equals(this.oracleRevocationStatements, gatewayCreateProducerOracleDb.oracleRevocationStatements) &&
         Objects.equals(this.oracleScreationStatements, gatewayCreateProducerOracleDb.oracleScreationStatements) &&
         Objects.equals(this.oracleServiceName, gatewayCreateProducerOracleDb.oracleServiceName) &&
         Objects.equals(this.oracleUsername, gatewayCreateProducerOracleDb.oracleUsername) &&
@@ -652,7 +680,7 @@ public class GatewayCreateProducerOracleDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, name, oracleHost, oraclePassword, oraclePort, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, name, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -667,6 +695,7 @@ public class GatewayCreateProducerOracleDb {
     sb.append("    oracleHost: ").append(toIndentedString(oracleHost)).append("\n");
     sb.append("    oraclePassword: ").append(toIndentedString(oraclePassword)).append("\n");
     sb.append("    oraclePort: ").append(toIndentedString(oraclePort)).append("\n");
+    sb.append("    oracleRevocationStatements: ").append(toIndentedString(oracleRevocationStatements)).append("\n");
     sb.append("    oracleScreationStatements: ").append(toIndentedString(oracleScreationStatements)).append("\n");
     sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");
     sb.append("    oracleUsername: ").append(toIndentedString(oracleUsername)).append("\n");

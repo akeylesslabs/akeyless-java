@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **permissions** | **List&lt;String&gt;** |  |  [optional]
 **subClaims** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
+**subClaimsCaseInsensitive** | **Boolean** |  |  [optional]
 **updatedAt** | **OffsetDateTime** |  |  [optional]
 
 

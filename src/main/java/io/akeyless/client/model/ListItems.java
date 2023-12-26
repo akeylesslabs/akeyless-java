@@ -55,6 +55,10 @@ public class ListItems {
   @SerializedName(SERIALIZED_NAME_MINIMAL_VIEW)
   private Boolean minimalView;
 
+  public static final String SERIALIZED_NAME_MODIFIED_AFTER = "modified-after";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_AFTER)
+  private Long modifiedAfter;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   private String paginationToken;
@@ -212,11 +216,11 @@ public class ListItems {
   }
 
    /**
-   * Get minimalView
+   * Show only basic information of the items
    * @return minimalView
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Show only basic information of the items")
 
   public Boolean getMinimalView() {
     return minimalView;
@@ -225,6 +229,29 @@ public class ListItems {
 
   public void setMinimalView(Boolean minimalView) {
     this.minimalView = minimalView;
+  }
+
+
+  public ListItems modifiedAfter(Long modifiedAfter) {
+    
+    this.modifiedAfter = modifiedAfter;
+    return this;
+  }
+
+   /**
+   * List only secrets modified after specified date (in unix time)
+   * @return modifiedAfter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List only secrets modified after specified date (in unix time)")
+
+  public Long getModifiedAfter() {
+    return modifiedAfter;
+  }
+
+
+  public void setModifiedAfter(Long modifiedAfter) {
+    this.modifiedAfter = modifiedAfter;
   }
 
 
@@ -443,6 +470,7 @@ public class ListItems {
         Objects.equals(this.filter, listItems.filter) &&
         Objects.equals(this.json, listItems.json) &&
         Objects.equals(this.minimalView, listItems.minimalView) &&
+        Objects.equals(this.modifiedAfter, listItems.modifiedAfter) &&
         Objects.equals(this.paginationToken, listItems.paginationToken) &&
         Objects.equals(this.path, listItems.path) &&
         Objects.equals(this.sraOnly, listItems.sraOnly) &&
@@ -455,7 +483,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, advancedFilter, autoPagination, filter, json, minimalView, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, advancedFilter, autoPagination, filter, json, minimalView, modifiedAfter, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
   }
 
   @Override
@@ -468,6 +496,7 @@ public class ListItems {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
+    sb.append("    modifiedAfter: ").append(toIndentedString(modifiedAfter)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    sraOnly: ").append(toIndentedString(sraOnly)).append("\n");

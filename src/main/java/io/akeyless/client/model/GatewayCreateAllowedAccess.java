@@ -33,9 +33,17 @@ import java.util.Map;
 @ApiModel(description = "gatewayCreateAllowedAccess is a command that creates allowed access in Gator")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateAllowedAccess {
+  public static final String SERIALIZED_NAME_SUB_CLAIMS_CASE_INSENSITIVE = "SubClaimsCaseInsensitive";
+  @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_CASE_INSENSITIVE)
+  private Boolean subClaimsCaseInsensitive;
+
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
+
+  public static final String SERIALIZED_NAME_CASE_SENSITIVE = "case-sensitive";
+  @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
+  private String caseSensitive = "true";
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -68,6 +76,29 @@ public class GatewayCreateAllowedAccess {
   public GatewayCreateAllowedAccess() { 
   }
 
+  public GatewayCreateAllowedAccess subClaimsCaseInsensitive(Boolean subClaimsCaseInsensitive) {
+    
+    this.subClaimsCaseInsensitive = subClaimsCaseInsensitive;
+    return this;
+  }
+
+   /**
+   * Get subClaimsCaseInsensitive
+   * @return subClaimsCaseInsensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSubClaimsCaseInsensitive() {
+    return subClaimsCaseInsensitive;
+  }
+
+
+  public void setSubClaimsCaseInsensitive(Boolean subClaimsCaseInsensitive) {
+    this.subClaimsCaseInsensitive = subClaimsCaseInsensitive;
+  }
+
+
   public GatewayCreateAllowedAccess accessId(String accessId) {
     
     this.accessId = accessId;
@@ -88,6 +119,29 @@ public class GatewayCreateAllowedAccess {
 
   public void setAccessId(String accessId) {
     this.accessId = accessId;
+  }
+
+
+  public GatewayCreateAllowedAccess caseSensitive(String caseSensitive) {
+    
+    this.caseSensitive = caseSensitive;
+    return this;
+  }
+
+   /**
+   * Treat sub claims as case-sensitive [true/false]
+   * @return caseSensitive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Treat sub claims as case-sensitive [true/false]")
+
+  public String getCaseSensitive() {
+    return caseSensitive;
+  }
+
+
+  public void setCaseSensitive(String caseSensitive) {
+    this.caseSensitive = caseSensitive;
   }
 
 
@@ -269,7 +323,9 @@ public class GatewayCreateAllowedAccess {
       return false;
     }
     GatewayCreateAllowedAccess gatewayCreateAllowedAccess = (GatewayCreateAllowedAccess) o;
-    return Objects.equals(this.accessId, gatewayCreateAllowedAccess.accessId) &&
+    return Objects.equals(this.subClaimsCaseInsensitive, gatewayCreateAllowedAccess.subClaimsCaseInsensitive) &&
+        Objects.equals(this.accessId, gatewayCreateAllowedAccess.accessId) &&
+        Objects.equals(this.caseSensitive, gatewayCreateAllowedAccess.caseSensitive) &&
         Objects.equals(this.description, gatewayCreateAllowedAccess.description) &&
         Objects.equals(this.json, gatewayCreateAllowedAccess.json) &&
         Objects.equals(this.name, gatewayCreateAllowedAccess.name) &&
@@ -281,14 +337,16 @@ public class GatewayCreateAllowedAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, description, json, name, permissions, subClaims, token, uidToken);
+    return Objects.hash(subClaimsCaseInsensitive, accessId, caseSensitive, description, json, name, permissions, subClaims, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateAllowedAccess {\n");
+    sb.append("    subClaimsCaseInsensitive: ").append(toIndentedString(subClaimsCaseInsensitive)).append("\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
+    sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

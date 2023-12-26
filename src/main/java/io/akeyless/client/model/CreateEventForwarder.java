@@ -364,11 +364,11 @@ public class CreateEventForwarder {
   }
 
    /**
-   * Event Source type [item, target, auth_method]
+   * Event Source type [item, target, auth_method, gateway]
    * @return eventSourceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Event Source type [item, target, auth_method]")
+  @ApiModelProperty(value = "Event Source type [item, target, auth_method, gateway]")
 
   public String getEventSourceType() {
     return eventSourceType;
