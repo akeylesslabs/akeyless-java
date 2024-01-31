@@ -1528,8 +1528,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/CreateAuthMethodOCIOutputTest.java
-src/test/java/io/akeyless/client/model/CreateAuthMethodOCITest.java
-src/test/java/io/akeyless/client/model/OCIAccessRulesTest.java
-src/test/java/io/akeyless/client/model/UpdateAuthMethodOCIOutputTest.java
-src/test/java/io/akeyless/client/model/UpdateAuthMethodOCITest.java
