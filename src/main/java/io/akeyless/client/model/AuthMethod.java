@@ -74,6 +74,10 @@ public class AuthMethod {
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_IS_APPROVED = "is_approved";
   @SerializedName(SERIALIZED_NAME_IS_APPROVED)
   private Boolean isApproved;
@@ -339,6 +343,29 @@ public class AuthMethod {
   }
 
 
+  public AuthMethod description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public AuthMethod isApproved(Boolean isApproved) {
     
     this.isApproved = isApproved;
@@ -404,13 +431,14 @@ public class AuthMethod {
         Objects.equals(this.authMethodRolesAssoc, authMethod.authMethodRolesAssoc) &&
         Objects.equals(this.clientPermissions, authMethod.clientPermissions) &&
         Objects.equals(this.creationDate, authMethod.creationDate) &&
+        Objects.equals(this.description, authMethod.description) &&
         Objects.equals(this.isApproved, authMethod.isApproved) &&
         Objects.equals(this.modificationDate, authMethod.modificationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, isApproved, modificationDate);
+    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, description, isApproved, modificationDate);
   }
 
   @Override
@@ -427,6 +455,7 @@ public class AuthMethod {
     sb.append("    authMethodRolesAssoc: ").append(toIndentedString(authMethodRolesAssoc)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("}");

@@ -72,6 +72,10 @@ public class UpdateAuthMethodCert {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DATA)
   private String certificateData;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -401,6 +405,29 @@ public class UpdateAuthMethodCert {
   }
 
 
+  public UpdateAuthMethodCert description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateAuthMethodCert forceSubClaims(Boolean forceSubClaims) {
     
     this.forceSubClaims = forceSubClaims;
@@ -666,6 +693,7 @@ public class UpdateAuthMethodCert {
         Objects.equals(this.boundOrganizationalUnits, updateAuthMethodCert.boundOrganizationalUnits) &&
         Objects.equals(this.boundUriSans, updateAuthMethodCert.boundUriSans) &&
         Objects.equals(this.certificateData, updateAuthMethodCert.certificateData) &&
+        Objects.equals(this.description, updateAuthMethodCert.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodCert.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodCert.gwBoundIps) &&
         Objects.equals(this.json, updateAuthMethodCert.json) &&
@@ -680,7 +708,7 @@ public class UpdateAuthMethodCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -697,6 +725,7 @@ public class UpdateAuthMethodCert {
     sb.append("    boundOrganizationalUnits: ").append(toIndentedString(boundOrganizationalUnits)).append("\n");
     sb.append("    boundUriSans: ").append(toIndentedString(boundUriSans)).append("\n");
     sb.append("    certificateData: ").append(toIndentedString(certificateData)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

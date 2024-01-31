@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
+**changeEvent** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) |  [optional]
 **customField** | **Map&lt;String, String&gt;** | For Password Management use, additional fields |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]

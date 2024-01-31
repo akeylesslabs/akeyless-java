@@ -69,6 +69,10 @@ public class UpdateLinkedTarget {
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
@@ -306,6 +310,29 @@ public class UpdateLinkedTarget {
   }
 
 
+  public UpdateLinkedTarget type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Specifies the hosts type, relevant only when working without parent target
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the hosts type, relevant only when working without parent target")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
   public UpdateLinkedTarget uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -348,12 +375,13 @@ public class UpdateLinkedTarget {
         Objects.equals(this.parentTargetName, updateLinkedTarget.parentTargetName) &&
         Objects.equals(this.rmHosts, updateLinkedTarget.rmHosts) &&
         Objects.equals(this.token, updateLinkedTarget.token) &&
+        Objects.equals(this.type, updateLinkedTarget.type) &&
         Objects.equals(this.uidToken, updateLinkedTarget.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addHosts, description, hosts, json, keepPrevVersion, name, newName, parentTargetName, rmHosts, token, uidToken);
+    return Objects.hash(addHosts, description, hosts, json, keepPrevVersion, name, newName, parentTargetName, rmHosts, token, type, uidToken);
   }
 
   @Override
@@ -370,6 +398,7 @@ public class UpdateLinkedTarget {
     sb.append("    parentTargetName: ").append(toIndentedString(parentTargetName)).append("\n");
     sb.append("    rmHosts: ").append(toIndentedString(rmHosts)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

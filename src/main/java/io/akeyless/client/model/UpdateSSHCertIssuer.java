@@ -33,9 +33,9 @@ import java.util.Map;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSSHCertIssuer {
-  public static final String SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER = "SshCertIssuerHostProvider";
-  @SerializedName(SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER)
-  private String sshCertIssuerHostProvider;
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  private String providerType;
 
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
@@ -128,26 +128,26 @@ public class UpdateSSHCertIssuer {
   public UpdateSSHCertIssuer() { 
   }
 
-  public UpdateSSHCertIssuer sshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
+  public UpdateSSHCertIssuer providerType(String providerType) {
     
-    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+    this.providerType = providerType;
     return this;
   }
 
    /**
-   * Get sshCertIssuerHostProvider
-   * @return sshCertIssuerHostProvider
+   * Get providerType
+   * @return providerType
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSshCertIssuerHostProvider() {
-    return sshCertIssuerHostProvider;
+  public String getProviderType() {
+    return providerType;
   }
 
 
-  public void setSshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
-    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+  public void setProviderType(String providerType) {
+    this.providerType = providerType;
   }
 
 
@@ -289,11 +289,11 @@ public class UpdateSSHCertIssuer {
   }
 
    /**
-   * Host provider type [explicit/target]
+   * Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret
    * @return hostProvider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host provider type [explicit/target]")
+  @ApiModelProperty(value = "Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret")
 
   public String getHostProvider() {
     return hostProvider;
@@ -698,7 +698,7 @@ public class UpdateSSHCertIssuer {
       return false;
     }
     UpdateSSHCertIssuer updateSSHCertIssuer = (UpdateSSHCertIssuer) o;
-    return Objects.equals(this.sshCertIssuerHostProvider, updateSSHCertIssuer.sshCertIssuerHostProvider) &&
+    return Objects.equals(this.providerType, updateSSHCertIssuer.providerType) &&
         Objects.equals(this.addTag, updateSSHCertIssuer.addTag) &&
         Objects.equals(this.allowedUsers, updateSSHCertIssuer.allowedUsers) &&
         Objects.equals(this.deleteProtection, updateSSHCertIssuer.deleteProtection) &&
@@ -725,14 +725,14 @@ public class UpdateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sshCertIssuerHostProvider, addTag, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
+    return Objects.hash(providerType, addTag, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, newName, principals, rmTag, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, token, ttl, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHCertIssuer {\n");
-    sb.append("    sshCertIssuerHostProvider: ").append(toIndentedString(sshCertIssuerHostProvider)).append("\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");

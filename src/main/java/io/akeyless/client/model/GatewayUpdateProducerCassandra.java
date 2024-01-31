@@ -72,6 +72,14 @@ public class GatewayUpdateProducerCassandra {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SSL = "ssl";
+  @SerializedName(SERIALIZED_NAME_SSL)
+  private Boolean ssl = false;
+
+  public static final String SERIALIZED_NAME_SSL_CERTIFICATE = "ssl-certificate";
+  @SerializedName(SERIALIZED_NAME_SSL_CERTIFICATE)
+  private String sslCertificate;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -325,6 +333,52 @@ public class GatewayUpdateProducerCassandra {
   }
 
 
+  public GatewayUpdateProducerCassandra ssl(Boolean ssl) {
+    
+    this.ssl = ssl;
+    return this;
+  }
+
+   /**
+   * Enable/Disable SSL [true/false]
+   * @return ssl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable SSL [true/false]")
+
+  public Boolean getSsl() {
+    return ssl;
+  }
+
+
+  public void setSsl(Boolean ssl) {
+    this.ssl = ssl;
+  }
+
+
+  public GatewayUpdateProducerCassandra sslCertificate(String sslCertificate) {
+    
+    this.sslCertificate = sslCertificate;
+    return this;
+  }
+
+   /**
+   * SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+   * @return sslCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)")
+
+  public String getSslCertificate() {
+    return sslCertificate;
+  }
+
+
+  public void setSslCertificate(String sslCertificate) {
+    this.sslCertificate = sslCertificate;
+  }
+
+
   public GatewayUpdateProducerCassandra tags(List<String> tags) {
     
     this.tags = tags;
@@ -467,6 +521,8 @@ public class GatewayUpdateProducerCassandra {
         Objects.equals(this.name, gatewayUpdateProducerCassandra.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerCassandra.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerCassandra.producerEncryptionKeyName) &&
+        Objects.equals(this.ssl, gatewayUpdateProducerCassandra.ssl) &&
+        Objects.equals(this.sslCertificate, gatewayUpdateProducerCassandra.sslCertificate) &&
         Objects.equals(this.tags, gatewayUpdateProducerCassandra.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerCassandra.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerCassandra.token) &&
@@ -476,7 +532,7 @@ public class GatewayUpdateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, json, name, newName, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, json, name, newName, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -493,6 +549,8 @@ public class GatewayUpdateProducerCassandra {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
+    sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

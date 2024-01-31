@@ -44,6 +44,10 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_API_KEY)
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_APP_ID = "app-id";
+  @SerializedName(SERIALIZED_NAME_APP_ID)
+  private String appId;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   private String autoRotate;
@@ -213,6 +217,29 @@ public class GatewayUpdateItem {
 
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
+  }
+
+
+  public GatewayUpdateItem appId(String appId) {
+    
+    this.appId = appId;
+    return this;
+  }
+
+   /**
+   * ApplicationId (used in azure)
+   * @return appId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ApplicationId (used in azure)")
+
+  public String getAppId() {
+    return appId;
+  }
+
+
+  public void setAppId(String appId) {
+    this.appId = appId;
   }
 
 
@@ -765,6 +792,7 @@ public class GatewayUpdateItem {
     return Objects.equals(this.addTag, gatewayUpdateItem.addTag) &&
         Objects.equals(this.apiId, gatewayUpdateItem.apiId) &&
         Objects.equals(this.apiKey, gatewayUpdateItem.apiKey) &&
+        Objects.equals(this.appId, gatewayUpdateItem.appId) &&
         Objects.equals(this.autoRotate, gatewayUpdateItem.autoRotate) &&
         Objects.equals(this.customPayload, gatewayUpdateItem.customPayload) &&
         Objects.equals(this.deleteProtection, gatewayUpdateItem.deleteProtection) &&
@@ -792,7 +820,7 @@ public class GatewayUpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, appId, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
   @Override
@@ -802,6 +830,7 @@ public class GatewayUpdateItem {
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");

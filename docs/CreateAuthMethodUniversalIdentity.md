@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **denyInheritance** | **Boolean** | Deny from root to create children |  [optional]
 **denyRotate** | **Boolean** | Deny from the token to rotate |  [optional]
+**description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

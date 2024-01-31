@@ -41,6 +41,14 @@ public class UpdateRole {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description = "default_comment";
 
+  public static final String SERIALIZED_NAME_EVENT_CENTER_ACCESS = "event-center-access";
+  @SerializedName(SERIALIZED_NAME_EVENT_CENTER_ACCESS)
+  private String eventCenterAccess;
+
+  public static final String SERIALIZED_NAME_EVENT_FORWARDER_ACCESS = "event-forwarder-access";
+  @SerializedName(SERIALIZED_NAME_EVENT_FORWARDER_ACCESS)
+  private String eventForwarderAccess;
+
   public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
   private String gwAnalyticsAccess;
@@ -146,6 +154,52 @@ public class UpdateRole {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public UpdateRole eventCenterAccess(String eventCenterAccess) {
+    
+    this.eventCenterAccess = eventCenterAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view Event Center. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported
+   * @return eventCenterAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported")
+
+  public String getEventCenterAccess() {
+    return eventCenterAccess;
+  }
+
+
+  public void setEventCenterAccess(String eventCenterAccess) {
+    this.eventCenterAccess = eventCenterAccess;
+  }
+
+
+  public UpdateRole eventForwarderAccess(String eventForwarderAccess) {
+    
+    this.eventForwarderAccess = eventForwarderAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to manage Event Forwarders. Currently only &#39;none&#39; and &#39;all&#39; values are supported.
+   * @return eventForwarderAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.")
+
+  public String getEventForwarderAccess() {
+    return eventForwarderAccess;
+  }
+
+
+  public void setEventForwarderAccess(String eventForwarderAccess) {
+    this.eventForwarderAccess = eventForwarderAccess;
   }
 
 
@@ -368,6 +422,8 @@ public class UpdateRole {
     return Objects.equals(this.analyticsAccess, updateRole.analyticsAccess) &&
         Objects.equals(this.auditAccess, updateRole.auditAccess) &&
         Objects.equals(this.description, updateRole.description) &&
+        Objects.equals(this.eventCenterAccess, updateRole.eventCenterAccess) &&
+        Objects.equals(this.eventForwarderAccess, updateRole.eventForwarderAccess) &&
         Objects.equals(this.gwAnalyticsAccess, updateRole.gwAnalyticsAccess) &&
         Objects.equals(this.json, updateRole.json) &&
         Objects.equals(this.name, updateRole.name) &&
@@ -381,7 +437,7 @@ public class UpdateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, description, gwAnalyticsAccess, json, name, newComment, newName, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, auditAccess, description, eventCenterAccess, eventForwarderAccess, gwAnalyticsAccess, json, name, newComment, newName, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -391,6 +447,8 @@ public class UpdateRole {
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eventCenterAccess: ").append(toIndentedString(eventCenterAccess)).append("\n");
+    sb.append("    eventForwarderAccess: ").append(toIndentedString(eventForwarderAccess)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

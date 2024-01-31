@@ -41,6 +41,14 @@ public class CertificateChainInfo {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
   private String certificateFormat;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_HAS_PRIVATE_KEY = "certificate_has_private_key";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_HAS_PRIVATE_KEY)
+  private Boolean certificateHasPrivateKey;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_ISSUER_GW_CLUSTER_URL = "certificate_issuer_gw_cluster_url";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUER_GW_CLUSTER_URL)
+  private String certificateIssuerGwClusterUrl;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_ISSUER_ITEM_ID = "certificate_issuer_item_id";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_ISSUER_ITEM_ID)
   private Long certificateIssuerItemId;
@@ -115,6 +123,52 @@ public class CertificateChainInfo {
 
   public void setCertificateFormat(String certificateFormat) {
     this.certificateFormat = certificateFormat;
+  }
+
+
+  public CertificateChainInfo certificateHasPrivateKey(Boolean certificateHasPrivateKey) {
+    
+    this.certificateHasPrivateKey = certificateHasPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get certificateHasPrivateKey
+   * @return certificateHasPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCertificateHasPrivateKey() {
+    return certificateHasPrivateKey;
+  }
+
+
+  public void setCertificateHasPrivateKey(Boolean certificateHasPrivateKey) {
+    this.certificateHasPrivateKey = certificateHasPrivateKey;
+  }
+
+
+  public CertificateChainInfo certificateIssuerGwClusterUrl(String certificateIssuerGwClusterUrl) {
+    
+    this.certificateIssuerGwClusterUrl = certificateIssuerGwClusterUrl;
+    return this;
+  }
+
+   /**
+   * Get certificateIssuerGwClusterUrl
+   * @return certificateIssuerGwClusterUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateIssuerGwClusterUrl() {
+    return certificateIssuerGwClusterUrl;
+  }
+
+
+  public void setCertificateIssuerGwClusterUrl(String certificateIssuerGwClusterUrl) {
+    this.certificateIssuerGwClusterUrl = certificateIssuerGwClusterUrl;
   }
 
 
@@ -252,6 +306,8 @@ public class CertificateChainInfo {
     CertificateChainInfo certificateChainInfo = (CertificateChainInfo) o;
     return Objects.equals(this.certificateChain, certificateChainInfo.certificateChain) &&
         Objects.equals(this.certificateFormat, certificateChainInfo.certificateFormat) &&
+        Objects.equals(this.certificateHasPrivateKey, certificateChainInfo.certificateHasPrivateKey) &&
+        Objects.equals(this.certificateIssuerGwClusterUrl, certificateChainInfo.certificateIssuerGwClusterUrl) &&
         Objects.equals(this.certificateIssuerItemId, certificateChainInfo.certificateIssuerItemId) &&
         Objects.equals(this.certificateIssuerName, certificateChainInfo.certificateIssuerName) &&
         Objects.equals(this.certificatePem, certificateChainInfo.certificatePem) &&
@@ -261,7 +317,7 @@ public class CertificateChainInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateChain, certificateFormat, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, expirationEvents);
+    return Objects.hash(certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, expirationEvents);
   }
 
   @Override
@@ -270,6 +326,8 @@ public class CertificateChainInfo {
     sb.append("class CertificateChainInfo {\n");
     sb.append("    certificateChain: ").append(toIndentedString(certificateChain)).append("\n");
     sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
+    sb.append("    certificateHasPrivateKey: ").append(toIndentedString(certificateHasPrivateKey)).append("\n");
+    sb.append("    certificateIssuerGwClusterUrl: ").append(toIndentedString(certificateIssuerGwClusterUrl)).append("\n");
     sb.append("    certificateIssuerItemId: ").append(toIndentedString(certificateIssuerItemId)).append("\n");
     sb.append("    certificateIssuerName: ").append(toIndentedString(certificateIssuerName)).append("\n");
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");

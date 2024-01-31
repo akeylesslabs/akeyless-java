@@ -40,6 +40,10 @@ public class CreateAuthMethodEmail {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -126,6 +130,29 @@ public class CreateAuthMethodEmail {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public CreateAuthMethodEmail description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -332,6 +359,7 @@ public class CreateAuthMethodEmail {
     CreateAuthMethodEmail createAuthMethodEmail = (CreateAuthMethodEmail) o;
     return Objects.equals(this.accessExpires, createAuthMethodEmail.accessExpires) &&
         Objects.equals(this.boundIps, createAuthMethodEmail.boundIps) &&
+        Objects.equals(this.description, createAuthMethodEmail.description) &&
         Objects.equals(this.email, createAuthMethodEmail.email) &&
         Objects.equals(this.forceSubClaims, createAuthMethodEmail.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodEmail.gwBoundIps) &&
@@ -344,7 +372,7 @@ public class CreateAuthMethodEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, email, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, description, email, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
   }
 
   @Override
@@ -353,6 +381,7 @@ public class CreateAuthMethodEmail {
     sb.append("class CreateAuthMethodEmail {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

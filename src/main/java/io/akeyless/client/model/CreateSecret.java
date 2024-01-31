@@ -37,6 +37,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_CHANGE_EVENT = "change-event";
+  @SerializedName(SERIALIZED_NAME_CHANGE_EVENT)
+  private String changeEvent;
+
   public static final String SERIALIZED_NAME_CUSTOM_FIELD = "custom-field";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD)
   private Map<String, String> customField = null;
@@ -160,6 +164,29 @@ public class CreateSecret {
 
   public void setAccessibility(String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public CreateSecret changeEvent(String changeEvent) {
+    
+    this.changeEvent = changeEvent;
+    return this;
+  }
+
+   /**
+   * Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
+   * @return changeEvent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)")
+
+  public String getChangeEvent() {
+    return changeEvent;
+  }
+
+
+  public void setChangeEvent(String changeEvent) {
+    this.changeEvent = changeEvent;
   }
 
 
@@ -780,6 +807,7 @@ public class CreateSecret {
     }
     CreateSecret createSecret = (CreateSecret) o;
     return Objects.equals(this.accessibility, createSecret.accessibility) &&
+        Objects.equals(this.changeEvent, createSecret.changeEvent) &&
         Objects.equals(this.customField, createSecret.customField) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
         Objects.equals(this.description, createSecret.description) &&
@@ -809,7 +837,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, customField, deleteProtection, description, injectUrl, json, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
+    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, injectUrl, json, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
   }
 
   @Override
@@ -817,6 +845,7 @@ public class CreateSecret {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecret {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CertificateVersionInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,6 +38,10 @@ public class ItemVersion {
   public static final String SERIALIZED_NAME_ACCESS_DATE_DISPLAY = "access_date_display";
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE_DISPLAY)
   private String accessDateDisplay;
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_VERSION_INFO = "certificate_version_info";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_VERSION_INFO)
+  private CertificateVersionInfo certificateVersionInfo;
 
   public static final String SERIALIZED_NAME_CREATION_DATE = "creation_date";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
@@ -116,6 +121,29 @@ public class ItemVersion {
 
   public void setAccessDateDisplay(String accessDateDisplay) {
     this.accessDateDisplay = accessDateDisplay;
+  }
+
+
+  public ItemVersion certificateVersionInfo(CertificateVersionInfo certificateVersionInfo) {
+    
+    this.certificateVersionInfo = certificateVersionInfo;
+    return this;
+  }
+
+   /**
+   * Get certificateVersionInfo
+   * @return certificateVersionInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CertificateVersionInfo getCertificateVersionInfo() {
+    return certificateVersionInfo;
+  }
+
+
+  public void setCertificateVersionInfo(CertificateVersionInfo certificateVersionInfo) {
+    this.certificateVersionInfo = certificateVersionInfo;
   }
 
 
@@ -314,6 +342,7 @@ public class ItemVersion {
     ItemVersion itemVersion = (ItemVersion) o;
     return Objects.equals(this.accessDate, itemVersion.accessDate) &&
         Objects.equals(this.accessDateDisplay, itemVersion.accessDateDisplay) &&
+        Objects.equals(this.certificateVersionInfo, itemVersion.certificateVersionInfo) &&
         Objects.equals(this.creationDate, itemVersion.creationDate) &&
         Objects.equals(this.customerFragmentId, itemVersion.customerFragmentId) &&
         Objects.equals(this.deletionDate, itemVersion.deletionDate) &&
@@ -326,7 +355,7 @@ public class ItemVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, creationDate, customerFragmentId, deletionDate, itemVersionState, modificationDate, protectionKeyName, version, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, certificateVersionInfo, creationDate, customerFragmentId, deletionDate, itemVersionState, modificationDate, protectionKeyName, version, withCustomerFragment);
   }
 
   @Override
@@ -335,6 +364,7 @@ public class ItemVersion {
     sb.append("class ItemVersion {\n");
     sb.append("    accessDate: ").append(toIndentedString(accessDate)).append("\n");
     sb.append("    accessDateDisplay: ").append(toIndentedString(accessDateDisplay)).append("\n");
+    sb.append("    certificateVersionInfo: ").append(toIndentedString(certificateVersionInfo)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    customerFragmentId: ").append(toIndentedString(customerFragmentId)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");

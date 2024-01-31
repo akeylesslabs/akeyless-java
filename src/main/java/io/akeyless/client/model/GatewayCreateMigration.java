@@ -252,6 +252,10 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_SI_TARGET_NAME)
   private String siTargetName;
 
+  public static final String SERIALIZED_NAME_SI_USER_GROUPS = "si-user-groups";
+  @SerializedName(SERIALIZED_NAME_SI_USER_GROUPS)
+  private String siUserGroups;
+
   public static final String SERIALIZED_NAME_SI_USERS_IGNORE = "si-users-ignore";
   @SerializedName(SERIALIZED_NAME_SI_USERS_IGNORE)
   private String siUsersIgnore;
@@ -1592,6 +1596,29 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration siUserGroups(String siUserGroups) {
+    
+    this.siUserGroups = siUserGroups;
+    return this;
+  }
+
+   /**
+   * Comma-separated list of groups to migrate users from. If empty, all users from all groups will be migrated (Relevant only for Server Inventory migration)
+   * @return siUserGroups
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comma-separated list of groups to migrate users from. If empty, all users from all groups will be migrated (Relevant only for Server Inventory migration)")
+
+  public String getSiUserGroups() {
+    return siUserGroups;
+  }
+
+
+  public void setSiUserGroups(String siUserGroups) {
+    this.siUserGroups = siUserGroups;
+  }
+
+
   public GatewayCreateMigration siUsersIgnore(String siUsersIgnore) {
     
     this.siUsersIgnore = siUsersIgnore;
@@ -1794,6 +1821,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.siRotationInterval, gatewayCreateMigration.siRotationInterval) &&
         Objects.equals(this.siSraEnableRdp, gatewayCreateMigration.siSraEnableRdp) &&
         Objects.equals(this.siTargetName, gatewayCreateMigration.siTargetName) &&
+        Objects.equals(this.siUserGroups, gatewayCreateMigration.siUserGroups) &&
         Objects.equals(this.siUsersIgnore, gatewayCreateMigration.siUsersIgnore) &&
         Objects.equals(this.siUsersPathTemplate, gatewayCreateMigration.siUsersPathTemplate) &&
         Objects.equals(this.targetLocation, gatewayCreateMigration.targetLocation) &&
@@ -1804,7 +1832,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
   }
 
   @Override
@@ -1866,6 +1894,7 @@ public class GatewayCreateMigration {
     sb.append("    siRotationInterval: ").append(toIndentedString(siRotationInterval)).append("\n");
     sb.append("    siSraEnableRdp: ").append(toIndentedString(siSraEnableRdp)).append("\n");
     sb.append("    siTargetName: ").append(toIndentedString(siTargetName)).append("\n");
+    sb.append("    siUserGroups: ").append(toIndentedString(siUserGroups)).append("\n");
     sb.append("    siUsersIgnore: ").append(toIndentedString(siUsersIgnore)).append("\n");
     sb.append("    siUsersPathTemplate: ").append(toIndentedString(siUsersPathTemplate)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");

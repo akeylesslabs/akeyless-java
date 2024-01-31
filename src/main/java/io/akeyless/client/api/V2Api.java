@@ -425,9 +425,13 @@ import io.akeyless.client.model.ListTargets;
 import io.akeyless.client.model.ListTargetsOutput;
 import io.akeyless.client.model.MigrationStatusReplyObj;
 import io.akeyless.client.model.MoveObjects;
+import io.akeyless.client.model.ProvisionCertificate;
+import io.akeyless.client.model.ProvisionCertificateOutput;
 import io.akeyless.client.model.RawCreds;
 import io.akeyless.client.model.RefreshKey;
 import io.akeyless.client.model.RefreshKeyOutput;
+import io.akeyless.client.model.RenewCertificate;
+import io.akeyless.client.model.RenewCertificateOutput;
 import io.akeyless.client.model.RequestAccess;
 import io.akeyless.client.model.RequestAccessOutput;
 import io.akeyless.client.model.ReverseRBAC;
@@ -436,6 +440,7 @@ import io.akeyless.client.model.Role;
 import io.akeyless.client.model.RoleAssociationDetails;
 import io.akeyless.client.model.RollbackSecret;
 import io.akeyless.client.model.RollbackSecretOutput;
+import io.akeyless.client.model.RotateKey;
 import io.akeyless.client.model.RotateKeyOutput;
 import io.akeyless.client.model.RotateOidcClientOutput;
 import io.akeyless.client.model.RotateOidcClientSecret;
@@ -28698,6 +28703,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for provisionCertificate
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> provisionCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call provisionCertificateCall(ProvisionCertificate body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/provision-certificate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call provisionCertificateValidateBeforeCall(ProvisionCertificate body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling provisionCertificate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = provisionCertificateCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ProvisionCertificateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> provisionCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ProvisionCertificateOutput provisionCertificate(ProvisionCertificate body) throws ApiException {
+        ApiResponse<ProvisionCertificateOutput> localVarResp = provisionCertificateWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ProvisionCertificateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> provisionCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ProvisionCertificateOutput> provisionCertificateWithHttpInfo(ProvisionCertificate body) throws ApiException {
+        okhttp3.Call localVarCall = provisionCertificateValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<ProvisionCertificateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> provisionCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call provisionCertificateAsync(ProvisionCertificate body, final ApiCallback<ProvisionCertificateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = provisionCertificateValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<ProvisionCertificateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for rawCreds
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -28951,6 +29087,137 @@ public class V2Api {
 
         okhttp3.Call localVarCall = refreshKeyValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<RefreshKeyOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for renewCertificate
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> renewCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call renewCertificateCall(RenewCertificate body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/renew-certificate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call renewCertificateValidateBeforeCall(RenewCertificate body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling renewCertificate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = renewCertificateCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return RenewCertificateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> renewCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RenewCertificateOutput renewCertificate(RenewCertificate body) throws ApiException {
+        ApiResponse<RenewCertificateOutput> localVarResp = renewCertificateWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;RenewCertificateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> renewCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RenewCertificateOutput> renewCertificateWithHttpInfo(RenewCertificate body) throws ApiException {
+        okhttp3.Call localVarCall = renewCertificateValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<RenewCertificateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> renewCertificateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call renewCertificateAsync(RenewCertificate body, final ApiCallback<RenewCertificateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = renewCertificateValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<RenewCertificateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -29482,7 +29749,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rotateKeyCall(UpdateRotationSettings body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call rotateKeyCall(RotateKey body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -29529,7 +29796,7 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call rotateKeyValidateBeforeCall(UpdateRotationSettings body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call rotateKeyValidateBeforeCall(RotateKey body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -29555,7 +29822,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public RotateKeyOutput rotateKey(UpdateRotationSettings body) throws ApiException {
+    public RotateKeyOutput rotateKey(RotateKey body) throws ApiException {
         ApiResponse<RotateKeyOutput> localVarResp = rotateKeyWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -29573,7 +29840,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RotateKeyOutput> rotateKeyWithHttpInfo(UpdateRotationSettings body) throws ApiException {
+    public ApiResponse<RotateKeyOutput> rotateKeyWithHttpInfo(RotateKey body) throws ApiException {
         okhttp3.Call localVarCall = rotateKeyValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<RotateKeyOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -29593,7 +29860,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rotateKeyAsync(UpdateRotationSettings body, final ApiCallback<RotateKeyOutput> _callback) throws ApiException {
+    public okhttp3.Call rotateKeyAsync(RotateKey body, final ApiCallback<RotateKeyOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = rotateKeyValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<RotateKeyOutput>(){}.getType();
@@ -37720,6 +37987,7 @@ public class V2Api {
     }
     /**
      * Build call for updateRotationSettings
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -37730,7 +37998,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRotationSettingsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRotationSettingsCall(UpdateRotationSettings body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -37745,10 +38013,10 @@ public class V2Api {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/update-rotation-settingsrotate-key";
+        String localVarPath = "/update-rotation-settings";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -37765,7 +38033,7 @@ public class V2Api {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -37777,10 +38045,15 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRotationSettingsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateRotationSettingsValidateBeforeCall(UpdateRotationSettings body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateRotationSettings(Async)");
+        }
         
 
-        okhttp3.Call localVarCall = updateRotationSettingsCall(_callback);
+        okhttp3.Call localVarCall = updateRotationSettingsCall(body, _callback);
         return localVarCall;
 
     }
@@ -37788,6 +38061,7 @@ public class V2Api {
     /**
      * 
      * 
+     * @param body  (required)
      * @return RotateKeyOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -37797,14 +38071,15 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public RotateKeyOutput updateRotationSettings() throws ApiException {
-        ApiResponse<RotateKeyOutput> localVarResp = updateRotationSettingsWithHttpInfo();
+    public RotateKeyOutput updateRotationSettings(UpdateRotationSettings body) throws ApiException {
+        ApiResponse<RotateKeyOutput> localVarResp = updateRotationSettingsWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
+     * @param body  (required)
      * @return ApiResponse&lt;RotateKeyOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -37814,8 +38089,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RotateKeyOutput> updateRotationSettingsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = updateRotationSettingsValidateBeforeCall(null);
+    public ApiResponse<RotateKeyOutput> updateRotationSettingsWithHttpInfo(UpdateRotationSettings body) throws ApiException {
+        okhttp3.Call localVarCall = updateRotationSettingsValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<RotateKeyOutput>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -37823,6 +38098,7 @@ public class V2Api {
     /**
      *  (asynchronously)
      * 
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -37833,9 +38109,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRotationSettingsAsync(final ApiCallback<RotateKeyOutput> _callback) throws ApiException {
+    public okhttp3.Call updateRotationSettingsAsync(UpdateRotationSettings body, final ApiCallback<RotateKeyOutput> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRotationSettingsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = updateRotationSettingsValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<RotateKeyOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

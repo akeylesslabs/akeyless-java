@@ -56,6 +56,10 @@ public class UpdateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
   private String clientSecret;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -262,6 +266,29 @@ public class UpdateAuthMethodOIDC {
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+
+  public UpdateAuthMethodOIDC description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -603,6 +630,7 @@ public class UpdateAuthMethodOIDC {
         Objects.equals(this.boundIps, updateAuthMethodOIDC.boundIps) &&
         Objects.equals(this.clientId, updateAuthMethodOIDC.clientId) &&
         Objects.equals(this.clientSecret, updateAuthMethodOIDC.clientSecret) &&
+        Objects.equals(this.description, updateAuthMethodOIDC.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOIDC.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodOIDC.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodOIDC.issuer) &&
@@ -620,7 +648,7 @@ public class UpdateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -633,6 +661,7 @@ public class UpdateAuthMethodOIDC {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");

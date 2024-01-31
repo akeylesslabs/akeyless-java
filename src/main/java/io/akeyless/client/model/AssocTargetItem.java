@@ -32,6 +32,14 @@ import java.util.List;
 @ApiModel(description = "assocTargetItem is a command that creates an association between target and item.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AssocTargetItem {
+  public static final String SERIALIZED_NAME_CERTIFICATE_PATH = "certificate-path";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_PATH)
+  private String certificatePath;
+
+  public static final String SERIALIZED_NAME_CHAIN_PATH = "chain-path";
+  @SerializedName(SERIALIZED_NAME_CHAIN_PATH)
+  private String chainPath;
+
   public static final String SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION = "disable-previous-key-version";
   @SerializedName(SERIALIZED_NAME_DISABLE_PREVIOUS_KEY_VERSION)
   private Boolean disablePreviousKeyVersion = false;
@@ -64,6 +72,10 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRIVATE_KEY_PATH = "private-key-path";
+  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PATH)
+  private String privateKeyPath;
+
   public static final String SERIALIZED_NAME_PROJECT_ID = "project-id";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private String projectId;
@@ -75,6 +87,10 @@ public class AssocTargetItem {
   public static final String SERIALIZED_NAME_REGIONS = "regions";
   @SerializedName(SERIALIZED_NAME_REGIONS)
   private List<String> regions = null;
+
+  public static final String SERIALIZED_NAME_SRA_ASSOCIATION = "sra-association";
+  @SerializedName(SERIALIZED_NAME_SRA_ASSOCIATION)
+  private Boolean sraAssociation = false;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -98,6 +114,52 @@ public class AssocTargetItem {
 
   public AssocTargetItem() { 
   }
+
+  public AssocTargetItem certificatePath(String certificatePath) {
+    
+    this.certificatePath = certificatePath;
+    return this;
+  }
+
+   /**
+   * A path on the target to store the certificate pem file (relevant only for certificate provisioning)
+   * @return certificatePath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A path on the target to store the certificate pem file (relevant only for certificate provisioning)")
+
+  public String getCertificatePath() {
+    return certificatePath;
+  }
+
+
+  public void setCertificatePath(String certificatePath) {
+    this.certificatePath = certificatePath;
+  }
+
+
+  public AssocTargetItem chainPath(String chainPath) {
+    
+    this.chainPath = chainPath;
+    return this;
+  }
+
+   /**
+   * A path on the target to store the full chain pem file (relevant only for certificate provisioning)
+   * @return chainPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A path on the target to store the full chain pem file (relevant only for certificate provisioning)")
+
+  public String getChainPath() {
+    return chainPath;
+  }
+
+
+  public void setChainPath(String chainPath) {
+    this.chainPath = chainPath;
+  }
+
 
   public AssocTargetItem disablePreviousKeyVersion(Boolean disablePreviousKeyVersion) {
     
@@ -291,6 +353,29 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem privateKeyPath(String privateKeyPath) {
+    
+    this.privateKeyPath = privateKeyPath;
+    return this;
+  }
+
+   /**
+   * A path on the target to store the private key (relevant only for certificate provisioning)
+   * @return privateKeyPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A path on the target to store the private key (relevant only for certificate provisioning)")
+
+  public String getPrivateKeyPath() {
+    return privateKeyPath;
+  }
+
+
+  public void setPrivateKeyPath(String privateKeyPath) {
+    this.privateKeyPath = privateKeyPath;
+  }
+
+
   public AssocTargetItem projectId(String projectId) {
     
     this.projectId = projectId;
@@ -365,6 +450,29 @@ public class AssocTargetItem {
 
   public void setRegions(List<String> regions) {
     this.regions = regions;
+  }
+
+
+  public AssocTargetItem sraAssociation(Boolean sraAssociation) {
+    
+    this.sraAssociation = sraAssociation;
+    return this;
+  }
+
+   /**
+   * Is the target to associate is for sra, relevant only for linked target association for ldap rotated secret
+   * @return sraAssociation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Is the target to associate is for sra, relevant only for linked target association for ldap rotated secret")
+
+  public Boolean getSraAssociation() {
+    return sraAssociation;
+  }
+
+
+  public void setSraAssociation(Boolean sraAssociation) {
+    this.sraAssociation = sraAssociation;
   }
 
 
@@ -492,7 +600,9 @@ public class AssocTargetItem {
       return false;
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
-    return Objects.equals(this.disablePreviousKeyVersion, assocTargetItem.disablePreviousKeyVersion) &&
+    return Objects.equals(this.certificatePath, assocTargetItem.certificatePath) &&
+        Objects.equals(this.chainPath, assocTargetItem.chainPath) &&
+        Objects.equals(this.disablePreviousKeyVersion, assocTargetItem.disablePreviousKeyVersion) &&
         Objects.equals(this.json, assocTargetItem.json) &&
         Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
         Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
@@ -500,9 +610,11 @@ public class AssocTargetItem {
         Objects.equals(this.locationId, assocTargetItem.locationId) &&
         Objects.equals(this.multiRegion, assocTargetItem.multiRegion) &&
         Objects.equals(this.name, assocTargetItem.name) &&
+        Objects.equals(this.privateKeyPath, assocTargetItem.privateKeyPath) &&
         Objects.equals(this.projectId, assocTargetItem.projectId) &&
         Objects.equals(this.purpose, assocTargetItem.purpose) &&
         Objects.equals(this.regions, assocTargetItem.regions) &&
+        Objects.equals(this.sraAssociation, assocTargetItem.sraAssociation) &&
         Objects.equals(this.targetName, assocTargetItem.targetName) &&
         Objects.equals(this.tenantSecretType, assocTargetItem.tenantSecretType) &&
         Objects.equals(this.token, assocTargetItem.token) &&
@@ -512,13 +624,15 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, projectId, purpose, regions, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(certificatePath, chainPath, disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, privateKeyPath, projectId, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
+    sb.append("    certificatePath: ").append(toIndentedString(certificatePath)).append("\n");
+    sb.append("    chainPath: ").append(toIndentedString(chainPath)).append("\n");
     sb.append("    disablePreviousKeyVersion: ").append(toIndentedString(disablePreviousKeyVersion)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
@@ -527,9 +641,11 @@ public class AssocTargetItem {
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    privateKeyPath: ").append(toIndentedString(privateKeyPath)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
+    sb.append("    sraAssociation: ").append(toIndentedString(sraAssociation)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    tenantSecretType: ").append(toIndentedString(tenantSecretType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

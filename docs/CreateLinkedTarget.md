@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **String** | Target name | 
 **parentTargetName** | **String** | The parent Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
+**type** | **String** | Specifies the hosts type, relevant only when working without parent target |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 
 

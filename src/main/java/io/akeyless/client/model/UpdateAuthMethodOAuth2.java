@@ -48,6 +48,10 @@ public class UpdateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -212,6 +216,29 @@ public class UpdateAuthMethodOAuth2 {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public UpdateAuthMethodOAuth2 description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -566,6 +593,7 @@ public class UpdateAuthMethodOAuth2 {
         Objects.equals(this.audience, updateAuthMethodOAuth2.audience) &&
         Objects.equals(this.boundClientIds, updateAuthMethodOAuth2.boundClientIds) &&
         Objects.equals(this.boundIps, updateAuthMethodOAuth2.boundIps) &&
+        Objects.equals(this.description, updateAuthMethodOAuth2.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOAuth2.forceSubClaims) &&
         Objects.equals(this.gatewayUrl, updateAuthMethodOAuth2.gatewayUrl) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodOAuth2.gwBoundIps) &&
@@ -584,7 +612,7 @@ public class UpdateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, newName, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, newName, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -595,6 +623,7 @@ public class UpdateAuthMethodOAuth2 {
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    boundClientIds: ").append(toIndentedString(boundClientIds)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,10 @@ public class ServerInventoryPayload {
   public static final String SERIALIZED_NAME_SERVER_TARGETS_PATH_TEMPLATE = "server_targets_path_template";
   @SerializedName(SERIALIZED_NAME_SERVER_TARGETS_PATH_TEMPLATE)
   private String serverTargetsPathTemplate;
+
+  public static final String SERIALIZED_NAME_USER_GROUPS = "user_groups";
+  @SerializedName(SERIALIZED_NAME_USER_GROUPS)
+  private List<String> userGroups = null;
 
   public static final String SERIALIZED_NAME_USERS_IGNORE_LIST = "users_ignore_list";
   @SerializedName(SERIALIZED_NAME_USERS_IGNORE_LIST)
@@ -205,6 +210,37 @@ public class ServerInventoryPayload {
   }
 
 
+  public ServerInventoryPayload userGroups(List<String> userGroups) {
+    
+    this.userGroups = userGroups;
+    return this;
+  }
+
+  public ServerInventoryPayload addUserGroupsItem(String userGroupsItem) {
+    if (this.userGroups == null) {
+      this.userGroups = new ArrayList<String>();
+    }
+    this.userGroups.add(userGroupsItem);
+    return this;
+  }
+
+   /**
+   * Get userGroups
+   * @return userGroups
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getUserGroups() {
+    return userGroups;
+  }
+
+
+  public void setUserGroups(List<String> userGroups) {
+    this.userGroups = userGroups;
+  }
+
+
   public ServerInventoryPayload usersIgnoreList(Map<String, Boolean> usersIgnoreList) {
     
     this.usersIgnoreList = usersIgnoreList;
@@ -274,13 +310,14 @@ public class ServerInventoryPayload {
         Objects.equals(this.enableRdpSra, serverInventoryPayload.enableRdpSra) &&
         Objects.equals(this.migrationTargetId, serverInventoryPayload.migrationTargetId) &&
         Objects.equals(this.serverTargetsPathTemplate, serverInventoryPayload.serverTargetsPathTemplate) &&
+        Objects.equals(this.userGroups, serverInventoryPayload.userGroups) &&
         Objects.equals(this.usersIgnoreList, serverInventoryPayload.usersIgnoreList) &&
         Objects.equals(this.usersRotatedSecretsPathTemplate, serverInventoryPayload.usersRotatedSecretsPathTemplate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, enableRdpSra, migrationTargetId, serverTargetsPathTemplate, usersIgnoreList, usersRotatedSecretsPathTemplate);
+    return Objects.hash(autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, enableRdpSra, migrationTargetId, serverTargetsPathTemplate, userGroups, usersIgnoreList, usersRotatedSecretsPathTemplate);
   }
 
   @Override
@@ -293,6 +330,7 @@ public class ServerInventoryPayload {
     sb.append("    enableRdpSra: ").append(toIndentedString(enableRdpSra)).append("\n");
     sb.append("    migrationTargetId: ").append(toIndentedString(migrationTargetId)).append("\n");
     sb.append("    serverTargetsPathTemplate: ").append(toIndentedString(serverTargetsPathTemplate)).append("\n");
+    sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
     sb.append("    usersIgnoreList: ").append(toIndentedString(usersIgnoreList)).append("\n");
     sb.append("    usersRotatedSecretsPathTemplate: ").append(toIndentedString(usersRotatedSecretsPathTemplate)).append("\n");
     sb.append("}");

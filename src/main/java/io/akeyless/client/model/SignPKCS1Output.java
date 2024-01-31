@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * SignPKCS1Output
@@ -33,22 +31,14 @@ import java.util.List;
 public class SignPKCS1Output {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
-  private List<Integer> result = null;
+  private String result;
 
   public SignPKCS1Output() { 
   }
 
-  public SignPKCS1Output result(List<Integer> result) {
+  public SignPKCS1Output result(String result) {
     
     this.result = result;
-    return this;
-  }
-
-  public SignPKCS1Output addResultItem(Integer resultItem) {
-    if (this.result == null) {
-      this.result = new ArrayList<Integer>();
-    }
-    this.result.add(resultItem);
     return this;
   }
 
@@ -59,12 +49,12 @@ public class SignPKCS1Output {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Integer> getResult() {
+  public String getResult() {
     return result;
   }
 
 
-  public void setResult(List<Integer> result) {
+  public void setResult(String result) {
     this.result = result;
   }
 

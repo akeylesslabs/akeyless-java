@@ -6258,6 +6258,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /provision-certificate:
+    post:
+      operationId: provisionCertificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/provisionCertificate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionCertificateOutput'
+          description: provisionCertificateResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /raw-creds:
     post:
       operationId: rawCreds
@@ -6303,6 +6332,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/refreshKeyOutput'
           description: refreshKeyResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /renew-certificate:
+    post:
+      operationId: RenewCertificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RenewCertificate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenewCertificateOutput'
+          description: renewCertificateResponse wraps response body.
         default:
           content:
             application/json:
@@ -6431,7 +6489,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/updateRotationSettings'
+              $ref: '#/components/schemas/rotateKey'
         required: true
       responses:
         "200":
@@ -6696,7 +6754,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/signPKCS1Output'
+                $ref: '#/components/schemas/SignPKCS1Output'
           description: signPKCS1Response wraps response body.
         default:
           content:
@@ -8219,9 +8277,15 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /update-rotation-settingsrotate-key:
+  /update-rotation-settings:
     post:
       operationId: updateRotationSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateRotationSettings'
+        required: true
       responses:
         "200":
           content:
@@ -8239,6 +8303,8 @@ paths:
             field.
       tags:
       - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
       x-accepts: application/json
   /update-salesforce-target:
     post:
@@ -10344,6 +10410,12 @@ components:
           schema:
             $ref: '#/components/schemas/moveObjectsOutput'
       description: moveObjectsResponse wraps response body.
+    provisionCertificateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProvisionCertificateOutput'
+      description: provisionCertificateResponse wraps response body.
     rawCredsResponse:
       content:
         application/json:
@@ -10356,6 +10428,12 @@ components:
           schema:
             $ref: '#/components/schemas/refreshKeyOutput'
       description: refreshKeyResponse wraps response body.
+    renewCertificateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RenewCertificateOutput'
+      description: renewCertificateResponse wraps response body.
     requestAccessResponse:
       content:
         application/json:
@@ -10444,7 +10522,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/signPKCS1Output'
+            $ref: '#/components/schemas/SignPKCS1Output'
       description: signPKCS1Response wraps response body.
     signPKICertWithClassicKeyResponse:
       content:
@@ -11550,6 +11628,9 @@ components:
               migration_target_id: 9
               users_rotated_secrets_path_template: users_rotated_secrets_path_template
               auto_rotate_interval_in_days: 5
+              user_groups:
+              - user_groups
+              - user_groups
           - general:
               prefix: prefix
               name: name
@@ -11569,6 +11650,9 @@ components:
               migration_target_id: 9
               users_rotated_secrets_path_template: users_rotated_secrets_path_template
               auto_rotate_interval_in_days: 5
+              user_groups:
+              - user_groups
+              - user_groups
           azure_kv_migrations:
           - general:
               prefix: prefix
@@ -12226,7 +12310,6 @@ components:
       x-go-package: crypto/x509/pkix
     AuthMethod:
       example:
-        account_id: account_id
         auth_method_roles_assoc:
         - is_sub_claims_case_sensitive: true
           role_name: role_name
@@ -12314,10 +12397,14 @@ components:
             key:
             - auth_method_sub_claims
             - auth_method_sub_claims
+        access_date: 2000-01-23T04:56:07.000+00:00
+        description: description
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        auth_method_access_id: auth_method_access_id
+        account_id: account_id
         client_permissions:
         - client_permissions
         - client_permissions
-        access_date: 2000-01-23T04:56:07.000+00:00
         modification_date: 2000-01-23T04:56:07.000+00:00
         is_approved: true
         associated_gw_ids:
@@ -12541,10 +12628,8 @@ components:
             enc_email_with_shared_key: enc_email_with_shared_key
             alg: alg
             email: email
-        creation_date: 2000-01-23T04:56:07.000+00:00
         access_date_display: access_date_display
         auth_method_name: auth_method_name
-        auth_method_access_id: auth_method_access_id
       properties:
         access_date:
           format: date-time
@@ -12584,6 +12669,9 @@ components:
           format: date-time
           type: string
           x-go-name: CreationDate
+        description:
+          type: string
+          x-go-name: Description
         is_approved:
           type: boolean
           x-go-name: IsApproved
@@ -13435,6 +13523,8 @@ components:
         certificate_issuer_item_id: 1
         certificate_pem: certificate_pem
         certificate_format: certificate_format
+        certificate_has_private_key: true
+        certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
         certificate_chain:
         - email_addresses:
           - email_addresses
@@ -13644,6 +13734,12 @@ components:
         certificate_format:
           type: string
           x-go-name: CertificateFormat
+        certificate_has_private_key:
+          type: boolean
+          x-go-name: CertificateHasPrivateKey
+        certificate_issuer_gw_cluster_url:
+          type: string
+          x-go-name: CertificateIssuerGwClusterUrl
         certificate_issuer_item_id:
           format: int64
           type: integer
@@ -14001,6 +14097,25 @@ components:
           x-go-name: TTL
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    CertificateVersionInfo:
+      example:
+        not_after: 2000-01-23T04:56:07.000+00:00
+        not_before: 2000-01-23T04:56:07.000+00:00
+        status: status
+      properties:
+        not_after:
+          format: date-time
+          type: string
+          x-go-name: NotAfter
+        not_before:
+          format: date-time
+          type: string
+          x-go-name: NotBefore
+        status:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     CfInfo:
       example:
         cf_name: cf_name
@@ -14221,6 +14336,11 @@ components:
       title: ClassicKeyType defines types of keys that can be managed by ClassicKey
         supported by AKEYLESS.
       type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ClientPermissions:
+      items:
+        type: string
+      type: array
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ClusterApiType:
       description: ClusterApiType defines types of API access to cluster
@@ -14443,7 +14563,7 @@ components:
           type: string
           x-go-name: SSHLocation
         ssh-extra-args:
-          description: The Use to add offical SSH arguments (except -i)
+          description: Additional SSH arguments (except -i)
           type: string
           x-go-name: SSHExtraArgs
         ssh-legacy-signing-alg:
@@ -15286,6 +15406,9 @@ components:
             hosts:
             - hosts
             - hosts
+          targets:
+          - targets
+          - targets
           ssh_private_key: true
           allow_port_forwarding: true
           is_web: true
@@ -16471,7 +16594,7 @@ components:
           items:
             type: string
           type: array
-          x-go-name: ClientPermissions
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
       title: DescribePermissionsOutput defines output of DescribePermissionsOutput
         operation.
       type: object
@@ -17286,6 +17409,7 @@ components:
           - allowed_access_ids
           display_name: display_name
           cluster_url: cluster_url
+          serverless_type: serverless_type
           default_protection_key_id: 0
           id: 6
           customer_fragments:
@@ -17312,6 +17436,7 @@ components:
           - allowed_access_ids
           display_name: display_name
           cluster_url: cluster_url
+          serverless_type: serverless_type
           default_protection_key_id: 0
           id: 6
           customer_fragments:
@@ -17954,6 +18079,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -17964,6 +18093,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -18189,6 +18322,7 @@ components:
         - allowed_access_ids
         display_name: display_name
         cluster_url: cluster_url
+        serverless_type: serverless_type
         default_protection_key_id: 0
         id: 6
         customer_fragments:
@@ -18248,6 +18382,9 @@ components:
           format: int64
           type: integer
           x-go-name: Id
+        serverless_type:
+          type: string
+          x-go-name: ServerlessType
         status:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -18387,6 +18524,7 @@ components:
         passwords_in_file: 6
         successfully_parsed: 1
         imported: 0
+        updated: 5
       properties:
         imported:
           format: int32
@@ -18400,6 +18538,10 @@ components:
           format: int64
           type: integer
           x-go-name: SuccessfullyParsed
+        updated:
+          format: int32
+          type: integer
+          x-go-name: Updated
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     ImporterInfo:
@@ -18437,6 +18579,10 @@ components:
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           version: 2
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -18447,6 +18593,10 @@ components:
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           version: 2
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
           customer_fragment_id: customer_fragment_id
         shared_by:
           unique_id: unique_id
@@ -18456,30 +18606,38 @@ components:
         is_enabled: true
         rotation_interval: 6
         target_versions:
-        - item_version_state: item_version_state
+        - target_name: target_name
+          access_date: 2000-01-23T04:56:07.000+00:00
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          version: 5
+          customer_fragment_id: customer_fragment_id
+          item_version_state: item_version_state
           with_customer_fragment: true
           latest_version: true
-          target_name: target_name
-          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
-          creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
+        - target_name: target_name
+          access_date: 2000-01-23T04:56:07.000+00:00
+          creation_date: 2000-01-23T04:56:07.000+00:00
           version: 5
           customer_fragment_id: customer_fragment_id
-        - item_version_state: item_version_state
+          item_version_state: item_version_state
           with_customer_fragment: true
           latest_version: true
-          target_name: target_name
-          access_date: 2000-01-23T04:56:07.000+00:00
           deletion_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
-          creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 5
-          customer_fragment_id: customer_fragment_id
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
         item_metadata: item_metadata
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
@@ -18590,6 +18748,7 @@ components:
         item_general_info:
           static_secret_info:
             website: website
+            notify_on_change_event: true
             websites:
             - websites
             - websites
@@ -18675,6 +18834,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -18713,6 +18875,8 @@ components:
             certificate_issuer_item_id: 1
             certificate_pem: certificate_pem
             certificate_format: certificate_format
+            certificate_has_private_key: true
+            certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
             certificate_chain:
             - email_addresses:
               - email_addresses
@@ -19140,7 +19304,7 @@ components:
           items:
             type: string
           type: array
-          x-go-name: ClientPermissions
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         creation_date:
           format: date-time
           type: string
@@ -19271,6 +19435,7 @@ components:
       example:
         static_secret_info:
           website: website
+          notify_on_change_event: true
           websites:
           - websites
           - websites
@@ -19356,6 +19521,9 @@ components:
             hosts:
             - hosts
             - hosts
+          targets:
+          - targets
+          - targets
           ssh_private_key: true
           allow_port_forwarding: true
           is_web: true
@@ -19394,6 +19562,8 @@ components:
           certificate_issuer_item_id: 1
           certificate_pem: certificate_pem
           certificate_format: certificate_format
+          certificate_has_private_key: true
+          certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
           certificate_chain:
           - email_addresses:
             - email_addresses
@@ -19839,6 +20009,10 @@ components:
         creation_date: 2000-01-23T04:56:07.000+00:00
         access_date_display: access_date_display
         version: 2
+        certificate_version_info:
+          not_after: 2000-01-23T04:56:07.000+00:00
+          not_before: 2000-01-23T04:56:07.000+00:00
+          status: status
         customer_fragment_id: customer_fragment_id
       properties:
         access_date:
@@ -19848,6 +20022,8 @@ components:
         access_date_display:
           type: string
           x-go-name: AccessDateDisplay
+        certificate_version_info:
+          $ref: '#/components/schemas/CertificateVersionInfo'
         creation_date:
           format: date-time
           type: string
@@ -20840,8 +21016,7 @@ components:
       example:
         next_page: next_page
         auth_methods:
-        - account_id: account_id
-          auth_method_roles_assoc:
+        - auth_method_roles_assoc:
           - is_sub_claims_case_sensitive: true
             role_name: role_name
             assoc_id: assoc_id
@@ -20928,10 +21103,14 @@ components:
               key:
               - auth_method_sub_claims
               - auth_method_sub_claims
+          access_date: 2000-01-23T04:56:07.000+00:00
+          description: description
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          auth_method_access_id: auth_method_access_id
+          account_id: account_id
           client_permissions:
           - client_permissions
           - client_permissions
-          access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           is_approved: true
           associated_gw_ids:
@@ -21155,102 +21334,103 @@ components:
               enc_email_with_shared_key: enc_email_with_shared_key
               alg: alg
               email: email
-          creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           auth_method_name: auth_method_name
+        - auth_method_roles_assoc:
+          - is_sub_claims_case_sensitive: true
+            role_name: role_name
+            assoc_id: assoc_id
+            allowed_ops:
+            - allowed_ops
+            - allowed_ops
+            rules:
+              path_rules:
+              - path: path
+                start_time: 2
+                capabilities:
+                - capabilities
+                - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 5
+                type: type
+                ttl: 7
+              - path: path
+                start_time: 2
+                capabilities:
+                - capabilities
+                - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 5
+                type: type
+                ttl: 7
+              admin: true
+            auth_method_sub_claims:
+              key:
+              - auth_method_sub_claims
+              - auth_method_sub_claims
+          - is_sub_claims_case_sensitive: true
+            role_name: role_name
+            assoc_id: assoc_id
+            allowed_ops:
+            - allowed_ops
+            - allowed_ops
+            rules:
+              path_rules:
+              - path: path
+                start_time: 2
+                capabilities:
+                - capabilities
+                - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 5
+                type: type
+                ttl: 7
+              - path: path
+                start_time: 2
+                capabilities:
+                - capabilities
+                - capabilities
+                number_of_allowed_access: 5
+                is_limit_access: true
+                assigners:
+                - unique_id: unique_id
+                  access_id: access_id
+                - unique_id: unique_id
+                  access_id: access_id
+                number_of_access_used: 5
+                type: type
+                ttl: 7
+              admin: true
+            auth_method_sub_claims:
+              key:
+              - auth_method_sub_claims
+              - auth_method_sub_claims
+          access_date: 2000-01-23T04:56:07.000+00:00
+          description: description
+          creation_date: 2000-01-23T04:56:07.000+00:00
           auth_method_access_id: auth_method_access_id
-        - account_id: account_id
-          auth_method_roles_assoc:
-          - is_sub_claims_case_sensitive: true
-            role_name: role_name
-            assoc_id: assoc_id
-            allowed_ops:
-            - allowed_ops
-            - allowed_ops
-            rules:
-              path_rules:
-              - path: path
-                start_time: 2
-                capabilities:
-                - capabilities
-                - capabilities
-                number_of_allowed_access: 5
-                is_limit_access: true
-                assigners:
-                - unique_id: unique_id
-                  access_id: access_id
-                - unique_id: unique_id
-                  access_id: access_id
-                number_of_access_used: 5
-                type: type
-                ttl: 7
-              - path: path
-                start_time: 2
-                capabilities:
-                - capabilities
-                - capabilities
-                number_of_allowed_access: 5
-                is_limit_access: true
-                assigners:
-                - unique_id: unique_id
-                  access_id: access_id
-                - unique_id: unique_id
-                  access_id: access_id
-                number_of_access_used: 5
-                type: type
-                ttl: 7
-              admin: true
-            auth_method_sub_claims:
-              key:
-              - auth_method_sub_claims
-              - auth_method_sub_claims
-          - is_sub_claims_case_sensitive: true
-            role_name: role_name
-            assoc_id: assoc_id
-            allowed_ops:
-            - allowed_ops
-            - allowed_ops
-            rules:
-              path_rules:
-              - path: path
-                start_time: 2
-                capabilities:
-                - capabilities
-                - capabilities
-                number_of_allowed_access: 5
-                is_limit_access: true
-                assigners:
-                - unique_id: unique_id
-                  access_id: access_id
-                - unique_id: unique_id
-                  access_id: access_id
-                number_of_access_used: 5
-                type: type
-                ttl: 7
-              - path: path
-                start_time: 2
-                capabilities:
-                - capabilities
-                - capabilities
-                number_of_allowed_access: 5
-                is_limit_access: true
-                assigners:
-                - unique_id: unique_id
-                  access_id: access_id
-                - unique_id: unique_id
-                  access_id: access_id
-                number_of_access_used: 5
-                type: type
-                ttl: 7
-              admin: true
-            auth_method_sub_claims:
-              key:
-              - auth_method_sub_claims
-              - auth_method_sub_claims
+          account_id: account_id
           client_permissions:
           - client_permissions
           - client_permissions
-          access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           is_approved: true
           associated_gw_ids:
@@ -21474,10 +21654,8 @@ components:
               enc_email_with_shared_key: enc_email_with_shared_key
               alg: alg
               email: email
-          creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           auth_method_name: auth_method_name
-          auth_method_access_id: auth_method_access_id
       properties:
         auth_methods:
           items:
@@ -21571,6 +21749,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -21581,6 +21763,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
@@ -21590,30 +21776,38 @@ components:
           is_enabled: true
           rotation_interval: 6
           target_versions:
-          - item_version_state: item_version_state
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 5
+            customer_fragment_id: customer_fragment_id
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
             version: 5
             customer_fragment_id: customer_fragment_id
-          - item_version_state: item_version_state
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 5
-            customer_fragment_id: customer_fragment_id
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
@@ -21724,6 +21918,7 @@ components:
           item_general_info:
             static_secret_info:
               website: website
+              notify_on_change_event: true
               websites:
               - websites
               - websites
@@ -21809,6 +22004,9 @@ components:
                 hosts:
                 - hosts
                 - hosts
+              targets:
+              - targets
+              - targets
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -21847,6 +22045,8 @@ components:
               certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
+              certificate_has_private_key: true
+              certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -22265,6 +22465,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -22275,6 +22479,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
@@ -22284,30 +22492,38 @@ components:
           is_enabled: true
           rotation_interval: 6
           target_versions:
-          - item_version_state: item_version_state
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 5
+            customer_fragment_id: customer_fragment_id
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
             version: 5
             customer_fragment_id: customer_fragment_id
-          - item_version_state: item_version_state
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 5
-            customer_fragment_id: customer_fragment_id
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
@@ -22418,6 +22634,7 @@ components:
           item_general_info:
             static_secret_info:
               website: website
+              notify_on_change_event: true
               websites:
               - websites
               - websites
@@ -22503,6 +22720,9 @@ components:
                 hosts:
                 - hosts
                 - hosts
+              targets:
+              - targets
+              - targets
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -22541,6 +22761,8 @@ components:
               certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
+              certificate_has_private_key: true
+              certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -22981,6 +23203,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -22991,6 +23217,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
@@ -23000,30 +23230,38 @@ components:
           is_enabled: true
           rotation_interval: 6
           target_versions:
-          - item_version_state: item_version_state
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 5
+            customer_fragment_id: customer_fragment_id
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
             version: 5
             customer_fragment_id: customer_fragment_id
-          - item_version_state: item_version_state
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 5
-            customer_fragment_id: customer_fragment_id
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
@@ -23134,6 +23372,7 @@ components:
           item_general_info:
             static_secret_info:
               website: website
+              notify_on_change_event: true
               websites:
               - websites
               - websites
@@ -23219,6 +23458,9 @@ components:
                 hosts:
                 - hosts
                 - hosts
+              targets:
+              - targets
+              - targets
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -23257,6 +23499,8 @@ components:
               certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
+              certificate_has_private_key: true
+              certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -23675,6 +23919,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -23685,6 +23933,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           shared_by:
             unique_id: unique_id
@@ -23694,30 +23946,38 @@ components:
           is_enabled: true
           rotation_interval: 6
           target_versions:
-          - item_version_state: item_version_state
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
+            version: 5
+            customer_fragment_id: customer_fragment_id
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
+          - target_name: target_name
+            access_date: 2000-01-23T04:56:07.000+00:00
+            creation_date: 2000-01-23T04:56:07.000+00:00
             version: 5
             customer_fragment_id: customer_fragment_id
-          - item_version_state: item_version_state
+            item_version_state: item_version_state
             with_customer_fragment: true
             latest_version: true
-            target_name: target_name
-            access_date: 2000-01-23T04:56:07.000+00:00
             deletion_date: 2000-01-23T04:56:07.000+00:00
             modification_date: 2000-01-23T04:56:07.000+00:00
             protection_key_name: protection_key_name
-            creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 5
-            customer_fragment_id: customer_fragment_id
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
           item_metadata: item_metadata
           modification_date: 2000-01-23T04:56:07.000+00:00
           protection_key_name: protection_key_name
@@ -23828,6 +24088,7 @@ components:
           item_general_info:
             static_secret_info:
               website: website
+              notify_on_change_event: true
               websites:
               - websites
               - websites
@@ -23913,6 +24174,9 @@ components:
                 hosts:
                 - hosts
                 - hosts
+              targets:
+              - targets
+              - targets
               ssh_private_key: true
               allow_port_forwarding: true
               is_web: true
@@ -23951,6 +24215,8 @@ components:
               certificate_issuer_item_id: 1
               certificate_pem: certificate_pem
               certificate_format: certificate_format
+              certificate_has_private_key: true
+              certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -24537,6 +24803,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -24547,6 +24817,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -24594,6 +24868,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -24604,6 +24882,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           modification_date: 2000-01-23T04:56:07.000+00:00
           attributes:
@@ -25019,6 +25301,9 @@ components:
             migration_target_id: 9
             users_rotated_secrets_path_template: users_rotated_secrets_path_template
             auto_rotate_interval_in_days: 5
+            user_groups:
+            - user_groups
+            - user_groups
         - general:
             prefix: prefix
             name: name
@@ -25038,6 +25323,9 @@ components:
             migration_target_id: 9
             users_rotated_secrets_path_template: users_rotated_secrets_path_template
             auto_rotate_interval_in_days: 5
+            user_groups:
+            - user_groups
+            - user_groups
         azure_kv_migrations:
         - general:
             prefix: prefix
@@ -25574,6 +25862,10 @@ components:
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           version: 2
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -25584,6 +25876,10 @@ components:
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           version: 2
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
           customer_fragment_id: customer_fragment_id
         protection_key: protection_key
         client_id: client_id
@@ -26407,6 +26703,30 @@ components:
           x-go-name: Producers
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    ProvisionCertificateOutput:
+      example:
+        SuccessMessage: SuccessMessage
+        host_names:
+        - host_names
+        - host_names
+        FailMessage: FailMessage
+        provisioned_at: 2000-01-23T04:56:07.000+00:00
+      properties:
+        FailMessage:
+          type: string
+        SuccessMessage:
+          type: string
+        host_names:
+          items:
+            type: string
+          type: array
+          x-go-name: HostNames
+        provisioned_at:
+          format: date-time
+          type: string
+          x-go-name: ProvisionedAt
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     RabbitMQTargetDetails:
       example:
         rabbitmq_server_uri: rabbitmq_server_uri
@@ -26454,6 +26774,74 @@ components:
           x-go-name: Pattern
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RenewCertificate:
+      example:
+        item-id: 0
+        name: name
+        json: false
+        generate-key: true
+        uid-token: uid-token
+        token: token
+      properties:
+        generate-key:
+          description: Generate a new key as part of the certificate renewal
+          type: boolean
+          x-go-name: GenerateKey
+        item-id:
+          description: Certificate item id
+          format: int64
+          type: integer
+          x-go-name: ItemId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Certificate name
+          type: string
+          x-go-name: CertName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      title: RenewCertificate is a command that renews a PKI certificate.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    RenewCertificateOutput:
+      example:
+        parent_cert: parent_cert
+        item_id: item_id
+        reading_token: reading_token
+        cert: cert
+        private_key: private_key
+        cert_display_id: cert_display_id
+      properties:
+        cert:
+          type: string
+          x-go-name: Cert
+        cert_display_id:
+          type: string
+          x-go-name: CertDisplayID
+        item_id:
+          type: string
+          x-go-name: ItemID
+        parent_cert:
+          type: string
+          x-go-name: ParentCert
+        private_key:
+          type: string
+          x-go-name: PrivateKey
+        reading_token:
+          type: string
+          x-go-name: IssuanceToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     RequiredActivity:
       example:
         migrations_required_activity:
@@ -27370,6 +27758,9 @@ components:
           hosts:
           - hosts
           - hosts
+        targets:
+        - targets
+        - targets
         ssh_private_key: true
         allow_port_forwarding: true
         is_web: true
@@ -27487,6 +27878,11 @@ components:
             $ref: '#/components/schemas/TargetNameWithHosts'
           type: array
           x-go-name: TargetNameWithHosts
+        targets:
+          items:
+            type: string
+          type: array
+          x-go-name: Targets
         url:
           type: string
           x-go-name: URL
@@ -27522,6 +27918,9 @@ components:
           migration_target_id: 9
           users_rotated_secrets_path_template: users_rotated_secrets_path_template
           auto_rotate_interval_in_days: 5
+          user_groups:
+          - user_groups
+          - user_groups
       properties:
         general:
           $ref: '#/components/schemas/MigrationGeneral'
@@ -27540,6 +27939,9 @@ components:
         migration_target_id: 9
         users_rotated_secrets_path_template: users_rotated_secrets_path_template
         auto_rotate_interval_in_days: 5
+        user_groups:
+        - user_groups
+        - user_groups
       properties:
         auto_rotate:
           type: boolean
@@ -27562,6 +27964,11 @@ components:
         server_targets_path_template:
           type: string
           x-go-name: ServerTargetsPathTemplate
+        user_groups:
+          items:
+            type: string
+          type: array
+          x-go-name: UserGroups
         users_ignore_list:
           additionalProperties:
             type: boolean
@@ -27586,6 +27993,15 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     SignEcDsaOutput:
+      example:
+        result: result
+      properties:
+        result:
+          type: string
+          x-go-name: Result
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    SignPKCS1Output:
       example:
         result: result
       properties:
@@ -27677,11 +28093,15 @@ components:
     StaticSecretDetailsInfo:
       example:
         website: website
+        notify_on_change_event: true
         websites:
         - websites
         - websites
         username: username
       properties:
+        notify_on_change_event:
+          type: boolean
+          x-go-name: NotifyOnChangeEvent
         username:
           type: string
           x-go-name: Username
@@ -27845,6 +28265,10 @@ components:
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           version: 2
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
           customer_fragment_id: customer_fragment_id
         - item_version_state: item_version_state
           with_customer_fragment: true
@@ -27855,6 +28279,10 @@ components:
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
           version: 2
+          certificate_version_info:
+            not_after: 2000-01-23T04:56:07.000+00:00
+            not_before: 2000-01-23T04:56:07.000+00:00
+            status: status
           customer_fragment_id: customer_fragment_id
         modification_date: 2000-01-23T04:56:07.000+00:00
         attributes:
@@ -27986,18 +28414,22 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     TargetItemVersion:
       example:
+        target_name: target_name
+        access_date: 2000-01-23T04:56:07.000+00:00
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        version: 5
+        customer_fragment_id: customer_fragment_id
         item_version_state: item_version_state
         with_customer_fragment: true
         latest_version: true
-        target_name: target_name
-        access_date: 2000-01-23T04:56:07.000+00:00
         deletion_date: 2000-01-23T04:56:07.000+00:00
         modification_date: 2000-01-23T04:56:07.000+00:00
         protection_key_name: protection_key_name
-        creation_date: 2000-01-23T04:56:07.000+00:00
         access_date_display: access_date_display
-        version: 5
-        customer_fragment_id: customer_fragment_id
+        certificate_version_info:
+          not_after: 2000-01-23T04:56:07.000+00:00
+          not_before: 2000-01-23T04:56:07.000+00:00
+          status: status
       properties:
         access_date:
           format: date-time
@@ -28006,6 +28438,8 @@ components:
         access_date_display:
           type: string
           x-go-name: AccessDateDisplay
+        certificate_version_info:
+          $ref: '#/components/schemas/CertificateVersionInfo'
         creation_date:
           format: date-time
           type: string
@@ -28535,6 +28969,9 @@ components:
           type: string
           x-go-name: Name
       type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    UpdateModeType:
+      type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     UpdateOidcAppOutput:
       type: object
@@ -29178,6 +29615,16 @@ components:
         assocTargetItem is a command that creates an association between target
         and item.
       properties:
+        certificate-path:
+          description: A path on the target to store the certificate pem file (relevant
+            only for certificate provisioning)
+          type: string
+          x-go-name: CertificatePath
+        chain-path:
+          description: A path on the target to store the full chain pem file (relevant
+            only for certificate provisioning)
+          type: string
+          x-go-name: ChainPath
         disable-previous-key-version:
           default: false
           description: Automatically disable previous key version (required for azure
@@ -29218,6 +29665,11 @@ components:
           description: The item to associate
           type: string
           x-go-name: ItemName
+        private-key-path:
+          description: A path on the target to store the private key (relevant only
+            for certificate provisioning)
+          type: string
+          x-go-name: PrivateKeyPath
         project-id:
           description: Project id of the GCP KMS (required for gcp targets)
           type: string
@@ -29233,6 +29685,12 @@ components:
             type: string
           type: array
           x-go-name: Regions
+        sra-association:
+          default: false
+          description: Is the target to associate is for sra, relevant only for linked
+            target association for ldap rotated secret
+          type: boolean
+          x-go-name: IsSraAssociation
         target-name:
           description: The target to associate
           type: string
@@ -29597,6 +30055,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -29699,6 +30161,10 @@ components:
             type: string
           type: array
           x-go-name: BoundUserName
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -29768,7 +30234,9 @@ components:
           x-go-name: AccessExpires
         audience:
           default: https://management.azure.com/
-          description: The audience in the JWT
+          description: |-
+            Deprecated
+            (Deprecated) The audience in the JWT
           type: string
           x-go-name: Audience
         bound-group-id:
@@ -29837,6 +30305,10 @@ components:
           description: The Azure tenant id that the access is restricted to
           type: string
           x-go-name: BoundTenantID
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -29971,6 +30443,10 @@ components:
           description: The certificate data in base64, if no file was provided
           type: string
           x-go-name: CertificateData
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30056,6 +30532,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         email:
           description: An email address to be invited to have access
           type: string
@@ -30175,6 +30655,10 @@ components:
             type: string
           type: array
           x-go-name: BoundZones
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30295,6 +30779,10 @@ components:
             type: string
           type: array
           x-go-name: BoundUserName
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30387,6 +30875,10 @@ components:
             type: string
           type: array
           x-go-name: BoundServiceAccountNames
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30470,6 +30962,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30577,6 +31073,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30711,6 +31211,10 @@ components:
           description: Client Secret
           type: string
           x-go-name: ClientSecret
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30839,6 +31343,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -30943,6 +31451,10 @@ components:
           description: Deny from the token to rotate
           type: boolean
           x-go-name: BoundDenyRotate
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -31670,9 +32182,11 @@ components:
           x-go-name: EventSourceType
         event-types:
           description: List of event types to notify about [request-access, certificate-pending-expiration,
-            certificate-expired, auth-method-pending-expiration, auth-method-expired,
-            rotated-secret-success, rotated-secret-failure, dynamic-secret-failure,
-            multi-auth-failure, uid-rotation-failure]
+            certificate-expired, certificate-provisioning-success, certificate-provisioning-failure,
+            auth-method-pending-expiration, auth-method-expired, rotated-secret-success,
+            rotated-secret-failure, dynamic-secret-failure, multi-auth-failure, uid-rotation-failure,
+            apply-justification, email-auth-method-approved, usage, rotation-usage,
+            gateway-inactive, static-secret-updated]
           items:
             type: string
           type: array
@@ -32373,6 +32887,11 @@ components:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
           x-go-name: Profile
+        type:
+          description: Specifies the hosts type, relevant only when working without
+            parent target
+          type: string
+          x-go-name: HostType
         uid-token:
           description: The universal identity token, Required only for universal_identity
             authentication
@@ -32717,6 +33236,17 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        event-center-access:
+          description: |-
+            Allow this role to view Event Center. Currently only 'none', 'own' and 'all'
+            values are supported
+          type: string
+          x-go-name: EventCenterAccess
+        event-forwarders-access:
+          description: Allow this role to manage Event Forwarders. Currently only
+            'none' and 'all' values are supported.
+          type: string
+          x-go-name: EventForwardersAccess
         gw-analytics-access:
           description: |-
             Allow this role to view gw analytics. Currently only 'none', 'own', 'all'
@@ -32764,6 +33294,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createRotatedSecret:
       properties:
+        ProviderType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         api-id:
           description: API ID to rotate (relevant only for rotator-type=api-key)
           type: string
@@ -32817,6 +33350,12 @@ components:
           description: The key id of the gcp service account to rotate
           type: string
           x-go-name: GcpServiceAccountKeyId
+        host-provider:
+          default: explicit
+          description: Host provider type [explicit/target], Relevant only for Secure
+            Remote Access of ssh cert issuer and ldap rotated secret
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -32853,7 +33392,7 @@ components:
           type: string
           x-go-name: RotatedUser
         rotation-hour:
-          description: The Hour of the rotation in UTC
+          description: The Hour of the rotation in UTC. Default rotation-hour is 14:00
           format: int32
           type: integer
           x-go-name: RotationHour
@@ -32960,6 +33499,14 @@ components:
             type: string
           type: array
           x-go-name: Tags
+        target:
+          description: A list of linked targets to be associated, Relevant only for
+            Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify
+            multiple targets use argument multiple times
+          items:
+            type: string
+          type: array
+          x-go-name: TargetNames
         target-name:
           description: Target name
           type: string
@@ -32990,7 +33537,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createSSHCertIssuer:
       properties:
-        SshCertIssuerHostProvider:
+        ProviderType:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         allowed-users:
@@ -33013,7 +33560,8 @@ components:
           x-go-name: Extensions
         host-provider:
           default: explicit
-          description: Host provider type [explicit/target]
+          description: Host provider type [explicit/target], Relevant only for Secure
+            Remote Access of ssh cert issuer and ldap rotated secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -33072,9 +33620,9 @@ components:
           type: array
           x-go-name: Tags
         target:
-          description: A list of existing targets to be associated, Relevant only
-            for Secure Remote Access, To specify multiple targets use argument multiple
-            times
+          description: A list of linked targets to be associated, Relevant only for
+            Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify
+            multiple targets use argument multiple times
           items:
             type: string
           type: array
@@ -33291,6 +33839,11 @@ components:
           description: for personal password manager
           type: string
           x-go-name: ItemAccessibilityString
+        change-event:
+          description: Trigger an event when a secret value changed [true/false] (Relevant
+            only for Static Secret)
+          type: string
+          x-go-name: NotifyOnChangeEvent
         custom-field:
           additionalProperties:
             type: string
@@ -35821,6 +36374,12 @@ components:
             Inventory migration)
           type: string
           x-go-name: SiTargetName
+        si-user-groups:
+          description: Comma-separated list of groups to migrate users from. If empty,
+            all users from all groups will be migrated (Relevant only for Server Inventory
+            migration)
+          type: string
+          x-go-name: SiUserGroups
         si-users-ignore:
           description: Comma-separated list of Local Users which should not be migrated
             (Relevant only for Server Inventory migration)
@@ -36075,6 +36634,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -36508,6 +37070,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -36927,6 +37492,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -37125,6 +37693,16 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        ssl:
+          default: false
+          description: Enable/Disable SSL [true/false]
+          type: boolean
+          x-go-name: SSLConnection
+        ssl-certificate:
+          description: SSL CA certificate in base64 encoding generated from a trusted
+            Certificate Authority (CA)
+          type: string
+          x-go-name: SSLConnectionCertificate
         tags:
           description: Add tags attached to this object
           items:
@@ -37301,6 +37879,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -37732,6 +38313,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -38196,6 +38780,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -38564,6 +39151,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -38966,6 +39556,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -39348,6 +39941,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -39720,6 +40316,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -40113,6 +40712,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -40519,6 +41121,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -40908,6 +41513,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -41314,6 +41922,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -41737,6 +42348,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -42156,6 +42770,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -42591,6 +43208,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -43003,6 +43623,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -43454,6 +44077,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -43866,6 +44492,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -44274,6 +44903,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -44690,6 +45322,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -45076,6 +45711,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -45471,6 +46109,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -45852,6 +46493,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -46746,6 +47390,9 @@ components:
               migration_target_id: 9
               users_rotated_secrets_path_template: users_rotated_secrets_path_template
               auto_rotate_interval_in_days: 5
+              user_groups:
+              - user_groups
+              - user_groups
           - general:
               prefix: prefix
               name: name
@@ -46765,6 +47412,9 @@ components:
               migration_target_id: 9
               users_rotated_secrets_path_template: users_rotated_secrets_path_template
               auto_rotate_interval_in_days: 5
+              user_groups:
+              - user_groups
+              - user_groups
           azure_kv_migrations:
           - general:
               prefix: prefix
@@ -47091,6 +47741,9 @@ components:
               migration_target_id: 9
               users_rotated_secrets_path_template: users_rotated_secrets_path_template
               auto_rotate_interval_in_days: 5
+              user_groups:
+              - user_groups
+              - user_groups
           - general:
               prefix: prefix
               name: name
@@ -47110,6 +47763,9 @@ components:
               migration_target_id: 9
               users_rotated_secrets_path_template: users_rotated_secrets_path_template
               auto_rotate_interval_in_days: 5
+              user_groups:
+              - user_groups
+              - user_groups
           azure_kv_migrations:
           - general:
               prefix: prefix
@@ -47628,6 +48284,10 @@ components:
           description: API key to rotate (relevant only for rotator-type=api-key)
           type: string
           x-go-name: ApiKey
+        app-id:
+          description: ApplicationId (used in azure)
+          type: string
+          x-go-name: ApplicationId
         auto-rotate:
           description: Whether to automatically rotate every --rotation-interval days,
             or disable existing automatic rotation [true/false]
@@ -48264,6 +48924,12 @@ components:
             Inventory migration)
           type: string
           x-go-name: SiTargetName
+        si-user-groups:
+          description: Comma-separated list of groups to migrate users from. If empty,
+            all users from all groups will be migrated (Relevant only for Server Inventory
+            migration)
+          type: string
+          x-go-name: SiUserGroups
         si-users-ignore:
           description: Comma-separated list of Local Users which should not be migrated
             (Relevant only for Server Inventory migration)
@@ -48517,6 +49183,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -48954,6 +49623,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -49377,6 +50049,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -49579,6 +50254,16 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        ssl:
+          default: false
+          description: Enable/Disable SSL [true/false]
+          type: boolean
+          x-go-name: SSLConnection
+        ssl-certificate:
+          description: SSL CA certificate in base64 encoding generated from a trusted
+            Certificate Authority (CA)
+          type: string
+          x-go-name: SSLConnectionCertificate
         tags:
           description: Add tags attached to this object
           items:
@@ -49755,6 +50440,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -50190,6 +50878,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -50662,6 +51353,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -51034,6 +51728,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -51440,6 +52137,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -51826,6 +52526,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -52202,6 +52905,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -52599,6 +53305,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -53009,6 +53718,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -53402,6 +54114,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -53812,6 +54527,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -54239,6 +54957,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -54662,6 +55383,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -55101,6 +55825,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -55517,6 +56244,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -55972,6 +56702,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -56388,6 +57121,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -56800,6 +57536,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -57220,6 +57959,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -57610,6 +58352,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -58009,6 +58754,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -58394,6 +59142,9 @@ components:
               hosts:
               - hosts
               - hosts
+            targets:
+            - targets
+            - targets
             ssh_private_key: true
             allow_port_forwarding: true
             is_web: true
@@ -58668,7 +59419,7 @@ components:
           type: string
           x-go-name: KeyType
         name:
-          description: The classic key name
+          description: The key name
           type: string
           x-go-name: KeyName
         org:
@@ -58909,6 +59660,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           - item_version_state: item_version_state
             with_customer_fragment: true
@@ -58919,6 +59674,10 @@ components:
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
             version: 2
+            certificate_version_info:
+              not_after: 2000-01-23T04:56:07.000+00:00
+              not_before: 2000-01-23T04:56:07.000+00:00
+              status: status
             customer_fragment_id: customer_fragment_id
           protection_key: protection_key
           client_id: client_id
@@ -59490,6 +60249,9 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        update-mode:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
       required:
       - import-path
       type: object
@@ -60259,6 +61021,41 @@ components:
     moveObjectsOutput:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    provisionCertificate:
+      description: provisionCertificate is a command that provisions a certificate
+        content to a target
+      properties:
+        display-id:
+          description: Certificate display ID
+          type: string
+          x-go-name: CertificateDisplayID
+        item-id:
+          description: Certificate item ID
+          format: int64
+          type: integer
+          x-go-name: CertificateItemId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: Certificate name
+          type: string
+          x-go-name: CertificateName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     rawCreds:
       properties:
         access-id:
@@ -60618,7 +61415,7 @@ components:
         rule-type:
           default: item-rule
           description: item-rule, target-rule, role-rule, auth-method-rule, search-rule,
-            reports-rule, gw-reports-rule or sra-reports-rule
+            reports-rule, gw-reports-rule or sra-reports-rule, sra-rule
           type: string
           x-go-name: RuleType
         token:
@@ -60718,6 +61515,12 @@ components:
           description: HashingMethod
           type: string
           x-go-name: HashingMethod
+        ignore-cache:
+          default: "false"
+          description: Retrieve the Secret value without checking the Gateway's cache
+            [true/false]. This flag is only relevant when using the RestAPI
+          type: string
+          x-go-name: IgnoreCache
         json:
           default: false
           description: Set output format to JSON
@@ -60777,6 +61580,10 @@ components:
           description: The input message to sign in a base64 format
           type: string
           x-go-name: Message
+        prehashed:
+          description: Markes that the message is already hashed
+          type: boolean
+          x-go-name: Prehashed
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -60786,6 +61593,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: The version of the key to use for signing
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - message
       type: object
@@ -60912,6 +61724,15 @@ components:
           description: The display id of the key to use in the signing process
           type: string
           x-go-name: DisplayId
+        hash-function:
+          description: HashFunction defines the hash function (e.g. sha-256)
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        input-format:
+          description: 'Select default assumed format for the plaintext message. Currently
+            supported options: [base64]'
+          type: string
+          x-go-name: InputFormat
         item-id:
           description: The item id of the key to use in the signing process
           format: int64
@@ -60930,6 +61751,10 @@ components:
           description: The message to be signed
           type: string
           x-go-name: Message
+        prehashed:
+          description: Markes that the message is already hashed
+          type: boolean
+          x-go-name: Prehashed
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -60939,22 +61764,13 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: The version of the key to use for signing
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - message
-      type: object
-      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
-    signPKCS1Output:
-      example:
-        result:
-        - 0
-        - 0
-      properties:
-        result:
-          items:
-            format: uint8
-            type: integer
-          type: array
-          x-go-name: Result
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     signPKICertOutput:
@@ -61104,6 +61920,10 @@ components:
           description: The input message to sign in a base64 format
           type: string
           x-go-name: Message
+        prehashed:
+          description: Markes that the message is already hashed
+          type: boolean
+          x-go-name: Prehashed
         token:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
@@ -61113,6 +61933,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: The version of the key to use for signing
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - message
       type: object
@@ -61863,6 +62688,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -61969,6 +62798,10 @@ components:
             type: string
           type: array
           x-go-name: BoundUserName
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62036,7 +62869,9 @@ components:
           x-go-name: AccessExpires
         audience:
           default: https://management.azure.com/
-          description: The audience in the JWT
+          description: |-
+            Deprecated
+            (Deprecated) The audience in the JWT
           type: string
           x-go-name: Audience
         bound-group-id:
@@ -62105,6 +62940,10 @@ components:
           description: The Azure tenant id that the access is restricted to
           type: string
           x-go-name: BoundTenantID
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62237,6 +63076,10 @@ components:
           description: The certificate data in base64, if no file was provided
           type: string
           x-go-name: CertificateData
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62372,6 +63215,10 @@ components:
             type: string
           type: array
           x-go-name: BoundZones
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62473,6 +63320,10 @@ components:
             type: string
           type: array
           x-go-name: BoundServiceAccountNames
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62555,6 +63406,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62661,6 +63516,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62793,6 +63652,10 @@ components:
           description: Client Secret
           type: string
           x-go-name: ClientSecret
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -62911,6 +63774,10 @@ components:
             type: string
           type: array
           x-go-name: CIDRWhitelist
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -63013,6 +63880,10 @@ components:
           description: Deny from the token to rotate
           type: boolean
           x-go-name: BoundDenyRotate
+        description:
+          description: Auth Method description
+          type: string
+          x-go-name: Description
         force-sub-claims:
           description: 'if true: enforce role-association must include sub claims'
           type: boolean
@@ -63198,6 +64069,11 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        keep-prev-version:
+          description: Whether to keep previous version [true/false]. If not set,
+            use default according to account settings
+          type: string
+          x-go-name: KeepPrevVersion
         key:
           description: |-
             The name of a key to use to encrypt the certificate's key (if empty, the
@@ -64182,6 +65058,9 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateItem:
       properties:
+        ProviderType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         accessibility:
           default: regular
           description: for personal password manager
@@ -64198,6 +65077,11 @@ components:
             certificates.
           type: string
           x-go-name: CertFileData
+        change-event:
+          description: Trigger an event when a secret value changed [true/false] (Relevant
+            only for Static Secret)
+          type: string
+          x-go-name: NotifyOnChangeEvent
         delete_protection:
           description: Protection from accidental deletion of this item [true/false]
           type: string
@@ -64207,6 +65091,12 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        host-provider:
+          default: explicit
+          description: Host provider type [explicit/target], Relevant only for Secure
+            Remote Access of ssh cert issuer and ldap rotated secret
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -64566,6 +65456,11 @@ components:
           description: Authentication token (see `/auth` and `/configure`)
           type: string
           x-go-name: Profile
+        type:
+          description: Specifies the hosts type, relevant only when working without
+            parent target
+          type: string
+          x-go-name: HostType
         uid-token:
           description: The universal identity token, Required only for universal_identity
             authentication
@@ -65027,6 +65922,17 @@ components:
           description: Description of the object
           type: string
           x-go-name: Description
+        event-center-access:
+          description: |-
+            Allow this role to view Event Center. Currently only 'none', 'own' and 'all'
+            values are supported
+          type: string
+          x-go-name: EventCenterAccess
+        event-forwarder-access:
+          description: Allow this role to manage Event Forwarders. Currently only
+            'none' and 'all' values are supported.
+          type: string
+          x-go-name: EventForwardersAccess
         gw-analytics-access:
           description: |-
             Allow this role to view gw analytics. Currently only 'none', 'own', 'all'
@@ -65345,7 +66251,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateSSHCertIssuer:
       properties:
-        SshCertIssuerHostProvider:
+        ProviderType:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         add-tag:
@@ -65374,7 +66280,8 @@ components:
           x-go-name: Extensions
         host-provider:
           default: explicit
-          description: Host provider type [explicit/target]
+          description: Host provider type [explicit/target], Relevant only for Secure
+            Remote Access of ssh cert issuer and ldap rotated secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -65767,6 +66674,11 @@ components:
             account default protectionKey key will be used)
           type: string
           x-go-name: ProtectionKey
+        last-version:
+          description: The last version number before the update
+          format: int32
+          type: integer
+          x-go-name: LastVersion
         multiline:
           description: The provided value is a multiline value (separated by '\n')
           type: boolean
@@ -66620,6 +67532,10 @@ components:
           description: The message to be verified in a base64 format
           type: string
           x-go-name: Message
+        prehashed:
+          description: Markes that the message is already hashed
+          type: boolean
+          x-go-name: Prehashed
         signature:
           description: The message's signature
           type: string
@@ -66633,6 +67549,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: The version of the key to use for verification
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - message
       - signature
@@ -66744,6 +67665,15 @@ components:
           description: The display id of the key to use in the verification process
           type: string
           x-go-name: DisplayId
+        hash-function:
+          description: HashFunction defines the hash function (e.g. sha-256)
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        input-format:
+          description: 'Select default assumed format for the plaintext message. Currently
+            supported options: [base64]'
+          type: string
+          x-go-name: InputFormat
         item-id:
           description: The item id of the key to use in the verification process
           format: int64
@@ -66762,6 +67692,10 @@ components:
           description: The message to be verified
           type: string
           x-go-name: Message
+        prehashed:
+          description: Markes that the message is already hashed
+          type: boolean
+          x-go-name: Prehashed
         signature:
           description: The message's signature
           type: string
@@ -66775,6 +67709,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: The version of the key to use for verification
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - key-name
       - message
@@ -66860,6 +67799,10 @@ components:
           description: The input message to verify in a base64 format
           type: string
           x-go-name: Message
+        prehashed:
+          description: Markes that the message is already hashed
+          type: boolean
+          x-go-name: Prehashed
         signature:
           description: The message's signature
           type: string
@@ -66873,6 +67816,11 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: The version of the key to use for verification
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - message
       - signature

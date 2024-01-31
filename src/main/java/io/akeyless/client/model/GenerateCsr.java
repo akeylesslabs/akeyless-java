@@ -418,11 +418,11 @@ public class GenerateCsr {
   }
 
    /**
-   * The classic key name
+   * The key name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The classic key name")
+  @ApiModelProperty(required = true, value = "The key name")
 
   public String getName() {
     return name;

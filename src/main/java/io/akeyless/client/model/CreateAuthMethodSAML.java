@@ -44,6 +44,10 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -173,6 +177,29 @@ public class CreateAuthMethodSAML {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public CreateAuthMethodSAML description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -457,6 +484,7 @@ public class CreateAuthMethodSAML {
     return Objects.equals(this.accessExpires, createAuthMethodSAML.accessExpires) &&
         Objects.equals(this.allowedRedirectUri, createAuthMethodSAML.allowedRedirectUri) &&
         Objects.equals(this.boundIps, createAuthMethodSAML.boundIps) &&
+        Objects.equals(this.description, createAuthMethodSAML.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodSAML.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodSAML.gwBoundIps) &&
         Objects.equals(this.idpMetadataUrl, createAuthMethodSAML.idpMetadataUrl) &&
@@ -472,7 +500,7 @@ public class CreateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -482,6 +510,7 @@ public class CreateAuthMethodSAML {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");

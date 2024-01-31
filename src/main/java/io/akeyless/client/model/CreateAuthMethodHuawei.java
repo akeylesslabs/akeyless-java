@@ -68,6 +68,10 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_BOUND_USER_NAME)
   private List<String> boundUserName = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -362,6 +366,29 @@ public class CreateAuthMethodHuawei {
   }
 
 
+  public CreateAuthMethodHuawei description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public CreateAuthMethodHuawei forceSubClaims(Boolean forceSubClaims) {
     
     this.forceSubClaims = forceSubClaims;
@@ -549,6 +576,7 @@ public class CreateAuthMethodHuawei {
         Objects.equals(this.boundTenantName, createAuthMethodHuawei.boundTenantName) &&
         Objects.equals(this.boundUserId, createAuthMethodHuawei.boundUserId) &&
         Objects.equals(this.boundUserName, createAuthMethodHuawei.boundUserName) &&
+        Objects.equals(this.description, createAuthMethodHuawei.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodHuawei.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodHuawei.gwBoundIps) &&
         Objects.equals(this.json, createAuthMethodHuawei.json) &&
@@ -560,7 +588,7 @@ public class CreateAuthMethodHuawei {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
+    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
   }
 
   @Override
@@ -576,6 +604,7 @@ public class CreateAuthMethodHuawei {
     sb.append("    boundTenantName: ").append(toIndentedString(boundTenantName)).append("\n");
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

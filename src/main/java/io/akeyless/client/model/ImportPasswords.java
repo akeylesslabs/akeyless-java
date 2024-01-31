@@ -62,6 +62,10 @@ public class ImportPasswords {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_UPDATE_MODE = "update-mode";
+  @SerializedName(SERIALIZED_NAME_UPDATE_MODE)
+  private String updateMode;
+
   public ImportPasswords() { 
   }
 
@@ -249,6 +253,29 @@ public class ImportPasswords {
   }
 
 
+  public ImportPasswords updateMode(String updateMode) {
+    
+    this.updateMode = updateMode;
+    return this;
+  }
+
+   /**
+   * Get updateMode
+   * @return updateMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUpdateMode() {
+    return updateMode;
+  }
+
+
+  public void setUpdateMode(String updateMode) {
+    this.updateMode = updateMode;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -265,12 +292,13 @@ public class ImportPasswords {
         Objects.equals(this.protectionKey, importPasswords.protectionKey) &&
         Objects.equals(this.targetFolder, importPasswords.targetFolder) &&
         Objects.equals(this.token, importPasswords.token) &&
-        Objects.equals(this.uidToken, importPasswords.uidToken);
+        Objects.equals(this.uidToken, importPasswords.uidToken) &&
+        Objects.equals(this.updateMode, importPasswords.updateMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, format, importPath, json, protectionKey, targetFolder, token, uidToken);
+    return Objects.hash(accessibility, format, importPath, json, protectionKey, targetFolder, token, uidToken, updateMode);
   }
 
   @Override
@@ -285,6 +313,7 @@ public class ImportPasswords {
     sb.append("    targetFolder: ").append(toIndentedString(targetFolder)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    updateMode: ").append(toIndentedString(updateMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

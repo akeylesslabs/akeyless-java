@@ -45,6 +45,14 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_EVENT_CENTER_ACCESS = "event-center-access";
+  @SerializedName(SERIALIZED_NAME_EVENT_CENTER_ACCESS)
+  private String eventCenterAccess;
+
+  public static final String SERIALIZED_NAME_EVENT_FORWARDERS_ACCESS = "event-forwarders-access";
+  @SerializedName(SERIALIZED_NAME_EVENT_FORWARDERS_ACCESS)
+  private String eventForwardersAccess;
+
   public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
   private String gwAnalyticsAccess;
@@ -165,6 +173,52 @@ public class CreateRole {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public CreateRole eventCenterAccess(String eventCenterAccess) {
+    
+    this.eventCenterAccess = eventCenterAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to view Event Center. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported
+   * @return eventCenterAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported")
+
+  public String getEventCenterAccess() {
+    return eventCenterAccess;
+  }
+
+
+  public void setEventCenterAccess(String eventCenterAccess) {
+    this.eventCenterAccess = eventCenterAccess;
+  }
+
+
+  public CreateRole eventForwardersAccess(String eventForwardersAccess) {
+    
+    this.eventForwardersAccess = eventForwardersAccess;
+    return this;
+  }
+
+   /**
+   * Allow this role to manage Event Forwarders. Currently only &#39;none&#39; and &#39;all&#39; values are supported.
+   * @return eventForwardersAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.")
+
+  public String getEventForwardersAccess() {
+    return eventForwardersAccess;
+  }
+
+
+  public void setEventForwardersAccess(String eventForwardersAccess) {
+    this.eventForwardersAccess = eventForwardersAccess;
   }
 
 
@@ -342,6 +396,8 @@ public class CreateRole {
         Objects.equals(this.auditAccess, createRole.auditAccess) &&
         Objects.equals(this.comment, createRole.comment) &&
         Objects.equals(this.description, createRole.description) &&
+        Objects.equals(this.eventCenterAccess, createRole.eventCenterAccess) &&
+        Objects.equals(this.eventForwardersAccess, createRole.eventForwardersAccess) &&
         Objects.equals(this.gwAnalyticsAccess, createRole.gwAnalyticsAccess) &&
         Objects.equals(this.json, createRole.json) &&
         Objects.equals(this.name, createRole.name) &&
@@ -353,7 +409,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, description, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, auditAccess, comment, description, eventCenterAccess, eventForwardersAccess, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -364,6 +420,8 @@ public class CreateRole {
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eventCenterAccess: ").append(toIndentedString(eventCenterAccess)).append("\n");
+    sb.append("    eventForwardersAccess: ").append(toIndentedString(eventForwardersAccess)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

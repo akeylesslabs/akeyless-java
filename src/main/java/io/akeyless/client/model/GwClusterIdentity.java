@@ -80,6 +80,10 @@ public class GwClusterIdentity {
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
 
+  public static final String SERIALIZED_NAME_SERVERLESS_TYPE = "serverless_type";
+  @SerializedName(SERIALIZED_NAME_SERVERLESS_TYPE)
+  private String serverlessType;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
@@ -391,6 +395,29 @@ public class GwClusterIdentity {
   }
 
 
+  public GwClusterIdentity serverlessType(String serverlessType) {
+    
+    this.serverlessType = serverlessType;
+    return this;
+  }
+
+   /**
+   * Get serverlessType
+   * @return serverlessType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getServerlessType() {
+    return serverlessType;
+  }
+
+
+  public void setServerlessType(String serverlessType) {
+    this.serverlessType = serverlessType;
+  }
+
+
   public GwClusterIdentity status(String status) {
     
     this.status = status;
@@ -458,13 +485,14 @@ public class GwClusterIdentity {
         Objects.equals(this.defaultSecretLocation, gwClusterIdentity.defaultSecretLocation) &&
         Objects.equals(this.displayName, gwClusterIdentity.displayName) &&
         Objects.equals(this.id, gwClusterIdentity.id) &&
+        Objects.equals(this.serverlessType, gwClusterIdentity.serverlessType) &&
         Objects.equals(this.status, gwClusterIdentity.status) &&
         Objects.equals(this.statusDescription, gwClusterIdentity.statusDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionAllowed, allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, customerFragments, defaultProtectionKeyId, defaultSecretLocation, displayName, id, status, statusDescription);
+    return Objects.hash(actionAllowed, allowed, allowedAccessIds, clusterName, clusterUrl, currentGw, customerFragmentIds, customerFragments, defaultProtectionKeyId, defaultSecretLocation, displayName, id, serverlessType, status, statusDescription);
   }
 
   @Override
@@ -483,6 +511,7 @@ public class GwClusterIdentity {
     sb.append("    defaultSecretLocation: ").append(toIndentedString(defaultSecretLocation)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    serverlessType: ").append(toIndentedString(serverlessType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDescription: ").append(toIndentedString(statusDescription)).append("\n");
     sb.append("}");

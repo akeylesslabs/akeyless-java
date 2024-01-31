@@ -392,11 +392,11 @@ public class Connect {
   }
 
    /**
-   * The Use to add offical SSH arguments (except -i)
+   * Additional SSH arguments (except -i)
    * @return sshExtraArgs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Use to add offical SSH arguments (except -i)")
+  @ApiModelProperty(value = "Additional SSH arguments (except -i)")
 
   public String getSshExtraArgs() {
     return sshExtraArgs;

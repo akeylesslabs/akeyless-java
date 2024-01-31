@@ -50,6 +50,10 @@ public class SignEcDsa {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+  public static final String SERIALIZED_NAME_PREHASHED = "prehashed";
+  @SerializedName(SERIALIZED_NAME_PREHASHED)
+  private Boolean prehashed;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -57,6 +61,10 @@ public class SignEcDsa {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
   public SignEcDsa() { 
   }
@@ -176,6 +184,29 @@ public class SignEcDsa {
   }
 
 
+  public SignEcDsa prehashed(Boolean prehashed) {
+    
+    this.prehashed = prehashed;
+    return this;
+  }
+
+   /**
+   * Markes that the message is already hashed
+   * @return prehashed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Markes that the message is already hashed")
+
+  public Boolean getPrehashed() {
+    return prehashed;
+  }
+
+
+  public void setPrehashed(Boolean prehashed) {
+    this.prehashed = prehashed;
+  }
+
+
   public SignEcDsa token(String token) {
     
     this.token = token;
@@ -222,6 +253,29 @@ public class SignEcDsa {
   }
 
 
+  public SignEcDsa version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of the key to use for signing
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The version of the key to use for signing")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -236,13 +290,15 @@ public class SignEcDsa {
         Objects.equals(this.json, signEcDsa.json) &&
         Objects.equals(this.keyName, signEcDsa.keyName) &&
         Objects.equals(this.message, signEcDsa.message) &&
+        Objects.equals(this.prehashed, signEcDsa.prehashed) &&
         Objects.equals(this.token, signEcDsa.token) &&
-        Objects.equals(this.uidToken, signEcDsa.uidToken);
+        Objects.equals(this.uidToken, signEcDsa.uidToken) &&
+        Objects.equals(this.version, signEcDsa.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, json, keyName, message, token, uidToken);
+    return Objects.hash(displayId, itemId, json, keyName, message, prehashed, token, uidToken, version);
   }
 
   @Override
@@ -254,8 +310,10 @@ public class SignEcDsa {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    prehashed: ").append(toIndentedString(prehashed)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

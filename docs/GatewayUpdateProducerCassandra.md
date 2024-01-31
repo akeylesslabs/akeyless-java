@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **name** | **String** | Producer name | 
 **newName** | **String** | Producer name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
+**ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]
+**sslCertificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

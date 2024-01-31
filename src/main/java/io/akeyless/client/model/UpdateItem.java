@@ -31,6 +31,10 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateItem {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  private String providerType;
+
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   private String accessibility = "regular";
@@ -43,6 +47,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
 
+  public static final String SERIALIZED_NAME_CHANGE_EVENT = "change-event";
+  @SerializedName(SERIALIZED_NAME_CHANGE_EVENT)
+  private String changeEvent;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
@@ -50,6 +58,10 @@ public class UpdateItem {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description = "default_metadata";
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  private String hostProvider = "explicit";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -186,6 +198,29 @@ public class UpdateItem {
   public UpdateItem() { 
   }
 
+  public UpdateItem providerType(String providerType) {
+    
+    this.providerType = providerType;
+    return this;
+  }
+
+   /**
+   * Get providerType
+   * @return providerType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProviderType() {
+    return providerType;
+  }
+
+
+  public void setProviderType(String providerType) {
+    this.providerType = providerType;
+  }
+
+
   public UpdateItem accessibility(String accessibility) {
     
     this.accessibility = accessibility;
@@ -263,6 +298,29 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem changeEvent(String changeEvent) {
+    
+    this.changeEvent = changeEvent;
+    return this;
+  }
+
+   /**
+   * Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
+   * @return changeEvent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)")
+
+  public String getChangeEvent() {
+    return changeEvent;
+  }
+
+
+  public void setChangeEvent(String changeEvent) {
+    this.changeEvent = changeEvent;
+  }
+
+
   public UpdateItem deleteProtection(String deleteProtection) {
     
     this.deleteProtection = deleteProtection;
@@ -306,6 +364,29 @@ public class UpdateItem {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public UpdateItem hostProvider(String hostProvider) {
+    
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+   /**
+   * Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret
+   * @return hostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret")
+
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+
+  public void setHostProvider(String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -1109,11 +1190,14 @@ public class UpdateItem {
       return false;
     }
     UpdateItem updateItem = (UpdateItem) o;
-    return Objects.equals(this.accessibility, updateItem.accessibility) &&
+    return Objects.equals(this.providerType, updateItem.providerType) &&
+        Objects.equals(this.accessibility, updateItem.accessibility) &&
         Objects.equals(this.addTag, updateItem.addTag) &&
         Objects.equals(this.certFileData, updateItem.certFileData) &&
+        Objects.equals(this.changeEvent, updateItem.changeEvent) &&
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
         Objects.equals(this.description, updateItem.description) &&
+        Objects.equals(this.hostProvider, updateItem.hostProvider) &&
         Objects.equals(this.json, updateItem.json) &&
         Objects.equals(this.name, updateItem.name) &&
         Objects.equals(this.newMetadata, updateItem.newMetadata) &&
@@ -1151,18 +1235,21 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, addTag, certFileData, deleteProtection, description, json, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(providerType, accessibility, addTag, certFileData, changeEvent, deleteProtection, description, hostProvider, json, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateItem {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
+    sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");

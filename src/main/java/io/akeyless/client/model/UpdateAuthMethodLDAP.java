@@ -40,6 +40,10 @@ public class UpdateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -138,6 +142,29 @@ public class UpdateAuthMethodLDAP {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public UpdateAuthMethodLDAP description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -413,6 +440,7 @@ public class UpdateAuthMethodLDAP {
     UpdateAuthMethodLDAP updateAuthMethodLDAP = (UpdateAuthMethodLDAP) o;
     return Objects.equals(this.accessExpires, updateAuthMethodLDAP.accessExpires) &&
         Objects.equals(this.boundIps, updateAuthMethodLDAP.boundIps) &&
+        Objects.equals(this.description, updateAuthMethodLDAP.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodLDAP.forceSubClaims) &&
         Objects.equals(this.genKey, updateAuthMethodLDAP.genKey) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodLDAP.gwBoundIps) &&
@@ -428,7 +456,7 @@ public class UpdateAuthMethodLDAP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, publicKeyData, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -437,6 +465,7 @@ public class UpdateAuthMethodLDAP {
     sb.append("class UpdateAuthMethodLDAP {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

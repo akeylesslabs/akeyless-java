@@ -53,6 +53,10 @@ public class CreateLinkedTarget {
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
@@ -198,6 +202,29 @@ public class CreateLinkedTarget {
   }
 
 
+  public CreateLinkedTarget type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Specifies the hosts type, relevant only when working without parent target
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the hosts type, relevant only when working without parent target")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
   public CreateLinkedTarget uidToken(String uidToken) {
     
     this.uidToken = uidToken;
@@ -236,12 +263,13 @@ public class CreateLinkedTarget {
         Objects.equals(this.name, createLinkedTarget.name) &&
         Objects.equals(this.parentTargetName, createLinkedTarget.parentTargetName) &&
         Objects.equals(this.token, createLinkedTarget.token) &&
+        Objects.equals(this.type, createLinkedTarget.type) &&
         Objects.equals(this.uidToken, createLinkedTarget.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, hosts, json, name, parentTargetName, token, uidToken);
+    return Objects.hash(description, hosts, json, name, parentTargetName, token, type, uidToken);
   }
 
   @Override
@@ -254,6 +282,7 @@ public class CreateLinkedTarget {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentTargetName: ").append(toIndentedString(parentTargetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

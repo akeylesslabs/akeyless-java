@@ -64,6 +64,10 @@ public class UpdateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_BOUND_ZONES)
   private List<String> boundZones = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -339,6 +343,29 @@ public class UpdateAuthMethodGCP {
   }
 
 
+  public UpdateAuthMethodGCP description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateAuthMethodGCP forceSubClaims(Boolean forceSubClaims) {
     
     this.forceSubClaims = forceSubClaims;
@@ -594,6 +621,7 @@ public class UpdateAuthMethodGCP {
         Objects.equals(this.boundRegions, updateAuthMethodGCP.boundRegions) &&
         Objects.equals(this.boundServiceAccounts, updateAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, updateAuthMethodGCP.boundZones) &&
+        Objects.equals(this.description, updateAuthMethodGCP.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodGCP.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodGCP.gwBoundIps) &&
         Objects.equals(this.json, updateAuthMethodGCP.json) &&
@@ -608,7 +636,7 @@ public class UpdateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, serviceAccountCredsData, token, type, uidToken);
   }
 
   @Override
@@ -623,6 +651,7 @@ public class UpdateAuthMethodGCP {
     sb.append("    boundRegions: ").append(toIndentedString(boundRegions)).append("\n");
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

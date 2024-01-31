@@ -57,6 +57,10 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_LAST_VERSION = "last-version";
+  @SerializedName(SERIALIZED_NAME_LAST_VERSION)
+  private Integer lastVersion;
+
   public static final String SERIALIZED_NAME_MULTILINE = "multiline";
   @SerializedName(SERIALIZED_NAME_MULTILINE)
   private Boolean multiline;
@@ -243,6 +247,29 @@ public class UpdateSecretVal {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public UpdateSecretVal lastVersion(Integer lastVersion) {
+    
+    this.lastVersion = lastVersion;
+    return this;
+  }
+
+   /**
+   * The last version number before the update
+   * @return lastVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The last version number before the update")
+
+  public Integer getLastVersion() {
+    return lastVersion;
+  }
+
+
+  public void setLastVersion(Integer lastVersion) {
+    this.lastVersion = lastVersion;
   }
 
 
@@ -445,6 +472,7 @@ public class UpdateSecretVal {
         Objects.equals(this.json, updateSecretVal.json) &&
         Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
         Objects.equals(this.key, updateSecretVal.key) &&
+        Objects.equals(this.lastVersion, updateSecretVal.lastVersion) &&
         Objects.equals(this.multiline, updateSecretVal.multiline) &&
         Objects.equals(this.name, updateSecretVal.name) &&
         Objects.equals(this.newVersion, updateSecretVal.newVersion) &&
@@ -457,7 +485,7 @@ public class UpdateSecretVal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, customField, injectUrl, json, keepPrevVersion, key, multiline, name, newVersion, password, token, uidToken, username, value);
+    return Objects.hash(accessibility, customField, injectUrl, json, keepPrevVersion, key, lastVersion, multiline, name, newVersion, password, token, uidToken, username, value);
   }
 
   @Override
@@ -470,6 +498,7 @@ public class UpdateSecretVal {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    multiline: ").append(toIndentedString(multiline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");

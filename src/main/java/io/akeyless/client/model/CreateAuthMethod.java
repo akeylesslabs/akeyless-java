@@ -39,6 +39,10 @@ public class CreateAuthMethod {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -121,6 +125,29 @@ public class CreateAuthMethod {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public CreateAuthMethod description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -304,6 +331,7 @@ public class CreateAuthMethod {
     CreateAuthMethod createAuthMethod = (CreateAuthMethod) o;
     return Objects.equals(this.accessExpires, createAuthMethod.accessExpires) &&
         Objects.equals(this.boundIps, createAuthMethod.boundIps) &&
+        Objects.equals(this.description, createAuthMethod.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethod.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethod.gwBoundIps) &&
         Objects.equals(this.json, createAuthMethod.json) &&
@@ -315,7 +343,7 @@ public class CreateAuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
   }
 
   @Override
@@ -324,6 +352,7 @@ public class CreateAuthMethod {
     sb.append("class CreateAuthMethod {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

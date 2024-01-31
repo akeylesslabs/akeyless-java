@@ -59,6 +59,10 @@ public class UpdateCertificateValue {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_KEEP_PREV_VERSION = "keep-prev-version";
+  @SerializedName(SERIALIZED_NAME_KEEP_PREV_VERSION)
+  private String keepPrevVersion;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -267,6 +271,29 @@ public class UpdateCertificateValue {
   }
 
 
+  public UpdateCertificateValue keepPrevVersion(String keepPrevVersion) {
+    
+    this.keepPrevVersion = keepPrevVersion;
+    return this;
+  }
+
+   /**
+   * Whether to keep previous version [true/false]. If not set, use default according to account settings
+   * @return keepPrevVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to keep previous version [true/false]. If not set, use default according to account settings")
+
+  public String getKeepPrevVersion() {
+    return keepPrevVersion;
+  }
+
+
+  public void setKeepPrevVersion(String keepPrevVersion) {
+    this.keepPrevVersion = keepPrevVersion;
+  }
+
+
   public UpdateCertificateValue key(String key) {
     
     this.key = key;
@@ -452,6 +479,7 @@ public class UpdateCertificateValue {
         Objects.equals(this.expirationEventIn, updateCertificateValue.expirationEventIn) &&
         Objects.equals(this.format, updateCertificateValue.format) &&
         Objects.equals(this.json, updateCertificateValue.json) &&
+        Objects.equals(this.keepPrevVersion, updateCertificateValue.keepPrevVersion) &&
         Objects.equals(this.key, updateCertificateValue.key) &&
         Objects.equals(this.keyData, updateCertificateValue.keyData) &&
         Objects.equals(this.metadata, updateCertificateValue.metadata) &&
@@ -463,7 +491,7 @@ public class UpdateCertificateValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, certificateData, deleteProtection, description, expirationEventIn, format, json, key, keyData, metadata, name, rmTag, token, uidToken);
+    return Objects.hash(addTag, certificateData, deleteProtection, description, expirationEventIn, format, json, keepPrevVersion, key, keyData, metadata, name, rmTag, token, uidToken);
   }
 
   @Override
@@ -477,6 +505,7 @@ public class UpdateCertificateValue {
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

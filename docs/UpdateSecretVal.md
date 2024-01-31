@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**lastVersion** | **Integer** | The last version number before the update |  [optional]
 **multiline** | **Boolean** | The provided value is a multiline value (separated by &#39;\\n&#39;) |  [optional]
 **name** | **String** | Secret name | 
 **newVersion** | **Boolean** | Deprecated |  [optional]

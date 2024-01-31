@@ -68,6 +68,10 @@ public class UpdateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_BOUND_USER_NAME)
   private List<String> boundUserName = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -375,6 +379,29 @@ public class UpdateAuthMethodAWSIAM {
   }
 
 
+  public UpdateAuthMethodAWSIAM description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateAuthMethodAWSIAM forceSubClaims(Boolean forceSubClaims) {
     
     this.forceSubClaims = forceSubClaims;
@@ -608,6 +635,7 @@ public class UpdateAuthMethodAWSIAM {
         Objects.equals(this.boundRoleName, updateAuthMethodAWSIAM.boundRoleName) &&
         Objects.equals(this.boundUserId, updateAuthMethodAWSIAM.boundUserId) &&
         Objects.equals(this.boundUserName, updateAuthMethodAWSIAM.boundUserName) &&
+        Objects.equals(this.description, updateAuthMethodAWSIAM.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodAWSIAM.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodAWSIAM.gwBoundIps) &&
         Objects.equals(this.json, updateAuthMethodAWSIAM.json) &&
@@ -621,7 +649,7 @@ public class UpdateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, stsUrl, token, uidToken);
   }
 
   @Override
@@ -637,6 +665,7 @@ public class UpdateAuthMethodAWSIAM {
     sb.append("    boundRoleName: ").append(toIndentedString(boundRoleName)).append("\n");
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

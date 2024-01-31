@@ -34,6 +34,14 @@ public class SignPKCS1 {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_HASH_FUNCTION = "hash-function";
+  @SerializedName(SERIALIZED_NAME_HASH_FUNCTION)
+  private String hashFunction;
+
+  public static final String SERIALIZED_NAME_INPUT_FORMAT = "input-format";
+  @SerializedName(SERIALIZED_NAME_INPUT_FORMAT)
+  private String inputFormat;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
@@ -50,6 +58,10 @@ public class SignPKCS1 {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+  public static final String SERIALIZED_NAME_PREHASHED = "prehashed";
+  @SerializedName(SERIALIZED_NAME_PREHASHED)
+  private Boolean prehashed;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -57,6 +69,10 @@ public class SignPKCS1 {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
   public SignPKCS1() { 
   }
@@ -81,6 +97,52 @@ public class SignPKCS1 {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public SignPKCS1 hashFunction(String hashFunction) {
+    
+    this.hashFunction = hashFunction;
+    return this;
+  }
+
+   /**
+   * HashFunction defines the hash function (e.g. sha-256)
+   * @return hashFunction
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "HashFunction defines the hash function (e.g. sha-256)")
+
+  public String getHashFunction() {
+    return hashFunction;
+  }
+
+
+  public void setHashFunction(String hashFunction) {
+    this.hashFunction = hashFunction;
+  }
+
+
+  public SignPKCS1 inputFormat(String inputFormat) {
+    
+    this.inputFormat = inputFormat;
+    return this;
+  }
+
+   /**
+   * Select default assumed format for the plaintext message. Currently supported options: [base64]
+   * @return inputFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Select default assumed format for the plaintext message. Currently supported options: [base64]")
+
+  public String getInputFormat() {
+    return inputFormat;
+  }
+
+
+  public void setInputFormat(String inputFormat) {
+    this.inputFormat = inputFormat;
   }
 
 
@@ -176,6 +238,29 @@ public class SignPKCS1 {
   }
 
 
+  public SignPKCS1 prehashed(Boolean prehashed) {
+    
+    this.prehashed = prehashed;
+    return this;
+  }
+
+   /**
+   * Markes that the message is already hashed
+   * @return prehashed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Markes that the message is already hashed")
+
+  public Boolean getPrehashed() {
+    return prehashed;
+  }
+
+
+  public void setPrehashed(Boolean prehashed) {
+    this.prehashed = prehashed;
+  }
+
+
   public SignPKCS1 token(String token) {
     
     this.token = token;
@@ -222,6 +307,29 @@ public class SignPKCS1 {
   }
 
 
+  public SignPKCS1 version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of the key to use for signing
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The version of the key to use for signing")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,17 +340,21 @@ public class SignPKCS1 {
     }
     SignPKCS1 signPKCS1 = (SignPKCS1) o;
     return Objects.equals(this.displayId, signPKCS1.displayId) &&
+        Objects.equals(this.hashFunction, signPKCS1.hashFunction) &&
+        Objects.equals(this.inputFormat, signPKCS1.inputFormat) &&
         Objects.equals(this.itemId, signPKCS1.itemId) &&
         Objects.equals(this.json, signPKCS1.json) &&
         Objects.equals(this.keyName, signPKCS1.keyName) &&
         Objects.equals(this.message, signPKCS1.message) &&
+        Objects.equals(this.prehashed, signPKCS1.prehashed) &&
         Objects.equals(this.token, signPKCS1.token) &&
-        Objects.equals(this.uidToken, signPKCS1.uidToken);
+        Objects.equals(this.uidToken, signPKCS1.uidToken) &&
+        Objects.equals(this.version, signPKCS1.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, json, keyName, message, token, uidToken);
+    return Objects.hash(displayId, hashFunction, inputFormat, itemId, json, keyName, message, prehashed, token, uidToken, version);
   }
 
   @Override
@@ -250,12 +362,16 @@ public class SignPKCS1 {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignPKCS1 {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    hashFunction: ").append(toIndentedString(hashFunction)).append("\n");
+    sb.append("    inputFormat: ").append(toIndentedString(inputFormat)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    prehashed: ").append(toIndentedString(prehashed)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -65,6 +65,7 @@ Name | Type | Description | Notes
 **siRotationInterval** | **Integer** | The number of days to wait between every automatic rotation [1-365] (Relevant only for Server Inventory migration) |  [optional]
 **siSraEnableRdp** | **String** | Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Server Inventory migration) |  [optional]
 **siTargetName** | **String** | SSH, Windows or Linked Target Name. (Relevant only for Server Inventory migration) | 
+**siUserGroups** | **String** | Comma-separated list of groups to migrate users from. If empty, all users from all groups will be migrated (Relevant only for Server Inventory migration) |  [optional]
 **siUsersIgnore** | **String** | Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration) |  [optional]
 **siUsersPathTemplate** | **String** | Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration) | 
 **targetLocation** | **String** | Target location in Akeyless for imported secrets | 

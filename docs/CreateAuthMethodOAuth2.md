@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **audience** | **String** | The audience in the JWT |  [optional]
 **boundClientIds** | **List&lt;String&gt;** | The clients ids that the access is restricted to |  [optional]
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
+**description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **gatewayUrl** | **String** | Akeyless Gateway URL (Configuration Management port). Relevant only when the jwks-uri is accessible only from the gateway. |  [optional]
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]

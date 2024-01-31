@@ -44,6 +44,10 @@ public class UpdateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -177,6 +181,29 @@ public class UpdateAuthMethodSAML {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public UpdateAuthMethodSAML description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -484,6 +511,7 @@ public class UpdateAuthMethodSAML {
     return Objects.equals(this.accessExpires, updateAuthMethodSAML.accessExpires) &&
         Objects.equals(this.allowedRedirectUri, updateAuthMethodSAML.allowedRedirectUri) &&
         Objects.equals(this.boundIps, updateAuthMethodSAML.boundIps) &&
+        Objects.equals(this.description, updateAuthMethodSAML.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodSAML.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodSAML.gwBoundIps) &&
         Objects.equals(this.idpMetadataUrl, updateAuthMethodSAML.idpMetadataUrl) &&
@@ -500,7 +528,7 @@ public class UpdateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -510,6 +538,7 @@ public class UpdateAuthMethodSAML {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");

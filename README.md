@@ -320,8 +320,10 @@ Class | Method | HTTP request | Description
 *V2Api* | [**listSharedItems**](docs/V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 *V2Api* | [**listTargets**](docs/V2Api.md#listTargets) | **POST** /list-targets | 
 *V2Api* | [**moveObjects**](docs/V2Api.md#moveObjects) | **POST** /move-objects | 
+*V2Api* | [**provisionCertificate**](docs/V2Api.md#provisionCertificate) | **POST** /provision-certificate | 
 *V2Api* | [**rawCreds**](docs/V2Api.md#rawCreds) | **POST** /raw-creds | 
 *V2Api* | [**refreshKey**](docs/V2Api.md#refreshKey) | **POST** /refresh-key | 
+*V2Api* | [**renewCertificate**](docs/V2Api.md#renewCertificate) | **POST** /renew-certificate | 
 *V2Api* | [**requestAccess**](docs/V2Api.md#requestAccess) | **POST** /request-access | 
 *V2Api* | [**reverseRBAC**](docs/V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
 *V2Api* | [**revokeCreds**](docs/V2Api.md#revokeCreds) | **POST** /revoke-creds | 
@@ -389,7 +391,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateRabbitMQTargetDetails**](docs/V2Api.md#updateRabbitMQTargetDetails) | **POST** /update-rabbitmq-target-details | 
 *V2Api* | [**updateRole**](docs/V2Api.md#updateRole) | **POST** /update-role | 
 *V2Api* | [**updateRotatedSecret**](docs/V2Api.md#updateRotatedSecret) | **POST** /update-rotated-secret | 
-*V2Api* | [**updateRotationSettings**](docs/V2Api.md#updateRotationSettings) | **POST** /update-rotation-settingsrotate-key | 
+*V2Api* | [**updateRotationSettings**](docs/V2Api.md#updateRotationSettings) | **POST** /update-rotation-settings | 
 *V2Api* | [**updateSSHCertIssuer**](docs/V2Api.md#updateSSHCertIssuer) | **POST** /update-ssh-cert-issuer | 
 *V2Api* | [**updateSSHTarget**](docs/V2Api.md#updateSSHTarget) | **POST** /update-ssh-target | 
 *V2Api* | [**updateSSHTargetDetails**](docs/V2Api.md#updateSSHTargetDetails) | **POST** /update-ssh-target-details | 
@@ -460,6 +462,7 @@ Class | Method | HTTP request | Description
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
  - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
+ - [CertificateVersionInfo](docs/CertificateVersionInfo.md)
  - [CfInfo](docs/CfInfo.md)
  - [ChefTargetDetails](docs/ChefTargetDetails.md)
  - [ClassicKeyDetailsInfo](docs/ClassicKeyDetailsInfo.md)
@@ -951,11 +954,15 @@ Class | Method | HTTP request | Description
  - [PingTargetDetails](docs/PingTargetDetails.md)
  - [Producer](docs/Producer.md)
  - [ProducersConfigPart](docs/ProducersConfigPart.md)
+ - [ProvisionCertificate](docs/ProvisionCertificate.md)
+ - [ProvisionCertificateOutput](docs/ProvisionCertificateOutput.md)
  - [RabbitMQTargetDetails](docs/RabbitMQTargetDetails.md)
  - [RawCreds](docs/RawCreds.md)
  - [RefreshKey](docs/RefreshKey.md)
  - [RefreshKeyOutput](docs/RefreshKeyOutput.md)
  - [RegexpTokenizerInfo](docs/RegexpTokenizerInfo.md)
+ - [RenewCertificate](docs/RenewCertificate.md)
+ - [RenewCertificateOutput](docs/RenewCertificateOutput.md)
  - [RequestAccess](docs/RequestAccess.md)
  - [RequestAccessOutput](docs/RequestAccessOutput.md)
  - [RequiredActivity](docs/RequiredActivity.md)

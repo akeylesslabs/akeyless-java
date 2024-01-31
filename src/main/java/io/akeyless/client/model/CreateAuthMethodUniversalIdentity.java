@@ -48,6 +48,10 @@ public class CreateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_DENY_ROTATE)
   private Boolean denyRotate;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -180,6 +184,29 @@ public class CreateAuthMethodUniversalIdentity {
 
   public void setDenyRotate(Boolean denyRotate) {
     this.denyRotate = denyRotate;
+  }
+
+
+  public CreateAuthMethodUniversalIdentity description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -388,6 +415,7 @@ public class CreateAuthMethodUniversalIdentity {
         Objects.equals(this.boundIps, createAuthMethodUniversalIdentity.boundIps) &&
         Objects.equals(this.denyInheritance, createAuthMethodUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, createAuthMethodUniversalIdentity.denyRotate) &&
+        Objects.equals(this.description, createAuthMethodUniversalIdentity.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodUniversalIdentity.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodUniversalIdentity.gwBoundIps) &&
         Objects.equals(this.json, createAuthMethodUniversalIdentity.json) &&
@@ -400,7 +428,7 @@ public class CreateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, ttl, uidToken);
   }
 
   @Override
@@ -411,6 +439,7 @@ public class CreateAuthMethodUniversalIdentity {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

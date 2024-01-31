@@ -31,6 +31,10 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StaticSecretDetailsInfo {
+  public static final String SERIALIZED_NAME_NOTIFY_ON_CHANGE_EVENT = "notify_on_change_event";
+  @SerializedName(SERIALIZED_NAME_NOTIFY_ON_CHANGE_EVENT)
+  private Boolean notifyOnChangeEvent;
+
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
@@ -45,6 +49,29 @@ public class StaticSecretDetailsInfo {
 
   public StaticSecretDetailsInfo() { 
   }
+
+  public StaticSecretDetailsInfo notifyOnChangeEvent(Boolean notifyOnChangeEvent) {
+    
+    this.notifyOnChangeEvent = notifyOnChangeEvent;
+    return this;
+  }
+
+   /**
+   * Get notifyOnChangeEvent
+   * @return notifyOnChangeEvent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getNotifyOnChangeEvent() {
+    return notifyOnChangeEvent;
+  }
+
+
+  public void setNotifyOnChangeEvent(Boolean notifyOnChangeEvent) {
+    this.notifyOnChangeEvent = notifyOnChangeEvent;
+  }
+
 
   public StaticSecretDetailsInfo username(String username) {
     
@@ -132,20 +159,22 @@ public class StaticSecretDetailsInfo {
       return false;
     }
     StaticSecretDetailsInfo staticSecretDetailsInfo = (StaticSecretDetailsInfo) o;
-    return Objects.equals(this.username, staticSecretDetailsInfo.username) &&
+    return Objects.equals(this.notifyOnChangeEvent, staticSecretDetailsInfo.notifyOnChangeEvent) &&
+        Objects.equals(this.username, staticSecretDetailsInfo.username) &&
         Objects.equals(this.website, staticSecretDetailsInfo.website) &&
         Objects.equals(this.websites, staticSecretDetailsInfo.websites);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, website, websites);
+    return Objects.hash(notifyOnChangeEvent, username, website, websites);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretDetailsInfo {\n");
+    sb.append("    notifyOnChangeEvent: ").append(toIndentedString(notifyOnChangeEvent)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");
     sb.append("    websites: ").append(toIndentedString(websites)).append("\n");

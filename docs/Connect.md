@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **justification** | **String** |  |  [optional]
 **name** | **String** | The Secret name (for database and AWS producers - producer name) |  [optional]
 **sshCommand** | **String** | Path to SSH executable. e.g. /usr/bin/ssh |  [optional]
-**sshExtraArgs** | **String** | The Use to add offical SSH arguments (except -i) |  [optional]
+**sshExtraArgs** | **String** | Additional SSH arguments (except -i) |  [optional]
 **sshLegacySigningAlg** | **Boolean** | Set this option to output legacy (&#39;ssh-rsa-cert-v01@openssh.com&#39;) signing algorithm name in the ssh certificate. |  [optional]
 **target** | **String** | The target |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

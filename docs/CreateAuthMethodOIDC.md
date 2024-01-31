@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **clientId** | **String** | Client ID |  [optional]
 **clientSecret** | **String** | Client Secret |  [optional]
+**description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]
 **issuer** | **String** | Issuer URL |  [optional]

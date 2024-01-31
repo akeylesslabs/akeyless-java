@@ -41,6 +41,10 @@ public class ImportPasswordsOutput {
   @SerializedName(SERIALIZED_NAME_SUCCESSFULLY_PARSED)
   private Long successfullyParsed;
 
+  public static final String SERIALIZED_NAME_UPDATED = "updated";
+  @SerializedName(SERIALIZED_NAME_UPDATED)
+  private Integer updated;
+
   public ImportPasswordsOutput() { 
   }
 
@@ -113,6 +117,29 @@ public class ImportPasswordsOutput {
   }
 
 
+  public ImportPasswordsOutput updated(Integer updated) {
+    
+    this.updated = updated;
+    return this;
+  }
+
+   /**
+   * Get updated
+   * @return updated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getUpdated() {
+    return updated;
+  }
+
+
+  public void setUpdated(Integer updated) {
+    this.updated = updated;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,12 +151,13 @@ public class ImportPasswordsOutput {
     ImportPasswordsOutput importPasswordsOutput = (ImportPasswordsOutput) o;
     return Objects.equals(this.imported, importPasswordsOutput.imported) &&
         Objects.equals(this.passwordsInFile, importPasswordsOutput.passwordsInFile) &&
-        Objects.equals(this.successfullyParsed, importPasswordsOutput.successfullyParsed);
+        Objects.equals(this.successfullyParsed, importPasswordsOutput.successfullyParsed) &&
+        Objects.equals(this.updated, importPasswordsOutput.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imported, passwordsInFile, successfullyParsed);
+    return Objects.hash(imported, passwordsInFile, successfullyParsed, updated);
   }
 
   @Override
@@ -139,6 +167,7 @@ public class ImportPasswordsOutput {
     sb.append("    imported: ").append(toIndentedString(imported)).append("\n");
     sb.append("    passwordsInFile: ").append(toIndentedString(passwordsInFile)).append("\n");
     sb.append("    successfullyParsed: ").append(toIndentedString(successfullyParsed)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -144,6 +144,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_TARGET_HOSTS)
   private List<TargetNameWithHosts> targetHosts = null;
 
+  public static final String SERIALIZED_NAME_TARGETS = "targets";
+  @SerializedName(SERIALIZED_NAME_TARGETS)
+  private List<String> targets = null;
+
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
@@ -819,6 +823,37 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess targets(List<String> targets) {
+    
+    this.targets = targets;
+    return this;
+  }
+
+  public SecureRemoteAccess addTargetsItem(String targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<String>();
+    }
+    this.targets.add(targetsItem);
+    return this;
+  }
+
+   /**
+   * Get targets
+   * @return targets
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getTargets() {
+    return targets;
+  }
+
+
+  public void setTargets(List<String> targets) {
+    this.targets = targets;
+  }
+
+
   public SecureRemoteAccess url(String url) {
     
     this.url = url;
@@ -925,6 +960,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.sshPrivateKey, secureRemoteAccess.sshPrivateKey) &&
         Objects.equals(this.sshUser, secureRemoteAccess.sshUser) &&
         Objects.equals(this.targetHosts, secureRemoteAccess.targetHosts) &&
+        Objects.equals(this.targets, secureRemoteAccess.targets) &&
         Objects.equals(this.url, secureRemoteAccess.url) &&
         Objects.equals(this.useInternalBastion, secureRemoteAccess.useInternalBastion) &&
         Objects.equals(this.webProxy, secureRemoteAccess.webProxy);
@@ -932,7 +968,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, targetHosts, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, targetHosts, targets, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -967,6 +1003,7 @@ public class SecureRemoteAccess {
     sb.append("    sshPrivateKey: ").append(toIndentedString(sshPrivateKey)).append("\n");
     sb.append("    sshUser: ").append(toIndentedString(sshUser)).append("\n");
     sb.append("    targetHosts: ").append(toIndentedString(targetHosts)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    useInternalBastion: ").append(toIndentedString(useInternalBastion)).append("\n");
     sb.append("    webProxy: ").append(toIndentedString(webProxy)).append("\n");

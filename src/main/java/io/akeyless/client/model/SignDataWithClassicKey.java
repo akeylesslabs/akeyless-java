@@ -45,6 +45,10 @@ public class SignDataWithClassicKey {
   @SerializedName(SERIALIZED_NAME_HASHING_METHOD)
   private String hashingMethod = "SHA256";
 
+  public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
+  private String ignoreCache = "false";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -157,6 +161,29 @@ public class SignDataWithClassicKey {
 
   public void setHashingMethod(String hashingMethod) {
     this.hashingMethod = hashingMethod;
+  }
+
+
+  public SignDataWithClassicKey ignoreCache(String ignoreCache) {
+    
+    this.ignoreCache = ignoreCache;
+    return this;
+  }
+
+   /**
+   * Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
+   * @return ignoreCache
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI")
+
+  public String getIgnoreCache() {
+    return ignoreCache;
+  }
+
+
+  public void setIgnoreCache(String ignoreCache) {
+    this.ignoreCache = ignoreCache;
   }
 
 
@@ -288,6 +315,7 @@ public class SignDataWithClassicKey {
         Objects.equals(this.displayId, signDataWithClassicKey.displayId) &&
         Objects.equals(this.hashed, signDataWithClassicKey.hashed) &&
         Objects.equals(this.hashingMethod, signDataWithClassicKey.hashingMethod) &&
+        Objects.equals(this.ignoreCache, signDataWithClassicKey.ignoreCache) &&
         Objects.equals(this.json, signDataWithClassicKey.json) &&
         Objects.equals(this.name, signDataWithClassicKey.name) &&
         Objects.equals(this.token, signDataWithClassicKey.token) &&
@@ -297,7 +325,7 @@ public class SignDataWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, displayId, hashed, hashingMethod, json, name, token, uidToken, version);
+    return Objects.hash(data, displayId, hashed, hashingMethod, ignoreCache, json, name, token, uidToken, version);
   }
 
   @Override
@@ -308,6 +336,7 @@ public class SignDataWithClassicKey {
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    hashed: ").append(toIndentedString(hashed)).append("\n");
     sb.append("    hashingMethod: ").append(toIndentedString(hashingMethod)).append("\n");
+    sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -33,9 +33,9 @@ import java.util.Map;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSSHCertIssuer {
-  public static final String SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER = "SshCertIssuerHostProvider";
-  @SerializedName(SERIALIZED_NAME_SSH_CERT_ISSUER_HOST_PROVIDER)
-  private String sshCertIssuerHostProvider;
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  private String providerType;
 
   public static final String SERIALIZED_NAME_ALLOWED_USERS = "allowed-users";
   @SerializedName(SERIALIZED_NAME_ALLOWED_USERS)
@@ -124,26 +124,26 @@ public class CreateSSHCertIssuer {
   public CreateSSHCertIssuer() { 
   }
 
-  public CreateSSHCertIssuer sshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
+  public CreateSSHCertIssuer providerType(String providerType) {
     
-    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+    this.providerType = providerType;
     return this;
   }
 
    /**
-   * Get sshCertIssuerHostProvider
-   * @return sshCertIssuerHostProvider
+   * Get providerType
+   * @return providerType
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSshCertIssuerHostProvider() {
-    return sshCertIssuerHostProvider;
+  public String getProviderType() {
+    return providerType;
   }
 
 
-  public void setSshCertIssuerHostProvider(String sshCertIssuerHostProvider) {
-    this.sshCertIssuerHostProvider = sshCertIssuerHostProvider;
+  public void setProviderType(String providerType) {
+    this.providerType = providerType;
   }
 
 
@@ -254,11 +254,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * Host provider type [explicit/target]
+   * Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret
    * @return hostProvider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host provider type [explicit/target]")
+  @ApiModelProperty(value = "Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret")
 
   public String getHostProvider() {
     return hostProvider;
@@ -577,11 +577,11 @@ public class CreateSSHCertIssuer {
   }
 
    /**
-   * A list of existing targets to be associated, Relevant only for Secure Remote Access, To specify multiple targets use argument multiple times
+   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times
    * @return target
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of existing targets to be associated, Relevant only for Secure Remote Access, To specify multiple targets use argument multiple times")
+  @ApiModelProperty(value = "A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times")
 
   public List<String> getTarget() {
     return target;
@@ -671,7 +671,7 @@ public class CreateSSHCertIssuer {
       return false;
     }
     CreateSSHCertIssuer createSSHCertIssuer = (CreateSSHCertIssuer) o;
-    return Objects.equals(this.sshCertIssuerHostProvider, createSSHCertIssuer.sshCertIssuerHostProvider) &&
+    return Objects.equals(this.providerType, createSSHCertIssuer.providerType) &&
         Objects.equals(this.allowedUsers, createSSHCertIssuer.allowedUsers) &&
         Objects.equals(this.deleteProtection, createSSHCertIssuer.deleteProtection) &&
         Objects.equals(this.description, createSSHCertIssuer.description) &&
@@ -697,14 +697,14 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sshCertIssuerHostProvider, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, target, token, ttl, uidToken);
+    return Objects.hash(providerType, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, target, token, ttl, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSSHCertIssuer {\n");
-    sb.append("    sshCertIssuerHostProvider: ").append(toIndentedString(sshCertIssuerHostProvider)).append("\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    allowedUsers: ").append(toIndentedString(allowedUsers)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

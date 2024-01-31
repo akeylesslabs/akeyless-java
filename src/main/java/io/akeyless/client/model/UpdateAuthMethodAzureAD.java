@@ -80,6 +80,10 @@ public class UpdateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_BOUND_TENANT_ID)
   private String boundTenantId;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force-sub-claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   private Boolean forceSubClaims;
@@ -153,11 +157,11 @@ public class UpdateAuthMethodAzureAD {
   }
 
    /**
-   * The audience in the JWT
+   * Deprecated (Deprecated) The audience in the JWT
    * @return audience
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The audience in the JWT")
+  @ApiModelProperty(value = "Deprecated (Deprecated) The audience in the JWT")
 
   public String getAudience() {
     return audience;
@@ -471,6 +475,29 @@ public class UpdateAuthMethodAzureAD {
   }
 
 
+  public UpdateAuthMethodAzureAD description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Auth Method description
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Auth Method description")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public UpdateAuthMethodAzureAD forceSubClaims(Boolean forceSubClaims) {
     
     this.forceSubClaims = forceSubClaims;
@@ -730,6 +757,7 @@ public class UpdateAuthMethodAzureAD {
         Objects.equals(this.boundSpid, updateAuthMethodAzureAD.boundSpid) &&
         Objects.equals(this.boundSubId, updateAuthMethodAzureAD.boundSubId) &&
         Objects.equals(this.boundTenantId, updateAuthMethodAzureAD.boundTenantId) &&
+        Objects.equals(this.description, updateAuthMethodAzureAD.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodAzureAD.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, updateAuthMethodAzureAD.gwBoundIps) &&
         Objects.equals(this.issuer, updateAuthMethodAzureAD.issuer) &&
@@ -744,7 +772,7 @@ public class UpdateAuthMethodAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, newName, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, newName, token, uidToken);
   }
 
   @Override
@@ -763,6 +791,7 @@ public class UpdateAuthMethodAzureAD {
     sb.append("    boundSpid: ").append(toIndentedString(boundSpid)).append("\n");
     sb.append("    boundSubId: ").append(toIndentedString(boundSubId)).append("\n");
     sb.append("    boundTenantId: ").append(toIndentedString(boundTenantId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");

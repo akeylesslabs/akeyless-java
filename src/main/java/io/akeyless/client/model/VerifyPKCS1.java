@@ -33,6 +33,14 @@ public class VerifyPKCS1 {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_HASH_FUNCTION = "hash-function";
+  @SerializedName(SERIALIZED_NAME_HASH_FUNCTION)
+  private String hashFunction;
+
+  public static final String SERIALIZED_NAME_INPUT_FORMAT = "input-format";
+  @SerializedName(SERIALIZED_NAME_INPUT_FORMAT)
+  private String inputFormat;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
@@ -49,6 +57,10 @@ public class VerifyPKCS1 {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+  public static final String SERIALIZED_NAME_PREHASHED = "prehashed";
+  @SerializedName(SERIALIZED_NAME_PREHASHED)
+  private Boolean prehashed;
+
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private String signature;
@@ -60,6 +72,10 @@ public class VerifyPKCS1 {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
   public VerifyPKCS1() { 
   }
@@ -84,6 +100,52 @@ public class VerifyPKCS1 {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public VerifyPKCS1 hashFunction(String hashFunction) {
+    
+    this.hashFunction = hashFunction;
+    return this;
+  }
+
+   /**
+   * HashFunction defines the hash function (e.g. sha-256)
+   * @return hashFunction
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "HashFunction defines the hash function (e.g. sha-256)")
+
+  public String getHashFunction() {
+    return hashFunction;
+  }
+
+
+  public void setHashFunction(String hashFunction) {
+    this.hashFunction = hashFunction;
+  }
+
+
+  public VerifyPKCS1 inputFormat(String inputFormat) {
+    
+    this.inputFormat = inputFormat;
+    return this;
+  }
+
+   /**
+   * Select default assumed format for the plaintext message. Currently supported options: [base64]
+   * @return inputFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Select default assumed format for the plaintext message. Currently supported options: [base64]")
+
+  public String getInputFormat() {
+    return inputFormat;
+  }
+
+
+  public void setInputFormat(String inputFormat) {
+    this.inputFormat = inputFormat;
   }
 
 
@@ -179,6 +241,29 @@ public class VerifyPKCS1 {
   }
 
 
+  public VerifyPKCS1 prehashed(Boolean prehashed) {
+    
+    this.prehashed = prehashed;
+    return this;
+  }
+
+   /**
+   * Markes that the message is already hashed
+   * @return prehashed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Markes that the message is already hashed")
+
+  public Boolean getPrehashed() {
+    return prehashed;
+  }
+
+
+  public void setPrehashed(Boolean prehashed) {
+    this.prehashed = prehashed;
+  }
+
+
   public VerifyPKCS1 signature(String signature) {
     
     this.signature = signature;
@@ -248,6 +333,29 @@ public class VerifyPKCS1 {
   }
 
 
+  public VerifyPKCS1 version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of the key to use for verification
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The version of the key to use for verification")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -258,18 +366,22 @@ public class VerifyPKCS1 {
     }
     VerifyPKCS1 verifyPKCS1 = (VerifyPKCS1) o;
     return Objects.equals(this.displayId, verifyPKCS1.displayId) &&
+        Objects.equals(this.hashFunction, verifyPKCS1.hashFunction) &&
+        Objects.equals(this.inputFormat, verifyPKCS1.inputFormat) &&
         Objects.equals(this.itemId, verifyPKCS1.itemId) &&
         Objects.equals(this.json, verifyPKCS1.json) &&
         Objects.equals(this.keyName, verifyPKCS1.keyName) &&
         Objects.equals(this.message, verifyPKCS1.message) &&
+        Objects.equals(this.prehashed, verifyPKCS1.prehashed) &&
         Objects.equals(this.signature, verifyPKCS1.signature) &&
         Objects.equals(this.token, verifyPKCS1.token) &&
-        Objects.equals(this.uidToken, verifyPKCS1.uidToken);
+        Objects.equals(this.uidToken, verifyPKCS1.uidToken) &&
+        Objects.equals(this.version, verifyPKCS1.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, json, keyName, message, signature, token, uidToken);
+    return Objects.hash(displayId, hashFunction, inputFormat, itemId, json, keyName, message, prehashed, signature, token, uidToken, version);
   }
 
   @Override
@@ -277,13 +389,17 @@ public class VerifyPKCS1 {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerifyPKCS1 {\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    hashFunction: ").append(toIndentedString(hashFunction)).append("\n");
+    sb.append("    inputFormat: ").append(toIndentedString(inputFormat)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    prehashed: ").append(toIndentedString(prehashed)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

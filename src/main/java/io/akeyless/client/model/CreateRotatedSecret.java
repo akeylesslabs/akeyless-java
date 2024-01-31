@@ -31,6 +31,10 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateRotatedSecret {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  private String providerType;
+
   public static final String SERIALIZED_NAME_API_ID = "api-id";
   @SerializedName(SERIALIZED_NAME_API_ID)
   private String apiId;
@@ -78,6 +82,10 @@ public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID = "gcp-service-account-key-id";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID)
   private String gcpServiceAccountKeyId;
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  private String hostProvider = "explicit";
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -199,6 +207,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
 
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  private List<String> target = null;
+
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   private String targetName;
@@ -221,6 +233,29 @@ public class CreateRotatedSecret {
 
   public CreateRotatedSecret() { 
   }
+
+  public CreateRotatedSecret providerType(String providerType) {
+    
+    this.providerType = providerType;
+    return this;
+  }
+
+   /**
+   * Get providerType
+   * @return providerType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProviderType() {
+    return providerType;
+  }
+
+
+  public void setProviderType(String providerType) {
+    this.providerType = providerType;
+  }
+
 
   public CreateRotatedSecret apiId(String apiId) {
     
@@ -498,6 +533,29 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret hostProvider(String hostProvider) {
+    
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+   /**
+   * Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret
+   * @return hostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret")
+
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+
+  public void setHostProvider(String hostProvider) {
+    this.hostProvider = hostProvider;
+  }
+
+
   public CreateRotatedSecret json(Boolean json) {
     
     this.json = json;
@@ -666,11 +724,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * The Hour of the rotation in UTC
+   * The Hour of the rotation in UTC. Default rotation-hour is 14:00
    * @return rotationHour
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Hour of the rotation in UTC")
+  @ApiModelProperty(value = "The Hour of the rotation in UTC. Default rotation-hour is 14:00")
 
   public Integer getRotationHour() {
     return rotationHour;
@@ -1204,6 +1262,37 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret target(List<String> target) {
+    
+    this.target = target;
+    return this;
+  }
+
+  public CreateRotatedSecret addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<String>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+   /**
+   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times
+   * @return target
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times")
+
+  public List<String> getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(List<String> target) {
+    this.target = target;
+  }
+
+
   public CreateRotatedSecret targetName(String targetName) {
     
     this.targetName = targetName;
@@ -1328,7 +1417,8 @@ public class CreateRotatedSecret {
       return false;
     }
     CreateRotatedSecret createRotatedSecret = (CreateRotatedSecret) o;
-    return Objects.equals(this.apiId, createRotatedSecret.apiId) &&
+    return Objects.equals(this.providerType, createRotatedSecret.providerType) &&
+        Objects.equals(this.apiId, createRotatedSecret.apiId) &&
         Objects.equals(this.apiKey, createRotatedSecret.apiKey) &&
         Objects.equals(this.applicationId, createRotatedSecret.applicationId) &&
         Objects.equals(this.authenticationCredentials, createRotatedSecret.authenticationCredentials) &&
@@ -1340,6 +1430,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.gcpKey, createRotatedSecret.gcpKey) &&
         Objects.equals(this.gcpServiceAccountEmail, createRotatedSecret.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKeyId, createRotatedSecret.gcpServiceAccountKeyId) &&
+        Objects.equals(this.hostProvider, createRotatedSecret.hostProvider) &&
         Objects.equals(this.json, createRotatedSecret.json) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
@@ -1370,6 +1461,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.sshUsername, createRotatedSecret.sshUsername) &&
         Objects.equals(this.storageAccountKeyName, createRotatedSecret.storageAccountKeyName) &&
         Objects.equals(this.tags, createRotatedSecret.tags) &&
+        Objects.equals(this.target, createRotatedSecret.target) &&
         Objects.equals(this.targetName, createRotatedSecret.targetName) &&
         Objects.equals(this.token, createRotatedSecret.token) &&
         Objects.equals(this.uidToken, createRotatedSecret.uidToken) &&
@@ -1379,13 +1471,14 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, hostProvider, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRotatedSecret {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
@@ -1398,6 +1491,7 @@ public class CreateRotatedSecret {
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -1428,6 +1522,7 @@ public class CreateRotatedSecret {
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    storageAccountKeyName: ").append(toIndentedString(storageAccountKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
