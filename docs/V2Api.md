@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**createAuthMethodK8S**](V2Api.md#createAuthMethodK8S) | **POST** /create-auth-method-k8s | 
 [**createAuthMethodLDAP**](V2Api.md#createAuthMethodLDAP) | **POST** /create-auth-method-ldap | 
 [**createAuthMethodOAuth2**](V2Api.md#createAuthMethodOAuth2) | **POST** /create-auth-method-oauth2 | 
+[**createAuthMethodOCI**](V2Api.md#createAuthMethodOCI) | **POST** /create-auth-method-oci | 
 [**createAuthMethodOIDC**](V2Api.md#createAuthMethodOIDC) | **POST** /create-auth-method-oidc | 
 [**createAuthMethodSAML**](V2Api.md#createAuthMethodSAML) | **POST** /create-auth-method-saml | 
 [**createAuthMethodUniversalIdentity**](V2Api.md#createAuthMethodUniversalIdentity) | **POST** /create-auth-method-universal-identity | 
@@ -260,6 +261,7 @@ Method | HTTP request | Description
 [**updateAuthMethodK8S**](V2Api.md#updateAuthMethodK8S) | **POST** /update-auth-method-k8s | 
 [**updateAuthMethodLDAP**](V2Api.md#updateAuthMethodLDAP) | **POST** /update-auth-method-ldap | 
 [**updateAuthMethodOAuth2**](V2Api.md#updateAuthMethodOAuth2) | **POST** /update-auth-method-oauth2 | 
+[**updateAuthMethodOCI**](V2Api.md#updateAuthMethodOCI) | **POST** /update-auth-method-oci | 
 [**updateAuthMethodOIDC**](V2Api.md#updateAuthMethodOIDC) | **POST** /update-auth-method-oidc | 
 [**updateAuthMethodSAML**](V2Api.md#updateAuthMethodSAML) | **POST** /update-auth-method-saml | 
 [**updateAuthMethodUniversalIdentity**](V2Api.md#updateAuthMethodUniversalIdentity) | **POST** /update-auth-method-universal-identity | 
@@ -1354,6 +1356,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createAuthMethodOAuth2Response wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createAuthMethodOCI"></a>
+# **createAuthMethodOCI**
+> CreateAuthMethodOCIOutput createAuthMethodOCI(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateAuthMethodOCI body = new CreateAuthMethodOCI(); // CreateAuthMethodOCI | 
+    try {
+      CreateAuthMethodOCIOutput result = apiInstance.createAuthMethodOCI(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createAuthMethodOCI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAuthMethodOCI**](CreateAuthMethodOCI.md)|  |
+
+### Return type
+
+[**CreateAuthMethodOCIOutput**](CreateAuthMethodOCIOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createAuthMethodOCIResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createAuthMethodOIDC"></a>
@@ -15922,6 +15985,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateAuthMethodOAuth2Response wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateAuthMethodOCI"></a>
+# **updateAuthMethodOCI**
+> UpdateAuthMethodOCIOutput updateAuthMethodOCI(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateAuthMethodOCI body = new UpdateAuthMethodOCI(); // UpdateAuthMethodOCI | 
+    try {
+      UpdateAuthMethodOCIOutput result = apiInstance.updateAuthMethodOCI(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateAuthMethodOCI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateAuthMethodOCI**](UpdateAuthMethodOCI.md)|  |
+
+### Return type
+
+[**UpdateAuthMethodOCIOutput**](UpdateAuthMethodOCIOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateAuthMethodOCIResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateAuthMethodOIDC"></a>

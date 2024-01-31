@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Configure
@@ -76,6 +78,14 @@ public class Configure {
   public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
+
+  public static final String SERIALIZED_NAME_OCI_AUTH_TYPE = "oci-auth-type";
+  @SerializedName(SERIALIZED_NAME_OCI_AUTH_TYPE)
+  private String ociAuthType = "apikey";
+
+  public static final String SERIALIZED_NAME_OCI_GROUP_OCID = "oci-group-ocid";
+  @SerializedName(SERIALIZED_NAME_OCI_GROUP_OCID)
+  private List<String> ociGroupOcid = null;
 
   public Configure() { 
   }
@@ -356,6 +366,60 @@ public class Configure {
   }
 
 
+  public Configure ociAuthType(String ociAuthType) {
+    
+    this.ociAuthType = ociAuthType;
+    return this;
+  }
+
+   /**
+   * The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type&#x3D;oci)
+   * @return ociAuthType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type=oci)")
+
+  public String getOciAuthType() {
+    return ociAuthType;
+  }
+
+
+  public void setOciAuthType(String ociAuthType) {
+    this.ociAuthType = ociAuthType;
+  }
+
+
+  public Configure ociGroupOcid(List<String> ociGroupOcid) {
+    
+    this.ociGroupOcid = ociGroupOcid;
+    return this;
+  }
+
+  public Configure addOciGroupOcidItem(String ociGroupOcidItem) {
+    if (this.ociGroupOcid == null) {
+      this.ociGroupOcid = new ArrayList<String>();
+    }
+    this.ociGroupOcid.add(ociGroupOcidItem);
+    return this;
+  }
+
+   /**
+   * A list of Oracle Cloud IDs groups (relevant only for access-type&#x3D;oci)
+   * @return ociGroupOcid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of Oracle Cloud IDs groups (relevant only for access-type=oci)")
+
+  public List<String> getOciGroupOcid() {
+    return ociGroupOcid;
+  }
+
+
+  public void setOciGroupOcid(List<String> ociGroupOcid) {
+    this.ociGroupOcid = ociGroupOcid;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -376,12 +440,14 @@ public class Configure {
         Objects.equals(this.gcpAudience, configure.gcpAudience) &&
         Objects.equals(this.json, configure.json) &&
         Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName) &&
-        Objects.equals(this.keyData, configure.keyData);
+        Objects.equals(this.keyData, configure.keyData) &&
+        Objects.equals(this.ociAuthType, configure.ociAuthType) &&
+        Objects.equals(this.ociGroupOcid, configure.ociGroupOcid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData, ociAuthType, ociGroupOcid);
   }
 
   @Override
@@ -400,6 +466,8 @@ public class Configure {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
+    sb.append("    ociAuthType: ").append(toIndentedString(ociAuthType)).append("\n");
+    sb.append("    ociGroupOcid: ").append(toIndentedString(ociGroupOcid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

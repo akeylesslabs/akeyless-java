@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **k8sAccessRules** | [**KubernetesAccessRules**](KubernetesAccessRules.md) |  |  [optional]
 **ldapAccessRules** | [**LDAPAccessRules**](LDAPAccessRules.md) |  |  [optional]
 **oauth2AccessRules** | [**OAuth2AccessRules**](OAuth2AccessRules.md) |  |  [optional]
+**ociAccessRules** | [**OCIAccessRules**](OCIAccessRules.md) |  |  [optional]
 **oidcAccessRules** | [**OIDCAccessRules**](OIDCAccessRules.md) |  |  [optional]
 **rulesType** | **String** |  |  [optional]
 **samlAccessRules** | [**SAMLAccessRules**](SAMLAccessRules.md) |  |  [optional]

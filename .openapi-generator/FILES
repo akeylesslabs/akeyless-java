@@ -80,6 +80,8 @@ docs/CreateAuthMethodLDAP.md
 docs/CreateAuthMethodLDAPOutput.md
 docs/CreateAuthMethodOAuth2.md
 docs/CreateAuthMethodOAuth2Output.md
+docs/CreateAuthMethodOCI.md
+docs/CreateAuthMethodOCIOutput.md
 docs/CreateAuthMethodOIDC.md
 docs/CreateAuthMethodOIDCOutput.md
 docs/CreateAuthMethodOutput.md
@@ -525,6 +527,7 @@ docs/NativeK8sTargetDetails.md
 docs/NotiForwarder.md
 docs/OAuth2AccessRules.md
 docs/OAuth2CustomClaim.md
+docs/OCIAccessRules.md
 docs/OIDCAccessRules.md
 docs/OIDCCustomClaim.md
 docs/ObjectVersionSettingsOutput.md
@@ -646,6 +649,8 @@ docs/UpdateAuthMethodK8SOutput.md
 docs/UpdateAuthMethodLDAP.md
 docs/UpdateAuthMethodLDAPOutput.md
 docs/UpdateAuthMethodOAuth2.md
+docs/UpdateAuthMethodOCI.md
+docs/UpdateAuthMethodOCIOutput.md
 docs/UpdateAuthMethodOIDC.md
 docs/UpdateAuthMethodOutput.md
 docs/UpdateAuthMethodSAML.md
@@ -851,6 +856,8 @@ src/main/java/io/akeyless/client/model/CreateAuthMethodLDAP.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodLDAPOutput.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodOAuth2.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodOAuth2Output.java
+src/main/java/io/akeyless/client/model/CreateAuthMethodOCI.java
+src/main/java/io/akeyless/client/model/CreateAuthMethodOCIOutput.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodOIDC.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodOIDCOutput.java
 src/main/java/io/akeyless/client/model/CreateAuthMethodOutput.java
@@ -1296,6 +1303,7 @@ src/main/java/io/akeyless/client/model/NativeK8sTargetDetails.java
 src/main/java/io/akeyless/client/model/NotiForwarder.java
 src/main/java/io/akeyless/client/model/OAuth2AccessRules.java
 src/main/java/io/akeyless/client/model/OAuth2CustomClaim.java
+src/main/java/io/akeyless/client/model/OCIAccessRules.java
 src/main/java/io/akeyless/client/model/OIDCAccessRules.java
 src/main/java/io/akeyless/client/model/OIDCCustomClaim.java
 src/main/java/io/akeyless/client/model/ObjectVersionSettingsOutput.java
@@ -1417,6 +1425,8 @@ src/main/java/io/akeyless/client/model/UpdateAuthMethodK8SOutput.java
 src/main/java/io/akeyless/client/model/UpdateAuthMethodLDAP.java
 src/main/java/io/akeyless/client/model/UpdateAuthMethodLDAPOutput.java
 src/main/java/io/akeyless/client/model/UpdateAuthMethodOAuth2.java
+src/main/java/io/akeyless/client/model/UpdateAuthMethodOCI.java
+src/main/java/io/akeyless/client/model/UpdateAuthMethodOCIOutput.java
 src/main/java/io/akeyless/client/model/UpdateAuthMethodOIDC.java
 src/main/java/io/akeyless/client/model/UpdateAuthMethodOutput.java
 src/main/java/io/akeyless/client/model/UpdateAuthMethodSAML.java
@@ -1518,8 +1528,8 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/CertificateVersionInfoTest.java
-src/test/java/io/akeyless/client/model/ProvisionCertificateOutputTest.java
-src/test/java/io/akeyless/client/model/ProvisionCertificateTest.java
-src/test/java/io/akeyless/client/model/RenewCertificateOutputTest.java
-src/test/java/io/akeyless/client/model/RenewCertificateTest.java
+src/test/java/io/akeyless/client/model/CreateAuthMethodOCIOutputTest.java
+src/test/java/io/akeyless/client/model/CreateAuthMethodOCITest.java
+src/test/java/io/akeyless/client/model/OCIAccessRulesTest.java
+src/test/java/io/akeyless/client/model/UpdateAuthMethodOCIOutputTest.java
+src/test/java/io/akeyless/client/model/UpdateAuthMethodOCITest.java

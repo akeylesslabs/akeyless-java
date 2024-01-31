@@ -30,6 +30,7 @@ import io.akeyless.client.model.HuaweiAccessRules;
 import io.akeyless.client.model.KubernetesAccessRules;
 import io.akeyless.client.model.LDAPAccessRules;
 import io.akeyless.client.model.OAuth2AccessRules;
+import io.akeyless.client.model.OCIAccessRules;
 import io.akeyless.client.model.OIDCAccessRules;
 import io.akeyless.client.model.SAMLAccessRules;
 import io.akeyless.client.model.UniversalIdentityAccessRules;
@@ -107,6 +108,10 @@ public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_OAUTH2_ACCESS_RULES = "oauth2_access_rules";
   @SerializedName(SERIALIZED_NAME_OAUTH2_ACCESS_RULES)
   private OAuth2AccessRules oauth2AccessRules;
+
+  public static final String SERIALIZED_NAME_OCI_ACCESS_RULES = "oci_access_rules";
+  @SerializedName(SERIALIZED_NAME_OCI_ACCESS_RULES)
+  private OCIAccessRules ociAccessRules;
 
   public static final String SERIALIZED_NAME_OIDC_ACCESS_RULES = "oidc_access_rules";
   @SerializedName(SERIALIZED_NAME_OIDC_ACCESS_RULES)
@@ -499,6 +504,29 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo ociAccessRules(OCIAccessRules ociAccessRules) {
+    
+    this.ociAccessRules = ociAccessRules;
+    return this;
+  }
+
+   /**
+   * Get ociAccessRules
+   * @return ociAccessRules
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OCIAccessRules getOciAccessRules() {
+    return ociAccessRules;
+  }
+
+
+  public void setOciAccessRules(OCIAccessRules ociAccessRules) {
+    this.ociAccessRules = ociAccessRules;
+  }
+
+
   public AuthMethodAccessInfo oidcAccessRules(OIDCAccessRules oidcAccessRules) {
     
     this.oidcAccessRules = oidcAccessRules;
@@ -647,6 +675,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.k8sAccessRules, authMethodAccessInfo.k8sAccessRules) &&
         Objects.equals(this.ldapAccessRules, authMethodAccessInfo.ldapAccessRules) &&
         Objects.equals(this.oauth2AccessRules, authMethodAccessInfo.oauth2AccessRules) &&
+        Objects.equals(this.ociAccessRules, authMethodAccessInfo.ociAccessRules) &&
         Objects.equals(this.oidcAccessRules, authMethodAccessInfo.oidcAccessRules) &&
         Objects.equals(this.rulesType, authMethodAccessInfo.rulesType) &&
         Objects.equals(this.samlAccessRules, authMethodAccessInfo.samlAccessRules) &&
@@ -656,7 +685,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, oidcAccessRules, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
   }
 
   @Override
@@ -679,6 +708,7 @@ public class AuthMethodAccessInfo {
     sb.append("    k8sAccessRules: ").append(toIndentedString(k8sAccessRules)).append("\n");
     sb.append("    ldapAccessRules: ").append(toIndentedString(ldapAccessRules)).append("\n");
     sb.append("    oauth2AccessRules: ").append(toIndentedString(oauth2AccessRules)).append("\n");
+    sb.append("    ociAccessRules: ").append(toIndentedString(ociAccessRules)).append("\n");
     sb.append("    oidcAccessRules: ").append(toIndentedString(oidcAccessRules)).append("\n");
     sb.append("    rulesType: ").append(toIndentedString(rulesType)).append("\n");
     sb.append("    samlAccessRules: ").append(toIndentedString(samlAccessRules)).append("\n");

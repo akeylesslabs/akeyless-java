@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createAuthMethodK8S**](docs/V2Api.md#createAuthMethodK8S) | **POST** /create-auth-method-k8s | 
 *V2Api* | [**createAuthMethodLDAP**](docs/V2Api.md#createAuthMethodLDAP) | **POST** /create-auth-method-ldap | 
 *V2Api* | [**createAuthMethodOAuth2**](docs/V2Api.md#createAuthMethodOAuth2) | **POST** /create-auth-method-oauth2 | 
+*V2Api* | [**createAuthMethodOCI**](docs/V2Api.md#createAuthMethodOCI) | **POST** /create-auth-method-oci | 
 *V2Api* | [**createAuthMethodOIDC**](docs/V2Api.md#createAuthMethodOIDC) | **POST** /create-auth-method-oidc | 
 *V2Api* | [**createAuthMethodSAML**](docs/V2Api.md#createAuthMethodSAML) | **POST** /create-auth-method-saml | 
 *V2Api* | [**createAuthMethodUniversalIdentity**](docs/V2Api.md#createAuthMethodUniversalIdentity) | **POST** /create-auth-method-universal-identity | 
@@ -361,6 +362,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateAuthMethodK8S**](docs/V2Api.md#updateAuthMethodK8S) | **POST** /update-auth-method-k8s | 
 *V2Api* | [**updateAuthMethodLDAP**](docs/V2Api.md#updateAuthMethodLDAP) | **POST** /update-auth-method-ldap | 
 *V2Api* | [**updateAuthMethodOAuth2**](docs/V2Api.md#updateAuthMethodOAuth2) | **POST** /update-auth-method-oauth2 | 
+*V2Api* | [**updateAuthMethodOCI**](docs/V2Api.md#updateAuthMethodOCI) | **POST** /update-auth-method-oci | 
 *V2Api* | [**updateAuthMethodOIDC**](docs/V2Api.md#updateAuthMethodOIDC) | **POST** /update-auth-method-oidc | 
 *V2Api* | [**updateAuthMethodSAML**](docs/V2Api.md#updateAuthMethodSAML) | **POST** /update-auth-method-saml | 
 *V2Api* | [**updateAuthMethodUniversalIdentity**](docs/V2Api.md#updateAuthMethodUniversalIdentity) | **POST** /update-auth-method-universal-identity | 
@@ -497,6 +499,8 @@ Class | Method | HTTP request | Description
  - [CreateAuthMethodLDAPOutput](docs/CreateAuthMethodLDAPOutput.md)
  - [CreateAuthMethodOAuth2](docs/CreateAuthMethodOAuth2.md)
  - [CreateAuthMethodOAuth2Output](docs/CreateAuthMethodOAuth2Output.md)
+ - [CreateAuthMethodOCI](docs/CreateAuthMethodOCI.md)
+ - [CreateAuthMethodOCIOutput](docs/CreateAuthMethodOCIOutput.md)
  - [CreateAuthMethodOIDC](docs/CreateAuthMethodOIDC.md)
  - [CreateAuthMethodOIDCOutput](docs/CreateAuthMethodOIDCOutput.md)
  - [CreateAuthMethodOutput](docs/CreateAuthMethodOutput.md)
@@ -942,6 +946,7 @@ Class | Method | HTTP request | Description
  - [NotiForwarder](docs/NotiForwarder.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
+ - [OCIAccessRules](docs/OCIAccessRules.md)
  - [OIDCAccessRules](docs/OIDCAccessRules.md)
  - [OIDCCustomClaim](docs/OIDCCustomClaim.md)
  - [ObjectVersionSettingsOutput](docs/ObjectVersionSettingsOutput.md)
@@ -1063,6 +1068,8 @@ Class | Method | HTTP request | Description
  - [UpdateAuthMethodLDAP](docs/UpdateAuthMethodLDAP.md)
  - [UpdateAuthMethodLDAPOutput](docs/UpdateAuthMethodLDAPOutput.md)
  - [UpdateAuthMethodOAuth2](docs/UpdateAuthMethodOAuth2.md)
+ - [UpdateAuthMethodOCI](docs/UpdateAuthMethodOCI.md)
+ - [UpdateAuthMethodOCIOutput](docs/UpdateAuthMethodOCIOutput.md)
  - [UpdateAuthMethodOIDC](docs/UpdateAuthMethodOIDC.md)
  - [UpdateAuthMethodOutput](docs/UpdateAuthMethodOutput.md)
  - [UpdateAuthMethodSAML](docs/UpdateAuthMethodSAML.md)
