@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerEks
 
-gatewayCreateProducerEks is a command that creates eks producer
+gatewayCreateProducerEks is a command that creates eks producer [Deprecated: Use dynamic-secret-create-eks command]
 
 ## Properties
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **eksRegion** | **String** | Region |  [optional]
 **eksSecretAccessKey** | **String** | Secret Access Key |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]

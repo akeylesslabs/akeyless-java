@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayDeleteProducer is a command that deletes producer
+ * gatewayDeleteProducer is a command that deletes producer [Deprecated: Use dynamic-secret-delete command]
  */
-@ApiModel(description = "gatewayDeleteProducer is a command that deletes producer")
+@ApiModel(description = "gatewayDeleteProducer is a command that deletes producer [Deprecated: Use dynamic-secret-delete command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayDeleteProducer {
   public static final String SERIALIZED_NAME_JSON = "json";
@@ -79,11 +79,11 @@ public class GatewayDeleteProducer {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

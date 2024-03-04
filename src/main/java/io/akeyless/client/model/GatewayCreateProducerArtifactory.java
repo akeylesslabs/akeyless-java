@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerArtifactory is a command that creates artifactory producer
+ * gatewayCreateProducerArtifactory is a command that creates artifactory producer [Deprecated: Use dynamic-secret-create-artifactory command]
  */
-@ApiModel(description = "gatewayCreateProducerArtifactory is a command that creates artifactory producer")
+@ApiModel(description = "gatewayCreateProducerArtifactory is a command that creates artifactory producer [Deprecated: Use dynamic-secret-create-artifactory command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerArtifactory {
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME = "artifactory-admin-name";
@@ -259,11 +259,11 @@ public class GatewayCreateProducerArtifactory {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

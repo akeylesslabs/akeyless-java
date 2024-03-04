@@ -48,6 +48,14 @@ public class CreateAuthMethodOAuth2 {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_CERT = "cert";
+  @SerializedName(SERIALIZED_NAME_CERT)
+  private String cert;
+
+  public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
+  @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
+  private String certFileData;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -87,6 +95,10 @@ public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
 
   public static final String SERIALIZED_NAME_SUBCLAIMS_DELIMITERS = "subclaims-delimiters";
   @SerializedName(SERIALIZED_NAME_SUBCLAIMS_DELIMITERS)
@@ -212,6 +224,52 @@ public class CreateAuthMethodOAuth2 {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public CreateAuthMethodOAuth2 cert(String cert) {
+    
+    this.cert = cert;
+    return this;
+  }
+
+   /**
+   * CertificateFile Path to a file that contain the certificate in a PEM format.
+   * @return cert
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CertificateFile Path to a file that contain the certificate in a PEM format.")
+
+  public String getCert() {
+    return cert;
+  }
+
+
+  public void setCert(String cert) {
+    this.cert = cert;
+  }
+
+
+  public CreateAuthMethodOAuth2 certFileData(String certFileData) {
+    
+    this.certFileData = certFileData;
+    return this;
+  }
+
+   /**
+   * CertificateFileData PEM Certificate in a Base64 format.
+   * @return certFileData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "CertificateFileData PEM Certificate in a Base64 format.")
+
+  public String getCertFileData() {
+    return certFileData;
+  }
+
+
+  public void setCertFileData(String certFileData) {
+    this.certFileData = certFileData;
   }
 
 
@@ -453,6 +511,37 @@ public class CreateAuthMethodOAuth2 {
   }
 
 
+  public CreateAuthMethodOAuth2 productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodOAuth2 addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodOAuth2 subclaimsDelimiters(List<String> subclaimsDelimiters) {
     
     this.subclaimsDelimiters = subclaimsDelimiters;
@@ -566,6 +655,8 @@ public class CreateAuthMethodOAuth2 {
         Objects.equals(this.audience, createAuthMethodOAuth2.audience) &&
         Objects.equals(this.boundClientIds, createAuthMethodOAuth2.boundClientIds) &&
         Objects.equals(this.boundIps, createAuthMethodOAuth2.boundIps) &&
+        Objects.equals(this.cert, createAuthMethodOAuth2.cert) &&
+        Objects.equals(this.certFileData, createAuthMethodOAuth2.certFileData) &&
         Objects.equals(this.description, createAuthMethodOAuth2.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodOAuth2.forceSubClaims) &&
         Objects.equals(this.gatewayUrl, createAuthMethodOAuth2.gatewayUrl) &&
@@ -576,6 +667,7 @@ public class CreateAuthMethodOAuth2 {
         Objects.equals(this.jwksUri, createAuthMethodOAuth2.jwksUri) &&
         Objects.equals(this.jwtTtl, createAuthMethodOAuth2.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOAuth2.name) &&
+        Objects.equals(this.productType, createAuthMethodOAuth2.productType) &&
         Objects.equals(this.subclaimsDelimiters, createAuthMethodOAuth2.subclaimsDelimiters) &&
         Objects.equals(this.token, createAuthMethodOAuth2.token) &&
         Objects.equals(this.uidToken, createAuthMethodOAuth2.uidToken) &&
@@ -584,7 +676,7 @@ public class CreateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, cert, certFileData, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -595,6 +687,8 @@ public class CreateAuthMethodOAuth2 {
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    boundClientIds: ").append(toIndentedString(boundClientIds)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
+    sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
@@ -605,6 +699,7 @@ public class CreateAuthMethodOAuth2 {
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

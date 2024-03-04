@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerGcp
 
-gatewayCreateProducerGcp is a command that creates a GCP producer
+gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: Use dynamic-secret-create-gcp command]
 
 ## Properties
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **gcpSaEmail** | **String** | The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type&#x3D;fixed) |  [optional]
 **gcpTokenScopes** | **String** | Access token scopes list, e.g. scope1,scope2 |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **roleBinding** | **String** | Role binding definitions in json format |  [optional]
 **serviceAccountType** | **String** | The type of the gcp dynamic secret. Options[fixed, dynamic] | 

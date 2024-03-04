@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.EmailEntry;
 import io.akeyless.client.model.ItemVersion;
+import io.akeyless.client.model.WebHookNotiForwarderPublicDetails;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -121,6 +122,10 @@ public class NotiForwarder {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
+
+  public static final String SERIALIZED_NAME_WEBHOOK_NOTI_FORWARDER_PUBLIC_DETAILS = "webhook_noti_forwarder_public_details";
+  @SerializedName(SERIALIZED_NAME_WEBHOOK_NOTI_FORWARDER_PUBLIC_DETAILS)
+  private WebHookNotiForwarderPublicDetails webhookNotiForwarderPublicDetails;
 
   public static final String SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT = "with_customer_fragment";
   @SerializedName(SERIALIZED_NAME_WITH_CUSTOMER_FRAGMENT)
@@ -675,6 +680,29 @@ public class NotiForwarder {
   }
 
 
+  public NotiForwarder webhookNotiForwarderPublicDetails(WebHookNotiForwarderPublicDetails webhookNotiForwarderPublicDetails) {
+    
+    this.webhookNotiForwarderPublicDetails = webhookNotiForwarderPublicDetails;
+    return this;
+  }
+
+   /**
+   * Get webhookNotiForwarderPublicDetails
+   * @return webhookNotiForwarderPublicDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WebHookNotiForwarderPublicDetails getWebhookNotiForwarderPublicDetails() {
+    return webhookNotiForwarderPublicDetails;
+  }
+
+
+  public void setWebhookNotiForwarderPublicDetails(WebHookNotiForwarderPublicDetails webhookNotiForwarderPublicDetails) {
+    this.webhookNotiForwarderPublicDetails = webhookNotiForwarderPublicDetails;
+  }
+
+
   public NotiForwarder withCustomerFragment(Boolean withCustomerFragment) {
     
     this.withCustomerFragment = withCustomerFragment;
@@ -729,12 +757,13 @@ public class NotiForwarder {
         Objects.equals(this.toEmails, notiForwarder.toEmails) &&
         Objects.equals(this.userEmail, notiForwarder.userEmail) &&
         Objects.equals(this.username, notiForwarder.username) &&
+        Objects.equals(this.webhookNotiForwarderPublicDetails, notiForwarder.webhookNotiForwarderPublicDetails) &&
         Objects.equals(this.withCustomerFragment, notiForwarder.withCustomerFragment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, paths, protectionKey, runnerType, timespanInSeconds, toEmails, userEmail, username, withCustomerFragment);
+    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, paths, protectionKey, runnerType, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
   }
 
   @Override
@@ -763,6 +792,7 @@ public class NotiForwarder {
     sb.append("    toEmails: ").append(toIndentedString(toEmails)).append("\n");
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    webhookNotiForwarderPublicDetails: ").append(toIndentedString(webhookNotiForwarderPublicDetails)).append("\n");
     sb.append("    withCustomerFragment: ").append(toIndentedString(withCustomerFragment)).append("\n");
     sb.append("}");
     return sb.toString();

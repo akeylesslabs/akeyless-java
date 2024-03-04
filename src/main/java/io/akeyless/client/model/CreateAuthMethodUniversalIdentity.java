@@ -72,6 +72,10 @@ public class CreateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -333,6 +337,37 @@ public class CreateAuthMethodUniversalIdentity {
   }
 
 
+  public CreateAuthMethodUniversalIdentity productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodUniversalIdentity addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodUniversalIdentity token(String token) {
     
     this.token = token;
@@ -421,6 +456,7 @@ public class CreateAuthMethodUniversalIdentity {
         Objects.equals(this.json, createAuthMethodUniversalIdentity.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodUniversalIdentity.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodUniversalIdentity.name) &&
+        Objects.equals(this.productType, createAuthMethodUniversalIdentity.productType) &&
         Objects.equals(this.token, createAuthMethodUniversalIdentity.token) &&
         Objects.equals(this.ttl, createAuthMethodUniversalIdentity.ttl) &&
         Objects.equals(this.uidToken, createAuthMethodUniversalIdentity.uidToken);
@@ -428,7 +464,7 @@ public class CreateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, ttl, uidToken);
   }
 
   @Override
@@ -445,6 +481,7 @@ public class CreateAuthMethodUniversalIdentity {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

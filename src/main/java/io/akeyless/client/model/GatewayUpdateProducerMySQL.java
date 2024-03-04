@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerMySQL is a command that updates mysql producer
+ * gatewayUpdateProducerMySQL is a command that updates mysql producer [Deprecated: Use dynamic-secret-update-mysql command]
  */
-@ApiModel(description = "gatewayUpdateProducerMySQL is a command that updates mysql producer")
+@ApiModel(description = "gatewayUpdateProducerMySQL is a command that updates mysql producer [Deprecated: Use dynamic-secret-update-mysql command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerMySQL {
   public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
@@ -83,6 +83,10 @@ public class GatewayUpdateProducerMySQL {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -395,11 +399,11 @@ public class GatewayUpdateProducerMySQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -418,11 +422,11 @@ public class GatewayUpdateProducerMySQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -431,6 +435,29 @@ public class GatewayUpdateProducerMySQL {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerMySQL passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -748,6 +775,7 @@ public class GatewayUpdateProducerMySQL {
         Objects.equals(this.mysqlUsername, gatewayUpdateProducerMySQL.mysqlUsername) &&
         Objects.equals(this.name, gatewayUpdateProducerMySQL.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerMySQL.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerMySQL.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerMySQL.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerMySQL.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMySQL.secureAccessEnable) &&
@@ -764,7 +792,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -784,6 +812,7 @@ public class GatewayUpdateProducerMySQL {
     sb.append("    mysqlUsername: ").append(toIndentedString(mysqlUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");

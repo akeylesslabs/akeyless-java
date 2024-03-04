@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayRevokeTmpUsers is a command that revoke producer tmp user
+ * gatewayRevokeTmpUsers is a command that revoke producer tmp user [Deprecated: Use dynamic-secret-tmp-creds-delete command]
  */
-@ApiModel(description = "gatewayRevokeTmpUsers is a command that revoke producer tmp user")
+@ApiModel(description = "gatewayRevokeTmpUsers is a command that revoke producer tmp user [Deprecated: Use dynamic-secret-tmp-creds-delete command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayRevokeTmpUsers {
   public static final String SERIALIZED_NAME_HOST = "host";
@@ -72,11 +72,11 @@ public class GatewayRevokeTmpUsers {
   }
 
    /**
-   * Deprecated: has no effect
+   * Host
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated: has no effect")
+  @ApiModelProperty(value = "Host")
 
   public String getHost() {
     return host;
@@ -118,11 +118,11 @@ public class GatewayRevokeTmpUsers {
   }
 
    /**
-   * Producer Name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer Name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * GatewayUpdateProducerCustom
+ * gatewayUpdateProducerCustom is a command that updates a custom producer. [Deprecated: Use dynamic-secret-update-custom command]
  */
+@ApiModel(description = "gatewayUpdateProducerCustom is a command that updates a custom producer. [Deprecated: Use dynamic-secret-update-custom command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerCustom {
   public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin_rotation_interval_days";
@@ -220,11 +221,11 @@ public class GatewayUpdateProducerCustom {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -243,11 +244,11 @@ public class GatewayUpdateProducerCustom {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerRedis is a command that creates Redis producer
+ * gatewayCreateProducerRedis is a command that creates Redis producer [Deprecated: Use dynamic-secret-create-redis command]
  */
-@ApiModel(description = "gatewayCreateProducerRedis is a command that creates Redis producer")
+@ApiModel(description = "gatewayCreateProducerRedis is a command that creates Redis producer [Deprecated: Use dynamic-secret-create-redis command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerRedis {
   public static final String SERIALIZED_NAME_ACL_RULES = "acl-rules";
@@ -55,6 +55,10 @@ public class GatewayCreateProducerRedis {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
@@ -198,11 +202,11 @@ public class GatewayCreateProducerRedis {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -234,6 +238,29 @@ public class GatewayCreateProducerRedis {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+
+  public GatewayCreateProducerRedis passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -490,6 +517,7 @@ public class GatewayCreateProducerRedis {
         Objects.equals(this.json, gatewayCreateProducerRedis.json) &&
         Objects.equals(this.name, gatewayCreateProducerRedis.name) &&
         Objects.equals(this.password, gatewayCreateProducerRedis.password) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerRedis.passwordLength) &&
         Objects.equals(this.port, gatewayCreateProducerRedis.port) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRedis.producerEncryptionKeyName) &&
         Objects.equals(this.ssl, gatewayCreateProducerRedis.ssl) &&
@@ -504,7 +532,7 @@ public class GatewayCreateProducerRedis {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclRules, deleteProtection, host, json, name, password, port, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(aclRules, deleteProtection, host, json, name, password, passwordLength, port, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
   }
 
   @Override
@@ -517,6 +545,7 @@ public class GatewayCreateProducerRedis {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");

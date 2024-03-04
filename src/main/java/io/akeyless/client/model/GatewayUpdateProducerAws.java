@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerAws is a command that Updates aws producer
+ * gatewayUpdateProducerAws is a command that Updates aws producer [Deprecated: Use dynamic-secret-update-aws command]
  */
-@ApiModel(description = "gatewayUpdateProducerAws is a command that Updates aws producer")
+@ApiModel(description = "gatewayUpdateProducerAws is a command that Updates aws producer [Deprecated: Use dynamic-secret-update-aws command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerAws {
   public static final String SERIALIZED_NAME_ACCESS_MODE = "access-mode";
@@ -430,11 +430,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -453,11 +453,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;

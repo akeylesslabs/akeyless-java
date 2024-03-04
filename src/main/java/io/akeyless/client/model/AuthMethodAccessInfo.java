@@ -117,6 +117,10 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_OIDC_ACCESS_RULES)
   private OIDCAccessRules oidcAccessRules;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPES = "product_types";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPES)
+  private List<String> productTypes = null;
+
   public static final String SERIALIZED_NAME_RULES_TYPE = "rules_type";
   @SerializedName(SERIALIZED_NAME_RULES_TYPE)
   private String rulesType;
@@ -550,6 +554,37 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo productTypes(List<String> productTypes) {
+    
+    this.productTypes = productTypes;
+    return this;
+  }
+
+  public AuthMethodAccessInfo addProductTypesItem(String productTypesItem) {
+    if (this.productTypes == null) {
+      this.productTypes = new ArrayList<String>();
+    }
+    this.productTypes.add(productTypesItem);
+    return this;
+  }
+
+   /**
+   * List of product types this auth method will be in use of
+   * @return productTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of product types this auth method will be in use of")
+
+  public List<String> getProductTypes() {
+    return productTypes;
+  }
+
+
+  public void setProductTypes(List<String> productTypes) {
+    this.productTypes = productTypes;
+  }
+
+
   public AuthMethodAccessInfo rulesType(String rulesType) {
     
     this.rulesType = rulesType;
@@ -677,6 +712,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.oauth2AccessRules, authMethodAccessInfo.oauth2AccessRules) &&
         Objects.equals(this.ociAccessRules, authMethodAccessInfo.ociAccessRules) &&
         Objects.equals(this.oidcAccessRules, authMethodAccessInfo.oidcAccessRules) &&
+        Objects.equals(this.productTypes, authMethodAccessInfo.productTypes) &&
         Objects.equals(this.rulesType, authMethodAccessInfo.rulesType) &&
         Objects.equals(this.samlAccessRules, authMethodAccessInfo.samlAccessRules) &&
         Objects.equals(this.subClaimsDelimiters, authMethodAccessInfo.subClaimsDelimiters) &&
@@ -685,7 +721,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
   }
 
   @Override
@@ -710,6 +746,7 @@ public class AuthMethodAccessInfo {
     sb.append("    oauth2AccessRules: ").append(toIndentedString(oauth2AccessRules)).append("\n");
     sb.append("    ociAccessRules: ").append(toIndentedString(ociAccessRules)).append("\n");
     sb.append("    oidcAccessRules: ").append(toIndentedString(oidcAccessRules)).append("\n");
+    sb.append("    productTypes: ").append(toIndentedString(productTypes)).append("\n");
     sb.append("    rulesType: ").append(toIndentedString(rulesType)).append("\n");
     sb.append("    samlAccessRules: ").append(toIndentedString(samlAccessRules)).append("\n");
     sb.append("    subClaimsDelimiters: ").append(toIndentedString(subClaimsDelimiters)).append("\n");

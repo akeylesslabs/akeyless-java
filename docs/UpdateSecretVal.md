@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
 **customField** | **Map&lt;String, String&gt;** | For Password Management use, additional fields |  [optional]
+**format** | **String** | Secret format [text/json] (relevant only for type &#39;generic&#39;) |  [optional]
 **injectUrl** | **List&lt;String&gt;** | For Password Management use, reflect the website context |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | For Password Management use |  [optional]
-**value** | **String** | The secret value (only relevant for type &#39;generic&#39;) | 
+**value** | **String** | The secret value (relevant only for type &#39;generic&#39;) | 
 
 
 

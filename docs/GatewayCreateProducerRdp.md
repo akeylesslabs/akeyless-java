@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerRdp
 
-gatewayCreateProducerRdp is a command that creates rdp producer
+gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use dynamic-secret-create-rdp command]
 
 ## Properties
 
@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **fixedUserOnly** | **String** | Allow access using externally (IdP) provided username [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **rdpAdminName** | **String** | RDP Admin Name |  [optional]
 **rdpAdminPwd** | **String** | RDP Admin password |  [optional]

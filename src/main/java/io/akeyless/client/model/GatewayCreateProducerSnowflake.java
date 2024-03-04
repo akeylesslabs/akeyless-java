@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
+ * GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer [Deprecated: Use dynamic-secret-create-snowflake command]
  */
-@ApiModel(description = "GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer")
+@ApiModel(description = "GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer [Deprecated: Use dynamic-secret-create-snowflake command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerSnowflake {
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
@@ -59,6 +59,10 @@ public class GatewayCreateProducerSnowflake {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRIVATE_KEY = "private-key";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
@@ -244,11 +248,11 @@ public class GatewayCreateProducerSnowflake {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -257,6 +261,29 @@ public class GatewayCreateProducerSnowflake {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerSnowflake passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -491,6 +518,7 @@ public class GatewayCreateProducerSnowflake {
         Objects.equals(this.deleteProtection, gatewayCreateProducerSnowflake.deleteProtection) &&
         Objects.equals(this.json, gatewayCreateProducerSnowflake.json) &&
         Objects.equals(this.name, gatewayCreateProducerSnowflake.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerSnowflake.passwordLength) &&
         Objects.equals(this.privateKey, gatewayCreateProducerSnowflake.privateKey) &&
         Objects.equals(this.privateKeyPassphrase, gatewayCreateProducerSnowflake.privateKeyPassphrase) &&
         Objects.equals(this.role, gatewayCreateProducerSnowflake.role) &&
@@ -504,7 +532,7 @@ public class GatewayCreateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, json, name, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, dbName, deleteProtection, json, name, passwordLength, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
   @Override
@@ -518,6 +546,7 @@ public class GatewayCreateProducerSnowflake {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassphrase: ").append(toIndentedString(privateKeyPassphrase)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

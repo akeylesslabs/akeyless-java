@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **toEmails** | [**List&lt;EmailEntry&gt;**](EmailEntry.md) |  |  [optional]
 **userEmail** | **String** |  |  [optional]
 **username** | **String** | Auth - User Password |  [optional]
+**webhookNotiForwarderPublicDetails** | [**WebHookNotiForwarderPublicDetails**](WebHookNotiForwarderPublicDetails.md) |  |  [optional]
 **withCustomerFragment** | **Boolean** |  |  [optional]
 
 

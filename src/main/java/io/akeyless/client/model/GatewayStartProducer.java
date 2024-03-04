@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayStartProducer is a command that starts producer
+ * gatewayStartProducer is a command that starts producer [Deprecated: Use set-item-state command]
  */
-@ApiModel(description = "gatewayStartProducer is a command that starts producer")
+@ApiModel(description = "gatewayStartProducer is a command that starts producer [Deprecated: Use set-item-state command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayStartProducer {
   public static final String SERIALIZED_NAME_JSON = "json";
@@ -79,11 +79,11 @@ public class GatewayStartProducer {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

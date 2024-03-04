@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerRdp is a command that creates rdp producer
+ * gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use dynamic-secret-create-rdp command]
  */
-@ApiModel(description = "gatewayCreateProducerRdp is a command that creates rdp producer")
+@ApiModel(description = "gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use dynamic-secret-create-rdp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerRdp {
   public static final String SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION = "allow-user-extend-session";
@@ -51,6 +51,10 @@ public class GatewayCreateProducerRdp {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -226,11 +230,11 @@ public class GatewayCreateProducerRdp {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -239,6 +243,29 @@ public class GatewayCreateProducerRdp {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerRdp passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -686,6 +713,7 @@ public class GatewayCreateProducerRdp {
         Objects.equals(this.fixedUserOnly, gatewayCreateProducerRdp.fixedUserOnly) &&
         Objects.equals(this.json, gatewayCreateProducerRdp.json) &&
         Objects.equals(this.name, gatewayCreateProducerRdp.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerRdp.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, gatewayCreateProducerRdp.rdpAdminName) &&
         Objects.equals(this.rdpAdminPwd, gatewayCreateProducerRdp.rdpAdminPwd) &&
@@ -708,7 +736,7 @@ public class GatewayCreateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -720,6 +748,7 @@ public class GatewayCreateProducerRdp {
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");
     sb.append("    rdpAdminPwd: ").append(toIndentedString(rdpAdminPwd)).append("\n");

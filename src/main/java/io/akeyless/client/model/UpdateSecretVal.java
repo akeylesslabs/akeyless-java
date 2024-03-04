@@ -41,6 +41,10 @@ public class UpdateSecretVal {
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELD)
   private Map<String, String> customField = null;
 
+  public static final String SERIALIZED_NAME_FORMAT = "format";
+  @SerializedName(SERIALIZED_NAME_FORMAT)
+  private String format = "text";
+
   public static final String SERIALIZED_NAME_INJECT_URL = "inject-url";
   @SerializedName(SERIALIZED_NAME_INJECT_URL)
   private List<String> injectUrl = null;
@@ -147,6 +151,29 @@ public class UpdateSecretVal {
 
   public void setCustomField(Map<String, String> customField) {
     this.customField = customField;
+  }
+
+
+  public UpdateSecretVal format(String format) {
+    
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * Secret format [text/json] (relevant only for type &#39;generic&#39;)
+   * @return format
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secret format [text/json] (relevant only for type 'generic')")
+
+  public String getFormat() {
+    return format;
+  }
+
+
+  public void setFormat(String format) {
+    this.format = format;
   }
 
 
@@ -441,11 +468,11 @@ public class UpdateSecretVal {
   }
 
    /**
-   * The secret value (only relevant for type &#39;generic&#39;)
+   * The secret value (relevant only for type &#39;generic&#39;)
    * @return value
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The secret value (only relevant for type 'generic')")
+  @ApiModelProperty(required = true, value = "The secret value (relevant only for type 'generic')")
 
   public String getValue() {
     return value;
@@ -468,6 +495,7 @@ public class UpdateSecretVal {
     UpdateSecretVal updateSecretVal = (UpdateSecretVal) o;
     return Objects.equals(this.accessibility, updateSecretVal.accessibility) &&
         Objects.equals(this.customField, updateSecretVal.customField) &&
+        Objects.equals(this.format, updateSecretVal.format) &&
         Objects.equals(this.injectUrl, updateSecretVal.injectUrl) &&
         Objects.equals(this.json, updateSecretVal.json) &&
         Objects.equals(this.keepPrevVersion, updateSecretVal.keepPrevVersion) &&
@@ -485,7 +513,7 @@ public class UpdateSecretVal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, customField, injectUrl, json, keepPrevVersion, key, lastVersion, multiline, name, newVersion, password, token, uidToken, username, value);
+    return Objects.hash(accessibility, customField, format, injectUrl, json, keepPrevVersion, key, lastVersion, multiline, name, newVersion, password, token, uidToken, username, value);
   }
 
   @Override
@@ -494,6 +522,7 @@ public class UpdateSecretVal {
     sb.append("class UpdateSecretVal {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

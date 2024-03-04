@@ -96,6 +96,10 @@ public class CreateAuthMethodCert {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_REVOKED_CERT_IDS = "revoked-cert-ids";
   @SerializedName(SERIALIZED_NAME_REVOKED_CERT_IDS)
   private List<String> revokedCertIds = null;
@@ -547,6 +551,37 @@ public class CreateAuthMethodCert {
   }
 
 
+  public CreateAuthMethodCert productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodCert addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodCert revokedCertIds(List<String> revokedCertIds) {
     
     this.revokedCertIds = revokedCertIds;
@@ -672,6 +707,7 @@ public class CreateAuthMethodCert {
         Objects.equals(this.json, createAuthMethodCert.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodCert.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodCert.name) &&
+        Objects.equals(this.productType, createAuthMethodCert.productType) &&
         Objects.equals(this.revokedCertIds, createAuthMethodCert.revokedCertIds) &&
         Objects.equals(this.token, createAuthMethodCert.token) &&
         Objects.equals(this.uidToken, createAuthMethodCert.uidToken) &&
@@ -680,7 +716,7 @@ public class CreateAuthMethodCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -703,6 +739,7 @@ public class CreateAuthMethodCert {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    revokedCertIds: ").append(toIndentedString(revokedCertIds)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

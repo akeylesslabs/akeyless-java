@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerMSSQL
 
-gatewayCreateProducerMSSQL is a command that creates mssql producer
+gatewayCreateProducerMSSQL is a command that creates mssql producer [Deprecated: Use dynamic-secret-create-mssql command]
 
 ## Properties
 
@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **mssqlPort** | **String** | MSSQL Port |  [optional]
 **mssqlRevocationStatements** | **String** | MSSQL Revocation statements |  [optional]
 **mssqlUsername** | **String** | MSSQL Username |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessDbSchema** | **String** | The DB schema |  [optional]

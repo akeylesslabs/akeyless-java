@@ -49,6 +49,10 @@ public class GetPKICertificate {
   @SerializedName(SERIALIZED_NAME_EXTENDED_KEY_USAGE)
   private String extendedKeyUsage;
 
+  public static final String SERIALIZED_NAME_EXTRA_EXTENSIONS = "extra-extensions";
+  @SerializedName(SERIALIZED_NAME_EXTRA_EXTENSIONS)
+  private String extraExtensions;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -188,6 +192,29 @@ public class GetPKICertificate {
 
   public void setExtendedKeyUsage(String extendedKeyUsage) {
     this.extendedKeyUsage = extendedKeyUsage;
+  }
+
+
+  public GetPKICertificate extraExtensions(String extraExtensions) {
+    
+    this.extraExtensions = extraExtensions;
+    return this;
+  }
+
+   /**
+   * A json string that defines the requested extra extensions for the certificate
+   * @return extraExtensions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A json string that defines the requested extra extensions for the certificate")
+
+  public String getExtraExtensions() {
+    return extraExtensions;
+  }
+
+
+  public void setExtraExtensions(String extraExtensions) {
+    this.extraExtensions = extraExtensions;
   }
 
 
@@ -343,6 +370,7 @@ public class GetPKICertificate {
         Objects.equals(this.commonName, getPKICertificate.commonName) &&
         Objects.equals(this.csrDataBase64, getPKICertificate.csrDataBase64) &&
         Objects.equals(this.extendedKeyUsage, getPKICertificate.extendedKeyUsage) &&
+        Objects.equals(this.extraExtensions, getPKICertificate.extraExtensions) &&
         Objects.equals(this.json, getPKICertificate.json) &&
         Objects.equals(this.keyDataBase64, getPKICertificate.keyDataBase64) &&
         Objects.equals(this.token, getPKICertificate.token) &&
@@ -353,7 +381,7 @@ public class GetPKICertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
+    return Objects.hash(altNames, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, extraExtensions, json, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
   @Override
@@ -365,6 +393,7 @@ public class GetPKICertificate {
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    csrDataBase64: ").append(toIndentedString(csrDataBase64)).append("\n");
     sb.append("    extendedKeyUsage: ").append(toIndentedString(extendedKeyUsage)).append("\n");
+    sb.append("    extraExtensions: ").append(toIndentedString(extraExtensions)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

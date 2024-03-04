@@ -72,6 +72,10 @@ public class UpdateAuthMethodOCI {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_TENANT_OCID = "tenant-ocid";
   @SerializedName(SERIALIZED_NAME_TENANT_OCID)
   private String tenantOcid;
@@ -338,6 +342,37 @@ public class UpdateAuthMethodOCI {
   }
 
 
+  public UpdateAuthMethodOCI productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public UpdateAuthMethodOCI addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public UpdateAuthMethodOCI tenantOcid(String tenantOcid) {
     
     this.tenantOcid = tenantOcid;
@@ -426,6 +461,7 @@ public class UpdateAuthMethodOCI {
         Objects.equals(this.jwtTtl, updateAuthMethodOCI.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodOCI.name) &&
         Objects.equals(this.newName, updateAuthMethodOCI.newName) &&
+        Objects.equals(this.productType, updateAuthMethodOCI.productType) &&
         Objects.equals(this.tenantOcid, updateAuthMethodOCI.tenantOcid) &&
         Objects.equals(this.token, updateAuthMethodOCI.token) &&
         Objects.equals(this.uidToken, updateAuthMethodOCI.uidToken);
@@ -433,7 +469,7 @@ public class UpdateAuthMethodOCI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, tenantOcid, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, productType, tenantOcid, token, uidToken);
   }
 
   @Override
@@ -450,6 +486,7 @@ public class UpdateAuthMethodOCI {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    tenantOcid: ").append(toIndentedString(tenantOcid)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerNativeK8S
 
-gatewayCreateProducerNativeK8S is a command that creates k8s producer
+gatewayCreateProducerNativeK8S is a command that creates k8s producer [Deprecated: Use dynamic-secret-create-k8s command]
 
 ## Properties
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **k8sRolebindingYamlDef** | **String** | Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type&#x3D;dynamic) |  [optional]
 **k8sServiceAccount** | **String** | K8S ServiceAccount to extract token from. |  [optional]
 **k8sServiceAccountType** | **String** | K8S ServiceAccount type [fixed, dynamic]. |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]

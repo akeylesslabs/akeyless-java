@@ -84,6 +84,10 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_REQUIRED_SCOPES = "required-scopes";
   @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPES)
   private List<String> requiredScopes = null;
@@ -434,6 +438,37 @@ public class CreateAuthMethodOIDC {
   }
 
 
+  public CreateAuthMethodOIDC productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodOIDC addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodOIDC requiredScopes(List<String> requiredScopes) {
     
     this.requiredScopes = requiredScopes;
@@ -610,6 +645,7 @@ public class CreateAuthMethodOIDC {
         Objects.equals(this.json, createAuthMethodOIDC.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodOIDC.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOIDC.name) &&
+        Objects.equals(this.productType, createAuthMethodOIDC.productType) &&
         Objects.equals(this.requiredScopes, createAuthMethodOIDC.requiredScopes) &&
         Objects.equals(this.requiredScopesPrefix, createAuthMethodOIDC.requiredScopesPrefix) &&
         Objects.equals(this.subclaimsDelimiters, createAuthMethodOIDC.subclaimsDelimiters) &&
@@ -620,7 +656,7 @@ public class CreateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -640,6 +676,7 @@ public class CreateAuthMethodOIDC {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    requiredScopes: ").append(toIndentedString(requiredScopes)).append("\n");
     sb.append("    requiredScopesPrefix: ").append(toIndentedString(requiredScopesPrefix)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");

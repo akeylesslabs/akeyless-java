@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerCassandra
 
-gatewayUpdateProducerCassandra is a command that updates a Cassandra producer
+gatewayUpdateProducerCassandra is a command that updates a Cassandra producer [Deprecated: Use dynamic-secret-update-cassandra command]
 
 ## Properties
 
@@ -15,8 +15,9 @@ Name | Type | Description | Notes
 **cassandraUsername** | **String** | Cassandra superuser username |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
-**newName** | **String** | Producer name |  [optional]
+**name** | **String** | Dynamic secret name | 
+**newName** | **String** | Dynamic secret name |  [optional]
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]
 **sslCertificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) |  [optional]

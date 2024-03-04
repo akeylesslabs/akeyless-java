@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerGke
 
-gatewayCreateProducerGke is a command that creates gke producer
+gatewayCreateProducerGke is a command that creates gke producer [Deprecated: Use dynamic-secret-create-gke command]
 
 ## Properties
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **gkeClusterName** | **String** | GKE cluster name |  [optional]
 **gkeServiceAccountEmail** | **String** | GKE service account email |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]

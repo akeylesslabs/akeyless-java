@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **customField** | **Map&lt;String, String&gt;** | For Password Management use, additional fields |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
+**format** | **String** | Secret format [text/json] (relevant only for type &#39;generic&#39;) |  [optional]
 **injectUrl** | **List&lt;String&gt;** | For Password Management use, reflect the website context |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **metadata** | **String** | Deprecated - use description |  [optional]
@@ -33,7 +34,7 @@ Name | Type | Description | Notes
 **type** | **String** | The secret sub type [generic/password] |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
 **username** | **String** | For Password Management use |  [optional]
-**value** | **String** | The secret value (only relevant for type &#39;generic&#39;) | 
+**value** | **String** | The secret value (relevant only for type &#39;generic&#39;) | 
 
 
 

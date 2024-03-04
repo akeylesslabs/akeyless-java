@@ -49,6 +49,10 @@ public class OAuth2AccessRules {
   @SerializedName(SERIALIZED_NAME_BOUND_CLIENTS_ID)
   private List<String> boundClientsId = null;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE)
+  private String certificate;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
@@ -176,6 +180,29 @@ public class OAuth2AccessRules {
   }
 
 
+  public OAuth2AccessRules certificate(String certificate) {
+    
+    this.certificate = certificate;
+    return this;
+  }
+
+   /**
+   * Certificate to use when calling jwks_uri from the gateway. in PEM format
+   * @return certificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate to use when calling jwks_uri from the gateway. in PEM format")
+
+  public String getCertificate() {
+    return certificate;
+  }
+
+
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
+  }
+
+
   public OAuth2AccessRules issuer(String issuer) {
     
     this.issuer = issuer;
@@ -281,6 +308,7 @@ public class OAuth2AccessRules {
         Objects.equals(this.authorizedGwClusterName, oauth2AccessRules.authorizedGwClusterName) &&
         Objects.equals(this.boundClaims, oauth2AccessRules.boundClaims) &&
         Objects.equals(this.boundClientsId, oauth2AccessRules.boundClientsId) &&
+        Objects.equals(this.certificate, oauth2AccessRules.certificate) &&
         Objects.equals(this.issuer, oauth2AccessRules.issuer) &&
         Objects.equals(this.jwksJsonData, oauth2AccessRules.jwksJsonData) &&
         Objects.equals(this.jwksUri, oauth2AccessRules.jwksUri) &&
@@ -289,7 +317,7 @@ public class OAuth2AccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, authorizedGwClusterName, boundClaims, boundClientsId, issuer, jwksJsonData, jwksUri, uniqueIdentifier);
+    return Objects.hash(audience, authorizedGwClusterName, boundClaims, boundClientsId, certificate, issuer, jwksJsonData, jwksUri, uniqueIdentifier);
   }
 
   @Override
@@ -300,6 +328,7 @@ public class OAuth2AccessRules {
     sb.append("    authorizedGwClusterName: ").append(toIndentedString(authorizedGwClusterName)).append("\n");
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    boundClientsId: ").append(toIndentedString(boundClientsId)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksJsonData: ").append(toIndentedString(jwksJsonData)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");

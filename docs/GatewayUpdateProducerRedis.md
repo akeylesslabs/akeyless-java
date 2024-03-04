@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerRedis
 
-gatewayUpdateProducerRedis is a command that updates redis producer
+gatewayUpdateProducerRedis is a command that updates redis producer [Deprecated: Use dynamic-secret-update-redis command]
 
 ## Properties
 
@@ -12,9 +12,10 @@ Name | Type | Description | Notes
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **host** | **String** | Redis Host |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
-**newName** | **String** | Producer name |  [optional]
+**name** | **String** | Dynamic secret name | 
+**newName** | **String** | Dynamic secret name |  [optional]
 **password** | **String** | Redis Password |  [optional]
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **port** | **String** | Redis Port |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional]

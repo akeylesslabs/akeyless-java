@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerAzure
 
-gatewayUpdateProducerAzure is a command that updates azure producer
+gatewayUpdateProducerAzure is a command that updates azure producer [Deprecated: Use dynamic-secret-update-azure command]
 
 ## Properties
 
@@ -16,8 +16,9 @@ Name | Type | Description | Notes
 **fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional]
 **fixedUserOnly** | **Boolean** | Fixed user |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
-**newName** | **String** | Producer name |  [optional]
+**name** | **String** | Dynamic secret name | 
+**newName** | **String** | Dynamic secret name |  [optional]
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]

@@ -35,6 +35,10 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_ALLOW_ANY_NAME)
   private Boolean allowAnyName;
 
+  public static final String SERIALIZED_NAME_ALLOW_COPY_EXT_FROM_CSR = "allow-copy-ext-from-csr";
+  @SerializedName(SERIALIZED_NAME_ALLOW_COPY_EXT_FROM_CSR)
+  private Boolean allowCopyExtFromCsr;
+
   public static final String SERIALIZED_NAME_ALLOW_SUBDOMAINS = "allow-subdomains";
   @SerializedName(SERIALIZED_NAME_ALLOW_SUBDOMAINS)
   private Boolean allowSubdomains;
@@ -42,6 +46,10 @@ public class CreatePKICertIssuer {
   public static final String SERIALIZED_NAME_ALLOWED_DOMAINS = "allowed-domains";
   @SerializedName(SERIALIZED_NAME_ALLOWED_DOMAINS)
   private String allowedDomains;
+
+  public static final String SERIALIZED_NAME_ALLOWED_EXTRA_EXTENSIONS = "allowed-extra-extensions";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_EXTRA_EXTENSIONS)
+  private String allowedExtraExtensions;
 
   public static final String SERIALIZED_NAME_ALLOWED_URI_SANS = "allowed-uri-sans";
   @SerializedName(SERIALIZED_NAME_ALLOWED_URI_SANS)
@@ -189,6 +197,29 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer allowCopyExtFromCsr(Boolean allowCopyExtFromCsr) {
+    
+    this.allowCopyExtFromCsr = allowCopyExtFromCsr;
+    return this;
+  }
+
+   /**
+   * If set, will allow copying the extra extensions from the csr file (if given)
+   * @return allowCopyExtFromCsr
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set, will allow copying the extra extensions from the csr file (if given)")
+
+  public Boolean getAllowCopyExtFromCsr() {
+    return allowCopyExtFromCsr;
+  }
+
+
+  public void setAllowCopyExtFromCsr(Boolean allowCopyExtFromCsr) {
+    this.allowCopyExtFromCsr = allowCopyExtFromCsr;
+  }
+
+
   public CreatePKICertIssuer allowSubdomains(Boolean allowSubdomains) {
     
     this.allowSubdomains = allowSubdomains;
@@ -232,6 +263,29 @@ public class CreatePKICertIssuer {
 
   public void setAllowedDomains(String allowedDomains) {
     this.allowedDomains = allowedDomains;
+  }
+
+
+  public CreatePKICertIssuer allowedExtraExtensions(String allowedExtraExtensions) {
+    
+    this.allowedExtraExtensions = allowedExtraExtensions;
+    return this;
+  }
+
+   /**
+   * A json string containing the allowed extra extensions for the pki cert issuer
+   * @return allowedExtraExtensions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A json string containing the allowed extra extensions for the pki cert issuer")
+
+  public String getAllowedExtraExtensions() {
+    return allowedExtraExtensions;
+  }
+
+
+  public void setAllowedExtraExtensions(String allowedExtraExtensions) {
+    this.allowedExtraExtensions = allowedExtraExtensions;
   }
 
 
@@ -951,8 +1005,10 @@ public class CreatePKICertIssuer {
     }
     CreatePKICertIssuer createPKICertIssuer = (CreatePKICertIssuer) o;
     return Objects.equals(this.allowAnyName, createPKICertIssuer.allowAnyName) &&
+        Objects.equals(this.allowCopyExtFromCsr, createPKICertIssuer.allowCopyExtFromCsr) &&
         Objects.equals(this.allowSubdomains, createPKICertIssuer.allowSubdomains) &&
         Objects.equals(this.allowedDomains, createPKICertIssuer.allowedDomains) &&
+        Objects.equals(this.allowedExtraExtensions, createPKICertIssuer.allowedExtraExtensions) &&
         Objects.equals(this.allowedUriSans, createPKICertIssuer.allowedUriSans) &&
         Objects.equals(this.caTarget, createPKICertIssuer.caTarget) &&
         Objects.equals(this.clientFlag, createPKICertIssuer.clientFlag) &&
@@ -987,7 +1043,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowSubdomains, allowedDomains, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -995,8 +1051,10 @@ public class CreatePKICertIssuer {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePKICertIssuer {\n");
     sb.append("    allowAnyName: ").append(toIndentedString(allowAnyName)).append("\n");
+    sb.append("    allowCopyExtFromCsr: ").append(toIndentedString(allowCopyExtFromCsr)).append("\n");
     sb.append("    allowSubdomains: ").append(toIndentedString(allowSubdomains)).append("\n");
     sb.append("    allowedDomains: ").append(toIndentedString(allowedDomains)).append("\n");
+    sb.append("    allowedExtraExtensions: ").append(toIndentedString(allowedExtraExtensions)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
     sb.append("    caTarget: ").append(toIndentedString(caTarget)).append("\n");
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");

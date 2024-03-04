@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerMongo
 
-gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer
+gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-create-mongodb command]
 
 ## Properties
 
@@ -22,7 +22,8 @@ Name | Type | Description | Notes
 **mongodbServerUri** | **String** | MongoDB server URI |  [optional]
 **mongodbUriOptions** | **String** | MongoDB server URI options |  [optional]
 **mongodbUsername** | **String** | MongoDB server username |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Encrypt producer with following key |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]

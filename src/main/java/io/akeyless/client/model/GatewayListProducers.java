@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayListProducers is a command that returns a list of producers
+ * gatewayListProducers is a command that returns a list of producers [Deprecated: Use dynamic-secret-list command]
  */
-@ApiModel(description = "gatewayListProducers is a command that returns a list of producers")
+@ApiModel(description = "gatewayListProducers is a command that returns a list of producers [Deprecated: Use dynamic-secret-list command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayListProducers {
   public static final String SERIALIZED_NAME_JSON = "json";

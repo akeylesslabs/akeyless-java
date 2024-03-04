@@ -178,11 +178,11 @@ public class SetItemState {
   }
 
    /**
-   * The specific version you want to update: 0&#x3D;item level state (default)
+   * The specific version you want to update: 0&#x3D;item level state (default) (relevant only for keys)
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The specific version you want to update: 0=item level state (default)")
+  @ApiModelProperty(value = "The specific version you want to update: 0=item level state (default) (relevant only for keys)")
 
   public Integer getVersion() {
     return version;

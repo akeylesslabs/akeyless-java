@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerCassandra is a command that creates a Cassandra producer
+ * gatewayCreateProducerCassandra is a command that creates a Cassandra producer [Deprecated: Use dynamic-secret-create-cassandra command]
  */
-@ApiModel(description = "gatewayCreateProducerCassandra is a command that creates a Cassandra producer")
+@ApiModel(description = "gatewayCreateProducerCassandra is a command that creates a Cassandra producer [Deprecated: Use dynamic-secret-create-cassandra command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerCassandra {
   public static final String SERIALIZED_NAME_CASSANDRA_CREATION_STATEMENTS = "cassandra-creation-statements";
@@ -63,6 +63,10 @@ public class GatewayCreateProducerCassandra {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -267,11 +271,11 @@ public class GatewayCreateProducerCassandra {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -280,6 +284,29 @@ public class GatewayCreateProducerCassandra {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerCassandra passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -492,6 +519,7 @@ public class GatewayCreateProducerCassandra {
         Objects.equals(this.deleteProtection, gatewayCreateProducerCassandra.deleteProtection) &&
         Objects.equals(this.json, gatewayCreateProducerCassandra.json) &&
         Objects.equals(this.name, gatewayCreateProducerCassandra.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerCassandra.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerCassandra.producerEncryptionKeyName) &&
         Objects.equals(this.ssl, gatewayCreateProducerCassandra.ssl) &&
         Objects.equals(this.sslCertificate, gatewayCreateProducerCassandra.sslCertificate) &&
@@ -504,7 +532,7 @@ public class GatewayCreateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, json, name, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, deleteProtection, json, name, passwordLength, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -519,6 +547,7 @@ public class GatewayCreateProducerCassandra {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");

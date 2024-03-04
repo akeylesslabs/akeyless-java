@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerChef
 
-gatewayUpdateProducerChef is a command that updates chef producer
+gatewayUpdateProducerChef is a command that updates chef producer [Deprecated: Use dynamic-secret-update-chef command]
 
 ## Properties
 
@@ -14,8 +14,9 @@ Name | Type | Description | Notes
 **chefServerUsername** | **String** | Server username |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
-**newName** | **String** | Producer name |  [optional]
+**name** | **String** | Dynamic secret name | 
+**newName** | **String** | Dynamic secret name |  [optional]
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **skipSsl** | **Boolean** | Skip SSL |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]

@@ -33,6 +33,10 @@ public class GenCustomerFragment {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_HSM_KEY_LABEL = "hsm-key-label";
+  @SerializedName(SERIALIZED_NAME_HSM_KEY_LABEL)
+  private String hsmKeyLabel;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -44,6 +48,10 @@ public class GenCustomerFragment {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type = "standard";
 
   public GenCustomerFragment() { 
   }
@@ -68,6 +76,29 @@ public class GenCustomerFragment {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public GenCustomerFragment hsmKeyLabel(String hsmKeyLabel) {
+    
+    this.hsmKeyLabel = hsmKeyLabel;
+    return this;
+  }
+
+   /**
+   * The label of the hsm key to use for customer fragment operations (relevant for hsm_wrapped/hsm_protected customer fragments)
+   * @return hsmKeyLabel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The label of the hsm key to use for customer fragment operations (relevant for hsm_wrapped/hsm_protected customer fragments)")
+
+  public String getHsmKeyLabel() {
+    return hsmKeyLabel;
+  }
+
+
+  public void setHsmKeyLabel(String hsmKeyLabel) {
+    this.hsmKeyLabel = hsmKeyLabel;
   }
 
 
@@ -140,6 +171,29 @@ public class GenCustomerFragment {
   }
 
 
+  public GenCustomerFragment type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Customer fragment type [standard/hsm_wrapped/hsm_secured]
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Customer fragment type [standard/hsm_wrapped/hsm_secured]")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,14 +204,16 @@ public class GenCustomerFragment {
     }
     GenCustomerFragment genCustomerFragment = (GenCustomerFragment) o;
     return Objects.equals(this.description, genCustomerFragment.description) &&
+        Objects.equals(this.hsmKeyLabel, genCustomerFragment.hsmKeyLabel) &&
         Objects.equals(this.json, genCustomerFragment.json) &&
         Objects.equals(this.metadata, genCustomerFragment.metadata) &&
-        Objects.equals(this.name, genCustomerFragment.name);
+        Objects.equals(this.name, genCustomerFragment.name) &&
+        Objects.equals(this.type, genCustomerFragment.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, json, metadata, name);
+    return Objects.hash(description, hsmKeyLabel, json, metadata, name, type);
   }
 
   @Override
@@ -165,9 +221,11 @@ public class GenCustomerFragment {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenCustomerFragment {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    hsmKeyLabel: ").append(toIndentedString(hsmKeyLabel)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -431,6 +431,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GITHUB_INSTALLATION_TOKEN_REPOSITORIES_IDS)
   private List<Long> githubInstallationTokenRepositoriesIds = null;
 
+  public static final String SERIALIZED_NAME_GITHUB_ORGANIZATION_NAME = "github_organization_name";
+  @SerializedName(SERIALIZED_NAME_GITHUB_ORGANIZATION_NAME)
+  private String githubOrganizationName;
+
   public static final String SERIALIZED_NAME_GITHUB_REPOSITORY_PATH = "github_repository_path";
   @SerializedName(SERIALIZED_NAME_GITHUB_REPOSITORY_PATH)
   private String githubRepositoryPath;
@@ -3228,6 +3232,29 @@ public class DSProducerDetails {
 
   public void setGithubInstallationTokenRepositoriesIds(List<Long> githubInstallationTokenRepositoriesIds) {
     this.githubInstallationTokenRepositoriesIds = githubInstallationTokenRepositoriesIds;
+  }
+
+
+  public DSProducerDetails githubOrganizationName(String githubOrganizationName) {
+    
+    this.githubOrganizationName = githubOrganizationName;
+    return this;
+  }
+
+   /**
+   * Get githubOrganizationName
+   * @return githubOrganizationName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGithubOrganizationName() {
+    return githubOrganizationName;
+  }
+
+
+  public void setGithubOrganizationName(String githubOrganizationName) {
+    this.githubOrganizationName = githubOrganizationName;
   }
 
 
@@ -6163,6 +6190,7 @@ public class DSProducerDetails {
         Objects.equals(this.githubInstallationTokenPermissions, dsProducerDetails.githubInstallationTokenPermissions) &&
         Objects.equals(this.githubInstallationTokenRepositories, dsProducerDetails.githubInstallationTokenRepositories) &&
         Objects.equals(this.githubInstallationTokenRepositoriesIds, dsProducerDetails.githubInstallationTokenRepositoriesIds) &&
+        Objects.equals(this.githubOrganizationName, dsProducerDetails.githubOrganizationName) &&
         Objects.equals(this.githubRepositoryPath, dsProducerDetails.githubRepositoryPath) &&
         Objects.equals(this.gkeClusterCaCertificate, dsProducerDetails.gkeClusterCaCertificate) &&
         Objects.equals(this.gkeClusterEndpoint, dsProducerDetails.gkeClusterEndpoint) &&
@@ -6287,7 +6315,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6393,6 +6421,7 @@ public class DSProducerDetails {
     sb.append("    githubInstallationTokenPermissions: ").append(toIndentedString(githubInstallationTokenPermissions)).append("\n");
     sb.append("    githubInstallationTokenRepositories: ").append(toIndentedString(githubInstallationTokenRepositories)).append("\n");
     sb.append("    githubInstallationTokenRepositoriesIds: ").append(toIndentedString(githubInstallationTokenRepositoriesIds)).append("\n");
+    sb.append("    githubOrganizationName: ").append(toIndentedString(githubOrganizationName)).append("\n");
     sb.append("    githubRepositoryPath: ").append(toIndentedString(githubRepositoryPath)).append("\n");
     sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");

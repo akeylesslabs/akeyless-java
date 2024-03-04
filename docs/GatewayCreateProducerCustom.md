@@ -2,6 +2,7 @@
 
 # GatewayCreateProducerCustom
 
+gatewayCreateProducerCustom is a command that creates a custom producer. [Deprecated: Use dynamic-secret-create-custom command]
 
 ## Properties
 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **enableAdminRotation** | **Boolean** | Should admin credentials be rotated |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **payload** | **String** | Secret payload to be sent with each create/revoke webhook request |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **revokeSyncUrl** | **String** | URL of an endpoint that implements /sync/revoke method, for example https://webhook.example.com/sync/revoke | 

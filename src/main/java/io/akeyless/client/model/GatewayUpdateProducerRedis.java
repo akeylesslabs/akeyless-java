@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerRedis is a command that updates redis producer
+ * gatewayUpdateProducerRedis is a command that updates redis producer [Deprecated: Use dynamic-secret-update-redis command]
  */
-@ApiModel(description = "gatewayUpdateProducerRedis is a command that updates redis producer")
+@ApiModel(description = "gatewayUpdateProducerRedis is a command that updates redis producer [Deprecated: Use dynamic-secret-update-redis command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerRedis {
   public static final String SERIALIZED_NAME_ACL_RULES = "acl-rules";
@@ -59,6 +59,10 @@ public class GatewayUpdateProducerRedis {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
@@ -202,11 +206,11 @@ public class GatewayUpdateProducerRedis {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -225,11 +229,11 @@ public class GatewayUpdateProducerRedis {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -261,6 +265,29 @@ public class GatewayUpdateProducerRedis {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+
+  public GatewayUpdateProducerRedis passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -518,6 +545,7 @@ public class GatewayUpdateProducerRedis {
         Objects.equals(this.name, gatewayUpdateProducerRedis.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerRedis.newName) &&
         Objects.equals(this.password, gatewayUpdateProducerRedis.password) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerRedis.passwordLength) &&
         Objects.equals(this.port, gatewayUpdateProducerRedis.port) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerRedis.producerEncryptionKeyName) &&
         Objects.equals(this.ssl, gatewayUpdateProducerRedis.ssl) &&
@@ -532,7 +560,7 @@ public class GatewayUpdateProducerRedis {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclRules, deleteProtection, host, json, name, newName, password, port, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
+    return Objects.hash(aclRules, deleteProtection, host, json, name, newName, password, passwordLength, port, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl, username);
   }
 
   @Override
@@ -546,6 +574,7 @@ public class GatewayUpdateProducerRedis {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");

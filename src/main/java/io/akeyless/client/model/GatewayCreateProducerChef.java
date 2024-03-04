@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerChef is a command that creates chef producer
+ * gatewayCreateProducerChef is a command that creates chef producer [Deprecated: Use dynamic-secret-create-chef command]
  */
-@ApiModel(description = "gatewayCreateProducerChef is a command that creates chef producer")
+@ApiModel(description = "gatewayCreateProducerChef is a command that creates chef producer [Deprecated: Use dynamic-secret-create-chef command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerChef {
   public static final String SERIALIZED_NAME_CHEF_ORGS = "chef-orgs";
@@ -59,6 +59,10 @@ public class GatewayCreateProducerChef {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -236,11 +240,11 @@ public class GatewayCreateProducerChef {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -249,6 +253,29 @@ public class GatewayCreateProducerChef {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerChef passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -437,6 +464,7 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.deleteProtection, gatewayCreateProducerChef.deleteProtection) &&
         Objects.equals(this.json, gatewayCreateProducerChef.json) &&
         Objects.equals(this.name, gatewayCreateProducerChef.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerChef.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerChef.producerEncryptionKeyName) &&
         Objects.equals(this.skipSsl, gatewayCreateProducerChef.skipSsl) &&
         Objects.equals(this.tags, gatewayCreateProducerChef.tags) &&
@@ -448,7 +476,7 @@ public class GatewayCreateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, json, name, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, json, name, passwordLength, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -462,6 +490,7 @@ public class GatewayCreateProducerChef {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

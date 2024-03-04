@@ -88,6 +88,10 @@ public class UpdateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_PUBLIC_KEY = "public-key";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
   private String publicKey;
@@ -465,6 +469,37 @@ public class UpdateAuthMethodK8S {
   }
 
 
+  public UpdateAuthMethodK8S productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public UpdateAuthMethodK8S addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public UpdateAuthMethodK8S publicKey(String publicKey) {
     
     this.publicKey = publicKey;
@@ -557,6 +592,7 @@ public class UpdateAuthMethodK8S {
         Objects.equals(this.jwtTtl, updateAuthMethodK8S.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodK8S.name) &&
         Objects.equals(this.newName, updateAuthMethodK8S.newName) &&
+        Objects.equals(this.productType, updateAuthMethodK8S.productType) &&
         Objects.equals(this.publicKey, updateAuthMethodK8S.publicKey) &&
         Objects.equals(this.token, updateAuthMethodK8S.token) &&
         Objects.equals(this.uidToken, updateAuthMethodK8S.uidToken);
@@ -564,7 +600,7 @@ public class UpdateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKey, token, uidToken);
   }
 
   @Override
@@ -585,6 +621,7 @@ public class UpdateAuthMethodK8S {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

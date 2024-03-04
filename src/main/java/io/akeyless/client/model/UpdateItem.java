@@ -520,11 +520,11 @@ public class UpdateItem {
   }
 
    /**
-   * Rotate the value of the secret after SRA session ends [true/false] (relevant only for Rotated-secret)
+   * Rotate the value of the secret after SRA session ends [true/false]
    * @return rotateAfterDisconnect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends [true/false] (relevant only for Rotated-secret)")
+  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends [true/false]")
 
   public String getRotateAfterDisconnect() {
     return rotateAfterDisconnect;

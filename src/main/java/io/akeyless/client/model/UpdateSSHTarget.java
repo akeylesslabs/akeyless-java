@@ -29,10 +29,6 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSSHTarget {
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -95,29 +91,6 @@ public class UpdateSSHTarget {
 
   public UpdateSSHTarget() { 
   }
-
-  public UpdateSSHTarget comment(String comment) {
-    
-    this.comment = comment;
-    return this;
-  }
-
-   /**
-   * Deprecated - use description
-   * @return comment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated - use description")
-
-  public String getComment() {
-    return comment;
-  }
-
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
 
   public UpdateSSHTarget description(String description) {
     
@@ -473,8 +446,7 @@ public class UpdateSSHTarget {
       return false;
     }
     UpdateSSHTarget updateSSHTarget = (UpdateSSHTarget) o;
-    return Objects.equals(this.comment, updateSSHTarget.comment) &&
-        Objects.equals(this.description, updateSSHTarget.description) &&
+    return Objects.equals(this.description, updateSSHTarget.description) &&
         Objects.equals(this.host, updateSSHTarget.host) &&
         Objects.equals(this.json, updateSSHTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateSSHTarget.keepPrevVersion) &&
@@ -493,14 +465,13 @@ public class UpdateSSHTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, host, json, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
+    return Objects.hash(description, host, json, keepPrevVersion, key, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken, updateVersion);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSSHTarget {\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

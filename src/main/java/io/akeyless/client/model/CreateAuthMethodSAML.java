@@ -76,6 +76,10 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_SUBCLAIMS_DELIMITERS = "subclaims-delimiters";
   @SerializedName(SERIALIZED_NAME_SUBCLAIMS_DELIMITERS)
   private List<String> subclaimsDelimiters = null;
@@ -372,6 +376,37 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodSAML addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodSAML subclaimsDelimiters(List<String> subclaimsDelimiters) {
     
     this.subclaimsDelimiters = subclaimsDelimiters;
@@ -492,6 +527,7 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.json, createAuthMethodSAML.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodSAML.name) &&
+        Objects.equals(this.productType, createAuthMethodSAML.productType) &&
         Objects.equals(this.subclaimsDelimiters, createAuthMethodSAML.subclaimsDelimiters) &&
         Objects.equals(this.token, createAuthMethodSAML.token) &&
         Objects.equals(this.uidToken, createAuthMethodSAML.uidToken) &&
@@ -500,7 +536,7 @@ public class CreateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -518,6 +554,7 @@ public class CreateAuthMethodSAML {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayGetTmpUsers is a command that returns gateway configuration
+ * gatewayGetTmpUsers is a command that returns gateway configuration [Deprecated: Use dynamic-secret-tmp-creds-get command]
  */
-@ApiModel(description = "gatewayGetTmpUsers is a command that returns gateway configuration")
+@ApiModel(description = "gatewayGetTmpUsers is a command that returns gateway configuration [Deprecated: Use dynamic-secret-tmp-creds-get command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayGetTmpUsers {
   public static final String SERIALIZED_NAME_JSON = "json";
@@ -79,11 +79,11 @@ public class GatewayGetTmpUsers {
   }
 
    /**
-   * Producer Name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer Name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

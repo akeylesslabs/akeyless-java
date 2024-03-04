@@ -68,6 +68,10 @@ public class CreateAuthMethodLDAP {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_PUBLIC_KEY_DATA = "public-key-data";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_DATA)
   private String publicKeyData;
@@ -310,6 +314,37 @@ public class CreateAuthMethodLDAP {
   }
 
 
+  public CreateAuthMethodLDAP productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodLDAP addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodLDAP publicKeyData(String publicKeyData) {
     
     this.publicKeyData = publicKeyData;
@@ -420,6 +455,7 @@ public class CreateAuthMethodLDAP {
         Objects.equals(this.json, createAuthMethodLDAP.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodLDAP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodLDAP.name) &&
+        Objects.equals(this.productType, createAuthMethodLDAP.productType) &&
         Objects.equals(this.publicKeyData, createAuthMethodLDAP.publicKeyData) &&
         Objects.equals(this.token, createAuthMethodLDAP.token) &&
         Objects.equals(this.uidToken, createAuthMethodLDAP.uidToken) &&
@@ -428,7 +464,7 @@ public class CreateAuthMethodLDAP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, publicKeyData, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, productType, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -444,6 +480,7 @@ public class CreateAuthMethodLDAP {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    publicKeyData: ").append(toIndentedString(publicKeyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

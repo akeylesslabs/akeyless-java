@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer
+ * gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-update-mongodb command]
  */
-@ApiModel(description = "gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer")
+@ApiModel(description = "gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-update-mongodb command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerMongo {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -95,6 +95,10 @@ public class GatewayUpdateProducerMongo {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -468,11 +472,11 @@ public class GatewayUpdateProducerMongo {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -491,11 +495,11 @@ public class GatewayUpdateProducerMongo {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -504,6 +508,29 @@ public class GatewayUpdateProducerMongo {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerMongo passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -778,6 +805,7 @@ public class GatewayUpdateProducerMongo {
         Objects.equals(this.mongodbUsername, gatewayUpdateProducerMongo.mongodbUsername) &&
         Objects.equals(this.name, gatewayUpdateProducerMongo.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerMongo.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerMongo.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerMongo.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerMongo.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMongo.secureAccessEnable) &&
@@ -792,7 +820,7 @@ public class GatewayUpdateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -815,6 +843,7 @@ public class GatewayUpdateProducerMongo {
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");

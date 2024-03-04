@@ -88,6 +88,10 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA = "service-account-creds-data";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA)
   private String serviceAccountCredsData;
@@ -485,6 +489,37 @@ public class CreateAuthMethodGCP {
   }
 
 
+  public CreateAuthMethodGCP productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodGCP addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodGCP serviceAccountCredsData(String serviceAccountCredsData) {
     
     this.serviceAccountCredsData = serviceAccountCredsData;
@@ -600,6 +635,7 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.json, createAuthMethodGCP.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodGCP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodGCP.name) &&
+        Objects.equals(this.productType, createAuthMethodGCP.productType) &&
         Objects.equals(this.serviceAccountCredsData, createAuthMethodGCP.serviceAccountCredsData) &&
         Objects.equals(this.token, createAuthMethodGCP.token) &&
         Objects.equals(this.type, createAuthMethodGCP.type) &&
@@ -608,7 +644,7 @@ public class CreateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, serviceAccountCredsData, token, type, uidToken);
   }
 
   @Override
@@ -629,6 +665,7 @@ public class CreateAuthMethodGCP {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    serviceAccountCredsData: ").append(toIndentedString(serviceAccountCredsData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerOracleDb
 
-gatewayUpdateProducerOracleDb is a command that updates oracle db producer
+gatewayUpdateProducerOracleDb is a command that updates oracle db producer [Deprecated: Use dynamic-secret-update-oracledb command]
 
 ## Properties
 
@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
-**newName** | **String** | Producer name |  [optional]
+**name** | **String** | Dynamic secret name | 
+**newName** | **String** | Dynamic secret name |  [optional]
 **oracleHost** | **String** | Oracle Host |  [optional]
 **oraclePassword** | **String** | Oracle Password |  [optional]
 **oraclePort** | **String** | Oracle Port |  [optional]
@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **oracleScreationStatements** | **String** | Oracle Creation statements |  [optional]
 **oracleServiceName** | **String** | Oracle DB Name |  [optional]
 **oracleUsername** | **String** | Oracle Username |  [optional]
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]

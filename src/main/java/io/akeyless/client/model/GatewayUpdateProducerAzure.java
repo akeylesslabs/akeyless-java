@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerAzure is a command that updates azure producer
+ * gatewayUpdateProducerAzure is a command that updates azure producer [Deprecated: Use dynamic-secret-update-azure command]
  */
-@ApiModel(description = "gatewayUpdateProducerAzure is a command that updates azure producer")
+@ApiModel(description = "gatewayUpdateProducerAzure is a command that updates azure producer [Deprecated: Use dynamic-secret-update-azure command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerAzure {
   public static final String SERIALIZED_NAME_APP_OBJ_ID = "app-obj-id";
@@ -71,6 +71,10 @@ public class GatewayUpdateProducerAzure {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -326,11 +330,11 @@ public class GatewayUpdateProducerAzure {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -349,11 +353,11 @@ public class GatewayUpdateProducerAzure {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -362,6 +366,29 @@ public class GatewayUpdateProducerAzure {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerAzure passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -737,6 +764,7 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.json, gatewayUpdateProducerAzure.json) &&
         Objects.equals(this.name, gatewayUpdateProducerAzure.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerAzure.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerAzure.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerAzure.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerAzure.secureAccessWeb) &&
@@ -756,7 +784,7 @@ public class GatewayUpdateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -773,6 +801,7 @@ public class GatewayUpdateProducerAzure {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");

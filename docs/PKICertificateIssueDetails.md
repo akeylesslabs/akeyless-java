@@ -8,8 +8,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowAnyName** | **Boolean** |  |  [optional]
+**allowCopyExtFromCsr** | **Boolean** |  |  [optional]
 **allowSubdomains** | **Boolean** |  |  [optional]
 **allowedDomainsList** | **List&lt;String&gt;** |  |  [optional]
+**allowedExtraExtensions** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
 **allowedUriSans** | **List&lt;String&gt;** |  |  [optional]
 **basicConstraintsValidForNonCa** | **Boolean** |  |  [optional]
 **certificateAuthorityMode** | **String** |  |  [optional]

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerPostgreSQL is a command that creates postgresql producer
+ * gatewayCreateProducerPostgreSQL is a command that creates postgresql producer [Deprecated: Use dynamic-secret-create-postgresql command]
  */
-@ApiModel(description = "gatewayCreateProducerPostgreSQL is a command that creates postgresql producer")
+@ApiModel(description = "gatewayCreateProducerPostgreSQL is a command that creates postgresql producer [Deprecated: Use dynamic-secret-create-postgresql command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
@@ -47,6 +47,10 @@ public class GatewayCreateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_POSTGRESQL_DB_NAME = "postgresql-db-name";
   @SerializedName(SERIALIZED_NAME_POSTGRESQL_DB_NAME)
@@ -199,11 +203,11 @@ public class GatewayCreateProducerPostgreSQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -212,6 +216,29 @@ public class GatewayCreateProducerPostgreSQL {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerPostgreSQL passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -658,6 +685,7 @@ public class GatewayCreateProducerPostgreSQL {
         Objects.equals(this.deleteProtection, gatewayCreateProducerPostgreSQL.deleteProtection) &&
         Objects.equals(this.json, gatewayCreateProducerPostgreSQL.json) &&
         Objects.equals(this.name, gatewayCreateProducerPostgreSQL.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerPostgreSQL.passwordLength) &&
         Objects.equals(this.postgresqlDbName, gatewayCreateProducerPostgreSQL.postgresqlDbName) &&
         Objects.equals(this.postgresqlHost, gatewayCreateProducerPostgreSQL.postgresqlHost) &&
         Objects.equals(this.postgresqlPassword, gatewayCreateProducerPostgreSQL.postgresqlPassword) &&
@@ -680,7 +708,7 @@ public class GatewayCreateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, deleteProtection, json, name, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, deleteProtection, json, name, passwordLength, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -691,6 +719,7 @@ public class GatewayCreateProducerPostgreSQL {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    postgresqlDbName: ").append(toIndentedString(postgresqlDbName)).append("\n");
     sb.append("    postgresqlHost: ").append(toIndentedString(postgresqlHost)).append("\n");
     sb.append("    postgresqlPassword: ").append(toIndentedString(postgresqlPassword)).append("\n");

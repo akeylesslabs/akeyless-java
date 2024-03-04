@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **jwtTtl** | **Long** | Jwt TTL |  [optional]
 **name** | **String** | Auth Method name | 
+**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca] |  [optional]
 **tenantOcid** | **String** | The Oracle Cloud tenant ID | 
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

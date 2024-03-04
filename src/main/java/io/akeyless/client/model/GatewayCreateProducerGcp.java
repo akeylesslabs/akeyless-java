@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerGcp is a command that creates a GCP producer
+ * gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: Use dynamic-secret-create-gcp command]
  */
-@ApiModel(description = "gatewayCreateProducerGcp is a command that creates a GCP producer")
+@ApiModel(description = "gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: Use dynamic-secret-create-gcp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerGcp {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -267,11 +267,11 @@ public class GatewayCreateProducerGcp {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

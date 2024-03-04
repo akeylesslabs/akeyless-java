@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerLdap is a command that creates ldap producer
+ * gatewayCreateProducerLdap is a command that creates ldap producer [Deprecated: Use dynamic-secret-create-ldap command]
  */
-@ApiModel(description = "gatewayCreateProducerLdap is a command that creates ldap producer")
+@ApiModel(description = "gatewayCreateProducerLdap is a command that creates ldap producer [Deprecated: Use dynamic-secret-create-ldap command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerLdap {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
@@ -67,6 +67,10 @@ public class GatewayCreateProducerLdap {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -298,11 +302,11 @@ public class GatewayCreateProducerLdap {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -311,6 +315,29 @@ public class GatewayCreateProducerLdap {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerLdap passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -547,6 +574,7 @@ public class GatewayCreateProducerLdap {
         Objects.equals(this.ldapCaCert, gatewayCreateProducerLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, gatewayCreateProducerLdap.ldapUrl) &&
         Objects.equals(this.name, gatewayCreateProducerLdap.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerLdap.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerLdap.producerEncryptionKeyName) &&
         Objects.equals(this.tags, gatewayCreateProducerLdap.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerLdap.targetName) &&
@@ -560,7 +588,7 @@ public class GatewayCreateProducerLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, deleteProtection, externalUsername, groupDn, json, ldapCaCert, ldapUrl, name, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(bindDn, bindDnPassword, deleteProtection, externalUsername, groupDn, json, ldapCaCert, ldapUrl, name, passwordLength, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -576,6 +604,7 @@ public class GatewayCreateProducerLdap {
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");

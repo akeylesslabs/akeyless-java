@@ -9,6 +9,7 @@ RotatedSecretDetailsInfo The rotated secret rotator info
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deletePreviousVersionInDays** | **Integer** |  |  [optional]
+**graceRotation** | **Boolean** |  |  [optional]
 **gwClusterId** | **Long** |  |  [optional]
 **lastRotationError** | **String** |  |  [optional]
 **numberOfVersionsToSave** | **Integer** |  |  [optional]

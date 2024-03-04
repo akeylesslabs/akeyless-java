@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer
+ * gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer [Deprecated: Use dynamic-secret-create-dockerhub command]
  */
-@ApiModel(description = "gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer")
+@ApiModel(description = "gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer [Deprecated: Use dynamic-secret-create-dockerhub command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerDockerhub {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -205,11 +205,11 @@ public class GatewayCreateProducerDockerhub {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

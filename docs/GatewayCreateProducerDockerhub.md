@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerDockerhub
 
-gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer
+gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer [Deprecated: Use dynamic-secret-create-dockerhub command]
 
 ## Properties
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **dockerhubTokenScopes** | **String** | Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot; |  [optional]
 **dockerhubUsername** | **String** | DockerhubUsername is the name of the user in dockerhub |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]

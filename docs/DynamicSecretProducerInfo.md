@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **producerMetadata** | **String** |  |  [optional]
 **producerStatus** | **String** | RotationStatus defines types of rotation Status |  [optional]
 **producerType** | **String** |  |  [optional]
+**userTtl** | **String** |  |  [optional]
 
 
 

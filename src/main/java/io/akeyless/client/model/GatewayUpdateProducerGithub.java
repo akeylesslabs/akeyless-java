@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerGithub is a command that updates github producer
+ * gatewayUpdateProducerGithub is a command that updates github producer [Deprecated: Use dynamic-secret-update-github command]
  */
-@ApiModel(description = "gatewayUpdateProducerGithub is a command that updates github producer")
+@ApiModel(description = "gatewayUpdateProducerGithub is a command that updates github producer [Deprecated: Use dynamic-secret-update-github command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerGithub {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -52,6 +52,10 @@ public class GatewayUpdateProducerGithub {
   @SerializedName(SERIALIZED_NAME_INSTALLATION_ID)
   private Long installationId;
 
+  public static final String SERIALIZED_NAME_INSTALLATION_ORGANIZATION = "installation-organization";
+  @SerializedName(SERIALIZED_NAME_INSTALLATION_ORGANIZATION)
+  private String installationOrganization;
+
   public static final String SERIALIZED_NAME_INSTALLATION_REPOSITORY = "installation-repository";
   @SerializedName(SERIALIZED_NAME_INSTALLATION_REPOSITORY)
   private String installationRepository;
@@ -67,6 +71,10 @@ public class GatewayUpdateProducerGithub {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -206,6 +214,29 @@ public class GatewayUpdateProducerGithub {
   }
 
 
+  public GatewayUpdateProducerGithub installationOrganization(String installationOrganization) {
+    
+    this.installationOrganization = installationOrganization;
+    return this;
+  }
+
+   /**
+   * Optional, instead of installation id, set a GitHub organization name
+   * @return installationOrganization
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional, instead of installation id, set a GitHub organization name")
+
+  public String getInstallationOrganization() {
+    return installationOrganization;
+  }
+
+
+  public void setInstallationOrganization(String installationOrganization) {
+    this.installationOrganization = installationOrganization;
+  }
+
+
   public GatewayUpdateProducerGithub installationRepository(String installationRepository) {
     
     this.installationRepository = installationRepository;
@@ -213,11 +244,11 @@ public class GatewayUpdateProducerGithub {
   }
 
    /**
-   * Repository that the app installation has access to
+   * Optional, instead of installation id, set a GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;
    * @return installationRepository
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Repository that the app installation has access to")
+  @ApiModelProperty(value = "Optional, instead of installation id, set a GitHub repository '<owner>/<repo-name>")
 
   public String getInstallationRepository() {
     return installationRepository;
@@ -259,11 +290,11 @@ public class GatewayUpdateProducerGithub {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -282,11 +313,11 @@ public class GatewayUpdateProducerGithub {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -295,6 +326,37 @@ public class GatewayUpdateProducerGithub {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerGithub tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public GatewayUpdateProducerGithub addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Add tags attached to this object
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Add tags attached to this object")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -443,10 +505,12 @@ public class GatewayUpdateProducerGithub {
         Objects.equals(this.githubAppPrivateKey, gatewayUpdateProducerGithub.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, gatewayUpdateProducerGithub.githubBaseUrl) &&
         Objects.equals(this.installationId, gatewayUpdateProducerGithub.installationId) &&
+        Objects.equals(this.installationOrganization, gatewayUpdateProducerGithub.installationOrganization) &&
         Objects.equals(this.installationRepository, gatewayUpdateProducerGithub.installationRepository) &&
         Objects.equals(this.json, gatewayUpdateProducerGithub.json) &&
         Objects.equals(this.name, gatewayUpdateProducerGithub.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerGithub.newName) &&
+        Objects.equals(this.tags, gatewayUpdateProducerGithub.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerGithub.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerGithub.token) &&
         Objects.equals(this.tokenPermissions, gatewayUpdateProducerGithub.tokenPermissions) &&
@@ -456,7 +520,7 @@ public class GatewayUpdateProducerGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationRepository, json, name, newName, targetName, token, tokenPermissions, tokenRepositories, uidToken);
+    return Objects.hash(deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationOrganization, installationRepository, json, name, newName, tags, targetName, token, tokenPermissions, tokenRepositories, uidToken);
   }
 
   @Override
@@ -468,10 +532,12 @@ public class GatewayUpdateProducerGithub {
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
     sb.append("    installationId: ").append(toIndentedString(installationId)).append("\n");
+    sb.append("    installationOrganization: ").append(toIndentedString(installationOrganization)).append("\n");
     sb.append("    installationRepository: ").append(toIndentedString(installationRepository)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenPermissions: ").append(toIndentedString(tokenPermissions)).append("\n");

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerNativeK8S is a command that creates k8s producer
+ * gatewayCreateProducerNativeK8S is a command that creates k8s producer [Deprecated: Use dynamic-secret-create-k8s command]
  */
-@ApiModel(description = "gatewayCreateProducerNativeK8S is a command that creates k8s producer")
+@ApiModel(description = "gatewayCreateProducerNativeK8S is a command that creates k8s producer [Deprecated: Use dynamic-secret-create-k8s command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerNativeK8S {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -430,11 +430,11 @@ public class GatewayCreateProducerNativeK8S {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createGithubTarget**](docs/V2Api.md#createGithubTarget) | **POST** /create-github-target | 
 *V2Api* | [**createGlobalSignAtlasTarget**](docs/V2Api.md#createGlobalSignAtlasTarget) | **POST** /create-globalsign-atlas-target | 
 *V2Api* | [**createGlobalSignTarget**](docs/V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
+*V2Api* | [**createGodaddyTarget**](docs/V2Api.md#createGodaddyTarget) | **POST** /create-godaddy-target | 
 *V2Api* | [**createGroup**](docs/V2Api.md#createGroup) | **POST** /create-group | 
 *V2Api* | [**createKey**](docs/V2Api.md#createKey) | **POST** /create-key | 
 *V2Api* | [**createLinkedTarget**](docs/V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
@@ -187,6 +188,63 @@ Class | Method | HTTP request | Description
 *V2Api* | [**describePermissions**](docs/V2Api.md#describePermissions) | **POST** /describe-permissions | 
 *V2Api* | [**describeSubClaims**](docs/V2Api.md#describeSubClaims) | **POST** /describe-sub-claims | 
 *V2Api* | [**detokenize**](docs/V2Api.md#detokenize) | **POST** /detokenize | 
+*V2Api* | [**dynamicSecretCreateArtifactory**](docs/V2Api.md#dynamicSecretCreateArtifactory) | **POST** /dynamic-secret-create-artifactory | 
+*V2Api* | [**dynamicSecretCreateAws**](docs/V2Api.md#dynamicSecretCreateAws) | **POST** /dynamic-secret-create-aws | 
+*V2Api* | [**dynamicSecretCreateAzure**](docs/V2Api.md#dynamicSecretCreateAzure) | **POST** /dynamic-secret-create-azure | 
+*V2Api* | [**dynamicSecretCreateCassandra**](docs/V2Api.md#dynamicSecretCreateCassandra) | **POST** /dynamic-secret-create-cassandra | 
+*V2Api* | [**dynamicSecretCreateCustom**](docs/V2Api.md#dynamicSecretCreateCustom) | **POST** /dynamic-secret-create-custom | 
+*V2Api* | [**dynamicSecretCreateDockerhub**](docs/V2Api.md#dynamicSecretCreateDockerhub) | **POST** /dynamic-secret-create-dockerhub | 
+*V2Api* | [**dynamicSecretCreateEks**](docs/V2Api.md#dynamicSecretCreateEks) | **POST** /dynamic-secret-create-eks | 
+*V2Api* | [**dynamicSecretCreateGcp**](docs/V2Api.md#dynamicSecretCreateGcp) | **POST** /dynamic-secret-create-gcp | 
+*V2Api* | [**dynamicSecretCreateGithub**](docs/V2Api.md#dynamicSecretCreateGithub) | **POST** /dynamic-secret-create-github | 
+*V2Api* | [**dynamicSecretCreateGke**](docs/V2Api.md#dynamicSecretCreateGke) | **POST** /dynamic-secret-create-gke | 
+*V2Api* | [**dynamicSecretCreateHanaDb**](docs/V2Api.md#dynamicSecretCreateHanaDb) | **POST** /dynamic-secret-create-hanadb | 
+*V2Api* | [**dynamicSecretCreateK8s**](docs/V2Api.md#dynamicSecretCreateK8s) | **POST** /dynamic-secret-create-k8s | 
+*V2Api* | [**dynamicSecretCreateLdap**](docs/V2Api.md#dynamicSecretCreateLdap) | **POST** /dynamic-secret-create-ldap | 
+*V2Api* | [**dynamicSecretCreateMongoDb**](docs/V2Api.md#dynamicSecretCreateMongoDb) | **POST** /dynamic-secret-create-mongo | 
+*V2Api* | [**dynamicSecretCreateMsSql**](docs/V2Api.md#dynamicSecretCreateMsSql) | **POST** /dynamic-secret-create-mssql | 
+*V2Api* | [**dynamicSecretCreateMySql**](docs/V2Api.md#dynamicSecretCreateMySql) | **POST** /dynamic-secret-create-mysql | 
+*V2Api* | [**dynamicSecretCreateOracleDb**](docs/V2Api.md#dynamicSecretCreateOracleDb) | **POST** /dynamic-secret-create-oracle | 
+*V2Api* | [**dynamicSecretCreatePing**](docs/V2Api.md#dynamicSecretCreatePing) | **POST** /dynamic-secret-create-ping | 
+*V2Api* | [**dynamicSecretCreatePostgreSql**](docs/V2Api.md#dynamicSecretCreatePostgreSql) | **POST** /dynamic-secret-create-postgresql | 
+*V2Api* | [**dynamicSecretCreateRabbitMq**](docs/V2Api.md#dynamicSecretCreateRabbitMq) | **POST** /dynamic-secret-create-rabbitmq | 
+*V2Api* | [**dynamicSecretCreateRdp**](docs/V2Api.md#dynamicSecretCreateRdp) | **POST** /dynamic-secret-create-rdp | 
+*V2Api* | [**dynamicSecretCreateRedis**](docs/V2Api.md#dynamicSecretCreateRedis) | **POST** /dynamic-secret-create-redis | 
+*V2Api* | [**dynamicSecretCreateRedshift**](docs/V2Api.md#dynamicSecretCreateRedshift) | **POST** /dynamic-secret-create-redshift | 
+*V2Api* | [**dynamicSecretCreateSnowflake**](docs/V2Api.md#dynamicSecretCreateSnowflake) | **POST** /dynamic-secret-create-snowflake | 
+*V2Api* | [**dynamicSecretCreateVenafi**](docs/V2Api.md#dynamicSecretCreateVenafi) | **POST** /dynamic-secret-create-venafi | 
+*V2Api* | [**dynamicSecretDelete**](docs/V2Api.md#dynamicSecretDelete) | **POST** /dynamic-secret-delete | 
+*V2Api* | [**dynamicSecretGet**](docs/V2Api.md#dynamicSecretGet) | **POST** /dynamic-secret-get | 
+*V2Api* | [**dynamicSecretGetValue**](docs/V2Api.md#dynamicSecretGetValue) | **POST** /dynamic-secret-get-value | 
+*V2Api* | [**dynamicSecretList**](docs/V2Api.md#dynamicSecretList) | **POST** /dynamic-secret-list | 
+*V2Api* | [**dynamicSecretTmpCredsDelete**](docs/V2Api.md#dynamicSecretTmpCredsDelete) | **POST** /dynamic-secret-tmp-creds-delete | 
+*V2Api* | [**dynamicSecretTmpCredsGet**](docs/V2Api.md#dynamicSecretTmpCredsGet) | **POST** /dynamic-secret-tmp-creds-Get | 
+*V2Api* | [**dynamicSecretTmpCredsUpdate**](docs/V2Api.md#dynamicSecretTmpCredsUpdate) | **POST** /dynamic-secret-tmp-creds-update | 
+*V2Api* | [**dynamicSecretUpdateArtifactory**](docs/V2Api.md#dynamicSecretUpdateArtifactory) | **POST** /dynamic-secret-update-artifactory | 
+*V2Api* | [**dynamicSecretUpdateAws**](docs/V2Api.md#dynamicSecretUpdateAws) | **POST** /dynamic-secret-update-aws | 
+*V2Api* | [**dynamicSecretUpdateAzure**](docs/V2Api.md#dynamicSecretUpdateAzure) | **POST** /dynamic-secret-update-azure | 
+*V2Api* | [**dynamicSecretUpdateCassandra**](docs/V2Api.md#dynamicSecretUpdateCassandra) | **POST** /dynamic-secret-update-cassandra | 
+*V2Api* | [**dynamicSecretUpdateCustom**](docs/V2Api.md#dynamicSecretUpdateCustom) | **POST** /dynamic-secret-update-custom | 
+*V2Api* | [**dynamicSecretUpdateDockerhub**](docs/V2Api.md#dynamicSecretUpdateDockerhub) | **POST** /dynamic-secret-update-dockerhub | 
+*V2Api* | [**dynamicSecretUpdateEks**](docs/V2Api.md#dynamicSecretUpdateEks) | **POST** /dynamic-secret-update-eks | 
+*V2Api* | [**dynamicSecretUpdateGcp**](docs/V2Api.md#dynamicSecretUpdateGcp) | **POST** /dynamic-secret-update-gcp | 
+*V2Api* | [**dynamicSecretUpdateGithub**](docs/V2Api.md#dynamicSecretUpdateGithub) | **POST** /dynamic-secret-update-github | 
+*V2Api* | [**dynamicSecretUpdateGke**](docs/V2Api.md#dynamicSecretUpdateGke) | **POST** /dynamic-secret-update-gke | 
+*V2Api* | [**dynamicSecretUpdateHanaDb**](docs/V2Api.md#dynamicSecretUpdateHanaDb) | **POST** /dynamic-secret-update-hana | 
+*V2Api* | [**dynamicSecretUpdateK8s**](docs/V2Api.md#dynamicSecretUpdateK8s) | **POST** /dynamic-secret-update-k8s | 
+*V2Api* | [**dynamicSecretUpdateLdap**](docs/V2Api.md#dynamicSecretUpdateLdap) | **POST** /dynamic-secret-update-ldap | 
+*V2Api* | [**dynamicSecretUpdateMongoDb**](docs/V2Api.md#dynamicSecretUpdateMongoDb) | **POST** /dynamic-secret-update-mongo | 
+*V2Api* | [**dynamicSecretUpdateMsSql**](docs/V2Api.md#dynamicSecretUpdateMsSql) | **POST** /dynamic-secret-update-mssql | 
+*V2Api* | [**dynamicSecretUpdateMySql**](docs/V2Api.md#dynamicSecretUpdateMySql) | **POST** /dynamic-secret-update-mysql | 
+*V2Api* | [**dynamicSecretUpdateOracleDb**](docs/V2Api.md#dynamicSecretUpdateOracleDb) | **POST** /dynamic-secret-update-oracle | 
+*V2Api* | [**dynamicSecretUpdatePing**](docs/V2Api.md#dynamicSecretUpdatePing) | **POST** /dynamic-secret-update-ping | 
+*V2Api* | [**dynamicSecretUpdatePostgreSql**](docs/V2Api.md#dynamicSecretUpdatePostgreSql) | **POST** /dynamic-secret-update-postgresql | 
+*V2Api* | [**dynamicSecretUpdateRabbitMq**](docs/V2Api.md#dynamicSecretUpdateRabbitMq) | **POST** /dynamic-secret-update-rabbitmq | 
+*V2Api* | [**dynamicSecretUpdateRdp**](docs/V2Api.md#dynamicSecretUpdateRdp) | **POST** /dynamic-secret-update-rdp | 
+*V2Api* | [**dynamicSecretUpdateRedis**](docs/V2Api.md#dynamicSecretUpdateRedis) | **POST** /dynamic-secret-update-redis | 
+*V2Api* | [**dynamicSecretUpdateRedshift**](docs/V2Api.md#dynamicSecretUpdateRedshift) | **POST** /dynamic-secret-update-redshift | 
+*V2Api* | [**dynamicSecretUpdateSnowflake**](docs/V2Api.md#dynamicSecretUpdateSnowflake) | **POST** /dynamic-secret-update-snowflake | 
+*V2Api* | [**dynamicSecretUpdateVenafi**](docs/V2Api.md#dynamicSecretUpdateVenafi) | **POST** /dynamic-secret-update-venafi | 
 *V2Api* | [**encrypt**](docs/V2Api.md#encrypt) | **POST** /encrypt | 
 *V2Api* | [**encryptGPG**](docs/V2Api.md#encryptGPG) | **POST** /encrypt-gpg | 
 *V2Api* | [**encryptWithClassicKey**](docs/V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
@@ -196,6 +254,12 @@ Class | Method | HTTP request | Description
 *V2Api* | [**esmList**](docs/V2Api.md#esmList) | **POST** /esm-list | 
 *V2Api* | [**esmUpdate**](docs/V2Api.md#esmUpdate) | **POST** /esm-update | 
 *V2Api* | [**eventAction**](docs/V2Api.md#eventAction) | **POST** /event-action | 
+*V2Api* | [**eventForwarderCreateEmail**](docs/V2Api.md#eventForwarderCreateEmail) | **POST** /event-forwarder-create-email | 
+*V2Api* | [**eventForwarderCreateWebhook**](docs/V2Api.md#eventForwarderCreateWebhook) | **POST** /event-forwarder-create-webhook | 
+*V2Api* | [**eventForwarderDelete**](docs/V2Api.md#eventForwarderDelete) | **POST** /event-forwarder-delete | 
+*V2Api* | [**eventForwarderGet**](docs/V2Api.md#eventForwarderGet) | **POST** /event-forwarder-get | 
+*V2Api* | [**eventForwarderUpdateEmail**](docs/V2Api.md#eventForwarderUpdateEmail) | **POST** /event-forwarder-update-email | 
+*V2Api* | [**eventForwarderUpdateWebhook**](docs/V2Api.md#eventForwarderUpdateWebhook) | **POST** /event-forwarder-update-webhook | 
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 *V2Api* | [**gatewayCreateAllowedAccess**](docs/V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
 *V2Api* | [**gatewayCreateK8SAuthConfig**](docs/V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
@@ -204,7 +268,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayCreateProducerAws**](docs/V2Api.md#gatewayCreateProducerAws) | **POST** /gateway-create-producer-aws | 
 *V2Api* | [**gatewayCreateProducerAzure**](docs/V2Api.md#gatewayCreateProducerAzure) | **POST** /gateway-create-producer-azure | 
 *V2Api* | [**gatewayCreateProducerCassandra**](docs/V2Api.md#gatewayCreateProducerCassandra) | **POST** /gateway-create-producer-cassandra | 
-*V2Api* | [**gatewayCreateProducerCertificateAutomation**](docs/V2Api.md#gatewayCreateProducerCertificateAutomation) | **POST** /gateway-create-producer-certificate-automation | 
+*V2Api* | [**gatewayCreateProducerChef**](docs/V2Api.md#gatewayCreateProducerChef) | **POST** /gateway-create-producer-chef | 
 *V2Api* | [**gatewayCreateProducerCustom**](docs/V2Api.md#gatewayCreateProducerCustom) | **POST** /gateway-create-producer-custom | 
 *V2Api* | [**gatewayCreateProducerDockerhub**](docs/V2Api.md#gatewayCreateProducerDockerhub) | **POST** /gateway-create-producer-dockerhub | 
 *V2Api* | [**gatewayCreateProducerEks**](docs/V2Api.md#gatewayCreateProducerEks) | **POST** /gateway-create-producer-eks | 
@@ -225,6 +289,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayCreateProducerRedis**](docs/V2Api.md#gatewayCreateProducerRedis) | **POST** /gateway-create-producer-Redis | 
 *V2Api* | [**gatewayCreateProducerRedshift**](docs/V2Api.md#gatewayCreateProducerRedshift) | **POST** /gateway-create-producer-redshift | 
 *V2Api* | [**gatewayCreateProducerSnowflake**](docs/V2Api.md#gatewayCreateProducerSnowflake) | **POST** /gateway-create-producer-snowflake | 
+*V2Api* | [**gatewayCreateProducerVenafi**](docs/V2Api.md#gatewayCreateProducerVenafi) | **POST** /gateway-create-producer-certificate-automation | 
 *V2Api* | [**gatewayDeleteAllowedAccess**](docs/V2Api.md#gatewayDeleteAllowedAccess) | **POST** /gateway-delete-allowed-access | 
 *V2Api* | [**gatewayDeleteK8SAuthConfig**](docs/V2Api.md#gatewayDeleteK8SAuthConfig) | **POST** /gateway-delete-k8s-auth-config | 
 *V2Api* | [**gatewayDeleteMigration**](docs/V2Api.md#gatewayDeleteMigration) | **POST** /gateway-delete-migration | 
@@ -255,7 +320,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateProducerAws**](docs/V2Api.md#gatewayUpdateProducerAws) | **POST** /gateway-update-producer-aws | 
 *V2Api* | [**gatewayUpdateProducerAzure**](docs/V2Api.md#gatewayUpdateProducerAzure) | **POST** /gateway-update-producer-azure | 
 *V2Api* | [**gatewayUpdateProducerCassandra**](docs/V2Api.md#gatewayUpdateProducerCassandra) | **POST** /gateway-update-producer-cassandra | 
-*V2Api* | [**gatewayUpdateProducerCertificateAutomation**](docs/V2Api.md#gatewayUpdateProducerCertificateAutomation) | **POST** /gateway-update-producer-certificate-automation | 
+*V2Api* | [**gatewayUpdateProducerChef**](docs/V2Api.md#gatewayUpdateProducerChef) | **POST** /gateway-update-producer-chef | 
 *V2Api* | [**gatewayUpdateProducerCustom**](docs/V2Api.md#gatewayUpdateProducerCustom) | **POST** /gateway-update-producer-custom | 
 *V2Api* | [**gatewayUpdateProducerDockerhub**](docs/V2Api.md#gatewayUpdateProducerDockerhub) | **POST** /gateway-update-producer-dockerhub | 
 *V2Api* | [**gatewayUpdateProducerEks**](docs/V2Api.md#gatewayUpdateProducerEks) | **POST** /gateway-update-producer-eks | 
@@ -276,6 +341,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateProducerRedis**](docs/V2Api.md#gatewayUpdateProducerRedis) | **POST** /gateway-update-producer-redis | 
 *V2Api* | [**gatewayUpdateProducerRedshift**](docs/V2Api.md#gatewayUpdateProducerRedshift) | **POST** /gateway-update-producer-redshift | 
 *V2Api* | [**gatewayUpdateProducerSnowflake**](docs/V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
+*V2Api* | [**gatewayUpdateProducerVenafi**](docs/V2Api.md#gatewayUpdateProducerVenafi) | **POST** /gateway-update-producer-certificate-automation | 
 *V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
 *V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
@@ -332,6 +398,44 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotateKey**](docs/V2Api.md#rotateKey) | **POST** /rotate-key | 
 *V2Api* | [**rotateOidcClientSecret**](docs/V2Api.md#rotateOidcClientSecret) | **POST** /rotate-oidc-client-secret | 
 *V2Api* | [**rotateSecret**](docs/V2Api.md#rotateSecret) | **POST** /gateway-rotate-secret | 
+*V2Api* | [**rotatedSecretCreateAws**](docs/V2Api.md#rotatedSecretCreateAws) | **POST** /rotated-secret-create-aws | 
+*V2Api* | [**rotatedSecretCreateAzure**](docs/V2Api.md#rotatedSecretCreateAzure) | **POST** /rotated-secret-create-azure | 
+*V2Api* | [**rotatedSecretCreateCassandra**](docs/V2Api.md#rotatedSecretCreateCassandra) | **POST** /rotated-secret-create-cassandra | 
+*V2Api* | [**rotatedSecretCreateCustom**](docs/V2Api.md#rotatedSecretCreateCustom) | **POST** /rotated-secret-create-custom | 
+*V2Api* | [**rotatedSecretCreateDockerhub**](docs/V2Api.md#rotatedSecretCreateDockerhub) | **POST** /rotated-secret-create-dockerhub | 
+*V2Api* | [**rotatedSecretCreateGcp**](docs/V2Api.md#rotatedSecretCreateGcp) | **POST** /rotated-secret-create-gcp | 
+*V2Api* | [**rotatedSecretCreateHanadb**](docs/V2Api.md#rotatedSecretCreateHanadb) | **POST** /rotated-secret-create-hanadb | 
+*V2Api* | [**rotatedSecretCreateLdap**](docs/V2Api.md#rotatedSecretCreateLdap) | **POST** /rotated-secret-create-ldap | 
+*V2Api* | [**rotatedSecretCreateMongodb**](docs/V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb | 
+*V2Api* | [**rotatedSecretCreateMssql**](docs/V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql | 
+*V2Api* | [**rotatedSecretCreateMysql**](docs/V2Api.md#rotatedSecretCreateMysql) | **POST** /rotated-secret-create-mysql | 
+*V2Api* | [**rotatedSecretCreateOracledb**](docs/V2Api.md#rotatedSecretCreateOracledb) | **POST** /rotated-secret-create-oracledb | 
+*V2Api* | [**rotatedSecretCreatePostgresql**](docs/V2Api.md#rotatedSecretCreatePostgresql) | **POST** /rotated-secret-create-postgresql | 
+*V2Api* | [**rotatedSecretCreateRedis**](docs/V2Api.md#rotatedSecretCreateRedis) | **POST** /rotated-secret-create-redis | 
+*V2Api* | [**rotatedSecretCreateRedshift**](docs/V2Api.md#rotatedSecretCreateRedshift) | **POST** /rotated-secret-create-redshift | 
+*V2Api* | [**rotatedSecretCreateSnowflake**](docs/V2Api.md#rotatedSecretCreateSnowflake) | **POST** /rotated-secret-create-snowflake | 
+*V2Api* | [**rotatedSecretCreateSsh**](docs/V2Api.md#rotatedSecretCreateSsh) | **POST** /rotated-secret-create-ssh | 
+*V2Api* | [**rotatedSecretCreateWindows**](docs/V2Api.md#rotatedSecretCreateWindows) | **POST** /rotated-secret-create-windows | 
+*V2Api* | [**rotatedSecretGetValue**](docs/V2Api.md#rotatedSecretGetValue) | **POST** /rotated-secret-get-value | 
+*V2Api* | [**rotatedSecretList**](docs/V2Api.md#rotatedSecretList) | **POST** /rotated-secret-list | 
+*V2Api* | [**rotatedSecretUpdateAws**](docs/V2Api.md#rotatedSecretUpdateAws) | **POST** /rotated-secret-update-aws | 
+*V2Api* | [**rotatedSecretUpdateAzure**](docs/V2Api.md#rotatedSecretUpdateAzure) | **POST** /rotated-secret-update-azure | 
+*V2Api* | [**rotatedSecretUpdateCassandra**](docs/V2Api.md#rotatedSecretUpdateCassandra) | **POST** /rotated-secret-update-cassandra | 
+*V2Api* | [**rotatedSecretUpdateCustom**](docs/V2Api.md#rotatedSecretUpdateCustom) | **POST** /rotated-secret-update-custom | 
+*V2Api* | [**rotatedSecretUpdateDockerhub**](docs/V2Api.md#rotatedSecretUpdateDockerhub) | **POST** /rotated-secret-update-dockerhub | 
+*V2Api* | [**rotatedSecretUpdateGcp**](docs/V2Api.md#rotatedSecretUpdateGcp) | **POST** /rotated-secret-update-gcp | 
+*V2Api* | [**rotatedSecretUpdateHanadb**](docs/V2Api.md#rotatedSecretUpdateHanadb) | **POST** /rotated-secret-update-hanadb | 
+*V2Api* | [**rotatedSecretUpdateLdap**](docs/V2Api.md#rotatedSecretUpdateLdap) | **POST** /rotated-secret-update-ldap | 
+*V2Api* | [**rotatedSecretUpdateMongodb**](docs/V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb | 
+*V2Api* | [**rotatedSecretUpdateMssql**](docs/V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql | 
+*V2Api* | [**rotatedSecretUpdateMysql**](docs/V2Api.md#rotatedSecretUpdateMysql) | **POST** /rotated-secret-update-mysql | 
+*V2Api* | [**rotatedSecretUpdateOracledb**](docs/V2Api.md#rotatedSecretUpdateOracledb) | **POST** /rotated-secret-update-oracledb | 
+*V2Api* | [**rotatedSecretUpdatePostgresql**](docs/V2Api.md#rotatedSecretUpdatePostgresql) | **POST** /rotated-secret-update-postgresql | 
+*V2Api* | [**rotatedSecretUpdateRedis**](docs/V2Api.md#rotatedSecretUpdateRedis) | **POST** /rotated-secret-update-redis | 
+*V2Api* | [**rotatedSecretUpdateRedshift**](docs/V2Api.md#rotatedSecretUpdateRedshift) | **POST** /rotated-secret-update-redshift | 
+*V2Api* | [**rotatedSecretUpdateSnowflake**](docs/V2Api.md#rotatedSecretUpdateSnowflake) | **POST** /rotated-secret-update-snowflake | 
+*V2Api* | [**rotatedSecretUpdateSsh**](docs/V2Api.md#rotatedSecretUpdateSsh) | **POST** /rotated-secret-update-ssh | 
+*V2Api* | [**rotatedSecretUpdateWindows**](docs/V2Api.md#rotatedSecretUpdateWindows) | **POST** /rotated-secret-update-windows | 
 *V2Api* | [**setItemState**](docs/V2Api.md#setItemState) | **POST** /set-item-state | 
 *V2Api* | [**setRoleRule**](docs/V2Api.md#setRoleRule) | **POST** /set-role-rule | 
 *V2Api* | [**shareItem**](docs/V2Api.md#shareItem) | **POST** /share-item | 
@@ -379,6 +483,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateGithubTarget**](docs/V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
 *V2Api* | [**updateGlobalSignAtlasTarget**](docs/V2Api.md#updateGlobalSignAtlasTarget) | **POST** /update-globalsign-atlas-target | 
 *V2Api* | [**updateGlobalSignTarget**](docs/V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
+*V2Api* | [**updateGodaddyTarget**](docs/V2Api.md#updateGodaddyTarget) | **POST** /update-godaddy-target | 
 *V2Api* | [**updateGroup**](docs/V2Api.md#updateGroup) | **POST** /update-group | 
 *V2Api* | [**updateItem**](docs/V2Api.md#updateItem) | **POST** /update-item | 
 *V2Api* | [**updateLdapTarget**](docs/V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
@@ -537,6 +642,8 @@ Class | Method | HTTP request | Description
  - [CreateGlobalSignAtlasTargetOutput](docs/CreateGlobalSignAtlasTargetOutput.md)
  - [CreateGlobalSignTarget](docs/CreateGlobalSignTarget.md)
  - [CreateGlobalSignTargetOutput](docs/CreateGlobalSignTargetOutput.md)
+ - [CreateGodaddyTarget](docs/CreateGodaddyTarget.md)
+ - [CreateGodaddyTargetOutput](docs/CreateGodaddyTargetOutput.md)
  - [CreateGroup](docs/CreateGroup.md)
  - [CreateGroupOutput](docs/CreateGroupOutput.md)
  - [CreateKey](docs/CreateKey.md)
@@ -581,8 +688,8 @@ Class | Method | HTTP request | Description
  - [CreateZeroSSLTarget](docs/CreateZeroSSLTarget.md)
  - [CreateZeroSSLTargetOutput](docs/CreateZeroSSLTargetOutput.md)
  - [CustomTargetDetails](docs/CustomTargetDetails.md)
- - [CustomerFragment](docs/CustomerFragment.md)
- - [CustomerFragmentsJson](docs/CustomerFragmentsJson.md)
+ - [CustomerFragmentConfig](docs/CustomerFragmentConfig.md)
+ - [CustomerFragmentsConfigJson](docs/CustomerFragmentsConfigJson.md)
  - [CustomerFullAddress](docs/CustomerFullAddress.md)
  - [DSProducerDetails](docs/DSProducerDetails.md)
  - [DataProtectionSection](docs/DataProtectionSection.md)
@@ -631,7 +738,70 @@ Class | Method | HTTP request | Description
  - [Detokenize](docs/Detokenize.md)
  - [DetokenizeOutput](docs/DetokenizeOutput.md)
  - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
+ - [DynamicSecretCreateArtifactory](docs/DynamicSecretCreateArtifactory.md)
+ - [DynamicSecretCreateAws](docs/DynamicSecretCreateAws.md)
+ - [DynamicSecretCreateAzure](docs/DynamicSecretCreateAzure.md)
+ - [DynamicSecretCreateCassandra](docs/DynamicSecretCreateCassandra.md)
+ - [DynamicSecretCreateChef](docs/DynamicSecretCreateChef.md)
+ - [DynamicSecretCreateCustom](docs/DynamicSecretCreateCustom.md)
+ - [DynamicSecretCreateDockerhub](docs/DynamicSecretCreateDockerhub.md)
+ - [DynamicSecretCreateEks](docs/DynamicSecretCreateEks.md)
+ - [DynamicSecretCreateGcp](docs/DynamicSecretCreateGcp.md)
+ - [DynamicSecretCreateGithub](docs/DynamicSecretCreateGithub.md)
+ - [DynamicSecretCreateGke](docs/DynamicSecretCreateGke.md)
+ - [DynamicSecretCreateHanaDb](docs/DynamicSecretCreateHanaDb.md)
+ - [DynamicSecretCreateK8s](docs/DynamicSecretCreateK8s.md)
+ - [DynamicSecretCreateLdap](docs/DynamicSecretCreateLdap.md)
+ - [DynamicSecretCreateMongoDb](docs/DynamicSecretCreateMongoDb.md)
+ - [DynamicSecretCreateMsSql](docs/DynamicSecretCreateMsSql.md)
+ - [DynamicSecretCreateMySql](docs/DynamicSecretCreateMySql.md)
+ - [DynamicSecretCreateOracleDb](docs/DynamicSecretCreateOracleDb.md)
+ - [DynamicSecretCreateOutput](docs/DynamicSecretCreateOutput.md)
+ - [DynamicSecretCreatePing](docs/DynamicSecretCreatePing.md)
+ - [DynamicSecretCreatePostgreSql](docs/DynamicSecretCreatePostgreSql.md)
+ - [DynamicSecretCreateRabbitMq](docs/DynamicSecretCreateRabbitMq.md)
+ - [DynamicSecretCreateRdp](docs/DynamicSecretCreateRdp.md)
+ - [DynamicSecretCreateRedis](docs/DynamicSecretCreateRedis.md)
+ - [DynamicSecretCreateRedshift](docs/DynamicSecretCreateRedshift.md)
+ - [DynamicSecretCreateSnowflake](docs/DynamicSecretCreateSnowflake.md)
+ - [DynamicSecretCreateVenafi](docs/DynamicSecretCreateVenafi.md)
+ - [DynamicSecretDelete](docs/DynamicSecretDelete.md)
+ - [DynamicSecretDeleteOutput](docs/DynamicSecretDeleteOutput.md)
+ - [DynamicSecretGet](docs/DynamicSecretGet.md)
+ - [DynamicSecretGetValue](docs/DynamicSecretGetValue.md)
+ - [DynamicSecretList](docs/DynamicSecretList.md)
+ - [DynamicSecretMaxTtl](docs/DynamicSecretMaxTtl.md)
  - [DynamicSecretProducerInfo](docs/DynamicSecretProducerInfo.md)
+ - [DynamicSecretTmpCredsDelete](docs/DynamicSecretTmpCredsDelete.md)
+ - [DynamicSecretTmpCredsGet](docs/DynamicSecretTmpCredsGet.md)
+ - [DynamicSecretTmpCredsUpdate](docs/DynamicSecretTmpCredsUpdate.md)
+ - [DynamicSecretUpdateArtifactory](docs/DynamicSecretUpdateArtifactory.md)
+ - [DynamicSecretUpdateAws](docs/DynamicSecretUpdateAws.md)
+ - [DynamicSecretUpdateAzure](docs/DynamicSecretUpdateAzure.md)
+ - [DynamicSecretUpdateCassandra](docs/DynamicSecretUpdateCassandra.md)
+ - [DynamicSecretUpdateChef](docs/DynamicSecretUpdateChef.md)
+ - [DynamicSecretUpdateCustom](docs/DynamicSecretUpdateCustom.md)
+ - [DynamicSecretUpdateDockerhub](docs/DynamicSecretUpdateDockerhub.md)
+ - [DynamicSecretUpdateEks](docs/DynamicSecretUpdateEks.md)
+ - [DynamicSecretUpdateGcp](docs/DynamicSecretUpdateGcp.md)
+ - [DynamicSecretUpdateGithub](docs/DynamicSecretUpdateGithub.md)
+ - [DynamicSecretUpdateGke](docs/DynamicSecretUpdateGke.md)
+ - [DynamicSecretUpdateHanaDb](docs/DynamicSecretUpdateHanaDb.md)
+ - [DynamicSecretUpdateK8s](docs/DynamicSecretUpdateK8s.md)
+ - [DynamicSecretUpdateLdap](docs/DynamicSecretUpdateLdap.md)
+ - [DynamicSecretUpdateMongoDb](docs/DynamicSecretUpdateMongoDb.md)
+ - [DynamicSecretUpdateMsSql](docs/DynamicSecretUpdateMsSql.md)
+ - [DynamicSecretUpdateMySql](docs/DynamicSecretUpdateMySql.md)
+ - [DynamicSecretUpdateOracleDb](docs/DynamicSecretUpdateOracleDb.md)
+ - [DynamicSecretUpdateOutput](docs/DynamicSecretUpdateOutput.md)
+ - [DynamicSecretUpdatePing](docs/DynamicSecretUpdatePing.md)
+ - [DynamicSecretUpdatePostgreSql](docs/DynamicSecretUpdatePostgreSql.md)
+ - [DynamicSecretUpdateRabbitMq](docs/DynamicSecretUpdateRabbitMq.md)
+ - [DynamicSecretUpdateRdp](docs/DynamicSecretUpdateRdp.md)
+ - [DynamicSecretUpdateRedis](docs/DynamicSecretUpdateRedis.md)
+ - [DynamicSecretUpdateRedshift](docs/DynamicSecretUpdateRedshift.md)
+ - [DynamicSecretUpdateSnowflake](docs/DynamicSecretUpdateSnowflake.md)
+ - [DynamicSecretUpdateVenafi](docs/DynamicSecretUpdateVenafi.md)
  - [EKSTargetDetails](docs/EKSTargetDetails.md)
  - [ElasticsearchLogForwardingConfig](docs/ElasticsearchLogForwardingConfig.md)
  - [EmailEntry](docs/EmailEntry.md)
@@ -656,6 +826,15 @@ Class | Method | HTTP request | Description
  - [EsmUpdate](docs/EsmUpdate.md)
  - [EsmUpdateSecretOutput](docs/EsmUpdateSecretOutput.md)
  - [EventAction](docs/EventAction.md)
+ - [EventForwarderCreateEmail](docs/EventForwarderCreateEmail.md)
+ - [EventForwarderCreateUpdateOutput](docs/EventForwarderCreateUpdateOutput.md)
+ - [EventForwarderCreateWebhook](docs/EventForwarderCreateWebhook.md)
+ - [EventForwarderDelete](docs/EventForwarderDelete.md)
+ - [EventForwarderDeleteOutput](docs/EventForwarderDeleteOutput.md)
+ - [EventForwarderGet](docs/EventForwarderGet.md)
+ - [EventForwarderGetOutput](docs/EventForwarderGetOutput.md)
+ - [EventForwarderUpdateEmail](docs/EventForwarderUpdateEmail.md)
+ - [EventForwarderUpdateWebhook](docs/EventForwarderUpdateWebhook.md)
  - [ExportClassicKey](docs/ExportClassicKey.md)
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
  - [Extension](docs/Extension.md)
@@ -677,8 +856,6 @@ Class | Method | HTTP request | Description
  - [GatewayCreateProducerAzureOutput](docs/GatewayCreateProducerAzureOutput.md)
  - [GatewayCreateProducerCassandra](docs/GatewayCreateProducerCassandra.md)
  - [GatewayCreateProducerCassandraOutput](docs/GatewayCreateProducerCassandraOutput.md)
- - [GatewayCreateProducerCertificateAutomation](docs/GatewayCreateProducerCertificateAutomation.md)
- - [GatewayCreateProducerCertificateAutomationOutput](docs/GatewayCreateProducerCertificateAutomationOutput.md)
  - [GatewayCreateProducerChef](docs/GatewayCreateProducerChef.md)
  - [GatewayCreateProducerChefOutput](docs/GatewayCreateProducerChefOutput.md)
  - [GatewayCreateProducerCustom](docs/GatewayCreateProducerCustom.md)
@@ -721,6 +898,8 @@ Class | Method | HTTP request | Description
  - [GatewayCreateProducerRedshiftOutput](docs/GatewayCreateProducerRedshiftOutput.md)
  - [GatewayCreateProducerSnowflake](docs/GatewayCreateProducerSnowflake.md)
  - [GatewayCreateProducerSnowflakeOutput](docs/GatewayCreateProducerSnowflakeOutput.md)
+ - [GatewayCreateProducerVenafi](docs/GatewayCreateProducerVenafi.md)
+ - [GatewayCreateProducerVenafiOutput](docs/GatewayCreateProducerVenafiOutput.md)
  - [GatewayDeleteAllowedAccess](docs/GatewayDeleteAllowedAccess.md)
  - [GatewayDeleteAllowedAccessOutput](docs/GatewayDeleteAllowedAccessOutput.md)
  - [GatewayDeleteK8SAuthConfig](docs/GatewayDeleteK8SAuthConfig.md)
@@ -774,8 +953,6 @@ Class | Method | HTTP request | Description
  - [GatewayUpdateProducerAzureOutput](docs/GatewayUpdateProducerAzureOutput.md)
  - [GatewayUpdateProducerCassandra](docs/GatewayUpdateProducerCassandra.md)
  - [GatewayUpdateProducerCassandraOutput](docs/GatewayUpdateProducerCassandraOutput.md)
- - [GatewayUpdateProducerCertificateAutomation](docs/GatewayUpdateProducerCertificateAutomation.md)
- - [GatewayUpdateProducerCertificateAutomationOutput](docs/GatewayUpdateProducerCertificateAutomationOutput.md)
  - [GatewayUpdateProducerChef](docs/GatewayUpdateProducerChef.md)
  - [GatewayUpdateProducerChefOutput](docs/GatewayUpdateProducerChefOutput.md)
  - [GatewayUpdateProducerCustom](docs/GatewayUpdateProducerCustom.md)
@@ -818,6 +995,8 @@ Class | Method | HTTP request | Description
  - [GatewayUpdateProducerRedshiftOutput](docs/GatewayUpdateProducerRedshiftOutput.md)
  - [GatewayUpdateProducerSnowflake](docs/GatewayUpdateProducerSnowflake.md)
  - [GatewayUpdateProducerSnowflakeOutput](docs/GatewayUpdateProducerSnowflakeOutput.md)
+ - [GatewayUpdateProducerVenafi](docs/GatewayUpdateProducerVenafi.md)
+ - [GatewayUpdateProducerVenafiOutput](docs/GatewayUpdateProducerVenafiOutput.md)
  - [GatewayUpdateTlsCert](docs/GatewayUpdateTlsCert.md)
  - [GatewayUpdateTlsCertOutput](docs/GatewayUpdateTlsCertOutput.md)
  - [GatewayUpdateTmpUsers](docs/GatewayUpdateTmpUsers.md)
@@ -858,6 +1037,7 @@ Class | Method | HTTP request | Description
  - [GithubTargetDetails](docs/GithubTargetDetails.md)
  - [GlobalSignAtlasTargetDetails](docs/GlobalSignAtlasTargetDetails.md)
  - [GlobalSignGCCTargetDetails](docs/GlobalSignGCCTargetDetails.md)
+ - [GodaddyTargetDetails](docs/GodaddyTargetDetails.md)
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
  - [Group](docs/Group.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
@@ -985,8 +1165,49 @@ Class | Method | HTTP request | Description
  - [RotateOidcClientOutput](docs/RotateOidcClientOutput.md)
  - [RotateOidcClientSecret](docs/RotateOidcClientSecret.md)
  - [RotateSecret](docs/RotateSecret.md)
+ - [RotatedSecretCreateAws](docs/RotatedSecretCreateAws.md)
+ - [RotatedSecretCreateAzure](docs/RotatedSecretCreateAzure.md)
+ - [RotatedSecretCreateCassandra](docs/RotatedSecretCreateCassandra.md)
+ - [RotatedSecretCreateCustom](docs/RotatedSecretCreateCustom.md)
+ - [RotatedSecretCreateDockerhub](docs/RotatedSecretCreateDockerhub.md)
+ - [RotatedSecretCreateGcp](docs/RotatedSecretCreateGcp.md)
+ - [RotatedSecretCreateHanadb](docs/RotatedSecretCreateHanadb.md)
+ - [RotatedSecretCreateLdap](docs/RotatedSecretCreateLdap.md)
+ - [RotatedSecretCreateMongodb](docs/RotatedSecretCreateMongodb.md)
+ - [RotatedSecretCreateMssql](docs/RotatedSecretCreateMssql.md)
+ - [RotatedSecretCreateMysql](docs/RotatedSecretCreateMysql.md)
+ - [RotatedSecretCreateOracledb](docs/RotatedSecretCreateOracledb.md)
+ - [RotatedSecretCreateOutput](docs/RotatedSecretCreateOutput.md)
+ - [RotatedSecretCreatePostgresql](docs/RotatedSecretCreatePostgresql.md)
+ - [RotatedSecretCreateRedis](docs/RotatedSecretCreateRedis.md)
+ - [RotatedSecretCreateRedshift](docs/RotatedSecretCreateRedshift.md)
+ - [RotatedSecretCreateSnowflake](docs/RotatedSecretCreateSnowflake.md)
+ - [RotatedSecretCreateSsh](docs/RotatedSecretCreateSsh.md)
+ - [RotatedSecretCreateWindows](docs/RotatedSecretCreateWindows.md)
  - [RotatedSecretDetailsInfo](docs/RotatedSecretDetailsInfo.md)
+ - [RotatedSecretGetValue](docs/RotatedSecretGetValue.md)
+ - [RotatedSecretList](docs/RotatedSecretList.md)
  - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
+ - [RotatedSecretUpdateAws](docs/RotatedSecretUpdateAws.md)
+ - [RotatedSecretUpdateAzure](docs/RotatedSecretUpdateAzure.md)
+ - [RotatedSecretUpdateCassandra](docs/RotatedSecretUpdateCassandra.md)
+ - [RotatedSecretUpdateCustom](docs/RotatedSecretUpdateCustom.md)
+ - [RotatedSecretUpdateDockerhub](docs/RotatedSecretUpdateDockerhub.md)
+ - [RotatedSecretUpdateGcp](docs/RotatedSecretUpdateGcp.md)
+ - [RotatedSecretUpdateHanadb](docs/RotatedSecretUpdateHanadb.md)
+ - [RotatedSecretUpdateLdap](docs/RotatedSecretUpdateLdap.md)
+ - [RotatedSecretUpdateMongodb](docs/RotatedSecretUpdateMongodb.md)
+ - [RotatedSecretUpdateMssql](docs/RotatedSecretUpdateMssql.md)
+ - [RotatedSecretUpdateMysql](docs/RotatedSecretUpdateMysql.md)
+ - [RotatedSecretUpdateOracledb](docs/RotatedSecretUpdateOracledb.md)
+ - [RotatedSecretUpdateOutput](docs/RotatedSecretUpdateOutput.md)
+ - [RotatedSecretUpdatePostgresql](docs/RotatedSecretUpdatePostgresql.md)
+ - [RotatedSecretUpdateRedis](docs/RotatedSecretUpdateRedis.md)
+ - [RotatedSecretUpdateRedshift](docs/RotatedSecretUpdateRedshift.md)
+ - [RotatedSecretUpdateSnowflake](docs/RotatedSecretUpdateSnowflake.md)
+ - [RotatedSecretUpdateSsh](docs/RotatedSecretUpdateSsh.md)
+ - [RotatedSecretUpdateWindows](docs/RotatedSecretUpdateWindows.md)
+ - [RotationSecretMaxInterval](docs/RotationSecretMaxInterval.md)
  - [Rotator](docs/Rotator.md)
  - [RotatorsConfigPart](docs/RotatorsConfigPart.md)
  - [RuleAssigner](docs/RuleAssigner.md)
@@ -1097,6 +1318,8 @@ Class | Method | HTTP request | Description
  - [UpdateGlobalSignAtlasTargetOutput](docs/UpdateGlobalSignAtlasTargetOutput.md)
  - [UpdateGlobalSignTarget](docs/UpdateGlobalSignTarget.md)
  - [UpdateGlobalSignTargetOutput](docs/UpdateGlobalSignTargetOutput.md)
+ - [UpdateGodaddyTarget](docs/UpdateGodaddyTarget.md)
+ - [UpdateGodaddyTargetOutput](docs/UpdateGodaddyTargetOutput.md)
  - [UpdateGroup](docs/UpdateGroup.md)
  - [UpdateGroupOutput](docs/UpdateGroupOutput.md)
  - [UpdateItem](docs/UpdateItem.md)
@@ -1166,6 +1389,7 @@ Class | Method | HTTP request | Description
  - [VerifyPKICertOutput](docs/VerifyPKICertOutput.md)
  - [VerifyPKICertWithClassicKey](docs/VerifyPKICertWithClassicKey.md)
  - [VerifyRsaSsaPss](docs/VerifyRsaSsaPss.md)
+ - [WebHookNotiForwarderPublicDetails](docs/WebHookNotiForwarderPublicDetails.md)
  - [WebTargetDetails](docs/WebTargetDetails.md)
  - [WindowsService](docs/WindowsService.md)
  - [WindowsServiceAttributes](docs/WindowsServiceAttributes.md)

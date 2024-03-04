@@ -55,6 +55,10 @@ public class RequestAccess {
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
@@ -166,11 +170,11 @@ public class RequestAccess {
   }
 
    /**
-   * Item type
+   * Item name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Item type")
+  @ApiModelProperty(required = true, value = "Item name")
 
   public String getName() {
     return name;
@@ -202,6 +206,29 @@ public class RequestAccess {
 
   public void setToken(String token) {
     this.token = token;
+  }
+
+
+  public RequestAccess type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Item type
+   * @return type
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Item type")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -243,12 +270,13 @@ public class RequestAccess {
         Objects.equals(this.json, requestAccess.json) &&
         Objects.equals(this.name, requestAccess.name) &&
         Objects.equals(this.token, requestAccess.token) &&
+        Objects.equals(this.type, requestAccess.type) &&
         Objects.equals(this.uidToken, requestAccess.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, comment, description, json, name, token, uidToken);
+    return Objects.hash(capability, comment, description, json, name, token, type, uidToken);
   }
 
   @Override
@@ -261,6 +289,7 @@ public class RequestAccess {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();

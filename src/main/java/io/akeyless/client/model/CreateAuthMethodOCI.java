@@ -68,6 +68,10 @@ public class CreateAuthMethodOCI {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_TENANT_OCID = "tenant-ocid";
   @SerializedName(SERIALIZED_NAME_TENANT_OCID)
   private String tenantOcid;
@@ -311,6 +315,37 @@ public class CreateAuthMethodOCI {
   }
 
 
+  public CreateAuthMethodOCI productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodOCI addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodOCI tenantOcid(String tenantOcid) {
     
     this.tenantOcid = tenantOcid;
@@ -398,6 +433,7 @@ public class CreateAuthMethodOCI {
         Objects.equals(this.json, createAuthMethodOCI.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodOCI.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodOCI.name) &&
+        Objects.equals(this.productType, createAuthMethodOCI.productType) &&
         Objects.equals(this.tenantOcid, createAuthMethodOCI.tenantOcid) &&
         Objects.equals(this.token, createAuthMethodOCI.token) &&
         Objects.equals(this.uidToken, createAuthMethodOCI.uidToken);
@@ -405,7 +441,7 @@ public class CreateAuthMethodOCI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, tenantOcid, token, uidToken);
+    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, productType, tenantOcid, token, uidToken);
   }
 
   @Override
@@ -421,6 +457,7 @@ public class CreateAuthMethodOCI {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    tenantOcid: ").append(toIndentedString(tenantOcid)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

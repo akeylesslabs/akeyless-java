@@ -92,6 +92,10 @@ public class UpdateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA = "service-account-creds-data";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_CREDS_DATA)
   private String serviceAccountCredsData;
@@ -512,6 +516,37 @@ public class UpdateAuthMethodGCP {
   }
 
 
+  public UpdateAuthMethodGCP productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public UpdateAuthMethodGCP addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public UpdateAuthMethodGCP serviceAccountCredsData(String serviceAccountCredsData) {
     
     this.serviceAccountCredsData = serviceAccountCredsData;
@@ -628,6 +663,7 @@ public class UpdateAuthMethodGCP {
         Objects.equals(this.jwtTtl, updateAuthMethodGCP.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodGCP.name) &&
         Objects.equals(this.newName, updateAuthMethodGCP.newName) &&
+        Objects.equals(this.productType, updateAuthMethodGCP.productType) &&
         Objects.equals(this.serviceAccountCredsData, updateAuthMethodGCP.serviceAccountCredsData) &&
         Objects.equals(this.token, updateAuthMethodGCP.token) &&
         Objects.equals(this.type, updateAuthMethodGCP.type) &&
@@ -636,7 +672,7 @@ public class UpdateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, serviceAccountCredsData, token, type, uidToken);
   }
 
   @Override
@@ -658,6 +694,7 @@ public class UpdateAuthMethodGCP {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    serviceAccountCredsData: ").append(toIndentedString(serviceAccountCredsData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

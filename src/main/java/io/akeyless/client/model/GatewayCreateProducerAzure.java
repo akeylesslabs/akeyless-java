@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerAzure is a command that creates azure producer
+ * gatewayCreateProducerAzure is a command that creates azure producer [Deprecated: Use dynamic-secret-create-azure command]
  */
-@ApiModel(description = "gatewayCreateProducerAzure is a command that creates azure producer")
+@ApiModel(description = "gatewayCreateProducerAzure is a command that creates azure producer [Deprecated: Use dynamic-secret-create-azure command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerAzure {
   public static final String SERIALIZED_NAME_APP_OBJ_ID = "app-obj-id";
@@ -67,6 +67,10 @@ public class GatewayCreateProducerAzure {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -322,11 +326,11 @@ public class GatewayCreateProducerAzure {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -335,6 +339,29 @@ public class GatewayCreateProducerAzure {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerAzure passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -709,6 +736,7 @@ public class GatewayCreateProducerAzure {
         Objects.equals(this.fixedUserOnly, gatewayCreateProducerAzure.fixedUserOnly) &&
         Objects.equals(this.json, gatewayCreateProducerAzure.json) &&
         Objects.equals(this.name, gatewayCreateProducerAzure.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerAzure.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerAzure.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayCreateProducerAzure.secureAccessWeb) &&
@@ -728,7 +756,7 @@ public class GatewayCreateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -744,6 +772,7 @@ public class GatewayCreateProducerAzure {
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");

@@ -112,6 +112,10 @@ public class CreateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -663,6 +667,37 @@ public class CreateAuthMethodAzureAD {
   }
 
 
+  public CreateAuthMethodAzureAD productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodAzureAD addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodAzureAD token(String token) {
     
     this.token = token;
@@ -738,13 +773,14 @@ public class CreateAuthMethodAzureAD {
         Objects.equals(this.jwksUri, createAuthMethodAzureAD.jwksUri) &&
         Objects.equals(this.jwtTtl, createAuthMethodAzureAD.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodAzureAD.name) &&
+        Objects.equals(this.productType, createAuthMethodAzureAD.productType) &&
         Objects.equals(this.token, createAuthMethodAzureAD.token) &&
         Objects.equals(this.uidToken, createAuthMethodAzureAD.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -771,6 +807,7 @@ public class CreateAuthMethodAzureAD {
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

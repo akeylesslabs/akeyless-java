@@ -96,6 +96,10 @@ public class UpdateAuthMethodAWSIAM {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_STS_URL = "sts-url";
   @SerializedName(SERIALIZED_NAME_STS_URL)
   private String stsUrl = "https://sts.amazonaws.com";
@@ -548,6 +552,37 @@ public class UpdateAuthMethodAWSIAM {
   }
 
 
+  public UpdateAuthMethodAWSIAM productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public UpdateAuthMethodAWSIAM addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public UpdateAuthMethodAWSIAM stsUrl(String stsUrl) {
     
     this.stsUrl = stsUrl;
@@ -642,6 +677,7 @@ public class UpdateAuthMethodAWSIAM {
         Objects.equals(this.jwtTtl, updateAuthMethodAWSIAM.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodAWSIAM.name) &&
         Objects.equals(this.newName, updateAuthMethodAWSIAM.newName) &&
+        Objects.equals(this.productType, updateAuthMethodAWSIAM.productType) &&
         Objects.equals(this.stsUrl, updateAuthMethodAWSIAM.stsUrl) &&
         Objects.equals(this.token, updateAuthMethodAWSIAM.token) &&
         Objects.equals(this.uidToken, updateAuthMethodAWSIAM.uidToken);
@@ -649,7 +685,7 @@ public class UpdateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken);
   }
 
   @Override
@@ -672,6 +708,7 @@ public class UpdateAuthMethodAWSIAM {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    stsUrl: ").append(toIndentedString(stsUrl)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

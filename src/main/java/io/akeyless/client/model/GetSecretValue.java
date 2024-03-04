@@ -239,11 +239,11 @@ public class GetSecretValue {
   }
 
    /**
-   * Secret version
+   * Secret version, if negative value N is provided the last N versions will return (maximum 20)
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secret version")
+  @ApiModelProperty(value = "Secret version, if negative value N is provided the last N versions will return (maximum 20)")
 
   public Integer getVersion() {
     return version;

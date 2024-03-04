@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **oauth2AccessRules** | [**OAuth2AccessRules**](OAuth2AccessRules.md) |  |  [optional]
 **ociAccessRules** | [**OCIAccessRules**](OCIAccessRules.md) |  |  [optional]
 **oidcAccessRules** | [**OIDCAccessRules**](OIDCAccessRules.md) |  |  [optional]
+**productTypes** | **List&lt;String&gt;** | List of product types this auth method will be in use of |  [optional]
 **rulesType** | **String** |  |  [optional]
 **samlAccessRules** | [**SAMLAccessRules**](SAMLAccessRules.md) |  |  [optional]
 **subClaimsDelimiters** | **List&lt;String&gt;** |  |  [optional]

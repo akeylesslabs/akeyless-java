@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerArtifactory
 
-gatewayCreateProducerArtifactory is a command that creates artifactory producer
+gatewayCreateProducerArtifactory is a command that creates artifactory producer [Deprecated: Use dynamic-secret-create-artifactory command]
 
 ## Properties
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **baseUrl** | **String** | Base URL |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]

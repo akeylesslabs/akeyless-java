@@ -80,6 +80,10 @@ public class UpdateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_SUBCLAIMS_DELIMITERS = "subclaims-delimiters";
   @SerializedName(SERIALIZED_NAME_SUBCLAIMS_DELIMITERS)
   private List<String> subclaimsDelimiters = null;
@@ -399,6 +403,37 @@ public class UpdateAuthMethodSAML {
   }
 
 
+  public UpdateAuthMethodSAML productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public UpdateAuthMethodSAML addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public UpdateAuthMethodSAML subclaimsDelimiters(List<String> subclaimsDelimiters) {
     
     this.subclaimsDelimiters = subclaimsDelimiters;
@@ -520,6 +555,7 @@ public class UpdateAuthMethodSAML {
         Objects.equals(this.jwtTtl, updateAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodSAML.name) &&
         Objects.equals(this.newName, updateAuthMethodSAML.newName) &&
+        Objects.equals(this.productType, updateAuthMethodSAML.productType) &&
         Objects.equals(this.subclaimsDelimiters, updateAuthMethodSAML.subclaimsDelimiters) &&
         Objects.equals(this.token, updateAuthMethodSAML.token) &&
         Objects.equals(this.uidToken, updateAuthMethodSAML.uidToken) &&
@@ -528,7 +564,7 @@ public class UpdateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -547,6 +583,7 @@ public class UpdateAuthMethodSAML {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

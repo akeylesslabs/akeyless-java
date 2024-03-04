@@ -25,11 +25,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayUpdateTmpUsers is a command that returns gateway configuration
+ * gatewayUpdateTmpUsers is a command that returns gateway configuration [Deprecated: Use dynamic-secret-tmp-creds-update command]
  */
-@ApiModel(description = "gatewayUpdateTmpUsers is a command that returns gateway configuration")
+@ApiModel(description = "gatewayUpdateTmpUsers is a command that returns gateway configuration [Deprecated: Use dynamic-secret-tmp-creds-update command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateTmpUsers {
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
+  private String host;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -56,6 +60,29 @@ public class GatewayUpdateTmpUsers {
 
   public GatewayUpdateTmpUsers() { 
   }
+
+  public GatewayUpdateTmpUsers host(String host) {
+    
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Host
+   * @return host
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Host")
+
+  public String getHost() {
+    return host;
+  }
+
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
 
   public GatewayUpdateTmpUsers json(Boolean json) {
     
@@ -87,11 +114,11 @@ public class GatewayUpdateTmpUsers {
   }
 
    /**
-   * Producer Name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer Name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -204,7 +231,8 @@ public class GatewayUpdateTmpUsers {
       return false;
     }
     GatewayUpdateTmpUsers gatewayUpdateTmpUsers = (GatewayUpdateTmpUsers) o;
-    return Objects.equals(this.json, gatewayUpdateTmpUsers.json) &&
+    return Objects.equals(this.host, gatewayUpdateTmpUsers.host) &&
+        Objects.equals(this.json, gatewayUpdateTmpUsers.json) &&
         Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
         Objects.equals(this.newTtlMin, gatewayUpdateTmpUsers.newTtlMin) &&
         Objects.equals(this.tmpCredsId, gatewayUpdateTmpUsers.tmpCredsId) &&
@@ -214,13 +242,14 @@ public class GatewayUpdateTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, newTtlMin, tmpCredsId, token, uidToken);
+    return Objects.hash(host, json, name, newTtlMin, tmpCredsId, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateTmpUsers {\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newTtlMin: ").append(toIndentedString(newTtlMin)).append("\n");

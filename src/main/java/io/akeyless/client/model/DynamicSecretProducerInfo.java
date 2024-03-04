@@ -62,6 +62,10 @@ public class DynamicSecretProducerInfo {
   @SerializedName(SERIALIZED_NAME_PRODUCER_TYPE)
   private String producerType;
 
+  public static final String SERIALIZED_NAME_USER_TTL = "user_ttl";
+  @SerializedName(SERIALIZED_NAME_USER_TTL)
+  private String userTtl;
+
   public DynamicSecretProducerInfo() { 
   }
 
@@ -249,6 +253,29 @@ public class DynamicSecretProducerInfo {
   }
 
 
+  public DynamicSecretProducerInfo userTtl(String userTtl) {
+    
+    this.userTtl = userTtl;
+    return this;
+  }
+
+   /**
+   * Get userTtl
+   * @return userTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUserTtl() {
+    return userTtl;
+  }
+
+
+  public void setUserTtl(String userTtl) {
+    this.userTtl = userTtl;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -265,12 +292,13 @@ public class DynamicSecretProducerInfo {
         Objects.equals(this.producerLastKeepAlive, dynamicSecretProducerInfo.producerLastKeepAlive) &&
         Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
         Objects.equals(this.producerStatus, dynamicSecretProducerInfo.producerStatus) &&
-        Objects.equals(this.producerType, dynamicSecretProducerInfo.producerType);
+        Objects.equals(this.producerType, dynamicSecretProducerInfo.producerType) &&
+        Objects.equals(this.userTtl, dynamicSecretProducerInfo.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failureMessage, gwClusterId, k8sAllowedNamespaces, k8sDynamicMode, producerLastKeepAlive, producerMetadata, producerStatus, producerType);
+    return Objects.hash(failureMessage, gwClusterId, k8sAllowedNamespaces, k8sDynamicMode, producerLastKeepAlive, producerMetadata, producerStatus, producerType, userTtl);
   }
 
   @Override
@@ -285,6 +313,7 @@ public class DynamicSecretProducerInfo {
     sb.append("    producerMetadata: ").append(toIndentedString(producerMetadata)).append("\n");
     sb.append("    producerStatus: ").append(toIndentedString(producerStatus)).append("\n");
     sb.append("    producerType: ").append(toIndentedString(producerType)).append("\n");
+    sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

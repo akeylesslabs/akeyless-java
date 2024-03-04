@@ -31,6 +31,10 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StaticSecretDetailsInfo {
+  public static final String SERIALIZED_NAME_FORMAT = "format";
+  @SerializedName(SERIALIZED_NAME_FORMAT)
+  private String format;
+
   public static final String SERIALIZED_NAME_NOTIFY_ON_CHANGE_EVENT = "notify_on_change_event";
   @SerializedName(SERIALIZED_NAME_NOTIFY_ON_CHANGE_EVENT)
   private Boolean notifyOnChangeEvent;
@@ -49,6 +53,29 @@ public class StaticSecretDetailsInfo {
 
   public StaticSecretDetailsInfo() { 
   }
+
+  public StaticSecretDetailsInfo format(String format) {
+    
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * StaticSecretFormat defines the format of static secret (e.g. Text)
+   * @return format
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "StaticSecretFormat defines the format of static secret (e.g. Text)")
+
+  public String getFormat() {
+    return format;
+  }
+
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
 
   public StaticSecretDetailsInfo notifyOnChangeEvent(Boolean notifyOnChangeEvent) {
     
@@ -159,7 +186,8 @@ public class StaticSecretDetailsInfo {
       return false;
     }
     StaticSecretDetailsInfo staticSecretDetailsInfo = (StaticSecretDetailsInfo) o;
-    return Objects.equals(this.notifyOnChangeEvent, staticSecretDetailsInfo.notifyOnChangeEvent) &&
+    return Objects.equals(this.format, staticSecretDetailsInfo.format) &&
+        Objects.equals(this.notifyOnChangeEvent, staticSecretDetailsInfo.notifyOnChangeEvent) &&
         Objects.equals(this.username, staticSecretDetailsInfo.username) &&
         Objects.equals(this.website, staticSecretDetailsInfo.website) &&
         Objects.equals(this.websites, staticSecretDetailsInfo.websites);
@@ -167,13 +195,14 @@ public class StaticSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(notifyOnChangeEvent, username, website, websites);
+    return Objects.hash(format, notifyOnChangeEvent, username, website, websites);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretDetailsInfo {\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    notifyOnChangeEvent: ").append(toIndentedString(notifyOnChangeEvent)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");

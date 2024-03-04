@@ -21,7 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.DataProtectionSection;
+import io.akeyless.client.model.DynamicSecretMaxTtl;
 import io.akeyless.client.model.PasswordPolicyInfo;
+import io.akeyless.client.model.RotationSecretMaxInterval;
 import io.akeyless.client.model.SharingPolicyInfo;
 import io.akeyless.client.model.UsageEventSetting;
 import io.swagger.annotations.ApiModel;
@@ -50,6 +52,10 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
   private DataProtectionSection dataProtectionSection;
 
+  public static final String SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL = "dynamic_secret_max_ttl";
+  @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL)
+  private DynamicSecretMaxTtl dynamicSecretMaxTtl;
+
   public static final String SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS = "enable_request_for_access";
   @SerializedName(SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS)
   private Boolean enableRequestForAccess;
@@ -73,6 +79,10 @@ public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_PROTECT_ITEMS_BY_DEFAULT = "protect_items_by_default";
   @SerializedName(SERIALIZED_NAME_PROTECT_ITEMS_BY_DEFAULT)
   private Boolean protectItemsByDefault;
+
+  public static final String SERIALIZED_NAME_ROTATION_SECRET_MAX_INTERVAL = "rotation_secret_max_interval";
+  @SerializedName(SERIALIZED_NAME_ROTATION_SECRET_MAX_INTERVAL)
+  private RotationSecretMaxInterval rotationSecretMaxInterval;
 
   public static final String SERIALIZED_NAME_SHARING_POLICY = "sharing_policy";
   @SerializedName(SERIALIZED_NAME_SHARING_POLICY)
@@ -170,6 +180,29 @@ public class AccountGeneralSettings {
 
   public void setDataProtectionSection(DataProtectionSection dataProtectionSection) {
     this.dataProtectionSection = dataProtectionSection;
+  }
+
+
+  public AccountGeneralSettings dynamicSecretMaxTtl(DynamicSecretMaxTtl dynamicSecretMaxTtl) {
+    
+    this.dynamicSecretMaxTtl = dynamicSecretMaxTtl;
+    return this;
+  }
+
+   /**
+   * Get dynamicSecretMaxTtl
+   * @return dynamicSecretMaxTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public DynamicSecretMaxTtl getDynamicSecretMaxTtl() {
+    return dynamicSecretMaxTtl;
+  }
+
+
+  public void setDynamicSecretMaxTtl(DynamicSecretMaxTtl dynamicSecretMaxTtl) {
+    this.dynamicSecretMaxTtl = dynamicSecretMaxTtl;
   }
 
 
@@ -311,6 +344,29 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings rotationSecretMaxInterval(RotationSecretMaxInterval rotationSecretMaxInterval) {
+    
+    this.rotationSecretMaxInterval = rotationSecretMaxInterval;
+    return this;
+  }
+
+   /**
+   * Get rotationSecretMaxInterval
+   * @return rotationSecretMaxInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public RotationSecretMaxInterval getRotationSecretMaxInterval() {
+    return rotationSecretMaxInterval;
+  }
+
+
+  public void setRotationSecretMaxInterval(RotationSecretMaxInterval rotationSecretMaxInterval) {
+    this.rotationSecretMaxInterval = rotationSecretMaxInterval;
+  }
+
+
   public AccountGeneralSettings sharingPolicy(SharingPolicyInfo sharingPolicy) {
     
     this.sharingPolicy = sharingPolicy;
@@ -347,18 +403,20 @@ public class AccountGeneralSettings {
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
         Objects.equals(this.authUsageEvent, accountGeneralSettings.authUsageEvent) &&
         Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
+        Objects.equals(this.dynamicSecretMaxTtl, accountGeneralSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.invalidCharacters, accountGeneralSettings.invalidCharacters) &&
         Objects.equals(this.itemUsageEvent, accountGeneralSettings.itemUsageEvent) &&
         Objects.equals(this.lockDefaultKey, accountGeneralSettings.lockDefaultKey) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
+        Objects.equals(this.rotationSecretMaxInterval, accountGeneralSettings.rotationSecretMaxInterval) &&
         Objects.equals(this.sharingPolicy, accountGeneralSettings.sharingPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, authUsageEvent, dataProtectionSection, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordPolicy, protectItemsByDefault, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, authUsageEvent, dataProtectionSection, dynamicSecretMaxTtl, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordPolicy, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -369,12 +427,14 @@ public class AccountGeneralSettings {
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
     sb.append("    authUsageEvent: ").append(toIndentedString(authUsageEvent)).append("\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
+    sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemUsageEvent: ").append(toIndentedString(itemUsageEvent)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
+    sb.append("    rotationSecretMaxInterval: ").append(toIndentedString(rotationSecretMaxInterval)).append("\n");
     sb.append("    sharingPolicy: ").append(toIndentedString(sharingPolicy)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -61,6 +61,14 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_DP_ENABLE_CLASSIC_KEY_PROTECTION)
   private String dpEnableClassicKeyProtection;
 
+  public static final String SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL = "dynamic-secret-max-ttl";
+  @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL)
+  private Long dynamicSecretMaxTtl;
+
+  public static final String SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL_ENABLE = "dynamic-secret-max-ttl-enable";
+  @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL_ENABLE)
+  private String dynamicSecretMaxTtlEnable;
+
   public static final String SERIALIZED_NAME_INVALID_CHARACTERS = "invalid-characters";
   @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
   private String invalidCharacters = "notReceivedInvalidCharacter";
@@ -92,6 +100,14 @@ public class UpdateAccountSettings {
   public static final String SERIALIZED_NAME_LOCK_DEFAULT_KEY = "lock-default-key";
   @SerializedName(SERIALIZED_NAME_LOCK_DEFAULT_KEY)
   private String lockDefaultKey;
+
+  public static final String SERIALIZED_NAME_MAX_ROTATION_INTERVAL = "max-rotation-interval";
+  @SerializedName(SERIALIZED_NAME_MAX_ROTATION_INTERVAL)
+  private Integer maxRotationInterval;
+
+  public static final String SERIALIZED_NAME_MAX_ROTATION_INTERVAL_ENABLE = "max-rotation-interval-enable";
+  @SerializedName(SERIALIZED_NAME_MAX_ROTATION_INTERVAL_ENABLE)
+  private String maxRotationIntervalEnable;
 
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
@@ -332,6 +348,52 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings dynamicSecretMaxTtl(Long dynamicSecretMaxTtl) {
+    
+    this.dynamicSecretMaxTtl = dynamicSecretMaxTtl;
+    return this;
+  }
+
+   /**
+   * Set the maximum ttl for dynamic secrets
+   * @return dynamicSecretMaxTtl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum ttl for dynamic secrets")
+
+  public Long getDynamicSecretMaxTtl() {
+    return dynamicSecretMaxTtl;
+  }
+
+
+  public void setDynamicSecretMaxTtl(Long dynamicSecretMaxTtl) {
+    this.dynamicSecretMaxTtl = dynamicSecretMaxTtl;
+  }
+
+
+  public UpdateAccountSettings dynamicSecretMaxTtlEnable(String dynamicSecretMaxTtlEnable) {
+    
+    this.dynamicSecretMaxTtlEnable = dynamicSecretMaxTtlEnable;
+    return this;
+  }
+
+   /**
+   * Set a maximum ttl for dynamic secrets [true/false]
+   * @return dynamicSecretMaxTtlEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set a maximum ttl for dynamic secrets [true/false]")
+
+  public String getDynamicSecretMaxTtlEnable() {
+    return dynamicSecretMaxTtlEnable;
+  }
+
+
+  public void setDynamicSecretMaxTtlEnable(String dynamicSecretMaxTtlEnable) {
+    this.dynamicSecretMaxTtlEnable = dynamicSecretMaxTtlEnable;
+  }
+
+
   public UpdateAccountSettings invalidCharacters(String invalidCharacters) {
     
     this.invalidCharacters = invalidCharacters;
@@ -513,6 +575,52 @@ public class UpdateAccountSettings {
 
   public void setLockDefaultKey(String lockDefaultKey) {
     this.lockDefaultKey = lockDefaultKey;
+  }
+
+
+  public UpdateAccountSettings maxRotationInterval(Integer maxRotationInterval) {
+    
+    this.maxRotationInterval = maxRotationInterval;
+    return this;
+  }
+
+   /**
+   * Set the maximum rotation interval for rotated secrets auto rotation settings
+   * @return maxRotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum rotation interval for rotated secrets auto rotation settings")
+
+  public Integer getMaxRotationInterval() {
+    return maxRotationInterval;
+  }
+
+
+  public void setMaxRotationInterval(Integer maxRotationInterval) {
+    this.maxRotationInterval = maxRotationInterval;
+  }
+
+
+  public UpdateAccountSettings maxRotationIntervalEnable(String maxRotationIntervalEnable) {
+    
+    this.maxRotationIntervalEnable = maxRotationIntervalEnable;
+    return this;
+  }
+
+   /**
+   * Set a maximum rotation interval for rotated secrets auto rotation settings [true/false]
+   * @return maxRotationIntervalEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set a maximum rotation interval for rotated secrets auto rotation settings [true/false]")
+
+  public String getMaxRotationIntervalEnable() {
+    return maxRotationIntervalEnable;
+  }
+
+
+  public void setMaxRotationIntervalEnable(String maxRotationIntervalEnable) {
+    this.maxRotationIntervalEnable = maxRotationIntervalEnable;
   }
 
 
@@ -832,6 +940,8 @@ public class UpdateAccountSettings {
         Objects.equals(this.defaultShareLinkTtlMinutes, updateAccountSettings.defaultShareLinkTtlMinutes) &&
         Objects.equals(this.defaultVersioning, updateAccountSettings.defaultVersioning) &&
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
+        Objects.equals(this.dynamicSecretMaxTtl, updateAccountSettings.dynamicSecretMaxTtl) &&
+        Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
         Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.itemsDeletionProtection, updateAccountSettings.itemsDeletionProtection) &&
@@ -840,6 +950,8 @@ public class UpdateAccountSettings {
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
         Objects.equals(this.lockDefaultKey, updateAccountSettings.lockDefaultKey) &&
+        Objects.equals(this.maxRotationInterval, updateAccountSettings.maxRotationInterval) &&
+        Objects.equals(this.maxRotationIntervalEnable, updateAccountSettings.maxRotationIntervalEnable) &&
         Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
         Objects.equals(this.passwordLength, updateAccountSettings.passwordLength) &&
         Objects.equals(this.phone, updateAccountSettings.phone) &&
@@ -857,7 +969,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -872,6 +984,8 @@ public class UpdateAccountSettings {
     sb.append("    defaultShareLinkTtlMinutes: ").append(toIndentedString(defaultShareLinkTtlMinutes)).append("\n");
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
+    sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
+    sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemsDeletionProtection: ").append(toIndentedString(itemsDeletionProtection)).append("\n");
@@ -880,6 +994,8 @@ public class UpdateAccountSettings {
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
+    sb.append("    maxRotationInterval: ").append(toIndentedString(maxRotationInterval)).append("\n");
+    sb.append("    maxRotationIntervalEnable: ").append(toIndentedString(maxRotationIntervalEnable)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerMySQL is a command that creates mysql producer
+ * gatewayCreateProducerMySQL is a command that creates mysql producer [Deprecated: Use dynamic-secret-create-mysql command]
  */
-@ApiModel(description = "gatewayCreateProducerMySQL is a command that creates mysql producer")
+@ApiModel(description = "gatewayCreateProducerMySQL is a command that creates mysql producer [Deprecated: Use dynamic-secret-create-mysql command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerMySQL {
   public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
@@ -79,6 +79,10 @@ public class GatewayCreateProducerMySQL {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -391,11 +395,11 @@ public class GatewayCreateProducerMySQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -404,6 +408,29 @@ public class GatewayCreateProducerMySQL {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerMySQL passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -720,6 +747,7 @@ public class GatewayCreateProducerMySQL {
         Objects.equals(this.mysqlScreationStatements, gatewayCreateProducerMySQL.mysqlScreationStatements) &&
         Objects.equals(this.mysqlUsername, gatewayCreateProducerMySQL.mysqlUsername) &&
         Objects.equals(this.name, gatewayCreateProducerMySQL.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerMySQL.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMySQL.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMySQL.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMySQL.secureAccessEnable) &&
@@ -736,7 +764,7 @@ public class GatewayCreateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -755,6 +783,7 @@ public class GatewayCreateProducerMySQL {
     sb.append("    mysqlScreationStatements: ").append(toIndentedString(mysqlScreationStatements)).append("\n");
     sb.append("    mysqlUsername: ").append(toIndentedString(mysqlUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");

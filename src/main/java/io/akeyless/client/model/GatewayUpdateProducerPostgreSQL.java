@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer
+ * gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer [Deprecated: Use dynamic-secret-update-postgresql command]
  */
-@ApiModel(description = "gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer")
+@ApiModel(description = "gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer [Deprecated: Use dynamic-secret-update-postgresql command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
@@ -51,6 +51,10 @@ public class GatewayUpdateProducerPostgreSQL {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_POSTGRESQL_DB_NAME = "postgresql-db-name";
   @SerializedName(SERIALIZED_NAME_POSTGRESQL_DB_NAME)
@@ -203,11 +207,11 @@ public class GatewayUpdateProducerPostgreSQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -226,11 +230,11 @@ public class GatewayUpdateProducerPostgreSQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -239,6 +243,29 @@ public class GatewayUpdateProducerPostgreSQL {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerPostgreSQL passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -686,6 +713,7 @@ public class GatewayUpdateProducerPostgreSQL {
         Objects.equals(this.json, gatewayUpdateProducerPostgreSQL.json) &&
         Objects.equals(this.name, gatewayUpdateProducerPostgreSQL.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerPostgreSQL.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerPostgreSQL.passwordLength) &&
         Objects.equals(this.postgresqlDbName, gatewayUpdateProducerPostgreSQL.postgresqlDbName) &&
         Objects.equals(this.postgresqlHost, gatewayUpdateProducerPostgreSQL.postgresqlHost) &&
         Objects.equals(this.postgresqlPassword, gatewayUpdateProducerPostgreSQL.postgresqlPassword) &&
@@ -708,7 +736,7 @@ public class GatewayUpdateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, deleteProtection, json, name, newName, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, deleteProtection, json, name, newName, passwordLength, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -720,6 +748,7 @@ public class GatewayUpdateProducerPostgreSQL {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    postgresqlDbName: ").append(toIndentedString(postgresqlDbName)).append("\n");
     sb.append("    postgresqlHost: ").append(toIndentedString(postgresqlHost)).append("\n");
     sb.append("    postgresqlPassword: ").append(toIndentedString(postgresqlPassword)).append("\n");

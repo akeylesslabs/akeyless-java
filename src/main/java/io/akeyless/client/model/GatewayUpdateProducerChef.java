@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerChef is a command that updates chef producer
+ * gatewayUpdateProducerChef is a command that updates chef producer [Deprecated: Use dynamic-secret-update-chef command]
  */
-@ApiModel(description = "gatewayUpdateProducerChef is a command that updates chef producer")
+@ApiModel(description = "gatewayUpdateProducerChef is a command that updates chef producer [Deprecated: Use dynamic-secret-update-chef command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerChef {
   public static final String SERIALIZED_NAME_CHEF_ORGS = "chef-orgs";
@@ -63,6 +63,10 @@ public class GatewayUpdateProducerChef {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -240,11 +244,11 @@ public class GatewayUpdateProducerChef {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -263,11 +267,11 @@ public class GatewayUpdateProducerChef {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -276,6 +280,29 @@ public class GatewayUpdateProducerChef {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerChef passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -465,6 +492,7 @@ public class GatewayUpdateProducerChef {
         Objects.equals(this.json, gatewayUpdateProducerChef.json) &&
         Objects.equals(this.name, gatewayUpdateProducerChef.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerChef.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerChef.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerChef.producerEncryptionKeyName) &&
         Objects.equals(this.skipSsl, gatewayUpdateProducerChef.skipSsl) &&
         Objects.equals(this.tags, gatewayUpdateProducerChef.tags) &&
@@ -476,7 +504,7 @@ public class GatewayUpdateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, json, name, newName, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, deleteProtection, json, name, newName, passwordLength, producerEncryptionKeyName, skipSsl, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -491,6 +519,7 @@ public class GatewayUpdateProducerChef {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

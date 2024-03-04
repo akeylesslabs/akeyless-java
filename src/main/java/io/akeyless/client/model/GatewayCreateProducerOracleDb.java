@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerOracleDb is a command that creates oracle db producer
+ * gatewayCreateProducerOracleDb is a command that creates oracle db producer [Deprecated: Use dynamic-secret-create-oracledb command]
  */
-@ApiModel(description = "gatewayCreateProducerOracleDb is a command that creates oracle db producer")
+@ApiModel(description = "gatewayCreateProducerOracleDb is a command that creates oracle db producer [Deprecated: Use dynamic-secret-create-oracledb command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerOracleDb {
   public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db-server-certificates";
@@ -79,6 +79,10 @@ public class GatewayCreateProducerOracleDb {
   public static final String SERIALIZED_NAME_ORACLE_USERNAME = "oracle-username";
   @SerializedName(SERIALIZED_NAME_ORACLE_USERNAME)
   private String oracleUsername;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -222,11 +226,11 @@ public class GatewayCreateProducerOracleDb {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -396,6 +400,29 @@ public class GatewayCreateProducerOracleDb {
 
   public void setOracleUsername(String oracleUsername) {
     this.oracleUsername = oracleUsername;
+  }
+
+
+  public GatewayCreateProducerOracleDb passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -666,6 +693,7 @@ public class GatewayCreateProducerOracleDb {
         Objects.equals(this.oracleScreationStatements, gatewayCreateProducerOracleDb.oracleScreationStatements) &&
         Objects.equals(this.oracleServiceName, gatewayCreateProducerOracleDb.oracleServiceName) &&
         Objects.equals(this.oracleUsername, gatewayCreateProducerOracleDb.oracleUsername) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerOracleDb.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerOracleDb.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerOracleDb.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerOracleDb.secureAccessEnable) &&
@@ -680,7 +708,7 @@ public class GatewayCreateProducerOracleDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, name, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(dbServerCertificates, dbServerName, deleteProtection, json, name, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -699,6 +727,7 @@ public class GatewayCreateProducerOracleDb {
     sb.append("    oracleScreationStatements: ").append(toIndentedString(oracleScreationStatements)).append("\n");
     sb.append("    oracleServiceName: ").append(toIndentedString(oracleServiceName)).append("\n");
     sb.append("    oracleUsername: ").append(toIndentedString(oracleUsername)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");

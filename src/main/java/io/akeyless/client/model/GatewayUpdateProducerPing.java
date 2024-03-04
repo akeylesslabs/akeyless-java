@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerPing is a command that updates Ping producer
+ * gatewayUpdateProducerPing is a command that updates Ping producer [Deprecated: Use dynamic-secret-update-ping command]
  */
-@ApiModel(description = "gatewayUpdateProducerPing is a command that updates Ping producer")
+@ApiModel(description = "gatewayUpdateProducerPing is a command that updates Ping producer [Deprecated: Use dynamic-secret-update-ping command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerPing {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -192,11 +192,11 @@ public class GatewayUpdateProducerPing {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -215,11 +215,11 @@ public class GatewayUpdateProducerPing {
   }
 
    /**
-   * Producer New name
+   * Dynamic secret New name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer New name")
+  @ApiModelProperty(value = "Dynamic secret New name")
 
   public String getNewName() {
     return newName;

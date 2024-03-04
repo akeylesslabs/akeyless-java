@@ -2,20 +2,23 @@
 
 # UpdateRotatedSecret
 
-updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use gateway-update-item command]
+updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use rotated-secret update commands]
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**providerType** | **String** |  |  [optional]
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
 **apiId** | **String** | API ID to rotate |  [optional]
 **apiKey** | **String** | API key to rotate |  [optional]
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] |  [optional]
-**awsRegion** | **String** | Region (used in aws) |  [optional]
+**awsRegion** | **String** | Aws Region (relevant only for aws) |  [optional]
 **customPayload** | **String** | Secret payload to be sent with rotation request (relevant only for rotator-type&#x3D;custom) |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
+**graceRotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] |  [optional]
+**hostProvider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
@@ -42,6 +45,7 @@ Name | Type | Description | Notes
 **secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional]
 **secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) |  [optional]
 **secureAccessRdpUser** | **String** | Override the RDP Domain username (relevant only for rdp) |  [optional]
+**secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion (relevant only for aws or azure) |  [optional]
 **secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion (relevant only for aws or azure) |  [optional]
@@ -50,6 +54,8 @@ Name | Type | Description | Notes
 **storageAccountKeyName** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
+**userAttribute** | **String** | LDAP User Attribute, Default value \&quot;cn\&quot; |  [optional]
+**userDn** | **String** | LDAP User Base DN |  [optional]
 
 
 

@@ -37,6 +37,10 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS)
   private Integer deletePreviousVersionInDays;
 
+  public static final String SERIALIZED_NAME_GRACE_ROTATION = "grace_rotation";
+  @SerializedName(SERIALIZED_NAME_GRACE_ROTATION)
+  private Boolean graceRotation;
+
   public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   private Long gwClusterId;
@@ -104,6 +108,29 @@ public class RotatedSecretDetailsInfo {
 
   public void setDeletePreviousVersionInDays(Integer deletePreviousVersionInDays) {
     this.deletePreviousVersionInDays = deletePreviousVersionInDays;
+  }
+
+
+  public RotatedSecretDetailsInfo graceRotation(Boolean graceRotation) {
+    
+    this.graceRotation = graceRotation;
+    return this;
+  }
+
+   /**
+   * Get graceRotation
+   * @return graceRotation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getGraceRotation() {
+    return graceRotation;
+  }
+
+
+  public void setGraceRotation(Boolean graceRotation) {
+    this.graceRotation = graceRotation;
   }
 
 
@@ -378,6 +405,7 @@ public class RotatedSecretDetailsInfo {
     }
     RotatedSecretDetailsInfo rotatedSecretDetailsInfo = (RotatedSecretDetailsInfo) o;
     return Objects.equals(this.deletePreviousVersionInDays, rotatedSecretDetailsInfo.deletePreviousVersionInDays) &&
+        Objects.equals(this.graceRotation, rotatedSecretDetailsInfo.graceRotation) &&
         Objects.equals(this.gwClusterId, rotatedSecretDetailsInfo.gwClusterId) &&
         Objects.equals(this.lastRotationError, rotatedSecretDetailsInfo.lastRotationError) &&
         Objects.equals(this.numberOfVersionsToSave, rotatedSecretDetailsInfo.numberOfVersionsToSave) &&
@@ -393,7 +421,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails);
+    return Objects.hash(deletePreviousVersionInDays, graceRotation, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails);
   }
 
   @Override
@@ -401,6 +429,7 @@ public class RotatedSecretDetailsInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretDetailsInfo {\n");
     sb.append("    deletePreviousVersionInDays: ").append(toIndentedString(deletePreviousVersionInDays)).append("\n");
+    sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    lastRotationError: ").append(toIndentedString(lastRotationError)).append("\n");
     sb.append("    numberOfVersionsToSave: ").append(toIndentedString(numberOfVersionsToSave)).append("\n");

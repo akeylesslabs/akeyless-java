@@ -76,6 +76,10 @@ public class UpdateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -360,6 +364,37 @@ public class UpdateAuthMethodUniversalIdentity {
   }
 
 
+  public UpdateAuthMethodUniversalIdentity productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public UpdateAuthMethodUniversalIdentity addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public UpdateAuthMethodUniversalIdentity token(String token) {
     
     this.token = token;
@@ -449,6 +484,7 @@ public class UpdateAuthMethodUniversalIdentity {
         Objects.equals(this.jwtTtl, updateAuthMethodUniversalIdentity.jwtTtl) &&
         Objects.equals(this.name, updateAuthMethodUniversalIdentity.name) &&
         Objects.equals(this.newName, updateAuthMethodUniversalIdentity.newName) &&
+        Objects.equals(this.productType, updateAuthMethodUniversalIdentity.productType) &&
         Objects.equals(this.token, updateAuthMethodUniversalIdentity.token) &&
         Objects.equals(this.ttl, updateAuthMethodUniversalIdentity.ttl) &&
         Objects.equals(this.uidToken, updateAuthMethodUniversalIdentity.uidToken);
@@ -456,7 +492,7 @@ public class UpdateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, token, ttl, uidToken);
+    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
   }
 
   @Override
@@ -474,6 +510,7 @@ public class UpdateAuthMethodUniversalIdentity {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

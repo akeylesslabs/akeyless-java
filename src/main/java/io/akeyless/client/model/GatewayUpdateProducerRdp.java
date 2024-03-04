@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerRdp is a command that updates rdp producer
+ * gatewayUpdateProducerRdp is a command that updates rdp producer [Deprecated: Use dynamic-secret-update-rdp command]
  */
-@ApiModel(description = "gatewayUpdateProducerRdp is a command that updates rdp producer")
+@ApiModel(description = "gatewayUpdateProducerRdp is a command that updates rdp producer [Deprecated: Use dynamic-secret-update-rdp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerRdp {
   public static final String SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION = "allow-user-extend-session";
@@ -55,6 +55,10 @@ public class GatewayUpdateProducerRdp {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -230,11 +234,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -253,11 +257,11 @@ public class GatewayUpdateProducerRdp {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -266,6 +270,29 @@ public class GatewayUpdateProducerRdp {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerRdp passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -714,6 +741,7 @@ public class GatewayUpdateProducerRdp {
         Objects.equals(this.json, gatewayUpdateProducerRdp.json) &&
         Objects.equals(this.name, gatewayUpdateProducerRdp.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerRdp.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerRdp.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, gatewayUpdateProducerRdp.rdpAdminName) &&
         Objects.equals(this.rdpAdminPwd, gatewayUpdateProducerRdp.rdpAdminPwd) &&
@@ -736,7 +764,7 @@ public class GatewayUpdateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, newName, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -749,6 +777,7 @@ public class GatewayUpdateProducerRdp {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");
     sb.append("    rdpAdminPwd: ").append(toIndentedString(rdpAdminPwd)).append("\n");

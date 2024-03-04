@@ -92,6 +92,10 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -512,6 +516,37 @@ public class CreateAuthMethodHuawei {
   }
 
 
+  public CreateAuthMethodHuawei productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodHuawei addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodHuawei token(String token) {
     
     this.token = token;
@@ -582,13 +617,14 @@ public class CreateAuthMethodHuawei {
         Objects.equals(this.json, createAuthMethodHuawei.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodHuawei.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodHuawei.name) &&
+        Objects.equals(this.productType, createAuthMethodHuawei.productType) &&
         Objects.equals(this.token, createAuthMethodHuawei.token) &&
         Objects.equals(this.uidToken, createAuthMethodHuawei.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, token, uidToken);
+    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -610,6 +646,7 @@ public class CreateAuthMethodHuawei {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

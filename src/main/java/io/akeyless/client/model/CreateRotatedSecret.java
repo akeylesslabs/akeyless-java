@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CreateRotatedSecret
+ * createRotatedSecret is a command that creates a rotated secret [Deprecated: Use rotated-secret-create commands]
  */
+@ApiModel(description = "createRotatedSecret is a command that creates a rotated secret [Deprecated: Use rotated-secret-create commands]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
@@ -83,6 +84,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID)
   private String gcpServiceAccountKeyId;
 
+  public static final String SERIALIZED_NAME_GRACE_ROTATION = "grace-rotation";
+  @SerializedName(SERIALIZED_NAME_GRACE_ROTATION)
+  private String graceRotation;
+
   public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
   @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
   private String hostProvider = "explicit";
@@ -102,6 +107,10 @@ public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT = "rotate-after-disconnect";
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
@@ -179,6 +188,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_USER)
   private String secureAccessRdpUser;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb = false;
@@ -225,7 +238,7 @@ public class CreateRotatedSecret {
 
   public static final String SERIALIZED_NAME_USER_ATTRIBUTE = "user-attribute";
   @SerializedName(SERIALIZED_NAME_USER_ATTRIBUTE)
-  private String userAttribute;
+  private String userAttribute = "cn";
 
   public static final String SERIALIZED_NAME_USER_DN = "user-dn";
   @SerializedName(SERIALIZED_NAME_USER_DN)
@@ -379,11 +392,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Region (used in aws)
+   * Aws Region (relevant only for aws)
    * @return awsRegion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Region (used in aws)")
+  @ApiModelProperty(value = "Aws Region (relevant only for aws)")
 
   public String getAwsRegion() {
     return awsRegion;
@@ -533,6 +546,29 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret graceRotation(String graceRotation) {
+    
+    this.graceRotation = graceRotation;
+    return this;
+  }
+
+   /**
+   * Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false]
+   * @return graceRotation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false]")
+
+  public String getGraceRotation() {
+    return graceRotation;
+  }
+
+
+  public void setGraceRotation(String graceRotation) {
+    this.graceRotation = graceRotation;
+  }
+
+
   public CreateRotatedSecret hostProvider(String hostProvider) {
     
     this.hostProvider = hostProvider;
@@ -645,6 +681,29 @@ public class CreateRotatedSecret {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateRotatedSecret passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -1093,6 +1152,29 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Destination URL to inject secrets")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
   public CreateRotatedSecret secureAccessWeb(Boolean secureAccessWeb) {
     
     this.secureAccessWeb = secureAccessWeb;
@@ -1430,11 +1512,13 @@ public class CreateRotatedSecret {
         Objects.equals(this.gcpKey, createRotatedSecret.gcpKey) &&
         Objects.equals(this.gcpServiceAccountEmail, createRotatedSecret.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKeyId, createRotatedSecret.gcpServiceAccountKeyId) &&
+        Objects.equals(this.graceRotation, createRotatedSecret.graceRotation) &&
         Objects.equals(this.hostProvider, createRotatedSecret.hostProvider) &&
         Objects.equals(this.json, createRotatedSecret.json) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
+        Objects.equals(this.passwordLength, createRotatedSecret.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, createRotatedSecret.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, createRotatedSecret.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, createRotatedSecret.rotatedUsername) &&
@@ -1454,6 +1538,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.secureAccessHost, createRotatedSecret.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, createRotatedSecret.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, createRotatedSecret.secureAccessRdpUser) &&
+        Objects.equals(this.secureAccessUrl, createRotatedSecret.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, createRotatedSecret.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, createRotatedSecret.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, createRotatedSecret.secureAccessWebProxy) &&
@@ -1471,7 +1556,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, hostProvider, json, key, metadata, name, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1491,11 +1576,13 @@ public class CreateRotatedSecret {
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
+    sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
@@ -1515,6 +1602,7 @@ public class CreateRotatedSecret {
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");

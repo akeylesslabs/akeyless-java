@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerHanaDb is a command that creates hanadb producer
+ * gatewayCreateProducerHanaDb is a command that creates hanadb producer [Deprecated: Use dynamic-secret-create-hanadb command]
  */
-@ApiModel(description = "gatewayCreateProducerHanaDb is a command that creates hanadb producer")
+@ApiModel(description = "gatewayCreateProducerHanaDb is a command that creates hanadb producer [Deprecated: Use dynamic-secret-create-hanadb command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerHanaDb {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -71,6 +71,10 @@ public class GatewayCreateProducerHanaDb {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -333,11 +337,11 @@ public class GatewayCreateProducerHanaDb {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -346,6 +350,29 @@ public class GatewayCreateProducerHanaDb {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerHanaDb passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -637,6 +664,7 @@ public class GatewayCreateProducerHanaDb {
         Objects.equals(this.hanadbUsername, gatewayCreateProducerHanaDb.hanadbUsername) &&
         Objects.equals(this.json, gatewayCreateProducerHanaDb.json) &&
         Objects.equals(this.name, gatewayCreateProducerHanaDb.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerHanaDb.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerHanaDb.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerHanaDb.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessDbSchema, gatewayCreateProducerHanaDb.secureAccessDbSchema) &&
@@ -652,7 +680,7 @@ public class GatewayCreateProducerHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, json, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, json, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -669,6 +697,7 @@ public class GatewayCreateProducerHanaDb {
     sb.append("    hanadbUsername: ").append(toIndentedString(hanadbUsername)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");

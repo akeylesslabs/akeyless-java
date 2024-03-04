@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerRabbitMQ is a command that updates rabbitmq producer
+ * gatewayUpdateProducerRabbitMQ is a command that updates rabbitmq producer [Deprecated: Use dynamic-secret-update-rabbitmq command]
  */
-@ApiModel(description = "gatewayUpdateProducerRabbitMQ is a command that updates rabbitmq producer")
+@ApiModel(description = "gatewayUpdateProducerRabbitMQ is a command that updates rabbitmq producer [Deprecated: Use dynamic-secret-update-rabbitmq command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerRabbitMQ {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -47,6 +47,10 @@ public class GatewayUpdateProducerRabbitMQ {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -180,11 +184,11 @@ public class GatewayUpdateProducerRabbitMQ {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -203,11 +207,11 @@ public class GatewayUpdateProducerRabbitMQ {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -216,6 +220,29 @@ public class GatewayUpdateProducerRabbitMQ {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerRabbitMQ passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -677,6 +704,7 @@ public class GatewayUpdateProducerRabbitMQ {
         Objects.equals(this.json, gatewayUpdateProducerRabbitMQ.json) &&
         Objects.equals(this.name, gatewayUpdateProducerRabbitMQ.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerRabbitMQ.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerRabbitMQ.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerRabbitMQ.producerEncryptionKeyName) &&
         Objects.equals(this.rabbitmqAdminPwd, gatewayUpdateProducerRabbitMQ.rabbitmqAdminPwd) &&
         Objects.equals(this.rabbitmqAdminUser, gatewayUpdateProducerRabbitMQ.rabbitmqAdminUser) &&
@@ -700,7 +728,7 @@ public class GatewayUpdateProducerRabbitMQ {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, name, newName, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, name, newName, passwordLength, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -711,6 +739,7 @@ public class GatewayUpdateProducerRabbitMQ {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rabbitmqAdminPwd: ").append(toIndentedString(rabbitmqAdminPwd)).append("\n");
     sb.append("    rabbitmqAdminUser: ").append(toIndentedString(rabbitmqAdminUser)).append("\n");

@@ -106,6 +106,7 @@ Name | Type | Description | Notes
 **githubInstallationTokenPermissions** | **Map&lt;String, String&gt;** |  |  [optional]
 **githubInstallationTokenRepositories** | **List&lt;String&gt;** |  |  [optional]
 **githubInstallationTokenRepositoriesIds** | **List&lt;Long&gt;** |  |  [optional]
+**githubOrganizationName** | **String** |  |  [optional]
 **githubRepositoryPath** | **String** |  |  [optional]
 **gkeClusterCaCertificate** | **String** |  |  [optional]
 **gkeClusterEndpoint** | **String** |  |  [optional]

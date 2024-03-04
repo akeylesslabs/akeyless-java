@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerMSSQL is a command that creates mssql producer
+ * gatewayCreateProducerMSSQL is a command that creates mssql producer [Deprecated: Use dynamic-secret-create-mssql command]
  */
-@ApiModel(description = "gatewayCreateProducerMSSQL is a command that creates mssql producer")
+@ApiModel(description = "gatewayCreateProducerMSSQL is a command that creates mssql producer [Deprecated: Use dynamic-secret-create-mssql command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerMSSQL {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -71,6 +71,10 @@ public class GatewayCreateProducerMSSQL {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -333,11 +337,11 @@ public class GatewayCreateProducerMSSQL {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -346,6 +350,29 @@ public class GatewayCreateProducerMSSQL {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerMSSQL passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -637,6 +664,7 @@ public class GatewayCreateProducerMSSQL {
         Objects.equals(this.mssqlRevocationStatements, gatewayCreateProducerMSSQL.mssqlRevocationStatements) &&
         Objects.equals(this.mssqlUsername, gatewayCreateProducerMSSQL.mssqlUsername) &&
         Objects.equals(this.name, gatewayCreateProducerMSSQL.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerMSSQL.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMSSQL.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMSSQL.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessDbSchema, gatewayCreateProducerMSSQL.secureAccessDbSchema) &&
@@ -652,7 +680,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -669,6 +697,7 @@ public class GatewayCreateProducerMSSQL {
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mssqlUsername: ").append(toIndentedString(mssqlUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");

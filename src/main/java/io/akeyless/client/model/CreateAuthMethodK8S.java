@@ -84,6 +84,10 @@ public class CreateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
+  private List<String> productType = null;
+
   public static final String SERIALIZED_NAME_PUBLIC_KEY = "public-key";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
   private String publicKey;
@@ -438,6 +442,37 @@ public class CreateAuthMethodK8S {
   }
 
 
+  public CreateAuthMethodK8S productType(List<String> productType) {
+    
+    this.productType = productType;
+    return this;
+  }
+
+  public CreateAuthMethodK8S addProductTypeItem(String productTypeItem) {
+    if (this.productType == null) {
+      this.productType = new ArrayList<String>();
+    }
+    this.productType.add(productTypeItem);
+    return this;
+  }
+
+   /**
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * @return productType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]")
+
+  public List<String> getProductType() {
+    return productType;
+  }
+
+
+  public void setProductType(List<String> productType) {
+    this.productType = productType;
+  }
+
+
   public CreateAuthMethodK8S publicKey(String publicKey) {
     
     this.publicKey = publicKey;
@@ -529,6 +564,7 @@ public class CreateAuthMethodK8S {
         Objects.equals(this.json, createAuthMethodK8S.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodK8S.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodK8S.name) &&
+        Objects.equals(this.productType, createAuthMethodK8S.productType) &&
         Objects.equals(this.publicKey, createAuthMethodK8S.publicKey) &&
         Objects.equals(this.token, createAuthMethodK8S.token) &&
         Objects.equals(this.uidToken, createAuthMethodK8S.uidToken);
@@ -536,7 +572,7 @@ public class CreateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, productType, publicKey, token, uidToken);
   }
 
   @Override
@@ -556,6 +592,7 @@ public class CreateAuthMethodK8S {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

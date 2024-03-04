@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerLdap
 
-gatewayCreateProducerLdap is a command that creates ldap producer
+gatewayCreateProducerLdap is a command that creates ldap producer [Deprecated: Use dynamic-secret-create-ldap command]
 
 ## Properties
 
@@ -16,7 +16,8 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **ldapCaCert** | **String** | CA Certificate File Content |  [optional]
 **ldapUrl** | **String** | LDAP Server URL |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]

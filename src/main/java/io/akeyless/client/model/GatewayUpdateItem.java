@@ -76,6 +76,10 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_KEY_ID)
   private String gcpServiceAccountKeyId;
 
+  public static final String SERIALIZED_NAME_GRACE_ROTATION = "grace-rotation";
+  @SerializedName(SERIALIZED_NAME_GRACE_ROTATION)
+  private String graceRotation;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -103,6 +107,10 @@ public class GatewayUpdateItem {
   public static final String SERIALIZED_NAME_NEW_VERSION = "new-version";
   @SerializedName(SERIALIZED_NAME_NEW_VERSION)
   private Boolean newVersion;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
   @SerializedName(SERIALIZED_NAME_RM_TAG)
@@ -404,6 +412,29 @@ public class GatewayUpdateItem {
   }
 
 
+  public GatewayUpdateItem graceRotation(String graceRotation) {
+    
+    this.graceRotation = graceRotation;
+    return this;
+  }
+
+   /**
+   * Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false]
+   * @return graceRotation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false]")
+
+  public String getGraceRotation() {
+    return graceRotation;
+  }
+
+
+  public void setGraceRotation(String graceRotation) {
+    this.graceRotation = graceRotation;
+  }
+
+
   public GatewayUpdateItem json(Boolean json) {
     
     this.json = json;
@@ -562,6 +593,29 @@ public class GatewayUpdateItem {
 
   public void setNewVersion(Boolean newVersion) {
     this.newVersion = newVersion;
+  }
+
+
+  public GatewayUpdateItem passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -800,6 +854,7 @@ public class GatewayUpdateItem {
         Objects.equals(this.gcpKey, gatewayUpdateItem.gcpKey) &&
         Objects.equals(this.gcpServiceAccountEmail, gatewayUpdateItem.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKeyId, gatewayUpdateItem.gcpServiceAccountKeyId) &&
+        Objects.equals(this.graceRotation, gatewayUpdateItem.graceRotation) &&
         Objects.equals(this.json, gatewayUpdateItem.json) &&
         Objects.equals(this.keepPrevVersion, gatewayUpdateItem.keepPrevVersion) &&
         Objects.equals(this.key, gatewayUpdateItem.key) &&
@@ -807,6 +862,7 @@ public class GatewayUpdateItem {
         Objects.equals(this.newMetadata, gatewayUpdateItem.newMetadata) &&
         Objects.equals(this.newName, gatewayUpdateItem.newName) &&
         Objects.equals(this.newVersion, gatewayUpdateItem.newVersion) &&
+        Objects.equals(this.passwordLength, gatewayUpdateItem.passwordLength) &&
         Objects.equals(this.rmTag, gatewayUpdateItem.rmTag) &&
         Objects.equals(this.rotatedPassword, gatewayUpdateItem.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, gatewayUpdateItem.rotatedUsername) &&
@@ -820,7 +876,7 @@ public class GatewayUpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, appId, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, appId, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
   @Override
@@ -838,6 +894,7 @@ public class GatewayUpdateItem {
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
+    sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -845,6 +902,7 @@ public class GatewayUpdateItem {
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    newVersion: ").append(toIndentedString(newVersion)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");

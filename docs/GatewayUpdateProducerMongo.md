@@ -2,7 +2,7 @@
 
 # GatewayUpdateProducerMongo
 
-gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer
+gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-update-mongodb command]
 
 ## Properties
 
@@ -22,8 +22,9 @@ Name | Type | Description | Notes
 **mongodbServerUri** | **String** | MongoDB server URI |  [optional]
 **mongodbUriOptions** | **String** | MongoDB server URI options |  [optional]
 **mongodbUsername** | **String** | MongoDB server username |  [optional]
-**name** | **String** | Producer name | 
-**newName** | **String** | Producer name |  [optional]
+**name** | **String** | Dynamic secret name | 
+**newName** | **String** | Dynamic secret name |  [optional]
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Encrypt producer with following key |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]

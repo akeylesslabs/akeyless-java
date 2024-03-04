@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **prettyPrint** | **Boolean** | Print the secret value with json-pretty-print (not relevent to SDK) |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]
-**version** | **Integer** | Secret version |  [optional]
+**version** | **Integer** | Secret version, if negative value N is provided the last N versions will return (maximum 20) |  [optional]
 
 
 

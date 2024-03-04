@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerHanaDb is a command that updates hanadb producer
+ * gatewayUpdateProducerHanaDb is a command that updates hanadb producer [Deprecated: Use dynamic-secret-update-hanadb command]
  */
-@ApiModel(description = "gatewayUpdateProducerHanaDb is a command that updates hanadb producer")
+@ApiModel(description = "gatewayUpdateProducerHanaDb is a command that updates hanadb producer [Deprecated: Use dynamic-secret-update-hanadb command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerHanaDb {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -75,6 +75,10 @@ public class GatewayUpdateProducerHanaDb {
   public static final String SERIALIZED_NAME_NEW_NAME = "new-name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   private String newName;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -337,11 +341,11 @@ public class GatewayUpdateProducerHanaDb {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -360,11 +364,11 @@ public class GatewayUpdateProducerHanaDb {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;
@@ -373,6 +377,29 @@ public class GatewayUpdateProducerHanaDb {
 
   public void setNewName(String newName) {
     this.newName = newName;
+  }
+
+
+  public GatewayUpdateProducerHanaDb passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -665,6 +692,7 @@ public class GatewayUpdateProducerHanaDb {
         Objects.equals(this.json, gatewayUpdateProducerHanaDb.json) &&
         Objects.equals(this.name, gatewayUpdateProducerHanaDb.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerHanaDb.newName) &&
+        Objects.equals(this.passwordLength, gatewayUpdateProducerHanaDb.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerHanaDb.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerHanaDb.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessDbSchema, gatewayUpdateProducerHanaDb.secureAccessDbSchema) &&
@@ -680,7 +708,7 @@ public class GatewayUpdateProducerHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, json, name, newName, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, json, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -698,6 +726,7 @@ public class GatewayUpdateProducerHanaDb {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");

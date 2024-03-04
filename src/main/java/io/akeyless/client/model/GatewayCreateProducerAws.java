@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerAws is a command that creates aws producer
+ * gatewayCreateProducerAws is a command that creates aws producer [Deprecated: Use dynamic-secret-create-aws command]
  */
-@ApiModel(description = "gatewayCreateProducerAws is a command that creates aws producer")
+@ApiModel(description = "gatewayCreateProducerAws is a command that creates aws producer [Deprecated: Use dynamic-secret-create-aws command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerAws {
   public static final String SERIALIZED_NAME_ACCESS_MODE = "access-mode";
@@ -426,11 +426,11 @@ public class GatewayCreateProducerAws {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;

@@ -2,15 +2,15 @@
 
 # GatewayRevokeTmpUsers
 
-gatewayRevokeTmpUsers is a command that revoke producer tmp user
+gatewayRevokeTmpUsers is a command that revoke producer tmp user [Deprecated: Use dynamic-secret-tmp-creds-delete command]
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**host** | **String** | Deprecated: has no effect |  [optional]
+**host** | **String** | Host |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer Name | 
+**name** | **String** | Dynamic secret name | 
 **revokeAll** | **Boolean** | Revoke All Temp Creds |  [optional]
 **softDelete** | **Boolean** | Soft Delete |  [optional]
 **tmpCredsId** | **String** | Tmp Creds ID | 

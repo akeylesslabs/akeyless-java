@@ -53,6 +53,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_FORMAT = "format";
+  @SerializedName(SERIALIZED_NAME_FORMAT)
+  private String format = "text";
+
   public static final String SERIALIZED_NAME_INJECT_URL = "inject-url";
   @SerializedName(SERIALIZED_NAME_INJECT_URL)
   private List<String> injectUrl = null;
@@ -264,6 +268,29 @@ public class CreateSecret {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public CreateSecret format(String format) {
+    
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * Secret format [text/json] (relevant only for type &#39;generic&#39;)
+   * @return format
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secret format [text/json] (relevant only for type 'generic')")
+
+  public String getFormat() {
+    return format;
+  }
+
+
+  public void setFormat(String format) {
+    this.format = format;
   }
 
 
@@ -781,11 +808,11 @@ public class CreateSecret {
   }
 
    /**
-   * The secret value (only relevant for type &#39;generic&#39;)
+   * The secret value (relevant only for type &#39;generic&#39;)
    * @return value
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The secret value (only relevant for type 'generic')")
+  @ApiModelProperty(required = true, value = "The secret value (relevant only for type 'generic')")
 
   public String getValue() {
     return value;
@@ -811,6 +838,7 @@ public class CreateSecret {
         Objects.equals(this.customField, createSecret.customField) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
         Objects.equals(this.description, createSecret.description) &&
+        Objects.equals(this.format, createSecret.format) &&
         Objects.equals(this.injectUrl, createSecret.injectUrl) &&
         Objects.equals(this.json, createSecret.json) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
@@ -837,7 +865,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, injectUrl, json, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
+    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, json, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
   }
 
   @Override
@@ -849,6 +877,7 @@ public class CreateSecret {
     sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

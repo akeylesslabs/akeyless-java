@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * gatewayListRotatedSecrets is a command that returns a list of rotated secrets
+ * gatewayListRotatedSecrets is a command that returns a list of rotated secrets. [Deprecated: Use rotated-secret list command]
  */
-@ApiModel(description = "gatewayListRotatedSecrets is a command that returns a list of rotated secrets")
+@ApiModel(description = "gatewayListRotatedSecrets is a command that returns a list of rotated secrets. [Deprecated: Use rotated-secret list command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayListRotatedSecrets {
   public static final String SERIALIZED_NAME_JSON = "json";

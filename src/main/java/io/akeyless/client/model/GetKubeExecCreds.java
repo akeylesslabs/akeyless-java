@@ -54,6 +54,10 @@ public class GetKubeExecCreds {
   @SerializedName(SERIALIZED_NAME_EXTENDED_KEY_USAGE)
   private String extendedKeyUsage;
 
+  public static final String SERIALIZED_NAME_EXTRA_EXTENSIONS = "extra-extensions";
+  @SerializedName(SERIALIZED_NAME_EXTRA_EXTENSIONS)
+  private String extraExtensions;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -219,6 +223,29 @@ public class GetKubeExecCreds {
   }
 
 
+  public GetKubeExecCreds extraExtensions(String extraExtensions) {
+    
+    this.extraExtensions = extraExtensions;
+    return this;
+  }
+
+   /**
+   * A json string that defines the requested extra extensions for the certificate
+   * @return extraExtensions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A json string that defines the requested extra extensions for the certificate")
+
+  public String getExtraExtensions() {
+    return extraExtensions;
+  }
+
+
+  public void setExtraExtensions(String extraExtensions) {
+    this.extraExtensions = extraExtensions;
+  }
+
+
   public GetKubeExecCreds json(Boolean json) {
     
     this.json = json;
@@ -372,6 +399,7 @@ public class GetKubeExecCreds {
         Objects.equals(this.commonName, getKubeExecCreds.commonName) &&
         Objects.equals(this.csrDataBase64, getKubeExecCreds.csrDataBase64) &&
         Objects.equals(this.extendedKeyUsage, getKubeExecCreds.extendedKeyUsage) &&
+        Objects.equals(this.extraExtensions, getKubeExecCreds.extraExtensions) &&
         Objects.equals(this.json, getKubeExecCreds.json) &&
         Objects.equals(this.keyDataBase64, getKubeExecCreds.keyDataBase64) &&
         Objects.equals(this.token, getKubeExecCreds.token) &&
@@ -382,7 +410,7 @@ public class GetKubeExecCreds {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altNames, apiVersion, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, json, keyDataBase64, token, ttl, uidToken, uriSans);
+    return Objects.hash(altNames, apiVersion, certIssuerName, commonName, csrDataBase64, extendedKeyUsage, extraExtensions, json, keyDataBase64, token, ttl, uidToken, uriSans);
   }
 
   @Override
@@ -395,6 +423,7 @@ public class GetKubeExecCreds {
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    csrDataBase64: ").append(toIndentedString(csrDataBase64)).append("\n");
     sb.append("    extendedKeyUsage: ").append(toIndentedString(extendedKeyUsage)).append("\n");
+    sb.append("    extraExtensions: ").append(toIndentedString(extraExtensions)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

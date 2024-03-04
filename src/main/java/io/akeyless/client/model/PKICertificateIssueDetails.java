@@ -25,7 +25,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * PKICertificateIssueDetails
@@ -36,6 +38,10 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_ALLOW_ANY_NAME)
   private Boolean allowAnyName;
 
+  public static final String SERIALIZED_NAME_ALLOW_COPY_EXT_FROM_CSR = "allow_copy_ext_from_csr";
+  @SerializedName(SERIALIZED_NAME_ALLOW_COPY_EXT_FROM_CSR)
+  private Boolean allowCopyExtFromCsr;
+
   public static final String SERIALIZED_NAME_ALLOW_SUBDOMAINS = "allow_subdomains";
   @SerializedName(SERIALIZED_NAME_ALLOW_SUBDOMAINS)
   private Boolean allowSubdomains;
@@ -43,6 +49,10 @@ public class PKICertificateIssueDetails {
   public static final String SERIALIZED_NAME_ALLOWED_DOMAINS_LIST = "allowed_domains_list";
   @SerializedName(SERIALIZED_NAME_ALLOWED_DOMAINS_LIST)
   private List<String> allowedDomainsList = null;
+
+  public static final String SERIALIZED_NAME_ALLOWED_EXTRA_EXTENSIONS = "allowed_extra_extensions";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_EXTRA_EXTENSIONS)
+  private Map<String, List<String>> allowedExtraExtensions = null;
 
   public static final String SERIALIZED_NAME_ALLOWED_URI_SANS = "allowed_uri_sans";
   @SerializedName(SERIALIZED_NAME_ALLOWED_URI_SANS)
@@ -166,6 +176,29 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails allowCopyExtFromCsr(Boolean allowCopyExtFromCsr) {
+    
+    this.allowCopyExtFromCsr = allowCopyExtFromCsr;
+    return this;
+  }
+
+   /**
+   * Get allowCopyExtFromCsr
+   * @return allowCopyExtFromCsr
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAllowCopyExtFromCsr() {
+    return allowCopyExtFromCsr;
+  }
+
+
+  public void setAllowCopyExtFromCsr(Boolean allowCopyExtFromCsr) {
+    this.allowCopyExtFromCsr = allowCopyExtFromCsr;
+  }
+
+
   public PKICertificateIssueDetails allowSubdomains(Boolean allowSubdomains) {
     
     this.allowSubdomains = allowSubdomains;
@@ -217,6 +250,37 @@ public class PKICertificateIssueDetails {
 
   public void setAllowedDomainsList(List<String> allowedDomainsList) {
     this.allowedDomainsList = allowedDomainsList;
+  }
+
+
+  public PKICertificateIssueDetails allowedExtraExtensions(Map<String, List<String>> allowedExtraExtensions) {
+    
+    this.allowedExtraExtensions = allowedExtraExtensions;
+    return this;
+  }
+
+  public PKICertificateIssueDetails putAllowedExtraExtensionsItem(String key, List<String> allowedExtraExtensionsItem) {
+    if (this.allowedExtraExtensions == null) {
+      this.allowedExtraExtensions = new HashMap<String, List<String>>();
+    }
+    this.allowedExtraExtensions.put(key, allowedExtraExtensionsItem);
+    return this;
+  }
+
+   /**
+   * Get allowedExtraExtensions
+   * @return allowedExtraExtensions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, List<String>> getAllowedExtraExtensions() {
+    return allowedExtraExtensions;
+  }
+
+
+  public void setAllowedExtraExtensions(Map<String, List<String>> allowedExtraExtensions) {
+    this.allowedExtraExtensions = allowedExtraExtensions;
   }
 
 
@@ -862,8 +926,10 @@ public class PKICertificateIssueDetails {
     }
     PKICertificateIssueDetails pkICertificateIssueDetails = (PKICertificateIssueDetails) o;
     return Objects.equals(this.allowAnyName, pkICertificateIssueDetails.allowAnyName) &&
+        Objects.equals(this.allowCopyExtFromCsr, pkICertificateIssueDetails.allowCopyExtFromCsr) &&
         Objects.equals(this.allowSubdomains, pkICertificateIssueDetails.allowSubdomains) &&
         Objects.equals(this.allowedDomainsList, pkICertificateIssueDetails.allowedDomainsList) &&
+        Objects.equals(this.allowedExtraExtensions, pkICertificateIssueDetails.allowedExtraExtensions) &&
         Objects.equals(this.allowedUriSans, pkICertificateIssueDetails.allowedUriSans) &&
         Objects.equals(this.basicConstraintsValidForNonCa, pkICertificateIssueDetails.basicConstraintsValidForNonCa) &&
         Objects.equals(this.certificateAuthorityMode, pkICertificateIssueDetails.certificateAuthorityMode) &&
@@ -892,7 +958,7 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowSubdomains, allowedDomainsList, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, destinationPath, enforceHostnames, expirationEvents, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, destinationPath, enforceHostnames, expirationEvents, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
   }
 
   @Override
@@ -900,8 +966,10 @@ public class PKICertificateIssueDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class PKICertificateIssueDetails {\n");
     sb.append("    allowAnyName: ").append(toIndentedString(allowAnyName)).append("\n");
+    sb.append("    allowCopyExtFromCsr: ").append(toIndentedString(allowCopyExtFromCsr)).append("\n");
     sb.append("    allowSubdomains: ").append(toIndentedString(allowSubdomains)).append("\n");
     sb.append("    allowedDomainsList: ").append(toIndentedString(allowedDomainsList)).append("\n");
+    sb.append("    allowedExtraExtensions: ").append(toIndentedString(allowedExtraExtensions)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
     sb.append("    basicConstraintsValidForNonCa: ").append(toIndentedString(basicConstraintsValidForNonCa)).append("\n");
     sb.append("    certificateAuthorityMode: ").append(toIndentedString(certificateAuthorityMode)).append("\n");

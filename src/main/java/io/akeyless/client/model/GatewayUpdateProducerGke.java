@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayUpdateProducerGke is a command that updates gke producer
+ * gatewayUpdateProducerGke is a command that updates gke producer [Deprecated: Use dynamic-secret-update-gke command]
  */
-@ApiModel(description = "gatewayUpdateProducerGke is a command that updates gke producer")
+@ApiModel(description = "gatewayUpdateProducerGke is a command that updates gke producer [Deprecated: Use dynamic-secret-update-gke command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayUpdateProducerGke {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -283,11 +283,11 @@ public class GatewayUpdateProducerGke {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -306,11 +306,11 @@ public class GatewayUpdateProducerGke {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Producer name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;

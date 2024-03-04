@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer
+ * gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-create-mongodb command]
  */
-@ApiModel(description = "gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer")
+@ApiModel(description = "gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-create-mongodb command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
@@ -91,6 +91,10 @@ public class GatewayCreateProducerMongo {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -464,11 +468,11 @@ public class GatewayCreateProducerMongo {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -477,6 +481,29 @@ public class GatewayCreateProducerMongo {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerMongo passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -750,6 +777,7 @@ public class GatewayCreateProducerMongo {
         Objects.equals(this.mongodbUriOptions, gatewayCreateProducerMongo.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, gatewayCreateProducerMongo.mongodbUsername) &&
         Objects.equals(this.name, gatewayCreateProducerMongo.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerMongo.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerMongo.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerMongo.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMongo.secureAccessEnable) &&
@@ -764,7 +792,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -786,6 +814,7 @@ public class GatewayCreateProducerMongo {
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerRedshift is a command that creates redshift producer
+ * gatewayCreateProducerRedshift is a command that creates redshift producer [Deprecated: Use dynamic-secret-create-redshift command]
  */
-@ApiModel(description = "gatewayCreateProducerRedshift is a command that creates redshift producer")
+@ApiModel(description = "gatewayCreateProducerRedshift is a command that creates redshift producer [Deprecated: Use dynamic-secret-create-redshift command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerRedshift {
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
@@ -47,6 +47,10 @@ public class GatewayCreateProducerRedshift {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY = "producer-encryption-key";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY)
@@ -183,11 +187,11 @@ public class GatewayCreateProducerRedshift {
   }
 
    /**
-   * Producer name
+   * Dynamic secret name
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Producer name")
+  @ApiModelProperty(required = true, value = "Dynamic secret name")
 
   public String getName() {
     return name;
@@ -196,6 +200,29 @@ public class GatewayCreateProducerRedshift {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerRedshift passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
   }
 
 
@@ -550,6 +577,7 @@ public class GatewayCreateProducerRedshift {
         Objects.equals(this.deleteProtection, gatewayCreateProducerRedshift.deleteProtection) &&
         Objects.equals(this.json, gatewayCreateProducerRedshift.json) &&
         Objects.equals(this.name, gatewayCreateProducerRedshift.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerRedshift.passwordLength) &&
         Objects.equals(this.producerEncryptionKey, gatewayCreateProducerRedshift.producerEncryptionKey) &&
         Objects.equals(this.redshiftDbName, gatewayCreateProducerRedshift.redshiftDbName) &&
         Objects.equals(this.redshiftHost, gatewayCreateProducerRedshift.redshiftHost) &&
@@ -568,7 +596,7 @@ public class GatewayCreateProducerRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, deleteProtection, json, name, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(creationStatements, deleteProtection, json, name, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -579,6 +607,7 @@ public class GatewayCreateProducerRedshift {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKey: ").append(toIndentedString(producerEncryptionKey)).append("\n");
     sb.append("    redshiftDbName: ").append(toIndentedString(redshiftDbName)).append("\n");
     sb.append("    redshiftHost: ").append(toIndentedString(redshiftHost)).append("\n");

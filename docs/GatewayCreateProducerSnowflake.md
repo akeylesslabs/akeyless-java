@@ -2,7 +2,7 @@
 
 # GatewayCreateProducerSnowflake
 
-GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
+GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer [Deprecated: Use dynamic-secret-create-snowflake command]
 
 ## Properties
 
@@ -14,7 +14,8 @@ Name | Type | Description | Notes
 **dbName** | **String** | Database name |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**name** | **String** | Producer name | 
+**name** | **String** | Dynamic secret name | 
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **privateKey** | **String** | RSA Private key (base64 encoded) |  [optional]
 **privateKeyPassphrase** | **String** | The Private key passphrase |  [optional]
 **role** | **String** | User role |  [optional]
