@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GetEventForwarder
+ * getEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-get command]
  */
+@ApiModel(description = "getEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-get command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetEventForwarder {
   public static final String SERIALIZED_NAME_JSON = "json";

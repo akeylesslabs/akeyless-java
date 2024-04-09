@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **githubAppId** | **Long** | Github app id |  [optional]
 **githubAppPrivateKey** | **String** | App private key |  [optional]
 **githubBaseUrl** | **String** | Base URL |  [optional]
-**installationId** | **Long** | Github app installation id |  [optional]
-**installationOrganization** | **String** | Optional, instead of installation id, set a GitHub organization name |  [optional]
-**installationRepository** | **String** | Optional, instead of installation id, set a GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt; |  [optional]
+**installationId** | **Long** | GitHub application installation id |  [optional]
+**installationOrganization** | **String** | Optional, mutually exclusive with installation id, GitHub organization name |  [optional]
+**installationRepository** | **String** | Optional, mutually exclusive with installation id, GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;&#39; |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
 **newName** | **String** | Dynamic secret name |  [optional]

@@ -57,6 +57,10 @@ public class UpdateDockerhubTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -241,6 +245,29 @@ public class UpdateDockerhubTarget {
   }
 
 
+  public UpdateDockerhubTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public UpdateDockerhubTarget name(String name) {
     
     this.name = name;
@@ -372,6 +399,7 @@ public class UpdateDockerhubTarget {
         Objects.equals(this.json, updateDockerhubTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDockerhubTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDockerhubTarget.key) &&
+        Objects.equals(this.maxVersions, updateDockerhubTarget.maxVersions) &&
         Objects.equals(this.name, updateDockerhubTarget.name) &&
         Objects.equals(this.newName, updateDockerhubTarget.newName) &&
         Objects.equals(this.token, updateDockerhubTarget.token) &&
@@ -381,7 +409,7 @@ public class UpdateDockerhubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion);
   }
 
   @Override
@@ -395,6 +423,7 @@ public class UpdateDockerhubTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

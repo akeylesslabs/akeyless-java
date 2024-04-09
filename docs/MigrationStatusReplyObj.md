@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**computers** | **Long** |  |  [optional]
 **durationTime** | **String** |  |  [optional]
 **error** | **String** |  |  [optional]
 **lastStatusMessage** | **String** |  |  [optional]

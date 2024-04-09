@@ -65,6 +65,10 @@ public class UpdateLdapTarget {
   @SerializedName(SERIALIZED_NAME_LDAP_URL)
   private String ldapUrl;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -303,6 +307,29 @@ public class UpdateLdapTarget {
   }
 
 
+  public UpdateLdapTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public UpdateLdapTarget name(String name) {
     
     this.name = name;
@@ -482,6 +509,7 @@ public class UpdateLdapTarget {
         Objects.equals(this.key, updateLdapTarget.key) &&
         Objects.equals(this.ldapCaCert, updateLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, updateLdapTarget.ldapUrl) &&
+        Objects.equals(this.maxVersions, updateLdapTarget.maxVersions) &&
         Objects.equals(this.name, updateLdapTarget.name) &&
         Objects.equals(this.newName, updateLdapTarget.newName) &&
         Objects.equals(this.serverType, updateLdapTarget.serverType) &&
@@ -493,7 +521,7 @@ public class UpdateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, name, newName, serverType, token, tokenExpiration, uidToken, updateVersion);
+    return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, maxVersions, name, newName, serverType, token, tokenExpiration, uidToken, updateVersion);
   }
 
   @Override
@@ -509,6 +537,7 @@ public class UpdateLdapTarget {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    serverType: ").append(toIndentedString(serverType)).append("\n");

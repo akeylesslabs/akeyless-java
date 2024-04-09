@@ -61,6 +61,10 @@ public class CreateGodaddyTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -268,6 +272,29 @@ public class CreateGodaddyTarget {
   }
 
 
+  public CreateGodaddyTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public CreateGodaddyTarget name(String name) {
     
     this.name = name;
@@ -400,6 +427,7 @@ public class CreateGodaddyTarget {
         Objects.equals(this.imapUsername, createGodaddyTarget.imapUsername) &&
         Objects.equals(this.json, createGodaddyTarget.json) &&
         Objects.equals(this.key, createGodaddyTarget.key) &&
+        Objects.equals(this.maxVersions, createGodaddyTarget.maxVersions) &&
         Objects.equals(this.name, createGodaddyTarget.name) &&
         Objects.equals(this.secret, createGodaddyTarget.secret) &&
         Objects.equals(this.timeout, createGodaddyTarget.timeout) &&
@@ -409,7 +437,7 @@ public class CreateGodaddyTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, description, imapFqdn, imapPassword, imapPort, imapUsername, json, key, name, secret, timeout, token, uidToken);
+    return Objects.hash(apiKey, description, imapFqdn, imapPassword, imapPort, imapUsername, json, key, maxVersions, name, secret, timeout, token, uidToken);
   }
 
   @Override
@@ -424,6 +452,7 @@ public class CreateGodaddyTarget {
     sb.append("    imapUsername: ").append(toIndentedString(imapUsername)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");

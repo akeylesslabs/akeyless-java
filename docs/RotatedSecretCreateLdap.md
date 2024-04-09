@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **hostProvider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **name** | **String** | Rotated secret name | 
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
 **rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] |  [optional]
@@ -25,9 +26,11 @@ Name | Type | Description | Notes
 **rotatorType** | **String** | The rotator type. options: [target/ldap] | 
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional]
-**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user |  [optional]
+**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional]
 **secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
+**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion |  [optional]
+**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **target** | **List&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times |  [optional]
 **targetName** | **String** | Target name | 

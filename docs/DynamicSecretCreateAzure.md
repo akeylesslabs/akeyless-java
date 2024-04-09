@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
-**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
+**producerEncryptionKeyName** | **String** | Dynamic secret encryption key |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion |  [optional]

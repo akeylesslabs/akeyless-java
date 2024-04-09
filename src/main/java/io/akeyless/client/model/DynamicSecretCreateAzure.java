@@ -399,11 +399,11 @@ public class DynamicSecretCreateAzure {
   }
 
    /**
-   * Dynamic producer encryption key
+   * Dynamic secret encryption key
    * @return producerEncryptionKeyName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dynamic producer encryption key")
+  @ApiModelProperty(value = "Dynamic secret encryption key")
 
   public String getProducerEncryptionKeyName() {
     return producerEncryptionKeyName;

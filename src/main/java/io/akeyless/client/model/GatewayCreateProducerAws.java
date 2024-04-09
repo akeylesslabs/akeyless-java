@@ -84,6 +84,10 @@ public class GatewayCreateProducerAws {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
+
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -442,6 +446,29 @@ public class GatewayCreateProducerAws {
   }
 
 
+  public GatewayCreateProducerAws passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
+  }
+
+
   public GatewayCreateProducerAws producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -794,6 +821,7 @@ public class GatewayCreateProducerAws {
         Objects.equals(this.enableAdminRotation, gatewayCreateProducerAws.enableAdminRotation) &&
         Objects.equals(this.json, gatewayCreateProducerAws.json) &&
         Objects.equals(this.name, gatewayCreateProducerAws.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateProducerAws.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerAws.producerEncryptionKeyName) &&
         Objects.equals(this.region, gatewayCreateProducerAws.region) &&
         Objects.equals(this.secureAccessAwsAccountId, gatewayCreateProducerAws.secureAccessAwsAccountId) &&
@@ -812,7 +840,7 @@ public class GatewayCreateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, json, name, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, json, name, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -832,6 +860,7 @@ public class GatewayCreateProducerAws {
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");

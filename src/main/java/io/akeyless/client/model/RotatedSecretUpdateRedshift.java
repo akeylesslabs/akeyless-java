@@ -63,6 +63,10 @@ public class RotatedSecretUpdateRedshift {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -311,6 +315,29 @@ public class RotatedSecretUpdateRedshift {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretUpdateRedshift maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -669,6 +696,7 @@ public class RotatedSecretUpdateRedshift {
         Objects.equals(this.json, rotatedSecretUpdateRedshift.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateRedshift.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateRedshift.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateRedshift.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateRedshift.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateRedshift.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateRedshift.passwordLength) &&
@@ -687,7 +715,7 @@ public class RotatedSecretUpdateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, token, uidToken);
   }
 
   @Override
@@ -702,6 +730,7 @@ public class RotatedSecretUpdateRedshift {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

@@ -53,6 +53,10 @@ public class AzureTargetDetails {
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   private String azureTenantId;
 
+  public static final String SERIALIZED_NAME_AZURE_USERNAME = "azure_username";
+  @SerializedName(SERIALIZED_NAME_AZURE_USERNAME)
+  private String azureUsername;
+
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
   private Boolean useGwCloudIdentity;
@@ -198,6 +202,29 @@ public class AzureTargetDetails {
   }
 
 
+  public AzureTargetDetails azureUsername(String azureUsername) {
+    
+    this.azureUsername = azureUsername;
+    return this;
+  }
+
+   /**
+   * Get azureUsername
+   * @return azureUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAzureUsername() {
+    return azureUsername;
+  }
+
+
+  public void setAzureUsername(String azureUsername) {
+    this.azureUsername = azureUsername;
+  }
+
+
   public AzureTargetDetails useGwCloudIdentity(Boolean useGwCloudIdentity) {
     
     this.useGwCloudIdentity = useGwCloudIdentity;
@@ -236,12 +263,13 @@ public class AzureTargetDetails {
         Objects.equals(this.azureResourceName, azureTargetDetails.azureResourceName) &&
         Objects.equals(this.azureSubscriptionId, azureTargetDetails.azureSubscriptionId) &&
         Objects.equals(this.azureTenantId, azureTargetDetails.azureTenantId) &&
+        Objects.equals(this.azureUsername, azureTargetDetails.azureUsername) &&
         Objects.equals(this.useGwCloudIdentity, azureTargetDetails.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, useGwCloudIdentity);
+    return Objects.hash(azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUsername, useGwCloudIdentity);
   }
 
   @Override
@@ -254,6 +282,7 @@ public class AzureTargetDetails {
     sb.append("    azureResourceName: ").append(toIndentedString(azureResourceName)).append("\n");
     sb.append("    azureSubscriptionId: ").append(toIndentedString(azureSubscriptionId)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    azureUsername: ").append(toIndentedString(azureUsername)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("}");
     return sb.toString();

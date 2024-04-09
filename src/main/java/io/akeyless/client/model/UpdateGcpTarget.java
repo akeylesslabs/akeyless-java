@@ -53,6 +53,10 @@ public class UpdateGcpTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -218,6 +222,29 @@ public class UpdateGcpTarget {
   }
 
 
+  public UpdateGcpTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public UpdateGcpTarget name(String name) {
     
     this.name = name;
@@ -371,6 +398,7 @@ public class UpdateGcpTarget {
         Objects.equals(this.json, updateGcpTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateGcpTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGcpTarget.key) &&
+        Objects.equals(this.maxVersions, updateGcpTarget.maxVersions) &&
         Objects.equals(this.name, updateGcpTarget.name) &&
         Objects.equals(this.newName, updateGcpTarget.newName) &&
         Objects.equals(this.token, updateGcpTarget.token) &&
@@ -381,7 +409,7 @@ public class UpdateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, gcpKey, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(comment, description, gcpKey, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
   @Override
@@ -394,6 +422,7 @@ public class UpdateGcpTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

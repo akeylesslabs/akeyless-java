@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **graceRotation** | **Boolean** |  |  [optional]
 **gwClusterId** | **Long** |  |  [optional]
 **lastRotationError** | **String** |  |  [optional]
+**maxVersions** | **Long** |  |  [optional]
 **numberOfVersionsToSave** | **Integer** |  |  [optional]
 **rotationHour** | **Integer** |  |  [optional]
 **rotationIntervalMin** | **Boolean** |  |  [optional]

@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CreateEventForwarder
+ * createEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-create-* command]
  */
+@ApiModel(description = "createEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-create-* command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateEventForwarder {
   public static final String SERIALIZED_NAME_ADMIN_NAME = "admin-name";

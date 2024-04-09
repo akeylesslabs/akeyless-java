@@ -78,6 +78,14 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private List<String> country = null;
 
+  public static final String SERIALIZED_NAME_CREATE_PRIVATE_CRL = "create_private_crl";
+  @SerializedName(SERIALIZED_NAME_CREATE_PRIVATE_CRL)
+  private Boolean createPrivateCrl;
+
+  public static final String SERIALIZED_NAME_CREATE_PUBLIC_CRL = "create_public_crl";
+  @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_CRL)
+  private Boolean createPublicCrl;
+
   public static final String SERIALIZED_NAME_DESTINATION_PATH = "destination_path";
   @SerializedName(SERIALIZED_NAME_DESTINATION_PATH)
   private String destinationPath;
@@ -89,6 +97,10 @@ public class PKICertificateIssueDetails {
   public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
   private List<CertificateExpirationEvent> expirationEvents = null;
+
+  public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
+  @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
+  private Long gwClusterId;
 
   public static final String SERIALIZED_NAME_GW_CLUSTER_URL = "gw_cluster_url";
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_URL)
@@ -438,6 +450,52 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails createPrivateCrl(Boolean createPrivateCrl) {
+    
+    this.createPrivateCrl = createPrivateCrl;
+    return this;
+  }
+
+   /**
+   * Get createPrivateCrl
+   * @return createPrivateCrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCreatePrivateCrl() {
+    return createPrivateCrl;
+  }
+
+
+  public void setCreatePrivateCrl(Boolean createPrivateCrl) {
+    this.createPrivateCrl = createPrivateCrl;
+  }
+
+
+  public PKICertificateIssueDetails createPublicCrl(Boolean createPublicCrl) {
+    
+    this.createPublicCrl = createPublicCrl;
+    return this;
+  }
+
+   /**
+   * Get createPublicCrl
+   * @return createPublicCrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCreatePublicCrl() {
+    return createPublicCrl;
+  }
+
+
+  public void setCreatePublicCrl(Boolean createPublicCrl) {
+    this.createPublicCrl = createPublicCrl;
+  }
+
+
   public PKICertificateIssueDetails destinationPath(String destinationPath) {
     
     this.destinationPath = destinationPath;
@@ -512,6 +570,29 @@ public class PKICertificateIssueDetails {
 
   public void setExpirationEvents(List<CertificateExpirationEvent> expirationEvents) {
     this.expirationEvents = expirationEvents;
+  }
+
+
+  public PKICertificateIssueDetails gwClusterId(Long gwClusterId) {
+    
+    this.gwClusterId = gwClusterId;
+    return this;
+  }
+
+   /**
+   * Get gwClusterId
+   * @return gwClusterId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getGwClusterId() {
+    return gwClusterId;
+  }
+
+
+  public void setGwClusterId(Long gwClusterId) {
+    this.gwClusterId = gwClusterId;
   }
 
 
@@ -936,9 +1017,12 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.clientFlag, pkICertificateIssueDetails.clientFlag) &&
         Objects.equals(this.codeSigningFlag, pkICertificateIssueDetails.codeSigningFlag) &&
         Objects.equals(this.country, pkICertificateIssueDetails.country) &&
+        Objects.equals(this.createPrivateCrl, pkICertificateIssueDetails.createPrivateCrl) &&
+        Objects.equals(this.createPublicCrl, pkICertificateIssueDetails.createPublicCrl) &&
         Objects.equals(this.destinationPath, pkICertificateIssueDetails.destinationPath) &&
         Objects.equals(this.enforceHostnames, pkICertificateIssueDetails.enforceHostnames) &&
         Objects.equals(this.expirationEvents, pkICertificateIssueDetails.expirationEvents) &&
+        Objects.equals(this.gwClusterId, pkICertificateIssueDetails.gwClusterId) &&
         Objects.equals(this.gwClusterUrl, pkICertificateIssueDetails.gwClusterUrl) &&
         Objects.equals(this.isCa, pkICertificateIssueDetails.isCa) &&
         Objects.equals(this.keyBits, pkICertificateIssueDetails.keyBits) &&
@@ -958,7 +1042,7 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, destinationPath, enforceHostnames, expirationEvents, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, destinationPath, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
   }
 
   @Override
@@ -976,9 +1060,12 @@ public class PKICertificateIssueDetails {
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    createPrivateCrl: ").append(toIndentedString(createPrivateCrl)).append("\n");
+    sb.append("    createPublicCrl: ").append(toIndentedString(createPublicCrl)).append("\n");
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
     sb.append("    enforceHostnames: ").append(toIndentedString(enforceHostnames)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
+    sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    isCa: ").append(toIndentedString(isCa)).append("\n");
     sb.append("    keyBits: ").append(toIndentedString(keyBits)).append("\n");

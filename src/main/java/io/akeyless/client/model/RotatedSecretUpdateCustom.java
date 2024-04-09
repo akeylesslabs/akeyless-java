@@ -67,6 +67,10 @@ public class RotatedSecretUpdateCustom {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -365,6 +369,29 @@ public class RotatedSecretUpdateCustom {
   }
 
 
+  public RotatedSecretUpdateCustom maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public RotatedSecretUpdateCustom name(String name) {
     
     this.name = name;
@@ -641,11 +668,11 @@ public class RotatedSecretUpdateCustom {
   }
 
    /**
-   * Required when the Dynamic Secret is used for a domain user
+   * Default domain name server. i.e. microsoft.com
    * @return secureAccessRdpDomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user")
+  @ApiModelProperty(value = "Default domain name server. i.e. microsoft.com")
 
   public String getSecureAccessRdpDomain() {
     return secureAccessRdpDomain;
@@ -859,6 +886,7 @@ public class RotatedSecretUpdateCustom {
         Objects.equals(this.json, rotatedSecretUpdateCustom.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateCustom.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateCustom.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateCustom.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateCustom.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateCustom.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateCustom.passwordLength) &&
@@ -883,7 +911,7 @@ public class RotatedSecretUpdateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
   @Override
@@ -899,6 +927,7 @@ public class RotatedSecretUpdateCustom {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

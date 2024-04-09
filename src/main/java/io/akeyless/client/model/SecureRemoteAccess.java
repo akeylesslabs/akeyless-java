@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.ItemSraStatus;
 import io.akeyless.client.model.TargetNameWithHosts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -139,6 +140,10 @@ public class SecureRemoteAccess {
   public static final String SERIALIZED_NAME_SSH_USER = "ssh_user";
   @SerializedName(SERIALIZED_NAME_SSH_USER)
   private String sshUser;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private ItemSraStatus status;
 
   public static final String SERIALIZED_NAME_TARGET_HOSTS = "target_hosts";
   @SerializedName(SERIALIZED_NAME_TARGET_HOSTS)
@@ -792,6 +797,29 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess status(ItemSraStatus status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ItemSraStatus getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(ItemSraStatus status) {
+    this.status = status;
+  }
+
+
   public SecureRemoteAccess targetHosts(List<TargetNameWithHosts> targetHosts) {
     
     this.targetHosts = targetHosts;
@@ -959,6 +987,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.sshPassword, secureRemoteAccess.sshPassword) &&
         Objects.equals(this.sshPrivateKey, secureRemoteAccess.sshPrivateKey) &&
         Objects.equals(this.sshUser, secureRemoteAccess.sshUser) &&
+        Objects.equals(this.status, secureRemoteAccess.status) &&
         Objects.equals(this.targetHosts, secureRemoteAccess.targetHosts) &&
         Objects.equals(this.targets, secureRemoteAccess.targets) &&
         Objects.equals(this.url, secureRemoteAccess.url) &&
@@ -968,7 +997,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, targetHosts, targets, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, status, targetHosts, targets, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -1002,6 +1031,7 @@ public class SecureRemoteAccess {
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshPrivateKey: ").append(toIndentedString(sshPrivateKey)).append("\n");
     sb.append("    sshUser: ").append(toIndentedString(sshUser)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    targetHosts: ").append(toIndentedString(targetHosts)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

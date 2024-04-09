@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **name** | **String** | Target name | 
 **newComment** | **String** | Deprecated - use description |  [optional]
 **newName** | **String** | New Target name |  [optional]

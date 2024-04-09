@@ -53,6 +53,10 @@ public class CreateWindowsTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -219,6 +223,29 @@ public class CreateWindowsTarget {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public CreateWindowsTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -398,6 +425,7 @@ public class CreateWindowsTarget {
         Objects.equals(this.hostname, createWindowsTarget.hostname) &&
         Objects.equals(this.json, createWindowsTarget.json) &&
         Objects.equals(this.key, createWindowsTarget.key) &&
+        Objects.equals(this.maxVersions, createWindowsTarget.maxVersions) &&
         Objects.equals(this.name, createWindowsTarget.name) &&
         Objects.equals(this.password, createWindowsTarget.password) &&
         Objects.equals(this.port, createWindowsTarget.port) &&
@@ -409,7 +437,7 @@ public class CreateWindowsTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificate, description, domain, hostname, json, key, name, password, port, token, uidToken, useTls, username);
+    return Objects.hash(certificate, description, domain, hostname, json, key, maxVersions, name, password, port, token, uidToken, useTls, username);
   }
 
   @Override
@@ -422,6 +450,7 @@ public class CreateWindowsTarget {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

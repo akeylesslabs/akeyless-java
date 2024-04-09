@@ -75,6 +75,10 @@ public class RotatedSecretUpdateGcp {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -375,6 +379,29 @@ public class RotatedSecretUpdateGcp {
   }
 
 
+  public RotatedSecretUpdateGcp maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public RotatedSecretUpdateGcp name(String name) {
     
     this.name = name;
@@ -610,6 +637,7 @@ public class RotatedSecretUpdateGcp {
         Objects.equals(this.json, rotatedSecretUpdateGcp.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateGcp.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateGcp.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateGcp.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateGcp.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateGcp.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateGcp.passwordLength) &&
@@ -623,7 +651,7 @@ public class RotatedSecretUpdateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotationHour, rotationInterval, rotatorType, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationHour, rotationInterval, rotatorType, token, uidToken);
   }
 
   @Override
@@ -641,6 +669,7 @@ public class RotatedSecretUpdateGcp {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

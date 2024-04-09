@@ -49,6 +49,10 @@ public class CreateGcpTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -183,6 +187,29 @@ public class CreateGcpTarget {
   }
 
 
+  public CreateGcpTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public CreateGcpTarget name(String name) {
     
     this.name = name;
@@ -289,6 +316,7 @@ public class CreateGcpTarget {
         Objects.equals(this.gcpKey, createGcpTarget.gcpKey) &&
         Objects.equals(this.json, createGcpTarget.json) &&
         Objects.equals(this.key, createGcpTarget.key) &&
+        Objects.equals(this.maxVersions, createGcpTarget.maxVersions) &&
         Objects.equals(this.name, createGcpTarget.name) &&
         Objects.equals(this.token, createGcpTarget.token) &&
         Objects.equals(this.uidToken, createGcpTarget.uidToken) &&
@@ -297,7 +325,7 @@ public class CreateGcpTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, gcpKey, json, key, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(comment, description, gcpKey, json, key, maxVersions, name, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -309,6 +337,7 @@ public class CreateGcpTarget {
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

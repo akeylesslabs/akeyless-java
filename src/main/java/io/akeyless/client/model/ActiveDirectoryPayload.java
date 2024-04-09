@@ -97,6 +97,10 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_SSH_PORT)
   private String sshPort;
 
+  public static final String SERIALIZED_NAME_TARGET_FORMAT = "target_format";
+  @SerializedName(SERIALIZED_NAME_TARGET_FORMAT)
+  private String targetFormat;
+
   public static final String SERIALIZED_NAME_TARGETS_TYPE = "targets_type";
   @SerializedName(SERIALIZED_NAME_TARGETS_TYPE)
   private String targetsType;
@@ -504,6 +508,29 @@ public class ActiveDirectoryPayload {
   }
 
 
+  public ActiveDirectoryPayload targetFormat(String targetFormat) {
+    
+    this.targetFormat = targetFormat;
+    return this;
+  }
+
+   /**
+   * Get targetFormat
+   * @return targetFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTargetFormat() {
+    return targetFormat;
+  }
+
+
+  public void setTargetFormat(String targetFormat) {
+    this.targetFormat = targetFormat;
+  }
+
+
   public ActiveDirectoryPayload targetsType(String targetsType) {
     
     this.targetsType = targetsType;
@@ -652,6 +679,7 @@ public class ActiveDirectoryPayload {
         Objects.equals(this.localUsersRotatedSecretsPathTemplate, activeDirectoryPayload.localUsersRotatedSecretsPathTemplate) &&
         Objects.equals(this.osFilter, activeDirectoryPayload.osFilter) &&
         Objects.equals(this.sshPort, activeDirectoryPayload.sshPort) &&
+        Objects.equals(this.targetFormat, activeDirectoryPayload.targetFormat) &&
         Objects.equals(this.targetsType, activeDirectoryPayload.targetsType) &&
         Objects.equals(this.userBaseDn, activeDirectoryPayload.userBaseDn) &&
         Objects.equals(this.userGroups, activeDirectoryPayload.userGroups) &&
@@ -661,7 +689,7 @@ public class ActiveDirectoryPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
+    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
 
   @Override
@@ -684,6 +712,7 @@ public class ActiveDirectoryPayload {
     sb.append("    localUsersRotatedSecretsPathTemplate: ").append(toIndentedString(localUsersRotatedSecretsPathTemplate)).append("\n");
     sb.append("    osFilter: ").append(toIndentedString(osFilter)).append("\n");
     sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
+    sb.append("    targetFormat: ").append(toIndentedString(targetFormat)).append("\n");
     sb.append("    targetsType: ").append(toIndentedString(targetsType)).append("\n");
     sb.append("    userBaseDn: ").append(toIndentedString(userBaseDn)).append("\n");
     sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");

@@ -30,6 +30,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MigrationStatusReplyObj {
+  public static final String SERIALIZED_NAME_COMPUTERS = "computers";
+  @SerializedName(SERIALIZED_NAME_COMPUTERS)
+  private Long computers;
+
   public static final String SERIALIZED_NAME_DURATION_TIME = "duration_time";
   @SerializedName(SERIALIZED_NAME_DURATION_TIME)
   private String durationTime;
@@ -88,6 +92,29 @@ public class MigrationStatusReplyObj {
 
   public MigrationStatusReplyObj() { 
   }
+
+  public MigrationStatusReplyObj computers(Long computers) {
+    
+    this.computers = computers;
+    return this;
+  }
+
+   /**
+   * Get computers
+   * @return computers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getComputers() {
+    return computers;
+  }
+
+
+  public void setComputers(Long computers) {
+    this.computers = computers;
+  }
+
 
   public MigrationStatusReplyObj durationTime(String durationTime) {
     
@@ -420,7 +447,8 @@ public class MigrationStatusReplyObj {
       return false;
     }
     MigrationStatusReplyObj migrationStatusReplyObj = (MigrationStatusReplyObj) o;
-    return Objects.equals(this.durationTime, migrationStatusReplyObj.durationTime) &&
+    return Objects.equals(this.computers, migrationStatusReplyObj.computers) &&
+        Objects.equals(this.durationTime, migrationStatusReplyObj.durationTime) &&
         Objects.equals(this.error, migrationStatusReplyObj.error) &&
         Objects.equals(this.lastStatusMessage, migrationStatusReplyObj.lastStatusMessage) &&
         Objects.equals(this.maxNameLength, migrationStatusReplyObj.maxNameLength) &&
@@ -438,13 +466,14 @@ public class MigrationStatusReplyObj {
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, targets);
+    return Objects.hash(computers, durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, targets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationStatusReplyObj {\n");
+    sb.append("    computers: ").append(toIndentedString(computers)).append("\n");
     sb.append("    durationTime: ").append(toIndentedString(durationTime)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    lastStatusMessage: ").append(toIndentedString(lastStatusMessage)).append("\n");

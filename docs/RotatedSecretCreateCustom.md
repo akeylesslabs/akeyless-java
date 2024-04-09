@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **name** | **String** | Rotated secret name | 
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
 **rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] |  [optional]
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional]
-**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user |  [optional]
+**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional]
 **secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional]
 **secureAccessSshUser** | **String** | Override the SSH username as indicated in SSH Certificate Issuer |  [optional]
 **secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional]

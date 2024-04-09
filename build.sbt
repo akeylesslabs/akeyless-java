@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.akeyless",
     name := "akeyless-java",
-    version := "3.6.2",
+    version := "3.6.3",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

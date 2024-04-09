@@ -49,6 +49,10 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_LAST_ROTATION_ERROR)
   private String lastRotationError;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max_versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private Long maxVersions;
+
   public static final String SERIALIZED_NAME_NUMBER_OF_VERSIONS_TO_SAVE = "number_of_versions_to_save";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_VERSIONS_TO_SAVE)
   private Integer numberOfVersionsToSave;
@@ -177,6 +181,29 @@ public class RotatedSecretDetailsInfo {
 
   public void setLastRotationError(String lastRotationError) {
     this.lastRotationError = lastRotationError;
+  }
+
+
+  public RotatedSecretDetailsInfo maxVersions(Long maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Get maxVersions
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(Long maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -408,6 +435,7 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.graceRotation, rotatedSecretDetailsInfo.graceRotation) &&
         Objects.equals(this.gwClusterId, rotatedSecretDetailsInfo.gwClusterId) &&
         Objects.equals(this.lastRotationError, rotatedSecretDetailsInfo.lastRotationError) &&
+        Objects.equals(this.maxVersions, rotatedSecretDetailsInfo.maxVersions) &&
         Objects.equals(this.numberOfVersionsToSave, rotatedSecretDetailsInfo.numberOfVersionsToSave) &&
         Objects.equals(this.rotationHour, rotatedSecretDetailsInfo.rotationHour) &&
         Objects.equals(this.rotationIntervalMin, rotatedSecretDetailsInfo.rotationIntervalMin) &&
@@ -421,7 +449,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, graceRotation, gwClusterId, lastRotationError, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails);
+    return Objects.hash(deletePreviousVersionInDays, graceRotation, gwClusterId, lastRotationError, maxVersions, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails);
   }
 
   @Override
@@ -432,6 +460,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    lastRotationError: ").append(toIndentedString(lastRotationError)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    numberOfVersionsToSave: ").append(toIndentedString(numberOfVersionsToSave)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationIntervalMin: ").append(toIndentedString(rotationIntervalMin)).append("\n");

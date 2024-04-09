@@ -71,6 +71,10 @@ public class RotatedSecretCreateAws {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -357,6 +361,29 @@ public class RotatedSecretCreateAws {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretCreateAws maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -709,6 +736,7 @@ public class RotatedSecretCreateAws {
         Objects.equals(this.graceRotation, rotatedSecretCreateAws.graceRotation) &&
         Objects.equals(this.json, rotatedSecretCreateAws.json) &&
         Objects.equals(this.key, rotatedSecretCreateAws.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretCreateAws.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateAws.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateAws.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateAws.rotateAfterDisconnect) &&
@@ -727,7 +755,7 @@ public class RotatedSecretCreateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, json, key, name, passwordLength, rotateAfterDisconnect, rotationHour, rotationInterval, rotatorType, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, tags, targetName, token, uidToken);
+    return Objects.hash(apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationHour, rotationInterval, rotatorType, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -744,6 +772,7 @@ public class RotatedSecretCreateAws {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");

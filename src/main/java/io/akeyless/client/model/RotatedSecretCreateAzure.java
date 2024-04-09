@@ -67,6 +67,10 @@ public class RotatedSecretCreateAzure {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -74,6 +78,10 @@ public class RotatedSecretCreateAzure {
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   private String passwordLength;
+
+  public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT = "rotate-after-disconnect";
+  @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
+  private String rotateAfterDisconnect = "false";
 
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
@@ -86,6 +94,26 @@ public class RotatedSecretCreateAzure {
   public static final String SERIALIZED_NAME_ROTATOR_TYPE = "rotator-type";
   @SerializedName(SERIALIZED_NAME_ROTATOR_TYPE)
   private String rotatorType;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME = "storage-account-key-name";
   @SerializedName(SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME)
@@ -106,6 +134,10 @@ public class RotatedSecretCreateAzure {
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
 
   public RotatedSecretCreateAzure() { 
   }
@@ -317,6 +349,29 @@ public class RotatedSecretCreateAzure {
   }
 
 
+  public RotatedSecretCreateAzure maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public RotatedSecretCreateAzure name(String name) {
     
     this.name = name;
@@ -360,6 +415,29 @@ public class RotatedSecretCreateAzure {
 
   public void setPasswordLength(String passwordLength) {
     this.passwordLength = passwordLength;
+  }
+
+
+  public RotatedSecretCreateAzure rotateAfterDisconnect(String rotateAfterDisconnect) {
+    
+    this.rotateAfterDisconnect = rotateAfterDisconnect;
+    return this;
+  }
+
+   /**
+   * Rotate the value of the secret after SRA session ends [true/false]
+   * @return rotateAfterDisconnect
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rotate the value of the secret after SRA session ends [true/false]")
+
+  public String getRotateAfterDisconnect() {
+    return rotateAfterDisconnect;
+  }
+
+
+  public void setRotateAfterDisconnect(String rotateAfterDisconnect) {
+    this.rotateAfterDisconnect = rotateAfterDisconnect;
   }
 
 
@@ -416,11 +494,11 @@ public class RotatedSecretCreateAzure {
   }
 
    /**
-   * The rotator type. options: [target/api-key/azure-storage-account]
+   * The rotator type. options: [target/password/api-key/azure-storage-account]
    * @return rotatorType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The rotator type. options: [target/api-key/azure-storage-account]")
+  @ApiModelProperty(required = true, value = "The rotator type. options: [target/password/api-key/azure-storage-account]")
 
   public String getRotatorType() {
     return rotatorType;
@@ -429,6 +507,121 @@ public class RotatedSecretCreateAzure {
 
   public void setRotatorType(String rotatorType) {
     this.rotatorType = rotatorType;
+  }
+
+
+  public RotatedSecretCreateAzure secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Enable/Disable secure remote access [true/false]
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public RotatedSecretCreateAzure secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Destination URL to inject secrets")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public RotatedSecretCreateAzure secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Enable Web Secure Remote Access
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
+  public RotatedSecretCreateAzure secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Secure browser via Akeyless Web Access Bastion
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public RotatedSecretCreateAzure secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Web-Proxy via Akeyless Web Access Bastion
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
   }
 
 
@@ -555,6 +748,29 @@ public class RotatedSecretCreateAzure {
   }
 
 
+  public RotatedSecretCreateAzure username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * The user principal name to rotate his password (relevant only for rotator-type&#x3D;password)
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The user principal name to rotate his password (relevant only for rotator-type=password)")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -573,21 +789,29 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.description, rotatedSecretCreateAzure.description) &&
         Objects.equals(this.json, rotatedSecretCreateAzure.json) &&
         Objects.equals(this.key, rotatedSecretCreateAzure.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretCreateAzure.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateAzure.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateAzure.passwordLength) &&
+        Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateAzure.rotateAfterDisconnect) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateAzure.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateAzure.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretCreateAzure.rotatorType) &&
+        Objects.equals(this.secureAccessEnable, rotatedSecretCreateAzure.secureAccessEnable) &&
+        Objects.equals(this.secureAccessUrl, rotatedSecretCreateAzure.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWeb, rotatedSecretCreateAzure.secureAccessWeb) &&
+        Objects.equals(this.secureAccessWebBrowsing, rotatedSecretCreateAzure.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, rotatedSecretCreateAzure.secureAccessWebProxy) &&
         Objects.equals(this.storageAccountKeyName, rotatedSecretCreateAzure.storageAccountKeyName) &&
         Objects.equals(this.tags, rotatedSecretCreateAzure.tags) &&
         Objects.equals(this.targetName, rotatedSecretCreateAzure.targetName) &&
         Objects.equals(this.token, rotatedSecretCreateAzure.token) &&
-        Objects.equals(this.uidToken, rotatedSecretCreateAzure.uidToken);
+        Objects.equals(this.uidToken, rotatedSecretCreateAzure.uidToken) &&
+        Objects.equals(this.username, rotatedSecretCreateAzure.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, key, name, passwordLength, rotationHour, rotationInterval, rotatorType, storageAccountKeyName, tags, targetName, token, uidToken);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationHour, rotationInterval, rotatorType, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, tags, targetName, token, uidToken, username);
   }
 
   @Override
@@ -603,16 +827,24 @@ public class RotatedSecretCreateAzure {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    storageAccountKeyName: ").append(toIndentedString(storageAccountKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

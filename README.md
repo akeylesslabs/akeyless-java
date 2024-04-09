@@ -255,10 +255,14 @@ Class | Method | HTTP request | Description
 *V2Api* | [**esmUpdate**](docs/V2Api.md#esmUpdate) | **POST** /esm-update | 
 *V2Api* | [**eventAction**](docs/V2Api.md#eventAction) | **POST** /event-action | 
 *V2Api* | [**eventForwarderCreateEmail**](docs/V2Api.md#eventForwarderCreateEmail) | **POST** /event-forwarder-create-email | 
+*V2Api* | [**eventForwarderCreateServiceNow**](docs/V2Api.md#eventForwarderCreateServiceNow) | **POST** /event-forwarder-create-servicenow | 
+*V2Api* | [**eventForwarderCreateSlack**](docs/V2Api.md#eventForwarderCreateSlack) | **POST** /event-forwarder-create-slack | 
 *V2Api* | [**eventForwarderCreateWebhook**](docs/V2Api.md#eventForwarderCreateWebhook) | **POST** /event-forwarder-create-webhook | 
 *V2Api* | [**eventForwarderDelete**](docs/V2Api.md#eventForwarderDelete) | **POST** /event-forwarder-delete | 
 *V2Api* | [**eventForwarderGet**](docs/V2Api.md#eventForwarderGet) | **POST** /event-forwarder-get | 
 *V2Api* | [**eventForwarderUpdateEmail**](docs/V2Api.md#eventForwarderUpdateEmail) | **POST** /event-forwarder-update-email | 
+*V2Api* | [**eventForwarderUpdateServiceNow**](docs/V2Api.md#eventForwarderUpdateServiceNow) | **POST** /event-forwarder-update-servicenow | 
+*V2Api* | [**eventForwarderUpdateSlack**](docs/V2Api.md#eventForwarderUpdateSlack) | **POST** /event-forwarder-update-slack | 
 *V2Api* | [**eventForwarderUpdateWebhook**](docs/V2Api.md#eventForwarderUpdateWebhook) | **POST** /event-forwarder-update-webhook | 
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 *V2Api* | [**gatewayCreateAllowedAccess**](docs/V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
@@ -347,6 +351,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
 *V2Api* | [**getAccountLogo**](docs/V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 *V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
+*V2Api* | [**getAnalyticsData**](docs/V2Api.md#getAnalyticsData) | **POST** /get-analytics-data | 
 *V2Api* | [**getAuthMethod**](docs/V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
 *V2Api* | [**getCertificateValue**](docs/V2Api.md#getCertificateValue) | **POST** /get-certificate-value | 
 *V2Api* | [**getDynamicSecretValue**](docs/V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
@@ -393,6 +398,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**renewCertificate**](docs/V2Api.md#renewCertificate) | **POST** /renew-certificate | 
 *V2Api* | [**requestAccess**](docs/V2Api.md#requestAccess) | **POST** /request-access | 
 *V2Api* | [**reverseRBAC**](docs/V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
+*V2Api* | [**revokeCertificate**](docs/V2Api.md#revokeCertificate) | **POST** /revoke-certificate | 
 *V2Api* | [**revokeCreds**](docs/V2Api.md#revokeCreds) | **POST** /revoke-creds | 
 *V2Api* | [**rollbackSecret**](docs/V2Api.md#rollbackSecret) | **POST** /rollback-secret | 
 *V2Api* | [**rotateKey**](docs/V2Api.md#rotateKey) | **POST** /rotate-key | 
@@ -542,6 +548,7 @@ Class | Method | HTTP request | Description
  - [AddGatewayAllowedAccessId](docs/AddGatewayAllowedAccessId.md)
  - [AdminsConfigPart](docs/AdminsConfigPart.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
+ - [AllAnalyticsData](docs/AllAnalyticsData.md)
  - [AllowedAccess](docs/AllowedAccess.md)
  - [AllowedAccessOld](docs/AllowedAccessOld.md)
  - [ArtifactoryTargetDetails](docs/ArtifactoryTargetDetails.md)
@@ -564,6 +571,7 @@ Class | Method | HTTP request | Description
  - [CFConfigPart](docs/CFConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
  - [CertAccessRules](docs/CertAccessRules.md)
+ - [CertificateAnalyticAggregation](docs/CertificateAnalyticAggregation.md)
  - [CertificateChainInfo](docs/CertificateChainInfo.md)
  - [CertificateExpirationEvent](docs/CertificateExpirationEvent.md)
  - [CertificateInfo](docs/CertificateInfo.md)
@@ -576,6 +584,8 @@ Class | Method | HTTP request | Description
  - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
  - [ClassicKeyTargetInfo](docs/ClassicKeyTargetInfo.md)
  - [ClientData](docs/ClientData.md)
+ - [ClientUsageInfo](docs/ClientUsageInfo.md)
+ - [ClientsUsageReport](docs/ClientsUsageReport.md)
  - [ConfigChange](docs/ConfigChange.md)
  - [ConfigHash](docs/ConfigHash.md)
  - [Configure](docs/Configure.md)
@@ -827,6 +837,8 @@ Class | Method | HTTP request | Description
  - [EsmUpdateSecretOutput](docs/EsmUpdateSecretOutput.md)
  - [EventAction](docs/EventAction.md)
  - [EventForwarderCreateEmail](docs/EventForwarderCreateEmail.md)
+ - [EventForwarderCreateServiceNow](docs/EventForwarderCreateServiceNow.md)
+ - [EventForwarderCreateSlack](docs/EventForwarderCreateSlack.md)
  - [EventForwarderCreateUpdateOutput](docs/EventForwarderCreateUpdateOutput.md)
  - [EventForwarderCreateWebhook](docs/EventForwarderCreateWebhook.md)
  - [EventForwarderDelete](docs/EventForwarderDelete.md)
@@ -834,6 +846,8 @@ Class | Method | HTTP request | Description
  - [EventForwarderGet](docs/EventForwarderGet.md)
  - [EventForwarderGetOutput](docs/EventForwarderGetOutput.md)
  - [EventForwarderUpdateEmail](docs/EventForwarderUpdateEmail.md)
+ - [EventForwarderUpdateServiceNow](docs/EventForwarderUpdateServiceNow.md)
+ - [EventForwarderUpdateSlack](docs/EventForwarderUpdateSlack.md)
  - [EventForwarderUpdateWebhook](docs/EventForwarderUpdateWebhook.md)
  - [ExportClassicKey](docs/ExportClassicKey.md)
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
@@ -1008,6 +1022,7 @@ Class | Method | HTTP request | Description
  - [GenerateCsrOutput](docs/GenerateCsrOutput.md)
  - [GetAccountSettings](docs/GetAccountSettings.md)
  - [GetAccountSettingsCommandOutput](docs/GetAccountSettingsCommandOutput.md)
+ - [GetAnalyticsData](docs/GetAnalyticsData.md)
  - [GetAuthMethod](docs/GetAuthMethod.md)
  - [GetCertificateValue](docs/GetCertificateValue.md)
  - [GetCertificateValueOutput](docs/GetCertificateValueOutput.md)
@@ -1051,6 +1066,7 @@ Class | Method | HTTP request | Description
  - [ImporterInfo](docs/ImporterInfo.md)
  - [Item](docs/Item.md)
  - [ItemGeneralInfo](docs/ItemGeneralInfo.md)
+ - [ItemSraStatus](docs/ItemSraStatus.md)
  - [ItemTargetAssociation](docs/ItemTargetAssociation.md)
  - [ItemVersion](docs/ItemVersion.md)
  - [JSONError](docs/JSONError.md)
@@ -1154,6 +1170,7 @@ Class | Method | HTTP request | Description
  - [ReverseRBAC](docs/ReverseRBAC.md)
  - [ReverseRBACClient](docs/ReverseRBACClient.md)
  - [ReverseRBACOutput](docs/ReverseRBACOutput.md)
+ - [RevokeCertificate](docs/RevokeCertificate.md)
  - [RevokeCreds](docs/RevokeCreds.md)
  - [Role](docs/Role.md)
  - [RoleAssociationDetails](docs/RoleAssociationDetails.md)
@@ -1366,6 +1383,7 @@ Class | Method | HTTP request | Description
  - [UploadPKCS12](docs/UploadPKCS12.md)
  - [UploadRSA](docs/UploadRSA.md)
  - [UsageEventSetting](docs/UsageEventSetting.md)
+ - [UsageReportSummary](docs/UsageReportSummary.md)
  - [UscCreate](docs/UscCreate.md)
  - [UscCreateSecretOutput](docs/UscCreateSecretOutput.md)
  - [UscDelete](docs/UscDelete.md)

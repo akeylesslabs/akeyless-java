@@ -37,9 +37,17 @@ public class AwsS3LogForwardingConfig {
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY)
   private String awsAccessKey;
 
+  public static final String SERIALIZED_NAME_AWS_AUTH_TYPE = "aws_auth_type";
+  @SerializedName(SERIALIZED_NAME_AWS_AUTH_TYPE)
+  private String awsAuthType;
+
   public static final String SERIALIZED_NAME_AWS_REGION = "aws_region";
   @SerializedName(SERIALIZED_NAME_AWS_REGION)
   private String awsRegion;
+
+  public static final String SERIALIZED_NAME_AWS_ROLE_ARN = "aws_role_arn";
+  @SerializedName(SERIALIZED_NAME_AWS_ROLE_ARN)
+  private String awsRoleArn;
 
   public static final String SERIALIZED_NAME_AWS_USE_GATEWAY_CLOUD_IDENTITY = "aws_use_gateway_cloud_identity";
   @SerializedName(SERIALIZED_NAME_AWS_USE_GATEWAY_CLOUD_IDENTITY)
@@ -102,6 +110,29 @@ public class AwsS3LogForwardingConfig {
   }
 
 
+  public AwsS3LogForwardingConfig awsAuthType(String awsAuthType) {
+    
+    this.awsAuthType = awsAuthType;
+    return this;
+  }
+
+   /**
+   * Get awsAuthType
+   * @return awsAuthType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAwsAuthType() {
+    return awsAuthType;
+  }
+
+
+  public void setAwsAuthType(String awsAuthType) {
+    this.awsAuthType = awsAuthType;
+  }
+
+
   public AwsS3LogForwardingConfig awsRegion(String awsRegion) {
     
     this.awsRegion = awsRegion;
@@ -125,6 +156,29 @@ public class AwsS3LogForwardingConfig {
   }
 
 
+  public AwsS3LogForwardingConfig awsRoleArn(String awsRoleArn) {
+    
+    this.awsRoleArn = awsRoleArn;
+    return this;
+  }
+
+   /**
+   * Get awsRoleArn
+   * @return awsRoleArn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAwsRoleArn() {
+    return awsRoleArn;
+  }
+
+
+  public void setAwsRoleArn(String awsRoleArn) {
+    this.awsRoleArn = awsRoleArn;
+  }
+
+
   public AwsS3LogForwardingConfig awsUseGatewayCloudIdentity(Boolean awsUseGatewayCloudIdentity) {
     
     this.awsUseGatewayCloudIdentity = awsUseGatewayCloudIdentity;
@@ -132,11 +186,11 @@ public class AwsS3LogForwardingConfig {
   }
 
    /**
-   * Get awsUseGatewayCloudIdentity
+   * deprecated
    * @return awsUseGatewayCloudIdentity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "deprecated")
 
   public Boolean getAwsUseGatewayCloudIdentity() {
     return awsUseGatewayCloudIdentity;
@@ -205,7 +259,9 @@ public class AwsS3LogForwardingConfig {
     AwsS3LogForwardingConfig awsS3LogForwardingConfig = (AwsS3LogForwardingConfig) o;
     return Objects.equals(this.awsAccessId, awsS3LogForwardingConfig.awsAccessId) &&
         Objects.equals(this.awsAccessKey, awsS3LogForwardingConfig.awsAccessKey) &&
+        Objects.equals(this.awsAuthType, awsS3LogForwardingConfig.awsAuthType) &&
         Objects.equals(this.awsRegion, awsS3LogForwardingConfig.awsRegion) &&
+        Objects.equals(this.awsRoleArn, awsS3LogForwardingConfig.awsRoleArn) &&
         Objects.equals(this.awsUseGatewayCloudIdentity, awsS3LogForwardingConfig.awsUseGatewayCloudIdentity) &&
         Objects.equals(this.bucketName, awsS3LogForwardingConfig.bucketName) &&
         Objects.equals(this.logFolder, awsS3LogForwardingConfig.logFolder);
@@ -213,7 +269,7 @@ public class AwsS3LogForwardingConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsAccessId, awsAccessKey, awsRegion, awsUseGatewayCloudIdentity, bucketName, logFolder);
+    return Objects.hash(awsAccessId, awsAccessKey, awsAuthType, awsRegion, awsRoleArn, awsUseGatewayCloudIdentity, bucketName, logFolder);
   }
 
   @Override
@@ -222,7 +278,9 @@ public class AwsS3LogForwardingConfig {
     sb.append("class AwsS3LogForwardingConfig {\n");
     sb.append("    awsAccessId: ").append(toIndentedString(awsAccessId)).append("\n");
     sb.append("    awsAccessKey: ").append(toIndentedString(awsAccessKey)).append("\n");
+    sb.append("    awsAuthType: ").append(toIndentedString(awsAuthType)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
+    sb.append("    awsRoleArn: ").append(toIndentedString(awsRoleArn)).append("\n");
     sb.append("    awsUseGatewayCloudIdentity: ").append(toIndentedString(awsUseGatewayCloudIdentity)).append("\n");
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    logFolder: ").append(toIndentedString(logFolder)).append("\n");

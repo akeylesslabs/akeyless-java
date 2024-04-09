@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gatewayCreateProducerAzure is a command that creates azure producer [Deprecated: Use dynamic-secret-create-azure command]
+ * gatewayCreateProducerAzure is a command that creates azure dynamic secret [Deprecated: Use dynamic-secret-create-azure command]
  */
-@ApiModel(description = "gatewayCreateProducerAzure is a command that creates azure producer [Deprecated: Use dynamic-secret-create-azure command]")
+@ApiModel(description = "gatewayCreateProducerAzure is a command that creates azure dynamic secret [Deprecated: Use dynamic-secret-create-azure command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GatewayCreateProducerAzure {
   public static final String SERIALIZED_NAME_APP_OBJ_ID = "app-obj-id";
@@ -372,11 +372,11 @@ public class GatewayCreateProducerAzure {
   }
 
    /**
-   * Dynamic producer encryption key
+   * Dynamic secret encryption key
    * @return producerEncryptionKeyName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dynamic producer encryption key")
+  @ApiModelProperty(value = "Dynamic secret encryption key")
 
   public String getProducerEncryptionKeyName() {
     return producerEncryptionKeyName;

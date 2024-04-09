@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UpdateEventForwarder
+ * updateEventForwarder is a command that updates an event forwarder [Deprecated - please use event-forwarder-update-* command]
  */
+@ApiModel(description = "updateEventForwarder is a command that updates an event forwarder [Deprecated - please use event-forwarder-update-* command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateEventForwarder {
   public static final String SERIALIZED_NAME_ADMIN_NAME = "admin-name";

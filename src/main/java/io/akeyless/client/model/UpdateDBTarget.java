@@ -93,6 +93,10 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_MONGODB_ATLAS = "mongodb-atlas";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS)
   private Boolean mongodbAtlas;
@@ -541,6 +545,29 @@ public class UpdateDBTarget {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public UpdateDBTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -1029,6 +1056,7 @@ public class UpdateDBTarget {
         Objects.equals(this.json, updateDBTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDBTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDBTarget.key) &&
+        Objects.equals(this.maxVersions, updateDBTarget.maxVersions) &&
         Objects.equals(this.mongodbAtlas, updateDBTarget.mongodbAtlas) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, updateDBTarget.mongodbAtlasApiPrivateKey) &&
         Objects.equals(this.mongodbAtlasApiPublicKey, updateDBTarget.mongodbAtlasApiPublicKey) &&
@@ -1053,7 +1081,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
   @Override
@@ -1076,6 +1104,7 @@ public class UpdateDBTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
     sb.append("    mongodbAtlasApiPublicKey: ").append(toIndentedString(mongodbAtlasApiPublicKey)).append("\n");

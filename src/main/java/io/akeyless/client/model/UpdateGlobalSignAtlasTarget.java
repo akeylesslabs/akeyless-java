@@ -57,6 +57,10 @@ public class UpdateGlobalSignAtlasTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_MTLS_CERT_DATA_BASE64 = "mtls-cert-data-base64";
   @SerializedName(SERIALIZED_NAME_MTLS_CERT_DATA_BASE64)
   private String mtlsCertDataBase64;
@@ -250,6 +254,29 @@ public class UpdateGlobalSignAtlasTarget {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public UpdateGlobalSignAtlasTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -453,6 +480,7 @@ public class UpdateGlobalSignAtlasTarget {
         Objects.equals(this.json, updateGlobalSignAtlasTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateGlobalSignAtlasTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGlobalSignAtlasTarget.key) &&
+        Objects.equals(this.maxVersions, updateGlobalSignAtlasTarget.maxVersions) &&
         Objects.equals(this.mtlsCertDataBase64, updateGlobalSignAtlasTarget.mtlsCertDataBase64) &&
         Objects.equals(this.mtlsKeyDataBase64, updateGlobalSignAtlasTarget.mtlsKeyDataBase64) &&
         Objects.equals(this.name, updateGlobalSignAtlasTarget.name) &&
@@ -465,7 +493,7 @@ public class UpdateGlobalSignAtlasTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiSecret, comment, description, json, keepPrevVersion, key, mtlsCertDataBase64, mtlsKeyDataBase64, name, newName, timeout, token, uidToken, updateVersion);
+    return Objects.hash(apiKey, apiSecret, comment, description, json, keepPrevVersion, key, maxVersions, mtlsCertDataBase64, mtlsKeyDataBase64, name, newName, timeout, token, uidToken, updateVersion);
   }
 
   @Override
@@ -479,6 +507,7 @@ public class UpdateGlobalSignAtlasTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    mtlsCertDataBase64: ").append(toIndentedString(mtlsCertDataBase64)).append("\n");
     sb.append("    mtlsKeyDataBase64: ").append(toIndentedString(mtlsKeyDataBase64)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

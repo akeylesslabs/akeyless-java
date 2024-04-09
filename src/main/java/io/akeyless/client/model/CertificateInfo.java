@@ -42,6 +42,10 @@ public class CertificateInfo {
   @SerializedName(SERIALIZED_NAME_KEY_USAGE)
   private Long keyUsage;
 
+  public static final String SERIALIZED_NAME_CRL_DISTRIBUTION_POINTS = "crl_distribution_points";
+  @SerializedName(SERIALIZED_NAME_CRL_DISTRIBUTION_POINTS)
+  private List<String> crlDistributionPoints = null;
+
   public static final String SERIALIZED_NAME_DNS_NAMES = "dns_names";
   @SerializedName(SERIALIZED_NAME_DNS_NAMES)
   private List<String> dnsNames = null;
@@ -180,6 +184,37 @@ public class CertificateInfo {
 
   public void setKeyUsage(Long keyUsage) {
     this.keyUsage = keyUsage;
+  }
+
+
+  public CertificateInfo crlDistributionPoints(List<String> crlDistributionPoints) {
+    
+    this.crlDistributionPoints = crlDistributionPoints;
+    return this;
+  }
+
+  public CertificateInfo addCrlDistributionPointsItem(String crlDistributionPointsItem) {
+    if (this.crlDistributionPoints == null) {
+      this.crlDistributionPoints = new ArrayList<String>();
+    }
+    this.crlDistributionPoints.add(crlDistributionPointsItem);
+    return this;
+  }
+
+   /**
+   * Get crlDistributionPoints
+   * @return crlDistributionPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getCrlDistributionPoints() {
+    return crlDistributionPoints;
+  }
+
+
+  public void setCrlDistributionPoints(List<String> crlDistributionPoints) {
+    this.crlDistributionPoints = crlDistributionPoints;
   }
 
 
@@ -733,6 +768,7 @@ public class CertificateInfo {
     CertificateInfo certificateInfo = (CertificateInfo) o;
     return Objects.equals(this.extKeyUsage, certificateInfo.extKeyUsage) &&
         Objects.equals(this.keyUsage, certificateInfo.keyUsage) &&
+        Objects.equals(this.crlDistributionPoints, certificateInfo.crlDistributionPoints) &&
         Objects.equals(this.dnsNames, certificateInfo.dnsNames) &&
         Objects.equals(this.emailAddresses, certificateInfo.emailAddresses) &&
         Objects.equals(this.extensions, certificateInfo.extensions) &&
@@ -758,7 +794,7 @@ public class CertificateInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(extKeyUsage, keyUsage, dnsNames, emailAddresses, extensions, ipAddresses, isCa, issuer, issuingCertificateUrl, keySize, notAfter, notBefore, ocspServer, publicKeyAlgorithmName, serialNumber, sha1Fingerprint, sha256Fingerprint, signature, signatureAlgorithmName, subject, subjectPublicKey, uris, version);
+    return Objects.hash(extKeyUsage, keyUsage, crlDistributionPoints, dnsNames, emailAddresses, extensions, ipAddresses, isCa, issuer, issuingCertificateUrl, keySize, notAfter, notBefore, ocspServer, publicKeyAlgorithmName, serialNumber, sha1Fingerprint, sha256Fingerprint, signature, signatureAlgorithmName, subject, subjectPublicKey, uris, version);
   }
 
   @Override
@@ -767,6 +803,7 @@ public class CertificateInfo {
     sb.append("class CertificateInfo {\n");
     sb.append("    extKeyUsage: ").append(toIndentedString(extKeyUsage)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
+    sb.append("    crlDistributionPoints: ").append(toIndentedString(crlDistributionPoints)).append("\n");
     sb.append("    dnsNames: ").append(toIndentedString(dnsNames)).append("\n");
     sb.append("    emailAddresses: ").append(toIndentedString(emailAddresses)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");

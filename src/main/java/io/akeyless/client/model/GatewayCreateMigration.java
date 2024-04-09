@@ -68,6 +68,10 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_AD_SSH_PORT)
   private String adSshPort = "22";
 
+  public static final String SERIALIZED_NAME_AD_TARGET_FORMAT = "ad-target-format";
+  @SerializedName(SERIALIZED_NAME_AD_TARGET_FORMAT)
+  private String adTargetFormat = "linked";
+
   public static final String SERIALIZED_NAME_AD_TARGETS_TYPE = "ad-targets-type";
   @SerializedName(SERIALIZED_NAME_AD_TARGETS_TYPE)
   private String adTargetsType = "windows";
@@ -503,6 +507,29 @@ public class GatewayCreateMigration {
 
   public void setAdSshPort(String adSshPort) {
     this.adSshPort = adSshPort;
+  }
+
+
+  public GatewayCreateMigration adTargetFormat(String adTargetFormat) {
+    
+    this.adTargetFormat = adTargetFormat;
+    return this;
+  }
+
+   /**
+   * Relevant only for ad-discovery-types&#x3D;computers. For linked, all computers will be migrated into a linked target(s). if set with regular, the migration will create a target for each computer.
+   * @return adTargetFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Relevant only for ad-discovery-types=computers. For linked, all computers will be migrated into a linked target(s). if set with regular, the migration will create a target for each computer.")
+
+  public String getAdTargetFormat() {
+    return adTargetFormat;
+  }
+
+
+  public void setAdTargetFormat(String adTargetFormat) {
+    this.adTargetFormat = adTargetFormat;
   }
 
 
@@ -1775,6 +1802,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.adDiscoveryTypes, gatewayCreateMigration.adDiscoveryTypes) &&
         Objects.equals(this.adOsFilter, gatewayCreateMigration.adOsFilter) &&
         Objects.equals(this.adSshPort, gatewayCreateMigration.adSshPort) &&
+        Objects.equals(this.adTargetFormat, gatewayCreateMigration.adTargetFormat) &&
         Objects.equals(this.adTargetsType, gatewayCreateMigration.adTargetsType) &&
         Objects.equals(this.adWinrmOverHttp, gatewayCreateMigration.adWinrmOverHttp) &&
         Objects.equals(this.adWinrmPort, gatewayCreateMigration.adWinrmPort) &&
@@ -1832,7 +1860,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetFormat, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
   }
 
   @Override
@@ -1848,6 +1876,7 @@ public class GatewayCreateMigration {
     sb.append("    adDiscoveryTypes: ").append(toIndentedString(adDiscoveryTypes)).append("\n");
     sb.append("    adOsFilter: ").append(toIndentedString(adOsFilter)).append("\n");
     sb.append("    adSshPort: ").append(toIndentedString(adSshPort)).append("\n");
+    sb.append("    adTargetFormat: ").append(toIndentedString(adTargetFormat)).append("\n");
     sb.append("    adTargetsType: ").append(toIndentedString(adTargetsType)).append("\n");
     sb.append("    adWinrmOverHttp: ").append(toIndentedString(adWinrmOverHttp)).append("\n");
     sb.append("    adWinrmPort: ").append(toIndentedString(adWinrmPort)).append("\n");

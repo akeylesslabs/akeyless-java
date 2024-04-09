@@ -69,6 +69,10 @@ public class UpdateGKETarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -326,6 +330,29 @@ public class UpdateGKETarget {
   }
 
 
+  public UpdateGKETarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public UpdateGKETarget name(String name) {
     
     this.name = name;
@@ -483,6 +510,7 @@ public class UpdateGKETarget {
         Objects.equals(this.json, updateGKETarget.json) &&
         Objects.equals(this.keepPrevVersion, updateGKETarget.keepPrevVersion) &&
         Objects.equals(this.key, updateGKETarget.key) &&
+        Objects.equals(this.maxVersions, updateGKETarget.maxVersions) &&
         Objects.equals(this.name, updateGKETarget.name) &&
         Objects.equals(this.newName, updateGKETarget.newName) &&
         Objects.equals(this.token, updateGKETarget.token) &&
@@ -493,7 +521,7 @@ public class UpdateGKETarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(comment, description, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
   @Override
@@ -510,6 +538,7 @@ public class UpdateGKETarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

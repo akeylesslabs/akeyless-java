@@ -88,6 +88,10 @@ public class DynamicSecretCreateAws {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  private String passwordLength;
+
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
@@ -469,6 +473,29 @@ public class DynamicSecretCreateAws {
   }
 
 
+  public DynamicSecretCreateAws passwordLength(String passwordLength) {
+    
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+   /**
+   * The length of the password to be generated
+   * @return passwordLength
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The length of the password to be generated")
+
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+
+  public void setPasswordLength(String passwordLength) {
+    this.passwordLength = passwordLength;
+  }
+
+
   public DynamicSecretCreateAws producerEncryptionKeyName(String producerEncryptionKeyName) {
     
     this.producerEncryptionKeyName = producerEncryptionKeyName;
@@ -822,6 +849,7 @@ public class DynamicSecretCreateAws {
         Objects.equals(this.enableAdminRotation, dynamicSecretCreateAws.enableAdminRotation) &&
         Objects.equals(this.json, dynamicSecretCreateAws.json) &&
         Objects.equals(this.name, dynamicSecretCreateAws.name) &&
+        Objects.equals(this.passwordLength, dynamicSecretCreateAws.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateAws.producerEncryptionKeyName) &&
         Objects.equals(this.region, dynamicSecretCreateAws.region) &&
         Objects.equals(this.secureAccessAwsAccountId, dynamicSecretCreateAws.secureAccessAwsAccountId) &&
@@ -840,7 +868,7 @@ public class DynamicSecretCreateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, description, enableAdminRotation, json, name, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, description, enableAdminRotation, json, name, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -861,6 +889,7 @@ public class DynamicSecretCreateAws {
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");

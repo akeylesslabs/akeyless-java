@@ -37,6 +37,10 @@ public class UpdateTarget {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -103,6 +107,29 @@ public class UpdateTarget {
 
   public void setJson(Boolean json) {
     this.json = json;
+  }
+
+
+  public UpdateTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -232,6 +259,7 @@ public class UpdateTarget {
     UpdateTarget updateTarget = (UpdateTarget) o;
     return Objects.equals(this.description, updateTarget.description) &&
         Objects.equals(this.json, updateTarget.json) &&
+        Objects.equals(this.maxVersions, updateTarget.maxVersions) &&
         Objects.equals(this.name, updateTarget.name) &&
         Objects.equals(this.newComment, updateTarget.newComment) &&
         Objects.equals(this.newName, updateTarget.newName) &&
@@ -241,7 +269,7 @@ public class UpdateTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, json, name, newComment, newName, token, uidToken);
+    return Objects.hash(description, json, maxVersions, name, newComment, newName, token, uidToken);
   }
 
   @Override
@@ -250,6 +278,7 @@ public class UpdateTarget {
     sb.append("class UpdateTarget {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");

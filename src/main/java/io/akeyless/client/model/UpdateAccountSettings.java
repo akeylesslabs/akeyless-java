@@ -69,6 +69,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL_ENABLE)
   private String dynamicSecretMaxTtlEnable;
 
+  public static final String SERIALIZED_NAME_FORCE_NEW_VERSIONS = "force-new-versions";
+  @SerializedName(SERIALIZED_NAME_FORCE_NEW_VERSIONS)
+  private String forceNewVersions;
+
   public static final String SERIALIZED_NAME_INVALID_CHARACTERS = "invalid-characters";
   @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
   private String invalidCharacters = "notReceivedInvalidCharacter";
@@ -309,11 +313,11 @@ public class UpdateAccountSettings {
   }
 
    /**
-   * If set to true, new item version will be created on each update [true/false]
+   * If set to true, new versions is enabled by default
    * @return defaultVersioning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If set to true, new item version will be created on each update [true/false]")
+  @ApiModelProperty(value = "If set to true, new versions is enabled by default")
 
   public String getDefaultVersioning() {
     return defaultVersioning;
@@ -391,6 +395,29 @@ public class UpdateAccountSettings {
 
   public void setDynamicSecretMaxTtlEnable(String dynamicSecretMaxTtlEnable) {
     this.dynamicSecretMaxTtlEnable = dynamicSecretMaxTtlEnable;
+  }
+
+
+  public UpdateAccountSettings forceNewVersions(String forceNewVersions) {
+    
+    this.forceNewVersions = forceNewVersions;
+    return this;
+  }
+
+   /**
+   * If set to true, new version will be created on update
+   * @return forceNewVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set to true, new version will be created on update")
+
+  public String getForceNewVersions() {
+    return forceNewVersions;
+  }
+
+
+  public void setForceNewVersions(String forceNewVersions) {
+    this.forceNewVersions = forceNewVersions;
   }
 
 
@@ -942,6 +969,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.dynamicSecretMaxTtl, updateAccountSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
+        Objects.equals(this.forceNewVersions, updateAccountSettings.forceNewVersions) &&
         Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.itemsDeletionProtection, updateAccountSettings.itemsDeletionProtection) &&
@@ -969,7 +997,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, forceNewVersions, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -986,6 +1014,7 @@ public class UpdateAccountSettings {
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
+    sb.append("    forceNewVersions: ").append(toIndentedString(forceNewVersions)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemsDeletionProtection: ").append(toIndentedString(itemsDeletionProtection)).append("\n");

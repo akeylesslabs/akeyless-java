@@ -72,6 +72,10 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_POST_PROVISION_COMMAND = "post-provision-command";
+  @SerializedName(SERIALIZED_NAME_POST_PROVISION_COMMAND)
+  private String postProvisionCommand;
+
   public static final String SERIALIZED_NAME_PRIVATE_KEY_PATH = "private-key-path";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PATH)
   private String privateKeyPath;
@@ -353,6 +357,29 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem postProvisionCommand(String postProvisionCommand) {
+    
+    this.postProvisionCommand = postProvisionCommand;
+    return this;
+  }
+
+   /**
+   * A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
+   * @return postProvisionCommand
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)")
+
+  public String getPostProvisionCommand() {
+    return postProvisionCommand;
+  }
+
+
+  public void setPostProvisionCommand(String postProvisionCommand) {
+    this.postProvisionCommand = postProvisionCommand;
+  }
+
+
   public AssocTargetItem privateKeyPath(String privateKeyPath) {
     
     this.privateKeyPath = privateKeyPath;
@@ -610,6 +637,7 @@ public class AssocTargetItem {
         Objects.equals(this.locationId, assocTargetItem.locationId) &&
         Objects.equals(this.multiRegion, assocTargetItem.multiRegion) &&
         Objects.equals(this.name, assocTargetItem.name) &&
+        Objects.equals(this.postProvisionCommand, assocTargetItem.postProvisionCommand) &&
         Objects.equals(this.privateKeyPath, assocTargetItem.privateKeyPath) &&
         Objects.equals(this.projectId, assocTargetItem.projectId) &&
         Objects.equals(this.purpose, assocTargetItem.purpose) &&
@@ -624,7 +652,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificatePath, chainPath, disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, privateKeyPath, projectId, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(certificatePath, chainPath, disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, postProvisionCommand, privateKeyPath, projectId, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
@@ -641,6 +669,7 @@ public class AssocTargetItem {
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    postProvisionCommand: ").append(toIndentedString(postProvisionCommand)).append("\n");
     sb.append("    privateKeyPath: ").append(toIndentedString(privateKeyPath)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");

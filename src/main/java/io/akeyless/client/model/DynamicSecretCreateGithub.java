@@ -221,11 +221,11 @@ public class DynamicSecretCreateGithub {
   }
 
    /**
-   * Github app installation id
+   * GitHub application installation id
    * @return installationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Github app installation id")
+  @ApiModelProperty(value = "GitHub application installation id")
 
   public Long getInstallationId() {
     return installationId;
@@ -244,11 +244,11 @@ public class DynamicSecretCreateGithub {
   }
 
    /**
-   * Optional, instead of installation id, set a GitHub organization name
+   * Optional, mutually exclusive with installation id, GitHub organization name
    * @return installationOrganization
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional, instead of installation id, set a GitHub organization name")
+  @ApiModelProperty(value = "Optional, mutually exclusive with installation id, GitHub organization name")
 
   public String getInstallationOrganization() {
     return installationOrganization;
@@ -267,11 +267,11 @@ public class DynamicSecretCreateGithub {
   }
 
    /**
-   * Optional, instead of installation id, set a GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;
+   * Optional, mutually exclusive with installation id, GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;&#39;
    * @return installationRepository
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional, instead of installation id, set a GitHub repository '<owner>/<repo-name>")
+  @ApiModelProperty(value = "Optional, mutually exclusive with installation id, GitHub repository '<owner>/<repo-name>'")
 
   public String getInstallationRepository() {
     return installationRepository;

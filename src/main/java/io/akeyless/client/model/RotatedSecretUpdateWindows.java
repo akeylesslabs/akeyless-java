@@ -63,6 +63,10 @@ public class RotatedSecretUpdateWindows {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -327,6 +331,29 @@ public class RotatedSecretUpdateWindows {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretUpdateWindows maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -675,11 +702,11 @@ public class RotatedSecretUpdateWindows {
   }
 
    /**
-   * Required when the Dynamic Secret is used for a domain user
+   * Default domain name server. i.e. microsoft.com
    * @return secureAccessRdpDomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user")
+  @ApiModelProperty(value = "Default domain name server. i.e. microsoft.com")
 
   public String getSecureAccessRdpDomain() {
     return secureAccessRdpDomain;
@@ -777,6 +804,7 @@ public class RotatedSecretUpdateWindows {
         Objects.equals(this.json, rotatedSecretUpdateWindows.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateWindows.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateWindows.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateWindows.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateWindows.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateWindows.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateWindows.passwordLength) &&
@@ -799,7 +827,7 @@ public class RotatedSecretUpdateWindows {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, token, uidToken);
   }
 
   @Override
@@ -814,6 +842,7 @@ public class RotatedSecretUpdateWindows {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

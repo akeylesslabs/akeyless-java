@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DeleteEventForwarder
+ * deleteEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-delete command]
  */
+@ApiModel(description = "deleteEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-delete command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteEventForwarder {
   public static final String SERIALIZED_NAME_JSON = "json";

@@ -53,6 +53,10 @@ public class CreatePingTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -218,6 +222,29 @@ public class CreatePingTarget {
   }
 
 
+  public CreatePingTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public CreatePingTarget name(String name) {
     
     this.name = name;
@@ -371,6 +398,7 @@ public class CreatePingTarget {
         Objects.equals(this.description, createPingTarget.description) &&
         Objects.equals(this.json, createPingTarget.json) &&
         Objects.equals(this.key, createPingTarget.key) &&
+        Objects.equals(this.maxVersions, createPingTarget.maxVersions) &&
         Objects.equals(this.name, createPingTarget.name) &&
         Objects.equals(this.password, createPingTarget.password) &&
         Objects.equals(this.pingUrl, createPingTarget.pingUrl) &&
@@ -381,7 +409,7 @@ public class CreatePingTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, authorizationPort, comment, description, json, key, name, password, pingUrl, privilegedUser, token, uidToken);
+    return Objects.hash(administrativePort, authorizationPort, comment, description, json, key, maxVersions, name, password, pingUrl, privilegedUser, token, uidToken);
   }
 
   @Override
@@ -394,6 +422,7 @@ public class CreatePingTarget {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    pingUrl: ").append(toIndentedString(pingUrl)).append("\n");

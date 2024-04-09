@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **enableAdminRotation** | **Boolean** | Automatic admin credentials rotation |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
+**passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **region** | **String** | Region |  [optional]
 **secureAccessAwsAccountId** | **String** | The AWS account id |  [optional]

@@ -61,6 +61,10 @@ public class CreateLdapTarget {
   @SerializedName(SERIALIZED_NAME_LDAP_URL)
   private String ldapUrl;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -268,6 +272,29 @@ public class CreateLdapTarget {
   }
 
 
+  public CreateLdapTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public CreateLdapTarget name(String name) {
     
     this.name = name;
@@ -400,6 +427,7 @@ public class CreateLdapTarget {
         Objects.equals(this.key, createLdapTarget.key) &&
         Objects.equals(this.ldapCaCert, createLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, createLdapTarget.ldapUrl) &&
+        Objects.equals(this.maxVersions, createLdapTarget.maxVersions) &&
         Objects.equals(this.name, createLdapTarget.name) &&
         Objects.equals(this.serverType, createLdapTarget.serverType) &&
         Objects.equals(this.token, createLdapTarget.token) &&
@@ -409,7 +437,7 @@ public class CreateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, description, json, key, ldapCaCert, ldapUrl, name, serverType, token, tokenExpiration, uidToken);
+    return Objects.hash(bindDn, bindDnPassword, comment, description, json, key, ldapCaCert, ldapUrl, maxVersions, name, serverType, token, tokenExpiration, uidToken);
   }
 
   @Override
@@ -424,6 +452,7 @@ public class CreateLdapTarget {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    serverType: ").append(toIndentedString(serverType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

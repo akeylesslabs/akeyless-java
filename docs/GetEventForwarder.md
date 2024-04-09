@@ -2,6 +2,7 @@
 
 # GetEventForwarder
 
+getEventForwarder is a command that creates a new event forwarder [Deprecated - please use event-forwarder-get command]
 
 ## Properties
 

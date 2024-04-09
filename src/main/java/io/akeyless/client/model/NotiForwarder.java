@@ -95,6 +95,10 @@ public class NotiForwarder {
   @SerializedName(SERIALIZED_NAME_NOTI_FORWARDER_VERSIONS)
   private List<ItemVersion> notiForwarderVersions = null;
 
+  public static final String SERIALIZED_NAME_OVERRIDE_URL = "override_url";
+  @SerializedName(SERIALIZED_NAME_OVERRIDE_URL)
+  private String overrideUrl;
+
   public static final String SERIALIZED_NAME_PATHS = "paths";
   @SerializedName(SERIALIZED_NAME_PATHS)
   private List<String> paths = null;
@@ -106,6 +110,10 @@ public class NotiForwarder {
   public static final String SERIALIZED_NAME_RUNNER_TYPE = "runner_type";
   @SerializedName(SERIALIZED_NAME_RUNNER_TYPE)
   private String runnerType;
+
+  public static final String SERIALIZED_NAME_SLACK_NOTI_FORWARDER_PUBLIC_DETAILS = "slack_noti_forwarder_public_details";
+  @SerializedName(SERIALIZED_NAME_SLACK_NOTI_FORWARDER_PUBLIC_DETAILS)
+  private Object slackNotiForwarderPublicDetails;
 
   public static final String SERIALIZED_NAME_TIMESPAN_IN_SECONDS = "timespan_in_seconds";
   @SerializedName(SERIALIZED_NAME_TIMESPAN_IN_SECONDS)
@@ -503,6 +511,29 @@ public class NotiForwarder {
   }
 
 
+  public NotiForwarder overrideUrl(String overrideUrl) {
+    
+    this.overrideUrl = overrideUrl;
+    return this;
+  }
+
+   /**
+   * Get overrideUrl
+   * @return overrideUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getOverrideUrl() {
+    return overrideUrl;
+  }
+
+
+  public void setOverrideUrl(String overrideUrl) {
+    this.overrideUrl = overrideUrl;
+  }
+
+
   public NotiForwarder paths(List<String> paths) {
     
     this.paths = paths;
@@ -577,6 +608,29 @@ public class NotiForwarder {
 
   public void setRunnerType(String runnerType) {
     this.runnerType = runnerType;
+  }
+
+
+  public NotiForwarder slackNotiForwarderPublicDetails(Object slackNotiForwarderPublicDetails) {
+    
+    this.slackNotiForwarderPublicDetails = slackNotiForwarderPublicDetails;
+    return this;
+  }
+
+   /**
+   * Get slackNotiForwarderPublicDetails
+   * @return slackNotiForwarderPublicDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getSlackNotiForwarderPublicDetails() {
+    return slackNotiForwarderPublicDetails;
+  }
+
+
+  public void setSlackNotiForwarderPublicDetails(Object slackNotiForwarderPublicDetails) {
+    this.slackNotiForwarderPublicDetails = slackNotiForwarderPublicDetails;
   }
 
 
@@ -750,9 +804,11 @@ public class NotiForwarder {
         Objects.equals(this.notiForwarderName, notiForwarder.notiForwarderName) &&
         Objects.equals(this.notiForwarderType, notiForwarder.notiForwarderType) &&
         Objects.equals(this.notiForwarderVersions, notiForwarder.notiForwarderVersions) &&
+        Objects.equals(this.overrideUrl, notiForwarder.overrideUrl) &&
         Objects.equals(this.paths, notiForwarder.paths) &&
         Objects.equals(this.protectionKey, notiForwarder.protectionKey) &&
         Objects.equals(this.runnerType, notiForwarder.runnerType) &&
+        Objects.equals(this.slackNotiForwarderPublicDetails, notiForwarder.slackNotiForwarderPublicDetails) &&
         Objects.equals(this.timespanInSeconds, notiForwarder.timespanInSeconds) &&
         Objects.equals(this.toEmails, notiForwarder.toEmails) &&
         Objects.equals(this.userEmail, notiForwarder.userEmail) &&
@@ -763,7 +819,7 @@ public class NotiForwarder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, paths, protectionKey, runnerType, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
+    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, overrideUrl, paths, protectionKey, runnerType, slackNotiForwarderPublicDetails, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
   }
 
   @Override
@@ -785,9 +841,11 @@ public class NotiForwarder {
     sb.append("    notiForwarderName: ").append(toIndentedString(notiForwarderName)).append("\n");
     sb.append("    notiForwarderType: ").append(toIndentedString(notiForwarderType)).append("\n");
     sb.append("    notiForwarderVersions: ").append(toIndentedString(notiForwarderVersions)).append("\n");
+    sb.append("    overrideUrl: ").append(toIndentedString(overrideUrl)).append("\n");
     sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    runnerType: ").append(toIndentedString(runnerType)).append("\n");
+    sb.append("    slackNotiForwarderPublicDetails: ").append(toIndentedString(slackNotiForwarderPublicDetails)).append("\n");
     sb.append("    timespanInSeconds: ").append(toIndentedString(timespanInSeconds)).append("\n");
     sb.append("    toEmails: ").append(toIndentedString(toEmails)).append("\n");
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");

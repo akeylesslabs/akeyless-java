@@ -71,6 +71,10 @@ public class RotatedSecretUpdateLdap {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -126,6 +130,14 @@ public class RotatedSecretUpdateLdap {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
@@ -385,6 +397,29 @@ public class RotatedSecretUpdateLdap {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretUpdateLdap maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -664,11 +699,11 @@ public class RotatedSecretUpdateLdap {
   }
 
    /**
-   * Required when the Dynamic Secret is used for a domain user
+   * Default domain name server. i.e. microsoft.com
    * @return secureAccessRdpDomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user")
+  @ApiModelProperty(value = "Default domain name server. i.e. microsoft.com")
 
   public String getSecureAccessRdpDomain() {
     return secureAccessRdpDomain;
@@ -723,6 +758,52 @@ public class RotatedSecretUpdateLdap {
 
   public void setSecureAccessWeb(Boolean secureAccessWeb) {
     this.secureAccessWeb = secureAccessWeb;
+  }
+
+
+  public RotatedSecretUpdateLdap secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Secure browser via Akeyless Web Access Bastion
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public RotatedSecretUpdateLdap secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Web-Proxy via Akeyless Web Access Bastion
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
   }
 
 
@@ -868,6 +949,7 @@ public class RotatedSecretUpdateLdap {
         Objects.equals(this.json, rotatedSecretUpdateLdap.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateLdap.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateLdap.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateLdap.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateLdap.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateLdap.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateLdap.passwordLength) &&
@@ -882,6 +964,8 @@ public class RotatedSecretUpdateLdap {
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretUpdateLdap.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessUrl, rotatedSecretUpdateLdap.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, rotatedSecretUpdateLdap.secureAccessWeb) &&
+        Objects.equals(this.secureAccessWebBrowsing, rotatedSecretUpdateLdap.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, rotatedSecretUpdateLdap.secureAccessWebProxy) &&
         Objects.equals(this.target, rotatedSecretUpdateLdap.target) &&
         Objects.equals(this.token, rotatedSecretUpdateLdap.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateLdap.uidToken) &&
@@ -891,7 +975,7 @@ public class RotatedSecretUpdateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, addTag, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, target, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, addTag, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, target, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -908,6 +992,7 @@ public class RotatedSecretUpdateLdap {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
@@ -922,6 +1007,8 @@ public class RotatedSecretUpdateLdap {
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
 **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **name** | **String** | Rotated secret name | 
 **newName** | **String** | New item name |  [optional]
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
@@ -29,7 +30,7 @@ Name | Type | Description | Notes
 **secureAccessAllowExternalUser** | **Boolean** | Allow providing external user for a domain users |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
 **secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional]
-**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user |  [optional]
+**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional]
 **secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

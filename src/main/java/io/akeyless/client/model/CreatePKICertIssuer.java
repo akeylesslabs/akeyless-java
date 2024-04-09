@@ -71,6 +71,14 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
+  public static final String SERIALIZED_NAME_CREATE_PRIVATE_CRL = "create-private-crl";
+  @SerializedName(SERIALIZED_NAME_CREATE_PRIVATE_CRL)
+  private Boolean createPrivateCrl;
+
+  public static final String SERIALIZED_NAME_CREATE_PUBLIC_CRL = "create-public-crl";
+  @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_CRL)
+  private Boolean createPublicCrl;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
@@ -404,6 +412,52 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer createPrivateCrl(Boolean createPrivateCrl) {
+    
+    this.createPrivateCrl = createPrivateCrl;
+    return this;
+  }
+
+   /**
+   * Set this to allow the issuer will expose a CRL endpoint in the Gateway
+   * @return createPrivateCrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set this to allow the issuer will expose a CRL endpoint in the Gateway")
+
+  public Boolean getCreatePrivateCrl() {
+    return createPrivateCrl;
+  }
+
+
+  public void setCreatePrivateCrl(Boolean createPrivateCrl) {
+    this.createPrivateCrl = createPrivateCrl;
+  }
+
+
+  public CreatePKICertIssuer createPublicCrl(Boolean createPublicCrl) {
+    
+    this.createPublicCrl = createPublicCrl;
+    return this;
+  }
+
+   /**
+   * Set this to allow the cert issuer will expose a public CRL endpoint
+   * @return createPublicCrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set this to allow the cert issuer will expose a public CRL endpoint")
+
+  public Boolean getCreatePublicCrl() {
+    return createPublicCrl;
+  }
+
+
+  public void setCreatePublicCrl(Boolean createPublicCrl) {
+    this.createPublicCrl = createPublicCrl;
+  }
+
+
   public CreatePKICertIssuer deleteProtection(String deleteProtection) {
     
     this.deleteProtection = deleteProtection;
@@ -511,11 +565,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * The GW cluster URL to issue the certificate from, required in Public CA mode
+   * The GW cluster URL to issue the certificate from, required in Public CA mode or to allow CRLs on private CA
    * @return gwClusterUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The GW cluster URL to issue the certificate from, required in Public CA mode")
+  @ApiModelProperty(value = "The GW cluster URL to issue the certificate from, required in Public CA mode or to allow CRLs on private CA")
 
   public String getGwClusterUrl() {
     return gwClusterUrl;
@@ -1014,6 +1068,8 @@ public class CreatePKICertIssuer {
         Objects.equals(this.clientFlag, createPKICertIssuer.clientFlag) &&
         Objects.equals(this.codeSigningFlag, createPKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, createPKICertIssuer.country) &&
+        Objects.equals(this.createPrivateCrl, createPKICertIssuer.createPrivateCrl) &&
+        Objects.equals(this.createPublicCrl, createPKICertIssuer.createPublicCrl) &&
         Objects.equals(this.deleteProtection, createPKICertIssuer.deleteProtection) &&
         Objects.equals(this.description, createPKICertIssuer.description) &&
         Objects.equals(this.destinationPath, createPKICertIssuer.destinationPath) &&
@@ -1043,7 +1099,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1060,6 +1116,8 @@ public class CreatePKICertIssuer {
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    createPrivateCrl: ").append(toIndentedString(createPrivateCrl)).append("\n");
+    sb.append("    createPublicCrl: ").append(toIndentedString(createPublicCrl)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");

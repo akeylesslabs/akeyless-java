@@ -63,6 +63,10 @@ public class RotatedSecretUpdateMysql {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -319,6 +323,29 @@ public class RotatedSecretUpdateMysql {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretUpdateMysql maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -723,6 +750,7 @@ public class RotatedSecretUpdateMysql {
         Objects.equals(this.json, rotatedSecretUpdateMysql.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateMysql.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateMysql.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateMysql.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateMysql.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateMysql.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateMysql.passwordLength) &&
@@ -743,7 +771,7 @@ public class RotatedSecretUpdateMysql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessBastionIssuer, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessBastionIssuer, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, token, uidToken);
   }
 
   @Override
@@ -758,6 +786,7 @@ public class RotatedSecretUpdateMysql {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

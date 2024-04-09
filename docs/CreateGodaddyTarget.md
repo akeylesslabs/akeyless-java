@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **imapUsername** | **String** | ImapUsername to access the IMAP service | 
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **name** | **String** | Target name | 
 **secret** | **String** | Secret of the api credentials to the Godaddy account | 
 **timeout** | **String** | Timeout waiting for certificate validation in Duration format (1h - 1 Hour, 20m - 20 Minutes, 33m3s - 33 Minutes and 3 Seconds), maximum 1h. |  [optional]

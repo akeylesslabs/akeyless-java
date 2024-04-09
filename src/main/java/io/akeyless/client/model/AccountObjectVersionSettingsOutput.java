@@ -36,6 +36,10 @@ public class AccountObjectVersionSettingsOutput {
   @SerializedName(SERIALIZED_NAME_DEFAULT_VERSIONING)
   private Boolean defaultVersioning;
 
+  public static final String SERIALIZED_NAME_FORCE_NEW_VERSIONS = "force_new_versions";
+  @SerializedName(SERIALIZED_NAME_FORCE_NEW_VERSIONS)
+  private Boolean forceNewVersions;
+
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<ObjectVersionSettingsOutput> items = null;
@@ -63,6 +67,29 @@ public class AccountObjectVersionSettingsOutput {
 
   public void setDefaultVersioning(Boolean defaultVersioning) {
     this.defaultVersioning = defaultVersioning;
+  }
+
+
+  public AccountObjectVersionSettingsOutput forceNewVersions(Boolean forceNewVersions) {
+    
+    this.forceNewVersions = forceNewVersions;
+    return this;
+  }
+
+   /**
+   * Get forceNewVersions
+   * @return forceNewVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getForceNewVersions() {
+    return forceNewVersions;
+  }
+
+
+  public void setForceNewVersions(Boolean forceNewVersions) {
+    this.forceNewVersions = forceNewVersions;
   }
 
 
@@ -107,12 +134,13 @@ public class AccountObjectVersionSettingsOutput {
     }
     AccountObjectVersionSettingsOutput accountObjectVersionSettingsOutput = (AccountObjectVersionSettingsOutput) o;
     return Objects.equals(this.defaultVersioning, accountObjectVersionSettingsOutput.defaultVersioning) &&
+        Objects.equals(this.forceNewVersions, accountObjectVersionSettingsOutput.forceNewVersions) &&
         Objects.equals(this.items, accountObjectVersionSettingsOutput.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultVersioning, items);
+    return Objects.hash(defaultVersioning, forceNewVersions, items);
   }
 
   @Override
@@ -120,6 +148,7 @@ public class AccountObjectVersionSettingsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountObjectVersionSettingsOutput {\n");
     sb.append("    defaultVersioning: ").append(toIndentedString(defaultVersioning)).append("\n");
+    sb.append("    forceNewVersions: ").append(toIndentedString(forceNewVersions)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();

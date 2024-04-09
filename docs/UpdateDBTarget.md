@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]
 **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **mongodbAtlas** | **Boolean** |  |  [optional]
 **mongodbAtlasApiPrivateKey** | **String** | MongoDB Atlas private key |  [optional]
 **mongodbAtlasApiPublicKey** | **String** | MongoDB Atlas public key |  [optional]

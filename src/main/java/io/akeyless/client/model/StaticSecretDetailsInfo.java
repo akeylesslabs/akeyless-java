@@ -35,6 +35,10 @@ public class StaticSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_FORMAT)
   private String format;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max_versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private Long maxVersions;
+
   public static final String SERIALIZED_NAME_NOTIFY_ON_CHANGE_EVENT = "notify_on_change_event";
   @SerializedName(SERIALIZED_NAME_NOTIFY_ON_CHANGE_EVENT)
   private Boolean notifyOnChangeEvent;
@@ -74,6 +78,29 @@ public class StaticSecretDetailsInfo {
 
   public void setFormat(String format) {
     this.format = format;
+  }
+
+
+  public StaticSecretDetailsInfo maxVersions(Long maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Get maxVersions
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(Long maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -187,6 +214,7 @@ public class StaticSecretDetailsInfo {
     }
     StaticSecretDetailsInfo staticSecretDetailsInfo = (StaticSecretDetailsInfo) o;
     return Objects.equals(this.format, staticSecretDetailsInfo.format) &&
+        Objects.equals(this.maxVersions, staticSecretDetailsInfo.maxVersions) &&
         Objects.equals(this.notifyOnChangeEvent, staticSecretDetailsInfo.notifyOnChangeEvent) &&
         Objects.equals(this.username, staticSecretDetailsInfo.username) &&
         Objects.equals(this.website, staticSecretDetailsInfo.website) &&
@@ -195,7 +223,7 @@ public class StaticSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, notifyOnChangeEvent, username, website, websites);
+    return Objects.hash(format, maxVersions, notifyOnChangeEvent, username, website, websites);
   }
 
   @Override
@@ -203,6 +231,7 @@ public class StaticSecretDetailsInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretDetailsInfo {\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    notifyOnChangeEvent: ").append(toIndentedString(notifyOnChangeEvent)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");

@@ -73,6 +73,10 @@ public class UpdateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -353,6 +357,29 @@ public class UpdateNativeK8STarget {
   }
 
 
+  public UpdateNativeK8STarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public UpdateNativeK8STarget name(String name) {
     
     this.name = name;
@@ -511,6 +538,7 @@ public class UpdateNativeK8STarget {
         Objects.equals(this.k8sClusterToken, updateNativeK8STarget.k8sClusterToken) &&
         Objects.equals(this.keepPrevVersion, updateNativeK8STarget.keepPrevVersion) &&
         Objects.equals(this.key, updateNativeK8STarget.key) &&
+        Objects.equals(this.maxVersions, updateNativeK8STarget.maxVersions) &&
         Objects.equals(this.name, updateNativeK8STarget.name) &&
         Objects.equals(this.newName, updateNativeK8STarget.newName) &&
         Objects.equals(this.token, updateNativeK8STarget.token) &&
@@ -521,7 +549,7 @@ public class UpdateNativeK8STarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, json, k8sAuthType, k8sClientCertificate, k8sClientKey, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
+    return Objects.hash(comment, description, json, k8sAuthType, k8sClientCertificate, k8sClientKey, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
   }
 
   @Override
@@ -539,6 +567,7 @@ public class UpdateNativeK8STarget {
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

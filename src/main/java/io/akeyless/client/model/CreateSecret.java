@@ -65,6 +65,10 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
@@ -345,6 +349,29 @@ public class CreateSecret {
 
   public void setJson(Boolean json) {
     this.json = json;
+  }
+
+
+  public CreateSecret maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -841,6 +868,7 @@ public class CreateSecret {
         Objects.equals(this.format, createSecret.format) &&
         Objects.equals(this.injectUrl, createSecret.injectUrl) &&
         Objects.equals(this.json, createSecret.json) &&
+        Objects.equals(this.maxVersions, createSecret.maxVersions) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
         Objects.equals(this.name, createSecret.name) &&
@@ -865,7 +893,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, json, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
+    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, json, maxVersions, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
   }
 
   @Override
@@ -880,6 +908,7 @@ public class CreateSecret {
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

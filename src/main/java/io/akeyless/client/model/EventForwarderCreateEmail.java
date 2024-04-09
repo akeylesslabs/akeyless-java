@@ -72,6 +72,10 @@ public class EventForwarderCreateEmail {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_OVERRIDE_URL = "override-url";
+  @SerializedName(SERIALIZED_NAME_OVERRIDE_URL)
+  private String overrideUrl;
+
   public static final String SERIALIZED_NAME_RUNNER_TYPE = "runner-type";
   @SerializedName(SERIALIZED_NAME_RUNNER_TYPE)
   private String runnerType;
@@ -350,6 +354,29 @@ public class EventForwarderCreateEmail {
   }
 
 
+  public EventForwarderCreateEmail overrideUrl(String overrideUrl) {
+    
+    this.overrideUrl = overrideUrl;
+    return this;
+  }
+
+   /**
+   * Override Akeyless default URL with your Gateway url (port 18888)
+   * @return overrideUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Override Akeyless default URL with your Gateway url (port 18888)")
+
+  public String getOverrideUrl() {
+    return overrideUrl;
+  }
+
+
+  public void setOverrideUrl(String overrideUrl) {
+    this.overrideUrl = overrideUrl;
+  }
+
+
   public EventForwarderCreateEmail runnerType(String runnerType) {
     
     this.runnerType = runnerType;
@@ -469,6 +496,7 @@ public class EventForwarderCreateEmail {
         Objects.equals(this.json, eventForwarderCreateEmail.json) &&
         Objects.equals(this.key, eventForwarderCreateEmail.key) &&
         Objects.equals(this.name, eventForwarderCreateEmail.name) &&
+        Objects.equals(this.overrideUrl, eventForwarderCreateEmail.overrideUrl) &&
         Objects.equals(this.runnerType, eventForwarderCreateEmail.runnerType) &&
         Objects.equals(this.targetsEventSourceLocations, eventForwarderCreateEmail.targetsEventSourceLocations) &&
         Objects.equals(this.token, eventForwarderCreateEmail.token) &&
@@ -477,7 +505,7 @@ public class EventForwarderCreateEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodsEventSourceLocations, description, emailTo, eventTypes, every, gatewaysEventSourceLocations, itemsEventSourceLocations, json, key, name, runnerType, targetsEventSourceLocations, token, uidToken);
+    return Objects.hash(authMethodsEventSourceLocations, description, emailTo, eventTypes, every, gatewaysEventSourceLocations, itemsEventSourceLocations, json, key, name, overrideUrl, runnerType, targetsEventSourceLocations, token, uidToken);
   }
 
   @Override
@@ -494,6 +522,7 @@ public class EventForwarderCreateEmail {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    overrideUrl: ").append(toIndentedString(overrideUrl)).append("\n");
     sb.append("    runnerType: ").append(toIndentedString(runnerType)).append("\n");
     sb.append("    targetsEventSourceLocations: ").append(toIndentedString(targetsEventSourceLocations)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

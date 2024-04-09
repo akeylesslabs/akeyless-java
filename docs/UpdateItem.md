@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the object |  [optional]
 **hostProvider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]
 **name** | **String** | Current item name | 
 **newMetadata** | **String** | Deprecated - use description |  [optional]
 **newName** | **String** | New item name |  [optional]

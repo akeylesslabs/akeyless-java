@@ -73,6 +73,10 @@ public class CreateSalesforceTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -353,6 +357,29 @@ public class CreateSalesforceTarget {
   }
 
 
+  public CreateSalesforceTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public CreateSalesforceTarget name(String name) {
     
     this.name = name;
@@ -511,6 +538,7 @@ public class CreateSalesforceTarget {
         Objects.equals(this.email, createSalesforceTarget.email) &&
         Objects.equals(this.json, createSalesforceTarget.json) &&
         Objects.equals(this.key, createSalesforceTarget.key) &&
+        Objects.equals(this.maxVersions, createSalesforceTarget.maxVersions) &&
         Objects.equals(this.name, createSalesforceTarget.name) &&
         Objects.equals(this.password, createSalesforceTarget.password) &&
         Objects.equals(this.securityToken, createSalesforceTarget.securityToken) &&
@@ -521,7 +549,7 @@ public class CreateSalesforceTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, description, email, json, key, name, password, securityToken, tenantUrl, token, uidToken);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, comment, description, email, json, key, maxVersions, name, password, securityToken, tenantUrl, token, uidToken);
   }
 
   @Override
@@ -539,6 +567,7 @@ public class CreateSalesforceTarget {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");

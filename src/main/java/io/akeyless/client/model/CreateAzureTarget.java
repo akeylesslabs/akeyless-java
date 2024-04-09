@@ -53,6 +53,10 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -223,6 +227,29 @@ public class CreateAzureTarget {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public CreateAzureTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -425,6 +452,7 @@ public class CreateAzureTarget {
         Objects.equals(this.description, createAzureTarget.description) &&
         Objects.equals(this.json, createAzureTarget.json) &&
         Objects.equals(this.key, createAzureTarget.key) &&
+        Objects.equals(this.maxVersions, createAzureTarget.maxVersions) &&
         Objects.equals(this.name, createAzureTarget.name) &&
         Objects.equals(this.resourceGroupName, createAzureTarget.resourceGroupName) &&
         Objects.equals(this.resourceName, createAzureTarget.resourceName) &&
@@ -437,7 +465,7 @@ public class CreateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, description, json, key, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(clientId, clientSecret, comment, description, json, key, maxVersions, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -450,6 +478,7 @@ public class CreateAzureTarget {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");

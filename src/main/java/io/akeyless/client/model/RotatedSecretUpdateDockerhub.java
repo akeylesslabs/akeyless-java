@@ -63,6 +63,10 @@ public class RotatedSecretUpdateDockerhub {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -290,6 +294,29 @@ public class RotatedSecretUpdateDockerhub {
   }
 
 
+  public RotatedSecretUpdateDockerhub maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public RotatedSecretUpdateDockerhub name(String name) {
     
     this.name = name;
@@ -499,6 +526,7 @@ public class RotatedSecretUpdateDockerhub {
         Objects.equals(this.json, rotatedSecretUpdateDockerhub.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateDockerhub.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateDockerhub.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretUpdateDockerhub.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateDockerhub.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateDockerhub.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateDockerhub.passwordLength) &&
@@ -511,7 +539,7 @@ public class RotatedSecretUpdateDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, name, newName, passwordLength, rmTag, rotationHour, rotationInterval, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationHour, rotationInterval, token, uidToken);
   }
 
   @Override
@@ -526,6 +554,7 @@ public class RotatedSecretUpdateDockerhub {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");

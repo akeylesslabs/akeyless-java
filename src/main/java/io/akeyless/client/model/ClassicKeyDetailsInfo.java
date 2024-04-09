@@ -46,6 +46,10 @@ public class ClassicKeyDetailsInfo {
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   private Long gwClusterId;
 
+  public static final String SERIALIZED_NAME_HAS_CERTIFICATE = "has_certificate";
+  @SerializedName(SERIALIZED_NAME_HAS_CERTIFICATE)
+  private Boolean hasCertificate;
+
   public static final String SERIALIZED_NAME_IS_PROVIDED_BY_USER = "is_provided_by_user";
   @SerializedName(SERIALIZED_NAME_IS_PROVIDED_BY_USER)
   private Boolean isProvidedByUser;
@@ -159,6 +163,29 @@ public class ClassicKeyDetailsInfo {
 
   public void setGwClusterId(Long gwClusterId) {
     this.gwClusterId = gwClusterId;
+  }
+
+
+  public ClassicKeyDetailsInfo hasCertificate(Boolean hasCertificate) {
+    
+    this.hasCertificate = hasCertificate;
+    return this;
+  }
+
+   /**
+   * Get hasCertificate
+   * @return hasCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getHasCertificate() {
+    return hasCertificate;
+  }
+
+
+  public void setHasCertificate(Boolean hasCertificate) {
+    this.hasCertificate = hasCertificate;
   }
 
 
@@ -397,6 +424,7 @@ public class ClassicKeyDetailsInfo {
     return Objects.equals(this.classicKeyAttributes, classicKeyDetailsInfo.classicKeyAttributes) &&
         Objects.equals(this.classicKeyId, classicKeyDetailsInfo.classicKeyId) &&
         Objects.equals(this.gwClusterId, classicKeyDetailsInfo.gwClusterId) &&
+        Objects.equals(this.hasCertificate, classicKeyDetailsInfo.hasCertificate) &&
         Objects.equals(this.isProvidedByUser, classicKeyDetailsInfo.isProvidedByUser) &&
         Objects.equals(this.isUnexportable, classicKeyDetailsInfo.isUnexportable) &&
         Objects.equals(this.keyState, classicKeyDetailsInfo.keyState) &&
@@ -410,7 +438,7 @@ public class ClassicKeyDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(classicKeyAttributes, classicKeyId, gwClusterId, isProvidedByUser, isUnexportable, keyState, keyType, lastError, publicKey, targetAliasHelper, targetTypes, targets);
+    return Objects.hash(classicKeyAttributes, classicKeyId, gwClusterId, hasCertificate, isProvidedByUser, isUnexportable, keyState, keyType, lastError, publicKey, targetAliasHelper, targetTypes, targets);
   }
 
   @Override
@@ -420,6 +448,7 @@ public class ClassicKeyDetailsInfo {
     sb.append("    classicKeyAttributes: ").append(toIndentedString(classicKeyAttributes)).append("\n");
     sb.append("    classicKeyId: ").append(toIndentedString(classicKeyId)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
+    sb.append("    hasCertificate: ").append(toIndentedString(hasCertificate)).append("\n");
     sb.append("    isProvidedByUser: ").append(toIndentedString(isProvidedByUser)).append("\n");
     sb.append("    isUnexportable: ").append(toIndentedString(isUnexportable)).append("\n");
     sb.append("    keyState: ").append(toIndentedString(keyState)).append("\n");

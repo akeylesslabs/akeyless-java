@@ -154,10 +154,14 @@ Method | HTTP request | Description
 [**esmUpdate**](V2Api.md#esmUpdate) | **POST** /esm-update | 
 [**eventAction**](V2Api.md#eventAction) | **POST** /event-action | 
 [**eventForwarderCreateEmail**](V2Api.md#eventForwarderCreateEmail) | **POST** /event-forwarder-create-email | 
+[**eventForwarderCreateServiceNow**](V2Api.md#eventForwarderCreateServiceNow) | **POST** /event-forwarder-create-servicenow | 
+[**eventForwarderCreateSlack**](V2Api.md#eventForwarderCreateSlack) | **POST** /event-forwarder-create-slack | 
 [**eventForwarderCreateWebhook**](V2Api.md#eventForwarderCreateWebhook) | **POST** /event-forwarder-create-webhook | 
 [**eventForwarderDelete**](V2Api.md#eventForwarderDelete) | **POST** /event-forwarder-delete | 
 [**eventForwarderGet**](V2Api.md#eventForwarderGet) | **POST** /event-forwarder-get | 
 [**eventForwarderUpdateEmail**](V2Api.md#eventForwarderUpdateEmail) | **POST** /event-forwarder-update-email | 
+[**eventForwarderUpdateServiceNow**](V2Api.md#eventForwarderUpdateServiceNow) | **POST** /event-forwarder-update-servicenow | 
+[**eventForwarderUpdateSlack**](V2Api.md#eventForwarderUpdateSlack) | **POST** /event-forwarder-update-slack | 
 [**eventForwarderUpdateWebhook**](V2Api.md#eventForwarderUpdateWebhook) | **POST** /event-forwarder-update-webhook | 
 [**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 [**gatewayCreateAllowedAccess**](V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
@@ -246,6 +250,7 @@ Method | HTTP request | Description
 [**generateCsr**](V2Api.md#generateCsr) | **POST** /generate-csr | 
 [**getAccountLogo**](V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 [**getAccountSettings**](V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
+[**getAnalyticsData**](V2Api.md#getAnalyticsData) | **POST** /get-analytics-data | 
 [**getAuthMethod**](V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
 [**getCertificateValue**](V2Api.md#getCertificateValue) | **POST** /get-certificate-value | 
 [**getDynamicSecretValue**](V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
@@ -292,6 +297,7 @@ Method | HTTP request | Description
 [**renewCertificate**](V2Api.md#renewCertificate) | **POST** /renew-certificate | 
 [**requestAccess**](V2Api.md#requestAccess) | **POST** /request-access | 
 [**reverseRBAC**](V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
+[**revokeCertificate**](V2Api.md#revokeCertificate) | **POST** /revoke-certificate | 
 [**revokeCreds**](V2Api.md#revokeCreds) | **POST** /revoke-creds | 
 [**rollbackSecret**](V2Api.md#rollbackSecret) | **POST** /rollback-secret | 
 [**rotateKey**](V2Api.md#rotateKey) | **POST** /rotate-key | 
@@ -9571,6 +9577,128 @@ No authorization required
 **201** | eventForwarderCreateEmailResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="eventForwarderCreateServiceNow"></a>
+# **eventForwarderCreateServiceNow**
+> EventForwarderCreateUpdateOutput eventForwarderCreateServiceNow(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventForwarderCreateServiceNow body = new EventForwarderCreateServiceNow(); // EventForwarderCreateServiceNow | 
+    try {
+      EventForwarderCreateUpdateOutput result = apiInstance.eventForwarderCreateServiceNow(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventForwarderCreateServiceNow");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EventForwarderCreateServiceNow**](EventForwarderCreateServiceNow.md)|  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | eventForwarderCreateServiceNowResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="eventForwarderCreateSlack"></a>
+# **eventForwarderCreateSlack**
+> EventForwarderCreateUpdateOutput eventForwarderCreateSlack(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventForwarderCreateSlack body = new EventForwarderCreateSlack(); // EventForwarderCreateSlack | 
+    try {
+      EventForwarderCreateUpdateOutput result = apiInstance.eventForwarderCreateSlack(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventForwarderCreateSlack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EventForwarderCreateSlack**](EventForwarderCreateSlack.md)|  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | eventForwarderCreateSlackResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="eventForwarderCreateWebhook"></a>
 # **eventForwarderCreateWebhook**
 > EventForwarderCreateUpdateOutput eventForwarderCreateWebhook(body)
@@ -9813,6 +9941,128 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | eventForwarderUpdateEmailResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="eventForwarderUpdateServiceNow"></a>
+# **eventForwarderUpdateServiceNow**
+> EventForwarderCreateUpdateOutput eventForwarderUpdateServiceNow(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventForwarderUpdateServiceNow body = new EventForwarderUpdateServiceNow(); // EventForwarderUpdateServiceNow | 
+    try {
+      EventForwarderCreateUpdateOutput result = apiInstance.eventForwarderUpdateServiceNow(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventForwarderUpdateServiceNow");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EventForwarderUpdateServiceNow**](EventForwarderUpdateServiceNow.md)|  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | eventForwarderUpdateServiceNowResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="eventForwarderUpdateSlack"></a>
+# **eventForwarderUpdateSlack**
+> EventForwarderCreateUpdateOutput eventForwarderUpdateSlack(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventForwarderUpdateSlack body = new EventForwarderUpdateSlack(); // EventForwarderUpdateSlack | 
+    try {
+      EventForwarderCreateUpdateOutput result = apiInstance.eventForwarderUpdateSlack(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventForwarderUpdateSlack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EventForwarderUpdateSlack**](EventForwarderUpdateSlack.md)|  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | eventForwarderUpdateSlackResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="eventForwarderUpdateWebhook"></a>
@@ -15177,6 +15427,67 @@ No authorization required
 **200** | getAccountSettingsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="getAnalyticsData"></a>
+# **getAnalyticsData**
+> AllAnalyticsData getAnalyticsData(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GetAnalyticsData body = new GetAnalyticsData(); // GetAnalyticsData | 
+    try {
+      AllAnalyticsData result = apiInstance.getAnalyticsData(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getAnalyticsData");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GetAnalyticsData**](GetAnalyticsData.md)|  |
+
+### Return type
+
+[**AllAnalyticsData**](AllAnalyticsData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | getAnalyticsDataResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="getAuthMethod"></a>
 # **getAuthMethod**
 > AuthMethod getAuthMethod(body)
@@ -17980,6 +18291,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | reverseRBACResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="revokeCertificate"></a>
+# **revokeCertificate**
+> Object revokeCertificate(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RevokeCertificate body = new RevokeCertificate(); // RevokeCertificate | 
+    try {
+      Object result = apiInstance.revokeCertificate(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#revokeCertificate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**RevokeCertificate**](RevokeCertificate.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | RevokeCertificateResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="revokeCreds"></a>

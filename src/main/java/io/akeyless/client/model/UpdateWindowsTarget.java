@@ -57,6 +57,10 @@ public class UpdateWindowsTarget {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -254,6 +258,29 @@ public class UpdateWindowsTarget {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public UpdateWindowsTarget maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -480,6 +507,7 @@ public class UpdateWindowsTarget {
         Objects.equals(this.json, updateWindowsTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateWindowsTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateWindowsTarget.key) &&
+        Objects.equals(this.maxVersions, updateWindowsTarget.maxVersions) &&
         Objects.equals(this.name, updateWindowsTarget.name) &&
         Objects.equals(this.newName, updateWindowsTarget.newName) &&
         Objects.equals(this.password, updateWindowsTarget.password) &&
@@ -493,7 +521,7 @@ public class UpdateWindowsTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificate, description, domain, hostname, json, keepPrevVersion, key, name, newName, password, port, token, uidToken, updateVersion, useTls, username);
+    return Objects.hash(certificate, description, domain, hostname, json, keepPrevVersion, key, maxVersions, name, newName, password, port, token, uidToken, updateVersion, useTls, username);
   }
 
   @Override
@@ -507,6 +535,7 @@ public class UpdateWindowsTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

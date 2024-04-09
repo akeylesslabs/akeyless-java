@@ -55,6 +55,10 @@ public class RotatedSecretCreateSnowflake {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -237,6 +241,29 @@ public class RotatedSecretCreateSnowflake {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretCreateSnowflake maxVersions(String maxVersions) {
+    
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+   /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set the maximum number of versions, limited by the account settings defaults.")
+
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+
+  public void setMaxVersions(String maxVersions) {
+    this.maxVersions = maxVersions;
   }
 
 
@@ -516,6 +543,7 @@ public class RotatedSecretCreateSnowflake {
         Objects.equals(this.description, rotatedSecretCreateSnowflake.description) &&
         Objects.equals(this.json, rotatedSecretCreateSnowflake.json) &&
         Objects.equals(this.key, rotatedSecretCreateSnowflake.key) &&
+        Objects.equals(this.maxVersions, rotatedSecretCreateSnowflake.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateSnowflake.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateSnowflake.passwordLength) &&
         Objects.equals(this.rotatedPassword, rotatedSecretCreateSnowflake.rotatedPassword) &&
@@ -531,7 +559,7 @@ public class RotatedSecretCreateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, name, passwordLength, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorType, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorType, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -544,6 +572,7 @@ public class RotatedSecretCreateSnowflake {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");

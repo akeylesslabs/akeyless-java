@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **adDiscoveryTypes** | **List&lt;String&gt;** | Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration) |  [optional]
 **adOsFilter** | **String** | Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration) |  [optional]
 **adSshPort** | **String** | Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration) |  [optional]
+**adTargetFormat** | **String** | Relevant only for ad-discovery-types&#x3D;computers. For linked, all computers will be migrated into a linked target(s). if set with regular, the migration will create a target for each computer. |  [optional]
 **adTargetsType** | **String** | Set the target type of the domain servers [ssh/windows](Relevant only for Active Directory migration) |  [optional]
 **adWinrmOverHttp** | **String** | Use WinRM over HTTP, by default runs over HTTPS |  [optional]
 **adWinrmPort** | **String** | Set the WinRM Port for further connection to the domain servers. Default is 5986 (Relevant only for Active Directory migration) |  [optional]
