@@ -49,6 +49,10 @@ public class CreateDBTarget {
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   private String cloudServiceProvider;
 
+  public static final String SERIALIZED_NAME_CLUSTER_MODE = "cluster-mode";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_MODE)
+  private Boolean clusterMode;
+
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
@@ -280,6 +284,29 @@ public class CreateDBTarget {
 
   public void setCloudServiceProvider(String cloudServiceProvider) {
     this.cloudServiceProvider = cloudServiceProvider;
+  }
+
+
+  public CreateDBTarget clusterMode(Boolean clusterMode) {
+    
+    this.clusterMode = clusterMode;
+    return this;
+  }
+
+   /**
+   * Cluster Mode
+   * @return clusterMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Cluster Mode")
+
+  public Boolean getClusterMode() {
+    return clusterMode;
+  }
+
+
+  public void setClusterMode(Boolean clusterMode) {
+    this.clusterMode = clusterMode;
   }
 
 
@@ -964,6 +991,7 @@ public class CreateDBTarget {
         Objects.equals(this.azureClientSecret, createDBTarget.azureClientSecret) &&
         Objects.equals(this.azureTenantId, createDBTarget.azureTenantId) &&
         Objects.equals(this.cloudServiceProvider, createDBTarget.cloudServiceProvider) &&
+        Objects.equals(this.clusterMode, createDBTarget.clusterMode) &&
         Objects.equals(this.comment, createDBTarget.comment) &&
         Objects.equals(this.connectionType, createDBTarget.connectionType) &&
         Objects.equals(this.dbName, createDBTarget.dbName) &&
@@ -997,7 +1025,7 @@ public class CreateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
   @Override
@@ -1009,6 +1037,7 @@ public class CreateDBTarget {
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
+    sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");

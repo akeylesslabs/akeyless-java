@@ -53,6 +53,10 @@ public class NativeK8sTargetDetails {
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
 
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_NAME = "k8s_cluster_name";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_NAME)
+  private String k8sClusterName;
+
   public static final String SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT = "use_gw_service_account";
   @SerializedName(SERIALIZED_NAME_USE_GW_SERVICE_ACCOUNT)
   private Boolean useGwServiceAccount;
@@ -198,6 +202,29 @@ public class NativeK8sTargetDetails {
   }
 
 
+  public NativeK8sTargetDetails k8sClusterName(String k8sClusterName) {
+    
+    this.k8sClusterName = k8sClusterName;
+    return this;
+  }
+
+   /**
+   * Get k8sClusterName
+   * @return k8sClusterName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClusterName() {
+    return k8sClusterName;
+  }
+
+
+  public void setK8sClusterName(String k8sClusterName) {
+    this.k8sClusterName = k8sClusterName;
+  }
+
+
   public NativeK8sTargetDetails useGwServiceAccount(Boolean useGwServiceAccount) {
     
     this.useGwServiceAccount = useGwServiceAccount;
@@ -236,12 +263,13 @@ public class NativeK8sTargetDetails {
         Objects.equals(this.k8sClientKeyData, nativeK8sTargetDetails.k8sClientKeyData) &&
         Objects.equals(this.k8sClusterCaCertificate, nativeK8sTargetDetails.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, nativeK8sTargetDetails.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sClusterName, nativeK8sTargetDetails.k8sClusterName) &&
         Objects.equals(this.useGwServiceAccount, nativeK8sTargetDetails.useGwServiceAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, useGwServiceAccount);
+    return Objects.hash(k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, useGwServiceAccount);
   }
 
   @Override
@@ -254,6 +282,7 @@ public class NativeK8sTargetDetails {
     sb.append("    k8sClientKeyData: ").append(toIndentedString(k8sClientKeyData)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
     sb.append("    useGwServiceAccount: ").append(toIndentedString(useGwServiceAccount)).append("\n");
     sb.append("}");
     return sb.toString();

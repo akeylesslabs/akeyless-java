@@ -56,6 +56,10 @@ public class DynamicSecretUpdateK8s {
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
 
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_NAME = "k8s-cluster-name";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_NAME)
+  private String k8sClusterName;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_TOKEN = "k8s-cluster-token";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_TOKEN)
   private String k8sClusterToken;
@@ -290,6 +294,29 @@ public class DynamicSecretUpdateK8s {
 
   public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
     this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public DynamicSecretUpdateK8s k8sClusterName(String k8sClusterName) {
+    
+    this.k8sClusterName = k8sClusterName;
+    return this;
+  }
+
+   /**
+   * K8S cluster name
+   * @return k8sClusterName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S cluster name")
+
+  public String getK8sClusterName() {
+    return k8sClusterName;
+  }
+
+
+  public void setK8sClusterName(String k8sClusterName) {
+    this.k8sClusterName = k8sClusterName;
   }
 
 
@@ -868,6 +895,7 @@ public class DynamicSecretUpdateK8s {
         Objects.equals(this.k8sAllowedNamespaces, dynamicSecretUpdateK8s.k8sAllowedNamespaces) &&
         Objects.equals(this.k8sClusterCaCert, dynamicSecretUpdateK8s.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, dynamicSecretUpdateK8s.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sClusterName, dynamicSecretUpdateK8s.k8sClusterName) &&
         Objects.equals(this.k8sClusterToken, dynamicSecretUpdateK8s.k8sClusterToken) &&
         Objects.equals(this.k8sNamespace, dynamicSecretUpdateK8s.k8sNamespace) &&
         Objects.equals(this.k8sPredefinedRoleName, dynamicSecretUpdateK8s.k8sPredefinedRoleName) &&
@@ -896,7 +924,7 @@ public class DynamicSecretUpdateK8s {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(deleteProtection, description, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
@@ -909,6 +937,7 @@ public class DynamicSecretUpdateK8s {
     sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sPredefinedRoleName: ").append(toIndentedString(k8sPredefinedRoleName)).append("\n");

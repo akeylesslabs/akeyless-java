@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DynamicSecretGet is a command that returns dynamic secret details
+ * dynamicSecretGet is a command that returns dynamic secret details
  */
-@ApiModel(description = "DynamicSecretGet is a command that returns dynamic secret details")
+@ApiModel(description = "dynamicSecretGet is a command that returns dynamic secret details")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DynamicSecretGet {
   public static final String SERIALIZED_NAME_JSON = "json";

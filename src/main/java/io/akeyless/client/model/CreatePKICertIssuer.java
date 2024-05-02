@@ -173,7 +173,7 @@ public class CreatePKICertIssuer {
 
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
-  private Long ttl;
+  private String ttl;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -1003,7 +1003,7 @@ public class CreatePKICertIssuer {
   }
 
 
-  public CreatePKICertIssuer ttl(Long ttl) {
+  public CreatePKICertIssuer ttl(String ttl) {
     
     this.ttl = ttl;
     return this;
@@ -1016,12 +1016,12 @@ public class CreatePKICertIssuer {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target's supported maximum TTLs")
 
-  public Long getTtl() {
+  public String getTtl() {
     return ttl;
   }
 
 
-  public void setTtl(Long ttl) {
+  public void setTtl(String ttl) {
     this.ttl = ttl;
   }
 

@@ -49,6 +49,10 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   private String cloudServiceProvider;
 
+  public static final String SERIALIZED_NAME_CLUSTER_MODE = "cluster-mode";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_MODE)
+  private Boolean clusterMode;
+
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
@@ -292,6 +296,29 @@ public class UpdateDBTarget {
 
   public void setCloudServiceProvider(String cloudServiceProvider) {
     this.cloudServiceProvider = cloudServiceProvider;
+  }
+
+
+  public UpdateDBTarget clusterMode(Boolean clusterMode) {
+    
+    this.clusterMode = clusterMode;
+    return this;
+  }
+
+   /**
+   * Cluster Mode
+   * @return clusterMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Cluster Mode")
+
+  public Boolean getClusterMode() {
+    return clusterMode;
+  }
+
+
+  public void setClusterMode(Boolean clusterMode) {
+    this.clusterMode = clusterMode;
   }
 
 
@@ -1045,6 +1072,7 @@ public class UpdateDBTarget {
         Objects.equals(this.azureClientSecret, updateDBTarget.azureClientSecret) &&
         Objects.equals(this.azureTenantId, updateDBTarget.azureTenantId) &&
         Objects.equals(this.cloudServiceProvider, updateDBTarget.cloudServiceProvider) &&
+        Objects.equals(this.clusterMode, updateDBTarget.clusterMode) &&
         Objects.equals(this.comment, updateDBTarget.comment) &&
         Objects.equals(this.connectionType, updateDBTarget.connectionType) &&
         Objects.equals(this.dbName, updateDBTarget.dbName) &&
@@ -1081,7 +1109,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(dbDefinedConnectionType, azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
   @Override
@@ -1093,6 +1121,7 @@ public class UpdateDBTarget {
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
+    sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");

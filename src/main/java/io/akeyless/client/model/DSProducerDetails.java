@@ -227,6 +227,10 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   private String cloudServiceProvider;
 
+  public static final String SERIALIZED_NAME_CLUSTER_MODE = "cluster_mode";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_MODE)
+  private Boolean clusterMode;
+
   public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection_type";
   @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
   private String connectionType;
@@ -463,6 +467,30 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GKE_SERVICE_ACCOUNT_NAME)
   private String gkeServiceAccountName;
 
+  public static final String SERIALIZED_NAME_GOOGLE_WORKSPACE_ACCESS_MODE = "google_workspace_access_mode";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_WORKSPACE_ACCESS_MODE)
+  private String googleWorkspaceAccessMode;
+
+  public static final String SERIALIZED_NAME_GOOGLE_WORKSPACE_ADMIN_NAME = "google_workspace_admin_name";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_WORKSPACE_ADMIN_NAME)
+  private String googleWorkspaceAdminName;
+
+  public static final String SERIALIZED_NAME_GOOGLE_WORKSPACE_GROUP_NAME = "google_workspace_group_name";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_WORKSPACE_GROUP_NAME)
+  private String googleWorkspaceGroupName;
+
+  public static final String SERIALIZED_NAME_GOOGLE_WORKSPACE_GROUP_ROLE = "google_workspace_group_role";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_WORKSPACE_GROUP_ROLE)
+  private String googleWorkspaceGroupRole;
+
+  public static final String SERIALIZED_NAME_GOOGLE_WORKSPACE_ROLE_NAME = "google_workspace_role_name";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_WORKSPACE_ROLE_NAME)
+  private String googleWorkspaceRoleName;
+
+  public static final String SERIALIZED_NAME_GOOGLE_WORKSPACE_ROLE_SCOPE = "google_workspace_role_scope";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_WORKSPACE_ROLE_SCOPE)
+  private String googleWorkspaceRoleScope;
+
   public static final String SERIALIZED_NAME_GRANT_TYPES = "grant_types";
   @SerializedName(SERIALIZED_NAME_GRANT_TYPES)
   private List<String> grantTypes = null;
@@ -538,6 +566,10 @@ public class DSProducerDetails {
   public static final String SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT = "k8s_cluster_endpoint";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
+
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_NAME = "k8s_cluster_name";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_NAME)
+  private String k8sClusterName;
 
   public static final String SERIALIZED_NAME_K8S_DYNAMIC_MODE = "k8s_dynamic_mode";
   @SerializedName(SERIALIZED_NAME_K8S_DYNAMIC_MODE)
@@ -2034,6 +2066,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails clusterMode(Boolean clusterMode) {
+    
+    this.clusterMode = clusterMode;
+    return this;
+  }
+
+   /**
+   * Get clusterMode
+   * @return clusterMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getClusterMode() {
+    return clusterMode;
+  }
+
+
+  public void setClusterMode(Boolean clusterMode) {
+    this.clusterMode = clusterMode;
+  }
+
+
   public DSProducerDetails connectionType(String connectionType) {
     
     this.connectionType = connectionType;
@@ -3423,6 +3478,144 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails googleWorkspaceAccessMode(String googleWorkspaceAccessMode) {
+    
+    this.googleWorkspaceAccessMode = googleWorkspaceAccessMode;
+    return this;
+  }
+
+   /**
+   * Get googleWorkspaceAccessMode
+   * @return googleWorkspaceAccessMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGoogleWorkspaceAccessMode() {
+    return googleWorkspaceAccessMode;
+  }
+
+
+  public void setGoogleWorkspaceAccessMode(String googleWorkspaceAccessMode) {
+    this.googleWorkspaceAccessMode = googleWorkspaceAccessMode;
+  }
+
+
+  public DSProducerDetails googleWorkspaceAdminName(String googleWorkspaceAdminName) {
+    
+    this.googleWorkspaceAdminName = googleWorkspaceAdminName;
+    return this;
+  }
+
+   /**
+   * Get googleWorkspaceAdminName
+   * @return googleWorkspaceAdminName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGoogleWorkspaceAdminName() {
+    return googleWorkspaceAdminName;
+  }
+
+
+  public void setGoogleWorkspaceAdminName(String googleWorkspaceAdminName) {
+    this.googleWorkspaceAdminName = googleWorkspaceAdminName;
+  }
+
+
+  public DSProducerDetails googleWorkspaceGroupName(String googleWorkspaceGroupName) {
+    
+    this.googleWorkspaceGroupName = googleWorkspaceGroupName;
+    return this;
+  }
+
+   /**
+   * Get googleWorkspaceGroupName
+   * @return googleWorkspaceGroupName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGoogleWorkspaceGroupName() {
+    return googleWorkspaceGroupName;
+  }
+
+
+  public void setGoogleWorkspaceGroupName(String googleWorkspaceGroupName) {
+    this.googleWorkspaceGroupName = googleWorkspaceGroupName;
+  }
+
+
+  public DSProducerDetails googleWorkspaceGroupRole(String googleWorkspaceGroupRole) {
+    
+    this.googleWorkspaceGroupRole = googleWorkspaceGroupRole;
+    return this;
+  }
+
+   /**
+   * Get googleWorkspaceGroupRole
+   * @return googleWorkspaceGroupRole
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGoogleWorkspaceGroupRole() {
+    return googleWorkspaceGroupRole;
+  }
+
+
+  public void setGoogleWorkspaceGroupRole(String googleWorkspaceGroupRole) {
+    this.googleWorkspaceGroupRole = googleWorkspaceGroupRole;
+  }
+
+
+  public DSProducerDetails googleWorkspaceRoleName(String googleWorkspaceRoleName) {
+    
+    this.googleWorkspaceRoleName = googleWorkspaceRoleName;
+    return this;
+  }
+
+   /**
+   * Get googleWorkspaceRoleName
+   * @return googleWorkspaceRoleName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGoogleWorkspaceRoleName() {
+    return googleWorkspaceRoleName;
+  }
+
+
+  public void setGoogleWorkspaceRoleName(String googleWorkspaceRoleName) {
+    this.googleWorkspaceRoleName = googleWorkspaceRoleName;
+  }
+
+
+  public DSProducerDetails googleWorkspaceRoleScope(String googleWorkspaceRoleScope) {
+    
+    this.googleWorkspaceRoleScope = googleWorkspaceRoleScope;
+    return this;
+  }
+
+   /**
+   * Get googleWorkspaceRoleScope
+   * @return googleWorkspaceRoleScope
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGoogleWorkspaceRoleScope() {
+    return googleWorkspaceRoleScope;
+  }
+
+
+  public void setGoogleWorkspaceRoleScope(String googleWorkspaceRoleScope) {
+    this.googleWorkspaceRoleScope = googleWorkspaceRoleScope;
+  }
+
+
   public DSProducerDetails grantTypes(List<String> grantTypes) {
     
     this.grantTypes = grantTypes;
@@ -3873,6 +4066,29 @@ public class DSProducerDetails {
 
   public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
     this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public DSProducerDetails k8sClusterName(String k8sClusterName) {
+    
+    this.k8sClusterName = k8sClusterName;
+    return this;
+  }
+
+   /**
+   * Get k8sClusterName
+   * @return k8sClusterName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getK8sClusterName() {
+    return k8sClusterName;
+  }
+
+
+  public void setK8sClusterName(String k8sClusterName) {
+    this.k8sClusterName = k8sClusterName;
   }
 
 
@@ -6166,6 +6382,7 @@ public class DSProducerDetails {
         Objects.equals(this.chefSkipSsl, dsProducerDetails.chefSkipSsl) &&
         Objects.equals(this.clientAuthenticationType, dsProducerDetails.clientAuthenticationType) &&
         Objects.equals(this.cloudServiceProvider, dsProducerDetails.cloudServiceProvider) &&
+        Objects.equals(this.clusterMode, dsProducerDetails.clusterMode) &&
         Objects.equals(this.connectionType, dsProducerDetails.connectionType) &&
         Objects.equals(this.createSyncUrl, dsProducerDetails.createSyncUrl) &&
         Objects.equals(this.dbClientId, dsProducerDetails.dbClientId) &&
@@ -6225,6 +6442,12 @@ public class DSProducerDetails {
         Objects.equals(this.gkeClusterName, dsProducerDetails.gkeClusterName) &&
         Objects.equals(this.gkeServiceAccountKey, dsProducerDetails.gkeServiceAccountKey) &&
         Objects.equals(this.gkeServiceAccountName, dsProducerDetails.gkeServiceAccountName) &&
+        Objects.equals(this.googleWorkspaceAccessMode, dsProducerDetails.googleWorkspaceAccessMode) &&
+        Objects.equals(this.googleWorkspaceAdminName, dsProducerDetails.googleWorkspaceAdminName) &&
+        Objects.equals(this.googleWorkspaceGroupName, dsProducerDetails.googleWorkspaceGroupName) &&
+        Objects.equals(this.googleWorkspaceGroupRole, dsProducerDetails.googleWorkspaceGroupRole) &&
+        Objects.equals(this.googleWorkspaceRoleName, dsProducerDetails.googleWorkspaceRoleName) &&
+        Objects.equals(this.googleWorkspaceRoleScope, dsProducerDetails.googleWorkspaceRoleScope) &&
         Objects.equals(this.grantTypes, dsProducerDetails.grantTypes) &&
         Objects.equals(this.groups, dsProducerDetails.groups) &&
         Objects.equals(this.hanadbCreationStatements, dsProducerDetails.hanadbCreationStatements) &&
@@ -6244,6 +6467,7 @@ public class DSProducerDetails {
         Objects.equals(this.k8sClientKeyData, dsProducerDetails.k8sClientKeyData) &&
         Objects.equals(this.k8sClusterCaCertificate, dsProducerDetails.k8sClusterCaCertificate) &&
         Objects.equals(this.k8sClusterEndpoint, dsProducerDetails.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sClusterName, dsProducerDetails.k8sClusterName) &&
         Objects.equals(this.k8sDynamicMode, dsProducerDetails.k8sDynamicMode) &&
         Objects.equals(this.k8sMultipleDocYamlTempDefinition, dsProducerDetails.k8sMultipleDocYamlTempDefinition) &&
         Objects.equals(this.k8sNamespace, dsProducerDetails.k8sNamespace) &&
@@ -6343,7 +6567,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6398,6 +6622,7 @@ public class DSProducerDetails {
     sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
     sb.append("    clientAuthenticationType: ").append(toIndentedString(clientAuthenticationType)).append("\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
+    sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
     sb.append("    dbClientId: ").append(toIndentedString(dbClientId)).append("\n");
@@ -6457,6 +6682,12 @@ public class DSProducerDetails {
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");
     sb.append("    gkeServiceAccountKey: ").append(toIndentedString(gkeServiceAccountKey)).append("\n");
     sb.append("    gkeServiceAccountName: ").append(toIndentedString(gkeServiceAccountName)).append("\n");
+    sb.append("    googleWorkspaceAccessMode: ").append(toIndentedString(googleWorkspaceAccessMode)).append("\n");
+    sb.append("    googleWorkspaceAdminName: ").append(toIndentedString(googleWorkspaceAdminName)).append("\n");
+    sb.append("    googleWorkspaceGroupName: ").append(toIndentedString(googleWorkspaceGroupName)).append("\n");
+    sb.append("    googleWorkspaceGroupRole: ").append(toIndentedString(googleWorkspaceGroupRole)).append("\n");
+    sb.append("    googleWorkspaceRoleName: ").append(toIndentedString(googleWorkspaceRoleName)).append("\n");
+    sb.append("    googleWorkspaceRoleScope: ").append(toIndentedString(googleWorkspaceRoleScope)).append("\n");
     sb.append("    grantTypes: ").append(toIndentedString(grantTypes)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    hanadbCreationStatements: ").append(toIndentedString(hanadbCreationStatements)).append("\n");
@@ -6476,6 +6707,7 @@ public class DSProducerDetails {
     sb.append("    k8sClientKeyData: ").append(toIndentedString(k8sClientKeyData)).append("\n");
     sb.append("    k8sClusterCaCertificate: ").append(toIndentedString(k8sClusterCaCertificate)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
     sb.append("    k8sDynamicMode: ").append(toIndentedString(k8sDynamicMode)).append("\n");
     sb.append("    k8sMultipleDocYamlTempDefinition: ").append(toIndentedString(k8sMultipleDocYamlTempDefinition)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");

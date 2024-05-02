@@ -23,6 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -30,168 +33,95 @@ import org.threeten.bp.OffsetDateTime;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ItemSraStatus {
-  public static final String SERIALIZED_NAME_BASTION_ACCESS_ID = "bastion_access_id";
-  @SerializedName(SERIALIZED_NAME_BASTION_ACCESS_ID)
-  private String bastionAccessId;
+  public static final String SERIALIZED_NAME_COUNT_INFO = "count_info";
+  @SerializedName(SERIALIZED_NAME_COUNT_INFO)
+  private Map<String, Map<String, Long>> countInfo = null;
 
-  public static final String SERIALIZED_NAME_BASTION_CLUSTER_NAME = "bastion_cluster_name";
-  @SerializedName(SERIALIZED_NAME_BASTION_CLUSTER_NAME)
-  private String bastionClusterName;
+  public static final String SERIALIZED_NAME_IS_IN_USE = "is_in_use";
+  @SerializedName(SERIALIZED_NAME_IS_IN_USE)
+  private Boolean isInUse;
 
-  public static final String SERIALIZED_NAME_BASTION_INSTANCE_ID = "bastion_instance_id";
-  @SerializedName(SERIALIZED_NAME_BASTION_INSTANCE_ID)
-  private String bastionInstanceId;
-
-  public static final String SERIALIZED_NAME_IS_IN_USED = "is_in_used";
-  @SerializedName(SERIALIZED_NAME_IS_IN_USED)
-  private Boolean isInUsed;
-
-  public static final String SERIALIZED_NAME_SESSION_ID = "session_id";
-  @SerializedName(SERIALIZED_NAME_SESSION_ID)
-  private String sessionId;
-
-  public static final String SERIALIZED_NAME_TIME = "time";
-  @SerializedName(SERIALIZED_NAME_TIME)
-  private OffsetDateTime time;
+  public static final String SERIALIZED_NAME_LAST_USED_ITEM = "last_used_item";
+  @SerializedName(SERIALIZED_NAME_LAST_USED_ITEM)
+  private OffsetDateTime lastUsedItem;
 
   public ItemSraStatus() { 
   }
 
-  public ItemSraStatus bastionAccessId(String bastionAccessId) {
+  public ItemSraStatus countInfo(Map<String, Map<String, Long>> countInfo) {
     
-    this.bastionAccessId = bastionAccessId;
+    this.countInfo = countInfo;
+    return this;
+  }
+
+  public ItemSraStatus putCountInfoItem(String key, Map<String, Long> countInfoItem) {
+    if (this.countInfo == null) {
+      this.countInfo = new HashMap<String, Map<String, Long>>();
+    }
+    this.countInfo.put(key, countInfoItem);
     return this;
   }
 
    /**
-   * Get bastionAccessId
-   * @return bastionAccessId
+   * Get countInfo
+   * @return countInfo
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getBastionAccessId() {
-    return bastionAccessId;
+  public Map<String, Map<String, Long>> getCountInfo() {
+    return countInfo;
   }
 
 
-  public void setBastionAccessId(String bastionAccessId) {
-    this.bastionAccessId = bastionAccessId;
+  public void setCountInfo(Map<String, Map<String, Long>> countInfo) {
+    this.countInfo = countInfo;
   }
 
 
-  public ItemSraStatus bastionClusterName(String bastionClusterName) {
+  public ItemSraStatus isInUse(Boolean isInUse) {
     
-    this.bastionClusterName = bastionClusterName;
+    this.isInUse = isInUse;
     return this;
   }
 
    /**
-   * Get bastionClusterName
-   * @return bastionClusterName
+   * Get isInUse
+   * @return isInUse
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getBastionClusterName() {
-    return bastionClusterName;
+  public Boolean getIsInUse() {
+    return isInUse;
   }
 
 
-  public void setBastionClusterName(String bastionClusterName) {
-    this.bastionClusterName = bastionClusterName;
+  public void setIsInUse(Boolean isInUse) {
+    this.isInUse = isInUse;
   }
 
 
-  public ItemSraStatus bastionInstanceId(String bastionInstanceId) {
+  public ItemSraStatus lastUsedItem(OffsetDateTime lastUsedItem) {
     
-    this.bastionInstanceId = bastionInstanceId;
+    this.lastUsedItem = lastUsedItem;
     return this;
   }
 
    /**
-   * Get bastionInstanceId
-   * @return bastionInstanceId
+   * Get lastUsedItem
+   * @return lastUsedItem
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getBastionInstanceId() {
-    return bastionInstanceId;
+  public OffsetDateTime getLastUsedItem() {
+    return lastUsedItem;
   }
 
 
-  public void setBastionInstanceId(String bastionInstanceId) {
-    this.bastionInstanceId = bastionInstanceId;
-  }
-
-
-  public ItemSraStatus isInUsed(Boolean isInUsed) {
-    
-    this.isInUsed = isInUsed;
-    return this;
-  }
-
-   /**
-   * Get isInUsed
-   * @return isInUsed
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getIsInUsed() {
-    return isInUsed;
-  }
-
-
-  public void setIsInUsed(Boolean isInUsed) {
-    this.isInUsed = isInUsed;
-  }
-
-
-  public ItemSraStatus sessionId(String sessionId) {
-    
-    this.sessionId = sessionId;
-    return this;
-  }
-
-   /**
-   * Get sessionId
-   * @return sessionId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getSessionId() {
-    return sessionId;
-  }
-
-
-  public void setSessionId(String sessionId) {
-    this.sessionId = sessionId;
-  }
-
-
-  public ItemSraStatus time(OffsetDateTime time) {
-    
-    this.time = time;
-    return this;
-  }
-
-   /**
-   * Get time
-   * @return time
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getTime() {
-    return time;
-  }
-
-
-  public void setTime(OffsetDateTime time) {
-    this.time = time;
+  public void setLastUsedItem(OffsetDateTime lastUsedItem) {
+    this.lastUsedItem = lastUsedItem;
   }
 
 
@@ -204,29 +134,23 @@ public class ItemSraStatus {
       return false;
     }
     ItemSraStatus itemSraStatus = (ItemSraStatus) o;
-    return Objects.equals(this.bastionAccessId, itemSraStatus.bastionAccessId) &&
-        Objects.equals(this.bastionClusterName, itemSraStatus.bastionClusterName) &&
-        Objects.equals(this.bastionInstanceId, itemSraStatus.bastionInstanceId) &&
-        Objects.equals(this.isInUsed, itemSraStatus.isInUsed) &&
-        Objects.equals(this.sessionId, itemSraStatus.sessionId) &&
-        Objects.equals(this.time, itemSraStatus.time);
+    return Objects.equals(this.countInfo, itemSraStatus.countInfo) &&
+        Objects.equals(this.isInUse, itemSraStatus.isInUse) &&
+        Objects.equals(this.lastUsedItem, itemSraStatus.lastUsedItem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bastionAccessId, bastionClusterName, bastionInstanceId, isInUsed, sessionId, time);
+    return Objects.hash(countInfo, isInUse, lastUsedItem);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemSraStatus {\n");
-    sb.append("    bastionAccessId: ").append(toIndentedString(bastionAccessId)).append("\n");
-    sb.append("    bastionClusterName: ").append(toIndentedString(bastionClusterName)).append("\n");
-    sb.append("    bastionInstanceId: ").append(toIndentedString(bastionInstanceId)).append("\n");
-    sb.append("    isInUsed: ").append(toIndentedString(isInUsed)).append("\n");
-    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
-    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    countInfo: ").append(toIndentedString(countInfo)).append("\n");
+    sb.append("    isInUse: ").append(toIndentedString(isInUse)).append("\n");
+    sb.append("    lastUsedItem: ").append(toIndentedString(lastUsedItem)).append("\n");
     sb.append("}");
     return sb.toString();
   }

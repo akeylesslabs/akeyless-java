@@ -72,7 +72,7 @@ public class GetKubeExecCreds {
 
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
-  private Long ttl;
+  private String ttl;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -315,7 +315,7 @@ public class GetKubeExecCreds {
   }
 
 
-  public GetKubeExecCreds ttl(Long ttl) {
+  public GetKubeExecCreds ttl(String ttl) {
     
     this.ttl = ttl;
     return this;
@@ -328,12 +328,12 @@ public class GetKubeExecCreds {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)")
 
-  public Long getTtl() {
+  public String getTtl() {
     return ttl;
   }
 
 
-  public void setTtl(Long ttl) {
+  public void setTtl(String ttl) {
     this.ttl = ttl;
   }
 

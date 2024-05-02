@@ -229,6 +229,7 @@ docs/DynamicSecretCreateEks.md
 docs/DynamicSecretCreateGcp.md
 docs/DynamicSecretCreateGithub.md
 docs/DynamicSecretCreateGke.md
+docs/DynamicSecretCreateGoogleWorkspace.md
 docs/DynamicSecretCreateHanaDb.md
 docs/DynamicSecretCreateK8s.md
 docs/DynamicSecretCreateLdap.md
@@ -266,6 +267,7 @@ docs/DynamicSecretUpdateEks.md
 docs/DynamicSecretUpdateGcp.md
 docs/DynamicSecretUpdateGithub.md
 docs/DynamicSecretUpdateGke.md
+docs/DynamicSecretUpdateGoogleWorkspace.md
 docs/DynamicSecretUpdateHanaDb.md
 docs/DynamicSecretUpdateK8s.md
 docs/DynamicSecretUpdateLdap.md
@@ -354,6 +356,7 @@ docs/GatewayCreateProducerGithub.md
 docs/GatewayCreateProducerGithubOutput.md
 docs/GatewayCreateProducerGke.md
 docs/GatewayCreateProducerGkeOutput.md
+docs/GatewayCreateProducerGoogleWorkspaceOutput.md
 docs/GatewayCreateProducerHanaDb.md
 docs/GatewayCreateProducerHanaDbOutput.md
 docs/GatewayCreateProducerLdap.md
@@ -414,6 +417,8 @@ docs/GatewayMigrationGetOutput.md
 docs/GatewayMigrationListOutput.md
 docs/GatewayMigrationSyncOutput.md
 docs/GatewayMigrationUpdateOutput.md
+docs/GatewayPartialUpdateK8SAuthConfig.md
+docs/GatewayPartialUpdateK8SAuthConfigOutput.md
 docs/GatewayRevokeTmpUsers.md
 docs/GatewayStartProducer.md
 docs/GatewayStartProducerOutput.md
@@ -1136,6 +1141,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretCreateEks.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateGcp.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateGithub.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateGke.java
+src/main/java/io/akeyless/client/model/DynamicSecretCreateGoogleWorkspace.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateHanaDb.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateK8s.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateLdap.java
@@ -1173,6 +1179,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretUpdateEks.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateGcp.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateGithub.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateGke.java
+src/main/java/io/akeyless/client/model/DynamicSecretUpdateGoogleWorkspace.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateHanaDb.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateK8s.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateLdap.java
@@ -1261,6 +1268,7 @@ src/main/java/io/akeyless/client/model/GatewayCreateProducerGithub.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerGithubOutput.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerGke.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerGkeOutput.java
+src/main/java/io/akeyless/client/model/GatewayCreateProducerGoogleWorkspaceOutput.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerHanaDb.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerHanaDbOutput.java
 src/main/java/io/akeyless/client/model/GatewayCreateProducerLdap.java
@@ -1321,6 +1329,8 @@ src/main/java/io/akeyless/client/model/GatewayMigrationGetOutput.java
 src/main/java/io/akeyless/client/model/GatewayMigrationListOutput.java
 src/main/java/io/akeyless/client/model/GatewayMigrationSyncOutput.java
 src/main/java/io/akeyless/client/model/GatewayMigrationUpdateOutput.java
+src/main/java/io/akeyless/client/model/GatewayPartialUpdateK8SAuthConfig.java
+src/main/java/io/akeyless/client/model/GatewayPartialUpdateK8SAuthConfigOutput.java
 src/main/java/io/akeyless/client/model/GatewayRevokeTmpUsers.java
 src/main/java/io/akeyless/client/model/GatewayStartProducer.java
 src/main/java/io/akeyless/client/model/GatewayStartProducerOutput.java
@@ -1790,15 +1800,8 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AllAnalyticsDataTest.java
-src/test/java/io/akeyless/client/model/CertificateAnalyticAggregationTest.java
-src/test/java/io/akeyless/client/model/ClientUsageInfoTest.java
-src/test/java/io/akeyless/client/model/ClientsUsageReportTest.java
-src/test/java/io/akeyless/client/model/EventForwarderCreateServiceNowTest.java
-src/test/java/io/akeyless/client/model/EventForwarderCreateSlackTest.java
-src/test/java/io/akeyless/client/model/EventForwarderUpdateServiceNowTest.java
-src/test/java/io/akeyless/client/model/EventForwarderUpdateSlackTest.java
-src/test/java/io/akeyless/client/model/GetAnalyticsDataTest.java
-src/test/java/io/akeyless/client/model/ItemSraStatusTest.java
-src/test/java/io/akeyless/client/model/RevokeCertificateTest.java
-src/test/java/io/akeyless/client/model/UsageReportSummaryTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretCreateGoogleWorkspaceTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretUpdateGoogleWorkspaceTest.java
+src/test/java/io/akeyless/client/model/GatewayCreateProducerGoogleWorkspaceOutputTest.java
+src/test/java/io/akeyless/client/model/GatewayPartialUpdateK8SAuthConfigOutputTest.java
+src/test/java/io/akeyless/client/model/GatewayPartialUpdateK8SAuthConfigTest.java

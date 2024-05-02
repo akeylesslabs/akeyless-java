@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **k8sClientKeyData** | **String** |  |  [optional]
 **k8sClusterCaCertificate** | **String** |  |  [optional]
 **k8sClusterEndpoint** | **String** |  |  [optional]
+**k8sClusterName** | **String** |  |  [optional]
 **useGwServiceAccount** | **Boolean** |  |  [optional]
 
 

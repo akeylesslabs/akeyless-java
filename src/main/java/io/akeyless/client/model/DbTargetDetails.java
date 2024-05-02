@@ -34,6 +34,10 @@ public class DbTargetDetails {
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   private String cloudServiceProvider;
 
+  public static final String SERIALIZED_NAME_CLUSTER_MODE = "cluster_mode";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_MODE)
+  private Boolean clusterMode;
+
   public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection_type";
   @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
   private String connectionType;
@@ -121,6 +125,29 @@ public class DbTargetDetails {
 
   public void setCloudServiceProvider(String cloudServiceProvider) {
     this.cloudServiceProvider = cloudServiceProvider;
+  }
+
+
+  public DbTargetDetails clusterMode(Boolean clusterMode) {
+    
+    this.clusterMode = clusterMode;
+    return this;
+  }
+
+   /**
+   * Get clusterMode
+   * @return clusterMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getClusterMode() {
+    return clusterMode;
+  }
+
+
+  public void setClusterMode(Boolean clusterMode) {
+    this.clusterMode = clusterMode;
   }
 
 
@@ -502,6 +529,7 @@ public class DbTargetDetails {
     }
     DbTargetDetails dbTargetDetails = (DbTargetDetails) o;
     return Objects.equals(this.cloudServiceProvider, dbTargetDetails.cloudServiceProvider) &&
+        Objects.equals(this.clusterMode, dbTargetDetails.clusterMode) &&
         Objects.equals(this.connectionType, dbTargetDetails.connectionType) &&
         Objects.equals(this.dbClientId, dbTargetDetails.dbClientId) &&
         Objects.equals(this.dbClientSecret, dbTargetDetails.dbClientSecret) &&
@@ -522,7 +550,7 @@ public class DbTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudServiceProvider, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, sfAccount, sslConnectionCertificate, sslConnectionMode);
+    return Objects.hash(cloudServiceProvider, clusterMode, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, sfAccount, sslConnectionCertificate, sslConnectionMode);
   }
 
   @Override
@@ -530,6 +558,7 @@ public class DbTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbTargetDetails {\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
+    sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    dbClientId: ").append(toIndentedString(dbClientId)).append("\n");
     sb.append("    dbClientSecret: ").append(toIndentedString(dbClientSecret)).append("\n");

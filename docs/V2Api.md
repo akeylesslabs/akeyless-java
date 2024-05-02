@@ -97,6 +97,7 @@ Method | HTTP request | Description
 [**dynamicSecretCreateGcp**](V2Api.md#dynamicSecretCreateGcp) | **POST** /dynamic-secret-create-gcp | 
 [**dynamicSecretCreateGithub**](V2Api.md#dynamicSecretCreateGithub) | **POST** /dynamic-secret-create-github | 
 [**dynamicSecretCreateGke**](V2Api.md#dynamicSecretCreateGke) | **POST** /dynamic-secret-create-gke | 
+[**dynamicSecretCreateGoogleWorkspace**](V2Api.md#dynamicSecretCreateGoogleWorkspace) | **POST** /dynamic-secret-create-google-workspace | 
 [**dynamicSecretCreateHanaDb**](V2Api.md#dynamicSecretCreateHanaDb) | **POST** /dynamic-secret-create-hanadb | 
 [**dynamicSecretCreateK8s**](V2Api.md#dynamicSecretCreateK8s) | **POST** /dynamic-secret-create-k8s | 
 [**dynamicSecretCreateLdap**](V2Api.md#dynamicSecretCreateLdap) | **POST** /dynamic-secret-create-ldap | 
@@ -129,6 +130,7 @@ Method | HTTP request | Description
 [**dynamicSecretUpdateGcp**](V2Api.md#dynamicSecretUpdateGcp) | **POST** /dynamic-secret-update-gcp | 
 [**dynamicSecretUpdateGithub**](V2Api.md#dynamicSecretUpdateGithub) | **POST** /dynamic-secret-update-github | 
 [**dynamicSecretUpdateGke**](V2Api.md#dynamicSecretUpdateGke) | **POST** /dynamic-secret-update-gke | 
+[**dynamicSecretUpdateGoogleWorkspace**](V2Api.md#dynamicSecretUpdateGoogleWorkspace) | **POST** /dynamic-secret-update-google-workspace | 
 [**dynamicSecretUpdateHanaDb**](V2Api.md#dynamicSecretUpdateHanaDb) | **POST** /dynamic-secret-update-hana | 
 [**dynamicSecretUpdateK8s**](V2Api.md#dynamicSecretUpdateK8s) | **POST** /dynamic-secret-update-k8s | 
 [**dynamicSecretUpdateLdap**](V2Api.md#dynamicSecretUpdateLdap) | **POST** /dynamic-secret-update-ldap | 
@@ -6106,6 +6108,67 @@ No authorization required
 **201** | dynamicSecretCreateGkeResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="dynamicSecretCreateGoogleWorkspace"></a>
+# **dynamicSecretCreateGoogleWorkspace**
+> DynamicSecretCreateOutput dynamicSecretCreateGoogleWorkspace(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretCreateGoogleWorkspace body = new DynamicSecretCreateGoogleWorkspace(); // DynamicSecretCreateGoogleWorkspace | 
+    try {
+      DynamicSecretCreateOutput result = apiInstance.dynamicSecretCreateGoogleWorkspace(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#dynamicSecretCreateGoogleWorkspace");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DynamicSecretCreateGoogleWorkspace**](DynamicSecretCreateGoogleWorkspace.md)|  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | dynamicSecretCreateGoogleWorkspaceResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="dynamicSecretCreateHanaDb"></a>
 # **dynamicSecretCreateHanaDb**
 > DynamicSecretCreateOutput dynamicSecretCreateHanaDb(body)
@@ -7084,7 +7147,7 @@ No authorization required
 
 <a name="dynamicSecretGet"></a>
 # **dynamicSecretGet**
-> DSProducerDetails dynamicSecretGet()
+> DSProducerDetails dynamicSecretGet(body)
 
 
 
@@ -7103,8 +7166,9 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretGet body = new DynamicSecretGet(); // DynamicSecretGet | 
     try {
-      DSProducerDetails result = apiInstance.dynamicSecretGet();
+      DSProducerDetails result = apiInstance.dynamicSecretGet(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#dynamicSecretGet");
@@ -7118,7 +7182,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DynamicSecretGet**](DynamicSecretGet.md)|  |
 
 ### Return type
 
@@ -7130,7 +7197,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -8050,6 +8117,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | dynamicSecretUpdateGkeResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="dynamicSecretUpdateGoogleWorkspace"></a>
+# **dynamicSecretUpdateGoogleWorkspace**
+> DynamicSecretUpdateOutput dynamicSecretUpdateGoogleWorkspace(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretUpdateGoogleWorkspace body = new DynamicSecretUpdateGoogleWorkspace(); // DynamicSecretUpdateGoogleWorkspace | 
+    try {
+      DynamicSecretUpdateOutput result = apiInstance.dynamicSecretUpdateGoogleWorkspace(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#dynamicSecretUpdateGoogleWorkspace");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DynamicSecretUpdateGoogleWorkspace**](DynamicSecretUpdateGoogleWorkspace.md)|  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | dynamicSecretUpdateGoogleWorkspaceResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="dynamicSecretUpdateHanaDb"></a>
@@ -15612,7 +15740,7 @@ No authorization required
 
 <a name="getDynamicSecretValue"></a>
 # **getDynamicSecretValue**
-> Map&lt;String, String&gt; getDynamicSecretValue(body)
+> Map&lt;String, Object&gt; getDynamicSecretValue(body)
 
 
 
@@ -15633,7 +15761,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     GetDynamicSecretValue body = new GetDynamicSecretValue(); // GetDynamicSecretValue | 
     try {
-      Map<String, String> result = apiInstance.getDynamicSecretValue(body);
+      Map<String, Object> result = apiInstance.getDynamicSecretValue(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#getDynamicSecretValue");
@@ -15654,7 +15782,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Map&lt;String, String&gt;**
+**Map&lt;String, Object&gt;**
 
 ### Authorization
 
@@ -16222,7 +16350,7 @@ No authorization required
 
 <a name="getSecretValue"></a>
 # **getSecretValue**
-> Map&lt;String, String&gt; getSecretValue(body)
+> Map&lt;String, Object&gt; getSecretValue(body)
 
 
 
@@ -16243,7 +16371,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     GetSecretValue body = new GetSecretValue(); // GetSecretValue | 
     try {
-      Map<String, String> result = apiInstance.getSecretValue(body);
+      Map<String, Object> result = apiInstance.getSecretValue(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#getSecretValue");
@@ -16264,7 +16392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Map&lt;String, String&gt;**
+**Map&lt;String, Object&gt;**
 
 ### Authorization
 
@@ -19755,7 +19883,7 @@ No authorization required
 
 <a name="rotatedSecretGetValue"></a>
 # **rotatedSecretGetValue**
-> Map&lt;String, String&gt; rotatedSecretGetValue(body)
+> Map&lt;String, Object&gt; rotatedSecretGetValue(body)
 
 
 
@@ -19776,7 +19904,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     RotatedSecretGetValue body = new RotatedSecretGetValue(); // RotatedSecretGetValue | 
     try {
-      Map<String, String> result = apiInstance.rotatedSecretGetValue(body);
+      Map<String, Object> result = apiInstance.rotatedSecretGetValue(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#rotatedSecretGetValue");
@@ -19797,7 +19925,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Map&lt;String, String&gt;**
+**Map&lt;String, Object&gt;**
 
 ### Authorization
 

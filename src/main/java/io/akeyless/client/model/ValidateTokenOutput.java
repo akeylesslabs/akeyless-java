@@ -37,9 +37,17 @@ public class ValidateTokenOutput {
   @SerializedName(SERIALIZED_NAME_IS_VALID)
   private Boolean isValid;
 
+  public static final String SERIALIZED_NAME_LAST_ROTATE = "last_rotate";
+  @SerializedName(SERIALIZED_NAME_LAST_ROTATE)
+  private String lastRotate;
+
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
+  public static final String SERIALIZED_NAME_TTL = "ttl";
+  @SerializedName(SERIALIZED_NAME_TTL)
+  private Integer ttl;
 
   public ValidateTokenOutput() { 
   }
@@ -90,6 +98,29 @@ public class ValidateTokenOutput {
   }
 
 
+  public ValidateTokenOutput lastRotate(String lastRotate) {
+    
+    this.lastRotate = lastRotate;
+    return this;
+  }
+
+   /**
+   * Get lastRotate
+   * @return lastRotate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastRotate() {
+    return lastRotate;
+  }
+
+
+  public void setLastRotate(String lastRotate) {
+    this.lastRotate = lastRotate;
+  }
+
+
   public ValidateTokenOutput reason(String reason) {
     
     this.reason = reason;
@@ -113,6 +144,29 @@ public class ValidateTokenOutput {
   }
 
 
+  public ValidateTokenOutput ttl(Integer ttl) {
+    
+    this.ttl = ttl;
+    return this;
+  }
+
+   /**
+   * Get ttl
+   * @return ttl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getTtl() {
+    return ttl;
+  }
+
+
+  public void setTtl(Integer ttl) {
+    this.ttl = ttl;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,12 +178,14 @@ public class ValidateTokenOutput {
     ValidateTokenOutput validateTokenOutput = (ValidateTokenOutput) o;
     return Objects.equals(this.expiration, validateTokenOutput.expiration) &&
         Objects.equals(this.isValid, validateTokenOutput.isValid) &&
-        Objects.equals(this.reason, validateTokenOutput.reason);
+        Objects.equals(this.lastRotate, validateTokenOutput.lastRotate) &&
+        Objects.equals(this.reason, validateTokenOutput.reason) &&
+        Objects.equals(this.ttl, validateTokenOutput.ttl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expiration, isValid, reason);
+    return Objects.hash(expiration, isValid, lastRotate, reason, ttl);
   }
 
   @Override
@@ -138,7 +194,9 @@ public class ValidateTokenOutput {
     sb.append("class ValidateTokenOutput {\n");
     sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
+    sb.append("    lastRotate: ").append(toIndentedString(lastRotate)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

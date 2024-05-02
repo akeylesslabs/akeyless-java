@@ -9,6 +9,7 @@ DbTargetDetails
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cloudServiceProvider** | **String** |  |  [optional]
+**clusterMode** | **Boolean** |  |  [optional]
 **connectionType** | **String** |  |  [optional]
 **dbClientId** | **String** |  |  [optional]
 **dbClientSecret** | **String** |  |  [optional]

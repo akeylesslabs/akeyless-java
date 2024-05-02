@@ -61,6 +61,10 @@ public class UpdateNativeK8STarget {
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint = "dummy_val";
 
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_NAME = "k8s-cluster-name";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_NAME)
+  private String k8sClusterName;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_TOKEN = "k8s-cluster-token";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_TOKEN)
   private String k8sClusterToken = "dummy_val";
@@ -285,6 +289,29 @@ public class UpdateNativeK8STarget {
 
   public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
     this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public UpdateNativeK8STarget k8sClusterName(String k8sClusterName) {
+    
+    this.k8sClusterName = k8sClusterName;
+    return this;
+  }
+
+   /**
+   * K8S cluster name
+   * @return k8sClusterName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S cluster name")
+
+  public String getK8sClusterName() {
+    return k8sClusterName;
+  }
+
+
+  public void setK8sClusterName(String k8sClusterName) {
+    this.k8sClusterName = k8sClusterName;
   }
 
 
@@ -535,6 +562,7 @@ public class UpdateNativeK8STarget {
         Objects.equals(this.k8sClientKey, updateNativeK8STarget.k8sClientKey) &&
         Objects.equals(this.k8sClusterCaCert, updateNativeK8STarget.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, updateNativeK8STarget.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sClusterName, updateNativeK8STarget.k8sClusterName) &&
         Objects.equals(this.k8sClusterToken, updateNativeK8STarget.k8sClusterToken) &&
         Objects.equals(this.keepPrevVersion, updateNativeK8STarget.keepPrevVersion) &&
         Objects.equals(this.key, updateNativeK8STarget.key) &&
@@ -549,7 +577,7 @@ public class UpdateNativeK8STarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, json, k8sAuthType, k8sClientCertificate, k8sClientKey, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
+    return Objects.hash(comment, description, json, k8sAuthType, k8sClientCertificate, k8sClientKey, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion, useGwServiceAccount);
   }
 
   @Override
@@ -564,6 +592,7 @@ public class UpdateNativeK8STarget {
     sb.append("    k8sClientKey: ").append(toIndentedString(k8sClientKey)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

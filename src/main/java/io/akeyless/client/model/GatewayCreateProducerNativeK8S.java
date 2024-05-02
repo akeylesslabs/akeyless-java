@@ -52,6 +52,10 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_ENDPOINT)
   private String k8sClusterEndpoint;
 
+  public static final String SERIALIZED_NAME_K8S_CLUSTER_NAME = "k8s-cluster-name";
+  @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_NAME)
+  private String k8sClusterName;
+
   public static final String SERIALIZED_NAME_K8S_CLUSTER_TOKEN = "k8s-cluster-token";
   @SerializedName(SERIALIZED_NAME_K8S_CLUSTER_TOKEN)
   private String k8sClusterToken;
@@ -259,6 +263,29 @@ public class GatewayCreateProducerNativeK8S {
 
   public void setK8sClusterEndpoint(String k8sClusterEndpoint) {
     this.k8sClusterEndpoint = k8sClusterEndpoint;
+  }
+
+
+  public GatewayCreateProducerNativeK8S k8sClusterName(String k8sClusterName) {
+    
+    this.k8sClusterName = k8sClusterName;
+    return this;
+  }
+
+   /**
+   * K8S cluster name
+   * @return k8sClusterName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "K8S cluster name")
+
+  public String getK8sClusterName() {
+    return k8sClusterName;
+  }
+
+
+  public void setK8sClusterName(String k8sClusterName) {
+    this.k8sClusterName = k8sClusterName;
   }
 
 
@@ -813,6 +840,7 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.k8sAllowedNamespaces, gatewayCreateProducerNativeK8S.k8sAllowedNamespaces) &&
         Objects.equals(this.k8sClusterCaCert, gatewayCreateProducerNativeK8S.k8sClusterCaCert) &&
         Objects.equals(this.k8sClusterEndpoint, gatewayCreateProducerNativeK8S.k8sClusterEndpoint) &&
+        Objects.equals(this.k8sClusterName, gatewayCreateProducerNativeK8S.k8sClusterName) &&
         Objects.equals(this.k8sClusterToken, gatewayCreateProducerNativeK8S.k8sClusterToken) &&
         Objects.equals(this.k8sNamespace, gatewayCreateProducerNativeK8S.k8sNamespace) &&
         Objects.equals(this.k8sPredefinedRoleName, gatewayCreateProducerNativeK8S.k8sPredefinedRoleName) &&
@@ -840,7 +868,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(deleteProtection, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
@@ -852,6 +880,7 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
     sb.append("    k8sClusterEndpoint: ").append(toIndentedString(k8sClusterEndpoint)).append("\n");
+    sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
     sb.append("    k8sClusterToken: ").append(toIndentedString(k8sClusterToken)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sPredefinedRoleName: ").append(toIndentedString(k8sPredefinedRoleName)).append("\n");

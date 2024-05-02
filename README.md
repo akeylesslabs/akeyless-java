@@ -198,6 +198,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretCreateGcp**](docs/V2Api.md#dynamicSecretCreateGcp) | **POST** /dynamic-secret-create-gcp | 
 *V2Api* | [**dynamicSecretCreateGithub**](docs/V2Api.md#dynamicSecretCreateGithub) | **POST** /dynamic-secret-create-github | 
 *V2Api* | [**dynamicSecretCreateGke**](docs/V2Api.md#dynamicSecretCreateGke) | **POST** /dynamic-secret-create-gke | 
+*V2Api* | [**dynamicSecretCreateGoogleWorkspace**](docs/V2Api.md#dynamicSecretCreateGoogleWorkspace) | **POST** /dynamic-secret-create-google-workspace | 
 *V2Api* | [**dynamicSecretCreateHanaDb**](docs/V2Api.md#dynamicSecretCreateHanaDb) | **POST** /dynamic-secret-create-hanadb | 
 *V2Api* | [**dynamicSecretCreateK8s**](docs/V2Api.md#dynamicSecretCreateK8s) | **POST** /dynamic-secret-create-k8s | 
 *V2Api* | [**dynamicSecretCreateLdap**](docs/V2Api.md#dynamicSecretCreateLdap) | **POST** /dynamic-secret-create-ldap | 
@@ -230,6 +231,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretUpdateGcp**](docs/V2Api.md#dynamicSecretUpdateGcp) | **POST** /dynamic-secret-update-gcp | 
 *V2Api* | [**dynamicSecretUpdateGithub**](docs/V2Api.md#dynamicSecretUpdateGithub) | **POST** /dynamic-secret-update-github | 
 *V2Api* | [**dynamicSecretUpdateGke**](docs/V2Api.md#dynamicSecretUpdateGke) | **POST** /dynamic-secret-update-gke | 
+*V2Api* | [**dynamicSecretUpdateGoogleWorkspace**](docs/V2Api.md#dynamicSecretUpdateGoogleWorkspace) | **POST** /dynamic-secret-update-google-workspace | 
 *V2Api* | [**dynamicSecretUpdateHanaDb**](docs/V2Api.md#dynamicSecretUpdateHanaDb) | **POST** /dynamic-secret-update-hana | 
 *V2Api* | [**dynamicSecretUpdateK8s**](docs/V2Api.md#dynamicSecretUpdateK8s) | **POST** /dynamic-secret-update-k8s | 
 *V2Api* | [**dynamicSecretUpdateLdap**](docs/V2Api.md#dynamicSecretUpdateLdap) | **POST** /dynamic-secret-update-ldap | 
@@ -759,6 +761,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretCreateGcp](docs/DynamicSecretCreateGcp.md)
  - [DynamicSecretCreateGithub](docs/DynamicSecretCreateGithub.md)
  - [DynamicSecretCreateGke](docs/DynamicSecretCreateGke.md)
+ - [DynamicSecretCreateGoogleWorkspace](docs/DynamicSecretCreateGoogleWorkspace.md)
  - [DynamicSecretCreateHanaDb](docs/DynamicSecretCreateHanaDb.md)
  - [DynamicSecretCreateK8s](docs/DynamicSecretCreateK8s.md)
  - [DynamicSecretCreateLdap](docs/DynamicSecretCreateLdap.md)
@@ -796,6 +799,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretUpdateGcp](docs/DynamicSecretUpdateGcp.md)
  - [DynamicSecretUpdateGithub](docs/DynamicSecretUpdateGithub.md)
  - [DynamicSecretUpdateGke](docs/DynamicSecretUpdateGke.md)
+ - [DynamicSecretUpdateGoogleWorkspace](docs/DynamicSecretUpdateGoogleWorkspace.md)
  - [DynamicSecretUpdateHanaDb](docs/DynamicSecretUpdateHanaDb.md)
  - [DynamicSecretUpdateK8s](docs/DynamicSecretUpdateK8s.md)
  - [DynamicSecretUpdateLdap](docs/DynamicSecretUpdateLdap.md)
@@ -884,6 +888,7 @@ Class | Method | HTTP request | Description
  - [GatewayCreateProducerGithubOutput](docs/GatewayCreateProducerGithubOutput.md)
  - [GatewayCreateProducerGke](docs/GatewayCreateProducerGke.md)
  - [GatewayCreateProducerGkeOutput](docs/GatewayCreateProducerGkeOutput.md)
+ - [GatewayCreateProducerGoogleWorkspaceOutput](docs/GatewayCreateProducerGoogleWorkspaceOutput.md)
  - [GatewayCreateProducerHanaDb](docs/GatewayCreateProducerHanaDb.md)
  - [GatewayCreateProducerHanaDbOutput](docs/GatewayCreateProducerHanaDbOutput.md)
  - [GatewayCreateProducerLdap](docs/GatewayCreateProducerLdap.md)
@@ -944,6 +949,8 @@ Class | Method | HTTP request | Description
  - [GatewayMigrationListOutput](docs/GatewayMigrationListOutput.md)
  - [GatewayMigrationSyncOutput](docs/GatewayMigrationSyncOutput.md)
  - [GatewayMigrationUpdateOutput](docs/GatewayMigrationUpdateOutput.md)
+ - [GatewayPartialUpdateK8SAuthConfig](docs/GatewayPartialUpdateK8SAuthConfig.md)
+ - [GatewayPartialUpdateK8SAuthConfigOutput](docs/GatewayPartialUpdateK8SAuthConfigOutput.md)
  - [GatewayRevokeTmpUsers](docs/GatewayRevokeTmpUsers.md)
  - [GatewayStartProducer](docs/GatewayStartProducer.md)
  - [GatewayStartProducerOutput](docs/GatewayStartProducerOutput.md)

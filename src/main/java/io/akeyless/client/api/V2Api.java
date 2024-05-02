@@ -195,6 +195,7 @@ import io.akeyless.client.model.DynamicSecretCreateEks;
 import io.akeyless.client.model.DynamicSecretCreateGcp;
 import io.akeyless.client.model.DynamicSecretCreateGithub;
 import io.akeyless.client.model.DynamicSecretCreateGke;
+import io.akeyless.client.model.DynamicSecretCreateGoogleWorkspace;
 import io.akeyless.client.model.DynamicSecretCreateHanaDb;
 import io.akeyless.client.model.DynamicSecretCreateK8s;
 import io.akeyless.client.model.DynamicSecretCreateLdap;
@@ -213,6 +214,7 @@ import io.akeyless.client.model.DynamicSecretCreateSnowflake;
 import io.akeyless.client.model.DynamicSecretCreateVenafi;
 import io.akeyless.client.model.DynamicSecretDelete;
 import io.akeyless.client.model.DynamicSecretDeleteOutput;
+import io.akeyless.client.model.DynamicSecretGet;
 import io.akeyless.client.model.DynamicSecretGetValue;
 import io.akeyless.client.model.DynamicSecretList;
 import io.akeyless.client.model.DynamicSecretTmpCredsDelete;
@@ -228,6 +230,7 @@ import io.akeyless.client.model.DynamicSecretUpdateEks;
 import io.akeyless.client.model.DynamicSecretUpdateGcp;
 import io.akeyless.client.model.DynamicSecretUpdateGithub;
 import io.akeyless.client.model.DynamicSecretUpdateGke;
+import io.akeyless.client.model.DynamicSecretUpdateGoogleWorkspace;
 import io.akeyless.client.model.DynamicSecretUpdateHanaDb;
 import io.akeyless.client.model.DynamicSecretUpdateK8s;
 import io.akeyless.client.model.DynamicSecretUpdateLdap;
@@ -12944,6 +12947,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for dynamicSecretCreateGoogleWorkspace
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretCreateGoogleWorkspaceCall(DynamicSecretCreateGoogleWorkspace body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/dynamic-secret-create-google-workspace";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call dynamicSecretCreateGoogleWorkspaceValidateBeforeCall(DynamicSecretCreateGoogleWorkspace body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling dynamicSecretCreateGoogleWorkspace(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = dynamicSecretCreateGoogleWorkspaceCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DynamicSecretCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public DynamicSecretCreateOutput dynamicSecretCreateGoogleWorkspace(DynamicSecretCreateGoogleWorkspace body) throws ApiException {
+        ApiResponse<DynamicSecretCreateOutput> localVarResp = dynamicSecretCreateGoogleWorkspaceWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DynamicSecretCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DynamicSecretCreateOutput> dynamicSecretCreateGoogleWorkspaceWithHttpInfo(DynamicSecretCreateGoogleWorkspace body) throws ApiException {
+        okhttp3.Call localVarCall = dynamicSecretCreateGoogleWorkspaceValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<DynamicSecretCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretCreateGoogleWorkspaceAsync(DynamicSecretCreateGoogleWorkspace body, final ApiCallback<DynamicSecretCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = dynamicSecretCreateGoogleWorkspaceValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<DynamicSecretCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for dynamicSecretCreateHanaDb
      * @param body  (required)
      * @param _callback Callback for upload/download progress
@@ -15041,6 +15175,7 @@ public class V2Api {
     }
     /**
      * Build call for dynamicSecretGet
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -15051,7 +15186,7 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call dynamicSecretGetCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call dynamicSecretGetCall(DynamicSecretGet body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -15066,7 +15201,7 @@ public class V2Api {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/dynamic-secret-get";
@@ -15086,7 +15221,7 @@ public class V2Api {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -15098,10 +15233,15 @@ public class V2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call dynamicSecretGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call dynamicSecretGetValidateBeforeCall(DynamicSecretGet body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling dynamicSecretGet(Async)");
+        }
         
 
-        okhttp3.Call localVarCall = dynamicSecretGetCall(_callback);
+        okhttp3.Call localVarCall = dynamicSecretGetCall(body, _callback);
         return localVarCall;
 
     }
@@ -15109,6 +15249,7 @@ public class V2Api {
     /**
      * 
      * 
+     * @param body  (required)
      * @return DSProducerDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -15118,14 +15259,15 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public DSProducerDetails dynamicSecretGet() throws ApiException {
-        ApiResponse<DSProducerDetails> localVarResp = dynamicSecretGetWithHttpInfo();
+    public DSProducerDetails dynamicSecretGet(DynamicSecretGet body) throws ApiException {
+        ApiResponse<DSProducerDetails> localVarResp = dynamicSecretGetWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
+     * @param body  (required)
      * @return ApiResponse&lt;DSProducerDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -15135,8 +15277,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DSProducerDetails> dynamicSecretGetWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = dynamicSecretGetValidateBeforeCall(null);
+    public ApiResponse<DSProducerDetails> dynamicSecretGetWithHttpInfo(DynamicSecretGet body) throws ApiException {
+        okhttp3.Call localVarCall = dynamicSecretGetValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<DSProducerDetails>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -15144,6 +15286,7 @@ public class V2Api {
     /**
      *  (asynchronously)
      * 
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15154,9 +15297,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call dynamicSecretGetAsync(final ApiCallback<DSProducerDetails> _callback) throws ApiException {
+    public okhttp3.Call dynamicSecretGetAsync(DynamicSecretGet body, final ApiCallback<DSProducerDetails> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = dynamicSecretGetValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = dynamicSecretGetValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<DSProducerDetails>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -17109,6 +17252,137 @@ public class V2Api {
     public okhttp3.Call dynamicSecretUpdateGkeAsync(DynamicSecretUpdateGke body, final ApiCallback<DynamicSecretUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = dynamicSecretUpdateGkeValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<DynamicSecretUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for dynamicSecretUpdateGoogleWorkspace
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretUpdateGoogleWorkspaceCall(DynamicSecretUpdateGoogleWorkspace body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/dynamic-secret-update-google-workspace";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call dynamicSecretUpdateGoogleWorkspaceValidateBeforeCall(DynamicSecretUpdateGoogleWorkspace body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling dynamicSecretUpdateGoogleWorkspace(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = dynamicSecretUpdateGoogleWorkspaceCall(body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DynamicSecretUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public DynamicSecretUpdateOutput dynamicSecretUpdateGoogleWorkspace(DynamicSecretUpdateGoogleWorkspace body) throws ApiException {
+        ApiResponse<DynamicSecretUpdateOutput> localVarResp = dynamicSecretUpdateGoogleWorkspaceWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DynamicSecretUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DynamicSecretUpdateOutput> dynamicSecretUpdateGoogleWorkspaceWithHttpInfo(DynamicSecretUpdateGoogleWorkspace body) throws ApiException {
+        okhttp3.Call localVarCall = dynamicSecretUpdateGoogleWorkspaceValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<DynamicSecretUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateGoogleWorkspaceResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretUpdateGoogleWorkspaceAsync(DynamicSecretUpdateGoogleWorkspace body, final ApiCallback<DynamicSecretUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = dynamicSecretUpdateGoogleWorkspaceValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<DynamicSecretUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -33402,7 +33676,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return Map&lt;String, String&gt;
+     * @return Map&lt;String, Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -33411,8 +33685,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, String> getDynamicSecretValue(GetDynamicSecretValue body) throws ApiException {
-        ApiResponse<Map<String, String>> localVarResp = getDynamicSecretValueWithHttpInfo(body);
+    public Map<String, Object> getDynamicSecretValue(GetDynamicSecretValue body) throws ApiException {
+        ApiResponse<Map<String, Object>> localVarResp = getDynamicSecretValueWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -33420,7 +33694,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -33429,9 +33703,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, String>> getDynamicSecretValueWithHttpInfo(GetDynamicSecretValue body) throws ApiException {
+    public ApiResponse<Map<String, Object>> getDynamicSecretValueWithHttpInfo(GetDynamicSecretValue body) throws ApiException {
         okhttp3.Call localVarCall = getDynamicSecretValueValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -33449,10 +33723,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDynamicSecretValueAsync(GetDynamicSecretValue body, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+    public okhttp3.Call getDynamicSecretValueAsync(GetDynamicSecretValue body, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDynamicSecretValueValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -34712,7 +34986,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return Map&lt;String, String&gt;
+     * @return Map&lt;String, Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -34721,8 +34995,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, String> getSecretValue(GetSecretValue body) throws ApiException {
-        ApiResponse<Map<String, String>> localVarResp = getSecretValueWithHttpInfo(body);
+    public Map<String, Object> getSecretValue(GetSecretValue body) throws ApiException {
+        ApiResponse<Map<String, Object>> localVarResp = getSecretValueWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -34730,7 +35004,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -34739,9 +35013,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, String>> getSecretValueWithHttpInfo(GetSecretValue body) throws ApiException {
+    public ApiResponse<Map<String, Object>> getSecretValueWithHttpInfo(GetSecretValue body) throws ApiException {
         okhttp3.Call localVarCall = getSecretValueValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -34759,10 +35033,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSecretValueAsync(GetSecretValue body, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+    public okhttp3.Call getSecretValueAsync(GetSecretValue body, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSecretValueValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -42227,7 +42501,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return Map&lt;String, String&gt;
+     * @return Map&lt;String, Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -42236,8 +42510,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, String> rotatedSecretGetValue(RotatedSecretGetValue body) throws ApiException {
-        ApiResponse<Map<String, String>> localVarResp = rotatedSecretGetValueWithHttpInfo(body);
+    public Map<String, Object> rotatedSecretGetValue(RotatedSecretGetValue body) throws ApiException {
+        ApiResponse<Map<String, Object>> localVarResp = rotatedSecretGetValueWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -42245,7 +42519,7 @@ public class V2Api {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -42254,9 +42528,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, String>> rotatedSecretGetValueWithHttpInfo(RotatedSecretGetValue body) throws ApiException {
+    public ApiResponse<Map<String, Object>> rotatedSecretGetValueWithHttpInfo(RotatedSecretGetValue body) throws ApiException {
         okhttp3.Call localVarCall = rotatedSecretGetValueValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -42274,10 +42548,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rotatedSecretGetValueAsync(RotatedSecretGetValue body, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+    public okhttp3.Call rotatedSecretGetValueAsync(RotatedSecretGetValue body, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = rotatedSecretGetValueValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
