@@ -812,8 +812,8 @@ public class V2ApiTest {
      */
     @Test
     public void gatewayCreateProducerVenafiTest() throws ApiException {
-        GatewayCreateProducerCertificateAutomation body = null;
-        GatewayCreateProducerCertificateAutomationOutput response = api.gatewayCreateProducerCertificateAutomation(body);
+        GatewayCreateProducerVenafi body = null;
+        GatewayCreateProducerVenafiOutput  response = api.gatewayCreateProducerVenafi(body);
         // TODO: test validations
     }
     
@@ -1019,7 +1019,7 @@ public class V2ApiTest {
     @Test
     public void getDynamicSecretValueTest() throws ApiException {
         GetDynamicSecretValue body = null;
-        Map<String, String> response = api.getDynamicSecretValue(body);
+        Map<String, Object> response = api.getDynamicSecretValue(body);
 
         // TODO: test validations
     }
@@ -1083,7 +1083,7 @@ public class V2ApiTest {
     @Test
     public void getSecretValueTest() throws ApiException {
         GetSecretValue body = null;
-        Map<String, String> response = api.getSecretValue(body);
+        Map<String, Object> response = api.getSecretValue(body);
 
         // TODO: test validations
     }
@@ -1274,7 +1274,7 @@ public class V2ApiTest {
      */
     @Test
     public void rotateKeyTest() throws ApiException {
-        UpdateRotationSettings body = null;
+        RotateKey body = null;
         RotateKeyOutput response = api.rotateKey(body);
 
         // TODO: test validations
