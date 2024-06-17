@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **status** | **Boolean** |  |  [optional]
 **tags** | **Map&lt;String, String&gt;** |  |  [optional]
 **type** | **String** |  |  [optional]
+**version** | **Long** |  |  [optional]
 
 
 

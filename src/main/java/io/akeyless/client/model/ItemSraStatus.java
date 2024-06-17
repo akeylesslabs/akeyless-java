@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,9 +34,17 @@ import org.threeten.bp.OffsetDateTime;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ItemSraStatus {
+  public static final String SERIALIZED_NAME_COUNT_BY_HOST_INFO = "count_by_host_info";
+  @SerializedName(SERIALIZED_NAME_COUNT_BY_HOST_INFO)
+  private Map<String, Long> countByHostInfo = null;
+
   public static final String SERIALIZED_NAME_COUNT_INFO = "count_info";
   @SerializedName(SERIALIZED_NAME_COUNT_INFO)
   private Map<String, Map<String, Long>> countInfo = null;
+
+  public static final String SERIALIZED_NAME_HOSTS_IN_USE = "hosts_in_use";
+  @SerializedName(SERIALIZED_NAME_HOSTS_IN_USE)
+  private List<String> hostsInUse = null;
 
   public static final String SERIALIZED_NAME_IS_IN_USE = "is_in_use";
   @SerializedName(SERIALIZED_NAME_IS_IN_USE)
@@ -47,6 +56,37 @@ public class ItemSraStatus {
 
   public ItemSraStatus() { 
   }
+
+  public ItemSraStatus countByHostInfo(Map<String, Long> countByHostInfo) {
+    
+    this.countByHostInfo = countByHostInfo;
+    return this;
+  }
+
+  public ItemSraStatus putCountByHostInfoItem(String key, Long countByHostInfoItem) {
+    if (this.countByHostInfo == null) {
+      this.countByHostInfo = new HashMap<String, Long>();
+    }
+    this.countByHostInfo.put(key, countByHostInfoItem);
+    return this;
+  }
+
+   /**
+   * Get countByHostInfo
+   * @return countByHostInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, Long> getCountByHostInfo() {
+    return countByHostInfo;
+  }
+
+
+  public void setCountByHostInfo(Map<String, Long> countByHostInfo) {
+    this.countByHostInfo = countByHostInfo;
+  }
+
 
   public ItemSraStatus countInfo(Map<String, Map<String, Long>> countInfo) {
     
@@ -76,6 +116,37 @@ public class ItemSraStatus {
 
   public void setCountInfo(Map<String, Map<String, Long>> countInfo) {
     this.countInfo = countInfo;
+  }
+
+
+  public ItemSraStatus hostsInUse(List<String> hostsInUse) {
+    
+    this.hostsInUse = hostsInUse;
+    return this;
+  }
+
+  public ItemSraStatus addHostsInUseItem(String hostsInUseItem) {
+    if (this.hostsInUse == null) {
+      this.hostsInUse = new ArrayList<String>();
+    }
+    this.hostsInUse.add(hostsInUseItem);
+    return this;
+  }
+
+   /**
+   * Get hostsInUse
+   * @return hostsInUse
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getHostsInUse() {
+    return hostsInUse;
+  }
+
+
+  public void setHostsInUse(List<String> hostsInUse) {
+    this.hostsInUse = hostsInUse;
   }
 
 
@@ -134,21 +205,25 @@ public class ItemSraStatus {
       return false;
     }
     ItemSraStatus itemSraStatus = (ItemSraStatus) o;
-    return Objects.equals(this.countInfo, itemSraStatus.countInfo) &&
+    return Objects.equals(this.countByHostInfo, itemSraStatus.countByHostInfo) &&
+        Objects.equals(this.countInfo, itemSraStatus.countInfo) &&
+        Objects.equals(this.hostsInUse, itemSraStatus.hostsInUse) &&
         Objects.equals(this.isInUse, itemSraStatus.isInUse) &&
         Objects.equals(this.lastUsedItem, itemSraStatus.lastUsedItem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countInfo, isInUse, lastUsedItem);
+    return Objects.hash(countByHostInfo, countInfo, hostsInUse, isInUse, lastUsedItem);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemSraStatus {\n");
+    sb.append("    countByHostInfo: ").append(toIndentedString(countByHostInfo)).append("\n");
     sb.append("    countInfo: ").append(toIndentedString(countInfo)).append("\n");
+    sb.append("    hostsInUse: ").append(toIndentedString(hostsInUse)).append("\n");
     sb.append("    isInUse: ").append(toIndentedString(isInUse)).append("\n");
     sb.append("    lastUsedItem: ").append(toIndentedString(lastUsedItem)).append("\n");
     sb.append("}");

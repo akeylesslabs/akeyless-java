@@ -45,6 +45,10 @@ public class UscCreate {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  private String namespace;
+
   public static final String SERIALIZED_NAME_SECRET_NAME = "secret-name";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
   private String secretName;
@@ -138,6 +142,29 @@ public class UscCreate {
 
   public void setJson(Boolean json) {
     this.json = json;
+  }
+
+
+  public UscCreate namespace(String namespace) {
+    
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * The namespace (relevant for Hashi vault target)
+   * @return namespace
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The namespace (relevant for Hashi vault target)")
+
+  public String getNamespace() {
+    return namespace;
+  }
+
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
   }
 
 
@@ -299,6 +326,7 @@ public class UscCreate {
     return Objects.equals(this.binaryValue, uscCreate.binaryValue) &&
         Objects.equals(this.description, uscCreate.description) &&
         Objects.equals(this.json, uscCreate.json) &&
+        Objects.equals(this.namespace, uscCreate.namespace) &&
         Objects.equals(this.secretName, uscCreate.secretName) &&
         Objects.equals(this.tags, uscCreate.tags) &&
         Objects.equals(this.token, uscCreate.token) &&
@@ -309,7 +337,7 @@ public class UscCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, secretName, tags, token, uidToken, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, secretName, tags, token, uidToken, uscName, value);
   }
 
   @Override
@@ -319,6 +347,7 @@ public class UscCreate {
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

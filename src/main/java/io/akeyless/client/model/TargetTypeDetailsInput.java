@@ -34,6 +34,7 @@ import io.akeyless.client.model.GithubTargetDetails;
 import io.akeyless.client.model.GlobalSignAtlasTargetDetails;
 import io.akeyless.client.model.GlobalSignGCCTargetDetails;
 import io.akeyless.client.model.GodaddyTargetDetails;
+import io.akeyless.client.model.HashiVaultTargetDetails;
 import io.akeyless.client.model.LdapTargetDetails;
 import io.akeyless.client.model.LinkedTargetDetails;
 import io.akeyless.client.model.MongoDBTargetDetails;
@@ -110,6 +111,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_GODADDY_TARGET_DETAILS = "godaddy_target_details";
   @SerializedName(SERIALIZED_NAME_GODADDY_TARGET_DETAILS)
   private GodaddyTargetDetails godaddyTargetDetails;
+
+  public static final String SERIALIZED_NAME_HASHI_VAULT_TARGET_DETAILS = "hashi_vault_target_details";
+  @SerializedName(SERIALIZED_NAME_HASHI_VAULT_TARGET_DETAILS)
+  private HashiVaultTargetDetails hashiVaultTargetDetails;
 
   public static final String SERIALIZED_NAME_LDAP_TARGET_DETAILS = "ldap_target_details";
   @SerializedName(SERIALIZED_NAME_LDAP_TARGET_DETAILS)
@@ -484,6 +489,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput hashiVaultTargetDetails(HashiVaultTargetDetails hashiVaultTargetDetails) {
+    
+    this.hashiVaultTargetDetails = hashiVaultTargetDetails;
+    return this;
+  }
+
+   /**
+   * Get hashiVaultTargetDetails
+   * @return hashiVaultTargetDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public HashiVaultTargetDetails getHashiVaultTargetDetails() {
+    return hashiVaultTargetDetails;
+  }
+
+
+  public void setHashiVaultTargetDetails(HashiVaultTargetDetails hashiVaultTargetDetails) {
+    this.hashiVaultTargetDetails = hashiVaultTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput ldapTargetDetails(LdapTargetDetails ldapTargetDetails) {
     
     this.ldapTargetDetails = ldapTargetDetails;
@@ -783,6 +811,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.globalsignAtlasTargetDetails, targetTypeDetailsInput.globalsignAtlasTargetDetails) &&
         Objects.equals(this.globalsignTargetDetails, targetTypeDetailsInput.globalsignTargetDetails) &&
         Objects.equals(this.godaddyTargetDetails, targetTypeDetailsInput.godaddyTargetDetails) &&
+        Objects.equals(this.hashiVaultTargetDetails, targetTypeDetailsInput.hashiVaultTargetDetails) &&
         Objects.equals(this.ldapTargetDetails, targetTypeDetailsInput.ldapTargetDetails) &&
         Objects.equals(this.linkedTargetDetails, targetTypeDetailsInput.linkedTargetDetails) &&
         Objects.equals(this.mongoDbTargetDetails, targetTypeDetailsInput.mongoDbTargetDetails) &&
@@ -799,7 +828,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -820,6 +849,7 @@ public class TargetTypeDetailsInput {
     sb.append("    globalsignAtlasTargetDetails: ").append(toIndentedString(globalsignAtlasTargetDetails)).append("\n");
     sb.append("    globalsignTargetDetails: ").append(toIndentedString(globalsignTargetDetails)).append("\n");
     sb.append("    godaddyTargetDetails: ").append(toIndentedString(godaddyTargetDetails)).append("\n");
+    sb.append("    hashiVaultTargetDetails: ").append(toIndentedString(hashiVaultTargetDetails)).append("\n");
     sb.append("    ldapTargetDetails: ").append(toIndentedString(ldapTargetDetails)).append("\n");
     sb.append("    linkedTargetDetails: ").append(toIndentedString(linkedTargetDetails)).append("\n");
     sb.append("    mongoDbTargetDetails: ").append(toIndentedString(mongoDbTargetDetails)).append("\n");

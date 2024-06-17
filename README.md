@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createGlobalSignTarget**](docs/V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
 *V2Api* | [**createGodaddyTarget**](docs/V2Api.md#createGodaddyTarget) | **POST** /create-godaddy-target | 
 *V2Api* | [**createGroup**](docs/V2Api.md#createGroup) | **POST** /create-group | 
+*V2Api* | [**createHashiVaultTarget**](docs/V2Api.md#createHashiVaultTarget) | **POST** /create-hashi-vault-target | 
 *V2Api* | [**createKey**](docs/V2Api.md#createKey) | **POST** /create-key | 
 *V2Api* | [**createLinkedTarget**](docs/V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
 *V2Api* | [**createNativeK8STarget**](docs/V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
@@ -302,12 +303,16 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayDeleteProducer**](docs/V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 *V2Api* | [**gatewayDownloadCustomerFragments**](docs/V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
 *V2Api* | [**gatewayGetAllowedAccess**](docs/V2Api.md#gatewayGetAllowedAccess) | **POST** /gateway-get-allowed-access | 
+*V2Api* | [**gatewayGetCache**](docs/V2Api.md#gatewayGetCache) | **POST** /gateway-get-cache | 
 *V2Api* | [**gatewayGetConfig**](docs/V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
+*V2Api* | [**gatewayGetDefaults**](docs/V2Api.md#gatewayGetDefaults) | **POST** /gateway-get-defaults | 
 *V2Api* | [**gatewayGetK8SAuthConfig**](docs/V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
 *V2Api* | [**gatewayGetLdapAuthConfig**](docs/V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
+*V2Api* | [**gatewayGetLogForwarding**](docs/V2Api.md#gatewayGetLogForwarding) | **POST** /gateway-get-log-forwarding | 
 *V2Api* | [**gatewayGetMigration**](docs/V2Api.md#gatewayGetMigration) | **POST** /gateway-get-migration | 
 *V2Api* | [**gatewayGetProducer**](docs/V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
 *V2Api* | [**gatewayGetTmpUsers**](docs/V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
+*V2Api* | [**gatewayListCustomerFragments**](docs/V2Api.md#gatewayListCustomerFragments) | **POST** /gateway-list-customer-fragments | 
 *V2Api* | [**gatewayListMigration**](docs/V2Api.md#gatewayListMigration) | **POST** /gateway-list-migration | 
 *V2Api* | [**gatewayListProducers**](docs/V2Api.md#gatewayListProducers) | **POST** /gateway-list-producers | 
 *V2Api* | [**gatewayListRotatedSecrets**](docs/V2Api.md#gatewayListRotatedSecrets) | **POST** /gateway-list-rotated-secrets | 
@@ -318,9 +323,22 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayStopProducer**](docs/V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
 *V2Api* | [**gatewaySyncMigration**](docs/V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
 *V2Api* | [**gatewayUpdateAllowedAccess**](docs/V2Api.md#gatewayUpdateAllowedAccess) | **POST** /gateway-update-allowed-access | 
+*V2Api* | [**gatewayUpdateCache**](docs/V2Api.md#gatewayUpdateCache) | **POST** /gateway-update-cache | 
+*V2Api* | [**gatewayUpdateDefaults**](docs/V2Api.md#gatewayUpdateDefaults) | **POST** /gateway-update-defaults | 
 *V2Api* | [**gatewayUpdateItem**](docs/V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
 *V2Api* | [**gatewayUpdateK8SAuthConfig**](docs/V2Api.md#gatewayUpdateK8SAuthConfig) | **POST** /gateway-update-k8s-auth-config | 
 *V2Api* | [**gatewayUpdateLdapAuthConfig**](docs/V2Api.md#gatewayUpdateLdapAuthConfig) | **POST** /gateway-update-ldap-auth-config | 
+*V2Api* | [**gatewayUpdateLogForwardingAwsS3**](docs/V2Api.md#gatewayUpdateLogForwardingAwsS3) | **POST** /gateway-update-log-forwarding-aws-s3 | 
+*V2Api* | [**gatewayUpdateLogForwardingAzureAnalytics**](docs/V2Api.md#gatewayUpdateLogForwardingAzureAnalytics) | **POST** /gateway-update-log-forwarding-azure-analytics | 
+*V2Api* | [**gatewayUpdateLogForwardingDatadog**](docs/V2Api.md#gatewayUpdateLogForwardingDatadog) | **POST** /gateway-update-log-forwarding-datadog | 
+*V2Api* | [**gatewayUpdateLogForwardingElasticsearch**](docs/V2Api.md#gatewayUpdateLogForwardingElasticsearch) | **POST** /gateway-update-log-forwarding-elasticsearch | 
+*V2Api* | [**gatewayUpdateLogForwardingGoogleChronicle**](docs/V2Api.md#gatewayUpdateLogForwardingGoogleChronicle) | **POST** /gateway-update-log-forwarding-google-chronicle | 
+*V2Api* | [**gatewayUpdateLogForwardingLogstash**](docs/V2Api.md#gatewayUpdateLogForwardingLogstash) | **POST** /gateway-update-log-forwarding-logstash | 
+*V2Api* | [**gatewayUpdateLogForwardingLogzIo**](docs/V2Api.md#gatewayUpdateLogForwardingLogzIo) | **POST** /gateway-update-log-forwarding-logz-io | 
+*V2Api* | [**gatewayUpdateLogForwardingSplunk**](docs/V2Api.md#gatewayUpdateLogForwardingSplunk) | **POST** /gateway-update-log-forwarding-splunk | 
+*V2Api* | [**gatewayUpdateLogForwardingStdout**](docs/V2Api.md#gatewayUpdateLogForwardingStdout) | **POST** /gateway-update-log-forwarding-stdout | 
+*V2Api* | [**gatewayUpdateLogForwardingSumologic**](docs/V2Api.md#gatewayUpdateLogForwardingSumologic) | **POST** /gateway-update-log-forwarding-sumologic | 
+*V2Api* | [**gatewayUpdateLogForwardingSyslog**](docs/V2Api.md#gatewayUpdateLogForwardingSyslog) | **POST** /gateway-update-log-forwarding-syslog | 
 *V2Api* | [**gatewayUpdateMigration**](docs/V2Api.md#gatewayUpdateMigration) | **POST** /gateway-update-migration | 
 *V2Api* | [**gatewayUpdateProducerArtifactory**](docs/V2Api.md#gatewayUpdateProducerArtifactory) | **POST** /gateway-update-producer-artifactory | 
 *V2Api* | [**gatewayUpdateProducerAws**](docs/V2Api.md#gatewayUpdateProducerAws) | **POST** /gateway-update-producer-aws | 
@@ -493,6 +511,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateGlobalSignTarget**](docs/V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
 *V2Api* | [**updateGodaddyTarget**](docs/V2Api.md#updateGodaddyTarget) | **POST** /update-godaddy-target | 
 *V2Api* | [**updateGroup**](docs/V2Api.md#updateGroup) | **POST** /update-group | 
+*V2Api* | [**updateHashiVaultTarget**](docs/V2Api.md#updateHashiVaultTarget) | **POST** /update-hashi-vault-target | 
 *V2Api* | [**updateItem**](docs/V2Api.md#updateItem) | **POST** /update-item | 
 *V2Api* | [**updateLdapTarget**](docs/V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
 *V2Api* | [**updateLdapTargetDetails**](docs/V2Api.md#updateLdapTargetDetails) | **POST** /update-ldap-target-details | 
@@ -658,6 +677,8 @@ Class | Method | HTTP request | Description
  - [CreateGodaddyTargetOutput](docs/CreateGodaddyTargetOutput.md)
  - [CreateGroup](docs/CreateGroup.md)
  - [CreateGroupOutput](docs/CreateGroupOutput.md)
+ - [CreateHashiVaultTarget](docs/CreateHashiVaultTarget.md)
+ - [CreateHashiVaultTargetOutput](docs/CreateHashiVaultTargetOutput.md)
  - [CreateKey](docs/CreateKey.md)
  - [CreateKeyOutput](docs/CreateKeyOutput.md)
  - [CreateLdapTarget](docs/CreateLdapTarget.md)
@@ -929,14 +950,19 @@ Class | Method | HTTP request | Description
  - [GatewayDownloadCustomerFragments](docs/GatewayDownloadCustomerFragments.md)
  - [GatewayDownloadCustomerFragmentsOutput](docs/GatewayDownloadCustomerFragmentsOutput.md)
  - [GatewayGetAllowedAccess](docs/GatewayGetAllowedAccess.md)
+ - [GatewayGetCache](docs/GatewayGetCache.md)
  - [GatewayGetConfig](docs/GatewayGetConfig.md)
+ - [GatewayGetDefaults](docs/GatewayGetDefaults.md)
+ - [GatewayGetDefaultsOutput](docs/GatewayGetDefaultsOutput.md)
  - [GatewayGetK8SAuthConfig](docs/GatewayGetK8SAuthConfig.md)
  - [GatewayGetK8SAuthConfigOutput](docs/GatewayGetK8SAuthConfigOutput.md)
  - [GatewayGetLdapAuthConfig](docs/GatewayGetLdapAuthConfig.md)
  - [GatewayGetLdapAuthConfigOutput](docs/GatewayGetLdapAuthConfigOutput.md)
+ - [GatewayGetLogForwarding](docs/GatewayGetLogForwarding.md)
  - [GatewayGetMigration](docs/GatewayGetMigration.md)
  - [GatewayGetProducer](docs/GatewayGetProducer.md)
  - [GatewayGetTmpUsers](docs/GatewayGetTmpUsers.md)
+ - [GatewayListCustomerFragments](docs/GatewayListCustomerFragments.md)
  - [GatewayListMigration](docs/GatewayListMigration.md)
  - [GatewayListProducers](docs/GatewayListProducers.md)
  - [GatewayListRotatedSecrets](docs/GatewayListRotatedSecrets.md)
@@ -959,13 +985,28 @@ Class | Method | HTTP request | Description
  - [GatewayStopProducerOutput](docs/GatewayStopProducerOutput.md)
  - [GatewaySyncMigration](docs/GatewaySyncMigration.md)
  - [GatewayUpdateAllowedAccess](docs/GatewayUpdateAllowedAccess.md)
+ - [GatewayUpdateCache](docs/GatewayUpdateCache.md)
+ - [GatewayUpdateDefaults](docs/GatewayUpdateDefaults.md)
  - [GatewayUpdateItem](docs/GatewayUpdateItem.md)
  - [GatewayUpdateItemOutput](docs/GatewayUpdateItemOutput.md)
  - [GatewayUpdateK8SAuthConfig](docs/GatewayUpdateK8SAuthConfig.md)
  - [GatewayUpdateK8SAuthConfigOutput](docs/GatewayUpdateK8SAuthConfigOutput.md)
  - [GatewayUpdateLdapAuthConfig](docs/GatewayUpdateLdapAuthConfig.md)
  - [GatewayUpdateLdapAuthConfigOutput](docs/GatewayUpdateLdapAuthConfigOutput.md)
+ - [GatewayUpdateLogForwardingAwsS3](docs/GatewayUpdateLogForwardingAwsS3.md)
+ - [GatewayUpdateLogForwardingAzureAnalytics](docs/GatewayUpdateLogForwardingAzureAnalytics.md)
+ - [GatewayUpdateLogForwardingDatadog](docs/GatewayUpdateLogForwardingDatadog.md)
+ - [GatewayUpdateLogForwardingElasticsearch](docs/GatewayUpdateLogForwardingElasticsearch.md)
+ - [GatewayUpdateLogForwardingGoogleChronicle](docs/GatewayUpdateLogForwardingGoogleChronicle.md)
+ - [GatewayUpdateLogForwardingLogstash](docs/GatewayUpdateLogForwardingLogstash.md)
+ - [GatewayUpdateLogForwardingLogzIo](docs/GatewayUpdateLogForwardingLogzIo.md)
+ - [GatewayUpdateLogForwardingOutput](docs/GatewayUpdateLogForwardingOutput.md)
+ - [GatewayUpdateLogForwardingSplunk](docs/GatewayUpdateLogForwardingSplunk.md)
+ - [GatewayUpdateLogForwardingStdout](docs/GatewayUpdateLogForwardingStdout.md)
+ - [GatewayUpdateLogForwardingSumologic](docs/GatewayUpdateLogForwardingSumologic.md)
+ - [GatewayUpdateLogForwardingSyslog](docs/GatewayUpdateLogForwardingSyslog.md)
  - [GatewayUpdateMigration](docs/GatewayUpdateMigration.md)
+ - [GatewayUpdateOutput](docs/GatewayUpdateOutput.md)
  - [GatewayUpdateProducerArtifactory](docs/GatewayUpdateProducerArtifactory.md)
  - [GatewayUpdateProducerArtifactoryOutput](docs/GatewayUpdateProducerArtifactoryOutput.md)
  - [GatewayUpdateProducerAws](docs/GatewayUpdateProducerAws.md)
@@ -1065,6 +1106,7 @@ Class | Method | HTTP request | Description
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [HashiMigration](docs/HashiMigration.md)
  - [HashiPayload](docs/HashiPayload.md)
+ - [HashiVaultTargetDetails](docs/HashiVaultTargetDetails.md)
  - [Hmac](docs/Hmac.md)
  - [HmacOutput](docs/HmacOutput.md)
  - [HuaweiAccessRules](docs/HuaweiAccessRules.md)
@@ -1346,6 +1388,8 @@ Class | Method | HTTP request | Description
  - [UpdateGodaddyTargetOutput](docs/UpdateGodaddyTargetOutput.md)
  - [UpdateGroup](docs/UpdateGroup.md)
  - [UpdateGroupOutput](docs/UpdateGroupOutput.md)
+ - [UpdateHashiVaultTarget](docs/UpdateHashiVaultTarget.md)
+ - [UpdateHashiVaultTargetOutput](docs/UpdateHashiVaultTargetOutput.md)
  - [UpdateItem](docs/UpdateItem.md)
  - [UpdateItemOutput](docs/UpdateItemOutput.md)
  - [UpdateLdapTarget](docs/UpdateLdapTarget.md)

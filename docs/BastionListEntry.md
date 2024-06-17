@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **allowedUrlsPerInstance** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
 **clusterName** | **String** |  |  [optional]
 **displayName** | **String** |  |  [optional]
+**hasGatewayIdentity** | **Boolean** |  |  [optional]
 **lastReport** | **OffsetDateTime** |  |  [optional]
 
 

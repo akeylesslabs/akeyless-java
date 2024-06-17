@@ -45,6 +45,10 @@ public class UscUpdate {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  private String namespace;
+
   public static final String SERIALIZED_NAME_SECRET_ID = "secret-id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   private String secretId;
@@ -141,6 +145,29 @@ public class UscUpdate {
   }
 
 
+  public UscUpdate namespace(String namespace) {
+    
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * The namespace (relevant for Hashi vault target)
+   * @return namespace
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The namespace (relevant for Hashi vault target)")
+
+  public String getNamespace() {
+    return namespace;
+  }
+
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+
   public UscUpdate secretId(String secretId) {
     
     this.secretId = secretId;
@@ -148,11 +175,11 @@ public class UscUpdate {
   }
 
    /**
-   * The universal secrets id (or name, for AWS, Azure or K8s targets) to update
+   * The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update
    * @return secretId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The universal secrets id (or name, for AWS, Azure or K8s targets) to update")
+  @ApiModelProperty(required = true, value = "The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update")
 
   public String getSecretId() {
     return secretId;
@@ -299,6 +326,7 @@ public class UscUpdate {
     return Objects.equals(this.binaryValue, uscUpdate.binaryValue) &&
         Objects.equals(this.description, uscUpdate.description) &&
         Objects.equals(this.json, uscUpdate.json) &&
+        Objects.equals(this.namespace, uscUpdate.namespace) &&
         Objects.equals(this.secretId, uscUpdate.secretId) &&
         Objects.equals(this.tags, uscUpdate.tags) &&
         Objects.equals(this.token, uscUpdate.token) &&
@@ -309,7 +337,7 @@ public class UscUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, secretId, tags, token, uidToken, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, secretId, tags, token, uidToken, uscName, value);
   }
 
   @Override
@@ -319,6 +347,7 @@ public class UscUpdate {
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

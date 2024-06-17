@@ -1120,6 +1120,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /create-hashi-vault-target:
+    post:
+      operationId: createHashiVaultTarget
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createHashiVaultTarget'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createHashiVaultTargetOutput'
+          description: createHashiVaultTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /create-k8s-target:
     post:
       operationId: createNativeK8STarget
@@ -5737,6 +5766,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-get-cache:
+    post:
+      operationId: gatewayGetCache
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayGetCache'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CacheConfigPart'
+          description: gatewayGetCacheResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-get-config:
     post:
       operationId: gatewayGetConfig
@@ -5753,6 +5811,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/AkeylessGatewayConfig'
           description: gatewayGetConfigResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-get-defaults:
+    post:
+      operationId: gatewayGetDefaults
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayGetDefaults'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayGetDefaultsOutput'
+          description: gatewayGetDefaultsResponse wraps response body.
         default:
           content:
             application/json:
@@ -5811,6 +5898,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewayGetLdapAuthConfigOutput'
           description: gatewayGetLdapAuthConfigResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-get-log-forwarding:
+    post:
+      operationId: gatewayGetLogForwarding
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayGetLogForwarding'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogForwardingConfigPart'
+          description: gatewayGetLogForwardingResponse wraps response body.
         default:
           content:
             application/json:
@@ -5900,6 +6016,37 @@ paths:
                   $ref: '#/components/schemas/TmpUserData'
                 type: array
           description: gatewayGetTmpUsersResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-list-customer-fragments:
+    post:
+      operationId: gatewayListCustomerFragments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayListCustomerFragments'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: object
+                type: object
+          description: gatewayListCustomerFragmentsResponse wraps response body.
         default:
           content:
             application/json:
@@ -6229,6 +6376,64 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /gateway-update-cache:
+    post:
+      operationId: gatewayUpdateCache
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateCache'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateOutput'
+          description: gatewayUpdateCacheResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-defaults:
+    post:
+      operationId: gatewayUpdateDefaults
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateDefaults'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateOutput'
+          description: gatewayUpdateDefaultsResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /gateway-update-item:
     post:
       operationId: gatewayUpdateItem
@@ -6303,6 +6508,325 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayUpdateLdapAuthConfigOutput'
           description: GatewayUpdateLdapAuthConfigResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-aws-s3:
+    post:
+      operationId: gatewayUpdateLogForwardingAwsS3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingAwsS3'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-azure-analytics:
+    post:
+      operationId: gatewayUpdateLogForwardingAzureAnalytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingAzureAnalytics'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-datadog:
+    post:
+      operationId: gatewayUpdateLogForwardingDatadog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingDatadog'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-elasticsearch:
+    post:
+      operationId: gatewayUpdateLogForwardingElasticsearch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingElasticsearch'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-google-chronicle:
+    post:
+      operationId: gatewayUpdateLogForwardingGoogleChronicle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingGoogleChronicle'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-logstash:
+    post:
+      operationId: gatewayUpdateLogForwardingLogstash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingLogstash'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-logz-io:
+    post:
+      operationId: gatewayUpdateLogForwardingLogzIo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingLogzIo'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-splunk:
+    post:
+      operationId: gatewayUpdateLogForwardingSplunk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingSplunk'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-stdout:
+    post:
+      operationId: gatewayUpdateLogForwardingStdout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingStdout'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-sumologic:
+    post:
+      operationId: gatewayUpdateLogForwardingSumologic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingSumologic'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /gateway-update-log-forwarding-syslog:
+    post:
+      operationId: gatewayUpdateLogForwardingSyslog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gatewayUpdateLogForwardingSyslog'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+          description: gatewayUpdateLogForwardingResponse wraps response body.
         default:
           content:
             application/json:
@@ -11233,6 +11757,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /update-hashi-vault-target:
+    post:
+      operationId: updateHashiVaultTarget
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateHashiVaultTarget'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateHashiVaultTargetOutput'
+          description: updateHashiVaultTargetResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /update-item:
     post:
       operationId: updateItem
@@ -12677,6 +13230,12 @@ components:
           schema:
             $ref: '#/components/schemas/CreateGroupOutput'
       description: createGroupResponse wraps response body.
+    createHashiVaultTargetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createHashiVaultTargetOutput'
+      description: createHashiVaultTargetResponse wraps response body.
     createKeyResponse:
       content:
         application/json:
@@ -13631,12 +14190,24 @@ components:
           schema:
             $ref: '#/components/schemas/AllowedAccess'
       description: gatewayGetAllowedAccessResponse wraps response body.
+    gatewayGetCacheResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CacheConfigPart'
+      description: gatewayGetCacheResponse wraps response body.
     gatewayGetConfigResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/AkeylessGatewayConfig'
       description: gatewayGetConfigResponse wraps response body.
+    gatewayGetDefaultsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GatewayGetDefaultsOutput'
+      description: gatewayGetDefaultsResponse wraps response body.
     gatewayGetK8SAuthConfigResponse:
       content:
         application/json:
@@ -13649,6 +14220,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayGetLdapAuthConfigOutput'
       description: gatewayGetLdapAuthConfigResponse wraps response body.
+    gatewayGetLogForwardingResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LogForwardingConfigPart'
+      description: gatewayGetLogForwardingResponse wraps response body.
     gatewayGetProducerResponse:
       content:
         application/json:
@@ -13663,6 +14240,14 @@ components:
               $ref: '#/components/schemas/TmpUserData'
             type: array
       description: gatewayGetTmpUsersResponse wraps response body.
+    gatewayListCustomerFragmentsResponse:
+      content:
+        application/json:
+          schema:
+            additionalProperties:
+              type: object
+            type: object
+      description: gatewayListCustomerFragmentsResponse wraps response body.
     gatewayListProducersResponse:
       content:
         application/json:
@@ -13750,6 +14335,18 @@ components:
           schema:
             $ref: '#/components/schemas/AllowedAccess'
       description: gatewayUpdateAllowedAccessResponse wraps response body.
+    gatewayUpdateCacheResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayUpdateOutput'
+      description: gatewayUpdateCacheResponse wraps response body.
+    gatewayUpdateDefaultsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayUpdateOutput'
+      description: gatewayUpdateDefaultsResponse wraps response body.
     gatewayUpdateItemResponse:
       content:
         application/json:
@@ -13762,6 +14359,12 @@ components:
           schema:
             $ref: '#/components/schemas/gatewayUpdateK8SAuthConfigOutput'
       description: gatewayUpdateK8SAuthConfigResponse wraps response body.
+    gatewayUpdateLogForwardingResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+      description: gatewayUpdateLogForwardingResponse wraps response body.
     gatewayUpdateProducerArtifactoryResponse:
       content:
         application/json:
@@ -14057,6 +14660,12 @@ components:
           schema:
             $ref: '#/components/schemas/Target'
       description: getTargetResponse wraps response body.
+    gwUpdateRemoteAccessSessionLogsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gatewayUpdateLogForwardingOutput'
+      description: gwUpdateRemoteAccessSessionLogsResponse wraps response body.
     hmacResponse:
       content:
         application/json:
@@ -14779,6 +15388,12 @@ components:
           schema:
             $ref: '#/components/schemas/UpdateGroupOutput'
       description: updateGroupResponse wraps response body.
+    updateHashiVaultTargetResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateHashiVaultTargetOutput'
+      description: updateHashiVaultTargetResponse wraps response body.
     updateItemResponse:
       content:
         application/json:
@@ -15248,6 +15863,7 @@ components:
           max_interval_by_days: 5
         sharing_policy:
           default_share_link_ttl: 5
+          enable: true
         data_protection_section:
           enable_classic_key_protection: true
         lock_default_key: true
@@ -17604,6 +18220,7 @@ components:
         allowed_access_ids:
         - allowed_access_ids
         - allowed_access_ids
+        has_gateway_identity: true
         display_name: display_name
         last_report: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17633,6 +18250,9 @@ components:
         display_name:
           type: string
           x-go-name: DisplayName
+        has_gateway_identity:
+          type: boolean
+          x-go-name: HasGatewayIdentity
         last_report:
           format: date-time
           type: string
@@ -17654,6 +18274,7 @@ components:
           allowed_access_ids:
           - allowed_access_ids
           - allowed_access_ids
+          has_gateway_identity: true
           display_name: display_name
           last_report: 2000-01-23T04:56:07.000+00:00
         - allowed_urls:
@@ -17668,6 +18289,7 @@ components:
           allowed_access_ids:
           - allowed_access_ids
           - allowed_access_ids
+          has_gateway_identity: true
           display_name: display_name
           last_report: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19754,13 +20376,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 5
+          target_id: 6
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 5
+          target_id: 6
         chef_server_username: chef_server_username
         k8s_client_cert_data: k8s_client_cert_data
         tags:
@@ -19856,11 +20478,16 @@ components:
           host_provider_type: host_provider_type
           web_proxy: true
           status_info:
+            hosts_in_use:
+            - hosts_in_use
+            - hosts_in_use
             is_in_use: true
             last_used_item: 2000-01-23T04:56:07.000+00:00
             count_info:
               key:
-                key: 3
+                key: 6
+            count_by_host_info:
+              key: 3
           bastion_ssh: bastion_ssh
           isolated: true
           target_hosts:
@@ -21327,8 +21954,8 @@ components:
         emails
       example:
         fixed_domain_suffix: fixed_domain_suffix
-        keep_prefix_length: 2
-        domain_suffix_length: 1
+        keep_prefix_length: 6
+        domain_suffix_length: 2
       properties:
         domain_suffix_length:
           description: |-
@@ -21403,6 +22030,7 @@ components:
           expiration: 2000-01-23T04:56:07.000+00:00
           location: '{}'
           type: type
+          version: 0
           status: true
           tags:
             key: tags
@@ -21414,6 +22042,7 @@ components:
           expiration: 2000-01-23T04:56:07.000+00:00
           location: '{}'
           type: type
+          version: 0
           status: true
           tags:
             key: tags
@@ -21727,6 +22356,31 @@ components:
           x-go-name: ClusterUrl
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GatewayGetDefaultsOutput:
+      example:
+        saml_access_id: saml_access_id
+        certificate_access_id: certificate_access_id
+        default_protection_key_id: default_protection_key_id
+        notify_on_status_change: true
+        oidc_access_id: oidc_access_id
+      properties:
+        certificate_access_id:
+          type: string
+          x-go-name: CertAccessId
+        default_protection_key_id:
+          type: string
+          x-go-name: ProtectionKey
+        notify_on_status_change:
+          type: boolean
+          x-go-name: NotifyOnStatusChange
+        oidc_access_id:
+          type: string
+          x-go-name: OidcAccessId
+        saml_access_id:
+          type: string
+          x-go-name: SamlAccessId
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     GatewayGetK8SAuthConfigOutput:
       example:
         k8s_ca_cert: k8s_ca_cert
@@ -22235,6 +22889,7 @@ components:
             max_interval_by_days: 5
           sharing_policy:
             default_share_link_ttl: 5
+            enable: true
           data_protection_section:
             enable_classic_key_protection: true
           lock_default_key: true
@@ -22618,6 +23273,10 @@ components:
             mtls_cert: mtls_cert
             api_secret: api_secret
             timeout: 6
+          hashi_vault_target_details:
+            vault_url: vault_url
+            vault_token: vault_token
+            vault_namespaces: vault_namespaces
           web_target_details:
             url: url
           salesforce_target_details:
@@ -22747,7 +23406,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -22761,7 +23420,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -23163,6 +23822,24 @@ components:
           x-go-name: Url
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    HashiVaultTargetDetails:
+      description: HashiVaultTargetDetails
+      example:
+        vault_url: vault_url
+        vault_token: vault_token
+        vault_namespaces: vault_namespaces
+      properties:
+        vault_namespaces:
+          type: string
+          x-go-name: VaultNamespaces
+        vault_token:
+          type: string
+          x-go-name: VaultToken
+        vault_url:
+          type: string
+          x-go-name: VaultURL
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     HostProviderType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -23290,7 +23967,7 @@ components:
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 6
+          version: 3
           certificate_version_info:
             not_after: 2000-01-23T04:56:07.000+00:00
             not_before: 2000-01-23T04:56:07.000+00:00
@@ -23304,7 +23981,7 @@ components:
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 6
+          version: 3
           certificate_version_info:
             not_after: 2000-01-23T04:56:07.000+00:00
             not_before: 2000-01-23T04:56:07.000+00:00
@@ -23313,15 +23990,15 @@ components:
         shared_by:
           unique_id: unique_id
           access_id: access_id
-        item_size: 6
+        item_size: 5
         protection_key_type: protection_key_type
         is_enabled: true
-        rotation_interval: 3
+        rotation_interval: 7
         target_versions:
         - target_name: target_name
           access_date: 2000-01-23T04:56:07.000+00:00
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 7
+          version: 0
           customer_fragment_id: customer_fragment_id
           item_version_state: item_version_state
           with_customer_fragment: true
@@ -23337,7 +24014,7 @@ components:
         - target_name: target_name
           access_date: 2000-01-23T04:56:07.000+00:00
           creation_date: 2000-01-23T04:56:07.000+00:00
-          version: 7
+          version: 0
           customer_fragment_id: customer_fragment_id
           item_version_state: item_version_state
           with_customer_fragment: true
@@ -23444,13 +24121,13 @@ components:
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 5
+          target_id: 6
         - assoc_id: assoc_id
           target_name: target_name
           target_type: target_type
           attributes:
             key: attributes
-          target_id: 5
+          target_id: 6
         item_name: item_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         last_rotation_date: 2000-01-23T04:56:07.000+00:00
@@ -23473,7 +24150,7 @@ components:
             websites:
             - websites
             - websites
-            max_versions: 6
+            max_versions: 1
             username: username
           oidc_client_info:
             audience:
@@ -23548,11 +24225,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -23880,8 +24562,8 @@ components:
               tweak: tweak
               email_tokenizer_info:
                 fixed_domain_suffix: fixed_domain_suffix
-                keep_prefix_length: 2
-                domain_suffix_length: 1
+                keep_prefix_length: 6
+                domain_suffix_length: 2
               template_type: template_type
               tweak_type: tweak_type
               regexp_tokenizer_info:
@@ -23997,6 +24679,7 @@ components:
             allowed_access_ids:
             - allowed_access_ids
             - allowed_access_ids
+            has_gateway_identity: true
             display_name: display_name
             last_report: 2000-01-23T04:56:07.000+00:00
           - allowed_urls:
@@ -24011,6 +24694,7 @@ components:
             allowed_access_ids:
             - allowed_access_ids
             - allowed_access_ids
+            has_gateway_identity: true
             display_name: display_name
             last_report: 2000-01-23T04:56:07.000+00:00
         client_permissions:
@@ -24186,7 +24870,7 @@ components:
           websites:
           - websites
           - websites
-          max_versions: 6
+          max_versions: 1
           username: username
         oidc_client_info:
           audience:
@@ -24261,11 +24945,16 @@ components:
           host_provider_type: host_provider_type
           web_proxy: true
           status_info:
+            hosts_in_use:
+            - hosts_in_use
+            - hosts_in_use
             is_in_use: true
             last_used_item: 2000-01-23T04:56:07.000+00:00
             count_info:
               key:
-                key: 3
+                key: 6
+            count_by_host_info:
+              key: 3
           bastion_ssh: bastion_ssh
           isolated: true
           target_hosts:
@@ -24593,8 +25282,8 @@ components:
             tweak: tweak
             email_tokenizer_info:
               fixed_domain_suffix: fixed_domain_suffix
-              keep_prefix_length: 2
-              domain_suffix_length: 1
+              keep_prefix_length: 6
+              domain_suffix_length: 2
             template_type: template_type
             tweak_type: tweak_type
             regexp_tokenizer_info:
@@ -24729,12 +25418,23 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ItemSraStatus:
       example:
+        hosts_in_use:
+        - hosts_in_use
+        - hosts_in_use
         is_in_use: true
         last_used_item: 2000-01-23T04:56:07.000+00:00
         count_info:
           key:
-            key: 3
+            key: 6
+        count_by_host_info:
+          key: 3
       properties:
+        count_by_host_info:
+          additionalProperties:
+            format: int64
+            type: integer
+          type: object
+          x-go-name: CountByHostInfo
         count_info:
           additionalProperties:
             additionalProperties:
@@ -24743,6 +25443,11 @@ components:
             type: object
           type: object
           x-go-name: CountInfo
+        hosts_in_use:
+          items:
+            type: string
+          type: array
+          x-go-name: HostsInUse
         is_in_use:
           type: boolean
           x-go-name: IsInUse
@@ -24768,7 +25473,7 @@ components:
         target_type: target_type
         attributes:
           key: attributes
-        target_id: 5
+        target_id: 6
       properties:
         assoc_id:
           type: string
@@ -24805,7 +25510,7 @@ components:
         protection_key_name: protection_key_name
         creation_date: 2000-01-23T04:56:07.000+00:00
         access_date_display: access_date_display
-        version: 6
+        version: 3
         certificate_version_info:
           not_after: 2000-01-23T04:56:07.000+00:00
           not_before: 2000-01-23T04:56:07.000+00:00
@@ -26563,7 +27268,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -26577,7 +27282,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -26586,15 +27291,15 @@ components:
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 5
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 3
+          rotation_interval: 7
           target_versions:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -26610,7 +27315,7 @@ components:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -26717,13 +27422,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           last_rotation_date: 2000-01-23T04:56:07.000+00:00
@@ -26746,7 +27451,7 @@ components:
               websites:
               - websites
               - websites
-              max_versions: 6
+              max_versions: 1
               username: username
             oidc_client_info:
               audience:
@@ -26821,11 +27526,16 @@ components:
               host_provider_type: host_provider_type
               web_proxy: true
               status_info:
+                hosts_in_use:
+                - hosts_in_use
+                - hosts_in_use
                 is_in_use: true
                 last_used_item: 2000-01-23T04:56:07.000+00:00
                 count_info:
                   key:
-                    key: 3
+                    key: 6
+                count_by_host_info:
+                  key: 3
               bastion_ssh: bastion_ssh
               isolated: true
               target_hosts:
@@ -27153,8 +27863,8 @@ components:
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 2
-                  domain_suffix_length: 1
+                  keep_prefix_length: 6
+                  domain_suffix_length: 2
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -27270,6 +27980,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
             - allowed_urls:
@@ -27284,6 +27995,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
           client_permissions:
@@ -27313,7 +28025,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -27327,7 +28039,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -27336,15 +28048,15 @@ components:
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 5
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 3
+          rotation_interval: 7
           target_versions:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -27360,7 +28072,7 @@ components:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -27467,13 +28179,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           last_rotation_date: 2000-01-23T04:56:07.000+00:00
@@ -27496,7 +28208,7 @@ components:
               websites:
               - websites
               - websites
-              max_versions: 6
+              max_versions: 1
               username: username
             oidc_client_info:
               audience:
@@ -27571,11 +28283,16 @@ components:
               host_provider_type: host_provider_type
               web_proxy: true
               status_info:
+                hosts_in_use:
+                - hosts_in_use
+                - hosts_in_use
                 is_in_use: true
                 last_used_item: 2000-01-23T04:56:07.000+00:00
                 count_info:
                   key:
-                    key: 3
+                    key: 6
+                count_by_host_info:
+                  key: 3
               bastion_ssh: bastion_ssh
               isolated: true
               target_hosts:
@@ -27903,8 +28620,8 @@ components:
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 2
-                  domain_suffix_length: 1
+                  keep_prefix_length: 6
+                  domain_suffix_length: 2
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -28020,6 +28737,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
             - allowed_urls:
@@ -28034,6 +28752,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
           client_permissions:
@@ -28085,7 +28804,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -28099,7 +28818,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -28108,15 +28827,15 @@ components:
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 5
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 3
+          rotation_interval: 7
           target_versions:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -28132,7 +28851,7 @@ components:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -28239,13 +28958,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           last_rotation_date: 2000-01-23T04:56:07.000+00:00
@@ -28268,7 +28987,7 @@ components:
               websites:
               - websites
               - websites
-              max_versions: 6
+              max_versions: 1
               username: username
             oidc_client_info:
               audience:
@@ -28343,11 +29062,16 @@ components:
               host_provider_type: host_provider_type
               web_proxy: true
               status_info:
+                hosts_in_use:
+                - hosts_in_use
+                - hosts_in_use
                 is_in_use: true
                 last_used_item: 2000-01-23T04:56:07.000+00:00
                 count_info:
                   key:
-                    key: 3
+                    key: 6
+                count_by_host_info:
+                  key: 3
               bastion_ssh: bastion_ssh
               isolated: true
               target_hosts:
@@ -28675,8 +29399,8 @@ components:
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 2
-                  domain_suffix_length: 1
+                  keep_prefix_length: 6
+                  domain_suffix_length: 2
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -28792,6 +29516,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
             - allowed_urls:
@@ -28806,6 +29531,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
           client_permissions:
@@ -28835,7 +29561,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -28849,7 +29575,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -28858,15 +29584,15 @@ components:
           shared_by:
             unique_id: unique_id
             access_id: access_id
-          item_size: 6
+          item_size: 5
           protection_key_type: protection_key_type
           is_enabled: true
-          rotation_interval: 3
+          rotation_interval: 7
           target_versions:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -28882,7 +29608,7 @@ components:
           - target_name: target_name
             access_date: 2000-01-23T04:56:07.000+00:00
             creation_date: 2000-01-23T04:56:07.000+00:00
-            version: 7
+            version: 0
             customer_fragment_id: customer_fragment_id
             item_version_state: item_version_state
             with_customer_fragment: true
@@ -28989,13 +29715,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           item_name: item_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           last_rotation_date: 2000-01-23T04:56:07.000+00:00
@@ -29018,7 +29744,7 @@ components:
               websites:
               - websites
               - websites
-              max_versions: 6
+              max_versions: 1
               username: username
             oidc_client_info:
               audience:
@@ -29093,11 +29819,16 @@ components:
               host_provider_type: host_provider_type
               web_proxy: true
               status_info:
+                hosts_in_use:
+                - hosts_in_use
+                - hosts_in_use
                 is_in_use: true
                 last_used_item: 2000-01-23T04:56:07.000+00:00
                 count_info:
                   key:
-                    key: 3
+                    key: 6
+                count_by_host_info:
+                  key: 3
               bastion_ssh: bastion_ssh
               isolated: true
               target_hosts:
@@ -29425,8 +30156,8 @@ components:
                 tweak: tweak
                 email_tokenizer_info:
                   fixed_domain_suffix: fixed_domain_suffix
-                  keep_prefix_length: 2
-                  domain_suffix_length: 1
+                  keep_prefix_length: 6
+                  domain_suffix_length: 2
                 template_type: template_type
                 tweak_type: tweak_type
                 regexp_tokenizer_info:
@@ -29542,6 +30273,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
             - allowed_urls:
@@ -29556,6 +30288,7 @@ components:
               allowed_access_ids:
               - allowed_access_ids
               - allowed_access_ids
+              has_gateway_identity: true
               display_name: display_name
               last_report: 2000-01-23T04:56:07.000+00:00
           client_permissions:
@@ -29753,7 +30486,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -29767,7 +30500,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -29818,7 +30551,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -29832,7 +30565,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -30823,7 +31556,7 @@ components:
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 6
+          version: 3
           certificate_version_info:
             not_after: 2000-01-23T04:56:07.000+00:00
             not_before: 2000-01-23T04:56:07.000+00:00
@@ -30837,7 +31570,7 @@ components:
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 6
+          version: 3
           certificate_version_info:
             not_after: 2000-01-23T04:56:07.000+00:00
             not_before: 2000-01-23T04:56:07.000+00:00
@@ -32808,6 +33541,7 @@ components:
         expiration: 2000-01-23T04:56:07.000+00:00
         location: '{}'
         type: type
+        version: 0
         status: true
         tags:
           key: tags
@@ -32847,6 +33581,10 @@ components:
         type:
           type: string
           x-go-name: Type
+        version:
+          format: int64
+          type: integer
+          x-go-name: Version
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/external-secrets-manager/base
     SecureRemoteAccess:
@@ -32855,11 +33593,16 @@ components:
         host_provider_type: host_provider_type
         web_proxy: true
         status_info:
+          hosts_in_use:
+          - hosts_in_use
+          - hosts_in_use
           is_in_use: true
           last_used_item: 2000-01-23T04:56:07.000+00:00
           count_info:
             key:
-              key: 3
+              key: 6
+          count_by_host_info:
+            key: 3
         bastion_ssh: bastion_ssh
         isolated: true
         target_hosts:
@@ -33100,11 +33843,15 @@ components:
     SharingPolicyInfo:
       example:
         default_share_link_ttl: 5
+        enable: true
       properties:
         default_share_link_ttl:
           format: int64
           type: integer
           x-go-name: DefaultShareLinkTTL
+        enable:
+          type: boolean
+          x-go-name: Enable
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     SignEcDsaOutput:
@@ -33216,7 +33963,7 @@ components:
         websites:
         - websites
         - websites
-        max_versions: 6
+        max_versions: 1
         username: username
       properties:
         format:
@@ -33397,7 +34144,7 @@ components:
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 6
+          version: 3
           certificate_version_info:
             not_after: 2000-01-23T04:56:07.000+00:00
             not_before: 2000-01-23T04:56:07.000+00:00
@@ -33411,7 +34158,7 @@ components:
           protection_key_name: protection_key_name
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
-          version: 6
+          version: 3
           certificate_version_info:
             not_after: 2000-01-23T04:56:07.000+00:00
             not_before: 2000-01-23T04:56:07.000+00:00
@@ -33553,7 +34300,7 @@ components:
         target_name: target_name
         access_date: 2000-01-23T04:56:07.000+00:00
         creation_date: 2000-01-23T04:56:07.000+00:00
-        version: 7
+        version: 0
         customer_fragment_id: customer_fragment_id
         item_version_state: item_version_state
         with_customer_fragment: true
@@ -33740,6 +34487,10 @@ components:
           mtls_cert: mtls_cert
           api_secret: api_secret
           timeout: 6
+        hashi_vault_target_details:
+          vault_url: vault_url
+          vault_token: vault_token
+          vault_namespaces: vault_namespaces
         web_target_details:
           url: url
         salesforce_target_details:
@@ -33861,6 +34612,8 @@ components:
           $ref: '#/components/schemas/GlobalSignGCCTargetDetails'
         godaddy_target_details:
           $ref: '#/components/schemas/GodaddyTargetDetails'
+        hashi_vault_target_details:
+          $ref: '#/components/schemas/HashiVaultTargetDetails'
         ldap_target_details:
           $ref: '#/components/schemas/LdapTargetDetails'
         linked_target_details:
@@ -33944,8 +34697,8 @@ components:
           tweak: tweak
           email_tokenizer_info:
             fixed_domain_suffix: fixed_domain_suffix
-            keep_prefix_length: 2
-            domain_suffix_length: 1
+            keep_prefix_length: 6
+            domain_suffix_length: 2
           template_type: template_type
           tweak_type: tweak_type
           regexp_tokenizer_info:
@@ -34491,6 +35244,7 @@ components:
           expiration: 2000-01-23T04:56:07.000+00:00
           location: '{}'
           type: type
+          version: 0
           status: true
           tags:
             key: tags
@@ -34502,6 +35256,7 @@ components:
           expiration: 2000-01-23T04:56:07.000+00:00
           location: '{}'
           type: type
+          version: 0
           status: true
           tags:
             key: tags
@@ -34562,8 +35317,8 @@ components:
         tweak: tweak
         email_tokenizer_info:
           fixed_domain_suffix: fixed_domain_suffix
-          keep_prefix_length: 2
-          domain_suffix_length: 1
+          keep_prefix_length: 6
+          domain_suffix_length: 2
         template_type: template_type
         tweak_type: tweak_type
         regexp_tokenizer_info:
@@ -34939,6 +35694,12 @@ components:
           description: Project id of the GCP KMS (required for gcp targets)
           type: string
           x-go-name: ProjectId
+        protection-level:
+          default: software
+          description: Protection level of the key [software/hardware] (relevant for
+            gcp targets)
+          type: string
+          x-go-name: ProtectionLevel
         purpose:
           description: Purpose of the key in GCP KMS (required for gcp targets)
           type: string
@@ -38174,6 +38935,70 @@ components:
       title: createGroup is a command that creates a new group.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createHashiVaultTarget:
+      properties:
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        hashi-url:
+          description: HashiCorp Vault API URL, e.g. https://vault-mgr01:8200
+          type: string
+          x-go-name: VaultURL
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          description: |-
+            The name of a key that used to encrypt the target secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        max-versions:
+          description: Set the maximum number of versions, limited by the account
+            settings defaults.
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        namespace:
+          description: Comma-separated list of vault namespaces
+          items:
+            type: string
+          type: array
+          x-go-name: Namespaces
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        vault-token:
+          description: Vault access token with sufficient permissions
+          type: string
+          x-go-name: VaultToken
+      required:
+      - name
+      title: createHashiVaultTarget is a command that creates a new hashi-vault target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    createHashiVaultTargetOutput:
+      example:
+        target_id: 0
+      properties:
+        target_id:
+          format: int64
+          type: integer
+          x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     createKey:
       description: 'createKey is a command that creates a new key. [Deprecated: Use
         command create-dfc-key]'
@@ -38907,9 +39732,9 @@ components:
           type: string
           x-go-name: GraceRotation
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -39065,8 +39890,8 @@ components:
           x-go-name: Tags
         target:
           description: A list of linked targets to be associated, Relevant only for
-            Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify
-            multiple targets use argument multiple times
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
           items:
             type: string
           type: array
@@ -39123,9 +39948,9 @@ components:
           type: object
           x-go-name: Extensions
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -39185,8 +40010,8 @@ components:
           x-go-name: Tags
         target:
           description: A list of linked targets to be associated, Relevant only for
-            Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify
-            multiple targets use argument multiple times
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
           items:
             type: string
           type: array
@@ -40042,10 +40867,15 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        version:
+          description: key version (relevant only for classic key)
+          format: int32
+          type: integer
+          x-go-name: Version
       required:
       - in
       - key-name
-      title: decryptFile is a command that decrypts a file using an AES key.
+      title: decryptFile is a command that decrypts a file using an AES/PGP RSA key.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     decryptFileOutput:
@@ -41998,7 +42828,7 @@ components:
         access-mode:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
-        admin-name:
+        admin-email:
           description: Admin user email
           type: string
           x-go-name: AdminName
@@ -42014,11 +42844,11 @@ components:
           description: Base64-encoded service account private key text
           type: string
           x-go-name: ServiceAccountKey
-        group-name:
+        group-email:
           description: A group email, relevant only for group access-mode
           type: string
           x-go-name: GroupName
-        group-role-type:
+        group-role:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
         json:
@@ -42049,7 +42879,7 @@ components:
           type: array
           x-go-name: Tags
         target-name:
-          description: Name of existing target to use in producer creation
+          description: Name of existing target to use in dynamic secret creation
           type: string
           x-go-name: TargetName
         token:
@@ -42068,7 +42898,7 @@ components:
           x-go-name: UserTtl
       required:
       - access-mode
-      - admin-name
+      - admin-email
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -42326,6 +43156,9 @@ components:
       description: dynamicSecretCreateLdap is a command that creates ldap dynamic
         secret
       properties:
+        ProviderType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         bind-dn:
           description: Bind DN
           type: string
@@ -42351,6 +43184,12 @@ components:
           description: Group DN which the temporary user should be added
           type: string
           x-go-name: GroupDn
+        host-provider:
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -42376,12 +43215,39 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        secure-access-enable:
+          description: Enable/Disable secure remote access [true/false]
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-host:
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
+        secure-access-rdp-domain:
+          description: Required when the Dynamic Secret is used for a domain user
+          type: string
+          x-go-name: SecureAccessDomain
         tags:
           description: Add tags attached to this object
           items:
             type: string
           type: array
           x-go-name: Tags
+        target:
+          description: A list of linked targets to be associated, Relevant only for
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
+          items:
+            type: string
+          type: array
+          x-go-name: TargetNames
         target-name:
           description: Target name
           type: string
@@ -42935,13 +43801,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -43037,11 +43903,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -45436,7 +46307,7 @@ components:
         access-mode:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
-        admin-name:
+        admin-email:
           description: Admin user email
           type: string
           x-go-name: AdminName
@@ -45452,11 +46323,11 @@ components:
           description: Base64-encoded service account private key text
           type: string
           x-go-name: ServiceAccountKey
-        group-name:
+        group-email:
           description: A group email, relevant only for group access-mode
           type: string
           x-go-name: GroupName
-        group-role-type:
+        group-role:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
         json:
@@ -45491,7 +46362,7 @@ components:
           type: array
           x-go-name: Tags
         target-name:
-          description: Name of existing target to use in producer creation
+          description: Name of existing target to use in dynamic secret creation
           type: string
           x-go-name: TargetName
         token:
@@ -45510,7 +46381,7 @@ components:
           x-go-name: UserTtl
       required:
       - access-mode
-      - admin-name
+      - admin-email
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
@@ -45776,6 +46647,9 @@ components:
       description: dynamicSecretUpdateLdap is a command that updates ldap dynamic
         secret
       properties:
+        ProviderType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         bind-dn:
           description: Bind DN
           type: string
@@ -45801,6 +46675,12 @@ components:
           description: Group DN which the temporary user should be added
           type: string
           x-go-name: GroupDn
+        host-provider:
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -45830,12 +46710,39 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        secure-access-enable:
+          description: Enable/Disable secure remote access [true/false]
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-host:
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
+        secure-access-rdp-domain:
+          description: Required when the Dynamic Secret is used for a domain user
+          type: string
+          x-go-name: SecureAccessDomain
         tags:
           description: Add tags attached to this object
           items:
             type: string
           type: array
           x-go-name: Tags
+        target:
+          description: A list of linked targets to be associated, Relevant only for
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
+          items:
+            type: string
+          type: array
+          x-go-name: TargetNames
         target-name:
           description: Target name
           type: string
@@ -46405,13 +47312,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -46507,11 +47414,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -47727,7 +48639,8 @@ components:
       required:
       - in
       - key-name
-      title: encryptFile is a command that encrypts a file by using an AES key.
+      title: encryptFile is a command that encrypts a file by using an AES/PGP RSA
+        key.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     encryptFileOutput:
@@ -48564,7 +49477,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -48578,7 +49491,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -49755,13 +50668,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -49857,11 +50770,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -50212,13 +51130,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -50314,11 +51232,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -50655,13 +51578,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -50757,11 +51680,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -51062,13 +51990,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -51164,11 +52092,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -51459,13 +52392,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -51561,11 +52494,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -51868,13 +52806,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -51970,11 +52908,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -52255,13 +53198,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -52357,11 +53300,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -52677,13 +53625,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -52779,11 +53727,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -53079,13 +54032,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -53181,11 +54134,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -53483,13 +54441,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -53585,11 +54543,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -53896,13 +54859,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -53998,11 +54961,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -54332,13 +55300,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -54434,11 +55402,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -54618,6 +55591,9 @@ components:
       description: 'gatewayCreateProducerLdap is a command that creates ldap producer
         [Deprecated: Use dynamic-secret-create-ldap command]'
       properties:
+        ProviderType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         bind-dn:
           description: Bind DN
           type: string
@@ -54639,6 +55615,12 @@ components:
           description: Group DN which the temporary user should be added
           type: string
           x-go-name: GroupDn
+        host-provider:
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -54664,12 +55646,39 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        secure-access-enable:
+          description: Enable/Disable secure remote access [true/false]
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-host:
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
+        secure-access-rdp-domain:
+          description: Required when the Dynamic Secret is used for a domain user
+          type: string
+          x-go-name: SecureAccessDomain
         tags:
           description: Add tags attached to this object
           items:
             type: string
           type: array
           x-go-name: Tags
+        target:
+          description: A list of linked targets to be associated, Relevant only for
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
+          items:
+            type: string
+          type: array
+          x-go-name: TargetNames
         target-name:
           description: Target name
           type: string
@@ -54745,13 +55754,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -54847,11 +55856,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -55175,13 +56189,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -55277,11 +56291,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -55621,13 +56640,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -55723,11 +56742,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -56064,13 +57088,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -56166,11 +57190,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -56523,13 +57552,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -56625,11 +57654,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -56958,13 +57992,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -57060,11 +58094,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -57429,13 +58468,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -57531,11 +58570,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -57864,13 +58908,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -57966,11 +59010,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -58295,13 +59344,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -58397,11 +59446,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -58735,13 +59789,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -58837,11 +59891,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -59145,13 +60204,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -59247,11 +60306,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -59563,13 +60627,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -59665,11 +60729,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -59967,13 +61036,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -60069,11 +61138,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -60417,13 +61491,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -60519,11 +61593,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -60946,8 +62025,46 @@ components:
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayGetCache:
+      description: gatewayGetCache is a command that get cache settings
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayGetConfig:
       description: gatewayGetConfig is a command that returns gateway configuration
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayGetDefaults:
+      description: gatewayGetDefaults is a command that get defaults settings
       properties:
         json:
           default: false
@@ -61070,6 +62187,25 @@ components:
           x-go-name: LdapUserDn
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayGetLogForwarding:
+      description: gatewayGetLogForwarding is a command to get log forwarding configuration
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayGetMigration:
       description: gatewayGetMigration is a command that get migration
       properties:
@@ -61143,6 +62279,25 @@ components:
           x-go-name: UIDToken
       required:
       - name
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayListCustomerFragments:
+      description: gatewayListCustomerFragments is a command that list customer fragments
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayListMigration:
@@ -62326,6 +63481,97 @@ components:
       - name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateCache:
+      description: gatewayUpdateCache is a command that updates cache settings
+      properties:
+        backup-interval:
+          default: "1"
+          description: Secure backup interval in minutes. To ensure service continuity
+            in case of power cycle and network outage secrets will be backed up periodically
+            per backup interval
+          type: string
+          x-go-name: BackupInterval
+        enable-cache:
+          description: Enable cache [true/false]
+          type: string
+          x-go-name: EnableCache
+        enable-proactive:
+          description: Enable proactive caching [true/false]
+          type: string
+          x-go-name: EnableProactive
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        minimum-fetch-interval:
+          default: "5"
+          description: When using Cache or/and Proactive Cache, additional secrets
+            will be fetched upon requesting a secret, based on the requestor's access
+            policy. Define minimum fetching interval to avoid over fetching in a given
+            time frame
+          type: string
+          x-go-name: MinFetchInterval
+        stale-timeout:
+          default: "60"
+          description: Stale timeout in minutes, cache entries which are not accessed
+            within timeout will be removed from cache
+          type: string
+          x-go-name: StaleTimeout
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateDefaults:
+      description: gatewayUpdateDefaults is a command that updates defaults settings
+      properties:
+        cert-access-id:
+          default: use-existing
+          description: Default Certificate access id for UI login
+          type: string
+          x-go-name: CertAccessId
+        event-on-status-change:
+          description: Trigger an event when Gateway status is changed [true/false]
+          type: string
+          x-go-name: NotifyOnStatusChange
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          default: Default
+          description: The name of the gateway default encryption key
+          type: string
+          x-go-name: EncryptionKey
+        oidc-access-id:
+          default: use-existing
+          description: Default OIDC access id for UI login
+          type: string
+          x-go-name: OidcAccessId
+        saml-access-id:
+          default: use-existing
+          description: Default SAML access id for UI login
+          type: string
+          x-go-name: SamlAccessId
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayUpdateItem:
       description: gatewayUpdateItem is a command that updates classic key
       properties:
@@ -62660,6 +63906,616 @@ components:
         total_hash:
           type: string
           x-go-name: TotalHash
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingAwsS3:
+      description: gatewayUpdateLogForwardingAwsS3 is a command that updates log forwarding
+        config (aws-s3 target)
+      properties:
+        access-id:
+          description: AWS access id relevant for access_key auth-type
+          type: string
+          x-go-name: AwsAccessId
+        access-key:
+          description: AWS access key relevant for access_key auth-type
+          type: string
+          x-go-name: AwsAccessKey
+        auth-type:
+          description: AWS auth type [access_key/cloud_id/assume_role]
+          type: string
+          x-go-name: AwsAuthType
+        bucket-name:
+          description: AWS S3 bucket name
+          type: string
+          x-go-name: AwsBucketName
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        log-folder:
+          default: use-existing
+          description: AWS S3 destination folder for logs
+          type: string
+          x-go-name: AwsLogFolder
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        region:
+          description: AWS region
+          type: string
+          x-go-name: AwsRegion
+        role-arn:
+          description: AWS role arn relevant for assume_role auth-type
+          type: string
+          x-go-name: AwsRoleARN
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingAzureAnalytics:
+      description: gatewayUpdateLogForwardingAzureAnalytics is a command that updates
+        log forwarding config (azure-analytics target)
+      properties:
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        workspace-id:
+          description: Azure workspace id
+          type: string
+          x-go-name: AzureWorkspaceId
+        workspace-key:
+          description: Azure workspace key
+          type: string
+          x-go-name: AzureWorkspaceKey
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingDatadog:
+      description: gatewayUpdateLogForwardingDatadog is a command that updates log
+        forwarding config (datadog target)
+      properties:
+        api-key:
+          description: Datadog api key
+          type: string
+          x-go-name: DatadogApiKey
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        host:
+          description: Datadog host
+          type: string
+          x-go-name: DatadogHost
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        log-service:
+          default: use-existing
+          description: Datadog log service
+          type: string
+          x-go-name: DatadogLogService
+        log-source:
+          default: use-existing
+          description: Datadog log source
+          type: string
+          x-go-name: DatadogLogSource
+        log-tags:
+          default: use-existing
+          description: A comma-separated list of Datadog log tags formatted as "key:value"
+            strings
+          type: string
+          x-go-name: DatadogLogTags
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingElasticsearch:
+      description: gatewayUpdateLogForwardingElasticsearch is a command that updates
+        log forwarding config (elasticsearch target)
+      properties:
+        api-key:
+          description: Elasticsearch api key relevant only for api_key auth-type
+          type: string
+          x-go-name: ElasticsearchApiKey
+        auth-type:
+          description: Elasticsearch auth type [api_key/password]
+          type: string
+          x-go-name: ElasticsearchAuthType
+        cloud-id:
+          description: Elasticsearch cloud id relevant only for cloud server-type
+          type: string
+          x-go-name: ElasticsearchCloudId
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        enable-tls:
+          description: Enable tls
+          type: boolean
+          x-go-name: ElasticsearchEnableTLS
+        index:
+          description: Elasticsearch index
+          type: string
+          x-go-name: ElasticsearchIndex
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        nodes:
+          description: Elasticsearch nodes relevant only for nodes server-type
+          type: string
+          x-go-name: ElasticsearchNodes
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        password:
+          description: Elasticsearch password relevant only for password auth-type
+          type: string
+          x-go-name: ElasticsearchPassword
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        server-type:
+          description: Elasticsearch server type [cloud/nodes]
+          type: string
+          x-go-name: ElasticsearchServerType
+        tls-certificate:
+          default: use-existing
+          description: Elasticsearch tls certificate
+          type: string
+          x-go-name: ElasticsearchTlsCertificate
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        user-name:
+          description: Elasticsearch user name relevant only for password auth-type
+          type: string
+          x-go-name: ElasticsearchUserName
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingGoogleChronicle:
+      description: gatewayUpdateLogForwardingGoogleChronicle is a command that updates
+        log forwarding config (google-chronicle target)
+      properties:
+        customer-id:
+          description: Google chronicle customer id
+          type: string
+          x-go-name: CustomerID
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        gcp-key:
+          description: Base64-encoded service account private key text
+          type: string
+          x-go-name: ServiceAccountKey
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        log-type:
+          description: Google chronicle log type
+          type: string
+          x-go-name: LogType
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        region:
+          description: Google chronicle region [eu_multi_region/london/us_multi_region/singapore/tel_aviv]
+          type: string
+          x-go-name: Region
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingLogstash:
+      description: gatewayUpdateLogForwardingLogstash is a command that updates log
+        forwarding config (logstash target)
+      properties:
+        dns:
+          description: Logstash dns
+          type: string
+          x-go-name: LogstashDns
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        enable-tls:
+          description: Enable tls
+          type: boolean
+          x-go-name: LogstashEnableTLS
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        protocol:
+          description: Logstash protocol [tcp/udp]
+          type: string
+          x-go-name: LogstashProtocol
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        tls-certificate:
+          default: use-existing
+          description: Logstash tls certificate
+          type: string
+          x-go-name: LogstashTlsCertificate
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingLogzIo:
+      description: gatewayUpdateLogForwardingLogzIo is a command that updates log
+        forwarding config (logz-io target)
+      properties:
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        logz-io-token:
+          description: Logz-io token
+          type: string
+          x-go-name: LogzIoToken
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        protocol:
+          description: LogzIo protocol [tcp/https]
+          type: string
+          x-go-name: LogzIoProtocol
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingOutput:
+      example:
+        updated: true
+      properties:
+        updated:
+          type: boolean
+          x-go-name: Updated
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingSplunk:
+      description: gatewayUpdateLogForwardingSplunk is a command that updates log
+        forwarding config (splunk target)
+      properties:
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        enable-tls:
+          description: Enable tls
+          type: boolean
+          x-go-name: SplunkEnableTLS
+        index:
+          description: Splunk index
+          type: string
+          x-go-name: SplunkIndex
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        source:
+          default: use-existing
+          description: Splunk source
+          type: string
+          x-go-name: SplunkSource
+        source-type:
+          default: use-existing
+          description: Splunk source type
+          type: string
+          x-go-name: SplunkSourceType
+        splunk-token:
+          description: Splunk token
+          type: string
+          x-go-name: SplunkToken
+        splunk-url:
+          description: Splunk server URL
+          type: string
+          x-go-name: SplunkUrl
+        tls-certificate:
+          default: use-existing
+          description: Splunk tls certificate
+          type: string
+          x-go-name: SplunkTlsCertificate
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingStdout:
+      description: gatewayUpdateLogForwardingStdout is a command that updates log
+        forwarding config (stdout target)
+      properties:
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingSumologic:
+      description: gatewayUpdateLogForwardingSumologic is a command that updates log
+        forwarding config (sumologic target)
+      properties:
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        endpoint:
+          description: Sumologic endpoint URL
+          type: string
+          x-go-name: SumologicEndPointURL
+        host:
+          default: use-existing
+          description: Sumologic host
+          type: string
+          x-go-name: SumologicHost
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        sumologic-tags:
+          default: use-existing
+          description: A comma-separated list of Sumologic tags
+          type: string
+          x-go-name: SumologicTags
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateLogForwardingSyslog:
+      description: gatewayUpdateLogForwardingSyslog is a command that updates log
+        forwarding config (syslog target)
+      properties:
+        enable:
+          default: "true"
+          description: Enable Log Forwarding [true/false]
+          type: string
+          x-go-name: Enable
+        enable-tls:
+          description: Enable tls relevant only for network type TCP
+          type: boolean
+          x-go-name: SyslogEnableTLS
+        formatter:
+          default: text
+          description: Syslog formatter [text/cef]
+          type: string
+          x-go-name: SyslogFormatter
+        host:
+          description: Syslog host
+          type: string
+          x-go-name: SyslogHost
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        network:
+          default: tcp
+          description: Syslog network [tcp/udp]
+          type: string
+          x-go-name: SyslogNetwork
+        output-format:
+          default: text
+          description: Logs format [text/json]
+          type: string
+          x-go-name: OutputFormat
+        pull-interval:
+          default: "10"
+          description: Pull interval in seconds
+          type: string
+          x-go-name: PullIntervalSec
+        target-tag:
+          default: use-existing
+          description: Syslog target tag
+          type: string
+          x-go-name: SyslogTargetTag
+        tls-certificate:
+          default: use-existing
+          description: Syslog tls certificate
+          type: string
+          x-go-name: SyslogTlsCertificate
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayUpdateMigration:
@@ -63035,6 +64891,15 @@ components:
       - target-location
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    gatewayUpdateOutput:
+      example:
+        updated: true
+      properties:
+        updated:
+          type: boolean
+          x-go-name: Updated
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     gatewayUpdateProducerArtifactory:
       description: 'gatewayUpdateProducerArtifactory is a command that updates artifactory
         producer [Deprecated: Use dynamic-secret-update-artifactory command]'
@@ -63151,13 +65016,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -63253,11 +65118,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -63612,13 +65482,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -63714,11 +65584,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -64059,13 +65934,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -64161,11 +66036,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -64470,13 +66350,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -64572,11 +66452,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -64871,13 +66756,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -64973,11 +66858,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -65284,13 +67174,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -65386,11 +67276,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -65675,13 +67570,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -65777,11 +67672,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -66101,13 +68001,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -66203,11 +68103,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -66507,13 +68412,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -66609,11 +68514,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -66915,13 +68825,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -67017,11 +68927,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -67332,13 +69247,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -67434,11 +69349,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -67766,13 +69686,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -67868,11 +69788,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -68052,6 +69977,9 @@ components:
       description: 'gatewayUpdateProducerLdap is a command that updates ldap producer
         [Deprecated: Use dynamic-secret-update-ldap command]'
       properties:
+        ProviderType:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
         bind-dn:
           description: Bind DN
           type: string
@@ -68073,6 +70001,12 @@ components:
           description: Group DN which the temporary user should be added
           type: string
           x-go-name: GroupDn
+        host-provider:
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
+          type: string
+          x-go-name: HostProviderType
         json:
           default: false
           description: Set output format to JSON
@@ -68102,12 +70036,39 @@ components:
           description: Dynamic producer encryption key
           type: string
           x-go-name: ProducerEncryptionKey
+        secure-access-enable:
+          description: Enable/Disable secure remote access [true/false]
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-host:
+          description: Target servers for connections (In case of Linked Target association,
+            host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+          items:
+            type: string
+          type: array
+          x-go-name: SecureAccessHost
+        secure-access-rd-gateway-server:
+          description: RD Gateway server
+          type: string
+          x-go-name: SecureAccessRDGatewayServer
+        secure-access-rdp-domain:
+          description: Required when the Dynamic Secret is used for a domain user
+          type: string
+          x-go-name: SecureAccessDomain
         tags:
           description: Add tags attached to this object
           items:
             type: string
           type: array
           x-go-name: Tags
+        target:
+          description: A list of linked targets to be associated, Relevant only for
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
+          items:
+            type: string
+          type: array
+          x-go-name: TargetNames
         target-name:
           description: Target name
           type: string
@@ -68183,13 +70144,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -68285,11 +70246,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -68617,13 +70583,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -68719,11 +70685,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -69067,13 +71038,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -69169,11 +71140,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -69514,13 +71490,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -69616,11 +71592,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -69977,13 +71958,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -70079,11 +72060,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -70416,13 +72402,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -70518,11 +72504,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -70891,13 +72882,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -70993,11 +72984,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -71330,13 +73326,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -71432,11 +73428,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -71765,13 +73766,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -71867,11 +73868,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -72209,13 +74215,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -72311,11 +74317,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -72623,13 +74634,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -72725,11 +74736,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -73045,13 +75061,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -73147,11 +75163,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -73453,13 +75474,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -73555,11 +75576,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -73907,13 +75933,13 @@ components:
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           - assoc_id: assoc_id
             target_name: target_name
             target_type: target_type
             attributes:
               key: attributes
-            target_id: 5
+            target_id: 6
           chef_server_username: chef_server_username
           k8s_client_cert_data: k8s_client_cert_data
           tags:
@@ -74009,11 +76035,16 @@ components:
             host_provider_type: host_provider_type
             web_proxy: true
             status_info:
+              hosts_in_use:
+              - hosts_in_use
+              - hosts_in_use
               is_in_use: true
               last_used_item: 2000-01-23T04:56:07.000+00:00
               count_info:
                 key:
-                  key: 3
+                  key: 6
+              count_by_host_info:
+                key: 3
             bastion_ssh: bastion_ssh
             isolated: true
             target_hosts:
@@ -74581,7 +76612,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -74595,7 +76626,7 @@ components:
             protection_key_name: protection_key_name
             creation_date: 2000-01-23T04:56:07.000+00:00
             access_date_display: access_date_display
-            version: 6
+            version: 3
             certificate_version_info:
               not_after: 2000-01-23T04:56:07.000+00:00
               not_before: 2000-01-23T04:56:07.000+00:00
@@ -74805,11 +76836,16 @@ components:
         parent_cert: parent_cert
         data: data
         reading_token: reading_token
+        cert_item_id: 0
         cert_display_id: cert_display_id
       properties:
         cert_display_id:
           type: string
           x-go-name: CertDisplayID
+        cert_item_id:
+          format: int64
+          type: integer
+          x-go-name: CertItemID
         data:
           type: string
           x-go-name: Data
@@ -77083,9 +79119,9 @@ components:
           type: string
           x-go-name: Description
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -77184,8 +79220,8 @@ components:
           x-go-name: Tags
         target:
           description: A list of linked targets to be associated, Relevant only for
-            Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify
-            multiple targets use argument multiple times
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
           items:
             type: string
           type: array
@@ -79355,9 +81391,9 @@ components:
           type: string
           x-go-name: Description
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -79461,8 +81497,8 @@ components:
           x-go-name: SecureAccessWebProxy
         target:
           description: A list of linked targets to be associated, Relevant only for
-            Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify
-            multiple targets use argument multiple times
+            Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap
+            dynamic secret, To specify multiple targets use argument multiple times
           items:
             type: string
           type: array
@@ -81882,6 +83918,10 @@ components:
           description: Set a maximum ttl for dynamic secrets [true/false]
           type: string
           x-go-name: DynamicMaxTtlEnable
+        enable-item-sharing:
+          description: Enable sharing items [true/false]
+          type: string
+          x-go-name: EnableShareLink
         force-new-versions:
           description: If set to true, new version will be created on update
           type: string
@@ -84854,6 +86894,83 @@ components:
       title: updateGroup is a command that updates a group.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateHashiVaultTarget:
+      properties:
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        hashi-url:
+          description: HashiCorp Vault API URL, e.g. https://vault-mgr01:8200
+          type: string
+          x-go-name: VaultURL
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        keep-prev-version:
+          description: Whether to keep previous version [true/false]. If not set,
+            use default according to account settings
+          type: string
+          x-go-name: KeepPrevVersion
+        key:
+          description: |-
+            The name of a key that used to encrypt the target secret value (if empty, the
+            account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        max-versions:
+          description: Set the maximum number of versions, limited by the account
+            settings defaults.
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        namespace:
+          description: Comma-separated list of vault namespaces
+          items:
+            type: string
+          type: array
+          x-go-name: Namespaces
+        new-name:
+          description: New target name
+          type: string
+          x-go-name: NewTargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        update-version:
+          description: Deprecated
+          type: boolean
+          x-go-name: CreateNewVersion
+        vault-token:
+          description: Vault access token with sufficient permissions
+          type: string
+          x-go-name: VaultToken
+      required:
+      - name
+      title: updateHashiVaultTarget is a command that updates a new target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    updateHashiVaultTargetOutput:
+      example:
+        target_id: 0
+      properties:
+        target_id:
+          format: int64
+          type: integer
+          x-go-name: TargetID
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     updateItem:
       properties:
         ProviderType:
@@ -84890,9 +87007,9 @@ components:
           type: string
           x-go-name: Description
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -85871,9 +87988,9 @@ components:
           type: string
           x-go-name: GraceRotation
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -86132,9 +88249,9 @@ components:
           type: object
           x-go-name: Extensions
         host-provider:
-          default: explicit
-          description: Host provider type [explicit/target], Relevant only for Secure
-            Remote Access of ssh cert issuer and ldap rotated secret
+          description: Host provider type [explicit/target], Default Host provider
+            is explicit, Relevant only for Secure Remote Access of ssh cert issuer,
+            ldap rotated secret and ldap dynamic secret
           type: string
           x-go-name: HostProviderType
         json:
@@ -87124,6 +89241,10 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        namespace:
+          description: The namespace (relevant for Hashi vault target)
+          type: string
+          x-go-name: Namespace
         secret-name:
           description: Name for the new universal secrets
           type: string
@@ -87167,9 +89288,13 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        namespace:
+          description: The namespace (relevant for Hashi vault target)
+          type: string
+          x-go-name: Namespace
         secret-id:
-          description: The universal secrets id (or name, for AWS, Azure or K8s targets)
-            to delete
+          description: The universal secrets id (or name, for AWS, Azure, K8s or Hashi
+            vault targets) to delete
           type: string
           x-go-name: SecretId
         token:
@@ -87199,9 +89324,13 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        namespace:
+          description: The namespace (relevant for Hashi vault target)
+          type: string
+          x-go-name: Namespace
         secret-id:
-          description: The secret id (or name, for AWS, Azure or K8s targets) to get
-            from the Universal Secrets Connector
+          description: The secret id (or name, for AWS, Azure, K8s or Hashi vault
+            targets) to get from the Universal Secrets Connector
           type: string
           x-go-name: SecretId
         token:
@@ -87217,6 +89346,10 @@ components:
           description: Name of the Universal Secrets Connector item
           type: string
           x-go-name: ExternalSecretManagerName
+        version-id:
+          description: The version id (if not specified, will retrieve the last version)
+          type: string
+          x-go-name: VersionId
       required:
       - secret-id
       - usc-name
@@ -87266,9 +89399,13 @@ components:
           description: Set output format to JSON
           type: boolean
           x-go-name: Json
+        namespace:
+          description: The namespace (relevant for Hashi vault target)
+          type: string
+          x-go-name: Namespace
         secret-id:
-          description: The universal secrets id (or name, for AWS, Azure or K8s targets)
-            to update
+          description: The universal secrets id (or name, for AWS, Azure, K8s or Hashi
+            vault targets) to update
           type: string
           x-go-name: SecretId
         tags:

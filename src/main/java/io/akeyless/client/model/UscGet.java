@@ -34,6 +34,10 @@ public class UscGet {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  private String namespace;
+
   public static final String SERIALIZED_NAME_SECRET_ID = "secret-id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   private String secretId;
@@ -49,6 +53,10 @@ public class UscGet {
   public static final String SERIALIZED_NAME_USC_NAME = "usc-name";
   @SerializedName(SERIALIZED_NAME_USC_NAME)
   private String uscName;
+
+  public static final String SERIALIZED_NAME_VERSION_ID = "version-id";
+  @SerializedName(SERIALIZED_NAME_VERSION_ID)
+  private String versionId;
 
   public UscGet() { 
   }
@@ -76,6 +84,29 @@ public class UscGet {
   }
 
 
+  public UscGet namespace(String namespace) {
+    
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * The namespace (relevant for Hashi vault target)
+   * @return namespace
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The namespace (relevant for Hashi vault target)")
+
+  public String getNamespace() {
+    return namespace;
+  }
+
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+
   public UscGet secretId(String secretId) {
     
     this.secretId = secretId;
@@ -83,11 +114,11 @@ public class UscGet {
   }
 
    /**
-   * The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+   * The secret id (or name, for AWS, Azure, K8s or Hashi vault targets) to get from the Universal Secrets Connector
    * @return secretId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector")
+  @ApiModelProperty(required = true, value = "The secret id (or name, for AWS, Azure, K8s or Hashi vault targets) to get from the Universal Secrets Connector")
 
   public String getSecretId() {
     return secretId;
@@ -168,6 +199,29 @@ public class UscGet {
   }
 
 
+  public UscGet versionId(String versionId) {
+    
+    this.versionId = versionId;
+    return this;
+  }
+
+   /**
+   * The version id (if not specified, will retrieve the last version)
+   * @return versionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The version id (if not specified, will retrieve the last version)")
+
+  public String getVersionId() {
+    return versionId;
+  }
+
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,15 +232,17 @@ public class UscGet {
     }
     UscGet uscGet = (UscGet) o;
     return Objects.equals(this.json, uscGet.json) &&
+        Objects.equals(this.namespace, uscGet.namespace) &&
         Objects.equals(this.secretId, uscGet.secretId) &&
         Objects.equals(this.token, uscGet.token) &&
         Objects.equals(this.uidToken, uscGet.uidToken) &&
-        Objects.equals(this.uscName, uscGet.uscName);
+        Objects.equals(this.uscName, uscGet.uscName) &&
+        Objects.equals(this.versionId, uscGet.versionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, secretId, token, uidToken, uscName);
+    return Objects.hash(json, namespace, secretId, token, uidToken, uscName, versionId);
   }
 
   @Override
@@ -194,10 +250,12 @@ public class UscGet {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscGet {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
+    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

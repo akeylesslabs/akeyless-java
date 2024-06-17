@@ -36,9 +36,9 @@ public class DynamicSecretCreateGoogleWorkspace {
   @SerializedName(SERIALIZED_NAME_ACCESS_MODE)
   private String accessMode;
 
-  public static final String SERIALIZED_NAME_ADMIN_NAME = "admin-name";
-  @SerializedName(SERIALIZED_NAME_ADMIN_NAME)
-  private String adminName;
+  public static final String SERIALIZED_NAME_ADMIN_EMAIL = "admin-email";
+  @SerializedName(SERIALIZED_NAME_ADMIN_EMAIL)
+  private String adminEmail;
 
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -52,13 +52,13 @@ public class DynamicSecretCreateGoogleWorkspace {
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   private String gcpKey;
 
-  public static final String SERIALIZED_NAME_GROUP_NAME = "group-name";
-  @SerializedName(SERIALIZED_NAME_GROUP_NAME)
-  private String groupName;
+  public static final String SERIALIZED_NAME_GROUP_EMAIL = "group-email";
+  @SerializedName(SERIALIZED_NAME_GROUP_EMAIL)
+  private String groupEmail;
 
-  public static final String SERIALIZED_NAME_GROUP_ROLE_TYPE = "group-role-type";
-  @SerializedName(SERIALIZED_NAME_GROUP_ROLE_TYPE)
-  private String groupRoleType;
+  public static final String SERIALIZED_NAME_GROUP_ROLE = "group-role";
+  @SerializedName(SERIALIZED_NAME_GROUP_ROLE)
+  private String groupRole;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -126,26 +126,26 @@ public class DynamicSecretCreateGoogleWorkspace {
   }
 
 
-  public DynamicSecretCreateGoogleWorkspace adminName(String adminName) {
+  public DynamicSecretCreateGoogleWorkspace adminEmail(String adminEmail) {
     
-    this.adminName = adminName;
+    this.adminEmail = adminEmail;
     return this;
   }
 
    /**
    * Admin user email
-   * @return adminName
+   * @return adminEmail
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Admin user email")
 
-  public String getAdminName() {
-    return adminName;
+  public String getAdminEmail() {
+    return adminEmail;
   }
 
 
-  public void setAdminName(String adminName) {
-    this.adminName = adminName;
+  public void setAdminEmail(String adminEmail) {
+    this.adminEmail = adminEmail;
   }
 
 
@@ -218,49 +218,49 @@ public class DynamicSecretCreateGoogleWorkspace {
   }
 
 
-  public DynamicSecretCreateGoogleWorkspace groupName(String groupName) {
+  public DynamicSecretCreateGoogleWorkspace groupEmail(String groupEmail) {
     
-    this.groupName = groupName;
+    this.groupEmail = groupEmail;
     return this;
   }
 
    /**
    * A group email, relevant only for group access-mode
-   * @return groupName
+   * @return groupEmail
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A group email, relevant only for group access-mode")
 
-  public String getGroupName() {
-    return groupName;
+  public String getGroupEmail() {
+    return groupEmail;
   }
 
 
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
+  public void setGroupEmail(String groupEmail) {
+    this.groupEmail = groupEmail;
   }
 
 
-  public DynamicSecretCreateGoogleWorkspace groupRoleType(String groupRoleType) {
+  public DynamicSecretCreateGoogleWorkspace groupRole(String groupRole) {
     
-    this.groupRoleType = groupRoleType;
+    this.groupRole = groupRole;
     return this;
   }
 
    /**
-   * Get groupRoleType
-   * @return groupRoleType
+   * Get groupRole
+   * @return groupRole
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getGroupRoleType() {
-    return groupRoleType;
+  public String getGroupRole() {
+    return groupRole;
   }
 
 
-  public void setGroupRoleType(String groupRoleType) {
-    this.groupRoleType = groupRoleType;
+  public void setGroupRole(String groupRole) {
+    this.groupRole = groupRole;
   }
 
 
@@ -417,11 +417,11 @@ public class DynamicSecretCreateGoogleWorkspace {
   }
 
    /**
-   * Name of existing target to use in producer creation
+   * Name of existing target to use in dynamic secret creation
    * @return targetName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of existing target to use in producer creation")
+  @ApiModelProperty(value = "Name of existing target to use in dynamic secret creation")
 
   public String getTargetName() {
     return targetName;
@@ -512,12 +512,12 @@ public class DynamicSecretCreateGoogleWorkspace {
     }
     DynamicSecretCreateGoogleWorkspace dynamicSecretCreateGoogleWorkspace = (DynamicSecretCreateGoogleWorkspace) o;
     return Objects.equals(this.accessMode, dynamicSecretCreateGoogleWorkspace.accessMode) &&
-        Objects.equals(this.adminName, dynamicSecretCreateGoogleWorkspace.adminName) &&
+        Objects.equals(this.adminEmail, dynamicSecretCreateGoogleWorkspace.adminEmail) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateGoogleWorkspace.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateGoogleWorkspace.description) &&
         Objects.equals(this.gcpKey, dynamicSecretCreateGoogleWorkspace.gcpKey) &&
-        Objects.equals(this.groupName, dynamicSecretCreateGoogleWorkspace.groupName) &&
-        Objects.equals(this.groupRoleType, dynamicSecretCreateGoogleWorkspace.groupRoleType) &&
+        Objects.equals(this.groupEmail, dynamicSecretCreateGoogleWorkspace.groupEmail) &&
+        Objects.equals(this.groupRole, dynamicSecretCreateGoogleWorkspace.groupRole) &&
         Objects.equals(this.json, dynamicSecretCreateGoogleWorkspace.json) &&
         Objects.equals(this.name, dynamicSecretCreateGoogleWorkspace.name) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateGoogleWorkspace.producerEncryptionKeyName) &&
@@ -532,7 +532,7 @@ public class DynamicSecretCreateGoogleWorkspace {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminName, deleteProtection, description, gcpKey, groupName, groupRoleType, json, name, producerEncryptionKeyName, roleName, roleScope, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminEmail, deleteProtection, description, gcpKey, groupEmail, groupRole, json, name, producerEncryptionKeyName, roleName, roleScope, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -540,12 +540,12 @@ public class DynamicSecretCreateGoogleWorkspace {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateGoogleWorkspace {\n");
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
-    sb.append("    adminName: ").append(toIndentedString(adminName)).append("\n");
+    sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
-    sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
-    sb.append("    groupRoleType: ").append(toIndentedString(groupRoleType)).append("\n");
+    sb.append("    groupEmail: ").append(toIndentedString(groupEmail)).append("\n");
+    sb.append("    groupRole: ").append(toIndentedString(groupRole)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");

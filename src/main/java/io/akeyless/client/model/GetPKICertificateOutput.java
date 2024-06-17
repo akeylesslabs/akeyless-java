@@ -33,6 +33,10 @@ public class GetPKICertificateOutput {
   @SerializedName(SERIALIZED_NAME_CERT_DISPLAY_ID)
   private String certDisplayId;
 
+  public static final String SERIALIZED_NAME_CERT_ITEM_ID = "cert_item_id";
+  @SerializedName(SERIALIZED_NAME_CERT_ITEM_ID)
+  private Long certItemId;
+
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private String data;
@@ -72,6 +76,29 @@ public class GetPKICertificateOutput {
 
   public void setCertDisplayId(String certDisplayId) {
     this.certDisplayId = certDisplayId;
+  }
+
+
+  public GetPKICertificateOutput certItemId(Long certItemId) {
+    
+    this.certItemId = certItemId;
+    return this;
+  }
+
+   /**
+   * Get certItemId
+   * @return certItemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getCertItemId() {
+    return certItemId;
+  }
+
+
+  public void setCertItemId(Long certItemId) {
+    this.certItemId = certItemId;
   }
 
 
@@ -177,6 +204,7 @@ public class GetPKICertificateOutput {
     }
     GetPKICertificateOutput getPKICertificateOutput = (GetPKICertificateOutput) o;
     return Objects.equals(this.certDisplayId, getPKICertificateOutput.certDisplayId) &&
+        Objects.equals(this.certItemId, getPKICertificateOutput.certItemId) &&
         Objects.equals(this.data, getPKICertificateOutput.data) &&
         Objects.equals(this.parentCert, getPKICertificateOutput.parentCert) &&
         Objects.equals(this.path, getPKICertificateOutput.path) &&
@@ -185,7 +213,7 @@ public class GetPKICertificateOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certDisplayId, data, parentCert, path, readingToken);
+    return Objects.hash(certDisplayId, certItemId, data, parentCert, path, readingToken);
   }
 
   @Override
@@ -193,6 +221,7 @@ public class GetPKICertificateOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPKICertificateOutput {\n");
     sb.append("    certDisplayId: ").append(toIndentedString(certDisplayId)).append("\n");
+    sb.append("    certItemId: ").append(toIndentedString(certItemId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    parentCert: ").append(toIndentedString(parentCert)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");

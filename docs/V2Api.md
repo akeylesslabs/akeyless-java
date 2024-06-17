@@ -42,6 +42,7 @@ Method | HTTP request | Description
 [**createGlobalSignTarget**](V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
 [**createGodaddyTarget**](V2Api.md#createGodaddyTarget) | **POST** /create-godaddy-target | 
 [**createGroup**](V2Api.md#createGroup) | **POST** /create-group | 
+[**createHashiVaultTarget**](V2Api.md#createHashiVaultTarget) | **POST** /create-hashi-vault-target | 
 [**createKey**](V2Api.md#createKey) | **POST** /create-key | 
 [**createLinkedTarget**](V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
 [**createNativeK8STarget**](V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
@@ -201,12 +202,16 @@ Method | HTTP request | Description
 [**gatewayDeleteProducer**](V2Api.md#gatewayDeleteProducer) | **POST** /gateway-delete-producer | 
 [**gatewayDownloadCustomerFragments**](V2Api.md#gatewayDownloadCustomerFragments) | **POST** /gateway-download-customer-fragments | 
 [**gatewayGetAllowedAccess**](V2Api.md#gatewayGetAllowedAccess) | **POST** /gateway-get-allowed-access | 
+[**gatewayGetCache**](V2Api.md#gatewayGetCache) | **POST** /gateway-get-cache | 
 [**gatewayGetConfig**](V2Api.md#gatewayGetConfig) | **POST** /gateway-get-config | 
+[**gatewayGetDefaults**](V2Api.md#gatewayGetDefaults) | **POST** /gateway-get-defaults | 
 [**gatewayGetK8SAuthConfig**](V2Api.md#gatewayGetK8SAuthConfig) | **POST** /gateway-get-k8s-auth-config | 
 [**gatewayGetLdapAuthConfig**](V2Api.md#gatewayGetLdapAuthConfig) | **POST** /gateway-get-ldap-auth-config | 
+[**gatewayGetLogForwarding**](V2Api.md#gatewayGetLogForwarding) | **POST** /gateway-get-log-forwarding | 
 [**gatewayGetMigration**](V2Api.md#gatewayGetMigration) | **POST** /gateway-get-migration | 
 [**gatewayGetProducer**](V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
 [**gatewayGetTmpUsers**](V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
+[**gatewayListCustomerFragments**](V2Api.md#gatewayListCustomerFragments) | **POST** /gateway-list-customer-fragments | 
 [**gatewayListMigration**](V2Api.md#gatewayListMigration) | **POST** /gateway-list-migration | 
 [**gatewayListProducers**](V2Api.md#gatewayListProducers) | **POST** /gateway-list-producers | 
 [**gatewayListRotatedSecrets**](V2Api.md#gatewayListRotatedSecrets) | **POST** /gateway-list-rotated-secrets | 
@@ -217,9 +222,22 @@ Method | HTTP request | Description
 [**gatewayStopProducer**](V2Api.md#gatewayStopProducer) | **POST** /gateway-stop-producer | 
 [**gatewaySyncMigration**](V2Api.md#gatewaySyncMigration) | **POST** /gateway-sync-migration | 
 [**gatewayUpdateAllowedAccess**](V2Api.md#gatewayUpdateAllowedAccess) | **POST** /gateway-update-allowed-access | 
+[**gatewayUpdateCache**](V2Api.md#gatewayUpdateCache) | **POST** /gateway-update-cache | 
+[**gatewayUpdateDefaults**](V2Api.md#gatewayUpdateDefaults) | **POST** /gateway-update-defaults | 
 [**gatewayUpdateItem**](V2Api.md#gatewayUpdateItem) | **POST** /gateway-update-item | 
 [**gatewayUpdateK8SAuthConfig**](V2Api.md#gatewayUpdateK8SAuthConfig) | **POST** /gateway-update-k8s-auth-config | 
 [**gatewayUpdateLdapAuthConfig**](V2Api.md#gatewayUpdateLdapAuthConfig) | **POST** /gateway-update-ldap-auth-config | 
+[**gatewayUpdateLogForwardingAwsS3**](V2Api.md#gatewayUpdateLogForwardingAwsS3) | **POST** /gateway-update-log-forwarding-aws-s3 | 
+[**gatewayUpdateLogForwardingAzureAnalytics**](V2Api.md#gatewayUpdateLogForwardingAzureAnalytics) | **POST** /gateway-update-log-forwarding-azure-analytics | 
+[**gatewayUpdateLogForwardingDatadog**](V2Api.md#gatewayUpdateLogForwardingDatadog) | **POST** /gateway-update-log-forwarding-datadog | 
+[**gatewayUpdateLogForwardingElasticsearch**](V2Api.md#gatewayUpdateLogForwardingElasticsearch) | **POST** /gateway-update-log-forwarding-elasticsearch | 
+[**gatewayUpdateLogForwardingGoogleChronicle**](V2Api.md#gatewayUpdateLogForwardingGoogleChronicle) | **POST** /gateway-update-log-forwarding-google-chronicle | 
+[**gatewayUpdateLogForwardingLogstash**](V2Api.md#gatewayUpdateLogForwardingLogstash) | **POST** /gateway-update-log-forwarding-logstash | 
+[**gatewayUpdateLogForwardingLogzIo**](V2Api.md#gatewayUpdateLogForwardingLogzIo) | **POST** /gateway-update-log-forwarding-logz-io | 
+[**gatewayUpdateLogForwardingSplunk**](V2Api.md#gatewayUpdateLogForwardingSplunk) | **POST** /gateway-update-log-forwarding-splunk | 
+[**gatewayUpdateLogForwardingStdout**](V2Api.md#gatewayUpdateLogForwardingStdout) | **POST** /gateway-update-log-forwarding-stdout | 
+[**gatewayUpdateLogForwardingSumologic**](V2Api.md#gatewayUpdateLogForwardingSumologic) | **POST** /gateway-update-log-forwarding-sumologic | 
+[**gatewayUpdateLogForwardingSyslog**](V2Api.md#gatewayUpdateLogForwardingSyslog) | **POST** /gateway-update-log-forwarding-syslog | 
 [**gatewayUpdateMigration**](V2Api.md#gatewayUpdateMigration) | **POST** /gateway-update-migration | 
 [**gatewayUpdateProducerArtifactory**](V2Api.md#gatewayUpdateProducerArtifactory) | **POST** /gateway-update-producer-artifactory | 
 [**gatewayUpdateProducerAws**](V2Api.md#gatewayUpdateProducerAws) | **POST** /gateway-update-producer-aws | 
@@ -392,6 +410,7 @@ Method | HTTP request | Description
 [**updateGlobalSignTarget**](V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
 [**updateGodaddyTarget**](V2Api.md#updateGodaddyTarget) | **POST** /update-godaddy-target | 
 [**updateGroup**](V2Api.md#updateGroup) | **POST** /update-group | 
+[**updateHashiVaultTarget**](V2Api.md#updateHashiVaultTarget) | **POST** /update-hashi-vault-target | 
 [**updateItem**](V2Api.md#updateItem) | **POST** /update-item | 
 [**updateLdapTarget**](V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
 [**updateLdapTargetDetails**](V2Api.md#updateLdapTargetDetails) | **POST** /update-ldap-target-details | 
@@ -2750,6 +2769,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createGroupResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createHashiVaultTarget"></a>
+# **createHashiVaultTarget**
+> CreateHashiVaultTargetOutput createHashiVaultTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateHashiVaultTarget body = new CreateHashiVaultTarget(); // CreateHashiVaultTarget | 
+    try {
+      CreateHashiVaultTargetOutput result = apiInstance.createHashiVaultTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createHashiVaultTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateHashiVaultTarget**](CreateHashiVaultTarget.md)|  |
+
+### Return type
+
+[**CreateHashiVaultTargetOutput**](CreateHashiVaultTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | createHashiVaultTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createKey"></a>
@@ -12450,6 +12530,67 @@ No authorization required
 **200** | gatewayGetAllowedAccessResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayGetCache"></a>
+# **gatewayGetCache**
+> CacheConfigPart gatewayGetCache(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayGetCache body = new GatewayGetCache(); // GatewayGetCache | 
+    try {
+      CacheConfigPart result = apiInstance.gatewayGetCache(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayGetCache");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayGetCache**](GatewayGetCache.md)|  |
+
+### Return type
+
+[**CacheConfigPart**](CacheConfigPart.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayGetCacheResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayGetConfig"></a>
 # **gatewayGetConfig**
 > AkeylessGatewayConfig gatewayGetConfig(body)
@@ -12509,6 +12650,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayGetConfigResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayGetDefaults"></a>
+# **gatewayGetDefaults**
+> GatewayGetDefaultsOutput gatewayGetDefaults(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayGetDefaults body = new GatewayGetDefaults(); // GatewayGetDefaults | 
+    try {
+      GatewayGetDefaultsOutput result = apiInstance.gatewayGetDefaults(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayGetDefaults");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayGetDefaults**](GatewayGetDefaults.md)|  |
+
+### Return type
+
+[**GatewayGetDefaultsOutput**](GatewayGetDefaultsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayGetDefaultsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayGetK8SAuthConfig"></a>
@@ -12631,6 +12833,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | gatewayGetLdapAuthConfigResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayGetLogForwarding"></a>
+# **gatewayGetLogForwarding**
+> LogForwardingConfigPart gatewayGetLogForwarding(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayGetLogForwarding body = new GatewayGetLogForwarding(); // GatewayGetLogForwarding | 
+    try {
+      LogForwardingConfigPart result = apiInstance.gatewayGetLogForwarding(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayGetLogForwarding");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayGetLogForwarding**](GatewayGetLogForwarding.md)|  |
+
+### Return type
+
+[**LogForwardingConfigPart**](LogForwardingConfigPart.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayGetLogForwardingResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayGetMigration"></a>
@@ -12814,6 +13077,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | gatewayGetTmpUsersResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayListCustomerFragments"></a>
+# **gatewayListCustomerFragments**
+> Map&lt;String, Object&gt; gatewayListCustomerFragments(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayListCustomerFragments body = new GatewayListCustomerFragments(); // GatewayListCustomerFragments | 
+    try {
+      Map<String, Object> result = apiInstance.gatewayListCustomerFragments(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayListCustomerFragments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayListCustomerFragments**](GatewayListCustomerFragments.md)|  |
+
+### Return type
+
+**Map&lt;String, Object&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayListCustomerFragmentsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayListMigration"></a>
@@ -13425,6 +13749,128 @@ No authorization required
 **200** | gatewayCreateAllowedAccessResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayUpdateCache"></a>
+# **gatewayUpdateCache**
+> GatewayUpdateOutput gatewayUpdateCache(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateCache body = new GatewayUpdateCache(); // GatewayUpdateCache | 
+    try {
+      GatewayUpdateOutput result = apiInstance.gatewayUpdateCache(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateCache");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateCache**](GatewayUpdateCache.md)|  |
+
+### Return type
+
+[**GatewayUpdateOutput**](GatewayUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateCacheResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateDefaults"></a>
+# **gatewayUpdateDefaults**
+> GatewayUpdateOutput gatewayUpdateDefaults(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateDefaults body = new GatewayUpdateDefaults(); // GatewayUpdateDefaults | 
+    try {
+      GatewayUpdateOutput result = apiInstance.gatewayUpdateDefaults(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateDefaults");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateDefaults**](GatewayUpdateDefaults.md)|  |
+
+### Return type
+
+[**GatewayUpdateOutput**](GatewayUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateDefaultsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayUpdateItem"></a>
 # **gatewayUpdateItem**
 > GatewayUpdateItemOutput gatewayUpdateItem(body)
@@ -13606,6 +14052,677 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | GatewayUpdateLdapAuthConfigResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingAwsS3"></a>
+# **gatewayUpdateLogForwardingAwsS3**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingAwsS3(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingAwsS3 body = new GatewayUpdateLogForwardingAwsS3(); // GatewayUpdateLogForwardingAwsS3 | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingAwsS3(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingAwsS3");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingAwsS3**](GatewayUpdateLogForwardingAwsS3.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingAzureAnalytics"></a>
+# **gatewayUpdateLogForwardingAzureAnalytics**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingAzureAnalytics(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingAzureAnalytics body = new GatewayUpdateLogForwardingAzureAnalytics(); // GatewayUpdateLogForwardingAzureAnalytics | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingAzureAnalytics(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingAzureAnalytics");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingAzureAnalytics**](GatewayUpdateLogForwardingAzureAnalytics.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingDatadog"></a>
+# **gatewayUpdateLogForwardingDatadog**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingDatadog(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingDatadog body = new GatewayUpdateLogForwardingDatadog(); // GatewayUpdateLogForwardingDatadog | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingDatadog(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingDatadog");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingDatadog**](GatewayUpdateLogForwardingDatadog.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingElasticsearch"></a>
+# **gatewayUpdateLogForwardingElasticsearch**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingElasticsearch(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingElasticsearch body = new GatewayUpdateLogForwardingElasticsearch(); // GatewayUpdateLogForwardingElasticsearch | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingElasticsearch(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingElasticsearch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingElasticsearch**](GatewayUpdateLogForwardingElasticsearch.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingGoogleChronicle"></a>
+# **gatewayUpdateLogForwardingGoogleChronicle**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingGoogleChronicle(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingGoogleChronicle body = new GatewayUpdateLogForwardingGoogleChronicle(); // GatewayUpdateLogForwardingGoogleChronicle | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingGoogleChronicle(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingGoogleChronicle");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingGoogleChronicle**](GatewayUpdateLogForwardingGoogleChronicle.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingLogstash"></a>
+# **gatewayUpdateLogForwardingLogstash**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingLogstash(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingLogstash body = new GatewayUpdateLogForwardingLogstash(); // GatewayUpdateLogForwardingLogstash | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingLogstash(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingLogstash");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingLogstash**](GatewayUpdateLogForwardingLogstash.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingLogzIo"></a>
+# **gatewayUpdateLogForwardingLogzIo**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingLogzIo(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingLogzIo body = new GatewayUpdateLogForwardingLogzIo(); // GatewayUpdateLogForwardingLogzIo | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingLogzIo(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingLogzIo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingLogzIo**](GatewayUpdateLogForwardingLogzIo.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingSplunk"></a>
+# **gatewayUpdateLogForwardingSplunk**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingSplunk(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingSplunk body = new GatewayUpdateLogForwardingSplunk(); // GatewayUpdateLogForwardingSplunk | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingSplunk(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingSplunk");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingSplunk**](GatewayUpdateLogForwardingSplunk.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingStdout"></a>
+# **gatewayUpdateLogForwardingStdout**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingStdout(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingStdout body = new GatewayUpdateLogForwardingStdout(); // GatewayUpdateLogForwardingStdout | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingStdout(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingStdout");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingStdout**](GatewayUpdateLogForwardingStdout.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingSumologic"></a>
+# **gatewayUpdateLogForwardingSumologic**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingSumologic(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingSumologic body = new GatewayUpdateLogForwardingSumologic(); // GatewayUpdateLogForwardingSumologic | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingSumologic(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingSumologic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingSumologic**](GatewayUpdateLogForwardingSumologic.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateLogForwardingSyslog"></a>
+# **gatewayUpdateLogForwardingSyslog**
+> GatewayUpdateLogForwardingOutput gatewayUpdateLogForwardingSyslog(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateLogForwardingSyslog body = new GatewayUpdateLogForwardingSyslog(); // GatewayUpdateLogForwardingSyslog | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gatewayUpdateLogForwardingSyslog(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateLogForwardingSyslog");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateLogForwardingSyslog**](GatewayUpdateLogForwardingSyslog.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gatewayUpdateLogForwardingResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="gatewayUpdateMigration"></a>
@@ -24087,6 +25204,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | updateGroupResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="updateHashiVaultTarget"></a>
+# **updateHashiVaultTarget**
+> UpdateHashiVaultTargetOutput updateHashiVaultTarget(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateHashiVaultTarget body = new UpdateHashiVaultTarget(); // UpdateHashiVaultTarget | 
+    try {
+      UpdateHashiVaultTargetOutput result = apiInstance.updateHashiVaultTarget(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateHashiVaultTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateHashiVaultTarget**](UpdateHashiVaultTarget.md)|  |
+
+### Return type
+
+[**UpdateHashiVaultTargetOutput**](UpdateHashiVaultTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | updateHashiVaultTargetResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="updateItem"></a>

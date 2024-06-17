@@ -65,6 +65,10 @@ public class DecryptFile {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
   public DecryptFile() { 
   }
 
@@ -275,6 +279,29 @@ public class DecryptFile {
   }
 
 
+  public DecryptFile version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * key version (relevant only for classic key)
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "key version (relevant only for classic key)")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -292,12 +319,13 @@ public class DecryptFile {
         Objects.equals(this.keyName, decryptFile.keyName) &&
         Objects.equals(this.out, decryptFile.out) &&
         Objects.equals(this.token, decryptFile.token) &&
-        Objects.equals(this.uidToken, decryptFile.uidToken);
+        Objects.equals(this.uidToken, decryptFile.uidToken) &&
+        Objects.equals(this.version, decryptFile.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cyphertextHeader, displayId, in, itemId, json, keyName, out, token, uidToken);
+    return Objects.hash(cyphertextHeader, displayId, in, itemId, json, keyName, out, token, uidToken, version);
   }
 
   @Override
@@ -313,6 +341,7 @@ public class DecryptFile {
     sb.append("    out: ").append(toIndentedString(out)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

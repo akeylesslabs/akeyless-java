@@ -34,6 +34,10 @@ public class UscDelete {
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  private String namespace;
+
   public static final String SERIALIZED_NAME_SECRET_ID = "secret-id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   private String secretId;
@@ -76,6 +80,29 @@ public class UscDelete {
   }
 
 
+  public UscDelete namespace(String namespace) {
+    
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * The namespace (relevant for Hashi vault target)
+   * @return namespace
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The namespace (relevant for Hashi vault target)")
+
+  public String getNamespace() {
+    return namespace;
+  }
+
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+
   public UscDelete secretId(String secretId) {
     
     this.secretId = secretId;
@@ -83,11 +110,11 @@ public class UscDelete {
   }
 
    /**
-   * The universal secrets id (or name, for AWS, Azure or K8s targets) to delete
+   * The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to delete
    * @return secretId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The universal secrets id (or name, for AWS, Azure or K8s targets) to delete")
+  @ApiModelProperty(required = true, value = "The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to delete")
 
   public String getSecretId() {
     return secretId;
@@ -178,6 +205,7 @@ public class UscDelete {
     }
     UscDelete uscDelete = (UscDelete) o;
     return Objects.equals(this.json, uscDelete.json) &&
+        Objects.equals(this.namespace, uscDelete.namespace) &&
         Objects.equals(this.secretId, uscDelete.secretId) &&
         Objects.equals(this.token, uscDelete.token) &&
         Objects.equals(this.uidToken, uscDelete.uidToken) &&
@@ -186,7 +214,7 @@ public class UscDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, secretId, token, uidToken, uscName);
+    return Objects.hash(json, namespace, secretId, token, uidToken, uscName);
   }
 
   @Override
@@ -194,6 +222,7 @@ public class UscDelete {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscDelete {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

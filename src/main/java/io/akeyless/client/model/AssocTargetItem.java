@@ -84,6 +84,10 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private String projectId;
 
+  public static final String SERIALIZED_NAME_PROTECTION_LEVEL = "protection-level";
+  @SerializedName(SERIALIZED_NAME_PROTECTION_LEVEL)
+  private String protectionLevel = "software";
+
   public static final String SERIALIZED_NAME_PURPOSE = "purpose";
   @SerializedName(SERIALIZED_NAME_PURPOSE)
   private String purpose;
@@ -426,6 +430,29 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem protectionLevel(String protectionLevel) {
+    
+    this.protectionLevel = protectionLevel;
+    return this;
+  }
+
+   /**
+   * Protection level of the key [software/hardware] (relevant for gcp targets)
+   * @return protectionLevel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection level of the key [software/hardware] (relevant for gcp targets)")
+
+  public String getProtectionLevel() {
+    return protectionLevel;
+  }
+
+
+  public void setProtectionLevel(String protectionLevel) {
+    this.protectionLevel = protectionLevel;
+  }
+
+
   public AssocTargetItem purpose(String purpose) {
     
     this.purpose = purpose;
@@ -640,6 +667,7 @@ public class AssocTargetItem {
         Objects.equals(this.postProvisionCommand, assocTargetItem.postProvisionCommand) &&
         Objects.equals(this.privateKeyPath, assocTargetItem.privateKeyPath) &&
         Objects.equals(this.projectId, assocTargetItem.projectId) &&
+        Objects.equals(this.protectionLevel, assocTargetItem.protectionLevel) &&
         Objects.equals(this.purpose, assocTargetItem.purpose) &&
         Objects.equals(this.regions, assocTargetItem.regions) &&
         Objects.equals(this.sraAssociation, assocTargetItem.sraAssociation) &&
@@ -652,7 +680,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificatePath, chainPath, disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, postProvisionCommand, privateKeyPath, projectId, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(certificatePath, chainPath, disablePreviousKeyVersion, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
@@ -672,6 +700,7 @@ public class AssocTargetItem {
     sb.append("    postProvisionCommand: ").append(toIndentedString(postProvisionCommand)).append("\n");
     sb.append("    privateKeyPath: ").append(toIndentedString(privateKeyPath)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    protectionLevel: ").append(toIndentedString(protectionLevel)).append("\n");
     sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    sraAssociation: ").append(toIndentedString(sraAssociation)).append("\n");

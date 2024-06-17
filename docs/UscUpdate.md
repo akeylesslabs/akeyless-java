@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **binaryValue** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary |  [optional]
 **description** | **String** | Description of the universal secrets |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
-**secretId** | **String** | The universal secrets id (or name, for AWS, Azure or K8s targets) to update | 
+**namespace** | **String** | The namespace (relevant for Hashi vault target) |  [optional]
+**secretId** | **String** | The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update | 
 **tags** | **Map&lt;String, String&gt;** | Tags for the universal secrets |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]
 **uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional]

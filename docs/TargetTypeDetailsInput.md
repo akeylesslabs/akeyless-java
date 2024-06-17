@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **globalsignAtlasTargetDetails** | [**GlobalSignAtlasTargetDetails**](GlobalSignAtlasTargetDetails.md) |  |  [optional]
 **globalsignTargetDetails** | [**GlobalSignGCCTargetDetails**](GlobalSignGCCTargetDetails.md) |  |  [optional]
 **godaddyTargetDetails** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  |  [optional]
+**hashiVaultTargetDetails** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  |  [optional]
 **ldapTargetDetails** | [**LdapTargetDetails**](LdapTargetDetails.md) |  |  [optional]
 **linkedTargetDetails** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  |  [optional]
 **mongoDbTargetDetails** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  |  [optional]

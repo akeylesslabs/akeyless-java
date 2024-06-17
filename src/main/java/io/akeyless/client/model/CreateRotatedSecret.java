@@ -90,7 +90,7 @@ public class CreateRotatedSecret {
 
   public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
   @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
-  private String hostProvider = "explicit";
+  private String hostProvider;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -576,11 +576,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
    * @return hostProvider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret")
+  @ApiModelProperty(value = "Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret")
 
   public String getHostProvider() {
     return hostProvider;
@@ -1359,11 +1359,11 @@ public class CreateRotatedSecret {
   }
 
    /**
-   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times
+   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
    * @return target
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times")
+  @ApiModelProperty(value = "A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times")
 
   public List<String> getTarget() {
     return target;

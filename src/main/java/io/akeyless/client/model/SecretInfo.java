@@ -73,6 +73,10 @@ public class SecretInfo {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Long version;
+
   public SecretInfo() { 
   }
 
@@ -314,6 +318,29 @@ public class SecretInfo {
   }
 
 
+  public SecretInfo version(Long version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Long version) {
+    this.version = version;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -332,12 +359,13 @@ public class SecretInfo {
         Objects.equals(this.secretId, secretInfo.secretId) &&
         Objects.equals(this.status, secretInfo.status) &&
         Objects.equals(this.tags, secretInfo.tags) &&
-        Objects.equals(this.type, secretInfo.type);
+        Objects.equals(this.type, secretInfo.type) &&
+        Objects.equals(this.version, secretInfo.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, description, expiration, lastRetrieved, location, name, secretId, status, tags, type);
+    return Objects.hash(created, description, expiration, lastRetrieved, location, name, secretId, status, tags, type, version);
   }
 
   @Override
@@ -354,6 +382,7 @@ public class SecretInfo {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

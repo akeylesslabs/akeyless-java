@@ -33,6 +33,10 @@ public class SharingPolicyInfo {
   @SerializedName(SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL)
   private Long defaultShareLinkTtl;
 
+  public static final String SERIALIZED_NAME_ENABLE = "enable";
+  @SerializedName(SERIALIZED_NAME_ENABLE)
+  private Boolean enable;
+
   public SharingPolicyInfo() { 
   }
 
@@ -59,6 +63,29 @@ public class SharingPolicyInfo {
   }
 
 
+  public SharingPolicyInfo enable(Boolean enable) {
+    
+    this.enable = enable;
+    return this;
+  }
+
+   /**
+   * Get enable
+   * @return enable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getEnable() {
+    return enable;
+  }
+
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -68,12 +95,13 @@ public class SharingPolicyInfo {
       return false;
     }
     SharingPolicyInfo sharingPolicyInfo = (SharingPolicyInfo) o;
-    return Objects.equals(this.defaultShareLinkTtl, sharingPolicyInfo.defaultShareLinkTtl);
+    return Objects.equals(this.defaultShareLinkTtl, sharingPolicyInfo.defaultShareLinkTtl) &&
+        Objects.equals(this.enable, sharingPolicyInfo.enable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultShareLinkTtl);
+    return Objects.hash(defaultShareLinkTtl, enable);
   }
 
   @Override
@@ -81,6 +109,7 @@ public class SharingPolicyInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class SharingPolicyInfo {\n");
     sb.append("    defaultShareLinkTtl: ").append(toIndentedString(defaultShareLinkTtl)).append("\n");
+    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

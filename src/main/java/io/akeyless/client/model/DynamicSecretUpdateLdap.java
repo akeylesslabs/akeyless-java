@@ -32,6 +32,10 @@ import java.util.List;
 @ApiModel(description = "dynamicSecretUpdateLdap is a command that updates ldap dynamic secret")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DynamicSecretUpdateLdap {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  private String providerType;
+
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
   private String bindDn;
@@ -55,6 +59,10 @@ public class DynamicSecretUpdateLdap {
   public static final String SERIALIZED_NAME_GROUP_DN = "group-dn";
   @SerializedName(SERIALIZED_NAME_GROUP_DN)
   private String groupDn;
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  private String hostProvider;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -84,9 +92,29 @@ public class DynamicSecretUpdateLdap {
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
+  private List<String> secureAccessHost = null;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RD_GATEWAY_SERVER = "secure-access-rd-gateway-server";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RD_GATEWAY_SERVER)
+  private String secureAccessRdGatewayServer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN = "secure-access-rdp-domain";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
+  private String secureAccessRdpDomain;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  private List<String> target = null;
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -118,6 +146,29 @@ public class DynamicSecretUpdateLdap {
 
   public DynamicSecretUpdateLdap() { 
   }
+
+  public DynamicSecretUpdateLdap providerType(String providerType) {
+    
+    this.providerType = providerType;
+    return this;
+  }
+
+   /**
+   * Get providerType
+   * @return providerType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProviderType() {
+    return providerType;
+  }
+
+
+  public void setProviderType(String providerType) {
+    this.providerType = providerType;
+  }
+
 
   public DynamicSecretUpdateLdap bindDn(String bindDn) {
     
@@ -254,6 +305,29 @@ public class DynamicSecretUpdateLdap {
 
   public void setGroupDn(String groupDn) {
     this.groupDn = groupDn;
+  }
+
+
+  public DynamicSecretUpdateLdap hostProvider(String hostProvider) {
+    
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+   /**
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * @return hostProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret")
+
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+
+  public void setHostProvider(String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -418,6 +492,106 @@ public class DynamicSecretUpdateLdap {
   }
 
 
+  public DynamicSecretUpdateLdap secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Enable/Disable secure remote access [true/false]
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public DynamicSecretUpdateLdap secureAccessHost(List<String> secureAccessHost) {
+    
+    this.secureAccessHost = secureAccessHost;
+    return this;
+  }
+
+  public DynamicSecretUpdateLdap addSecureAccessHostItem(String secureAccessHostItem) {
+    if (this.secureAccessHost == null) {
+      this.secureAccessHost = new ArrayList<String>();
+    }
+    this.secureAccessHost.add(secureAccessHostItem);
+    return this;
+  }
+
+   /**
+   * Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+   * @return secureAccessHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)")
+
+  public List<String> getSecureAccessHost() {
+    return secureAccessHost;
+  }
+
+
+  public void setSecureAccessHost(List<String> secureAccessHost) {
+    this.secureAccessHost = secureAccessHost;
+  }
+
+
+  public DynamicSecretUpdateLdap secureAccessRdGatewayServer(String secureAccessRdGatewayServer) {
+    
+    this.secureAccessRdGatewayServer = secureAccessRdGatewayServer;
+    return this;
+  }
+
+   /**
+   * RD Gateway server
+   * @return secureAccessRdGatewayServer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RD Gateway server")
+
+  public String getSecureAccessRdGatewayServer() {
+    return secureAccessRdGatewayServer;
+  }
+
+
+  public void setSecureAccessRdGatewayServer(String secureAccessRdGatewayServer) {
+    this.secureAccessRdGatewayServer = secureAccessRdGatewayServer;
+  }
+
+
+  public DynamicSecretUpdateLdap secureAccessRdpDomain(String secureAccessRdpDomain) {
+    
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+    return this;
+  }
+
+   /**
+   * Required when the Dynamic Secret is used for a domain user
+   * @return secureAccessRdpDomain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required when the Dynamic Secret is used for a domain user")
+
+  public String getSecureAccessRdpDomain() {
+    return secureAccessRdpDomain;
+  }
+
+
+  public void setSecureAccessRdpDomain(String secureAccessRdpDomain) {
+    this.secureAccessRdpDomain = secureAccessRdpDomain;
+  }
+
+
   public DynamicSecretUpdateLdap tags(List<String> tags) {
     
     this.tags = tags;
@@ -446,6 +620,37 @@ public class DynamicSecretUpdateLdap {
 
   public void setTags(List<String> tags) {
     this.tags = tags;
+  }
+
+
+  public DynamicSecretUpdateLdap target(List<String> target) {
+    
+    this.target = target;
+    return this;
+  }
+
+  public DynamicSecretUpdateLdap addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<String>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+   /**
+   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+   * @return target
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times")
+
+  public List<String> getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(List<String> target) {
+    this.target = target;
   }
 
 
@@ -619,12 +824,14 @@ public class DynamicSecretUpdateLdap {
       return false;
     }
     DynamicSecretUpdateLdap dynamicSecretUpdateLdap = (DynamicSecretUpdateLdap) o;
-    return Objects.equals(this.bindDn, dynamicSecretUpdateLdap.bindDn) &&
+    return Objects.equals(this.providerType, dynamicSecretUpdateLdap.providerType) &&
+        Objects.equals(this.bindDn, dynamicSecretUpdateLdap.bindDn) &&
         Objects.equals(this.bindDnPassword, dynamicSecretUpdateLdap.bindDnPassword) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateLdap.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateLdap.description) &&
         Objects.equals(this.externalUsername, dynamicSecretUpdateLdap.externalUsername) &&
         Objects.equals(this.groupDn, dynamicSecretUpdateLdap.groupDn) &&
+        Objects.equals(this.hostProvider, dynamicSecretUpdateLdap.hostProvider) &&
         Objects.equals(this.json, dynamicSecretUpdateLdap.json) &&
         Objects.equals(this.ldapCaCert, dynamicSecretUpdateLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, dynamicSecretUpdateLdap.ldapUrl) &&
@@ -632,7 +839,12 @@ public class DynamicSecretUpdateLdap {
         Objects.equals(this.newName, dynamicSecretUpdateLdap.newName) &&
         Objects.equals(this.passwordLength, dynamicSecretUpdateLdap.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretUpdateLdap.producerEncryptionKeyName) &&
+        Objects.equals(this.secureAccessEnable, dynamicSecretUpdateLdap.secureAccessEnable) &&
+        Objects.equals(this.secureAccessHost, dynamicSecretUpdateLdap.secureAccessHost) &&
+        Objects.equals(this.secureAccessRdGatewayServer, dynamicSecretUpdateLdap.secureAccessRdGatewayServer) &&
+        Objects.equals(this.secureAccessRdpDomain, dynamicSecretUpdateLdap.secureAccessRdpDomain) &&
         Objects.equals(this.tags, dynamicSecretUpdateLdap.tags) &&
+        Objects.equals(this.target, dynamicSecretUpdateLdap.target) &&
         Objects.equals(this.targetName, dynamicSecretUpdateLdap.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateLdap.token) &&
         Objects.equals(this.tokenExpiration, dynamicSecretUpdateLdap.tokenExpiration) &&
@@ -644,19 +856,21 @@ public class DynamicSecretUpdateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, deleteProtection, description, externalUsername, groupDn, json, ldapCaCert, ldapUrl, name, newName, passwordLength, producerEncryptionKeyName, tags, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, bindDn, bindDnPassword, deleteProtection, description, externalUsername, groupDn, hostProvider, json, ldapCaCert, ldapUrl, name, newName, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateLdap {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalUsername: ").append(toIndentedString(externalUsername)).append("\n");
     sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
@@ -664,7 +878,12 @@ public class DynamicSecretUpdateLdap {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    secureAccessRdGatewayServer: ").append(toIndentedString(secureAccessRdGatewayServer)).append("\n");
+    sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **binaryValue** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary |  [optional]
 **description** | **String** | Description of the universal secrets |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
+**namespace** | **String** | The namespace (relevant for Hashi vault target) |  [optional]
 **secretName** | **String** | Name for the new universal secrets | 
 **tags** | **Map&lt;String, String&gt;** | Tags for the universal secrets |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

@@ -69,6 +69,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL_ENABLE)
   private String dynamicSecretMaxTtlEnable;
 
+  public static final String SERIALIZED_NAME_ENABLE_ITEM_SHARING = "enable-item-sharing";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ITEM_SHARING)
+  private String enableItemSharing;
+
   public static final String SERIALIZED_NAME_FORCE_NEW_VERSIONS = "force-new-versions";
   @SerializedName(SERIALIZED_NAME_FORCE_NEW_VERSIONS)
   private String forceNewVersions;
@@ -395,6 +399,29 @@ public class UpdateAccountSettings {
 
   public void setDynamicSecretMaxTtlEnable(String dynamicSecretMaxTtlEnable) {
     this.dynamicSecretMaxTtlEnable = dynamicSecretMaxTtlEnable;
+  }
+
+
+  public UpdateAccountSettings enableItemSharing(String enableItemSharing) {
+    
+    this.enableItemSharing = enableItemSharing;
+    return this;
+  }
+
+   /**
+   * Enable sharing items [true/false]
+   * @return enableItemSharing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable sharing items [true/false]")
+
+  public String getEnableItemSharing() {
+    return enableItemSharing;
+  }
+
+
+  public void setEnableItemSharing(String enableItemSharing) {
+    this.enableItemSharing = enableItemSharing;
   }
 
 
@@ -969,6 +996,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.dynamicSecretMaxTtl, updateAccountSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
+        Objects.equals(this.enableItemSharing, updateAccountSettings.enableItemSharing) &&
         Objects.equals(this.forceNewVersions, updateAccountSettings.forceNewVersions) &&
         Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
@@ -997,7 +1025,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, forceNewVersions, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableItemSharing, forceNewVersions, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -1014,6 +1042,7 @@ public class UpdateAccountSettings {
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
+    sb.append("    enableItemSharing: ").append(toIndentedString(enableItemSharing)).append("\n");
     sb.append("    forceNewVersions: ").append(toIndentedString(forceNewVersions)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");

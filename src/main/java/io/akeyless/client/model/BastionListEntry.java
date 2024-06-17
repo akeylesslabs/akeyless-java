@@ -58,6 +58,10 @@ public class BastionListEntry {
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   private String displayName;
 
+  public static final String SERIALIZED_NAME_HAS_GATEWAY_IDENTITY = "has_gateway_identity";
+  @SerializedName(SERIALIZED_NAME_HAS_GATEWAY_IDENTITY)
+  private Boolean hasGatewayIdentity;
+
   public static final String SERIALIZED_NAME_LAST_REPORT = "last_report";
   @SerializedName(SERIALIZED_NAME_LAST_REPORT)
   private OffsetDateTime lastReport;
@@ -227,6 +231,29 @@ public class BastionListEntry {
   }
 
 
+  public BastionListEntry hasGatewayIdentity(Boolean hasGatewayIdentity) {
+    
+    this.hasGatewayIdentity = hasGatewayIdentity;
+    return this;
+  }
+
+   /**
+   * Get hasGatewayIdentity
+   * @return hasGatewayIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getHasGatewayIdentity() {
+    return hasGatewayIdentity;
+  }
+
+
+  public void setHasGatewayIdentity(Boolean hasGatewayIdentity) {
+    this.hasGatewayIdentity = hasGatewayIdentity;
+  }
+
+
   public BastionListEntry lastReport(OffsetDateTime lastReport) {
     
     this.lastReport = lastReport;
@@ -265,12 +292,13 @@ public class BastionListEntry {
         Objects.equals(this.allowedUrlsPerInstance, bastionListEntry.allowedUrlsPerInstance) &&
         Objects.equals(this.clusterName, bastionListEntry.clusterName) &&
         Objects.equals(this.displayName, bastionListEntry.displayName) &&
+        Objects.equals(this.hasGatewayIdentity, bastionListEntry.hasGatewayIdentity) &&
         Objects.equals(this.lastReport, bastionListEntry.lastReport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, allowedAccessIds, allowedUrls, allowedUrlsPerInstance, clusterName, displayName, lastReport);
+    return Objects.hash(accessId, allowedAccessIds, allowedUrls, allowedUrlsPerInstance, clusterName, displayName, hasGatewayIdentity, lastReport);
   }
 
   @Override
@@ -283,6 +311,7 @@ public class BastionListEntry {
     sb.append("    allowedUrlsPerInstance: ").append(toIndentedString(allowedUrlsPerInstance)).append("\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    hasGatewayIdentity: ").append(toIndentedString(hasGatewayIdentity)).append("\n");
     sb.append("    lastReport: ").append(toIndentedString(lastReport)).append("\n");
     sb.append("}");
     return sb.toString();
