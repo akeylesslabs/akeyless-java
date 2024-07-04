@@ -27,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodUniversalIdentity is a command that updates a new auth method that will be able to authenticate using Akeyless Universal Identity.
+ * updateAuthMethodUniversalIdentity is a command that updates a new auth method that will be able to authenticate using Akeyless Universal Identity. [Deprecated: Use auth-method-update-universal-identity command]
  */
-@ApiModel(description = "updateAuthMethodUniversalIdentity is a command that updates a new auth method that will be able to authenticate using Akeyless Universal Identity.")
+@ApiModel(description = "updateAuthMethodUniversalIdentity is a command that updates a new auth method that will be able to authenticate using Akeyless Universal Identity. [Deprecated: Use auth-method-update-universal-identity command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodUniversalIdentity {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -115,6 +119,37 @@ public class UpdateAuthMethodUniversalIdentity {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethodUniversalIdentity auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodUniversalIdentity addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -474,6 +509,7 @@ public class UpdateAuthMethodUniversalIdentity {
     }
     UpdateAuthMethodUniversalIdentity updateAuthMethodUniversalIdentity = (UpdateAuthMethodUniversalIdentity) o;
     return Objects.equals(this.accessExpires, updateAuthMethodUniversalIdentity.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodUniversalIdentity.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodUniversalIdentity.boundIps) &&
         Objects.equals(this.denyInheritance, updateAuthMethodUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, updateAuthMethodUniversalIdentity.denyRotate) &&
@@ -492,7 +528,7 @@ public class UpdateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
   }
 
   @Override
@@ -500,6 +536,7 @@ public class UpdateAuthMethodUniversalIdentity {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethodUniversalIdentity {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");

@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateEKSTarget
+ * createEKSTarget is a command that creates a new target. [Deprecated: Use target-create-eks command]
  */
+@ApiModel(description = "createEKSTarget is a command that creates a new target. [Deprecated: Use target-create-eks command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateEKSTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UpdateHashiVaultTarget
+ * updateHashiVaultTarget is a command that updates an existing target. [Deprecated: Use target-update-hashi-vault command]
  */
+@ApiModel(description = "updateHashiVaultTarget is a command that updates an existing target. [Deprecated: Use target-update-hashi-vault command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateHashiVaultTarget {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";

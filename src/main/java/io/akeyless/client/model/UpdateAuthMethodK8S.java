@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodK8S is a command that updates a new auth method that will be able to authenticate using K8S.
+ * updateAuthMethodK8S is a command that updates a new auth method that will be able to authenticate using K8S. [Deprecated: Use auth-method-update-k8s command]
  */
-@ApiModel(description = "updateAuthMethodK8S is a command that updates a new auth method that will be able to authenticate using K8S.")
+@ApiModel(description = "updateAuthMethodK8S is a command that updates a new auth method that will be able to authenticate using K8S. [Deprecated: Use auth-method-update-k8s command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodK8S {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class UpdateAuthMethodK8S {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -150,6 +154,37 @@ public class UpdateAuthMethodK8S {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public UpdateAuthMethodK8S auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodK8S addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -580,6 +615,7 @@ public class UpdateAuthMethodK8S {
     UpdateAuthMethodK8S updateAuthMethodK8S = (UpdateAuthMethodK8S) o;
     return Objects.equals(this.accessExpires, updateAuthMethodK8S.accessExpires) &&
         Objects.equals(this.audience, updateAuthMethodK8S.audience) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodK8S.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodK8S.boundIps) &&
         Objects.equals(this.boundNamespaces, updateAuthMethodK8S.boundNamespaces) &&
         Objects.equals(this.boundPodNames, updateAuthMethodK8S.boundPodNames) &&
@@ -600,7 +636,7 @@ public class UpdateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKey, token, uidToken);
   }
 
   @Override
@@ -609,6 +645,7 @@ public class UpdateAuthMethodK8S {
     sb.append("class UpdateAuthMethodK8S {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    boundNamespaces: ").append(toIndentedString(boundNamespaces)).append("\n");
     sb.append("    boundPodNames: ").append(toIndentedString(boundPodNames)).append("\n");

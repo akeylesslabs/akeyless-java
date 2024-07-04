@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateDBTarget
+ * updateDBTarget is a command that updates an existing target. [Deprecated: Use target-update-db command]
  */
+@ApiModel(description = "updateDBTarget is a command that updates an existing target. [Deprecated: Use target-update-db command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateDBTarget {
   public static final String SERIALIZED_NAME_DB_DEFINED_CONNECTION_TYPE = "DBDefinedConnectionType";

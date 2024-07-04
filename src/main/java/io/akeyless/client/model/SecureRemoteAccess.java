@@ -61,6 +61,14 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_BASTION_SSH)
   private String bastionSsh;
 
+  public static final String SERIALIZED_NAME_BLOCK_CONCURRENT_CONNECTIONS = "block_concurrent_connections";
+  @SerializedName(SERIALIZED_NAME_BLOCK_CONCURRENT_CONNECTIONS)
+  private Boolean blockConcurrentConnections;
+
+  public static final String SERIALIZED_NAME_BLOCK_CONCURRENT_CONNECTIONS_LEVEL = "block_concurrent_connections_level";
+  @SerializedName(SERIALIZED_NAME_BLOCK_CONCURRENT_CONNECTIONS_LEVEL)
+  private String blockConcurrentConnectionsLevel;
+
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
@@ -326,6 +334,52 @@ public class SecureRemoteAccess {
 
   public void setBastionSsh(String bastionSsh) {
     this.bastionSsh = bastionSsh;
+  }
+
+
+  public SecureRemoteAccess blockConcurrentConnections(Boolean blockConcurrentConnections) {
+    
+    this.blockConcurrentConnections = blockConcurrentConnections;
+    return this;
+  }
+
+   /**
+   * Get blockConcurrentConnections
+   * @return blockConcurrentConnections
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getBlockConcurrentConnections() {
+    return blockConcurrentConnections;
+  }
+
+
+  public void setBlockConcurrentConnections(Boolean blockConcurrentConnections) {
+    this.blockConcurrentConnections = blockConcurrentConnections;
+  }
+
+
+  public SecureRemoteAccess blockConcurrentConnectionsLevel(String blockConcurrentConnectionsLevel) {
+    
+    this.blockConcurrentConnectionsLevel = blockConcurrentConnectionsLevel;
+    return this;
+  }
+
+   /**
+   * Get blockConcurrentConnectionsLevel
+   * @return blockConcurrentConnectionsLevel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getBlockConcurrentConnectionsLevel() {
+    return blockConcurrentConnectionsLevel;
+  }
+
+
+  public void setBlockConcurrentConnectionsLevel(String blockConcurrentConnectionsLevel) {
+    this.blockConcurrentConnectionsLevel = blockConcurrentConnectionsLevel;
   }
 
 
@@ -967,6 +1021,8 @@ public class SecureRemoteAccess {
         Objects.equals(this.bastionIssuer, secureRemoteAccess.bastionIssuer) &&
         Objects.equals(this.bastionIssuerId, secureRemoteAccess.bastionIssuerId) &&
         Objects.equals(this.bastionSsh, secureRemoteAccess.bastionSsh) &&
+        Objects.equals(this.blockConcurrentConnections, secureRemoteAccess.blockConcurrentConnections) &&
+        Objects.equals(this.blockConcurrentConnectionsLevel, secureRemoteAccess.blockConcurrentConnectionsLevel) &&
         Objects.equals(this.category, secureRemoteAccess.category) &&
         Objects.equals(this.dashboardUrl, secureRemoteAccess.dashboardUrl) &&
         Objects.equals(this.dbName, secureRemoteAccess.dbName) &&
@@ -997,7 +1053,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -1011,6 +1067,8 @@ public class SecureRemoteAccess {
     sb.append("    bastionIssuer: ").append(toIndentedString(bastionIssuer)).append("\n");
     sb.append("    bastionIssuerId: ").append(toIndentedString(bastionIssuerId)).append("\n");
     sb.append("    bastionSsh: ").append(toIndentedString(bastionSsh)).append("\n");
+    sb.append("    blockConcurrentConnections: ").append(toIndentedString(blockConcurrentConnections)).append("\n");
+    sb.append("    blockConcurrentConnectionsLevel: ").append(toIndentedString(blockConcurrentConnectionsLevel)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");

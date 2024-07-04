@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **accessExpires** | **Long** |  |  [optional]
 **accessIdAlias** | **String** | for accounts where AccessId holds encrypted email this field will hold generated AccessId, for accounts based on regular AccessId it will be equal to accessId itself |  [optional]
 **apiKeyAccessRules** | [**APIKeyAccessRules**](APIKeyAccessRules.md) |  |  [optional]
+**auditLogsClaims** | **List&lt;String&gt;** |  |  [optional]
 **awsIamAccessRules** | [**AWSIAMAccessRules**](AWSIAMAccessRules.md) |  |  [optional]
 **azureAdAccessRules** | [**AzureADAccessRules**](AzureADAccessRules.md) |  |  [optional]
 **certAccessRules** | [**CertAccessRules**](CertAccessRules.md) |  |  [optional]

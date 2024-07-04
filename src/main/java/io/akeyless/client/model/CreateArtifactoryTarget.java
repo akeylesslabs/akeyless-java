@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateArtifactoryTarget
+ * createArtifactoryTarget is a command that creates a new target. [Deprecated: Use target-create-artifactory command]
  */
+@ApiModel(description = "createArtifactoryTarget is a command that creates a new target. [Deprecated: Use target-create-artifactory command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateArtifactoryTarget {
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME = "artifactory-admin-name";

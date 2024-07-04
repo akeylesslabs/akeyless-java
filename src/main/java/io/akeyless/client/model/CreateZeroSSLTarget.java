@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateZeroSSLTarget
+ * createZeroSSLTarget is a command that creates a new target. [Deprecated: Use target-create-zerossl command]
  */
+@ApiModel(description = "createZeroSSLTarget is a command that creates a new target. [Deprecated: Use target-create-zerossl command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateZeroSSLTarget {
   public static final String SERIALIZED_NAME_API_KEY = "api-key";

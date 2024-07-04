@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreatePingTarget
+ * createPingTarget is a command that creates a new target. [Deprecated: Use target-create-ping command]
  */
+@ApiModel(description = "createPingTarget is a command that creates a new target. [Deprecated: Use target-create-ping command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreatePingTarget {
   public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative-port";

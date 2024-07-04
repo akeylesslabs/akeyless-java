@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateGodaddyTarget
+ * createGodaddyTarget is a command that creates a new target. [Deprecated: Use target-create-godaddy command]
  */
+@ApiModel(description = "createGodaddyTarget is a command that creates a new target. [Deprecated: Use target-create-godaddy command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateGodaddyTarget {
   public static final String SERIALIZED_NAME_API_KEY = "api-key";

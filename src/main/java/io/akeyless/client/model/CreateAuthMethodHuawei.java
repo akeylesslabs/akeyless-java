@@ -36,6 +36,10 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
+
   public static final String SERIALIZED_NAME_AUTH_URL = "auth-url";
   @SerializedName(SERIALIZED_NAME_AUTH_URL)
   private String authUrl = "https://iam.myhwclouds.com:443/v3";
@@ -127,6 +131,37 @@ public class CreateAuthMethodHuawei {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodHuawei auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public CreateAuthMethodHuawei addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -603,6 +638,7 @@ public class CreateAuthMethodHuawei {
     }
     CreateAuthMethodHuawei createAuthMethodHuawei = (CreateAuthMethodHuawei) o;
     return Objects.equals(this.accessExpires, createAuthMethodHuawei.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, createAuthMethodHuawei.auditLogsClaims) &&
         Objects.equals(this.authUrl, createAuthMethodHuawei.authUrl) &&
         Objects.equals(this.boundDomainId, createAuthMethodHuawei.boundDomainId) &&
         Objects.equals(this.boundDomainName, createAuthMethodHuawei.boundDomainName) &&
@@ -624,7 +660,7 @@ public class CreateAuthMethodHuawei {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -632,6 +668,7 @@ public class CreateAuthMethodHuawei {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodHuawei {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    authUrl: ").append(toIndentedString(authUrl)).append("\n");
     sb.append("    boundDomainId: ").append(toIndentedString(boundDomainId)).append("\n");
     sb.append("    boundDomainName: ").append(toIndentedString(boundDomainName)).append("\n");

@@ -27,13 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UpdateAuthMethod
+ * updateAuthMethod is a command that updates a api key auth method. [Deprecated: Use auth-method-update-api-key command]
  */
+@ApiModel(description = "updateAuthMethod is a command that updates a api key auth method. [Deprecated: Use auth-method-update-api-key command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethod {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -102,6 +107,37 @@ public class UpdateAuthMethod {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethod auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethod addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -392,6 +428,7 @@ public class UpdateAuthMethod {
     }
     UpdateAuthMethod updateAuthMethod = (UpdateAuthMethod) o;
     return Objects.equals(this.accessExpires, updateAuthMethod.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethod.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethod.boundIps) &&
         Objects.equals(this.description, updateAuthMethod.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethod.forceSubClaims) &&
@@ -407,7 +444,7 @@ public class UpdateAuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, uidToken);
   }
 
   @Override
@@ -415,6 +452,7 @@ public class UpdateAuthMethod {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethod {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

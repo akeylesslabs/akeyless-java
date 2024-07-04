@@ -65,6 +65,10 @@ public class GenerateCsr {
   @SerializedName(SERIALIZED_NAME_EMAIL_ADDRESSES)
   private String emailAddresses;
 
+  public static final String SERIALIZED_NAME_EXPORT_PRIVATE_KEY = "export-private-key";
+  @SerializedName(SERIALIZED_NAME_EXPORT_PRIVATE_KEY)
+  private Boolean exportPrivateKey = false;
+
   public static final String SERIALIZED_NAME_GENERATE_KEY = "generate-key";
   @SerializedName(SERIALIZED_NAME_GENERATE_KEY)
   private Boolean generateKey;
@@ -316,6 +320,29 @@ public class GenerateCsr {
 
   public void setEmailAddresses(String emailAddresses) {
     this.emailAddresses = emailAddresses;
+  }
+
+
+  public GenerateCsr exportPrivateKey(Boolean exportPrivateKey) {
+    
+    this.exportPrivateKey = exportPrivateKey;
+    return this;
+  }
+
+   /**
+   * The flag to indicate if the private key should be exported
+   * @return exportPrivateKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The flag to indicate if the private key should be exported")
+
+  public Boolean getExportPrivateKey() {
+    return exportPrivateKey;
+  }
+
+
+  public void setExportPrivateKey(Boolean exportPrivateKey) {
+    this.exportPrivateKey = exportPrivateKey;
   }
 
 
@@ -590,6 +617,7 @@ public class GenerateCsr {
         Objects.equals(this.critical, generateCsr.critical) &&
         Objects.equals(this.dep, generateCsr.dep) &&
         Objects.equals(this.emailAddresses, generateCsr.emailAddresses) &&
+        Objects.equals(this.exportPrivateKey, generateCsr.exportPrivateKey) &&
         Objects.equals(this.generateKey, generateCsr.generateKey) &&
         Objects.equals(this.ipAddresses, generateCsr.ipAddresses) &&
         Objects.equals(this.json, generateCsr.json) &&
@@ -605,7 +633,7 @@ public class GenerateCsr {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, generateKey, ipAddresses, json, keyType, name, org, splitLevel, state, token, uidToken, uriSans);
+    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, exportPrivateKey, generateKey, ipAddresses, json, keyType, name, org, splitLevel, state, token, uidToken, uriSans);
   }
 
   @Override
@@ -621,6 +649,7 @@ public class GenerateCsr {
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
     sb.append("    dep: ").append(toIndentedString(dep)).append("\n");
     sb.append("    emailAddresses: ").append(toIndentedString(emailAddresses)).append("\n");
+    sb.append("    exportPrivateKey: ").append(toIndentedString(exportPrivateKey)).append("\n");
     sb.append("    generateKey: ").append(toIndentedString(generateKey)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateAzureTarget
+ * createAzureTarget is a command that creates a new target. [Deprecated: Use target-create-azure command]
  */
+@ApiModel(description = "createAzureTarget is a command that creates a new target. [Deprecated: Use target-create-azure command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAzureTarget {
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodAzureAD is a command that updates a new auth method that will be able to authenticate using Azure Active Directory credentials.
+ * updateAuthMethodAzureAD is a command that updates a new auth method that will be able to authenticate using Azure Active Directory credentials. [Deprecated: Use auth-method-update-azure-ad command]
  */
-@ApiModel(description = "updateAuthMethodAzureAD is a command that updates a new auth method that will be able to authenticate using Azure Active Directory credentials.")
+@ApiModel(description = "updateAuthMethodAzureAD is a command that updates a new auth method that will be able to authenticate using Azure Active Directory credentials. [Deprecated: Use auth-method-update-azure-ad command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodAzureAD {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class UpdateAuthMethodAzureAD {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience = "https://management.azure.com/";
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_GROUP_ID = "bound-group-id";
   @SerializedName(SERIALIZED_NAME_BOUND_GROUP_ID)
@@ -174,6 +178,37 @@ public class UpdateAuthMethodAzureAD {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public UpdateAuthMethodAzureAD auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodAzureAD addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -782,6 +817,7 @@ public class UpdateAuthMethodAzureAD {
     UpdateAuthMethodAzureAD updateAuthMethodAzureAD = (UpdateAuthMethodAzureAD) o;
     return Objects.equals(this.accessExpires, updateAuthMethodAzureAD.accessExpires) &&
         Objects.equals(this.audience, updateAuthMethodAzureAD.audience) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodAzureAD.auditLogsClaims) &&
         Objects.equals(this.boundGroupId, updateAuthMethodAzureAD.boundGroupId) &&
         Objects.equals(this.boundIps, updateAuthMethodAzureAD.boundIps) &&
         Objects.equals(this.boundProviders, updateAuthMethodAzureAD.boundProviders) &&
@@ -808,7 +844,7 @@ public class UpdateAuthMethodAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, newName, productType, token, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, newName, productType, token, uidToken);
   }
 
   @Override
@@ -817,6 +853,7 @@ public class UpdateAuthMethodAzureAD {
     sb.append("class UpdateAuthMethodAzureAD {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundGroupId: ").append(toIndentedString(boundGroupId)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    boundProviders: ").append(toIndentedString(boundProviders)).append("\n");

@@ -37,6 +37,10 @@ public class DecryptGPG {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
 
+  public static final String SERIALIZED_NAME_INPUT_FORMAT = "input-format";
+  @SerializedName(SERIALIZED_NAME_INPUT_FORMAT)
+  private String inputFormat = "base64";
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Long itemId;
@@ -75,11 +79,11 @@ public class DecryptGPG {
   }
 
    /**
-   * Ciphertext to be decrypted in base64 encoded format
+   * Ciphertext to be decrypted
    * @return ciphertext
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Ciphertext to be decrypted in base64 encoded format")
+  @ApiModelProperty(required = true, value = "Ciphertext to be decrypted")
 
   public String getCiphertext() {
     return ciphertext;
@@ -111,6 +115,29 @@ public class DecryptGPG {
 
   public void setDisplayId(String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public DecryptGPG inputFormat(String inputFormat) {
+    
+    this.inputFormat = inputFormat;
+    return this;
+  }
+
+   /**
+   * Select default assumed format for the ciphertext. Currently supported options: [base64,raw]
+   * @return inputFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Select default assumed format for the ciphertext. Currently supported options: [base64,raw]")
+
+  public String getInputFormat() {
+    return inputFormat;
+  }
+
+
+  public void setInputFormat(String inputFormat) {
+    this.inputFormat = inputFormat;
   }
 
 
@@ -286,6 +313,7 @@ public class DecryptGPG {
     DecryptGPG decryptGPG = (DecryptGPG) o;
     return Objects.equals(this.ciphertext, decryptGPG.ciphertext) &&
         Objects.equals(this.displayId, decryptGPG.displayId) &&
+        Objects.equals(this.inputFormat, decryptGPG.inputFormat) &&
         Objects.equals(this.itemId, decryptGPG.itemId) &&
         Objects.equals(this.json, decryptGPG.json) &&
         Objects.equals(this.keyName, decryptGPG.keyName) &&
@@ -297,7 +325,7 @@ public class DecryptGPG {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, itemId, json, keyName, outputFormat, passphrase, token, uidToken);
+    return Objects.hash(ciphertext, displayId, inputFormat, itemId, json, keyName, outputFormat, passphrase, token, uidToken);
   }
 
   @Override
@@ -306,6 +334,7 @@ public class DecryptGPG {
     sb.append("class DecryptGPG {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    inputFormat: ").append(toIndentedString(inputFormat)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");

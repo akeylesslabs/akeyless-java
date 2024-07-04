@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateSSHTarget
+ * updateSSHTarget is a command that updates an existing target. [Deprecated: Use target-update-ssh command]
  */
+@ApiModel(description = "updateSSHTarget is a command that updates an existing target. [Deprecated: Use target-update-ssh command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSSHTarget {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";

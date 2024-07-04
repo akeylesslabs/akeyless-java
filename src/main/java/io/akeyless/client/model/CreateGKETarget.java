@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateGKETarget
+ * createGKETarget is a command that creates a new target. [Deprecated: Use target-create-gke command]
  */
+@ApiModel(description = "createGKETarget is a command that creates a new target. [Deprecated: Use target-create-gke command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateGKETarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

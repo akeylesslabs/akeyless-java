@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AllowedIpSettings;
 import io.akeyless.client.model.DataProtectionSection;
 import io.akeyless.client.model.DynamicSecretMaxTtl;
 import io.akeyless.client.model.PasswordPolicyInfo;
@@ -43,6 +44,14 @@ public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_NAME = "account_default_key_name";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_NAME)
   private String accountDefaultKeyName;
+
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENTS_IPS = "allowed_clients_ips";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENTS_IPS)
+  private AllowedIpSettings allowedClientsIps;
+
+  public static final String SERIALIZED_NAME_ALLOWED_GATEWAYS_IPS = "allowed_gateways_ips";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_GATEWAYS_IPS)
+  private AllowedIpSettings allowedGatewaysIps;
 
   public static final String SERIALIZED_NAME_AUTH_USAGE_EVENT = "auth_usage_event";
   @SerializedName(SERIALIZED_NAME_AUTH_USAGE_EVENT)
@@ -134,6 +143,52 @@ public class AccountGeneralSettings {
 
   public void setAccountDefaultKeyName(String accountDefaultKeyName) {
     this.accountDefaultKeyName = accountDefaultKeyName;
+  }
+
+
+  public AccountGeneralSettings allowedClientsIps(AllowedIpSettings allowedClientsIps) {
+    
+    this.allowedClientsIps = allowedClientsIps;
+    return this;
+  }
+
+   /**
+   * Get allowedClientsIps
+   * @return allowedClientsIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AllowedIpSettings getAllowedClientsIps() {
+    return allowedClientsIps;
+  }
+
+
+  public void setAllowedClientsIps(AllowedIpSettings allowedClientsIps) {
+    this.allowedClientsIps = allowedClientsIps;
+  }
+
+
+  public AccountGeneralSettings allowedGatewaysIps(AllowedIpSettings allowedGatewaysIps) {
+    
+    this.allowedGatewaysIps = allowedGatewaysIps;
+    return this;
+  }
+
+   /**
+   * Get allowedGatewaysIps
+   * @return allowedGatewaysIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AllowedIpSettings getAllowedGatewaysIps() {
+    return allowedGatewaysIps;
+  }
+
+
+  public void setAllowedGatewaysIps(AllowedIpSettings allowedGatewaysIps) {
+    this.allowedGatewaysIps = allowedGatewaysIps;
   }
 
 
@@ -401,6 +456,8 @@ public class AccountGeneralSettings {
     AccountGeneralSettings accountGeneralSettings = (AccountGeneralSettings) o;
     return Objects.equals(this.accountDefaultKeyItemId, accountGeneralSettings.accountDefaultKeyItemId) &&
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
+        Objects.equals(this.allowedClientsIps, accountGeneralSettings.allowedClientsIps) &&
+        Objects.equals(this.allowedGatewaysIps, accountGeneralSettings.allowedGatewaysIps) &&
         Objects.equals(this.authUsageEvent, accountGeneralSettings.authUsageEvent) &&
         Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
         Objects.equals(this.dynamicSecretMaxTtl, accountGeneralSettings.dynamicSecretMaxTtl) &&
@@ -416,7 +473,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, authUsageEvent, dataProtectionSection, dynamicSecretMaxTtl, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordPolicy, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, allowedClientsIps, allowedGatewaysIps, authUsageEvent, dataProtectionSection, dynamicSecretMaxTtl, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordPolicy, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -425,6 +482,8 @@ public class AccountGeneralSettings {
     sb.append("class AccountGeneralSettings {\n");
     sb.append("    accountDefaultKeyItemId: ").append(toIndentedString(accountDefaultKeyItemId)).append("\n");
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
+    sb.append("    allowedClientsIps: ").append(toIndentedString(allowedClientsIps)).append("\n");
+    sb.append("    allowedGatewaysIps: ").append(toIndentedString(allowedGatewaysIps)).append("\n");
     sb.append("    authUsageEvent: ").append(toIndentedString(authUsageEvent)).append("\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");

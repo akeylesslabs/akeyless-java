@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateTargetDetails
+ * updateTargetDetails is a command that updates an existing target. [Deprecated]
  */
+@ApiModel(description = "updateTargetDetails is a command that updates an existing target. [Deprecated]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateTargetDetails {
   public static final String SERIALIZED_NAME_JSON = "json";

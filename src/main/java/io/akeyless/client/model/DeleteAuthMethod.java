@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DeleteAuthMethod
+ * deleteAuthMethod is a command that deletes the auth method. [Deprecated: Use auth-method-delete command]
  */
+@ApiModel(description = "deleteAuthMethod is a command that deletes the auth method. [Deprecated: Use auth-method-delete command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteAuthMethod {
   public static final String SERIALIZED_NAME_JSON = "json";

@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **String** | Address |  [optional]
+**boundIps** | **List&lt;String&gt;** | A default list of comma-separated CIDR block that are allowed to authenticate. |  [optional]
 **city** | **String** | City |  [optional]
 **companyName** | **String** | Company name |  [optional]
 **country** | **String** | Country |  [optional]
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **dynamicSecretMaxTtlEnable** | **String** | Set a maximum ttl for dynamic secrets [true/false] |  [optional]
 **enableItemSharing** | **String** | Enable sharing items [true/false] |  [optional]
 **forceNewVersions** | **String** | If set to true, new version will be created on update |  [optional]
+**gwBoundIps** | **List&lt;String&gt;** | A default list of comma-separated CIDR block that acts as a trusted Gateway entity. |  [optional]
 **invalidCharacters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. |  [optional]
 **itemType** | **String** | VersionSettingsObjectType defines object types for account version settings |  [optional]
 **itemsDeletionProtection** | **String** | Set or unset the default behaviour of items deletion protection [true/false] |  [optional]
@@ -26,7 +28,9 @@ Name | Type | Description | Notes
 **jwtTtlDefault** | **Long** | Default ttl |  [optional]
 **jwtTtlMax** | **Long** | Maximum ttl |  [optional]
 **jwtTtlMin** | **Long** | Minimum ttl |  [optional]
+**lockBoundIps** | **String** | Lock bound-ips setting globally in the account. |  [optional]
 **lockDefaultKey** | **String** | Lock the account&#39;s default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false] |  [optional]
+**lockGwBoundIps** | **String** | Lock gw-bound-ips setting in the account. |  [optional]
 **maxRotationInterval** | **Integer** | Set the maximum rotation interval for rotated secrets auto rotation settings |  [optional]
 **maxRotationIntervalEnable** | **String** | Set a maximum rotation interval for rotated secrets auto rotation settings [true/false] |  [optional]
 **maxVersions** | **String** | Max versions |  [optional]

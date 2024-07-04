@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodGCP is a command that updates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials.
+ * updateAuthMethodGCP is a command that updates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials. [Deprecated: Use auth-method-update-gcp command]
  */
-@ApiModel(description = "updateAuthMethodGCP is a command that updates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials.")
+@ApiModel(description = "updateAuthMethodGCP is a command that updates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials. [Deprecated: Use auth-method-update-gcp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodGCP {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class UpdateAuthMethodGCP {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience = "akeyless.io";
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -158,6 +162,37 @@ public class UpdateAuthMethodGCP {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public UpdateAuthMethodGCP auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodGCP addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -650,6 +685,7 @@ public class UpdateAuthMethodGCP {
     UpdateAuthMethodGCP updateAuthMethodGCP = (UpdateAuthMethodGCP) o;
     return Objects.equals(this.accessExpires, updateAuthMethodGCP.accessExpires) &&
         Objects.equals(this.audience, updateAuthMethodGCP.audience) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodGCP.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodGCP.boundIps) &&
         Objects.equals(this.boundLabels, updateAuthMethodGCP.boundLabels) &&
         Objects.equals(this.boundProjects, updateAuthMethodGCP.boundProjects) &&
@@ -672,7 +708,7 @@ public class UpdateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, serviceAccountCredsData, token, type, uidToken);
   }
 
   @Override
@@ -681,6 +717,7 @@ public class UpdateAuthMethodGCP {
     sb.append("class UpdateAuthMethodGCP {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    boundLabels: ").append(toIndentedString(boundLabels)).append("\n");
     sb.append("    boundProjects: ").append(toIndentedString(boundProjects)).append("\n");

@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * UpdateAccountSettings
@@ -32,6 +34,10 @@ public class UpdateAccountSettings {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
+
+  public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
+  @SerializedName(SERIALIZED_NAME_BOUND_IPS)
+  private List<String> boundIps = null;
 
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
@@ -77,6 +83,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_FORCE_NEW_VERSIONS)
   private String forceNewVersions;
 
+  public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
+  private List<String> gwBoundIps = null;
+
   public static final String SERIALIZED_NAME_INVALID_CHARACTERS = "invalid-characters";
   @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
   private String invalidCharacters = "notReceivedInvalidCharacter";
@@ -105,9 +115,17 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_JWT_TTL_MIN)
   private Long jwtTtlMin;
 
+  public static final String SERIALIZED_NAME_LOCK_BOUND_IPS = "lock-bound-ips";
+  @SerializedName(SERIALIZED_NAME_LOCK_BOUND_IPS)
+  private String lockBoundIps;
+
   public static final String SERIALIZED_NAME_LOCK_DEFAULT_KEY = "lock-default-key";
   @SerializedName(SERIALIZED_NAME_LOCK_DEFAULT_KEY)
   private String lockDefaultKey;
+
+  public static final String SERIALIZED_NAME_LOCK_GW_BOUND_IPS = "lock-gw-bound-ips";
+  @SerializedName(SERIALIZED_NAME_LOCK_GW_BOUND_IPS)
+  private String lockGwBoundIps;
 
   public static final String SERIALIZED_NAME_MAX_ROTATION_INTERVAL = "max-rotation-interval";
   @SerializedName(SERIALIZED_NAME_MAX_ROTATION_INTERVAL)
@@ -192,6 +210,37 @@ public class UpdateAccountSettings {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+
+  public UpdateAccountSettings boundIps(List<String> boundIps) {
+    
+    this.boundIps = boundIps;
+    return this;
+  }
+
+  public UpdateAccountSettings addBoundIpsItem(String boundIpsItem) {
+    if (this.boundIps == null) {
+      this.boundIps = new ArrayList<String>();
+    }
+    this.boundIps.add(boundIpsItem);
+    return this;
+  }
+
+   /**
+   * A default list of comma-separated CIDR block that are allowed to authenticate.
+   * @return boundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A default list of comma-separated CIDR block that are allowed to authenticate.")
+
+  public List<String> getBoundIps() {
+    return boundIps;
+  }
+
+
+  public void setBoundIps(List<String> boundIps) {
+    this.boundIps = boundIps;
   }
 
 
@@ -448,6 +497,37 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings gwBoundIps(List<String> gwBoundIps) {
+    
+    this.gwBoundIps = gwBoundIps;
+    return this;
+  }
+
+  public UpdateAccountSettings addGwBoundIpsItem(String gwBoundIpsItem) {
+    if (this.gwBoundIps == null) {
+      this.gwBoundIps = new ArrayList<String>();
+    }
+    this.gwBoundIps.add(gwBoundIpsItem);
+    return this;
+  }
+
+   /**
+   * A default list of comma-separated CIDR block that acts as a trusted Gateway entity.
+   * @return gwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A default list of comma-separated CIDR block that acts as a trusted Gateway entity.")
+
+  public List<String> getGwBoundIps() {
+    return gwBoundIps;
+  }
+
+
+  public void setGwBoundIps(List<String> gwBoundIps) {
+    this.gwBoundIps = gwBoundIps;
+  }
+
+
   public UpdateAccountSettings invalidCharacters(String invalidCharacters) {
     
     this.invalidCharacters = invalidCharacters;
@@ -609,6 +689,29 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings lockBoundIps(String lockBoundIps) {
+    
+    this.lockBoundIps = lockBoundIps;
+    return this;
+  }
+
+   /**
+   * Lock bound-ips setting globally in the account.
+   * @return lockBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Lock bound-ips setting globally in the account.")
+
+  public String getLockBoundIps() {
+    return lockBoundIps;
+  }
+
+
+  public void setLockBoundIps(String lockBoundIps) {
+    this.lockBoundIps = lockBoundIps;
+  }
+
+
   public UpdateAccountSettings lockDefaultKey(String lockDefaultKey) {
     
     this.lockDefaultKey = lockDefaultKey;
@@ -629,6 +732,29 @@ public class UpdateAccountSettings {
 
   public void setLockDefaultKey(String lockDefaultKey) {
     this.lockDefaultKey = lockDefaultKey;
+  }
+
+
+  public UpdateAccountSettings lockGwBoundIps(String lockGwBoundIps) {
+    
+    this.lockGwBoundIps = lockGwBoundIps;
+    return this;
+  }
+
+   /**
+   * Lock gw-bound-ips setting in the account.
+   * @return lockGwBoundIps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Lock gw-bound-ips setting in the account.")
+
+  public String getLockGwBoundIps() {
+    return lockGwBoundIps;
+  }
+
+
+  public void setLockGwBoundIps(String lockGwBoundIps) {
+    this.lockGwBoundIps = lockGwBoundIps;
   }
 
 
@@ -987,6 +1113,7 @@ public class UpdateAccountSettings {
     }
     UpdateAccountSettings updateAccountSettings = (UpdateAccountSettings) o;
     return Objects.equals(this.address, updateAccountSettings.address) &&
+        Objects.equals(this.boundIps, updateAccountSettings.boundIps) &&
         Objects.equals(this.city, updateAccountSettings.city) &&
         Objects.equals(this.companyName, updateAccountSettings.companyName) &&
         Objects.equals(this.country, updateAccountSettings.country) &&
@@ -998,6 +1125,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
         Objects.equals(this.enableItemSharing, updateAccountSettings.enableItemSharing) &&
         Objects.equals(this.forceNewVersions, updateAccountSettings.forceNewVersions) &&
+        Objects.equals(this.gwBoundIps, updateAccountSettings.gwBoundIps) &&
         Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.itemsDeletionProtection, updateAccountSettings.itemsDeletionProtection) &&
@@ -1005,7 +1133,9 @@ public class UpdateAccountSettings {
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
+        Objects.equals(this.lockBoundIps, updateAccountSettings.lockBoundIps) &&
         Objects.equals(this.lockDefaultKey, updateAccountSettings.lockDefaultKey) &&
+        Objects.equals(this.lockGwBoundIps, updateAccountSettings.lockGwBoundIps) &&
         Objects.equals(this.maxRotationInterval, updateAccountSettings.maxRotationInterval) &&
         Objects.equals(this.maxRotationIntervalEnable, updateAccountSettings.maxRotationIntervalEnable) &&
         Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
@@ -1025,7 +1155,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableItemSharing, forceNewVersions, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockDefaultKey, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, boundIps, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableItemSharing, forceNewVersions, gwBoundIps, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -1033,6 +1163,7 @@ public class UpdateAccountSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAccountSettings {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
@@ -1044,6 +1175,7 @@ public class UpdateAccountSettings {
     sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
     sb.append("    enableItemSharing: ").append(toIndentedString(enableItemSharing)).append("\n");
     sb.append("    forceNewVersions: ").append(toIndentedString(forceNewVersions)).append("\n");
+    sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemsDeletionProtection: ").append(toIndentedString(itemsDeletionProtection)).append("\n");
@@ -1051,7 +1183,9 @@ public class UpdateAccountSettings {
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");
+    sb.append("    lockBoundIps: ").append(toIndentedString(lockBoundIps)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
+    sb.append("    lockGwBoundIps: ").append(toIndentedString(lockGwBoundIps)).append("\n");
     sb.append("    maxRotationInterval: ").append(toIndentedString(maxRotationInterval)).append("\n");
     sb.append("    maxRotationIntervalEnable: ").append(toIndentedString(maxRotationIntervalEnable)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");

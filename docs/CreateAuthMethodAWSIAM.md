@@ -2,13 +2,14 @@
 
 # CreateAuthMethodAWSIAM
 
-createAuthMethodAWSIAM is a command that creates a new Auth Method that will be able to authenticate using AWS IAM credentials.
+createAuthMethodAWSIAM is a command that creates a new Auth Method that will be able to authenticate using AWS IAM credentials. [Deprecated: Use auth-method-create-aws-iam command]
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
+**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional]
 **boundArn** | **List&lt;String&gt;** | A list of full arns that the access is restricted to |  [optional]
 **boundAwsAccountId** | **List&lt;String&gt;** | A list of AWS account-IDs that the access is restricted to | 
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]

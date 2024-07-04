@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateAWSTarget
+ * updateAWSTarget is a command that updates a new target. [Deprecated: Use target-update-aws command]
  */
+@ApiModel(description = "updateAWSTarget is a command that updates a new target. [Deprecated: Use target-update-aws command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAWSTarget {
   public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";

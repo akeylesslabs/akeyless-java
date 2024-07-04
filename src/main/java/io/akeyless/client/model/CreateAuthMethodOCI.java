@@ -27,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * createAuthMethodOCI is a command that Creates a new Oracle Auth Method that will be used in the account using OCI principle and groups.
+ * createAuthMethodOCI is a command that Creates a new Oracle Auth Method that will be used in the account using OCI principle and groups. [Deprecated: Use auth-method-create-oci command]
  */
-@ApiModel(description = "createAuthMethodOCI is a command that Creates a new Oracle Auth Method that will be used in the account using OCI principle and groups.")
+@ApiModel(description = "createAuthMethodOCI is a command that Creates a new Oracle Auth Method that will be used in the account using OCI principle and groups. [Deprecated: Use auth-method-create-oci command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodOCI {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -107,6 +111,37 @@ public class CreateAuthMethodOCI {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodOCI auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public CreateAuthMethodOCI addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -425,6 +460,7 @@ public class CreateAuthMethodOCI {
     }
     CreateAuthMethodOCI createAuthMethodOCI = (CreateAuthMethodOCI) o;
     return Objects.equals(this.accessExpires, createAuthMethodOCI.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, createAuthMethodOCI.auditLogsClaims) &&
         Objects.equals(this.boundIps, createAuthMethodOCI.boundIps) &&
         Objects.equals(this.description, createAuthMethodOCI.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodOCI.forceSubClaims) &&
@@ -441,7 +477,7 @@ public class CreateAuthMethodOCI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, productType, tenantOcid, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, productType, tenantOcid, token, uidToken);
   }
 
   @Override
@@ -449,6 +485,7 @@ public class CreateAuthMethodOCI {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodOCI {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

@@ -2,6 +2,7 @@
 
 # CreateHashiVaultTarget
 
+createHashiVaultTarget is a command that creates a new hashi-vault target. [Deprecated: Use target-create-hashi-vault command]
 
 ## Properties
 

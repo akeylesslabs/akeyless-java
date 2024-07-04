@@ -447,6 +447,38 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GITHUB_REPOSITORY_PATH)
   private String githubRepositoryPath;
 
+  public static final String SERIALIZED_NAME_GITLAB_ACCESS_TOKEN = "gitlab_access_token";
+  @SerializedName(SERIALIZED_NAME_GITLAB_ACCESS_TOKEN)
+  private String gitlabAccessToken;
+
+  public static final String SERIALIZED_NAME_GITLAB_ACCESS_TYPE = "gitlab_access_type";
+  @SerializedName(SERIALIZED_NAME_GITLAB_ACCESS_TYPE)
+  private String gitlabAccessType;
+
+  public static final String SERIALIZED_NAME_GITLAB_CERTIFICATE = "gitlab_certificate";
+  @SerializedName(SERIALIZED_NAME_GITLAB_CERTIFICATE)
+  private String gitlabCertificate;
+
+  public static final String SERIALIZED_NAME_GITLAB_GROUP_NAME = "gitlab_group_name";
+  @SerializedName(SERIALIZED_NAME_GITLAB_GROUP_NAME)
+  private String gitlabGroupName;
+
+  public static final String SERIALIZED_NAME_GITLAB_PROJECT_NAME = "gitlab_project_name";
+  @SerializedName(SERIALIZED_NAME_GITLAB_PROJECT_NAME)
+  private String gitlabProjectName;
+
+  public static final String SERIALIZED_NAME_GITLAB_ROLE = "gitlab_role";
+  @SerializedName(SERIALIZED_NAME_GITLAB_ROLE)
+  private String gitlabRole;
+
+  public static final String SERIALIZED_NAME_GITLAB_TOKEN_SCOPE = "gitlab_token_scope";
+  @SerializedName(SERIALIZED_NAME_GITLAB_TOKEN_SCOPE)
+  private List<String> gitlabTokenScope = null;
+
+  public static final String SERIALIZED_NAME_GITLAB_URL = "gitlab_url";
+  @SerializedName(SERIALIZED_NAME_GITLAB_URL)
+  private String gitlabUrl;
+
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
   private String gkeClusterCaCertificate;
@@ -3360,6 +3392,198 @@ public class DSProducerDetails {
 
   public void setGithubRepositoryPath(String githubRepositoryPath) {
     this.githubRepositoryPath = githubRepositoryPath;
+  }
+
+
+  public DSProducerDetails gitlabAccessToken(String gitlabAccessToken) {
+    
+    this.gitlabAccessToken = gitlabAccessToken;
+    return this;
+  }
+
+   /**
+   * Get gitlabAccessToken
+   * @return gitlabAccessToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabAccessToken() {
+    return gitlabAccessToken;
+  }
+
+
+  public void setGitlabAccessToken(String gitlabAccessToken) {
+    this.gitlabAccessToken = gitlabAccessToken;
+  }
+
+
+  public DSProducerDetails gitlabAccessType(String gitlabAccessType) {
+    
+    this.gitlabAccessType = gitlabAccessType;
+    return this;
+  }
+
+   /**
+   * Get gitlabAccessType
+   * @return gitlabAccessType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabAccessType() {
+    return gitlabAccessType;
+  }
+
+
+  public void setGitlabAccessType(String gitlabAccessType) {
+    this.gitlabAccessType = gitlabAccessType;
+  }
+
+
+  public DSProducerDetails gitlabCertificate(String gitlabCertificate) {
+    
+    this.gitlabCertificate = gitlabCertificate;
+    return this;
+  }
+
+   /**
+   * Get gitlabCertificate
+   * @return gitlabCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabCertificate() {
+    return gitlabCertificate;
+  }
+
+
+  public void setGitlabCertificate(String gitlabCertificate) {
+    this.gitlabCertificate = gitlabCertificate;
+  }
+
+
+  public DSProducerDetails gitlabGroupName(String gitlabGroupName) {
+    
+    this.gitlabGroupName = gitlabGroupName;
+    return this;
+  }
+
+   /**
+   * Get gitlabGroupName
+   * @return gitlabGroupName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabGroupName() {
+    return gitlabGroupName;
+  }
+
+
+  public void setGitlabGroupName(String gitlabGroupName) {
+    this.gitlabGroupName = gitlabGroupName;
+  }
+
+
+  public DSProducerDetails gitlabProjectName(String gitlabProjectName) {
+    
+    this.gitlabProjectName = gitlabProjectName;
+    return this;
+  }
+
+   /**
+   * Get gitlabProjectName
+   * @return gitlabProjectName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabProjectName() {
+    return gitlabProjectName;
+  }
+
+
+  public void setGitlabProjectName(String gitlabProjectName) {
+    this.gitlabProjectName = gitlabProjectName;
+  }
+
+
+  public DSProducerDetails gitlabRole(String gitlabRole) {
+    
+    this.gitlabRole = gitlabRole;
+    return this;
+  }
+
+   /**
+   * Get gitlabRole
+   * @return gitlabRole
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabRole() {
+    return gitlabRole;
+  }
+
+
+  public void setGitlabRole(String gitlabRole) {
+    this.gitlabRole = gitlabRole;
+  }
+
+
+  public DSProducerDetails gitlabTokenScope(List<String> gitlabTokenScope) {
+    
+    this.gitlabTokenScope = gitlabTokenScope;
+    return this;
+  }
+
+  public DSProducerDetails addGitlabTokenScopeItem(String gitlabTokenScopeItem) {
+    if (this.gitlabTokenScope == null) {
+      this.gitlabTokenScope = new ArrayList<String>();
+    }
+    this.gitlabTokenScope.add(gitlabTokenScopeItem);
+    return this;
+  }
+
+   /**
+   * Get gitlabTokenScope
+   * @return gitlabTokenScope
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getGitlabTokenScope() {
+    return gitlabTokenScope;
+  }
+
+
+  public void setGitlabTokenScope(List<String> gitlabTokenScope) {
+    this.gitlabTokenScope = gitlabTokenScope;
+  }
+
+
+  public DSProducerDetails gitlabUrl(String gitlabUrl) {
+    
+    this.gitlabUrl = gitlabUrl;
+    return this;
+  }
+
+   /**
+   * Get gitlabUrl
+   * @return gitlabUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getGitlabUrl() {
+    return gitlabUrl;
+  }
+
+
+  public void setGitlabUrl(String gitlabUrl) {
+    this.gitlabUrl = gitlabUrl;
   }
 
 
@@ -6437,6 +6661,14 @@ public class DSProducerDetails {
         Objects.equals(this.githubInstallationTokenRepositoriesIds, dsProducerDetails.githubInstallationTokenRepositoriesIds) &&
         Objects.equals(this.githubOrganizationName, dsProducerDetails.githubOrganizationName) &&
         Objects.equals(this.githubRepositoryPath, dsProducerDetails.githubRepositoryPath) &&
+        Objects.equals(this.gitlabAccessToken, dsProducerDetails.gitlabAccessToken) &&
+        Objects.equals(this.gitlabAccessType, dsProducerDetails.gitlabAccessType) &&
+        Objects.equals(this.gitlabCertificate, dsProducerDetails.gitlabCertificate) &&
+        Objects.equals(this.gitlabGroupName, dsProducerDetails.gitlabGroupName) &&
+        Objects.equals(this.gitlabProjectName, dsProducerDetails.gitlabProjectName) &&
+        Objects.equals(this.gitlabRole, dsProducerDetails.gitlabRole) &&
+        Objects.equals(this.gitlabTokenScope, dsProducerDetails.gitlabTokenScope) &&
+        Objects.equals(this.gitlabUrl, dsProducerDetails.gitlabUrl) &&
         Objects.equals(this.gkeClusterCaCertificate, dsProducerDetails.gkeClusterCaCertificate) &&
         Objects.equals(this.gkeClusterEndpoint, dsProducerDetails.gkeClusterEndpoint) &&
         Objects.equals(this.gkeClusterName, dsProducerDetails.gkeClusterName) &&
@@ -6567,7 +6799,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6677,6 +6909,14 @@ public class DSProducerDetails {
     sb.append("    githubInstallationTokenRepositoriesIds: ").append(toIndentedString(githubInstallationTokenRepositoriesIds)).append("\n");
     sb.append("    githubOrganizationName: ").append(toIndentedString(githubOrganizationName)).append("\n");
     sb.append("    githubRepositoryPath: ").append(toIndentedString(githubRepositoryPath)).append("\n");
+    sb.append("    gitlabAccessToken: ").append(toIndentedString(gitlabAccessToken)).append("\n");
+    sb.append("    gitlabAccessType: ").append(toIndentedString(gitlabAccessType)).append("\n");
+    sb.append("    gitlabCertificate: ").append(toIndentedString(gitlabCertificate)).append("\n");
+    sb.append("    gitlabGroupName: ").append(toIndentedString(gitlabGroupName)).append("\n");
+    sb.append("    gitlabProjectName: ").append(toIndentedString(gitlabProjectName)).append("\n");
+    sb.append("    gitlabRole: ").append(toIndentedString(gitlabRole)).append("\n");
+    sb.append("    gitlabTokenScope: ").append(toIndentedString(gitlabTokenScope)).append("\n");
+    sb.append("    gitlabUrl: ").append(toIndentedString(gitlabUrl)).append("\n");
     sb.append("    gkeClusterCaCertificate: ").append(toIndentedString(gkeClusterCaCertificate)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
     sb.append("    gkeClusterName: ").append(toIndentedString(gkeClusterName)).append("\n");

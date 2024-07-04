@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateSSHTarget
+ * createSSHTarget is a command that creates a new target. [Deprecated: Use target-create-ssh command]
  */
+@ApiModel(description = "createSSHTarget is a command that creates a new target. [Deprecated: Use target-create-ssh command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSSHTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

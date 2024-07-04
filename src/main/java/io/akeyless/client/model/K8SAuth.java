@@ -91,10 +91,6 @@ public class K8SAuth {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection_key";
-  @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
-  private String protectionKey;
-
   public static final String SERIALIZED_NAME_RANCHER_API_KEY = "rancher_api_key";
   @SerializedName(SERIALIZED_NAME_RANCHER_API_KEY)
   private String rancherApiKey;
@@ -463,29 +459,6 @@ public class K8SAuth {
   }
 
 
-  public K8SAuth protectionKey(String protectionKey) {
-    
-    this.protectionKey = protectionKey;
-    return this;
-  }
-
-   /**
-   * Get protectionKey
-   * @return protectionKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getProtectionKey() {
-    return protectionKey;
-  }
-
-
-  public void setProtectionKey(String protectionKey) {
-    this.protectionKey = protectionKey;
-  }
-
-
   public K8SAuth rancherApiKey(String rancherApiKey) {
     
     this.rancherApiKey = rancherApiKey;
@@ -579,7 +552,6 @@ public class K8SAuth {
         Objects.equals(this.k8sPubKeysPem, k8SAuth.k8sPubKeysPem) &&
         Objects.equals(this.k8sTokenReviewerJwt, k8SAuth.k8sTokenReviewerJwt) &&
         Objects.equals(this.name, k8SAuth.name) &&
-        Objects.equals(this.protectionKey, k8SAuth.protectionKey) &&
         Objects.equals(this.rancherApiKey, k8SAuth.rancherApiKey) &&
         Objects.equals(this.rancherClusterId, k8SAuth.rancherClusterId) &&
         Objects.equals(this.useLocalCaJwt, k8SAuth.useLocalCaJwt);
@@ -587,7 +559,7 @@ public class K8SAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amTokenExpiration, authMethodAccessId, authMethodPrvKeyPem, clusterApiType, disableIssValidation, id, k8sAuthType, k8sCaCert, k8sClientCertData, k8sClientKeyData, k8sHost, k8sIssuer, k8sPubKeysPem, k8sTokenReviewerJwt, name, protectionKey, rancherApiKey, rancherClusterId, useLocalCaJwt);
+    return Objects.hash(amTokenExpiration, authMethodAccessId, authMethodPrvKeyPem, clusterApiType, disableIssValidation, id, k8sAuthType, k8sCaCert, k8sClientCertData, k8sClientKeyData, k8sHost, k8sIssuer, k8sPubKeysPem, k8sTokenReviewerJwt, name, rancherApiKey, rancherClusterId, useLocalCaJwt);
   }
 
   @Override
@@ -609,7 +581,6 @@ public class K8SAuth {
     sb.append("    k8sPubKeysPem: ").append(toIndentedString(k8sPubKeysPem)).append("\n");
     sb.append("    k8sTokenReviewerJwt: ").append(toIndentedString(k8sTokenReviewerJwt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    rancherApiKey: ").append(toIndentedString(rancherApiKey)).append("\n");
     sb.append("    rancherClusterId: ").append(toIndentedString(rancherClusterId)).append("\n");
     sb.append("    useLocalCaJwt: ").append(toIndentedString(useLocalCaJwt)).append("\n");

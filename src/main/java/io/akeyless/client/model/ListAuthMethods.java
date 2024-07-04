@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * listAuthMethods is a command that returns a list of all auth methods in the account.
+ * listAuthMethods is a command that returns a list of all auth methods in the account. [Deprecated: Use auth-method-list command]
  */
-@ApiModel(description = "listAuthMethods is a command that returns a list of all auth methods in the account.")
+@ApiModel(description = "listAuthMethods is a command that returns a list of all auth methods in the account. [Deprecated: Use auth-method-list command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListAuthMethods {
   public static final String SERIALIZED_NAME_FILTER = "filter";

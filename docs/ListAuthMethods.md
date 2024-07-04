@@ -2,7 +2,7 @@
 
 # ListAuthMethods
 
-listAuthMethods is a command that returns a list of all auth methods in the account.
+listAuthMethods is a command that returns a list of all auth methods in the account. [Deprecated: Use auth-method-list command]
 
 ## Properties
 

@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * createAuthMethodGCP is a command that creates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials.
+ * createAuthMethodGCP is a command that creates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials. [Deprecated: Use auth-method-create-gcp command]
  */
-@ApiModel(description = "createAuthMethodGCP is a command that creates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials.")
+@ApiModel(description = "createAuthMethodGCP is a command that creates a new auth method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials. [Deprecated: Use auth-method-create-gcp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodGCP {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class CreateAuthMethodGCP {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience = "akeyless.io";
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -154,6 +158,37 @@ public class CreateAuthMethodGCP {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public CreateAuthMethodGCP auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public CreateAuthMethodGCP addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -623,6 +658,7 @@ public class CreateAuthMethodGCP {
     CreateAuthMethodGCP createAuthMethodGCP = (CreateAuthMethodGCP) o;
     return Objects.equals(this.accessExpires, createAuthMethodGCP.accessExpires) &&
         Objects.equals(this.audience, createAuthMethodGCP.audience) &&
+        Objects.equals(this.auditLogsClaims, createAuthMethodGCP.auditLogsClaims) &&
         Objects.equals(this.boundIps, createAuthMethodGCP.boundIps) &&
         Objects.equals(this.boundLabels, createAuthMethodGCP.boundLabels) &&
         Objects.equals(this.boundProjects, createAuthMethodGCP.boundProjects) &&
@@ -644,7 +680,7 @@ public class CreateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, serviceAccountCredsData, token, type, uidToken);
   }
 
   @Override
@@ -653,6 +689,7 @@ public class CreateAuthMethodGCP {
     sb.append("class CreateAuthMethodGCP {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    boundLabels: ").append(toIndentedString(boundLabels)).append("\n");
     sb.append("    boundProjects: ").append(toIndentedString(boundProjects)).append("\n");

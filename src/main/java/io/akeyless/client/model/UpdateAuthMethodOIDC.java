@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodOIDC is a command that updates a new auth method that will be available to authenticate using OIDC.
+ * updateAuthMethodOIDC is a command that updates a new auth method that will be available to authenticate using OIDC. [Deprecated: Use auth-method-update-oidc command]
  */
-@ApiModel(description = "updateAuthMethodOIDC is a command that updates a new auth method that will be available to authenticate using OIDC.")
+@ApiModel(description = "updateAuthMethodOIDC is a command that updates a new auth method that will be available to authenticate using OIDC. [Deprecated: Use auth-method-update-oidc command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodOIDC {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -43,6 +43,10 @@ public class UpdateAuthMethodOIDC {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -193,6 +197,37 @@ public class UpdateAuthMethodOIDC {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public UpdateAuthMethodOIDC auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodOIDC addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -662,6 +697,7 @@ public class UpdateAuthMethodOIDC {
     return Objects.equals(this.accessExpires, updateAuthMethodOIDC.accessExpires) &&
         Objects.equals(this.allowedRedirectUri, updateAuthMethodOIDC.allowedRedirectUri) &&
         Objects.equals(this.audience, updateAuthMethodOIDC.audience) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodOIDC.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodOIDC.boundIps) &&
         Objects.equals(this.clientId, updateAuthMethodOIDC.clientId) &&
         Objects.equals(this.clientSecret, updateAuthMethodOIDC.clientSecret) &&
@@ -684,7 +720,7 @@ public class UpdateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -694,6 +730,7 @@ public class UpdateAuthMethodOIDC {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");

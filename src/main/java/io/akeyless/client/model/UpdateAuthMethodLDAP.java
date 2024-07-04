@@ -27,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodLDAP is a command that updates a new auth method that will be able to authenticate using LDAP.
+ * updateAuthMethodLDAP is a command that updates a new auth method that will be able to authenticate using LDAP. [Deprecated: Use auth-method-update-ldap command]
  */
-@ApiModel(description = "updateAuthMethodLDAP is a command that updates a new auth method that will be able to authenticate using LDAP.")
+@ApiModel(description = "updateAuthMethodLDAP is a command that updates a new auth method that will be able to authenticate using LDAP. [Deprecated: Use auth-method-update-ldap command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodLDAP {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -115,6 +119,37 @@ public class UpdateAuthMethodLDAP {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethodLDAP auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodLDAP addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -474,6 +509,7 @@ public class UpdateAuthMethodLDAP {
     }
     UpdateAuthMethodLDAP updateAuthMethodLDAP = (UpdateAuthMethodLDAP) o;
     return Objects.equals(this.accessExpires, updateAuthMethodLDAP.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodLDAP.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodLDAP.boundIps) &&
         Objects.equals(this.description, updateAuthMethodLDAP.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodLDAP.forceSubClaims) &&
@@ -492,7 +528,7 @@ public class UpdateAuthMethodLDAP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKeyData, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -500,6 +536,7 @@ public class UpdateAuthMethodLDAP {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethodLDAP {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

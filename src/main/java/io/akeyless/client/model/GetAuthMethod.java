@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GetAuthMethod
+ * getAuthMethod is a command that returns information about the auth method. [Deprecated: Use auth-method-get command]
  */
+@ApiModel(description = "getAuthMethod is a command that returns information about the auth method. [Deprecated: Use auth-method-get command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetAuthMethod {
   public static final String SERIALIZED_NAME_JSON = "json";

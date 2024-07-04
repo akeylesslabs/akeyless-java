@@ -27,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * createAuthMethodEmail is a command that creates a new auth method that will be able to authenticate using email.
+ * createAuthMethodEmail is a command that creates a new auth method that will be able to authenticate using email. [Deprecated: Use auth-method-create-email command]
  */
-@ApiModel(description = "createAuthMethodEmail is a command that creates a new auth method that will be able to authenticate using email.")
+@ApiModel(description = "createAuthMethodEmail is a command that creates a new auth method that will be able to authenticate using email. [Deprecated: Use auth-method-create-email command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodEmail {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -103,6 +107,37 @@ public class CreateAuthMethodEmail {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodEmail auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public CreateAuthMethodEmail addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -393,6 +428,7 @@ public class CreateAuthMethodEmail {
     }
     CreateAuthMethodEmail createAuthMethodEmail = (CreateAuthMethodEmail) o;
     return Objects.equals(this.accessExpires, createAuthMethodEmail.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, createAuthMethodEmail.auditLogsClaims) &&
         Objects.equals(this.boundIps, createAuthMethodEmail.boundIps) &&
         Objects.equals(this.description, createAuthMethodEmail.description) &&
         Objects.equals(this.email, createAuthMethodEmail.email) &&
@@ -408,7 +444,7 @@ public class CreateAuthMethodEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, email, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, email, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -416,6 +452,7 @@ public class CreateAuthMethodEmail {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodEmail {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");

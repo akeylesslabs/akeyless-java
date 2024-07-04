@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML.
+ * updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML. [Deprecated: Use auth-method-update-saml command]
  */
-@ApiModel(description = "updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML.")
+@ApiModel(description = "updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML. [Deprecated: Use auth-method-update-saml command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodSAML {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class UpdateAuthMethodSAML {
   public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_URI = "allowed-redirect-uri";
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_URI)
   private List<String> allowedRedirectUri = null;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -154,6 +158,37 @@ public class UpdateAuthMethodSAML {
 
   public void setAllowedRedirectUri(List<String> allowedRedirectUri) {
     this.allowedRedirectUri = allowedRedirectUri;
+  }
+
+
+  public UpdateAuthMethodSAML auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodSAML addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -545,6 +580,7 @@ public class UpdateAuthMethodSAML {
     UpdateAuthMethodSAML updateAuthMethodSAML = (UpdateAuthMethodSAML) o;
     return Objects.equals(this.accessExpires, updateAuthMethodSAML.accessExpires) &&
         Objects.equals(this.allowedRedirectUri, updateAuthMethodSAML.allowedRedirectUri) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodSAML.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodSAML.boundIps) &&
         Objects.equals(this.description, updateAuthMethodSAML.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodSAML.forceSubClaims) &&
@@ -564,7 +600,7 @@ public class UpdateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, auditLogsClaims, boundIps, description, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -573,6 +609,7 @@ public class UpdateAuthMethodSAML {
     sb.append("class UpdateAuthMethodSAML {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

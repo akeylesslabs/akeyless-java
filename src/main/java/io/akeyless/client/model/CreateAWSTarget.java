@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateAWSTarget
+ * createAWSTarget is a command that creates a new target. [Deprecated: Use target-create-aws command]
  */
+@ApiModel(description = "createAWSTarget is a command that creates a new target. [Deprecated: Use target-create-aws command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAWSTarget {
   public static final String SERIALIZED_NAME_ACCESS_KEY = "access-key";

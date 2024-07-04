@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateZeroSSLTarget
+ * updateZeroSSLTarget is a command that updates an existing target. [Deprecated: Use target-update-zerossl command]
  */
+@ApiModel(description = "updateZeroSSLTarget is a command that updates an existing target. [Deprecated: Use target-update-zerossl command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateZeroSSLTarget {
   public static final String SERIALIZED_NAME_API_KEY = "api-key";

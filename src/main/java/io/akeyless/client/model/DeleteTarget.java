@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DeleteTarget
+ * deleteTarget is a command that deletes a target. [Deprecated: Use target-delete command]
  */
+@ApiModel(description = "deleteTarget is a command that deletes a target. [Deprecated: Use target-delete command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeleteTarget {
   public static final String SERIALIZED_NAME_FORCE_DELETION = "force-deletion";

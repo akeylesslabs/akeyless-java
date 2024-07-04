@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **bastionIssuer** | **String** |  |  [optional]
 **bastionIssuerId** | **Long** |  |  [optional]
 **bastionSsh** | **String** |  |  [optional]
+**blockConcurrentConnections** | **Boolean** |  |  [optional]
+**blockConcurrentConnectionsLevel** | **String** |  |  [optional]
 **category** | **String** |  |  [optional]
 **dashboardUrl** | **String** |  |  [optional]
 **dbName** | **String** |  |  [optional]

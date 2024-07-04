@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateGlobalSignTarget
+ * updateGlobalSignTarget is a command that updates an existing target. [Deprecated: Use target-update-globalsign command]
  */
+@ApiModel(description = "updateGlobalSignTarget is a command that updates an existing target. [Deprecated: Use target-update-globalsign command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateGlobalSignTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

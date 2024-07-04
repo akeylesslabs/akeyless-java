@@ -172,6 +172,10 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DB_SCHEMA)
   private String secureAccessDbSchema;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DISABLE_CONCURRENT_CONNECTIONS = "secure-access-disable-concurrent-connections";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DISABLE_CONCURRENT_CONNECTIONS)
+  private Boolean secureAccessDisableConcurrentConnections;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
@@ -1052,6 +1056,29 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret secureAccessDisableConcurrentConnections(Boolean secureAccessDisableConcurrentConnections) {
+    
+    this.secureAccessDisableConcurrentConnections = secureAccessDisableConcurrentConnections;
+    return this;
+  }
+
+   /**
+   * Enable this flag to prevent simultaneous use of the same secret
+   * @return secureAccessDisableConcurrentConnections
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable this flag to prevent simultaneous use of the same secret")
+
+  public Boolean getSecureAccessDisableConcurrentConnections() {
+    return secureAccessDisableConcurrentConnections;
+  }
+
+
+  public void setSecureAccessDisableConcurrentConnections(Boolean secureAccessDisableConcurrentConnections) {
+    this.secureAccessDisableConcurrentConnections = secureAccessDisableConcurrentConnections;
+  }
+
+
   public CreateRotatedSecret secureAccessEnable(String secureAccessEnable) {
     
     this.secureAccessEnable = secureAccessEnable;
@@ -1534,6 +1561,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.secureAccessBastionIssuer, createRotatedSecret.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessDbName, createRotatedSecret.secureAccessDbName) &&
         Objects.equals(this.secureAccessDbSchema, createRotatedSecret.secureAccessDbSchema) &&
+        Objects.equals(this.secureAccessDisableConcurrentConnections, createRotatedSecret.secureAccessDisableConcurrentConnections) &&
         Objects.equals(this.secureAccessEnable, createRotatedSecret.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, createRotatedSecret.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, createRotatedSecret.secureAccessRdpDomain) &&
@@ -1556,7 +1584,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1598,6 +1626,7 @@ public class CreateRotatedSecret {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
+    sb.append("    secureAccessDisableConcurrentConnections: ").append(toIndentedString(secureAccessDisableConcurrentConnections)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");

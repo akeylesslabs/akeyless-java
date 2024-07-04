@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateArtifactoryTarget
+ * updateArtifactoryTarget is a command that updates a new target. [Deprecated: Use target-update-artifactory command]
  */
+@ApiModel(description = "updateArtifactoryTarget is a command that updates a new target. [Deprecated: Use target-update-artifactory command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateArtifactoryTarget {
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME = "artifactory-admin-name";

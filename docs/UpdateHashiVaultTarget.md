@@ -2,6 +2,7 @@
 
 # UpdateHashiVaultTarget
 
+updateHashiVaultTarget is a command that updates an existing target. [Deprecated: Use target-update-hashi-vault command]
 
 ## Properties
 

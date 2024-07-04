@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateAzureTarget
+ * updateAzureTarget is a command that updates an existing target. [Deprecated: Use target-update-azure command]
  */
+@ApiModel(description = "updateAzureTarget is a command that updates an existing target. [Deprecated: Use target-update-azure command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAzureTarget {
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";

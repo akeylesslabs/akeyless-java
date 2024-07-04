@@ -2,7 +2,7 @@
 
 # UpdateAuthMethodCert
 
-updateAuthMethodCert is a command that updates a new auth method that will be able to authenticate using a client certificae
+updateAuthMethodCert is a command that updates a new auth method that will be able to authenticate using a client certificate. [Deprecated: Use auth-method-update-cert command]
 
 ## Properties
 
@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
 **allowedCors** | **String** | Comma separated list of allowed CORS domains to be validated as part of the authentication flow. |  [optional]
+**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional]
 **boundCommonNames** | **List&lt;String&gt;** | A list of names. At least one must exist in the Common Name. Supports globbing. |  [optional]
 **boundDnsSans** | **List&lt;String&gt;** | A list of DNS names. At least one must exist in the SANs. Supports globbing. |  [optional]
 **boundEmailSans** | **List&lt;String&gt;** | A list of Email Addresses. At least one must exist in the SANs. Supports globbing. |  [optional]

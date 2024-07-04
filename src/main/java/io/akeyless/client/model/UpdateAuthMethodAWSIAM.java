@@ -27,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodAWSIAM is a command that updates a new Auth Method that will be able to authenticate using AWS IAM credentials.
+ * updateAuthMethodAWSIAM is a command that updates a new Auth Method that will be able to authenticate using AWS IAM credentials. [Deprecated: Use auth-method-update-aws-iam command]
  */
-@ApiModel(description = "updateAuthMethodAWSIAM is a command that updates a new Auth Method that will be able to authenticate using AWS IAM credentials.")
+@ApiModel(description = "updateAuthMethodAWSIAM is a command that updates a new Auth Method that will be able to authenticate using AWS IAM credentials. [Deprecated: Use auth-method-update-aws-iam command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodAWSIAM {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_ARN = "bound-arn";
   @SerializedName(SERIALIZED_NAME_BOUND_ARN)
@@ -135,6 +139,37 @@ public class UpdateAuthMethodAWSIAM {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethodAWSIAM auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodAWSIAM addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -662,6 +697,7 @@ public class UpdateAuthMethodAWSIAM {
     }
     UpdateAuthMethodAWSIAM updateAuthMethodAWSIAM = (UpdateAuthMethodAWSIAM) o;
     return Objects.equals(this.accessExpires, updateAuthMethodAWSIAM.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodAWSIAM.auditLogsClaims) &&
         Objects.equals(this.boundArn, updateAuthMethodAWSIAM.boundArn) &&
         Objects.equals(this.boundAwsAccountId, updateAuthMethodAWSIAM.boundAwsAccountId) &&
         Objects.equals(this.boundIps, updateAuthMethodAWSIAM.boundIps) &&
@@ -685,7 +721,7 @@ public class UpdateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken);
   }
 
   @Override
@@ -693,6 +729,7 @@ public class UpdateAuthMethodAWSIAM {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethodAWSIAM {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundArn: ").append(toIndentedString(boundArn)).append("\n");
     sb.append("    boundAwsAccountId: ").append(toIndentedString(boundAwsAccountId)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");

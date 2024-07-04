@@ -37,10 +37,6 @@ public class GatewayPartialUpdateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
   private String accessId;
 
-  public static final String SERIALIZED_NAME_CONFIG_ENCRYPTION_KEY_NAME = "config-encryption-key-name";
-  @SerializedName(SERIALIZED_NAME_CONFIG_ENCRYPTION_KEY_NAME)
-  private String configEncryptionKeyName;
-
   public static final String SERIALIZED_NAME_DISABLE_ISSUER_VALIDATION = "disable-issuer-validation";
   @SerializedName(SERIALIZED_NAME_DISABLE_ISSUER_VALIDATION)
   private String disableIssuerValidation;
@@ -159,29 +155,6 @@ public class GatewayPartialUpdateK8SAuthConfig {
 
   public void setAccessId(String accessId) {
     this.accessId = accessId;
-  }
-
-
-  public GatewayPartialUpdateK8SAuthConfig configEncryptionKeyName(String configEncryptionKeyName) {
-    
-    this.configEncryptionKeyName = configEncryptionKeyName;
-    return this;
-  }
-
-   /**
-   * Config encryption key
-   * @return configEncryptionKeyName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Config encryption key")
-
-  public String getConfigEncryptionKeyName() {
-    return configEncryptionKeyName;
-  }
-
-
-  public void setConfigEncryptionKeyName(String configEncryptionKeyName) {
-    this.configEncryptionKeyName = configEncryptionKeyName;
   }
 
 
@@ -610,7 +583,6 @@ public class GatewayPartialUpdateK8SAuthConfig {
     GatewayPartialUpdateK8SAuthConfig gatewayPartialUpdateK8SAuthConfig = (GatewayPartialUpdateK8SAuthConfig) o;
     return Objects.equals(this.useDefaultIdentityBool, gatewayPartialUpdateK8SAuthConfig.useDefaultIdentityBool) &&
         Objects.equals(this.accessId, gatewayPartialUpdateK8SAuthConfig.accessId) &&
-        Objects.equals(this.configEncryptionKeyName, gatewayPartialUpdateK8SAuthConfig.configEncryptionKeyName) &&
         Objects.equals(this.disableIssuerValidation, gatewayPartialUpdateK8SAuthConfig.disableIssuerValidation) &&
         Objects.equals(this.json, gatewayPartialUpdateK8SAuthConfig.json) &&
         Objects.equals(this.k8sAuthType, gatewayPartialUpdateK8SAuthConfig.k8sAuthType) &&
@@ -633,7 +605,7 @@ public class GatewayPartialUpdateK8SAuthConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(useDefaultIdentityBool, accessId, configEncryptionKeyName, disableIssuerValidation, json, k8sAuthType, k8sCaCert, k8sClientCertificate, k8sClientKey, k8sHost, k8sIssuer, name, newName, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
+    return Objects.hash(useDefaultIdentityBool, accessId, disableIssuerValidation, json, k8sAuthType, k8sCaCert, k8sClientCertificate, k8sClientKey, k8sHost, k8sIssuer, name, newName, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
   }
 
   @Override
@@ -642,7 +614,6 @@ public class GatewayPartialUpdateK8SAuthConfig {
     sb.append("class GatewayPartialUpdateK8SAuthConfig {\n");
     sb.append("    useDefaultIdentityBool: ").append(toIndentedString(useDefaultIdentityBool)).append("\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
-    sb.append("    configEncryptionKeyName: ").append(toIndentedString(configEncryptionKeyName)).append("\n");
     sb.append("    disableIssuerValidation: ").append(toIndentedString(disableIssuerValidation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAuthType: ").append(toIndentedString(k8sAuthType)).append("\n");

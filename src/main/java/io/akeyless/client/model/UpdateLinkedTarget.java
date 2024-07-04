@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateLinkedTarget
+ * updateLinkedTarget is a command that updates an existing target. [Deprecated: Use target-update-linked command]
  */
+@ApiModel(description = "updateLinkedTarget is a command that updates an existing target. [Deprecated: Use target-update-linked command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateLinkedTarget {
   public static final String SERIALIZED_NAME_ADD_HOSTS = "add-hosts";

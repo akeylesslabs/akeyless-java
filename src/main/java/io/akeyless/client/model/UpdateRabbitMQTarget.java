@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateRabbitMQTarget
+ * updateRabbitMQTarget is a command that updates a new target. [Deprecated: Use target-update-rabbitmq command]
  */
+@ApiModel(description = "updateRabbitMQTarget is a command that updates a new target. [Deprecated: Use target-update-rabbitmq command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateRabbitMQTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

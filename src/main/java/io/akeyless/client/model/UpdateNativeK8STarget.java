@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateNativeK8STarget
+ * updateNativeK8STarget is a command that updates an existing target. [Deprecated: Use target-update-k8s command]
  */
+@ApiModel(description = "updateNativeK8STarget is a command that updates an existing target. [Deprecated: Use target-update-k8s command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateNativeK8STarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

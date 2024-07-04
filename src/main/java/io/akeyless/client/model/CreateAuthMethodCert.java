@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * createAuthMethodCert is a command that creates a new auth method that will be able to authenticate using a client certificae
+ * createAuthMethodCert is a command that creates a new auth method that will be able to authenticate using a client certificate. [Deprecated: Use auth-method-create-cert command]
  */
-@ApiModel(description = "createAuthMethodCert is a command that creates a new auth method that will be able to authenticate using a client certificae")
+@ApiModel(description = "createAuthMethodCert is a command that creates a new auth method that will be able to authenticate using a client certificate. [Deprecated: Use auth-method-create-cert command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodCert {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class CreateAuthMethodCert {
   public static final String SERIALIZED_NAME_ALLOWED_CORS = "allowed-cors";
   @SerializedName(SERIALIZED_NAME_ALLOWED_CORS)
   private String allowedCors;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_COMMON_NAMES = "bound-common-names";
   @SerializedName(SERIALIZED_NAME_BOUND_COMMON_NAMES)
@@ -162,6 +166,37 @@ public class CreateAuthMethodCert {
 
   public void setAllowedCors(String allowedCors) {
     this.allowedCors = allowedCors;
+  }
+
+
+  public CreateAuthMethodCert auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public CreateAuthMethodCert addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -693,6 +728,7 @@ public class CreateAuthMethodCert {
     CreateAuthMethodCert createAuthMethodCert = (CreateAuthMethodCert) o;
     return Objects.equals(this.accessExpires, createAuthMethodCert.accessExpires) &&
         Objects.equals(this.allowedCors, createAuthMethodCert.allowedCors) &&
+        Objects.equals(this.auditLogsClaims, createAuthMethodCert.auditLogsClaims) &&
         Objects.equals(this.boundCommonNames, createAuthMethodCert.boundCommonNames) &&
         Objects.equals(this.boundDnsSans, createAuthMethodCert.boundDnsSans) &&
         Objects.equals(this.boundEmailSans, createAuthMethodCert.boundEmailSans) &&
@@ -716,7 +752,7 @@ public class CreateAuthMethodCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -725,6 +761,7 @@ public class CreateAuthMethodCert {
     sb.append("class CreateAuthMethodCert {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    allowedCors: ").append(toIndentedString(allowedCors)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundCommonNames: ").append(toIndentedString(boundCommonNames)).append("\n");
     sb.append("    boundDnsSans: ").append(toIndentedString(boundDnsSans)).append("\n");
     sb.append("    boundEmailSans: ").append(toIndentedString(boundEmailSans)).append("\n");

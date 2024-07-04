@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateLdapTarget
+ * updateLdapTarget is a command that updates an existing target. [Deprecated: Use target-update-ldap command]
  */
+@ApiModel(description = "updateLdapTarget is a command that updates an existing target. [Deprecated: Use target-update-ldap command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateLdapTarget {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
@@ -107,11 +108,11 @@ public class UpdateLdapTarget {
   }
 
    /**
-   * Get bindDn
+   * Bind DN
    * @return bindDn
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Bind DN")
 
   public String getBindDn() {
     return bindDn;
@@ -130,11 +131,11 @@ public class UpdateLdapTarget {
   }
 
    /**
-   * Get bindDnPassword
+   * Bind DN Password
    * @return bindDnPassword
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Bind DN Password")
 
   public String getBindDnPassword() {
     return bindDnPassword;
@@ -268,11 +269,11 @@ public class UpdateLdapTarget {
   }
 
    /**
-   * Get ldapCaCert
+   * CA Certificate File Content
    * @return ldapCaCert
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "CA Certificate File Content")
 
   public String getLdapCaCert() {
     return ldapCaCert;
@@ -291,11 +292,11 @@ public class UpdateLdapTarget {
   }
 
    /**
-   * Get ldapUrl
+   * LDAP Server URL
    * @return ldapUrl
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "LDAP Server URL")
 
   public String getLdapUrl() {
     return ldapUrl;
@@ -429,11 +430,11 @@ public class UpdateLdapTarget {
   }
 
    /**
-   * Get tokenExpiration
+   * Token expiration
    * @return tokenExpiration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Token expiration")
 
   public String getTokenExpiration() {
     return tokenExpiration;

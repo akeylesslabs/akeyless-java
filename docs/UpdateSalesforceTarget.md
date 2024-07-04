@@ -2,6 +2,7 @@
 
 # UpdateSalesforceTarget
 
+updateSalesforceTarget is a command that updates a new target. [Deprecated: Use target-update-salesforce command]
 
 ## Properties
 

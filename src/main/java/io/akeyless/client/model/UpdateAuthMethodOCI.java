@@ -27,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * updateAuthMethodOCI is a command that updates an auth method that will be used in the account using OCI principle and groups.
+ * updateAuthMethodOCI is a command that updates an auth method that will be used in the account using OCI principle and groups. [Deprecated: Use auth-method-update-oci command]
  */
-@ApiModel(description = "updateAuthMethodOCI is a command that updates an auth method that will be used in the account using OCI principle and groups.")
+@ApiModel(description = "updateAuthMethodOCI is a command that updates an auth method that will be used in the account using OCI principle and groups. [Deprecated: Use auth-method-update-oci command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthMethodOCI {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
   private Long accessExpires = 0l;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
@@ -111,6 +115,37 @@ public class UpdateAuthMethodOCI {
 
   public void setAccessExpires(Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethodOCI auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public UpdateAuthMethodOCI addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -452,6 +487,7 @@ public class UpdateAuthMethodOCI {
     }
     UpdateAuthMethodOCI updateAuthMethodOCI = (UpdateAuthMethodOCI) o;
     return Objects.equals(this.accessExpires, updateAuthMethodOCI.accessExpires) &&
+        Objects.equals(this.auditLogsClaims, updateAuthMethodOCI.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodOCI.boundIps) &&
         Objects.equals(this.description, updateAuthMethodOCI.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodOCI.forceSubClaims) &&
@@ -469,7 +505,7 @@ public class UpdateAuthMethodOCI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, productType, tenantOcid, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, productType, tenantOcid, token, uidToken);
   }
 
   @Override
@@ -477,6 +513,7 @@ public class UpdateAuthMethodOCI {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethodOCI {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

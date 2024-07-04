@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateDockerhubTarget
+ * updateDockerhubTarget is a command that updates a new target. [Deprecated: Use target-update-dockerhub command]
  */
+@ApiModel(description = "updateDockerhubTarget is a command that updates a new target. [Deprecated: Use target-update-dockerhub command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateDockerhubTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
@@ -137,11 +138,11 @@ public class UpdateDockerhubTarget {
   }
 
    /**
-   * Get dockerhubPassword
+   * Password for docker repository
    * @return dockerhubPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Password for docker repository")
 
   public String getDockerhubPassword() {
     return dockerhubPassword;
@@ -160,11 +161,11 @@ public class UpdateDockerhubTarget {
   }
 
    /**
-   * Get dockerhubUsername
+   * Username for docker repository
    * @return dockerhubUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Username for docker repository")
 
   public String getDockerhubUsername() {
     return dockerhubUsername;

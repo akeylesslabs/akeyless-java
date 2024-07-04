@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateGithubTarget
+ * createGithubTarget is a command that creates a new target. [Deprecated: Use target-create-github command]
  */
+@ApiModel(description = "createGithubTarget is a command that creates a new target. [Deprecated: Use target-create-github command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateGithubTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

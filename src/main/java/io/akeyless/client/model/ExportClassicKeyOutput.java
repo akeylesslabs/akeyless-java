@@ -37,6 +37,10 @@ public class ExportClassicKeyOutput {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_SSH = "ssh";
+  @SerializedName(SERIALIZED_NAME_SSH)
+  private String ssh;
+
   public ExportClassicKeyOutput() { 
   }
 
@@ -86,6 +90,29 @@ public class ExportClassicKeyOutput {
   }
 
 
+  public ExportClassicKeyOutput ssh(String ssh) {
+    
+    this.ssh = ssh;
+    return this;
+  }
+
+   /**
+   * Get ssh
+   * @return ssh
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSsh() {
+    return ssh;
+  }
+
+
+  public void setSsh(String ssh) {
+    this.ssh = ssh;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,12 +123,13 @@ public class ExportClassicKeyOutput {
     }
     ExportClassicKeyOutput exportClassicKeyOutput = (ExportClassicKeyOutput) o;
     return Objects.equals(this.certificatePem, exportClassicKeyOutput.certificatePem) &&
-        Objects.equals(this.key, exportClassicKeyOutput.key);
+        Objects.equals(this.key, exportClassicKeyOutput.key) &&
+        Objects.equals(this.ssh, exportClassicKeyOutput.ssh);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificatePem, key);
+    return Objects.hash(certificatePem, key, ssh);
   }
 
   @Override
@@ -110,6 +138,7 @@ public class ExportClassicKeyOutput {
     sb.append("class ExportClassicKeyOutput {\n");
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    ssh: ").append(toIndentedString(ssh)).append("\n");
     sb.append("}");
     return sb.toString();
   }

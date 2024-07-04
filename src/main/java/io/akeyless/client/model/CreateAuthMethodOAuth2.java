@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.
+ * createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2. [Deprecated: Use auth-method-create-oauth2 command]
  */
-@ApiModel(description = "createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2.")
+@ApiModel(description = "createAuthMethodOAuth2 is a command that creates a new auth method that will be able to authenticate using Oauth2. [Deprecated: Use auth-method-create-oauth2 command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access-expires";
@@ -39,6 +39,10 @@ public class CreateAuthMethodOAuth2 {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience;
+
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
 
   public static final String SERIALIZED_NAME_BOUND_CLIENT_IDS = "bound-client-ids";
   @SerializedName(SERIALIZED_NAME_BOUND_CLIENT_IDS)
@@ -162,6 +166,37 @@ public class CreateAuthMethodOAuth2 {
 
   public void setAudience(String audience) {
     this.audience = audience;
+  }
+
+
+  public CreateAuthMethodOAuth2 auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public CreateAuthMethodOAuth2 addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot;
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -653,6 +688,7 @@ public class CreateAuthMethodOAuth2 {
     CreateAuthMethodOAuth2 createAuthMethodOAuth2 = (CreateAuthMethodOAuth2) o;
     return Objects.equals(this.accessExpires, createAuthMethodOAuth2.accessExpires) &&
         Objects.equals(this.audience, createAuthMethodOAuth2.audience) &&
+        Objects.equals(this.auditLogsClaims, createAuthMethodOAuth2.auditLogsClaims) &&
         Objects.equals(this.boundClientIds, createAuthMethodOAuth2.boundClientIds) &&
         Objects.equals(this.boundIps, createAuthMethodOAuth2.boundIps) &&
         Objects.equals(this.cert, createAuthMethodOAuth2.cert) &&
@@ -676,7 +712,7 @@ public class CreateAuthMethodOAuth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, boundClientIds, boundIps, cert, certFileData, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundClientIds, boundIps, cert, certFileData, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -685,6 +721,7 @@ public class CreateAuthMethodOAuth2 {
     sb.append("class CreateAuthMethodOAuth2 {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundClientIds: ").append(toIndentedString(boundClientIds)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    cert: ").append(toIndentedString(cert)).append("\n");

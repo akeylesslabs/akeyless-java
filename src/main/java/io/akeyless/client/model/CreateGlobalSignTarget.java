@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateGlobalSignTarget
+ * createGlobalSignTarget is a command that creates a new target. [Deprecated: Use target-create-globalsign command]
  */
+@ApiModel(description = "createGlobalSignTarget is a command that creates a new target. [Deprecated: Use target-create-globalsign command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateGlobalSignTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

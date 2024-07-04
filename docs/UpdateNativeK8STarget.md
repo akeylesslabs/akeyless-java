@@ -2,6 +2,7 @@
 
 # UpdateNativeK8STarget
 
+updateNativeK8STarget is a command that updates an existing target. [Deprecated: Use target-update-k8s command]
 
 ## Properties
 

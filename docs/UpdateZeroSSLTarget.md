@@ -2,6 +2,7 @@
 
 # UpdateZeroSSLTarget
 
+updateZeroSSLTarget is a command that updates an existing target. [Deprecated: Use target-update-zerossl command]
 
 ## Properties
 

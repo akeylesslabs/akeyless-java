@@ -108,6 +108,35 @@ Class | Method | HTTP request | Description
 *V2Api* | [**assocRoleAuthMethod**](docs/V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am | 
 *V2Api* | [**assocTargetItem**](docs/V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
 *V2Api* | [**auth**](docs/V2Api.md#auth) | **POST** /auth | 
+*V2Api* | [**authMethodCreateApiKey**](docs/V2Api.md#authMethodCreateApiKey) | **POST** /auth-method-create-api-key | 
+*V2Api* | [**authMethodCreateAwsIam**](docs/V2Api.md#authMethodCreateAwsIam) | **POST** /auth-method-create-aws | 
+*V2Api* | [**authMethodCreateAzureAD**](docs/V2Api.md#authMethodCreateAzureAD) | **POST** /auth-method-create-azure-ad | 
+*V2Api* | [**authMethodCreateCert**](docs/V2Api.md#authMethodCreateCert) | **POST** /auth-method-create-cert | 
+*V2Api* | [**authMethodCreateEmail**](docs/V2Api.md#authMethodCreateEmail) | **POST** /auth-method-create-email | 
+*V2Api* | [**authMethodCreateGcp**](docs/V2Api.md#authMethodCreateGcp) | **POST** /auth-method-create-gcp | 
+*V2Api* | [**authMethodCreateK8s**](docs/V2Api.md#authMethodCreateK8s) | **POST** /auth-method-create-k8s | 
+*V2Api* | [**authMethodCreateLdap**](docs/V2Api.md#authMethodCreateLdap) | **POST** /auth-method-create-ldap | 
+*V2Api* | [**authMethodCreateOCI**](docs/V2Api.md#authMethodCreateOCI) | **POST** /auth-method-create-oci | 
+*V2Api* | [**authMethodCreateOIDC**](docs/V2Api.md#authMethodCreateOIDC) | **POST** /auth-method-create-oidc | 
+*V2Api* | [**authMethodCreateOauth2**](docs/V2Api.md#authMethodCreateOauth2) | **POST** /auth-method-create-oauth2 | 
+*V2Api* | [**authMethodCreateSAML**](docs/V2Api.md#authMethodCreateSAML) | **POST** /auth-method-create-saml | 
+*V2Api* | [**authMethodCreateUniversalIdentity**](docs/V2Api.md#authMethodCreateUniversalIdentity) | **POST** /auth-method-create-universal-identity | 
+*V2Api* | [**authMethodDelete**](docs/V2Api.md#authMethodDelete) | **POST** /auth-method-delete | 
+*V2Api* | [**authMethodGet**](docs/V2Api.md#authMethodGet) | **POST** /auth-method-get | 
+*V2Api* | [**authMethodList**](docs/V2Api.md#authMethodList) | **POST** /auth-method-list | 
+*V2Api* | [**authMethodUpdateApiKey**](docs/V2Api.md#authMethodUpdateApiKey) | **POST** /auth-method-update-api-key | 
+*V2Api* | [**authMethodUpdateAwsIam**](docs/V2Api.md#authMethodUpdateAwsIam) | **POST** /auth-method-update-aws-iam | 
+*V2Api* | [**authMethodUpdateAzureAD**](docs/V2Api.md#authMethodUpdateAzureAD) | **POST** /auth-method-update-azure-ad | 
+*V2Api* | [**authMethodUpdateCert**](docs/V2Api.md#authMethodUpdateCert) | **POST** /auth-method-update-cert | 
+*V2Api* | [**authMethodUpdateEmail**](docs/V2Api.md#authMethodUpdateEmail) | **POST** /auth-method-update-email | 
+*V2Api* | [**authMethodUpdateGcp**](docs/V2Api.md#authMethodUpdateGcp) | **POST** /auth-method-update-gcp | 
+*V2Api* | [**authMethodUpdateK8s**](docs/V2Api.md#authMethodUpdateK8s) | **POST** /auth-method-update-k8s | 
+*V2Api* | [**authMethodUpdateLdap**](docs/V2Api.md#authMethodUpdateLdap) | **POST** /auth-method-update-ldap | 
+*V2Api* | [**authMethodUpdateOCI**](docs/V2Api.md#authMethodUpdateOCI) | **POST** /auth-method-update-oci | 
+*V2Api* | [**authMethodUpdateOIDC**](docs/V2Api.md#authMethodUpdateOIDC) | **POST** /auth-method-update-oidc | 
+*V2Api* | [**authMethodUpdateOauth2**](docs/V2Api.md#authMethodUpdateOauth2) | **POST** /auth-method-update-oauth2 | 
+*V2Api* | [**authMethodUpdateSAML**](docs/V2Api.md#authMethodUpdateSAML) | **POST** /auth-method-update-saml | 
+*V2Api* | [**authMethodUpdateUniversalIdentity**](docs/V2Api.md#authMethodUpdateUniversalIdentity) | **POST** /auth-method-update-universal-identity | 
 *V2Api* | [**configure**](docs/V2Api.md#configure) | **POST** /configure | 
 *V2Api* | [**connect**](docs/V2Api.md#connect) | **POST** /connect | 
 *V2Api* | [**createAWSTarget**](docs/V2Api.md#createAWSTarget) | **POST** /create-aws-target | 
@@ -139,6 +168,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createGKETarget**](docs/V2Api.md#createGKETarget) | **POST** /create-gke-target | 
 *V2Api* | [**createGcpTarget**](docs/V2Api.md#createGcpTarget) | **POST** /create-gcp-target | 
 *V2Api* | [**createGithubTarget**](docs/V2Api.md#createGithubTarget) | **POST** /create-github-target | 
+*V2Api* | [**createGitlabTarget**](docs/V2Api.md#createGitlabTarget) | **POST** /create-gitlab-target | 
 *V2Api* | [**createGlobalSignAtlasTarget**](docs/V2Api.md#createGlobalSignAtlasTarget) | **POST** /create-globalsign-atlas-target | 
 *V2Api* | [**createGlobalSignTarget**](docs/V2Api.md#createGlobalSignTarget) | **POST** /create-globalsign-target | 
 *V2Api* | [**createGodaddyTarget**](docs/V2Api.md#createGodaddyTarget) | **POST** /create-godaddy-target | 
@@ -198,6 +228,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretCreateEks**](docs/V2Api.md#dynamicSecretCreateEks) | **POST** /dynamic-secret-create-eks | 
 *V2Api* | [**dynamicSecretCreateGcp**](docs/V2Api.md#dynamicSecretCreateGcp) | **POST** /dynamic-secret-create-gcp | 
 *V2Api* | [**dynamicSecretCreateGithub**](docs/V2Api.md#dynamicSecretCreateGithub) | **POST** /dynamic-secret-create-github | 
+*V2Api* | [**dynamicSecretCreateGitlab**](docs/V2Api.md#dynamicSecretCreateGitlab) | **POST** /dynamic-secret-create-gitlab | 
 *V2Api* | [**dynamicSecretCreateGke**](docs/V2Api.md#dynamicSecretCreateGke) | **POST** /dynamic-secret-create-gke | 
 *V2Api* | [**dynamicSecretCreateGoogleWorkspace**](docs/V2Api.md#dynamicSecretCreateGoogleWorkspace) | **POST** /dynamic-secret-create-google-workspace | 
 *V2Api* | [**dynamicSecretCreateHanaDb**](docs/V2Api.md#dynamicSecretCreateHanaDb) | **POST** /dynamic-secret-create-hanadb | 
@@ -231,6 +262,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretUpdateEks**](docs/V2Api.md#dynamicSecretUpdateEks) | **POST** /dynamic-secret-update-eks | 
 *V2Api* | [**dynamicSecretUpdateGcp**](docs/V2Api.md#dynamicSecretUpdateGcp) | **POST** /dynamic-secret-update-gcp | 
 *V2Api* | [**dynamicSecretUpdateGithub**](docs/V2Api.md#dynamicSecretUpdateGithub) | **POST** /dynamic-secret-update-github | 
+*V2Api* | [**dynamicSecretUpdateGitlab**](docs/V2Api.md#dynamicSecretUpdateGitlab) | **POST** /dynamic-secret-update-gitlab | 
 *V2Api* | [**dynamicSecretUpdateGke**](docs/V2Api.md#dynamicSecretUpdateGke) | **POST** /dynamic-secret-update-gke | 
 *V2Api* | [**dynamicSecretUpdateGoogleWorkspace**](docs/V2Api.md#dynamicSecretUpdateGoogleWorkspace) | **POST** /dynamic-secret-update-google-workspace | 
 *V2Api* | [**dynamicSecretUpdateHanaDb**](docs/V2Api.md#dynamicSecretUpdateHanaDb) | **POST** /dynamic-secret-update-hana | 
@@ -473,6 +505,58 @@ Class | Method | HTTP request | Description
 *V2Api* | [**signPKICertWithClassicKey**](docs/V2Api.md#signPKICertWithClassicKey) | **POST** /sign-pki-cert-with-classic-key | 
 *V2Api* | [**signRsaSsaPss**](docs/V2Api.md#signRsaSsaPss) | **POST** /sign-rsassa-pss | 
 *V2Api* | [**staticCredsAuth**](docs/V2Api.md#staticCredsAuth) | **POST** /static-creds-auth | 
+*V2Api* | [**targetCreateArtifactory**](docs/V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory | 
+*V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
+*V2Api* | [**targetCreateAzure**](docs/V2Api.md#targetCreateAzure) | **POST** /target-create-azure | 
+*V2Api* | [**targetCreateDB**](docs/V2Api.md#targetCreateDB) | **POST** /target-create-db | 
+*V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
+*V2Api* | [**targetCreateEks**](docs/V2Api.md#targetCreateEks) | **POST** /target-create-eks | 
+*V2Api* | [**targetCreateGcp**](docs/V2Api.md#targetCreateGcp) | **POST** /target-create-gcp | 
+*V2Api* | [**targetCreateGithub**](docs/V2Api.md#targetCreateGithub) | **POST** /target-create-github | 
+*V2Api* | [**targetCreateGitlab**](docs/V2Api.md#targetCreateGitlab) | **POST** /target-create-gitlab | 
+*V2Api* | [**targetCreateGke**](docs/V2Api.md#targetCreateGke) | **POST** /target-create-gke | 
+*V2Api* | [**targetCreateGlobalSign**](docs/V2Api.md#targetCreateGlobalSign) | **POST** /target-create-globalsign | 
+*V2Api* | [**targetCreateGlobalSignAtlas**](docs/V2Api.md#targetCreateGlobalSignAtlas) | **POST** /target-create-globalsign-atlas | 
+*V2Api* | [**targetCreateGodaddy**](docs/V2Api.md#targetCreateGodaddy) | **POST** /target-create-godaddy | 
+*V2Api* | [**targetCreateHashiVault**](docs/V2Api.md#targetCreateHashiVault) | **POST** /target-create-hashi-vault | 
+*V2Api* | [**targetCreateK8s**](docs/V2Api.md#targetCreateK8s) | **POST** /target-create-k8s | 
+*V2Api* | [**targetCreateLdap**](docs/V2Api.md#targetCreateLdap) | **POST** /target-create-ldap | 
+*V2Api* | [**targetCreateLinked**](docs/V2Api.md#targetCreateLinked) | **POST** /target-create-linked | 
+*V2Api* | [**targetCreatePing**](docs/V2Api.md#targetCreatePing) | **POST** /target-create-ping | 
+*V2Api* | [**targetCreateRabbitMq**](docs/V2Api.md#targetCreateRabbitMq) | **POST** /target-create-rabbitmq | 
+*V2Api* | [**targetCreateSalesforce**](docs/V2Api.md#targetCreateSalesforce) | **POST** /target-create-salesforce | 
+*V2Api* | [**targetCreateSsh**](docs/V2Api.md#targetCreateSsh) | **POST** /target-create-ssh | 
+*V2Api* | [**targetCreateWeb**](docs/V2Api.md#targetCreateWeb) | **POST** /target-create-web | 
+*V2Api* | [**targetCreateWindows**](docs/V2Api.md#targetCreateWindows) | **POST** /target-create-windows | 
+*V2Api* | [**targetCreateZeroSSL**](docs/V2Api.md#targetCreateZeroSSL) | **POST** /target-create-zerossl | 
+*V2Api* | [**targetDelete**](docs/V2Api.md#targetDelete) | **POST** /target-delete | 
+*V2Api* | [**targetGet**](docs/V2Api.md#targetGet) | **POST** /target-get | 
+*V2Api* | [**targetGetDetails**](docs/V2Api.md#targetGetDetails) | **POST** /target-get-details | 
+*V2Api* | [**targetList**](docs/V2Api.md#targetList) | **POST** /target-list | 
+*V2Api* | [**targetUpdateArtifactory**](docs/V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory | 
+*V2Api* | [**targetUpdateAws**](docs/V2Api.md#targetUpdateAws) | **POST** /target-update-aws | 
+*V2Api* | [**targetUpdateAzure**](docs/V2Api.md#targetUpdateAzure) | **POST** /target-update-azure | 
+*V2Api* | [**targetUpdateDB**](docs/V2Api.md#targetUpdateDB) | **POST** /target-update-db | 
+*V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
+*V2Api* | [**targetUpdateEks**](docs/V2Api.md#targetUpdateEks) | **POST** /target-update-eks | 
+*V2Api* | [**targetUpdateGcp**](docs/V2Api.md#targetUpdateGcp) | **POST** /target-update-gcp | 
+*V2Api* | [**targetUpdateGithub**](docs/V2Api.md#targetUpdateGithub) | **POST** /target-update-github | 
+*V2Api* | [**targetUpdateGitlab**](docs/V2Api.md#targetUpdateGitlab) | **POST** /target-update-gitlab | 
+*V2Api* | [**targetUpdateGke**](docs/V2Api.md#targetUpdateGke) | **POST** /target-update-gke | 
+*V2Api* | [**targetUpdateGlobalSign**](docs/V2Api.md#targetUpdateGlobalSign) | **POST** /target-update-globalsign | 
+*V2Api* | [**targetUpdateGlobalSignAtlas**](docs/V2Api.md#targetUpdateGlobalSignAtlas) | **POST** /target-update-globalsign-atlas | 
+*V2Api* | [**targetUpdateGodaddy**](docs/V2Api.md#targetUpdateGodaddy) | **POST** /target-update-godaddy | 
+*V2Api* | [**targetUpdateHashiVault**](docs/V2Api.md#targetUpdateHashiVault) | **POST** /target-update-hashi-vault | 
+*V2Api* | [**targetUpdateK8s**](docs/V2Api.md#targetUpdateK8s) | **POST** /target-update-k8s | 
+*V2Api* | [**targetUpdateLdap**](docs/V2Api.md#targetUpdateLdap) | **POST** /target-update-ldap | 
+*V2Api* | [**targetUpdateLinked**](docs/V2Api.md#targetUpdateLinked) | **POST** /target-update-linked | 
+*V2Api* | [**targetUpdatePing**](docs/V2Api.md#targetUpdatePing) | **POST** /target-update-ping | 
+*V2Api* | [**targetUpdateRabbitMq**](docs/V2Api.md#targetUpdateRabbitMq) | **POST** /target-update-rabbitmq | 
+*V2Api* | [**targetUpdateSalesforce**](docs/V2Api.md#targetUpdateSalesforce) | **POST** /target-update-salesforce | 
+*V2Api* | [**targetUpdateSsh**](docs/V2Api.md#targetUpdateSsh) | **POST** /target-update-ssh | 
+*V2Api* | [**targetUpdateWeb**](docs/V2Api.md#targetUpdateWeb) | **POST** /target-update-web | 
+*V2Api* | [**targetUpdateWindows**](docs/V2Api.md#targetUpdateWindows) | **POST** /target-update-windows | 
+*V2Api* | [**targetUpdateZeroSSL**](docs/V2Api.md#targetUpdateZeroSSL) | **POST** /target-update-zerossl | 
 *V2Api* | [**tokenize**](docs/V2Api.md#tokenize) | **POST** /tokenize | 
 *V2Api* | [**uidCreateChildToken**](docs/V2Api.md#uidCreateChildToken) | **POST** /uid-create-child-token | 
 *V2Api* | [**uidGenerateToken**](docs/V2Api.md#uidGenerateToken) | **POST** /uid-generate-token | 
@@ -507,6 +591,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateGKETarget**](docs/V2Api.md#updateGKETarget) | **POST** /update-gke-target | 
 *V2Api* | [**updateGcpTarget**](docs/V2Api.md#updateGcpTarget) | **POST** /update-gcp-target | 
 *V2Api* | [**updateGithubTarget**](docs/V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
+*V2Api* | [**updateGitlabTarget**](docs/V2Api.md#updateGitlabTarget) | **POST** /update-gitlab-target | 
 *V2Api* | [**updateGlobalSignAtlasTarget**](docs/V2Api.md#updateGlobalSignAtlasTarget) | **POST** /update-globalsign-atlas-target | 
 *V2Api* | [**updateGlobalSignTarget**](docs/V2Api.md#updateGlobalSignTarget) | **POST** /update-globalsign-target | 
 *V2Api* | [**updateGodaddyTarget**](docs/V2Api.md#updateGodaddyTarget) | **POST** /update-godaddy-target | 
@@ -572,6 +657,7 @@ Class | Method | HTTP request | Description
  - [AllAnalyticsData](docs/AllAnalyticsData.md)
  - [AllowedAccess](docs/AllowedAccess.md)
  - [AllowedAccessOld](docs/AllowedAccessOld.md)
+ - [AllowedIpSettings](docs/AllowedIpSettings.md)
  - [ArtifactoryTargetDetails](docs/ArtifactoryTargetDetails.md)
  - [AssocRoleAuthMethod](docs/AssocRoleAuthMethod.md)
  - [AssocTargetItem](docs/AssocTargetItem.md)
@@ -579,7 +665,39 @@ Class | Method | HTTP request | Description
  - [Auth](docs/Auth.md)
  - [AuthMethod](docs/AuthMethod.md)
  - [AuthMethodAccessInfo](docs/AuthMethodAccessInfo.md)
+ - [AuthMethodCreateApiKey](docs/AuthMethodCreateApiKey.md)
+ - [AuthMethodCreateAwsIam](docs/AuthMethodCreateAwsIam.md)
+ - [AuthMethodCreateAzureAD](docs/AuthMethodCreateAzureAD.md)
+ - [AuthMethodCreateCert](docs/AuthMethodCreateCert.md)
+ - [AuthMethodCreateEmail](docs/AuthMethodCreateEmail.md)
+ - [AuthMethodCreateGcp](docs/AuthMethodCreateGcp.md)
+ - [AuthMethodCreateK8s](docs/AuthMethodCreateK8s.md)
+ - [AuthMethodCreateLdap](docs/AuthMethodCreateLdap.md)
+ - [AuthMethodCreateOCI](docs/AuthMethodCreateOCI.md)
+ - [AuthMethodCreateOIDC](docs/AuthMethodCreateOIDC.md)
+ - [AuthMethodCreateOauth2](docs/AuthMethodCreateOauth2.md)
+ - [AuthMethodCreateOutput](docs/AuthMethodCreateOutput.md)
+ - [AuthMethodCreateSAML](docs/AuthMethodCreateSAML.md)
+ - [AuthMethodCreateUniversalIdentity](docs/AuthMethodCreateUniversalIdentity.md)
+ - [AuthMethodDelete](docs/AuthMethodDelete.md)
+ - [AuthMethodDeleteOutput](docs/AuthMethodDeleteOutput.md)
+ - [AuthMethodGet](docs/AuthMethodGet.md)
+ - [AuthMethodList](docs/AuthMethodList.md)
  - [AuthMethodRoleAssociation](docs/AuthMethodRoleAssociation.md)
+ - [AuthMethodUpdateApiKey](docs/AuthMethodUpdateApiKey.md)
+ - [AuthMethodUpdateAwsIam](docs/AuthMethodUpdateAwsIam.md)
+ - [AuthMethodUpdateAzureAD](docs/AuthMethodUpdateAzureAD.md)
+ - [AuthMethodUpdateCert](docs/AuthMethodUpdateCert.md)
+ - [AuthMethodUpdateEmail](docs/AuthMethodUpdateEmail.md)
+ - [AuthMethodUpdateGcp](docs/AuthMethodUpdateGcp.md)
+ - [AuthMethodUpdateK8s](docs/AuthMethodUpdateK8s.md)
+ - [AuthMethodUpdateLdap](docs/AuthMethodUpdateLdap.md)
+ - [AuthMethodUpdateOCI](docs/AuthMethodUpdateOCI.md)
+ - [AuthMethodUpdateOIDC](docs/AuthMethodUpdateOIDC.md)
+ - [AuthMethodUpdateOauth2](docs/AuthMethodUpdateOauth2.md)
+ - [AuthMethodUpdateOutput](docs/AuthMethodUpdateOutput.md)
+ - [AuthMethodUpdateSAML](docs/AuthMethodUpdateSAML.md)
+ - [AuthMethodUpdateUniversalIdentity](docs/AuthMethodUpdateUniversalIdentity.md)
  - [AuthOutput](docs/AuthOutput.md)
  - [AwsS3LogForwardingConfig](docs/AwsS3LogForwardingConfig.md)
  - [AzureADAccessRules](docs/AzureADAccessRules.md)
@@ -669,6 +787,8 @@ Class | Method | HTTP request | Description
  - [CreateGcpTargetOutput](docs/CreateGcpTargetOutput.md)
  - [CreateGithubTarget](docs/CreateGithubTarget.md)
  - [CreateGithubTargetOutput](docs/CreateGithubTargetOutput.md)
+ - [CreateGitlabTarget](docs/CreateGitlabTarget.md)
+ - [CreateGitlabTargetOutput](docs/CreateGitlabTargetOutput.md)
  - [CreateGlobalSignAtlasTarget](docs/CreateGlobalSignAtlasTarget.md)
  - [CreateGlobalSignAtlasTargetOutput](docs/CreateGlobalSignAtlasTargetOutput.md)
  - [CreateGlobalSignTarget](docs/CreateGlobalSignTarget.md)
@@ -781,6 +901,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretCreateEks](docs/DynamicSecretCreateEks.md)
  - [DynamicSecretCreateGcp](docs/DynamicSecretCreateGcp.md)
  - [DynamicSecretCreateGithub](docs/DynamicSecretCreateGithub.md)
+ - [DynamicSecretCreateGitlab](docs/DynamicSecretCreateGitlab.md)
  - [DynamicSecretCreateGke](docs/DynamicSecretCreateGke.md)
  - [DynamicSecretCreateGoogleWorkspace](docs/DynamicSecretCreateGoogleWorkspace.md)
  - [DynamicSecretCreateHanaDb](docs/DynamicSecretCreateHanaDb.md)
@@ -819,6 +940,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretUpdateEks](docs/DynamicSecretUpdateEks.md)
  - [DynamicSecretUpdateGcp](docs/DynamicSecretUpdateGcp.md)
  - [DynamicSecretUpdateGithub](docs/DynamicSecretUpdateGithub.md)
+ - [DynamicSecretUpdateGitlab](docs/DynamicSecretUpdateGitlab.md)
  - [DynamicSecretUpdateGke](docs/DynamicSecretUpdateGke.md)
  - [DynamicSecretUpdateGoogleWorkspace](docs/DynamicSecretUpdateGoogleWorkspace.md)
  - [DynamicSecretUpdateHanaDb](docs/DynamicSecretUpdateHanaDb.md)
@@ -1098,6 +1220,7 @@ Class | Method | HTTP request | Description
  - [GetTargetDetailsOutput](docs/GetTargetDetailsOutput.md)
  - [GetUserEventStatusOutput](docs/GetUserEventStatusOutput.md)
  - [GithubTargetDetails](docs/GithubTargetDetails.md)
+ - [GitlabTargetDetails](docs/GitlabTargetDetails.md)
  - [GlobalSignAtlasTargetDetails](docs/GlobalSignAtlasTargetDetails.md)
  - [GlobalSignGCCTargetDetails](docs/GlobalSignGCCTargetDetails.md)
  - [GodaddyTargetDetails](docs/GodaddyTargetDetails.md)
@@ -1316,10 +1439,64 @@ Class | Method | HTTP request | Description
  - [SystemAccessCredentialsReplyObj](docs/SystemAccessCredentialsReplyObj.md)
  - [SystemAccessCredsSettings](docs/SystemAccessCredsSettings.md)
  - [Target](docs/Target.md)
+ - [TargetCreateArtifactory](docs/TargetCreateArtifactory.md)
+ - [TargetCreateAws](docs/TargetCreateAws.md)
+ - [TargetCreateAzure](docs/TargetCreateAzure.md)
+ - [TargetCreateDB](docs/TargetCreateDB.md)
+ - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
+ - [TargetCreateEks](docs/TargetCreateEks.md)
+ - [TargetCreateGcp](docs/TargetCreateGcp.md)
+ - [TargetCreateGithub](docs/TargetCreateGithub.md)
+ - [TargetCreateGitlab](docs/TargetCreateGitlab.md)
+ - [TargetCreateGke](docs/TargetCreateGke.md)
+ - [TargetCreateGlobalSign](docs/TargetCreateGlobalSign.md)
+ - [TargetCreateGlobalSignAtlas](docs/TargetCreateGlobalSignAtlas.md)
+ - [TargetCreateGodaddy](docs/TargetCreateGodaddy.md)
+ - [TargetCreateHashiVault](docs/TargetCreateHashiVault.md)
+ - [TargetCreateK8s](docs/TargetCreateK8s.md)
+ - [TargetCreateLdap](docs/TargetCreateLdap.md)
+ - [TargetCreateLinked](docs/TargetCreateLinked.md)
+ - [TargetCreateOutput](docs/TargetCreateOutput.md)
+ - [TargetCreatePing](docs/TargetCreatePing.md)
+ - [TargetCreateRabbitMq](docs/TargetCreateRabbitMq.md)
+ - [TargetCreateSalesforce](docs/TargetCreateSalesforce.md)
+ - [TargetCreateSsh](docs/TargetCreateSsh.md)
+ - [TargetCreateWeb](docs/TargetCreateWeb.md)
+ - [TargetCreateWindows](docs/TargetCreateWindows.md)
+ - [TargetCreateZeroSSL](docs/TargetCreateZeroSSL.md)
+ - [TargetDelete](docs/TargetDelete.md)
+ - [TargetGet](docs/TargetGet.md)
+ - [TargetGetDetails](docs/TargetGetDetails.md)
  - [TargetItemAssociation](docs/TargetItemAssociation.md)
  - [TargetItemVersion](docs/TargetItemVersion.md)
+ - [TargetList](docs/TargetList.md)
  - [TargetNameWithHosts](docs/TargetNameWithHosts.md)
  - [TargetTypeDetailsInput](docs/TargetTypeDetailsInput.md)
+ - [TargetUpdateArtifactory](docs/TargetUpdateArtifactory.md)
+ - [TargetUpdateAws](docs/TargetUpdateAws.md)
+ - [TargetUpdateAzure](docs/TargetUpdateAzure.md)
+ - [TargetUpdateDB](docs/TargetUpdateDB.md)
+ - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)
+ - [TargetUpdateEks](docs/TargetUpdateEks.md)
+ - [TargetUpdateGcp](docs/TargetUpdateGcp.md)
+ - [TargetUpdateGithub](docs/TargetUpdateGithub.md)
+ - [TargetUpdateGitlab](docs/TargetUpdateGitlab.md)
+ - [TargetUpdateGke](docs/TargetUpdateGke.md)
+ - [TargetUpdateGlobalSign](docs/TargetUpdateGlobalSign.md)
+ - [TargetUpdateGlobalSignAtlas](docs/TargetUpdateGlobalSignAtlas.md)
+ - [TargetUpdateGodaddy](docs/TargetUpdateGodaddy.md)
+ - [TargetUpdateHashiVault](docs/TargetUpdateHashiVault.md)
+ - [TargetUpdateK8s](docs/TargetUpdateK8s.md)
+ - [TargetUpdateLdap](docs/TargetUpdateLdap.md)
+ - [TargetUpdateLinked](docs/TargetUpdateLinked.md)
+ - [TargetUpdateOutput](docs/TargetUpdateOutput.md)
+ - [TargetUpdatePing](docs/TargetUpdatePing.md)
+ - [TargetUpdateRabbitMq](docs/TargetUpdateRabbitMq.md)
+ - [TargetUpdateSalesforce](docs/TargetUpdateSalesforce.md)
+ - [TargetUpdateSsh](docs/TargetUpdateSsh.md)
+ - [TargetUpdateWeb](docs/TargetUpdateWeb.md)
+ - [TargetUpdateWindows](docs/TargetUpdateWindows.md)
+ - [TargetUpdateZeroSSL](docs/TargetUpdateZeroSSL.md)
  - [TmpUserData](docs/TmpUserData.md)
  - [Tokenize](docs/Tokenize.md)
  - [TokenizeOutput](docs/TokenizeOutput.md)
@@ -1380,6 +1557,8 @@ Class | Method | HTTP request | Description
  - [UpdateGcpTargetOutput](docs/UpdateGcpTargetOutput.md)
  - [UpdateGithubTarget](docs/UpdateGithubTarget.md)
  - [UpdateGithubTargetOutput](docs/UpdateGithubTargetOutput.md)
+ - [UpdateGitlabTarget](docs/UpdateGitlabTarget.md)
+ - [UpdateGitlabTargetOutput](docs/UpdateGitlabTargetOutput.md)
  - [UpdateGlobalSignAtlasTarget](docs/UpdateGlobalSignAtlasTarget.md)
  - [UpdateGlobalSignAtlasTargetOutput](docs/UpdateGlobalSignAtlasTargetOutput.md)
  - [UpdateGlobalSignTarget](docs/UpdateGlobalSignTarget.md)

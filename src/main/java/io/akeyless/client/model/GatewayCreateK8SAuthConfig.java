@@ -38,10 +38,6 @@ public class GatewayCreateK8SAuthConfig {
   @SerializedName(SERIALIZED_NAME_CLUSTER_API_TYPE)
   private String clusterApiType = "native_k8s";
 
-  public static final String SERIALIZED_NAME_CONFIG_ENCRYPTION_KEY_NAME = "config-encryption-key-name";
-  @SerializedName(SERIALIZED_NAME_CONFIG_ENCRYPTION_KEY_NAME)
-  private String configEncryptionKeyName;
-
   public static final String SERIALIZED_NAME_DISABLE_ISSUER_VALIDATION = "disable-issuer-validation";
   @SerializedName(SERIALIZED_NAME_DISABLE_ISSUER_VALIDATION)
   private String disableIssuerValidation;
@@ -156,29 +152,6 @@ public class GatewayCreateK8SAuthConfig {
 
   public void setClusterApiType(String clusterApiType) {
     this.clusterApiType = clusterApiType;
-  }
-
-
-  public GatewayCreateK8SAuthConfig configEncryptionKeyName(String configEncryptionKeyName) {
-    
-    this.configEncryptionKeyName = configEncryptionKeyName;
-    return this;
-  }
-
-   /**
-   * Config encryption key
-   * @return configEncryptionKeyName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Config encryption key")
-
-  public String getConfigEncryptionKeyName() {
-    return configEncryptionKeyName;
-  }
-
-
-  public void setConfigEncryptionKeyName(String configEncryptionKeyName) {
-    this.configEncryptionKeyName = configEncryptionKeyName;
   }
 
 
@@ -584,7 +557,6 @@ public class GatewayCreateK8SAuthConfig {
     GatewayCreateK8SAuthConfig gatewayCreateK8SAuthConfig = (GatewayCreateK8SAuthConfig) o;
     return Objects.equals(this.accessId, gatewayCreateK8SAuthConfig.accessId) &&
         Objects.equals(this.clusterApiType, gatewayCreateK8SAuthConfig.clusterApiType) &&
-        Objects.equals(this.configEncryptionKeyName, gatewayCreateK8SAuthConfig.configEncryptionKeyName) &&
         Objects.equals(this.disableIssuerValidation, gatewayCreateK8SAuthConfig.disableIssuerValidation) &&
         Objects.equals(this.json, gatewayCreateK8SAuthConfig.json) &&
         Objects.equals(this.k8sAuthType, gatewayCreateK8SAuthConfig.k8sAuthType) &&
@@ -606,7 +578,7 @@ public class GatewayCreateK8SAuthConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, clusterApiType, configEncryptionKeyName, disableIssuerValidation, json, k8sAuthType, k8sCaCert, k8sClientCertificate, k8sClientKey, k8sHost, k8sIssuer, name, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
+    return Objects.hash(accessId, clusterApiType, disableIssuerValidation, json, k8sAuthType, k8sCaCert, k8sClientCertificate, k8sClientKey, k8sHost, k8sIssuer, name, rancherApiKey, rancherClusterId, signingKey, token, tokenExp, tokenReviewerJwt, uidToken, useGwServiceAccount);
   }
 
   @Override
@@ -615,7 +587,6 @@ public class GatewayCreateK8SAuthConfig {
     sb.append("class GatewayCreateK8SAuthConfig {\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    clusterApiType: ").append(toIndentedString(clusterApiType)).append("\n");
-    sb.append("    configEncryptionKeyName: ").append(toIndentedString(configEncryptionKeyName)).append("\n");
     sb.append("    disableIssuerValidation: ").append(toIndentedString(disableIssuerValidation)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAuthType: ").append(toIndentedString(k8sAuthType)).append("\n");

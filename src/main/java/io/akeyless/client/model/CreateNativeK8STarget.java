@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateNativeK8STarget
+ * createNativeK8STarget is a command that creates a new target. [Deprecated: Use target-create-k8s command]
  */
+@ApiModel(description = "createNativeK8STarget is a command that creates a new target. [Deprecated: Use target-create-k8s command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateNativeK8STarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

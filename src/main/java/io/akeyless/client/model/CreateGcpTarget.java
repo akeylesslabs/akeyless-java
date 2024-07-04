@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateGcpTarget
+ * createGcpTarget is a command that creates a new target. [Deprecated: Use target-create-gcp command]
  */
+@ApiModel(description = "createGcpTarget is a command that creates a new target. [Deprecated: Use target-create-gcp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateGcpTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

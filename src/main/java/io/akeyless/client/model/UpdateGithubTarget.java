@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateGithubTarget
+ * updateGithubTarget is a command that updates a new target. [Deprecated: Use target-update-github command]
  */
+@ApiModel(description = "updateGithubTarget is a command that updates a new target. [Deprecated: Use target-update-github command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateGithubTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

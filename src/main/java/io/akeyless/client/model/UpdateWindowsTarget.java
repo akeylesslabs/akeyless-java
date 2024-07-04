@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateWindowsTarget
+ * updateWindowsTarget is a command that updates an existing windows target. [Deprecated: Use target-update-windows command]
  */
+@ApiModel(description = "updateWindowsTarget is a command that updates an existing windows target. [Deprecated: Use target-update-windows command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateWindowsTarget {
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";

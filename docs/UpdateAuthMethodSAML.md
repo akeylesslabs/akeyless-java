@@ -2,7 +2,7 @@
 
 # UpdateAuthMethodSAML
 
-updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML.
+updateAuthMethodSAML is a command that updates a new auth method that will be available to authenticate using SAML. [Deprecated: Use auth-method-update-saml command]
 
 ## Properties
 
@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
 **allowedRedirectUri** | **List&lt;String&gt;** | Allowed redirect URIs after the authentication |  [optional]
+**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional]
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]

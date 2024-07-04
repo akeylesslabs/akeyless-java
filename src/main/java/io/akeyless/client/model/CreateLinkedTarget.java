@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateLinkedTarget
+ * createLinkedTarget is a command that creates a new Linked Target which can inherit credentials from existing Targets. [Deprecated: Use target-create-linked command]
  */
+@ApiModel(description = "createLinkedTarget is a command that creates a new Linked Target which can inherit credentials from existing Targets. [Deprecated: Use target-create-linked command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateLinkedTarget {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";

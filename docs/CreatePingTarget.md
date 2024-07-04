@@ -2,6 +2,7 @@
 
 # CreatePingTarget
 
+createPingTarget is a command that creates a new target. [Deprecated: Use target-create-ping command]
 
 ## Properties
 

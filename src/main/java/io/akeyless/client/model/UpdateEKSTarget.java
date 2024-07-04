@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateEKSTarget
+ * updateEKSTarget is a command that updates an existing target. [Deprecated: Use target-update-eks command]
  */
+@ApiModel(description = "updateEKSTarget is a command that updates an existing target. [Deprecated: Use target-update-eks command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateEKSTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

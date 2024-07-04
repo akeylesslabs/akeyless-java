@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GetTarget
+ * getTarget is a command that returns target. [Deprecated: Use target-get command]
  */
+@ApiModel(description = "getTarget is a command that returns target. [Deprecated: Use target-get command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetTarget {
   public static final String SERIALIZED_NAME_JSON = "json";

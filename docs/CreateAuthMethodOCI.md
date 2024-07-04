@@ -2,13 +2,14 @@
 
 # CreateAuthMethodOCI
 
-createAuthMethodOCI is a command that Creates a new Oracle Auth Method that will be used in the account using OCI principle and groups.
+createAuthMethodOCI is a command that Creates a new Oracle Auth Method that will be used in the account using OCI principle and groups. [Deprecated: Use auth-method-create-oci command]
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
+**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional]
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]

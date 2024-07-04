@@ -9,6 +9,7 @@ createAuthMethodHuawei is a command that creates a new auth method that will be 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional]
+**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional]
 **authUrl** | **String** | sts URL |  [optional]
 **boundDomainId** | **List&lt;String&gt;** | A list of domain IDs that the access is restricted to |  [optional]
 **boundDomainName** | **List&lt;String&gt;** | A list of domain names that the access is restricted to |  [optional]

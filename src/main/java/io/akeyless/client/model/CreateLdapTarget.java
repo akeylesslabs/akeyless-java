@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateLdapTarget
+ * createldapTarget is a command that creates a new target. [Deprecated: Use target-create-ldap command]
  */
+@ApiModel(description = "createldapTarget is a command that creates a new target. [Deprecated: Use target-create-ldap command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateLdapTarget {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";

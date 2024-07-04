@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateDockerhubTarget
+ * createDockerhubTarget is a command that creates a new target. [Deprecated: Use target-create-dockerhub command]
  */
+@ApiModel(description = "createDockerhubTarget is a command that creates a new target. [Deprecated: Use target-create-dockerhub command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDockerhubTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
@@ -125,11 +126,11 @@ public class CreateDockerhubTarget {
   }
 
    /**
-   * DockerhubPassword is either the user&#39;s password to manage the repository
+   * Password for docker repository
    * @return dockerhubPassword
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "DockerhubPassword is either the user's password to manage the repository")
+  @ApiModelProperty(value = "Password for docker repository")
 
   public String getDockerhubPassword() {
     return dockerhubPassword;
@@ -148,11 +149,11 @@ public class CreateDockerhubTarget {
   }
 
    /**
-   * DockerhubUsername is the name of the user in dockerhub
+   * Username for docker repository
    * @return dockerhubUsername
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "DockerhubUsername is the name of the user in dockerhub")
+  @ApiModelProperty(value = "Username for docker repository")
 
   public String getDockerhubUsername() {
     return dockerhubUsername;

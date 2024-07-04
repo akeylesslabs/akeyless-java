@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateSalesforceTarget
+ * updateSalesforceTarget is a command that updates a new target. [Deprecated: Use target-update-salesforce command]
  */
+@ApiModel(description = "updateSalesforceTarget is a command that updates a new target. [Deprecated: Use target-update-salesforce command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateSalesforceTarget {
   public static final String SERIALIZED_NAME_APP_PRIVATE_KEY_DATA = "app-private-key-data";

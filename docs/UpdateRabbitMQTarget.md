@@ -2,6 +2,7 @@
 
 # UpdateRabbitMQTarget
 
+updateRabbitMQTarget is a command that updates a new target. [Deprecated: Use target-update-rabbitmq command]
 
 ## Properties
 

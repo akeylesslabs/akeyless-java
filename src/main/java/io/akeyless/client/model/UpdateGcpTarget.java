@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateGcpTarget
+ * updateGcpTarget is a command that updates an existing target. [Deprecated: Use target-update-gcp command]
  */
+@ApiModel(description = "updateGcpTarget is a command that updates an existing target. [Deprecated: Use target-update-gcp command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateGcpTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

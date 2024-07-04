@@ -2,6 +2,7 @@
 
 # CreateGlobalSignTarget
 
+createGlobalSignTarget is a command that creates a new target. [Deprecated: Use target-create-globalsign command]
 
 ## Properties
 

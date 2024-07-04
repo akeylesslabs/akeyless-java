@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateWebTarget
+ * createWebTarget is a command that creates a new target. [Deprecated: Use target-create-web command]
  */
+@ApiModel(description = "createWebTarget is a command that creates a new target. [Deprecated: Use target-create-web command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateWebTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateWindowsTarget
+ * createWindowsTarget is a command that creates a new windows target. [Deprecated: Use target-create-windows command]
  */
+@ApiModel(description = "createWindowsTarget is a command that creates a new windows target. [Deprecated: Use target-create-windows command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateWindowsTarget {
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";

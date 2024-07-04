@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateWebTarget
+ * updateWebTarget is a command that updates an existing target. [Deprecated: Use target-update-web command]
  */
+@ApiModel(description = "updateWebTarget is a command that updates an existing target. [Deprecated: Use target-update-web command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateWebTarget {
   public static final String SERIALIZED_NAME_COMMENT = "comment";

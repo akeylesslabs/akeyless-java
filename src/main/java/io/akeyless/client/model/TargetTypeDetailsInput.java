@@ -31,6 +31,7 @@ import io.akeyless.client.model.EKSTargetDetails;
 import io.akeyless.client.model.GKETargetDetails;
 import io.akeyless.client.model.GcpTargetDetails;
 import io.akeyless.client.model.GithubTargetDetails;
+import io.akeyless.client.model.GitlabTargetDetails;
 import io.akeyless.client.model.GlobalSignAtlasTargetDetails;
 import io.akeyless.client.model.GlobalSignGCCTargetDetails;
 import io.akeyless.client.model.GodaddyTargetDetails;
@@ -95,6 +96,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_GITHUB_TARGET_DETAILS = "github_target_details";
   @SerializedName(SERIALIZED_NAME_GITHUB_TARGET_DETAILS)
   private GithubTargetDetails githubTargetDetails;
+
+  public static final String SERIALIZED_NAME_GITLAB_TARGET_DETAILS = "gitlab_target_details";
+  @SerializedName(SERIALIZED_NAME_GITLAB_TARGET_DETAILS)
+  private GitlabTargetDetails gitlabTargetDetails;
 
   public static final String SERIALIZED_NAME_GKE_TARGET_DETAILS = "gke_target_details";
   @SerializedName(SERIALIZED_NAME_GKE_TARGET_DETAILS)
@@ -394,6 +399,29 @@ public class TargetTypeDetailsInput {
 
   public void setGithubTargetDetails(GithubTargetDetails githubTargetDetails) {
     this.githubTargetDetails = githubTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput gitlabTargetDetails(GitlabTargetDetails gitlabTargetDetails) {
+    
+    this.gitlabTargetDetails = gitlabTargetDetails;
+    return this;
+  }
+
+   /**
+   * Get gitlabTargetDetails
+   * @return gitlabTargetDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GitlabTargetDetails getGitlabTargetDetails() {
+    return gitlabTargetDetails;
+  }
+
+
+  public void setGitlabTargetDetails(GitlabTargetDetails gitlabTargetDetails) {
+    this.gitlabTargetDetails = gitlabTargetDetails;
   }
 
 
@@ -807,6 +835,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.eksTargetDetails, targetTypeDetailsInput.eksTargetDetails) &&
         Objects.equals(this.gcpTargetDetails, targetTypeDetailsInput.gcpTargetDetails) &&
         Objects.equals(this.githubTargetDetails, targetTypeDetailsInput.githubTargetDetails) &&
+        Objects.equals(this.gitlabTargetDetails, targetTypeDetailsInput.gitlabTargetDetails) &&
         Objects.equals(this.gkeTargetDetails, targetTypeDetailsInput.gkeTargetDetails) &&
         Objects.equals(this.globalsignAtlasTargetDetails, targetTypeDetailsInput.globalsignAtlasTargetDetails) &&
         Objects.equals(this.globalsignTargetDetails, targetTypeDetailsInput.globalsignTargetDetails) &&
@@ -828,7 +857,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -845,6 +874,7 @@ public class TargetTypeDetailsInput {
     sb.append("    eksTargetDetails: ").append(toIndentedString(eksTargetDetails)).append("\n");
     sb.append("    gcpTargetDetails: ").append(toIndentedString(gcpTargetDetails)).append("\n");
     sb.append("    githubTargetDetails: ").append(toIndentedString(githubTargetDetails)).append("\n");
+    sb.append("    gitlabTargetDetails: ").append(toIndentedString(gitlabTargetDetails)).append("\n");
     sb.append("    gkeTargetDetails: ").append(toIndentedString(gkeTargetDetails)).append("\n");
     sb.append("    globalsignAtlasTargetDetails: ").append(toIndentedString(globalsignAtlasTargetDetails)).append("\n");
     sb.append("    globalsignTargetDetails: ").append(toIndentedString(globalsignTargetDetails)).append("\n");

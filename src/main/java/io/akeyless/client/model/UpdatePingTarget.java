@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdatePingTarget
+ * updatePingTarget is a command that updates an existing target. [Deprecated: Use target-update-ping command]
  */
+@ApiModel(description = "updatePingTarget is a command that updates an existing target. [Deprecated: Use target-update-ping command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdatePingTarget {
   public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative-port";

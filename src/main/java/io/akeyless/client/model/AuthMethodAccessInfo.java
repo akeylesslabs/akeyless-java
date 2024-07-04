@@ -57,6 +57,10 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_API_KEY_ACCESS_RULES)
   private APIKeyAccessRules apiKeyAccessRules;
 
+  public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit_logs_claims";
+  @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
+  private List<String> auditLogsClaims = null;
+
   public static final String SERIALIZED_NAME_AWS_IAM_ACCESS_RULES = "aws_iam_access_rules";
   @SerializedName(SERIALIZED_NAME_AWS_IAM_ACCESS_RULES)
   private AWSIAMAccessRules awsIamAccessRules;
@@ -206,6 +210,37 @@ public class AuthMethodAccessInfo {
 
   public void setApiKeyAccessRules(APIKeyAccessRules apiKeyAccessRules) {
     this.apiKeyAccessRules = apiKeyAccessRules;
+  }
+
+
+  public AuthMethodAccessInfo auditLogsClaims(List<String> auditLogsClaims) {
+    
+    this.auditLogsClaims = auditLogsClaims;
+    return this;
+  }
+
+  public AuthMethodAccessInfo addAuditLogsClaimsItem(String auditLogsClaimsItem) {
+    if (this.auditLogsClaims == null) {
+      this.auditLogsClaims = new ArrayList<String>();
+    }
+    this.auditLogsClaims.add(auditLogsClaimsItem);
+    return this;
+  }
+
+   /**
+   * Get auditLogsClaims
+   * @return auditLogsClaims
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getAuditLogsClaims() {
+    return auditLogsClaims;
+  }
+
+
+  public void setAuditLogsClaims(List<String> auditLogsClaims) {
+    this.auditLogsClaims = auditLogsClaims;
   }
 
 
@@ -697,6 +732,7 @@ public class AuthMethodAccessInfo {
     return Objects.equals(this.accessExpires, authMethodAccessInfo.accessExpires) &&
         Objects.equals(this.accessIdAlias, authMethodAccessInfo.accessIdAlias) &&
         Objects.equals(this.apiKeyAccessRules, authMethodAccessInfo.apiKeyAccessRules) &&
+        Objects.equals(this.auditLogsClaims, authMethodAccessInfo.auditLogsClaims) &&
         Objects.equals(this.awsIamAccessRules, authMethodAccessInfo.awsIamAccessRules) &&
         Objects.equals(this.azureAdAccessRules, authMethodAccessInfo.azureAdAccessRules) &&
         Objects.equals(this.certAccessRules, authMethodAccessInfo.certAccessRules) &&
@@ -721,7 +757,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
   }
 
   @Override
@@ -731,6 +767,7 @@ public class AuthMethodAccessInfo {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    accessIdAlias: ").append(toIndentedString(accessIdAlias)).append("\n");
     sb.append("    apiKeyAccessRules: ").append(toIndentedString(apiKeyAccessRules)).append("\n");
+    sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    awsIamAccessRules: ").append(toIndentedString(awsIamAccessRules)).append("\n");
     sb.append("    azureAdAccessRules: ").append(toIndentedString(azureAdAccessRules)).append("\n");
     sb.append("    certAccessRules: ").append(toIndentedString(certAccessRules)).append("\n");

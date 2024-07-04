@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **useDefaultIdentityBool** | **Boolean** |  |  [optional]
 **accessId** | **String** | The access ID of the Kubernetes auth method |  [optional]
-**configEncryptionKeyName** | **String** | Config encryption key |  [optional]
 **disableIssuerValidation** | **String** | Disable issuer validation [true/false] |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **k8sAuthType** | **String** | K8S auth type [token/certificate]. (relevant for \&quot;native_k8s\&quot; only) |  [optional]

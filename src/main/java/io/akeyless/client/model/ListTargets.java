@@ -27,8 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ListTargets
+ * listTargets is a command that returns a list of targets. [Deprecated: Use target-list command]
  */
+@ApiModel(description = "listTargets is a command that returns a list of targets. [Deprecated: Use target-list command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListTargets {
   public static final String SERIALIZED_NAME_FILTER = "filter";

@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateSalesforceTarget
+ * createSalesforceTarget is a command that creates a new target. [Deprecated: Use target-create-salesforce command]
  */
+@ApiModel(description = "createSalesforceTarget is a command that creates a new target. [Deprecated: Use target-create-salesforce command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSalesforceTarget {
   public static final String SERIALIZED_NAME_APP_PRIVATE_KEY_DATA = "app-private-key-data";

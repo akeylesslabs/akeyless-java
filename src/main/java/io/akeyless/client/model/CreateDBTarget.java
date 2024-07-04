@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateDBTarget
+ * createDBTarget is a command that creates a new target. [Deprecated: Use target-create-db command]
  */
+@ApiModel(description = "createDBTarget is a command that creates a new target. [Deprecated: Use target-create-db command]")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDBTarget {
   public static final String SERIALIZED_NAME_DB_DEFINED_CONNECTION_TYPE = "DBDefinedConnectionType";
