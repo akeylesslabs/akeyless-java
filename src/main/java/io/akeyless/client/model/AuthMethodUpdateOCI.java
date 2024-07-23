@@ -44,6 +44,10 @@ public class AuthMethodUpdateOCI {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -177,6 +181,29 @@ public class AuthMethodUpdateOCI {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public AuthMethodUpdateOCI deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -489,6 +516,7 @@ public class AuthMethodUpdateOCI {
     return Objects.equals(this.accessExpires, authMethodUpdateOCI.accessExpires) &&
         Objects.equals(this.auditLogsClaims, authMethodUpdateOCI.auditLogsClaims) &&
         Objects.equals(this.boundIps, authMethodUpdateOCI.boundIps) &&
+        Objects.equals(this.deleteProtection, authMethodUpdateOCI.deleteProtection) &&
         Objects.equals(this.description, authMethodUpdateOCI.description) &&
         Objects.equals(this.forceSubClaims, authMethodUpdateOCI.forceSubClaims) &&
         Objects.equals(this.groupOcid, authMethodUpdateOCI.groupOcid) &&
@@ -505,7 +533,7 @@ public class AuthMethodUpdateOCI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, productType, tenantOcid, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, deleteProtection, description, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, productType, tenantOcid, token, uidToken);
   }
 
   @Override
@@ -515,6 +543,7 @@ public class AuthMethodUpdateOCI {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    groupOcid: ").append(toIndentedString(groupOcid)).append("\n");

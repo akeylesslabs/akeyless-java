@@ -8,7 +8,7 @@ dynamicSecretCreateK8s is a command that creates k8s dynamic secret
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **k8sAllowedNamespaces** | **String** | Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type&#x3D;dynamic) |  [optional]

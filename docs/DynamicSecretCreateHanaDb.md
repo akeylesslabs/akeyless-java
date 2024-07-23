@@ -8,7 +8,7 @@ dynamicSecretCreateHanaDb is a command that creates hanadb dynamic secret
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **hanaDbname** | **String** | HanaDb Name |  [optional]
 **hanadbCreateStatements** | **String** | HanaDb Creation statements |  [optional]

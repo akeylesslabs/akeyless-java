@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessMode** | **String** |  | 
 **adminEmail** | **String** | Admin user email | 
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
 **groupEmail** | **String** | A group email, relevant only for group access-mode |  [optional]

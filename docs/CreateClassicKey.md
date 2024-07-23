@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **certificateProvince** | **String** | Province name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateTtl** | **Long** | TTL in days for the generated certificate. Required only for generate-self-signed-certificate. |  [optional]
 **confFileData** | **String** | The csr config data in base64 encoding |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **generateSelfSignedCertificate** | **Boolean** | Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided. |  [optional]
 **gpgAlg** | **String** | gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519] |  [optional]

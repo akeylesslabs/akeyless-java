@@ -44,6 +44,10 @@ public class CreateAuthMethodEmail {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -169,6 +173,29 @@ public class CreateAuthMethodEmail {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public CreateAuthMethodEmail deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -430,6 +457,7 @@ public class CreateAuthMethodEmail {
     return Objects.equals(this.accessExpires, createAuthMethodEmail.accessExpires) &&
         Objects.equals(this.auditLogsClaims, createAuthMethodEmail.auditLogsClaims) &&
         Objects.equals(this.boundIps, createAuthMethodEmail.boundIps) &&
+        Objects.equals(this.deleteProtection, createAuthMethodEmail.deleteProtection) &&
         Objects.equals(this.description, createAuthMethodEmail.description) &&
         Objects.equals(this.email, createAuthMethodEmail.email) &&
         Objects.equals(this.forceSubClaims, createAuthMethodEmail.forceSubClaims) &&
@@ -444,7 +472,7 @@ public class CreateAuthMethodEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, email, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, deleteProtection, description, email, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -454,6 +482,7 @@ public class CreateAuthMethodEmail {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");

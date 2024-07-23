@@ -60,6 +60,10 @@ public class UpdateAuthMethodK8S {
   @SerializedName(SERIALIZED_NAME_BOUND_SA_NAMES)
   private List<String> boundSaNames = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -309,6 +313,29 @@ public class UpdateAuthMethodK8S {
 
   public void setBoundSaNames(List<String> boundSaNames) {
     this.boundSaNames = boundSaNames;
+  }
+
+
+  public UpdateAuthMethodK8S deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -620,6 +647,7 @@ public class UpdateAuthMethodK8S {
         Objects.equals(this.boundNamespaces, updateAuthMethodK8S.boundNamespaces) &&
         Objects.equals(this.boundPodNames, updateAuthMethodK8S.boundPodNames) &&
         Objects.equals(this.boundSaNames, updateAuthMethodK8S.boundSaNames) &&
+        Objects.equals(this.deleteProtection, updateAuthMethodK8S.deleteProtection) &&
         Objects.equals(this.description, updateAuthMethodK8S.description) &&
         Objects.equals(this.forceSubClaims, updateAuthMethodK8S.forceSubClaims) &&
         Objects.equals(this.genKey, updateAuthMethodK8S.genKey) &&
@@ -636,7 +664,7 @@ public class UpdateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, deleteProtection, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKey, token, uidToken);
   }
 
   @Override
@@ -650,6 +678,7 @@ public class UpdateAuthMethodK8S {
     sb.append("    boundNamespaces: ").append(toIndentedString(boundNamespaces)).append("\n");
     sb.append("    boundPodNames: ").append(toIndentedString(boundPodNames)).append("\n");
     sb.append("    boundSaNames: ").append(toIndentedString(boundSaNames)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");

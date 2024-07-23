@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] |  [optional]
 **awsRegion** | **String** | Aws Region (relevant only for aws) |  [optional]
 **customPayload** | **String** | Secret payload to be sent with rotation request (relevant only for rotator-type&#x3D;custom) |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
 **gcpServiceAccountEmail** | **String** | The email of the gcp service account to rotate |  [optional]

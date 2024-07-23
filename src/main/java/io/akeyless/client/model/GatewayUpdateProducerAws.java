@@ -128,6 +128,10 @@ public class GatewayUpdateProducerAws {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SESSION_TAGS = "session-tags";
+  @SerializedName(SERIALIZED_NAME_SESSION_TAGS)
+  private String sessionTags;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -139,6 +143,10 @@ public class GatewayUpdateProducerAws {
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
+  public static final String SERIALIZED_NAME_TRANSITIVE_TAG_KEYS = "transitive-tag-keys";
+  @SerializedName(SERIALIZED_NAME_TRANSITIVE_TAG_KEYS)
+  private String transitiveTagKeys;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -365,11 +373,11 @@ public class GatewayUpdateProducerAws {
   }
 
    /**
-   * Protection from accidental deletion of this item [true/false]
+   * Protection from accidental deletion of this object [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -703,6 +711,29 @@ public class GatewayUpdateProducerAws {
   }
 
 
+  public GatewayUpdateProducerAws sessionTags(String sessionTags) {
+    
+    this.sessionTags = sessionTags;
+    return this;
+  }
+
+   /**
+   * String of Key value session tags comma separated, relevant only for Assumed Role
+   * @return sessionTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "String of Key value session tags comma separated, relevant only for Assumed Role")
+
+  public String getSessionTags() {
+    return sessionTags;
+  }
+
+
+  public void setSessionTags(String sessionTags) {
+    this.sessionTags = sessionTags;
+  }
+
+
   public GatewayUpdateProducerAws tags(List<String> tags) {
     
     this.tags = tags;
@@ -777,6 +808,29 @@ public class GatewayUpdateProducerAws {
 
   public void setToken(String token) {
     this.token = token;
+  }
+
+
+  public GatewayUpdateProducerAws transitiveTagKeys(String transitiveTagKeys) {
+    
+    this.transitiveTagKeys = transitiveTagKeys;
+    return this;
+  }
+
+   /**
+   * String of transitive tag keys space separated, relevant only for Assumed Role
+   * @return transitiveTagKeys
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "String of transitive tag keys space separated, relevant only for Assumed Role")
+
+  public String getTransitiveTagKeys() {
+    return transitiveTagKeys;
+  }
+
+
+  public void setTransitiveTagKeys(String transitiveTagKeys) {
+    this.transitiveTagKeys = transitiveTagKeys;
   }
 
 
@@ -859,16 +913,18 @@ public class GatewayUpdateProducerAws {
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerAws.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayUpdateProducerAws.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, gatewayUpdateProducerAws.secureAccessWebProxy) &&
+        Objects.equals(this.sessionTags, gatewayUpdateProducerAws.sessionTags) &&
         Objects.equals(this.tags, gatewayUpdateProducerAws.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerAws.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerAws.token) &&
+        Objects.equals(this.transitiveTagKeys, gatewayUpdateProducerAws.transitiveTagKeys) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerAws.uidToken) &&
         Objects.equals(this.userTtl, gatewayUpdateProducerAws.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, json, name, newName, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, deleteProtection, enableAdminRotation, json, name, newName, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, tags, targetName, token, transitiveTagKeys, uidToken, userTtl);
   }
 
   @Override
@@ -899,9 +955,11 @@ public class GatewayUpdateProducerAws {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    sessionTags: ").append(toIndentedString(sessionTags)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    transitiveTagKeys: ").append(toIndentedString(transitiveTagKeys)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("}");

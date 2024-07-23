@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **certData** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) |  [optional]
 **cloudId** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp) |  [optional]
 **debug** | **Boolean** |  |  [optional]
-**gatewayUrl** | **String** | Gateway URL for the K8S/OAUTH2 authenticated (relevant only for access-type&#x3D;k8s/oauth2) |  [optional]
+**gatewayUrl** | **String** | Gateway URL relevant only for access-type&#x3D;k8s/oauth2/saml/oidc |  [optional]
 **gcpAudience** | **String** | GCP JWT audience |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **jwt** | **String** | The Json Web Token (relevant only for access-type&#x3D;jwt/oidc) |  [optional]
@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **ociAuthType** | **String** | The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type&#x3D;oci) |  [optional]
 **ociGroupOcid** | **List&lt;String&gt;** | A list of Oracle Cloud IDs groups (relevant only for access-type&#x3D;oci) |  [optional]
 **uidToken** | **String** | The universal_identity token (relevant only for access-type&#x3D;universal_identity) |  [optional]
+**useRemoteBrowser** | **Boolean** | Returns a link to complete the authentication remotely (relevant only for access-type&#x3D;saml/oidc) |  [optional]
 
 
 

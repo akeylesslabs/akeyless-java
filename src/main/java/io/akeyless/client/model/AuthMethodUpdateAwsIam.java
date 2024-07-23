@@ -72,6 +72,10 @@ public class AuthMethodUpdateAwsIam {
   @SerializedName(SERIALIZED_NAME_BOUND_USER_NAME)
   private List<String> boundUserName = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -418,6 +422,29 @@ public class AuthMethodUpdateAwsIam {
   }
 
 
+  public AuthMethodUpdateAwsIam deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
   public AuthMethodUpdateAwsIam description(String description) {
     
     this.description = description;
@@ -706,6 +733,7 @@ public class AuthMethodUpdateAwsIam {
         Objects.equals(this.boundRoleName, authMethodUpdateAwsIam.boundRoleName) &&
         Objects.equals(this.boundUserId, authMethodUpdateAwsIam.boundUserId) &&
         Objects.equals(this.boundUserName, authMethodUpdateAwsIam.boundUserName) &&
+        Objects.equals(this.deleteProtection, authMethodUpdateAwsIam.deleteProtection) &&
         Objects.equals(this.description, authMethodUpdateAwsIam.description) &&
         Objects.equals(this.forceSubClaims, authMethodUpdateAwsIam.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, authMethodUpdateAwsIam.gwBoundIps) &&
@@ -721,7 +749,7 @@ public class AuthMethodUpdateAwsIam {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken);
   }
 
   @Override
@@ -738,6 +766,7 @@ public class AuthMethodUpdateAwsIam {
     sb.append("    boundRoleName: ").append(toIndentedString(boundRoleName)).append("\n");
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

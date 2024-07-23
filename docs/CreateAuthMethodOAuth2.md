@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional]
 **cert** | **String** | CertificateFile Path to a file that contain the certificate in a PEM format. |  [optional]
 **certFileData** | **String** | CertificateFileData PEM Certificate in a Base64 format. |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **gatewayUrl** | **String** | Akeyless Gateway URL (Configuration Management port). Relevant only when the jwks-uri is accessible only from the gateway. |  [optional]

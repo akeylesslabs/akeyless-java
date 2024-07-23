@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **country** | **String** | A comma-separated list of countries that will be set in the issued certificate |  [optional]
 **createPrivateCrl** | **Boolean** | Set this to allow the issuer will expose a CRL endpoint in the Gateway |  [optional]
 **createPublicCrl** | **Boolean** | Set this to allow the cert issuer will expose a public CRL endpoint |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **destinationPath** | **String** | A path in which to save generated certificates |  [optional]
 **expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional]

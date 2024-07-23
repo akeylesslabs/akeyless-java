@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **boundNamespaces** | **List&lt;String&gt;** | A list of namespaces that the access is restricted to |  [optional]
 **boundPodNames** | **List&lt;String&gt;** | A list of pod names that the access is restricted to |  [optional]
 **boundSaNames** | **List&lt;String&gt;** | A list of service account names that the access is restricted to |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **genKey** | **String** | Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided [true/false] |  [optional]

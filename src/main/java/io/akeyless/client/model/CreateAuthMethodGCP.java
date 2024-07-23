@@ -68,6 +68,10 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_BOUND_ZONES)
   private List<String> boundZones = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -378,6 +382,29 @@ public class CreateAuthMethodGCP {
   }
 
 
+  public CreateAuthMethodGCP deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
   public CreateAuthMethodGCP description(String description) {
     
     this.description = description;
@@ -665,6 +692,7 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.boundRegions, createAuthMethodGCP.boundRegions) &&
         Objects.equals(this.boundServiceAccounts, createAuthMethodGCP.boundServiceAccounts) &&
         Objects.equals(this.boundZones, createAuthMethodGCP.boundZones) &&
+        Objects.equals(this.deleteProtection, createAuthMethodGCP.deleteProtection) &&
         Objects.equals(this.description, createAuthMethodGCP.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodGCP.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodGCP.gwBoundIps) &&
@@ -680,7 +708,7 @@ public class CreateAuthMethodGCP {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, serviceAccountCredsData, token, type, uidToken);
   }
 
   @Override
@@ -696,6 +724,7 @@ public class CreateAuthMethodGCP {
     sb.append("    boundRegions: ").append(toIndentedString(boundRegions)).append("\n");
     sb.append("    boundServiceAccounts: ").append(toIndentedString(boundServiceAccounts)).append("\n");
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

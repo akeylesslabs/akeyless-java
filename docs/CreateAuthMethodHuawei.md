@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **boundTenantName** | **List&lt;String&gt;** | A list of full tenant names that the access is restricted to |  [optional]
 **boundUserId** | **List&lt;String&gt;** | A list of full user ids that the access is restricted to |  [optional]
 **boundUserName** | **List&lt;String&gt;** | A list of full user-name that the access is restricted to |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Auth Method description |  [optional]
 **forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional]
 **gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional]

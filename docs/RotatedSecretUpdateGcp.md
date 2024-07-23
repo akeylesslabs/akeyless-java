@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional]
 **authenticationCredentials** | **String** | The credentials to connect with use-user-creds/use-target-creds |  [optional]
 **autoRotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **gcpKey** | **String** | Base64-encoded service account private key text |  [optional]
 **gcpServiceAccountEmail** | **String** | The email of the gcp service account to rotate |  [optional]

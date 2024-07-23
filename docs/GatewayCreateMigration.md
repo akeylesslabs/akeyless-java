@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **_1passwordSecretKey** | **String** | 1Password user secret key to connect to the API |  [optional]
 **_1passwordUrl** | **String** | 1Password api container url |  [optional]
 **_1passwordVaults** | **List&lt;String&gt;** | 1Password list of vault to get the items from |  [optional]
+**serviceAccountKeyDecoded** | **String** |  |  [optional]
 **adDiscoverServices** | **String** | Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration) |  [optional]
 **adDiscoveryTypes** | **List&lt;String&gt;** | Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration) |  [optional]
 **adOsFilter** | **String** | Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration) |  [optional]

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alphabet** | **String** | Alphabet to use in regexp vaultless tokenization |  [optional]
 **decodingTemplate** | **String** | The Decoding output template to use in regexp vaultless tokenization |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **encodingTemplate** | **String** | The Encoding output template to use in regexp vaultless tokenization |  [optional]
 **encryptionKeyName** | **String** | AES key name to use in vaultless tokenization |  [optional]

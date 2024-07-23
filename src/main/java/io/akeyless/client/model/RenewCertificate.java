@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RenewCertificate {
+  public static final String SERIALIZED_NAME_CERT_ISSUER_NAME = "cert-issuer-name";
+  @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
+  private String certIssuerName;
+
   public static final String SERIALIZED_NAME_GENERATE_KEY = "generate-key";
   @SerializedName(SERIALIZED_NAME_GENERATE_KEY)
   private Boolean generateKey;
@@ -55,6 +59,29 @@ public class RenewCertificate {
 
   public RenewCertificate() { 
   }
+
+  public RenewCertificate certIssuerName(String certIssuerName) {
+    
+    this.certIssuerName = certIssuerName;
+    return this;
+  }
+
+   /**
+   * The name of the PKI certificate issuer
+   * @return certIssuerName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the PKI certificate issuer")
+
+  public String getCertIssuerName() {
+    return certIssuerName;
+  }
+
+
+  public void setCertIssuerName(String certIssuerName) {
+    this.certIssuerName = certIssuerName;
+  }
+
 
   public RenewCertificate generateKey(Boolean generateKey) {
     
@@ -203,7 +230,8 @@ public class RenewCertificate {
       return false;
     }
     RenewCertificate renewCertificate = (RenewCertificate) o;
-    return Objects.equals(this.generateKey, renewCertificate.generateKey) &&
+    return Objects.equals(this.certIssuerName, renewCertificate.certIssuerName) &&
+        Objects.equals(this.generateKey, renewCertificate.generateKey) &&
         Objects.equals(this.itemId, renewCertificate.itemId) &&
         Objects.equals(this.json, renewCertificate.json) &&
         Objects.equals(this.name, renewCertificate.name) &&
@@ -213,13 +241,14 @@ public class RenewCertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(generateKey, itemId, json, name, token, uidToken);
+    return Objects.hash(certIssuerName, generateKey, itemId, json, name, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RenewCertificate {\n");
+    sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    generateKey: ").append(toIndentedString(generateKey)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

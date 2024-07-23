@@ -67,6 +67,10 @@ public class NotiForwarder {
   @SerializedName(SERIALIZED_NAME_GATEWAY_CLUSTER_ID)
   private Long gatewayClusterId;
 
+  public static final String SERIALIZED_NAME_INCLUDE_ERROR = "include_error";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_ERROR)
+  private Boolean includeError;
+
   public static final String SERIALIZED_NAME_IS_ENABLED = "is_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
   private Boolean isEnabled;
@@ -339,6 +343,29 @@ public class NotiForwarder {
 
   public void setGatewayClusterId(Long gatewayClusterId) {
     this.gatewayClusterId = gatewayClusterId;
+  }
+
+
+  public NotiForwarder includeError(Boolean includeError) {
+    
+    this.includeError = includeError;
+    return this;
+  }
+
+   /**
+   * Get includeError
+   * @return includeError
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIncludeError() {
+    return includeError;
+  }
+
+
+  public void setIncludeError(Boolean includeError) {
+    this.includeError = includeError;
   }
 
 
@@ -797,6 +824,7 @@ public class NotiForwarder {
         Objects.equals(this.endpoint, notiForwarder.endpoint) &&
         Objects.equals(this.eventTypes, notiForwarder.eventTypes) &&
         Objects.equals(this.gatewayClusterId, notiForwarder.gatewayClusterId) &&
+        Objects.equals(this.includeError, notiForwarder.includeError) &&
         Objects.equals(this.isEnabled, notiForwarder.isEnabled) &&
         Objects.equals(this.lastVersion, notiForwarder.lastVersion) &&
         Objects.equals(this.modificationDate, notiForwarder.modificationDate) &&
@@ -819,7 +847,7 @@ public class NotiForwarder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, overrideUrl, paths, protectionKey, runnerType, slackNotiForwarderPublicDetails, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
+    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, includeError, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, overrideUrl, paths, protectionKey, runnerType, slackNotiForwarderPublicDetails, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
   }
 
   @Override
@@ -834,6 +862,7 @@ public class NotiForwarder {
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
     sb.append("    gatewayClusterId: ").append(toIndentedString(gatewayClusterId)).append("\n");
+    sb.append("    includeError: ").append(toIndentedString(includeError)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");

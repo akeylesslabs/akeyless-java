@@ -89,6 +89,10 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_SERVICES_DETAILS)
   private List<WindowsService> servicesDetails = null;
 
+  public static final String SERIALIZED_NAME_TIMEOUT_SECONDS = "timeout_seconds";
+  @SerializedName(SERIALIZED_NAME_TIMEOUT_SECONDS)
+  private Long timeoutSeconds;
+
   public RotatedSecretDetailsInfo() { 
   }
 
@@ -422,6 +426,29 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo timeoutSeconds(Long timeoutSeconds) {
+    
+    this.timeoutSeconds = timeoutSeconds;
+    return this;
+  }
+
+   /**
+   * Get timeoutSeconds
+   * @return timeoutSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getTimeoutSeconds() {
+    return timeoutSeconds;
+  }
+
+
+  public void setTimeoutSeconds(Long timeoutSeconds) {
+    this.timeoutSeconds = timeoutSeconds;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -444,12 +471,13 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.rotatorStatus, rotatedSecretDetailsInfo.rotatorStatus) &&
         Objects.equals(this.rotatorType, rotatedSecretDetailsInfo.rotatorType) &&
         Objects.equals(this.samePassword, rotatedSecretDetailsInfo.samePassword) &&
-        Objects.equals(this.servicesDetails, rotatedSecretDetailsInfo.servicesDetails);
+        Objects.equals(this.servicesDetails, rotatedSecretDetailsInfo.servicesDetails) &&
+        Objects.equals(this.timeoutSeconds, rotatedSecretDetailsInfo.timeoutSeconds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, graceRotation, gwClusterId, lastRotationError, maxVersions, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails);
+    return Objects.hash(deletePreviousVersionInDays, graceRotation, gwClusterId, lastRotationError, maxVersions, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, timeoutSeconds);
   }
 
   @Override
@@ -470,6 +498,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
     sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
     sb.append("    servicesDetails: ").append(toIndentedString(servicesDetails)).append("\n");
+    sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **endpoint** | **String** |  |  [optional]
 **eventTypes** | **List&lt;String&gt;** |  |  [optional]
 **gatewayClusterId** | **Long** |  |  [optional]
+**includeError** | **Boolean** |  |  [optional]
 **isEnabled** | **Boolean** |  |  [optional]
 **lastVersion** | **Integer** |  |  [optional]
 **modificationDate** | **OffsetDateTime** |  |  [optional]

@@ -8,7 +8,7 @@ dynamicSecretCreateDockerhub is a command that creates a DOCKERHUB dynamic secre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **dockerhubPassword** | **String** | DockerhubPassword is either the user&#39;s password access token to manage the repository |  [optional]
 **dockerhubTokenScopes** | **String** | Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot; |  [optional]

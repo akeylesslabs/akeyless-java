@@ -84,6 +84,10 @@ public class CreateAuthMethodAzureAD {
   @SerializedName(SERIALIZED_NAME_BOUND_TENANT_ID)
   private String boundTenantId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -510,6 +514,29 @@ public class CreateAuthMethodAzureAD {
   }
 
 
+  public CreateAuthMethodAzureAD deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
   public CreateAuthMethodAzureAD description(String description) {
     
     this.description = description;
@@ -801,6 +828,7 @@ public class CreateAuthMethodAzureAD {
         Objects.equals(this.boundSpid, createAuthMethodAzureAD.boundSpid) &&
         Objects.equals(this.boundSubId, createAuthMethodAzureAD.boundSubId) &&
         Objects.equals(this.boundTenantId, createAuthMethodAzureAD.boundTenantId) &&
+        Objects.equals(this.deleteProtection, createAuthMethodAzureAD.deleteProtection) &&
         Objects.equals(this.description, createAuthMethodAzureAD.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodAzureAD.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodAzureAD.gwBoundIps) &&
@@ -816,7 +844,7 @@ public class CreateAuthMethodAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -836,6 +864,7 @@ public class CreateAuthMethodAzureAD {
     sb.append("    boundSpid: ").append(toIndentedString(boundSpid)).append("\n");
     sb.append("    boundSubId: ").append(toIndentedString(boundSubId)).append("\n");
     sb.append("    boundTenantId: ").append(toIndentedString(boundTenantId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

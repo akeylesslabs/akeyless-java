@@ -8,7 +8,7 @@ dynamicSecretCreateMongoDb is a command that creates either mongodb  dynamic sec
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **mongodbAtlasApiPrivateKey** | **String** | MongoDB Atlas private key |  [optional]

@@ -236,11 +236,11 @@ public class CreateSecret {
   }
 
    /**
-   * Protection from accidental deletion of this item [true/false]
+   * Protection from accidental deletion of this object [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;

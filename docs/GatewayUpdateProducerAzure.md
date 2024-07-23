@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **azureClientId** | **String** | Azure Client ID |  [optional]
 **azureClientSecret** | **String** | Azure Client Secret |  [optional]
 **azureTenantId** | **String** | Azure Tenant ID |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional]
 **fixedUserOnly** | **Boolean** | Fixed user |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

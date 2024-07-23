@@ -107,9 +107,17 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_AWS_SECRET_ACCESS_KEY)
   private String awsSecretAccessKey;
 
+  public static final String SERIALIZED_NAME_AWS_SESSION_TAGS = "aws_session_tags";
+  @SerializedName(SERIALIZED_NAME_AWS_SESSION_TAGS)
+  private String awsSessionTags;
+
   public static final String SERIALIZED_NAME_AWS_SESSION_TOKEN = "aws_session_token";
   @SerializedName(SERIALIZED_NAME_AWS_SESSION_TOKEN)
   private String awsSessionToken;
+
+  public static final String SERIALIZED_NAME_AWS_TRANSITIVE_TAG_KEYS = "aws_transitive_tag_keys";
+  @SerializedName(SERIALIZED_NAME_AWS_TRANSITIVE_TAG_KEYS)
+  private String awsTransitiveTagKeys;
 
   public static final String SERIALIZED_NAME_AWS_USER_CONSOLE_ACCESS = "aws_user_console_access";
   @SerializedName(SERIALIZED_NAME_AWS_USER_CONSOLE_ACCESS)
@@ -1408,6 +1416,29 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails awsSessionTags(String awsSessionTags) {
+    
+    this.awsSessionTags = awsSessionTags;
+    return this;
+  }
+
+   /**
+   * Get awsSessionTags
+   * @return awsSessionTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAwsSessionTags() {
+    return awsSessionTags;
+  }
+
+
+  public void setAwsSessionTags(String awsSessionTags) {
+    this.awsSessionTags = awsSessionTags;
+  }
+
+
   public DSProducerDetails awsSessionToken(String awsSessionToken) {
     
     this.awsSessionToken = awsSessionToken;
@@ -1428,6 +1459,29 @@ public class DSProducerDetails {
 
   public void setAwsSessionToken(String awsSessionToken) {
     this.awsSessionToken = awsSessionToken;
+  }
+
+
+  public DSProducerDetails awsTransitiveTagKeys(String awsTransitiveTagKeys) {
+    
+    this.awsTransitiveTagKeys = awsTransitiveTagKeys;
+    return this;
+  }
+
+   /**
+   * Get awsTransitiveTagKeys
+   * @return awsTransitiveTagKeys
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAwsTransitiveTagKeys() {
+    return awsTransitiveTagKeys;
+  }
+
+
+  public void setAwsTransitiveTagKeys(String awsTransitiveTagKeys) {
+    this.awsTransitiveTagKeys = awsTransitiveTagKeys;
   }
 
 
@@ -6576,7 +6630,9 @@ public class DSProducerDetails {
         Objects.equals(this.awsRegion, dsProducerDetails.awsRegion) &&
         Objects.equals(this.awsRoleArns, dsProducerDetails.awsRoleArns) &&
         Objects.equals(this.awsSecretAccessKey, dsProducerDetails.awsSecretAccessKey) &&
+        Objects.equals(this.awsSessionTags, dsProducerDetails.awsSessionTags) &&
         Objects.equals(this.awsSessionToken, dsProducerDetails.awsSessionToken) &&
+        Objects.equals(this.awsTransitiveTagKeys, dsProducerDetails.awsTransitiveTagKeys) &&
         Objects.equals(this.awsUserConsoleAccess, dsProducerDetails.awsUserConsoleAccess) &&
         Objects.equals(this.awsUserGroups, dsProducerDetails.awsUserGroups) &&
         Objects.equals(this.awsUserPolicies, dsProducerDetails.awsUserPolicies) &&
@@ -6799,7 +6855,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionToken, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, grantTypes, groups, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6824,7 +6880,9 @@ public class DSProducerDetails {
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    awsRoleArns: ").append(toIndentedString(awsRoleArns)).append("\n");
     sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");
+    sb.append("    awsSessionTags: ").append(toIndentedString(awsSessionTags)).append("\n");
     sb.append("    awsSessionToken: ").append(toIndentedString(awsSessionToken)).append("\n");
+    sb.append("    awsTransitiveTagKeys: ").append(toIndentedString(awsTransitiveTagKeys)).append("\n");
     sb.append("    awsUserConsoleAccess: ").append(toIndentedString(awsUserConsoleAccess)).append("\n");
     sb.append("    awsUserGroups: ").append(toIndentedString(awsUserGroups)).append("\n");
     sb.append("    awsUserPolicies: ").append(toIndentedString(awsUserPolicies)).append("\n");

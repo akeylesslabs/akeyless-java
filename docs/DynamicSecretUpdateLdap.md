@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **providerType** | **String** |  |  [optional]
 **bindDn** | **String** | Bind DN |  [optional]
 **bindDnPassword** | **String** | Bind DN Password |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **externalUsername** | **String** | Externally provided username [true/false] |  [optional]
 **groupDn** | **String** | Group DN which the temporary user should be added |  [optional]

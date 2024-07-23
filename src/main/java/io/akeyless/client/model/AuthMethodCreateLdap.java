@@ -44,6 +44,10 @@ public class AuthMethodCreateLdap {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -177,6 +181,29 @@ public class AuthMethodCreateLdap {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public AuthMethodCreateLdap deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -484,6 +511,7 @@ public class AuthMethodCreateLdap {
     return Objects.equals(this.accessExpires, authMethodCreateLdap.accessExpires) &&
         Objects.equals(this.auditLogsClaims, authMethodCreateLdap.auditLogsClaims) &&
         Objects.equals(this.boundIps, authMethodCreateLdap.boundIps) &&
+        Objects.equals(this.deleteProtection, authMethodCreateLdap.deleteProtection) &&
         Objects.equals(this.description, authMethodCreateLdap.description) &&
         Objects.equals(this.forceSubClaims, authMethodCreateLdap.forceSubClaims) &&
         Objects.equals(this.genKey, authMethodCreateLdap.genKey) &&
@@ -500,7 +528,7 @@ public class AuthMethodCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundIps, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, productType, publicKeyData, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, deleteProtection, description, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, productType, publicKeyData, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -510,6 +538,7 @@ public class AuthMethodCreateLdap {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    genKey: ").append(toIndentedString(genKey)).append("\n");

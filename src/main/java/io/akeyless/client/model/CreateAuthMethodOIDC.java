@@ -60,6 +60,10 @@ public class CreateAuthMethodOIDC {
   @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
   private String clientSecret;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -301,6 +305,29 @@ public class CreateAuthMethodOIDC {
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+
+  public CreateAuthMethodOIDC deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -674,6 +701,7 @@ public class CreateAuthMethodOIDC {
         Objects.equals(this.boundIps, createAuthMethodOIDC.boundIps) &&
         Objects.equals(this.clientId, createAuthMethodOIDC.clientId) &&
         Objects.equals(this.clientSecret, createAuthMethodOIDC.clientSecret) &&
+        Objects.equals(this.deleteProtection, createAuthMethodOIDC.deleteProtection) &&
         Objects.equals(this.description, createAuthMethodOIDC.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodOIDC.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodOIDC.gwBoundIps) &&
@@ -692,7 +720,7 @@ public class CreateAuthMethodOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, deleteProtection, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -706,6 +734,7 @@ public class CreateAuthMethodOIDC {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

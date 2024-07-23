@@ -8,7 +8,7 @@ gatewayCreateProducerHanaDb is a command that creates hanadb producer [Deprecate
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **hanaDbname** | **String** | HanaDb Name |  [optional]
 **hanadbCreateStatements** | **String** | HanaDb Creation statements |  [optional]
 **hanadbHost** | **String** | HanaDb Host |  [optional]

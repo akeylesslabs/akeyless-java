@@ -76,6 +76,10 @@ public class AuthMethodCreateCert {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DATA)
   private String certificateData;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -440,6 +444,29 @@ public class AuthMethodCreateCert {
   }
 
 
+  public AuthMethodCreateCert deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
   public AuthMethodCreateCert description(String description) {
     
     this.description = description;
@@ -737,6 +764,7 @@ public class AuthMethodCreateCert {
         Objects.equals(this.boundOrganizationalUnits, authMethodCreateCert.boundOrganizationalUnits) &&
         Objects.equals(this.boundUriSans, authMethodCreateCert.boundUriSans) &&
         Objects.equals(this.certificateData, authMethodCreateCert.certificateData) &&
+        Objects.equals(this.deleteProtection, authMethodCreateCert.deleteProtection) &&
         Objects.equals(this.description, authMethodCreateCert.description) &&
         Objects.equals(this.forceSubClaims, authMethodCreateCert.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, authMethodCreateCert.gwBoundIps) &&
@@ -752,7 +780,7 @@ public class AuthMethodCreateCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -770,6 +798,7 @@ public class AuthMethodCreateCert {
     sb.append("    boundOrganizationalUnits: ").append(toIndentedString(boundOrganizationalUnits)).append("\n");
     sb.append("    boundUriSans: ").append(toIndentedString(boundUriSans)).append("\n");
     sb.append("    certificateData: ").append(toIndentedString(certificateData)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

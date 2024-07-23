@@ -107,6 +107,10 @@ public class RotatedSecretUpdateAzure {
   @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
   private String rotationInterval;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DISABLE_CONCURRENT_CONNECTIONS = "secure-access-disable-concurrent-connections";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DISABLE_CONCURRENT_CONNECTIONS)
+  private Boolean secureAccessDisableConcurrentConnections;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
@@ -299,11 +303,11 @@ public class RotatedSecretUpdateAzure {
   }
 
    /**
-   * Protection from accidental deletion of this item [true/false]
+   * Protection from accidental deletion of this object [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -599,6 +603,29 @@ public class RotatedSecretUpdateAzure {
   }
 
 
+  public RotatedSecretUpdateAzure secureAccessDisableConcurrentConnections(Boolean secureAccessDisableConcurrentConnections) {
+    
+    this.secureAccessDisableConcurrentConnections = secureAccessDisableConcurrentConnections;
+    return this;
+  }
+
+   /**
+   * Enable this flag to prevent simultaneous use of the same secret
+   * @return secureAccessDisableConcurrentConnections
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable this flag to prevent simultaneous use of the same secret")
+
+  public Boolean getSecureAccessDisableConcurrentConnections() {
+    return secureAccessDisableConcurrentConnections;
+  }
+
+
+  public void setSecureAccessDisableConcurrentConnections(Boolean secureAccessDisableConcurrentConnections) {
+    this.secureAccessDisableConcurrentConnections = secureAccessDisableConcurrentConnections;
+  }
+
+
   public RotatedSecretUpdateAzure secureAccessEnable(String secureAccessEnable) {
     
     this.secureAccessEnable = secureAccessEnable;
@@ -834,6 +861,7 @@ public class RotatedSecretUpdateAzure {
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateAzure.rotateAfterDisconnect) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateAzure.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateAzure.rotationInterval) &&
+        Objects.equals(this.secureAccessDisableConcurrentConnections, rotatedSecretUpdateAzure.secureAccessDisableConcurrentConnections) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretUpdateAzure.secureAccessEnable) &&
         Objects.equals(this.secureAccessUrl, rotatedSecretUpdateAzure.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, rotatedSecretUpdateAzure.secureAccessWeb) &&
@@ -847,7 +875,7 @@ public class RotatedSecretUpdateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, username);
+    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, username);
   }
 
   @Override
@@ -873,6 +901,7 @@ public class RotatedSecretUpdateAzure {
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
+    sb.append("    secureAccessDisableConcurrentConnections: ").append(toIndentedString(secureAccessDisableConcurrentConnections)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");

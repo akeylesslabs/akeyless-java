@@ -60,6 +60,10 @@ public class AuthMethodCreateOauth2 {
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -305,6 +309,29 @@ public class AuthMethodCreateOauth2 {
 
   public void setCertFileData(String certFileData) {
     this.certFileData = certFileData;
+  }
+
+
+  public AuthMethodCreateOauth2 deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -693,6 +720,7 @@ public class AuthMethodCreateOauth2 {
         Objects.equals(this.boundIps, authMethodCreateOauth2.boundIps) &&
         Objects.equals(this.cert, authMethodCreateOauth2.cert) &&
         Objects.equals(this.certFileData, authMethodCreateOauth2.certFileData) &&
+        Objects.equals(this.deleteProtection, authMethodCreateOauth2.deleteProtection) &&
         Objects.equals(this.description, authMethodCreateOauth2.description) &&
         Objects.equals(this.forceSubClaims, authMethodCreateOauth2.forceSubClaims) &&
         Objects.equals(this.gatewayUrl, authMethodCreateOauth2.gatewayUrl) &&
@@ -712,7 +740,7 @@ public class AuthMethodCreateOauth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundClientIds, boundIps, cert, certFileData, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundClientIds, boundIps, cert, certFileData, deleteProtection, description, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -726,6 +754,7 @@ public class AuthMethodCreateOauth2 {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");

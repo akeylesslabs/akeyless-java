@@ -9,7 +9,7 @@ dynamicSecretCreateRedis is a command that creates Redis dynamic secret
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aclRules** | **String** | A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat By default the user will have permissions to read all keys &#39;[\&quot;~*\&quot;, \&quot;+@read\&quot;]&#39; |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **host** | **String** | Redis Host |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

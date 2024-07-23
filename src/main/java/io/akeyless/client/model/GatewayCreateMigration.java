@@ -52,6 +52,10 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_1PASSWORD_VAULTS)
   private List<String> _1passwordVaults = null;
 
+  public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_KEY_DECODED = "ServiceAccountKeyDecoded";
+  @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_KEY_DECODED)
+  private String serviceAccountKeyDecoded;
+
   public static final String SERIALIZED_NAME_AD_DISCOVER_SERVICES = "ad-discover-services";
   @SerializedName(SERIALIZED_NAME_AD_DISCOVER_SERVICES)
   private String adDiscoverServices = "false";
@@ -407,6 +411,29 @@ public class GatewayCreateMigration {
 
   public void set1passwordVaults(List<String> _1passwordVaults) {
     this._1passwordVaults = _1passwordVaults;
+  }
+
+
+  public GatewayCreateMigration serviceAccountKeyDecoded(String serviceAccountKeyDecoded) {
+    
+    this.serviceAccountKeyDecoded = serviceAccountKeyDecoded;
+    return this;
+  }
+
+   /**
+   * Get serviceAccountKeyDecoded
+   * @return serviceAccountKeyDecoded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getServiceAccountKeyDecoded() {
+    return serviceAccountKeyDecoded;
+  }
+
+
+  public void setServiceAccountKeyDecoded(String serviceAccountKeyDecoded) {
+    this.serviceAccountKeyDecoded = serviceAccountKeyDecoded;
   }
 
 
@@ -1798,6 +1825,7 @@ public class GatewayCreateMigration {
         Objects.equals(this._1passwordSecretKey, gatewayCreateMigration._1passwordSecretKey) &&
         Objects.equals(this._1passwordUrl, gatewayCreateMigration._1passwordUrl) &&
         Objects.equals(this._1passwordVaults, gatewayCreateMigration._1passwordVaults) &&
+        Objects.equals(this.serviceAccountKeyDecoded, gatewayCreateMigration.serviceAccountKeyDecoded) &&
         Objects.equals(this.adDiscoverServices, gatewayCreateMigration.adDiscoverServices) &&
         Objects.equals(this.adDiscoveryTypes, gatewayCreateMigration.adDiscoveryTypes) &&
         Objects.equals(this.adOsFilter, gatewayCreateMigration.adOsFilter) &&
@@ -1860,7 +1888,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetFormat, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
+    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, serviceAccountKeyDecoded, adDiscoverServices, adDiscoveryTypes, adOsFilter, adSshPort, adTargetFormat, adTargetsType, adWinrmOverHttp, adWinrmPort, adAutoRotate, adComputerBaseDn, adDiscoverLocalUsers, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adRotationHour, adRotationInterval, adSraEnableRdp, adTargetName, adTargetsPathTemplate, adUserBaseDn, adUserGroups, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
   }
 
   @Override
@@ -1872,6 +1900,7 @@ public class GatewayCreateMigration {
     sb.append("    _1passwordSecretKey: ").append(toIndentedString(_1passwordSecretKey)).append("\n");
     sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
     sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
+    sb.append("    serviceAccountKeyDecoded: ").append(toIndentedString(serviceAccountKeyDecoded)).append("\n");
     sb.append("    adDiscoverServices: ").append(toIndentedString(adDiscoverServices)).append("\n");
     sb.append("    adDiscoveryTypes: ").append(toIndentedString(adDiscoveryTypes)).append("\n");
     sb.append("    adOsFilter: ").append(toIndentedString(adOsFilter)).append("\n");

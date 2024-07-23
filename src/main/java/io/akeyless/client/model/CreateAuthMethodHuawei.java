@@ -72,6 +72,10 @@ public class CreateAuthMethodHuawei {
   @SerializedName(SERIALIZED_NAME_BOUND_USER_NAME)
   private List<String> boundUserName = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -405,6 +409,29 @@ public class CreateAuthMethodHuawei {
   }
 
 
+  public CreateAuthMethodHuawei deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
   public CreateAuthMethodHuawei description(String description) {
     
     this.description = description;
@@ -647,6 +674,7 @@ public class CreateAuthMethodHuawei {
         Objects.equals(this.boundTenantName, createAuthMethodHuawei.boundTenantName) &&
         Objects.equals(this.boundUserId, createAuthMethodHuawei.boundUserId) &&
         Objects.equals(this.boundUserName, createAuthMethodHuawei.boundUserName) &&
+        Objects.equals(this.deleteProtection, createAuthMethodHuawei.deleteProtection) &&
         Objects.equals(this.description, createAuthMethodHuawei.description) &&
         Objects.equals(this.forceSubClaims, createAuthMethodHuawei.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, createAuthMethodHuawei.gwBoundIps) &&
@@ -660,7 +688,7 @@ public class CreateAuthMethodHuawei {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, authUrl, boundDomainId, boundDomainName, boundIps, boundTenantId, boundTenantName, boundUserId, boundUserName, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
   }
 
   @Override
@@ -677,6 +705,7 @@ public class CreateAuthMethodHuawei {
     sb.append("    boundTenantName: ").append(toIndentedString(boundTenantName)).append("\n");
     sb.append("    boundUserId: ").append(toIndentedString(boundUserId)).append("\n");
     sb.append("    boundUserName: ").append(toIndentedString(boundUserName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

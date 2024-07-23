@@ -41,6 +41,10 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -150,6 +154,29 @@ public class CreateRole {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+
+  public CreateRole deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -395,6 +422,7 @@ public class CreateRole {
     return Objects.equals(this.analyticsAccess, createRole.analyticsAccess) &&
         Objects.equals(this.auditAccess, createRole.auditAccess) &&
         Objects.equals(this.comment, createRole.comment) &&
+        Objects.equals(this.deleteProtection, createRole.deleteProtection) &&
         Objects.equals(this.description, createRole.description) &&
         Objects.equals(this.eventCenterAccess, createRole.eventCenterAccess) &&
         Objects.equals(this.eventForwardersAccess, createRole.eventForwardersAccess) &&
@@ -409,7 +437,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, description, eventCenterAccess, eventForwardersAccess, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, gwAnalyticsAccess, json, name, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -419,6 +447,7 @@ public class CreateRole {
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eventCenterAccess: ").append(toIndentedString(eventCenterAccess)).append("\n");
     sb.append("    eventForwardersAccess: ").append(toIndentedString(eventForwardersAccess)).append("\n");

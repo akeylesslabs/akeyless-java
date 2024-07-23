@@ -30,6 +30,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AuthOutput {
+  public static final String SERIALIZED_NAME_COMPLETE_AUTH_LINK = "complete_auth_link";
+  @SerializedName(SERIALIZED_NAME_COMPLETE_AUTH_LINK)
+  private String completeAuthLink;
+
   public static final String SERIALIZED_NAME_CREDS = "creds";
   @SerializedName(SERIALIZED_NAME_CREDS)
   private SystemAccessCredentialsReplyObj creds;
@@ -40,6 +44,29 @@ public class AuthOutput {
 
   public AuthOutput() { 
   }
+
+  public AuthOutput completeAuthLink(String completeAuthLink) {
+    
+    this.completeAuthLink = completeAuthLink;
+    return this;
+  }
+
+   /**
+   * Get completeAuthLink
+   * @return completeAuthLink
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCompleteAuthLink() {
+    return completeAuthLink;
+  }
+
+
+  public void setCompleteAuthLink(String completeAuthLink) {
+    this.completeAuthLink = completeAuthLink;
+  }
+
 
   public AuthOutput creds(SystemAccessCredentialsReplyObj creds) {
     
@@ -96,19 +123,21 @@ public class AuthOutput {
       return false;
     }
     AuthOutput authOutput = (AuthOutput) o;
-    return Objects.equals(this.creds, authOutput.creds) &&
+    return Objects.equals(this.completeAuthLink, authOutput.completeAuthLink) &&
+        Objects.equals(this.creds, authOutput.creds) &&
         Objects.equals(this.token, authOutput.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creds, token);
+    return Objects.hash(completeAuthLink, creds, token);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthOutput {\n");
+    sb.append("    completeAuthLink: ").append(toIndentedString(completeAuthLink)).append("\n");
     sb.append("    creds: ").append(toIndentedString(creds)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");

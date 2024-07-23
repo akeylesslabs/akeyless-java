@@ -54,6 +54,10 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
   private OffsetDateTime creationDate;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private Boolean deleteProtection;
+
   public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
   private OffsetDateTime modificationDate;
@@ -196,6 +200,29 @@ public class Role {
   }
 
 
+  public Role deleteProtection(Boolean deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
+
   public Role modificationDate(OffsetDateTime modificationDate) {
     
     this.modificationDate = modificationDate;
@@ -310,6 +337,7 @@ public class Role {
         Objects.equals(this.clientPermissions, role.clientPermissions) &&
         Objects.equals(this.comment, role.comment) &&
         Objects.equals(this.creationDate, role.creationDate) &&
+        Objects.equals(this.deleteProtection, role.deleteProtection) &&
         Objects.equals(this.modificationDate, role.modificationDate) &&
         Objects.equals(this.roleAuthMethodsAssoc, role.roleAuthMethodsAssoc) &&
         Objects.equals(this.roleName, role.roleName) &&
@@ -318,7 +346,7 @@ public class Role {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, clientPermissions, comment, creationDate, modificationDate, roleAuthMethodsAssoc, roleName, rules);
+    return Objects.hash(accessDate, accessDateDisplay, clientPermissions, comment, creationDate, deleteProtection, modificationDate, roleAuthMethodsAssoc, roleName, rules);
   }
 
   @Override
@@ -330,6 +358,7 @@ public class Role {
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    roleAuthMethodsAssoc: ").append(toIndentedString(roleAuthMethodsAssoc)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");

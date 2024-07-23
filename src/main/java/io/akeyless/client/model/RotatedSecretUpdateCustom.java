@@ -143,6 +143,10 @@ public class RotatedSecretUpdateCustom {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_TIMEOUT_SEC = "timeout-sec";
+  @SerializedName(SERIALIZED_NAME_TIMEOUT_SEC)
+  private Long timeoutSec;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
@@ -261,11 +265,11 @@ public class RotatedSecretUpdateCustom {
   }
 
    /**
-   * Protection from accidental deletion of this item [true/false]
+   * Protection from accidental deletion of this object [true/false]
    * @return deleteProtection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Protection from accidental deletion of this item [true/false]")
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
 
   public String getDeleteProtection() {
     return deleteProtection;
@@ -822,6 +826,29 @@ public class RotatedSecretUpdateCustom {
   }
 
 
+  public RotatedSecretUpdateCustom timeoutSec(Long timeoutSec) {
+    
+    this.timeoutSec = timeoutSec;
+    return this;
+  }
+
+   /**
+   * Maximum allowed time in seconds for the custom rotator to return the results
+   * @return timeoutSec
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Maximum allowed time in seconds for the custom rotator to return the results")
+
+  public Long getTimeoutSec() {
+    return timeoutSec;
+  }
+
+
+  public void setTimeoutSec(Long timeoutSec) {
+    this.timeoutSec = timeoutSec;
+  }
+
+
   public RotatedSecretUpdateCustom token(String token) {
     
     this.token = token;
@@ -905,13 +932,14 @@ public class RotatedSecretUpdateCustom {
         Objects.equals(this.secureAccessWeb, rotatedSecretUpdateCustom.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, rotatedSecretUpdateCustom.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, rotatedSecretUpdateCustom.secureAccessWebProxy) &&
+        Objects.equals(this.timeoutSec, rotatedSecretUpdateCustom.timeoutSec) &&
         Objects.equals(this.token, rotatedSecretUpdateCustom.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateCustom.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, timeoutSec, token, uidToken);
   }
 
   @Override
@@ -946,6 +974,7 @@ public class RotatedSecretUpdateCustom {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    timeoutSec: ").append(toIndentedString(timeoutSec)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

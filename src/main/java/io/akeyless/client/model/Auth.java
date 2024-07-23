@@ -115,6 +115,10 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_REMOTE_BROWSER = "use-remote-browser";
+  @SerializedName(SERIALIZED_NAME_USE_REMOTE_BROWSER)
+  private Boolean useRemoteBrowser;
+
   public Auth() { 
   }
 
@@ -332,11 +336,11 @@ public class Auth {
   }
 
    /**
-   * Gateway URL for the K8S/OAUTH2 authenticated (relevant only for access-type&#x3D;k8s/oauth2)
+   * Gateway URL relevant only for access-type&#x3D;k8s/oauth2/saml/oidc
    * @return gatewayUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway URL for the K8S/OAUTH2 authenticated (relevant only for access-type=k8s/oauth2)")
+  @ApiModelProperty(value = "Gateway URL relevant only for access-type=k8s/oauth2/saml/oidc")
 
   public String getGatewayUrl() {
     return gatewayUrl;
@@ -609,6 +613,29 @@ public class Auth {
   }
 
 
+  public Auth useRemoteBrowser(Boolean useRemoteBrowser) {
+    
+    this.useRemoteBrowser = useRemoteBrowser;
+    return this;
+  }
+
+   /**
+   * Returns a link to complete the authentication remotely (relevant only for access-type&#x3D;saml/oidc)
+   * @return useRemoteBrowser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Returns a link to complete the authentication remotely (relevant only for access-type=saml/oidc)")
+
+  public Boolean getUseRemoteBrowser() {
+    return useRemoteBrowser;
+  }
+
+
+  public void setUseRemoteBrowser(Boolean useRemoteBrowser) {
+    this.useRemoteBrowser = useRemoteBrowser;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -638,12 +665,13 @@ public class Auth {
         Objects.equals(this.ldapUsername, auth.ldapUsername) &&
         Objects.equals(this.ociAuthType, auth.ociAuthType) &&
         Objects.equals(this.ociGroupOcid, auth.ociGroupOcid) &&
-        Objects.equals(this.uidToken, auth.uidToken);
+        Objects.equals(this.uidToken, auth.uidToken) &&
+        Objects.equals(this.useRemoteBrowser, auth.useRemoteBrowser);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certData, cloudId, debug, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, ociAuthType, ociGroupOcid, uidToken);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certData, cloudId, debug, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, ociAuthType, ociGroupOcid, uidToken, useRemoteBrowser);
   }
 
   @Override
@@ -671,6 +699,7 @@ public class Auth {
     sb.append("    ociAuthType: ").append(toIndentedString(ociAuthType)).append("\n");
     sb.append("    ociGroupOcid: ").append(toIndentedString(ociGroupOcid)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useRemoteBrowser: ").append(toIndentedString(useRemoteBrowser)).append("\n");
     sb.append("}");
     return sb.toString();
   }

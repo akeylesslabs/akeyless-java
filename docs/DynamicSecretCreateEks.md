@@ -8,7 +8,7 @@ dynamicSecretCreateEks is a command that creates eks dynamic secret
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **eksAccessKeyId** | **String** | Access Key ID |  [optional]
 **eksAssumeRole** | **String** | IAM assume role |  [optional]

@@ -44,6 +44,10 @@ public class UpdateAuthMethodUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   private List<String> boundIps = null;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DENY_INHERITANCE = "deny-inheritance";
   @SerializedName(SERIALIZED_NAME_DENY_INHERITANCE)
   private Boolean denyInheritance;
@@ -181,6 +185,29 @@ public class UpdateAuthMethodUniversalIdentity {
 
   public void setBoundIps(List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public UpdateAuthMethodUniversalIdentity deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -511,6 +538,7 @@ public class UpdateAuthMethodUniversalIdentity {
     return Objects.equals(this.accessExpires, updateAuthMethodUniversalIdentity.accessExpires) &&
         Objects.equals(this.auditLogsClaims, updateAuthMethodUniversalIdentity.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodUniversalIdentity.boundIps) &&
+        Objects.equals(this.deleteProtection, updateAuthMethodUniversalIdentity.deleteProtection) &&
         Objects.equals(this.denyInheritance, updateAuthMethodUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, updateAuthMethodUniversalIdentity.denyRotate) &&
         Objects.equals(this.description, updateAuthMethodUniversalIdentity.description) &&
@@ -528,7 +556,7 @@ public class UpdateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundIps, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundIps, deleteProtection, denyInheritance, denyRotate, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
   }
 
   @Override
@@ -538,6 +566,7 @@ public class UpdateAuthMethodUniversalIdentity {
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

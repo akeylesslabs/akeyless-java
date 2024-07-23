@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **certificateTtl** | **Long** | TTL in days for the generated certificate. Required only for generate-self-signed-certificate. |  [optional]
 **confFileData** | **String** | The csr config data in base64 encoding |  [optional]
 **customerFrgId** | **String** | The customer fragment ID that will be used to create the DFC key (if empty, the key will be created independently of a customer fragment) |  [optional]
-**deleteProtection** | **String** | Protection from accidental deletion of this item [true/false] |  [optional]
+**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
 **generateSelfSignedCertificate** | **Boolean** | Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided. |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

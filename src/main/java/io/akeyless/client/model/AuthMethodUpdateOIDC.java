@@ -60,6 +60,10 @@ public class AuthMethodUpdateOIDC {
   @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
   private String clientSecret;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -305,6 +309,29 @@ public class AuthMethodUpdateOIDC {
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+
+  public AuthMethodUpdateOIDC deleteProtection(String deleteProtection) {
+    
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Protection from accidental deletion of this object [true/false]")
+
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -701,6 +728,7 @@ public class AuthMethodUpdateOIDC {
         Objects.equals(this.boundIps, authMethodUpdateOIDC.boundIps) &&
         Objects.equals(this.clientId, authMethodUpdateOIDC.clientId) &&
         Objects.equals(this.clientSecret, authMethodUpdateOIDC.clientSecret) &&
+        Objects.equals(this.deleteProtection, authMethodUpdateOIDC.deleteProtection) &&
         Objects.equals(this.description, authMethodUpdateOIDC.description) &&
         Objects.equals(this.forceSubClaims, authMethodUpdateOIDC.forceSubClaims) &&
         Objects.equals(this.gwBoundIps, authMethodUpdateOIDC.gwBoundIps) &&
@@ -720,7 +748,7 @@ public class AuthMethodUpdateOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, deleteProtection, description, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -734,6 +762,7 @@ public class AuthMethodUpdateOIDC {
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");

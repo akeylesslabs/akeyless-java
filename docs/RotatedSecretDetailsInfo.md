@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **rotatorType** | **String** |  |  [optional]
 **samePassword** | **Boolean** |  |  [optional]
 **servicesDetails** | [**List&lt;WindowsService&gt;**](WindowsService.md) |  |  [optional]
+**timeoutSeconds** | **Long** |  |  [optional]
 
 
 
