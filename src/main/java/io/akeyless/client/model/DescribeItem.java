@@ -37,6 +37,10 @@ public class DescribeItem {
   @SerializedName(SERIALIZED_NAME_BASTION_DETAILS)
   private Boolean bastionDetails = false;
 
+  public static final String SERIALIZED_NAME_DER_CERTIFICATE_FORMAT = "der-certificate-format";
+  @SerializedName(SERIALIZED_NAME_DER_CERTIFICATE_FORMAT)
+  private Boolean derCertificateFormat = false;
+
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
@@ -119,6 +123,29 @@ public class DescribeItem {
 
   public void setBastionDetails(Boolean bastionDetails) {
     this.bastionDetails = bastionDetails;
+  }
+
+
+  public DescribeItem derCertificateFormat(Boolean derCertificateFormat) {
+    
+    this.derCertificateFormat = derCertificateFormat;
+    return this;
+  }
+
+   /**
+   * The certificate will be displayed in DER format
+   * @return derCertificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The certificate will be displayed in DER format")
+
+  public Boolean getDerCertificateFormat() {
+    return derCertificateFormat;
+  }
+
+
+  public void setDerCertificateFormat(Boolean derCertificateFormat) {
+    this.derCertificateFormat = derCertificateFormat;
   }
 
 
@@ -340,6 +367,7 @@ public class DescribeItem {
     DescribeItem describeItem = (DescribeItem) o;
     return Objects.equals(this.accessibility, describeItem.accessibility) &&
         Objects.equals(this.bastionDetails, describeItem.bastionDetails) &&
+        Objects.equals(this.derCertificateFormat, describeItem.derCertificateFormat) &&
         Objects.equals(this.displayId, describeItem.displayId) &&
         Objects.equals(this.gatewayDetails, describeItem.gatewayDetails) &&
         Objects.equals(this.itemId, describeItem.itemId) &&
@@ -353,7 +381,7 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, bastionDetails, displayId, gatewayDetails, itemId, json, name, servicesDetails, showVersions, token, uidToken);
+    return Objects.hash(accessibility, bastionDetails, derCertificateFormat, displayId, gatewayDetails, itemId, json, name, servicesDetails, showVersions, token, uidToken);
   }
 
   @Override
@@ -362,6 +390,7 @@ public class DescribeItem {
     sb.append("class DescribeItem {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    bastionDetails: ").append(toIndentedString(bastionDetails)).append("\n");
+    sb.append("    derCertificateFormat: ").append(toIndentedString(derCertificateFormat)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");

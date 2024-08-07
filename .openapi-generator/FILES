@@ -71,6 +71,8 @@ docs/AzurePayload.md
 docs/AzureTargetDetails.md
 docs/BastionListEntry.md
 docs/BastionsList.md
+docs/BatchEncryptionRequestLine.md
+docs/BatchEncryptionResponseLine.md
 docs/CFConfigPart.md
 docs/CacheConfigPart.md
 docs/CertAccessRules.md
@@ -1102,6 +1104,8 @@ src/main/java/io/akeyless/client/model/AzurePayload.java
 src/main/java/io/akeyless/client/model/AzureTargetDetails.java
 src/main/java/io/akeyless/client/model/BastionListEntry.java
 src/main/java/io/akeyless/client/model/BastionsList.java
+src/main/java/io/akeyless/client/model/BatchEncryptionRequestLine.java
+src/main/java/io/akeyless/client/model/BatchEncryptionResponseLine.java
 src/main/java/io/akeyless/client/model/CFConfigPart.java
 src/main/java/io/akeyless/client/model/CacheConfigPart.java
 src/main/java/io/akeyless/client/model/CertAccessRules.java
@@ -2038,3 +2042,5 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/BatchEncryptionRequestLineTest.java
+src/test/java/io/akeyless/client/model/BatchEncryptionResponseLineTest.java

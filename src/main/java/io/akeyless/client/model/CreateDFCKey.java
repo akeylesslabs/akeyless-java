@@ -47,6 +47,10 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DIGEST_ALGO)
   private String certificateDigestAlgo;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  private String certificateFormat;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_LOCALITY = "certificate-locality";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_LOCALITY)
   private String certificateLocality;
@@ -203,6 +207,29 @@ public class CreateDFCKey {
 
   public void setCertificateDigestAlgo(String certificateDigestAlgo) {
     this.certificateDigestAlgo = certificateDigestAlgo;
+  }
+
+
+  public CreateDFCKey certificateFormat(String certificateFormat) {
+    
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+   /**
+   * Get certificateFormat
+   * @return certificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+
+  public void setCertificateFormat(String certificateFormat) {
+    this.certificateFormat = certificateFormat;
   }
 
 
@@ -595,6 +622,7 @@ public class CreateDFCKey {
         Objects.equals(this.certificateCommonName, createDFCKey.certificateCommonName) &&
         Objects.equals(this.certificateCountry, createDFCKey.certificateCountry) &&
         Objects.equals(this.certificateDigestAlgo, createDFCKey.certificateDigestAlgo) &&
+        Objects.equals(this.certificateFormat, createDFCKey.certificateFormat) &&
         Objects.equals(this.certificateLocality, createDFCKey.certificateLocality) &&
         Objects.equals(this.certificateOrganization, createDFCKey.certificateOrganization) &&
         Objects.equals(this.certificateProvince, createDFCKey.certificateProvince) &&
@@ -615,7 +643,7 @@ public class CreateDFCKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, generateSelfSignedCertificate, json, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, generateSelfSignedCertificate, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -626,6 +654,7 @@ public class CreateDFCKey {
     sb.append("    certificateCommonName: ").append(toIndentedString(certificateCommonName)).append("\n");
     sb.append("    certificateCountry: ").append(toIndentedString(certificateCountry)).append("\n");
     sb.append("    certificateDigestAlgo: ").append(toIndentedString(certificateDigestAlgo)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    certificateLocality: ").append(toIndentedString(certificateLocality)).append("\n");
     sb.append("    certificateOrganization: ").append(toIndentedString(certificateOrganization)).append("\n");
     sb.append("    certificateProvince: ").append(toIndentedString(certificateProvince)).append("\n");

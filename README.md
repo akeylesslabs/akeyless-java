@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createZeroSSLTarget**](docs/V2Api.md#createZeroSSLTarget) | **POST** /create-zerossl-target | 
 *V2Api* | [**createldapTarget**](docs/V2Api.md#createldapTarget) | **POST** /create-ldap-target | 
 *V2Api* | [**decrypt**](docs/V2Api.md#decrypt) | **POST** /decrypt | 
+*V2Api* | [**decryptBatch**](docs/V2Api.md#decryptBatch) | **POST** /decrypt-batch | 
 *V2Api* | [**decryptGPG**](docs/V2Api.md#decryptGPG) | **POST** /decrypt-gpg | 
 *V2Api* | [**decryptPKCS1**](docs/V2Api.md#decryptPKCS1) | **POST** /decrypt-pkcs1 | 
 *V2Api* | [**decryptWithClassicKey**](docs/V2Api.md#decryptWithClassicKey) | **POST** /decrypt-with-classic-key | 
@@ -281,6 +282,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretUpdateSnowflake**](docs/V2Api.md#dynamicSecretUpdateSnowflake) | **POST** /dynamic-secret-update-snowflake | 
 *V2Api* | [**dynamicSecretUpdateVenafi**](docs/V2Api.md#dynamicSecretUpdateVenafi) | **POST** /dynamic-secret-update-venafi | 
 *V2Api* | [**encrypt**](docs/V2Api.md#encrypt) | **POST** /encrypt | 
+*V2Api* | [**encryptBatch**](docs/V2Api.md#encryptBatch) | **POST** /encrypt-batch | 
 *V2Api* | [**encryptGPG**](docs/V2Api.md#encryptGPG) | **POST** /encrypt-gpg | 
 *V2Api* | [**encryptWithClassicKey**](docs/V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
 *V2Api* | [**esmCreate**](docs/V2Api.md#esmCreate) | **POST** /esm-create | 
@@ -707,6 +709,8 @@ Class | Method | HTTP request | Description
  - [AzureTargetDetails](docs/AzureTargetDetails.md)
  - [BastionListEntry](docs/BastionListEntry.md)
  - [BastionsList](docs/BastionsList.md)
+ - [BatchEncryptionRequestLine](docs/BatchEncryptionRequestLine.md)
+ - [BatchEncryptionResponseLine](docs/BatchEncryptionResponseLine.md)
  - [CFConfigPart](docs/CFConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
  - [CertAccessRules](docs/CertAccessRules.md)

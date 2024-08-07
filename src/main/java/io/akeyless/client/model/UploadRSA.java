@@ -39,6 +39,10 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  private String certificateFormat;
+
   public static final String SERIALIZED_NAME_CUSTOMER_FRG_ID = "customer-frg-id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
   private String customerFrgId;
@@ -133,6 +137,29 @@ public class UploadRSA {
 
   public void setCertFileData(String certFileData) {
     this.certFileData = certFileData;
+  }
+
+
+  public UploadRSA certificateFormat(String certificateFormat) {
+    
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+   /**
+   * Get certificateFormat
+   * @return certificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+
+  public void setCertificateFormat(String certificateFormat) {
+    this.certificateFormat = certificateFormat;
   }
 
 
@@ -431,6 +458,7 @@ public class UploadRSA {
     UploadRSA uploadRSA = (UploadRSA) o;
     return Objects.equals(this.alg, uploadRSA.alg) &&
         Objects.equals(this.certFileData, uploadRSA.certFileData) &&
+        Objects.equals(this.certificateFormat, uploadRSA.certificateFormat) &&
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
         Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
         Objects.equals(this.description, uploadRSA.description) &&
@@ -447,7 +475,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, customerFrgId, deleteProtection, description, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, certificateFormat, customerFrgId, deleteProtection, description, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -456,6 +484,7 @@ public class UploadRSA {
     sb.append("class UploadRSA {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

@@ -52,6 +52,10 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DIGEST_ALGO)
   private String certificateDigestAlgo;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  private String certificateFormat;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_LOCALITY = "certificate-locality";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_LOCALITY)
   private String certificateLocality;
@@ -235,6 +239,29 @@ public class CreateClassicKey {
 
   public void setCertificateDigestAlgo(String certificateDigestAlgo) {
     this.certificateDigestAlgo = certificateDigestAlgo;
+  }
+
+
+  public CreateClassicKey certificateFormat(String certificateFormat) {
+    
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+   /**
+   * Get certificateFormat
+   * @return certificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+
+  public void setCertificateFormat(String certificateFormat) {
+    this.certificateFormat = certificateFormat;
   }
 
 
@@ -651,6 +678,7 @@ public class CreateClassicKey {
         Objects.equals(this.certificateCommonName, createClassicKey.certificateCommonName) &&
         Objects.equals(this.certificateCountry, createClassicKey.certificateCountry) &&
         Objects.equals(this.certificateDigestAlgo, createClassicKey.certificateDigestAlgo) &&
+        Objects.equals(this.certificateFormat, createClassicKey.certificateFormat) &&
         Objects.equals(this.certificateLocality, createClassicKey.certificateLocality) &&
         Objects.equals(this.certificateOrganization, createClassicKey.certificateOrganization) &&
         Objects.equals(this.certificateProvince, createClassicKey.certificateProvince) &&
@@ -672,7 +700,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
+    return Objects.hash(alg, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
   }
 
   @Override
@@ -684,6 +712,7 @@ public class CreateClassicKey {
     sb.append("    certificateCommonName: ").append(toIndentedString(certificateCommonName)).append("\n");
     sb.append("    certificateCountry: ").append(toIndentedString(certificateCountry)).append("\n");
     sb.append("    certificateDigestAlgo: ").append(toIndentedString(certificateDigestAlgo)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    certificateLocality: ").append(toIndentedString(certificateLocality)).append("\n");
     sb.append("    certificateOrganization: ").append(toIndentedString(certificateOrganization)).append("\n");
     sb.append("    certificateProvince: ").append(toIndentedString(certificateProvince)).append("\n");

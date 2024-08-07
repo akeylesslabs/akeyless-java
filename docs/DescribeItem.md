@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
 **bastionDetails** | **Boolean** | Indicate if the item should return with ztb cluster details (url, etc) |  [optional]
+**derCertificateFormat** | **Boolean** | The certificate will be displayed in DER format |  [optional]
 **displayId** | **String** | The display id of the item |  [optional]
 **gatewayDetails** | **Boolean** | Indicate if the item should return with clusters details (url, etc) |  [optional]
 **itemId** | **Long** | Item id of the item |  [optional]

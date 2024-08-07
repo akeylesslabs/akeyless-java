@@ -94,6 +94,7 @@ Method | HTTP request | Description
 [**createZeroSSLTarget**](V2Api.md#createZeroSSLTarget) | **POST** /create-zerossl-target | 
 [**createldapTarget**](V2Api.md#createldapTarget) | **POST** /create-ldap-target | 
 [**decrypt**](V2Api.md#decrypt) | **POST** /decrypt | 
+[**decryptBatch**](V2Api.md#decryptBatch) | **POST** /decrypt-batch | 
 [**decryptGPG**](V2Api.md#decryptGPG) | **POST** /decrypt-gpg | 
 [**decryptPKCS1**](V2Api.md#decryptPKCS1) | **POST** /decrypt-pkcs1 | 
 [**decryptWithClassicKey**](V2Api.md#decryptWithClassicKey) | **POST** /decrypt-with-classic-key | 
@@ -180,6 +181,7 @@ Method | HTTP request | Description
 [**dynamicSecretUpdateSnowflake**](V2Api.md#dynamicSecretUpdateSnowflake) | **POST** /dynamic-secret-update-snowflake | 
 [**dynamicSecretUpdateVenafi**](V2Api.md#dynamicSecretUpdateVenafi) | **POST** /dynamic-secret-update-venafi | 
 [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt | 
+[**encryptBatch**](V2Api.md#encryptBatch) | **POST** /encrypt-batch | 
 [**encryptGPG**](V2Api.md#encryptGPG) | **POST** /encrypt-gpg | 
 [**encryptWithClassicKey**](V2Api.md#encryptWithClassicKey) | **POST** /encrypt-with-classic-key | 
 [**esmCreate**](V2Api.md#esmCreate) | **POST** /esm-create | 
@@ -6028,6 +6030,67 @@ No authorization required
 **200** | decryptResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="decryptBatch"></a>
+# **decryptBatch**
+> DecryptOutput decryptBatch(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    List<BatchEncryptionRequestLine> body = Arrays.asList(); // List<BatchEncryptionRequestLine> | 
+    try {
+      DecryptOutput result = apiInstance.decryptBatch(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#decryptBatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**List&lt;BatchEncryptionRequestLine&gt;**](BatchEncryptionRequestLine.md)|  |
+
+### Return type
+
+[**DecryptOutput**](DecryptOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | decryptResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="decryptGPG"></a>
 # **decryptGPG**
 > DecryptGPGOutput decryptGPG(body)
@@ -11253,6 +11316,67 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Encrypt**](Encrypt.md)|  |
+
+### Return type
+
+[**EncryptOutput**](EncryptOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | encryptResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="encryptBatch"></a>
+# **encryptBatch**
+> EncryptOutput encryptBatch(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    List<BatchEncryptionRequestLine> body = Arrays.asList(); // List<BatchEncryptionRequestLine> | 
+    try {
+      EncryptOutput result = apiInstance.encryptBatch(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#encryptBatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**List&lt;BatchEncryptionRequestLine&gt;**](BatchEncryptionRequestLine.md)|  |
 
 ### Return type
 

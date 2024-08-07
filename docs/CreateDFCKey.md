@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **certificateCommonName** | **String** | Common name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateCountry** | **String** | Country name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateDigestAlgo** | **String** | Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI. |  [optional]
+**certificateFormat** | **String** |  |  [optional]
 **certificateLocality** | **String** | Locality for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateOrganization** | **String** | Organization name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]
 **certificateProvince** | **String** | Province name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional]

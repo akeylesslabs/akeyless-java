@@ -49,6 +49,10 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_CHAIN_INFO)
   private CertificateChainInfo certificateChainInfo;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate_format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  private String certificateFormat;
+
   public static final String SERIALIZED_NAME_CERTIFICATES_TEMPLATE_INFO = "certificates_template_info";
   @SerializedName(SERIALIZED_NAME_CERTIFICATES_TEMPLATE_INFO)
   private CertificateTemplateInfo certificatesTemplateInfo;
@@ -143,6 +147,29 @@ public class ItemGeneralInfo {
 
   public void setCertificateChainInfo(CertificateChainInfo certificateChainInfo) {
     this.certificateChainInfo = certificateChainInfo;
+  }
+
+
+  public ItemGeneralInfo certificateFormat(String certificateFormat) {
+    
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+   /**
+   * Get certificateFormat
+   * @return certificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+
+  public void setCertificateFormat(String certificateFormat) {
+    this.certificateFormat = certificateFormat;
   }
 
 
@@ -433,6 +460,7 @@ public class ItemGeneralInfo {
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
     return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.certificateChainInfo, itemGeneralInfo.certificateChainInfo) &&
+        Objects.equals(this.certificateFormat, itemGeneralInfo.certificateFormat) &&
         Objects.equals(this.certificatesTemplateInfo, itemGeneralInfo.certificatesTemplateInfo) &&
         Objects.equals(this.classicKeyDetails, itemGeneralInfo.classicKeyDetails) &&
         Objects.equals(this.clusterGwUrl, itemGeneralInfo.clusterGwUrl) &&
@@ -449,7 +477,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, certificateChainInfo, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
@@ -458,6 +486,7 @@ public class ItemGeneralInfo {
     sb.append("class ItemGeneralInfo {\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    certificateChainInfo: ").append(toIndentedString(certificateChainInfo)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    certificatesTemplateInfo: ").append(toIndentedString(certificatesTemplateInfo)).append("\n");
     sb.append("    classicKeyDetails: ").append(toIndentedString(classicKeyDetails)).append("\n");
     sb.append("    clusterGwUrl: ").append(toIndentedString(clusterGwUrl)).append("\n");

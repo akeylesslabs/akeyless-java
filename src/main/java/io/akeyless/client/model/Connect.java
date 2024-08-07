@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "Connect is a command that performs secure remote access")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Connect {
+  public static final String SERIALIZED_NAME_BASTION_GATEWAY_URL = "BastionGatewayUrl";
+  @SerializedName(SERIALIZED_NAME_BASTION_GATEWAY_URL)
+  private String bastionGatewayUrl;
+
   public static final String SERIALIZED_NAME_HELPER = "Helper";
   @SerializedName(SERIALIZED_NAME_HELPER)
   private Object helper;
@@ -108,6 +112,29 @@ public class Connect {
 
   public Connect() { 
   }
+
+  public Connect bastionGatewayUrl(String bastionGatewayUrl) {
+    
+    this.bastionGatewayUrl = bastionGatewayUrl;
+    return this;
+  }
+
+   /**
+   * todo - enable when gw-sra unification is done The Gateway URL (configuration management) address, e.g. http://localhost:8000
+   * @return bastionGatewayUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "todo - enable when gw-sra unification is done The Gateway URL (configuration management) address, e.g. http://localhost:8000")
+
+  public String getBastionGatewayUrl() {
+    return bastionGatewayUrl;
+  }
+
+
+  public void setBastionGatewayUrl(String bastionGatewayUrl) {
+    this.bastionGatewayUrl = bastionGatewayUrl;
+  }
+
 
   public Connect helper(Object helper) {
     
@@ -555,7 +582,8 @@ public class Connect {
       return false;
     }
     Connect connect = (Connect) o;
-    return Objects.equals(this.helper, connect.helper) &&
+    return Objects.equals(this.bastionGatewayUrl, connect.bastionGatewayUrl) &&
+        Objects.equals(this.helper, connect.helper) &&
         Objects.equals(this.rcFileOverride, connect.rcFileOverride) &&
         Objects.equals(this.bastionCtrlPath, connect.bastionCtrlPath) &&
         Objects.equals(this.bastionCtrlPort, connect.bastionCtrlPort) &&
@@ -578,13 +606,14 @@ public class Connect {
 
   @Override
   public int hashCode() {
-    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, justification, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion);
+    return Objects.hash(bastionGatewayUrl, helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, identityFile, json, justification, name, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Connect {\n");
+    sb.append("    bastionGatewayUrl: ").append(toIndentedString(bastionGatewayUrl)).append("\n");
     sb.append("    helper: ").append(toIndentedString(helper)).append("\n");
     sb.append("    rcFileOverride: ").append(toIndentedString(rcFileOverride)).append("\n");
     sb.append("    bastionCtrlPath: ").append(toIndentedString(bastionCtrlPath)).append("\n");
