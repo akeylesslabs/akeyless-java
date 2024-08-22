@@ -120,6 +120,10 @@ public class UpdateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
   public UpdateAuthMethodGCP() { 
   }
 
@@ -701,6 +705,29 @@ public class UpdateAuthMethodGCP {
   }
 
 
+  public UpdateAuthMethodGCP uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier (ID) value which is a \&quot;sub claim\&quot; name that contains details uniquely identifying that resource. This \&quot;sub claim\&quot; is used to distinguish between different identities.
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier (ID) value which is a \"sub claim\" name that contains details uniquely identifying that resource. This \"sub claim\" is used to distinguish between different identities.")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -731,12 +758,13 @@ public class UpdateAuthMethodGCP {
         Objects.equals(this.serviceAccountCredsData, updateAuthMethodGCP.serviceAccountCredsData) &&
         Objects.equals(this.token, updateAuthMethodGCP.token) &&
         Objects.equals(this.type, updateAuthMethodGCP.type) &&
-        Objects.equals(this.uidToken, updateAuthMethodGCP.uidToken);
+        Objects.equals(this.uidToken, updateAuthMethodGCP.uidToken) &&
+        Objects.equals(this.uniqueIdentifier, updateAuthMethodGCP.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, serviceAccountCredsData, token, type, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, serviceAccountCredsData, token, type, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -765,6 +793,7 @@ public class UpdateAuthMethodGCP {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

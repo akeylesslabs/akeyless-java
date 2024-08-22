@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic secret encryption key |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]
+**secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional]
 **secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional]
 **secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion |  [optional]
 **secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion |  [optional]

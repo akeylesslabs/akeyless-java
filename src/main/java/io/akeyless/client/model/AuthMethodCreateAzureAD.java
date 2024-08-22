@@ -132,6 +132,10 @@ public class AuthMethodCreateAzureAD {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
   public AuthMethodCreateAzureAD() { 
   }
 
@@ -806,6 +810,29 @@ public class AuthMethodCreateAzureAD {
   }
 
 
+  public AuthMethodCreateAzureAD uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier (ID) value which is a \&quot;sub claim\&quot; name that contains details uniquely identifying that resource. This \&quot;sub claim\&quot; is used to distinguish between different identities.
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier (ID) value which is a \"sub claim\" name that contains details uniquely identifying that resource. This \"sub claim\" is used to distinguish between different identities.")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -839,12 +866,13 @@ public class AuthMethodCreateAzureAD {
         Objects.equals(this.name, authMethodCreateAzureAD.name) &&
         Objects.equals(this.productType, authMethodCreateAzureAD.productType) &&
         Objects.equals(this.token, authMethodCreateAzureAD.token) &&
-        Objects.equals(this.uidToken, authMethodCreateAzureAD.uidToken);
+        Objects.equals(this.uidToken, authMethodCreateAzureAD.uidToken) &&
+        Objects.equals(this.uniqueIdentifier, authMethodCreateAzureAD.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -876,6 +904,7 @@ public class AuthMethodCreateAzureAD {
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

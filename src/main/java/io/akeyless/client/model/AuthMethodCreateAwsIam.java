@@ -116,6 +116,10 @@ public class AuthMethodCreateAwsIam {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique-identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
   public AuthMethodCreateAwsIam() { 
   }
 
@@ -687,6 +691,29 @@ public class AuthMethodCreateAwsIam {
   }
 
 
+  public AuthMethodCreateAwsIam uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier (ID) value which is a \&quot;sub claim\&quot; name that contains details uniquely identifying that resource. This \&quot;sub claim\&quot; is used to distinguish between different identities.
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier (ID) value which is a \"sub claim\" name that contains details uniquely identifying that resource. This \"sub claim\" is used to distinguish between different identities.")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -716,12 +743,13 @@ public class AuthMethodCreateAwsIam {
         Objects.equals(this.productType, authMethodCreateAwsIam.productType) &&
         Objects.equals(this.stsUrl, authMethodCreateAwsIam.stsUrl) &&
         Objects.equals(this.token, authMethodCreateAwsIam.token) &&
-        Objects.equals(this.uidToken, authMethodCreateAwsIam.uidToken);
+        Objects.equals(this.uidToken, authMethodCreateAwsIam.uidToken) &&
+        Objects.equals(this.uniqueIdentifier, authMethodCreateAwsIam.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, stsUrl, token, uidToken);
+    return Objects.hash(accessExpires, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, stsUrl, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -749,6 +777,7 @@ public class AuthMethodCreateAwsIam {
     sb.append("    stsUrl: ").append(toIndentedString(stsUrl)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

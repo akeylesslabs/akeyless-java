@@ -80,6 +80,26 @@ public class DynamicSecretCreateGoogleWorkspace {
   @SerializedName(SERIALIZED_NAME_ROLE_SCOPE)
   private String roleScope;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  private Boolean secureAccessWeb = true;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  private Boolean secureAccessWebBrowsing = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  private Boolean secureAccessWebProxy = false;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -379,6 +399,121 @@ public class DynamicSecretCreateGoogleWorkspace {
   }
 
 
+  public DynamicSecretCreateGoogleWorkspace secureAccessEnable(String secureAccessEnable) {
+    
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+   /**
+   * Enable/Disable secure remote access [true/false]
+   * @return secureAccessEnable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable/Disable secure remote access [true/false]")
+
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+
+  public void setSecureAccessEnable(String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public DynamicSecretCreateGoogleWorkspace secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Destination URL to inject secrets")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public DynamicSecretCreateGoogleWorkspace secureAccessWeb(Boolean secureAccessWeb) {
+    
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+   /**
+   * Enable Web Secure Remote Access
+   * @return secureAccessWeb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable Web Secure Remote Access")
+
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+
+  public void setSecureAccessWeb(Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
+  public DynamicSecretCreateGoogleWorkspace secureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+   /**
+   * Secure browser via Akeyless Web Access Bastion
+   * @return secureAccessWebBrowsing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Secure browser via Akeyless Web Access Bastion")
+
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+
+  public void setSecureAccessWebBrowsing(Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public DynamicSecretCreateGoogleWorkspace secureAccessWebProxy(Boolean secureAccessWebProxy) {
+    
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+   /**
+   * Web-Proxy via Akeyless Web Access Bastion
+   * @return secureAccessWebProxy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Web-Proxy via Akeyless Web Access Bastion")
+
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+
+  public void setSecureAccessWebProxy(Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+  }
+
+
   public DynamicSecretCreateGoogleWorkspace tags(List<String> tags) {
     
     this.tags = tags;
@@ -523,6 +658,11 @@ public class DynamicSecretCreateGoogleWorkspace {
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateGoogleWorkspace.producerEncryptionKeyName) &&
         Objects.equals(this.roleName, dynamicSecretCreateGoogleWorkspace.roleName) &&
         Objects.equals(this.roleScope, dynamicSecretCreateGoogleWorkspace.roleScope) &&
+        Objects.equals(this.secureAccessEnable, dynamicSecretCreateGoogleWorkspace.secureAccessEnable) &&
+        Objects.equals(this.secureAccessUrl, dynamicSecretCreateGoogleWorkspace.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWeb, dynamicSecretCreateGoogleWorkspace.secureAccessWeb) &&
+        Objects.equals(this.secureAccessWebBrowsing, dynamicSecretCreateGoogleWorkspace.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, dynamicSecretCreateGoogleWorkspace.secureAccessWebProxy) &&
         Objects.equals(this.tags, dynamicSecretCreateGoogleWorkspace.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateGoogleWorkspace.targetName) &&
         Objects.equals(this.token, dynamicSecretCreateGoogleWorkspace.token) &&
@@ -532,7 +672,7 @@ public class DynamicSecretCreateGoogleWorkspace {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminEmail, deleteProtection, description, gcpKey, groupEmail, groupRole, json, name, producerEncryptionKeyName, roleName, roleScope, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminEmail, deleteProtection, description, gcpKey, groupEmail, groupRole, json, name, producerEncryptionKeyName, roleName, roleScope, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -551,6 +691,11 @@ public class DynamicSecretCreateGoogleWorkspace {
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    roleScope: ").append(toIndentedString(roleScope)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

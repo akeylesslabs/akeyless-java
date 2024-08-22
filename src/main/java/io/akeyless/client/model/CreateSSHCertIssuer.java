@@ -85,6 +85,10 @@ public class CreateSSHCertIssuer {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   private List<String> secureAccessHost = null;
@@ -431,6 +435,29 @@ public class CreateSSHCertIssuer {
   }
 
 
+  public CreateSSHCertIssuer secureAccessEnforceHostsRestriction(Boolean secureAccessEnforceHostsRestriction) {
+    
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+   /**
+   * Enable this flag to enforce connections only to the hosts listed in --secure-access-host
+   * @return secureAccessEnforceHostsRestriction
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable this flag to enforce connections only to the hosts listed in --secure-access-host")
+
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+
+  public void setSecureAccessEnforceHostsRestriction(Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public CreateSSHCertIssuer secureAccessHost(List<String> secureAccessHost) {
     
     this.secureAccessHost = secureAccessHost;
@@ -684,6 +711,7 @@ public class CreateSSHCertIssuer {
         Objects.equals(this.secureAccessBastionApi, createSSHCertIssuer.secureAccessBastionApi) &&
         Objects.equals(this.secureAccessBastionSsh, createSSHCertIssuer.secureAccessBastionSsh) &&
         Objects.equals(this.secureAccessEnable, createSSHCertIssuer.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, createSSHCertIssuer.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, createSSHCertIssuer.secureAccessHost) &&
         Objects.equals(this.secureAccessSshCredsUser, createSSHCertIssuer.secureAccessSshCredsUser) &&
         Objects.equals(this.secureAccessUseInternalBastion, createSSHCertIssuer.secureAccessUseInternalBastion) &&
@@ -697,7 +725,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, target, token, ttl, uidToken);
+    return Objects.hash(providerType, allowedUsers, deleteProtection, description, extensions, hostProvider, json, metadata, name, principals, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessSshCredsUser, secureAccessUseInternalBastion, signerKeyName, tag, target, token, ttl, uidToken);
   }
 
   @Override
@@ -717,6 +745,7 @@ public class CreateSSHCertIssuer {
     sb.append("    secureAccessBastionApi: ").append(toIndentedString(secureAccessBastionApi)).append("\n");
     sb.append("    secureAccessBastionSsh: ").append(toIndentedString(secureAccessBastionSsh)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessSshCredsUser: ").append(toIndentedString(secureAccessSshCredsUser)).append("\n");
     sb.append("    secureAccessUseInternalBastion: ").append(toIndentedString(secureAccessUseInternalBastion)).append("\n");

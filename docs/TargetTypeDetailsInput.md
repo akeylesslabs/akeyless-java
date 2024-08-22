@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **pingTargetDetails** | [**PingTargetDetails**](PingTargetDetails.md) |  |  [optional]
 **rabbitMqTargetDetails** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  |  [optional]
 **salesforceTargetDetails** | [**SalesforceTargetDetails**](SalesforceTargetDetails.md) |  |  [optional]
+**sectigoTargetDetails** | [**SectigoTargetDetails**](SectigoTargetDetails.md) |  |  [optional]
 **sshTargetDetails** | [**SSHTargetDetails**](SSHTargetDetails.md) |  |  [optional]
 **venafiTargetDetails** | [**VenafiTargetDetails**](VenafiTargetDetails.md) |  |  [optional]
 **webTargetDetails** | [**WebTargetDetails**](WebTargetDetails.md) |  |  [optional]

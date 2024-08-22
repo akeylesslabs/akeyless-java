@@ -282,11 +282,11 @@ public class CreateSecret {
   }
 
    /**
-   * Secret format [text/json] (relevant only for type &#39;generic&#39;)
+   * Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;)
    * @return format
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secret format [text/json] (relevant only for type 'generic')")
+  @ApiModelProperty(value = "Secret format [text/json/key-value] (relevant only for type 'generic')")
 
   public String getFormat() {
     return format;

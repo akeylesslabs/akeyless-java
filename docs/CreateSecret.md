@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **customField** | **Map&lt;String, String&gt;** | For Password Management use, additional fields |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
-**format** | **String** | Secret format [text/json] (relevant only for type &#39;generic&#39;) |  [optional]
+**format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) |  [optional]
 **injectUrl** | **List&lt;String&gt;** | For Password Management use, reflect the website context |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]

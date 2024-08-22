@@ -105,11 +105,12 @@ All URIs are relative to *https://api.akeyless.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*V2Api* | [**aliasDetails**](docs/V2Api.md#aliasDetails) | **GET** /alias-details | 
 *V2Api* | [**assocRoleAuthMethod**](docs/V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am | 
 *V2Api* | [**assocTargetItem**](docs/V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
 *V2Api* | [**auth**](docs/V2Api.md#auth) | **POST** /auth | 
 *V2Api* | [**authMethodCreateApiKey**](docs/V2Api.md#authMethodCreateApiKey) | **POST** /auth-method-create-api-key | 
-*V2Api* | [**authMethodCreateAwsIam**](docs/V2Api.md#authMethodCreateAwsIam) | **POST** /auth-method-create-aws | 
+*V2Api* | [**authMethodCreateAwsIam**](docs/V2Api.md#authMethodCreateAwsIam) | **POST** /auth-method-create-aws-iam | 
 *V2Api* | [**authMethodCreateAzureAD**](docs/V2Api.md#authMethodCreateAzureAD) | **POST** /auth-method-create-azure-ad | 
 *V2Api* | [**authMethodCreateCert**](docs/V2Api.md#authMethodCreateCert) | **POST** /auth-method-create-cert | 
 *V2Api* | [**authMethodCreateEmail**](docs/V2Api.md#authMethodCreateEmail) | **POST** /auth-method-create-email | 
@@ -220,6 +221,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**describePermissions**](docs/V2Api.md#describePermissions) | **POST** /describe-permissions | 
 *V2Api* | [**describeSubClaims**](docs/V2Api.md#describeSubClaims) | **POST** /describe-sub-claims | 
 *V2Api* | [**detokenize**](docs/V2Api.md#detokenize) | **POST** /detokenize | 
+*V2Api* | [**detokenizeBatch**](docs/V2Api.md#detokenizeBatch) | **POST** /detokenize-batch | 
 *V2Api* | [**dynamicSecretCreateArtifactory**](docs/V2Api.md#dynamicSecretCreateArtifactory) | **POST** /dynamic-secret-create-artifactory | 
 *V2Api* | [**dynamicSecretCreateAws**](docs/V2Api.md#dynamicSecretCreateAws) | **POST** /dynamic-secret-create-aws | 
 *V2Api* | [**dynamicSecretCreateAzure**](docs/V2Api.md#dynamicSecretCreateAzure) | **POST** /dynamic-secret-create-azure | 
@@ -527,6 +529,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreatePing**](docs/V2Api.md#targetCreatePing) | **POST** /target-create-ping | 
 *V2Api* | [**targetCreateRabbitMq**](docs/V2Api.md#targetCreateRabbitMq) | **POST** /target-create-rabbitmq | 
 *V2Api* | [**targetCreateSalesforce**](docs/V2Api.md#targetCreateSalesforce) | **POST** /target-create-salesforce | 
+*V2Api* | [**targetCreateSectigo**](docs/V2Api.md#targetCreateSectigo) | **POST** /target-create-sectigo | 
 *V2Api* | [**targetCreateSsh**](docs/V2Api.md#targetCreateSsh) | **POST** /target-create-ssh | 
 *V2Api* | [**targetCreateWeb**](docs/V2Api.md#targetCreateWeb) | **POST** /target-create-web | 
 *V2Api* | [**targetCreateWindows**](docs/V2Api.md#targetCreateWindows) | **POST** /target-create-windows | 
@@ -555,11 +558,13 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdatePing**](docs/V2Api.md#targetUpdatePing) | **POST** /target-update-ping | 
 *V2Api* | [**targetUpdateRabbitMq**](docs/V2Api.md#targetUpdateRabbitMq) | **POST** /target-update-rabbitmq | 
 *V2Api* | [**targetUpdateSalesforce**](docs/V2Api.md#targetUpdateSalesforce) | **POST** /target-update-salesforce | 
+*V2Api* | [**targetUpdateSectigo**](docs/V2Api.md#targetUpdateSectigo) | **POST** /target-update-sectigo | 
 *V2Api* | [**targetUpdateSsh**](docs/V2Api.md#targetUpdateSsh) | **POST** /target-update-ssh | 
 *V2Api* | [**targetUpdateWeb**](docs/V2Api.md#targetUpdateWeb) | **POST** /target-update-web | 
 *V2Api* | [**targetUpdateWindows**](docs/V2Api.md#targetUpdateWindows) | **POST** /target-update-windows | 
 *V2Api* | [**targetUpdateZeroSSL**](docs/V2Api.md#targetUpdateZeroSSL) | **POST** /target-update-zerossl | 
 *V2Api* | [**tokenize**](docs/V2Api.md#tokenize) | **POST** /tokenize | 
+*V2Api* | [**tokenizeBatch**](docs/V2Api.md#tokenizeBatch) | **POST** /tokenize-batch | 
 *V2Api* | [**uidCreateChildToken**](docs/V2Api.md#uidCreateChildToken) | **POST** /uid-create-child-token | 
 *V2Api* | [**uidGenerateToken**](docs/V2Api.md#uidGenerateToken) | **POST** /uid-generate-token | 
 *V2Api* | [**uidListChildren**](docs/V2Api.md#uidListChildren) | **POST** /uid-list-children | 
@@ -656,6 +661,8 @@ Class | Method | HTTP request | Description
  - [AddGatewayAllowedAccessId](docs/AddGatewayAllowedAccessId.md)
  - [AdminsConfigPart](docs/AdminsConfigPart.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
+ - [AliasDetails](docs/AliasDetails.md)
+ - [AliasDetailsOutput](docs/AliasDetailsOutput.md)
  - [AllAnalyticsData](docs/AllAnalyticsData.md)
  - [AllowedAccess](docs/AllowedAccess.md)
  - [AllowedAccessOld](docs/AllowedAccessOld.md)
@@ -711,6 +718,8 @@ Class | Method | HTTP request | Description
  - [BastionsList](docs/BastionsList.md)
  - [BatchEncryptionRequestLine](docs/BatchEncryptionRequestLine.md)
  - [BatchEncryptionResponseLine](docs/BatchEncryptionResponseLine.md)
+ - [BatchTokenizationRequestLine](docs/BatchTokenizationRequestLine.md)
+ - [BatchTokenizationResponseLine](docs/BatchTokenizationResponseLine.md)
  - [CFConfigPart](docs/CFConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
  - [CertAccessRules](docs/CertAccessRules.md)
@@ -1411,6 +1420,7 @@ Class | Method | HTTP request | Description
  - [SSHTargetDetails](docs/SSHTargetDetails.md)
  - [SalesforceTargetDetails](docs/SalesforceTargetDetails.md)
  - [SecretInfo](docs/SecretInfo.md)
+ - [SectigoTargetDetails](docs/SectigoTargetDetails.md)
  - [SecureRemoteAccess](docs/SecureRemoteAccess.md)
  - [ServerInventoryMigration](docs/ServerInventoryMigration.md)
  - [ServerInventoryPayload](docs/ServerInventoryPayload.md)
@@ -1464,6 +1474,7 @@ Class | Method | HTTP request | Description
  - [TargetCreatePing](docs/TargetCreatePing.md)
  - [TargetCreateRabbitMq](docs/TargetCreateRabbitMq.md)
  - [TargetCreateSalesforce](docs/TargetCreateSalesforce.md)
+ - [TargetCreateSectigo](docs/TargetCreateSectigo.md)
  - [TargetCreateSsh](docs/TargetCreateSsh.md)
  - [TargetCreateWeb](docs/TargetCreateWeb.md)
  - [TargetCreateWindows](docs/TargetCreateWindows.md)
@@ -1497,6 +1508,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdatePing](docs/TargetUpdatePing.md)
  - [TargetUpdateRabbitMq](docs/TargetUpdateRabbitMq.md)
  - [TargetUpdateSalesforce](docs/TargetUpdateSalesforce.md)
+ - [TargetUpdateSectigo](docs/TargetUpdateSectigo.md)
  - [TargetUpdateSsh](docs/TargetUpdateSsh.md)
  - [TargetUpdateWeb](docs/TargetUpdateWeb.md)
  - [TargetUpdateWindows](docs/TargetUpdateWindows.md)

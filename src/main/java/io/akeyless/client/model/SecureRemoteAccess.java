@@ -93,6 +93,10 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_ENDPOINT)
   private String endpoint;
 
+  public static final String SERIALIZED_NAME_ENFORCE_HOSTS_RESTRICTION = "enforce_hosts_restriction";
+  @SerializedName(SERIALIZED_NAME_ENFORCE_HOSTS_RESTRICTION)
+  private Boolean enforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   private List<String> host = null;
@@ -518,6 +522,29 @@ public class SecureRemoteAccess {
 
   public void setEndpoint(String endpoint) {
     this.endpoint = endpoint;
+  }
+
+
+  public SecureRemoteAccess enforceHostsRestriction(Boolean enforceHostsRestriction) {
+    
+    this.enforceHostsRestriction = enforceHostsRestriction;
+    return this;
+  }
+
+   /**
+   * Get enforceHostsRestriction
+   * @return enforceHostsRestriction
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getEnforceHostsRestriction() {
+    return enforceHostsRestriction;
+  }
+
+
+  public void setEnforceHostsRestriction(Boolean enforceHostsRestriction) {
+    this.enforceHostsRestriction = enforceHostsRestriction;
   }
 
 
@@ -1029,6 +1056,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.domain, secureRemoteAccess.domain) &&
         Objects.equals(this.enable, secureRemoteAccess.enable) &&
         Objects.equals(this.endpoint, secureRemoteAccess.endpoint) &&
+        Objects.equals(this.enforceHostsRestriction, secureRemoteAccess.enforceHostsRestriction) &&
         Objects.equals(this.host, secureRemoteAccess.host) &&
         Objects.equals(this.hostProviderType, secureRemoteAccess.hostProviderType) &&
         Objects.equals(this.isCli, secureRemoteAccess.isCli) &&
@@ -1053,7 +1081,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, dashboardUrl, dbName, domain, enable, endpoint, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, dashboardUrl, dbName, domain, enable, endpoint, enforceHostsRestriction, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -1075,6 +1103,7 @@ public class SecureRemoteAccess {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    enforceHostsRestriction: ").append(toIndentedString(enforceHostsRestriction)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    hostProviderType: ").append(toIndentedString(hostProviderType)).append("\n");
     sb.append("    isCli: ").append(toIndentedString(isCli)).append("\n");

@@ -84,6 +84,10 @@ public class DynamicSecretCreateAzure {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb = true;
@@ -438,6 +442,29 @@ public class DynamicSecretCreateAzure {
   }
 
 
+  public DynamicSecretCreateAzure secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Destination URL to inject secrets")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
   public DynamicSecretCreateAzure secureAccessWeb(Boolean secureAccessWeb) {
     
     this.secureAccessWeb = secureAccessWeb;
@@ -767,6 +794,7 @@ public class DynamicSecretCreateAzure {
         Objects.equals(this.passwordLength, dynamicSecretCreateAzure.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, dynamicSecretCreateAzure.secureAccessEnable) &&
+        Objects.equals(this.secureAccessUrl, dynamicSecretCreateAzure.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, dynamicSecretCreateAzure.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, dynamicSecretCreateAzure.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, dynamicSecretCreateAzure.secureAccessWebProxy) &&
@@ -784,7 +812,7 @@ public class DynamicSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, json, name, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, json, name, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -804,6 +832,7 @@ public class DynamicSecretCreateAzure {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");

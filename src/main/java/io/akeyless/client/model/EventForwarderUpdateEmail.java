@@ -56,6 +56,10 @@ public class EventForwarderUpdateEmail {
   @SerializedName(SERIALIZED_NAME_GATEWAYS_EVENT_SOURCE_LOCATIONS)
   private List<String> gatewaysEventSourceLocations = new ArrayList<String>();
 
+  public static final String SERIALIZED_NAME_INCLUDE_ERROR = "include-error";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_ERROR)
+  private String includeError;
+
   public static final String SERIALIZED_NAME_ITEMS_EVENT_SOURCE_LOCATIONS = "items-event-source-locations";
   @SerializedName(SERIALIZED_NAME_ITEMS_EVENT_SOURCE_LOCATIONS)
   private List<String> itemsEventSourceLocations = null;
@@ -255,6 +259,29 @@ public class EventForwarderUpdateEmail {
 
   public void setGatewaysEventSourceLocations(List<String> gatewaysEventSourceLocations) {
     this.gatewaysEventSourceLocations = gatewaysEventSourceLocations;
+  }
+
+
+  public EventForwarderUpdateEmail includeError(String includeError) {
+    
+    this.includeError = includeError;
+    return this;
+  }
+
+   /**
+   * Set this option to include event errors details [true\\false]
+   * @return includeError
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set this option to include event errors details [true\\false]")
+
+  public String getIncludeError() {
+    return includeError;
+  }
+
+
+  public void setIncludeError(String includeError) {
+    this.includeError = includeError;
   }
 
 
@@ -519,6 +546,7 @@ public class EventForwarderUpdateEmail {
         Objects.equals(this.enable, eventForwarderUpdateEmail.enable) &&
         Objects.equals(this.eventTypes, eventForwarderUpdateEmail.eventTypes) &&
         Objects.equals(this.gatewaysEventSourceLocations, eventForwarderUpdateEmail.gatewaysEventSourceLocations) &&
+        Objects.equals(this.includeError, eventForwarderUpdateEmail.includeError) &&
         Objects.equals(this.itemsEventSourceLocations, eventForwarderUpdateEmail.itemsEventSourceLocations) &&
         Objects.equals(this.json, eventForwarderUpdateEmail.json) &&
         Objects.equals(this.keepPrevVersion, eventForwarderUpdateEmail.keepPrevVersion) &&
@@ -533,7 +561,7 @@ public class EventForwarderUpdateEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMethodsEventSourceLocations, description, emailTo, enable, eventTypes, gatewaysEventSourceLocations, itemsEventSourceLocations, json, keepPrevVersion, key, name, newName, overrideUrl, targetsEventSourceLocations, token, uidToken);
+    return Objects.hash(authMethodsEventSourceLocations, description, emailTo, enable, eventTypes, gatewaysEventSourceLocations, includeError, itemsEventSourceLocations, json, keepPrevVersion, key, name, newName, overrideUrl, targetsEventSourceLocations, token, uidToken);
   }
 
   @Override
@@ -546,6 +574,7 @@ public class EventForwarderUpdateEmail {
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
     sb.append("    gatewaysEventSourceLocations: ").append(toIndentedString(gatewaysEventSourceLocations)).append("\n");
+    sb.append("    includeError: ").append(toIndentedString(includeError)).append("\n");
     sb.append("    itemsEventSourceLocations: ").append(toIndentedString(itemsEventSourceLocations)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");

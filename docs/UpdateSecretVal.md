@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessibility** | **String** | for personal password manager |  [optional]
 **customField** | **Map&lt;String, String&gt;** | For Password Management use, additional fields |  [optional]
-**format** | **String** | Secret format [text/json] (relevant only for type &#39;generic&#39;) |  [optional]
+**format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) |  [optional]
 **injectUrl** | **List&lt;String&gt;** | For Password Management use, reflect the website context |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional]

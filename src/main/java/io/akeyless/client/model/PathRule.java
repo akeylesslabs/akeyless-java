@@ -40,6 +40,10 @@ public class PathRule {
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   private List<String> capabilities = null;
 
+  public static final String SERIALIZED_NAME_CB = "cb";
+  @SerializedName(SERIALIZED_NAME_CB)
+  private Integer cb;
+
   public static final String SERIALIZED_NAME_IS_LIMIT_ACCESS = "is_limit_access";
   @SerializedName(SERIALIZED_NAME_IS_LIMIT_ACCESS)
   private Boolean isLimitAccess;
@@ -130,6 +134,29 @@ public class PathRule {
 
   public void setCapabilities(List<String> capabilities) {
     this.capabilities = capabilities;
+  }
+
+
+  public PathRule cb(Integer cb) {
+    
+    this.cb = cb;
+    return this;
+  }
+
+   /**
+   * Get cb
+   * @return cb
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getCb() {
+    return cb;
+  }
+
+
+  public void setCb(Integer cb) {
+    this.cb = cb;
   }
 
 
@@ -305,6 +332,7 @@ public class PathRule {
     PathRule pathRule = (PathRule) o;
     return Objects.equals(this.assigners, pathRule.assigners) &&
         Objects.equals(this.capabilities, pathRule.capabilities) &&
+        Objects.equals(this.cb, pathRule.cb) &&
         Objects.equals(this.isLimitAccess, pathRule.isLimitAccess) &&
         Objects.equals(this.numberOfAccessUsed, pathRule.numberOfAccessUsed) &&
         Objects.equals(this.numberOfAllowedAccess, pathRule.numberOfAllowedAccess) &&
@@ -316,7 +344,7 @@ public class PathRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assigners, capabilities, isLimitAccess, numberOfAccessUsed, numberOfAllowedAccess, path, startTime, ttl, type);
+    return Objects.hash(assigners, capabilities, cb, isLimitAccess, numberOfAccessUsed, numberOfAllowedAccess, path, startTime, ttl, type);
   }
 
   @Override
@@ -325,6 +353,7 @@ public class PathRule {
     sb.append("class PathRule {\n");
     sb.append("    assigners: ").append(toIndentedString(assigners)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    cb: ").append(toIndentedString(cb)).append("\n");
     sb.append("    isLimitAccess: ").append(toIndentedString(isLimitAccess)).append("\n");
     sb.append("    numberOfAccessUsed: ").append(toIndentedString(numberOfAccessUsed)).append("\n");
     sb.append("    numberOfAllowedAccess: ").append(toIndentedString(numberOfAllowedAccess)).append("\n");

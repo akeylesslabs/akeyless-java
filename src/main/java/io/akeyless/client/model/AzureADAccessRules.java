@@ -80,6 +80,10 @@ public class AzureADAccessRules {
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
   private String jwksUri;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
   public AzureADAccessRules() { 
   }
 
@@ -423,6 +427,29 @@ public class AzureADAccessRules {
   }
 
 
+  public AzureADAccessRules uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier to distinguish different users
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier to distinguish different users")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -443,12 +470,13 @@ public class AzureADAccessRules {
         Objects.equals(this.boundSubscriptionIds, azureADAccessRules.boundSubscriptionIds) &&
         Objects.equals(this.boundTenantId, azureADAccessRules.boundTenantId) &&
         Objects.equals(this.issuer, azureADAccessRules.issuer) &&
-        Objects.equals(this.jwksUri, azureADAccessRules.jwksUri);
+        Objects.equals(this.jwksUri, azureADAccessRules.jwksUri) &&
+        Objects.equals(this.uniqueIdentifier, azureADAccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adEndpoint, boundGroupIds, boundResourceGroups, boundResourceIds, boundResourceNames, boundResourceProviders, boundResourceTypes, boundServicePrincipalIds, boundSubscriptionIds, boundTenantId, issuer, jwksUri);
+    return Objects.hash(adEndpoint, boundGroupIds, boundResourceGroups, boundResourceIds, boundResourceNames, boundResourceProviders, boundResourceTypes, boundServicePrincipalIds, boundSubscriptionIds, boundTenantId, issuer, jwksUri, uniqueIdentifier);
   }
 
   @Override
@@ -467,6 +495,7 @@ public class AzureADAccessRules {
     sb.append("    boundTenantId: ").append(toIndentedString(boundTenantId)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

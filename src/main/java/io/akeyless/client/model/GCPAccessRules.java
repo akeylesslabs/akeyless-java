@@ -65,6 +65,10 @@ public class GCPAccessRules {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
   public GCPAccessRules() { 
   }
 
@@ -292,6 +296,29 @@ public class GCPAccessRules {
   }
 
 
+  public GCPAccessRules uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier to distinguish different users
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier to distinguish different users")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -308,12 +335,13 @@ public class GCPAccessRules {
         Objects.equals(this.boundServiceAccounts, gcPAccessRules.boundServiceAccounts) &&
         Objects.equals(this.boundZones, gcPAccessRules.boundZones) &&
         Objects.equals(this.serviceAccount, gcPAccessRules.serviceAccount) &&
-        Objects.equals(this.type, gcPAccessRules.type);
+        Objects.equals(this.type, gcPAccessRules.type) &&
+        Objects.equals(this.uniqueIdentifier, gcPAccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, serviceAccount, type);
+    return Objects.hash(audience, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, serviceAccount, type, uniqueIdentifier);
   }
 
   @Override
@@ -328,6 +356,7 @@ public class GCPAccessRules {
     sb.append("    boundZones: ").append(toIndentedString(boundZones)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

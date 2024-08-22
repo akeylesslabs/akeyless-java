@@ -10,6 +10,35 @@ info:
 servers:
 - url: https://api.akeyless.io/
 paths:
+  /alias-details:
+    get:
+      operationId: aliasDetails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/aliasDetails'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deleteRoleOutput'
+          description: deleteRoleResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /assoc-role-am:
     post:
       operationId: assocRoleAuthMethod
@@ -135,7 +164,7 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /auth-method-create-aws:
+  /auth-method-create-aws-iam:
     post:
       operationId: authMethodCreateAwsIam
       requestBody:
@@ -3315,6 +3344,35 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/detokenize'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detokenizeOutput'
+          description: detokenizeResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /detokenize-batch:
+    post:
+      operationId: detokenizeBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchTokenizationRequest'
         required: true
       responses:
         "200":
@@ -12228,6 +12286,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /target-create-sectigo:
+    post:
+      operationId: targetCreateSectigo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetCreateSectigo'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetCreateOutput'
+          description: targetCreateSectigoResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /target-create-ssh:
     post:
       operationId: targetCreateSsh
@@ -13040,6 +13127,35 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /target-update-sectigo:
+    post:
+      operationId: targetUpdateSectigo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetUpdateSectigo'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetUpdateOutput'
+          description: targetUpdateSectigoResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /target-update-ssh:
     post:
       operationId: targetUpdateSsh
@@ -13164,6 +13280,35 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/tokenize'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tokenizeOutput'
+          description: tokenizeResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /tokenize-batch:
+    post:
+      operationId: tokenizeBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchTokenizationRequest'
         required: true
       responses:
         "200":
@@ -15545,6 +15690,12 @@ components:
           schema:
             $ref: '#/components/schemas/addGatewayAllowedAccessIdOutput'
       description: addGatewayAllowedAccessIdResponse wraps response body.
+    aliasDetailsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/aliasDetailsOutput'
+      description: aliasDetailsResponse wraps response body.
     assocRoleAuthMethodResponse:
       content:
         application/json:
@@ -16205,6 +16356,12 @@ components:
           schema:
             $ref: '#/components/schemas/describeSubClaimsOutput'
       description: describeSubClaimsResponse wraps response body.
+    detokenizeBatchResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/detokenizeBatchOutput'
+      description: detokenizeBatchResponse wraps response body.
     detokenizeResponse:
       content:
         application/json:
@@ -18027,6 +18184,12 @@ components:
           schema:
             $ref: '#/components/schemas/targetCreateOutput'
       description: targetCreateSalesforceResponse wraps response body.
+    targetCreateSectigoResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/targetCreateOutput'
+      description: targetCreateSectigoResponse wraps response body.
     targetCreateSshResponse:
       content:
         application/json:
@@ -18195,6 +18358,12 @@ components:
           schema:
             $ref: '#/components/schemas/targetUpdateOutput'
       description: targetUpdateSalesforceResponse wraps response body.
+    targetUpdateSectigoResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/targetUpdateOutput'
+      description: targetUpdateSectigoResponse wraps response body.
     targetUpdateSshResponse:
       content:
         application/json:
@@ -18219,6 +18388,12 @@ components:
           schema:
             $ref: '#/components/schemas/targetUpdateOutput'
       description: targetUpdateZeroSSLResponse wraps response body.
+    tokenizeBatchResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tokenizeBatchOutput'
+      description: tokenizeBatchResponse wraps response body.
     tokenizeResponse:
       content:
         application/json:
@@ -18690,6 +18865,7 @@ components:
         account_id:
         - account_id
         - account_id
+        unique_identifier: unique_identifier
         role_id:
         - role_id
         - role_id
@@ -18741,6 +18917,10 @@ components:
           description: The sts URL.
           type: string
           x-go-name: StsEndpoint
+        unique_identifier:
+          description: A unique identifier to distinguish different users
+          type: string
+          x-go-name: UniqueIdentifier
         user_id:
           description: The list of user ids that the login is restricted to.
           items:
@@ -18890,6 +19070,10 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/oidc/shared
     AccessRequestStatus:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    AccessRulesType:
+      title: Access rules type.
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AccountGeneralSettings:
@@ -19752,35 +19936,37 @@ components:
               certificate_issue_date: 2000-01-23T04:56:07.000+00:00
               rules:
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               id: id
               activate_keys_on_creation: true
               certificate_ttl_in_seconds: 1
@@ -20275,35 +20461,37 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             admin: true
           auth_method_sub_claims:
             key:
@@ -20318,35 +20506,37 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             admin: true
           auth_method_sub_claims:
             key:
@@ -20380,6 +20570,7 @@ components:
             - bound_projects
             - bound_projects
             audience: akeyless.io
+            unique_identifier: unique_identifier
             bound_regions:
             - bound_regions
             - bound_regions
@@ -20396,6 +20587,18 @@ components:
             bound_service_principal_ids:
             - bound_service_principal_ids
             - bound_service_principal_ids
+            unique_identifier: unique_identifier
+            bound_resource_names:
+            - bound_resource_names
+            - bound_resource_names
+            bound_resource_ids:
+            - bound_resource_ids
+            - bound_resource_ids
+            bound_tenant_id: bound_tenant_id
+            bound_subscription_ids:
+            - bound_subscription_ids
+            - bound_subscription_ids
+            issuer: issuer
             bound_resource_types:
             - bound_resource_types
             - bound_resource_types
@@ -20403,21 +20606,10 @@ components:
             bound_resource_groups:
             - bound_resource_groups
             - bound_resource_groups
-            bound_resource_names:
-            - bound_resource_names
-            - bound_resource_names
-            bound_resource_ids:
-            - bound_resource_ids
-            - bound_resource_ids
             bound_resource_providers:
             - bound_resource_providers
             - bound_resource_providers
-            bound_tenant_id: bound_tenant_id
             jwks_uri: jwks_uri
-            bound_subscription_ids:
-            - bound_subscription_ids
-            - bound_subscription_ids
-            issuer: issuer
           oci_access_rules:
             tenant_ocid: tenant_ocid
             group_ocids:
@@ -20555,6 +20747,7 @@ components:
             account_id:
             - account_id
             - account_id
+            unique_identifier: unique_identifier
             role_id:
             - role_id
             - role_id
@@ -20668,6 +20861,7 @@ components:
           - bound_projects
           - bound_projects
           audience: akeyless.io
+          unique_identifier: unique_identifier
           bound_regions:
           - bound_regions
           - bound_regions
@@ -20684,6 +20878,18 @@ components:
           bound_service_principal_ids:
           - bound_service_principal_ids
           - bound_service_principal_ids
+          unique_identifier: unique_identifier
+          bound_resource_names:
+          - bound_resource_names
+          - bound_resource_names
+          bound_resource_ids:
+          - bound_resource_ids
+          - bound_resource_ids
+          bound_tenant_id: bound_tenant_id
+          bound_subscription_ids:
+          - bound_subscription_ids
+          - bound_subscription_ids
+          issuer: issuer
           bound_resource_types:
           - bound_resource_types
           - bound_resource_types
@@ -20691,21 +20897,10 @@ components:
           bound_resource_groups:
           - bound_resource_groups
           - bound_resource_groups
-          bound_resource_names:
-          - bound_resource_names
-          - bound_resource_names
-          bound_resource_ids:
-          - bound_resource_ids
-          - bound_resource_ids
           bound_resource_providers:
           - bound_resource_providers
           - bound_resource_providers
-          bound_tenant_id: bound_tenant_id
           jwks_uri: jwks_uri
-          bound_subscription_ids:
-          - bound_subscription_ids
-          - bound_subscription_ids
-          issuer: issuer
         oci_access_rules:
           tenant_ocid: tenant_ocid
           group_ocids:
@@ -20843,6 +21038,7 @@ components:
           account_id:
           - account_id
           - account_id
+          unique_identifier: unique_identifier
           role_id:
           - role_id
           - role_id
@@ -20974,35 +21170,37 @@ components:
         rules:
           path_rules:
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           admin: true
         auth_method_sub_claims:
           key:
@@ -21108,6 +21306,18 @@ components:
         bound_service_principal_ids:
         - bound_service_principal_ids
         - bound_service_principal_ids
+        unique_identifier: unique_identifier
+        bound_resource_names:
+        - bound_resource_names
+        - bound_resource_names
+        bound_resource_ids:
+        - bound_resource_ids
+        - bound_resource_ids
+        bound_tenant_id: bound_tenant_id
+        bound_subscription_ids:
+        - bound_subscription_ids
+        - bound_subscription_ids
+        issuer: issuer
         bound_resource_types:
         - bound_resource_types
         - bound_resource_types
@@ -21115,21 +21325,10 @@ components:
         bound_resource_groups:
         - bound_resource_groups
         - bound_resource_groups
-        bound_resource_names:
-        - bound_resource_names
-        - bound_resource_names
-        bound_resource_ids:
-        - bound_resource_ids
-        - bound_resource_ids
         bound_resource_providers:
         - bound_resource_providers
         - bound_resource_providers
-        bound_tenant_id: bound_tenant_id
         jwks_uri: jwks_uri
-        bound_subscription_ids:
-        - bound_subscription_ids
-        - bound_subscription_ids
-        issuer: issuer
       properties:
         ad_endpoint:
           description: The audience in the JWT.
@@ -21206,6 +21405,10 @@ components:
             authorization server.
           type: string
           x-go-name: JWKeySetURL
+        unique_identifier:
+          description: A unique identifier to distinguish different users
+          type: string
+          x-go-name: UniqueIdentifier
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AzureKeyVaultMigration:
@@ -21441,6 +21644,47 @@ components:
         error:
           type: string
           x-go-name: Error
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    BatchTokenizationRequest:
+      items:
+        $ref: '#/components/schemas/BatchTokenizationRequestLine'
+      type: array
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    BatchTokenizationRequestLine:
+      example:
+        data: data
+        item_id: 0
+        tweak: tweak
+      properties:
+        data:
+          type: string
+          x-go-name: Data
+        item_id:
+          format: int64
+          type: integer
+          x-go-name: ItemId
+        tweak:
+          type: string
+          x-go-name: TweakBase64
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    BatchTokenizationResponse:
+      items:
+        $ref: '#/components/schemas/BatchTokenizationResponseLine'
+      type: array
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    BatchTokenizationResponseLine:
+      properties:
+        data:
+          type: string
+          x-go-name: Data
+        error:
+          type: string
+          x-go-name: Error
+        tweak:
+          type: string
+          x-go-name: TweakBase64
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     CAMode:
@@ -23683,6 +23927,7 @@ components:
           is_cli: true
           use_internal_bastion: true
           rdp_user: rdp_user
+          enforce_hosts_restriction: true
           url: url
           account_id: account_id
           db_name: db_name
@@ -25389,6 +25634,7 @@ components:
         - bound_projects
         - bound_projects
         audience: akeyless.io
+        unique_identifier: unique_identifier
         bound_regions:
         - bound_regions
         - bound_regions
@@ -25455,6 +25701,10 @@ components:
         type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        unique_identifier:
+          description: A unique identifier to distinguish different users
+          type: string
+          x-go-name: UniqueIdentifier
       title: GCPAccessRules contains access rules specific to GCP IAM or GCE authentication.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
@@ -26572,7 +26822,7 @@ components:
             validation_email: validation_email
             imap_user: imap_user
             imap_password: imap_password
-            timeout: 7
+            timeout: 2
           custom_target_details:
             payload: payload
           godaddy_target_details:
@@ -26584,6 +26834,14 @@ components:
             imap_password: imap_password
             key: key
             timeout: 5
+          sectigo_target_details:
+            password: password
+            customer_uri: customer_uri
+            certificate_profile_id: 7
+            org_id: 9
+            external_requester: external_requester
+            timeout: 3
+            username: username
         target:
           credentials_less: true
           target_items_assoc:
@@ -27504,6 +27762,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -28228,6 +28487,7 @@ components:
           is_cli: true
           use_internal_bastion: true
           rdp_user: rdp_user
+          enforce_hosts_restriction: true
           url: url
           account_id: account_id
           db_name: db_name
@@ -29100,35 +29360,37 @@ components:
         certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         rules:
         - path: path
-          start_time: 7
+          start_time: 9
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 2
+          number_of_allowed_access: 7
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 5
+          number_of_access_used: 2
           type: type
-          ttl: 9
+          ttl: 3
+          cb: 5
         - path: path
-          start_time: 7
+          start_time: 9
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 2
+          number_of_allowed_access: 7
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 5
+          number_of_access_used: 2
           type: type
-          ttl: 9
+          ttl: 3
+          cb: 5
         id: id
         activate_keys_on_creation: true
         certificate_ttl_in_seconds: 1
@@ -29164,35 +29426,37 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           id: id
           activate_keys_on_creation: true
           certificate_ttl_in_seconds: 1
@@ -29208,35 +29472,37 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           id: id
           activate_keys_on_creation: true
           certificate_ttl_in_seconds: 1
@@ -29244,35 +29510,37 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           id: id
           activate_keys_on_creation: true
           certificate_ttl_in_seconds: 1
@@ -29291,35 +29559,37 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           id: id
           activate_keys_on_creation: true
           certificate_ttl_in_seconds: 1
@@ -29354,35 +29624,37 @@ components:
             certificate_issue_date: 2000-01-23T04:56:07.000+00:00
             rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             id: id
             activate_keys_on_creation: true
             certificate_ttl_in_seconds: 1
@@ -29769,35 +30041,37 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               admin: true
             auth_method_sub_claims:
               key:
@@ -29812,35 +30086,37 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               admin: true
             auth_method_sub_claims:
               key:
@@ -29874,6 +30150,7 @@ components:
               - bound_projects
               - bound_projects
               audience: akeyless.io
+              unique_identifier: unique_identifier
               bound_regions:
               - bound_regions
               - bound_regions
@@ -29890,6 +30167,18 @@ components:
               bound_service_principal_ids:
               - bound_service_principal_ids
               - bound_service_principal_ids
+              unique_identifier: unique_identifier
+              bound_resource_names:
+              - bound_resource_names
+              - bound_resource_names
+              bound_resource_ids:
+              - bound_resource_ids
+              - bound_resource_ids
+              bound_tenant_id: bound_tenant_id
+              bound_subscription_ids:
+              - bound_subscription_ids
+              - bound_subscription_ids
+              issuer: issuer
               bound_resource_types:
               - bound_resource_types
               - bound_resource_types
@@ -29897,21 +30186,10 @@ components:
               bound_resource_groups:
               - bound_resource_groups
               - bound_resource_groups
-              bound_resource_names:
-              - bound_resource_names
-              - bound_resource_names
-              bound_resource_ids:
-              - bound_resource_ids
-              - bound_resource_ids
               bound_resource_providers:
               - bound_resource_providers
               - bound_resource_providers
-              bound_tenant_id: bound_tenant_id
               jwks_uri: jwks_uri
-              bound_subscription_ids:
-              - bound_subscription_ids
-              - bound_subscription_ids
-              issuer: issuer
             oci_access_rules:
               tenant_ocid: tenant_ocid
               group_ocids:
@@ -30049,6 +30327,7 @@ components:
               account_id:
               - account_id
               - account_id
+              unique_identifier: unique_identifier
               role_id:
               - role_id
               - role_id
@@ -30102,35 +30381,37 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               admin: true
             auth_method_sub_claims:
               key:
@@ -30145,35 +30426,37 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               - path: path
-                start_time: 7
+                start_time: 9
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 2
+                number_of_allowed_access: 7
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 5
+                number_of_access_used: 2
                 type: type
-                ttl: 9
+                ttl: 3
+                cb: 5
               admin: true
             auth_method_sub_claims:
               key:
@@ -30207,6 +30490,7 @@ components:
               - bound_projects
               - bound_projects
               audience: akeyless.io
+              unique_identifier: unique_identifier
               bound_regions:
               - bound_regions
               - bound_regions
@@ -30223,6 +30507,18 @@ components:
               bound_service_principal_ids:
               - bound_service_principal_ids
               - bound_service_principal_ids
+              unique_identifier: unique_identifier
+              bound_resource_names:
+              - bound_resource_names
+              - bound_resource_names
+              bound_resource_ids:
+              - bound_resource_ids
+              - bound_resource_ids
+              bound_tenant_id: bound_tenant_id
+              bound_subscription_ids:
+              - bound_subscription_ids
+              - bound_subscription_ids
+              issuer: issuer
               bound_resource_types:
               - bound_resource_types
               - bound_resource_types
@@ -30230,21 +30526,10 @@ components:
               bound_resource_groups:
               - bound_resource_groups
               - bound_resource_groups
-              bound_resource_names:
-              - bound_resource_names
-              - bound_resource_names
-              bound_resource_ids:
-              - bound_resource_ids
-              - bound_resource_ids
               bound_resource_providers:
               - bound_resource_providers
               - bound_resource_providers
-              bound_tenant_id: bound_tenant_id
               jwks_uri: jwks_uri
-              bound_subscription_ids:
-              - bound_subscription_ids
-              - bound_subscription_ids
-              issuer: issuer
             oci_access_rules:
               tenant_ocid: tenant_ocid
               group_ocids:
@@ -30382,6 +30667,7 @@ components:
               account_id:
               - account_id
               - account_id
+              unique_identifier: unique_identifier
               role_id:
               - role_id
               - role_id
@@ -30818,6 +31104,7 @@ components:
               is_cli: true
               use_internal_bastion: true
               rdp_user: rdp_user
+              enforce_hosts_restriction: true
               url: url
               account_id: account_id
               db_name: db_name
@@ -31579,6 +31866,7 @@ components:
               is_cli: true
               use_internal_bastion: true
               rdp_user: rdp_user
+              enforce_hosts_restriction: true
               url: url
               account_id: account_id
               db_name: db_name
@@ -32362,6 +32650,7 @@ components:
               is_cli: true
               use_internal_bastion: true
               rdp_user: rdp_user
+              enforce_hosts_restriction: true
               url: url
               account_id: account_id
               db_name: db_name
@@ -33123,6 +33412,7 @@ components:
               is_cli: true
               use_internal_bastion: true
               rdp_user: rdp_user
+              enforce_hosts_restriction: true
               url: url
               account_id: account_id
               db_name: db_name
@@ -33609,35 +33899,37 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             admin: true
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
@@ -33669,35 +33961,37 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             admin: true
           creation_date: 2000-01-23T04:56:07.000+00:00
           access_date_display: access_date_display
@@ -35592,20 +35886,21 @@ components:
     PathRule:
       example:
         path: path
-        start_time: 7
+        start_time: 9
         capabilities:
         - capabilities
         - capabilities
-        number_of_allowed_access: 2
+        number_of_allowed_access: 7
         is_limit_access: true
         assigners:
         - unique_id: unique_id
           access_id: access_id
         - unique_id: unique_id
           access_id: access_id
-        number_of_access_used: 5
+        number_of_access_used: 2
         type: type
-        ttl: 9
+        ttl: 3
+        cb: 5
       properties:
         assigners:
           items:
@@ -35618,6 +35913,10 @@ components:
             type: string
           type: array
           x-go-name: Capabilities
+        cb:
+          format: uint64
+          type: integer
+          x-go-name: CapabilitiesBitmap
         is_limit_access:
           description: flag that indicate that this rule is allowed to be access RemainingAccess
             of times.
@@ -35910,35 +36209,37 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             admin: true
           auth_method_sub_claims:
             key:
@@ -35953,35 +36254,37 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             - path: path
-              start_time: 7
+              start_time: 9
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 2
+              number_of_allowed_access: 7
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 5
+              number_of_access_used: 2
               type: type
-              ttl: 9
+              ttl: 3
+              cb: 5
             admin: true
           auth_method_sub_claims:
             key:
@@ -36014,35 +36317,37 @@ components:
               rules:
                 path_rules:
                 - path: path
-                  start_time: 7
+                  start_time: 9
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 2
+                  number_of_allowed_access: 7
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 5
+                  number_of_access_used: 2
                   type: type
-                  ttl: 9
+                  ttl: 3
+                  cb: 5
                 - path: path
-                  start_time: 7
+                  start_time: 9
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 2
+                  number_of_allowed_access: 7
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 5
+                  number_of_access_used: 2
                   type: type
-                  ttl: 9
+                  ttl: 3
+                  cb: 5
                 admin: true
               auth_method_sub_claims:
                 key:
@@ -36057,35 +36362,37 @@ components:
               rules:
                 path_rules:
                 - path: path
-                  start_time: 7
+                  start_time: 9
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 2
+                  number_of_allowed_access: 7
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 5
+                  number_of_access_used: 2
                   type: type
-                  ttl: 9
+                  ttl: 3
+                  cb: 5
                 - path: path
-                  start_time: 7
+                  start_time: 9
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 2
+                  number_of_allowed_access: 7
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 5
+                  number_of_access_used: 2
                   type: type
-                  ttl: 9
+                  ttl: 3
+                  cb: 5
                 admin: true
               auth_method_sub_claims:
                 key:
@@ -36180,35 +36487,37 @@ components:
         rules:
           path_rules:
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           - path: path
-            start_time: 7
+            start_time: 9
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 2
+            number_of_allowed_access: 7
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 5
+            number_of_access_used: 2
             type: type
-            ttl: 9
+            ttl: 3
+            cb: 5
           admin: true
         creation_date: 2000-01-23T04:56:07.000+00:00
         access_date_display: access_date_display
@@ -36542,35 +36851,37 @@ components:
       example:
         path_rules:
         - path: path
-          start_time: 7
+          start_time: 9
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 2
+          number_of_allowed_access: 7
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 5
+          number_of_access_used: 2
           type: type
-          ttl: 9
+          ttl: 3
+          cb: 5
         - path: path
-          start_time: 7
+          start_time: 9
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 2
+          number_of_allowed_access: 7
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 5
+          number_of_access_used: 2
           type: type
-          ttl: 9
+          ttl: 3
+          cb: 5
         admin: true
       properties:
         admin:
@@ -36877,6 +37188,47 @@ components:
           x-go-name: Version
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/external-secrets-manager/base
+    SectigoTargetDetails:
+      description: SectigoTargetDetails
+      example:
+        password: password
+        customer_uri: customer_uri
+        certificate_profile_id: 7
+        org_id: 9
+        external_requester: external_requester
+        timeout: 3
+        username: username
+      properties:
+        certificate_profile_id:
+          format: int64
+          type: integer
+          x-go-name: CertificateProfileID
+        customer_uri:
+          type: string
+          x-go-name: CustomerUri
+        external_requester:
+          type: string
+          x-go-name: ExternalRequester
+        org_id:
+          format: int64
+          type: integer
+          x-go-name: OrgId
+        password:
+          type: string
+          x-go-name: Password
+        timeout:
+          description: |-
+            A Duration represents the elapsed time between two instants
+            as an int64 nanosecond count. The representation limits the
+            largest representable duration to approximately 290 years.
+          format: int64
+          type: integer
+          x-go-package: time
+        username:
+          type: string
+          x-go-name: Username
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     SecureRemoteAccess:
       example:
         schema: schema
@@ -36925,6 +37277,7 @@ components:
         is_cli: true
         use_internal_bastion: true
         rdp_user: rdp_user
+        enforce_hosts_restriction: true
         url: url
         account_id: account_id
         db_name: db_name
@@ -36985,6 +37338,9 @@ components:
         endpoint:
           type: string
           x-go-name: K8SEndpoint
+        enforce_hosts_restriction:
+          type: boolean
+          x-go-name: EnforceHostsRestriction
         host:
           items:
             type: string
@@ -37875,7 +38231,7 @@ components:
           validation_email: validation_email
           imap_user: imap_user
           imap_password: imap_password
-          timeout: 7
+          timeout: 2
         custom_target_details:
           payload: payload
         godaddy_target_details:
@@ -37887,6 +38243,14 @@ components:
           imap_password: imap_password
           key: key
           timeout: 5
+        sectigo_target_details:
+          password: password
+          customer_uri: customer_uri
+          certificate_profile_id: 7
+          org_id: 9
+          external_requester: external_requester
+          timeout: 3
+          username: username
       properties:
         artifactory_target_details:
           $ref: '#/components/schemas/ArtifactoryTargetDetails'
@@ -37934,6 +38298,8 @@ components:
           $ref: '#/components/schemas/RabbitMQTargetDetails'
         salesforce_target_details:
           $ref: '#/components/schemas/SalesforceTargetDetails'
+        sectigo_target_details:
+          $ref: '#/components/schemas/SectigoTargetDetails'
         ssh_target_details:
           $ref: '#/components/schemas/SSHTargetDetails'
         venafi_target_details:
@@ -38817,7 +39183,7 @@ components:
         validation_email: validation_email
         imap_user: imap_user
         imap_password: imap_password
-        timeout: 7
+        timeout: 2
       properties:
         api_key:
           type: string
@@ -38889,6 +39255,38 @@ components:
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     addGatewayAllowedAccessIdOutput:
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    aliasDetails:
+      properties:
+        account-alias:
+          description: Account alias
+          type: string
+          x-go-name: AccountAlias
+        auth-method-name:
+          description: Auth method name
+          type: string
+          x-go-name: AuthMethodName
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+      required:
+      - account-alias
+      - auth-method-name
+      title: aliasDetails is a command that gets the alias details.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    aliasDetailsOutput:
+      properties:
+        access_type:
+          title: Access rules type.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        tenant_tag:
+          type: string
+          x-go-name: TenantTag
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     assocRoleAuthMethod:
@@ -39256,6 +39654,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-aws-account-id
       - name
@@ -39417,6 +39821,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-tenant-id
       - name
@@ -39790,6 +40200,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - audience
       - name
@@ -40932,6 +41348,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-aws-account-id
       - name
@@ -41097,6 +41519,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-tenant-id
       - name
@@ -41475,6 +41903,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - audience
       - name
@@ -42785,6 +43219,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-aws-account-id
       - name
@@ -42955,6 +43395,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-tenant-id
       - name
@@ -43355,6 +43801,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - audience
       - name
@@ -46801,6 +47253,11 @@ components:
           description: Enable/Disable secure remote access [true/false]
           type: string
           x-go-name: SecureAccessEnabled
+        secure-access-enforce-hosts-restriction:
+          description: Enable this flag to enforce connections only to the hosts listed
+            in --secure-access-host
+          type: boolean
+          x-go-name: EnforceHostsRestriction
         secure-access-host:
           description: Target servers for connections (In case of Linked Target association,
             host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
@@ -47078,7 +47535,8 @@ components:
           x-go-name: Description
         format:
           default: text
-          description: Secret format [text/json] (relevant only for type 'generic')
+          description: Secret format [text/json/key-value] (relevant only for type
+            'generic')
           type: string
           x-go-name: Format
         inject-url:
@@ -48620,6 +49078,8 @@ components:
       - tokenizer-name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    detokenizeBatchOutput:
+      $ref: '#/components/schemas/BatchTokenizationResponse'
     detokenizeOutput:
       example:
         result: result
@@ -48910,6 +49370,10 @@ components:
           description: Enable/Disable secure remote access [true/false]
           type: string
           x-go-name: SecureAccessEnabled
+        secure-access-url:
+          description: Destination URL to inject secrets
+          type: string
+          x-go-name: SecureAccessURL
         secure-access-web:
           default: true
           description: Enable Web Secure Remote Access
@@ -49796,6 +50260,29 @@ components:
         role-scope:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+        secure-access-enable:
+          description: Enable/Disable secure remote access [true/false]
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-url:
+          description: Destination URL to inject secrets
+          type: string
+          x-go-name: SecureAccessURL
+        secure-access-web:
+          default: true
+          description: Enable Web Secure Remote Access
+          type: boolean
+          x-go-name: SecureAccessWebCategory
+        secure-access-web-browsing:
+          default: false
+          description: Secure browser via Akeyless Web Access Bastion
+          type: boolean
+          x-go-name: SecureAccessIsolated
+        secure-access-web-proxy:
+          default: false
+          description: Web-Proxy via Akeyless Web Access Bastion
+          type: boolean
+          x-go-name: SecureAccessWebProxy
         tags:
           description: Add tags attached to this object
           items:
@@ -50876,6 +51363,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -52464,6 +52952,10 @@ components:
           description: Enable/Disable secure remote access [true/false]
           type: string
           x-go-name: SecureAccessEnabled
+        secure-access-url:
+          description: Destination URL to inject secrets
+          type: string
+          x-go-name: SecureAccessURL
         secure-access-web:
           default: true
           description: Enable Web Secure Remote Access
@@ -53390,6 +53882,29 @@ components:
         role-scope:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/producer/config
+        secure-access-enable:
+          description: Enable/Disable secure remote access [true/false]
+          type: string
+          x-go-name: SecureAccessEnabled
+        secure-access-url:
+          description: Destination URL to inject secrets
+          type: string
+          x-go-name: SecureAccessURL
+        secure-access-web:
+          default: true
+          description: Enable Web Secure Remote Access
+          type: boolean
+          x-go-name: SecureAccessWebCategory
+        secure-access-web-browsing:
+          default: false
+          description: Secure browser via Akeyless Web Access Bastion
+          type: boolean
+          x-go-name: SecureAccessIsolated
+        secure-access-web-proxy:
+          default: false
+          description: Web-Proxy via Akeyless Web Access Bastion
+          type: boolean
+          x-go-name: SecureAccessWebProxy
         tags:
           description: Add tags attached to this object
           items:
@@ -54498,6 +55013,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -56076,6 +56592,10 @@ components:
             type: string
           type: array
           x-go-name: GatewayEventSources
+        include-error:
+          description: Set this option to include event errors details [true\false]
+          type: string
+          x-go-name: IncludeError
         items-event-source-locations:
           description: Items Event sources
           items:
@@ -56622,6 +57142,10 @@ components:
             type: string
           type: array
           x-go-name: GatewayEventSources
+        include-error:
+          description: Set this option to include event errors details [true\false]
+          type: string
+          x-go-name: IncludeError
         items-event-source-locations:
           description: Items Event sources
           items:
@@ -57869,6 +58393,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -58355,6 +58880,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -58560,6 +59086,10 @@ components:
           description: Enable/Disable secure remote access [true/false]
           type: string
           x-go-name: SecureAccessEnabled
+        secure-access-url:
+          description: Destination URL to inject secrets
+          type: string
+          x-go-name: SecureAccessURL
         secure-access-web:
           default: true
           description: Enable Web Secure Remote Access
@@ -58817,6 +59347,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -59243,6 +59774,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -59659,6 +60191,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -60087,6 +60620,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -60493,6 +61027,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -60934,6 +61469,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -61355,6 +61891,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -61778,6 +62315,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -62210,6 +62748,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -62665,6 +63204,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -63133,6 +63673,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -63582,6 +64123,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -64047,6 +64589,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -64509,6 +65052,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -64987,6 +65531,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -65441,6 +65986,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -65931,6 +66477,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -66385,6 +66932,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -66835,6 +67383,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -67294,6 +67843,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -67723,6 +68273,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -68160,6 +68711,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -68583,6 +69135,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -69052,6 +69605,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -72585,6 +73139,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -73075,6 +73630,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -73284,6 +73840,10 @@ components:
           description: Enable/Disable secure remote access [true/false]
           type: string
           x-go-name: SecureAccessEnabled
+        secure-access-url:
+          description: Destination URL to inject secrets
+          type: string
+          x-go-name: SecureAccessURL
         secure-access-web:
           default: true
           description: Enable Web Secure Remote Access
@@ -73541,6 +74101,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -73971,6 +74532,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -74391,6 +74953,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -74823,6 +75386,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -75233,6 +75797,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -75678,6 +76243,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -76103,6 +76669,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -76530,6 +77097,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -76966,6 +77534,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -77419,6 +77988,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -77891,6 +78461,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -78344,6 +78915,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -78813,6 +79385,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -79279,6 +79852,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -79761,6 +80335,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -80219,6 +80794,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -80713,6 +81289,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -81171,6 +81748,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -81625,6 +82203,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -82088,6 +82667,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -82521,6 +83101,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -82962,6 +83543,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -83389,6 +83971,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -83862,6 +84445,7 @@ components:
             is_cli: true
             use_internal_bastion: true
             rdp_user: rdp_user
+            enforce_hosts_restriction: true
             url: url
             account_id: account_id
             db_name: db_name
@@ -92606,6 +93190,84 @@ components:
       - tenant-url
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    targetCreateSectigo:
+      description: targetCreateSectigo is a command that creates a new Sectigo target
+      properties:
+        certificate-profile-id:
+          description: Certificate Profile ID in Sectigo account
+          format: int64
+          type: integer
+          x-go-name: CertificateProfileID
+        customer-uri:
+          description: Customer Uri of the Sectigo account
+          type: string
+          x-go-name: CustomerUri
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        external-requester:
+          description: External Requester - a comma separated list of emails
+          type: string
+          x-go-name: ExternalRequester
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          description: The name of a key that used to encrypt the target secret value
+            (if empty, the account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        max-versions:
+          description: Set the maximum number of versions, limited by the account
+            settings defaults.
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        organization-id:
+          description: Organization ID in Sectigo account
+          format: int64
+          type: integer
+          x-go-name: OrganizationId
+        password:
+          description: Password of the Sectigo account user
+          type: string
+          x-go-name: Password
+        timeout:
+          default: 5m
+          description: Timeout waiting for certificate validation in Duration format
+            (1h - 1 Hour, 20m - 20 Minutes, 33m3s - 33 Minutes and 3 Seconds), maximum
+            1h.
+          type: string
+          x-go-name: Timeout
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Username of the Sectigo account
+          type: string
+          x-go-name: Username
+      required:
+      - certificate-profile-id
+      - customer-uri
+      - external-requester
+      - name
+      - organization-id
+      - password
+      - username
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     targetCreateSsh:
       description: targetCreateSsh is a command that creates a new ssh target
       properties:
@@ -94538,6 +95200,94 @@ components:
       - tenant-url
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    targetUpdateSectigo:
+      description: targetUpdateSectigo is a command that updates an existing Sectigo
+        target
+      properties:
+        certificate-profile-id:
+          description: Certificate Profile ID in Sectigo account
+          format: int64
+          type: integer
+          x-go-name: CertificateProfileID
+        customer-uri:
+          description: Customer Uri of the Sectigo account
+          type: string
+          x-go-name: CustomerUri
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        external-requester:
+          description: External Requester - a comma separated list of emails
+          type: string
+          x-go-name: ExternalRequester
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        keep-prev-version:
+          description: Whether to keep previous version [true/false]. If not set,
+            use default according to account settings
+          type: string
+          x-go-name: KeepPrevVersion
+        key:
+          description: The name of a key that used to encrypt the target secret value
+            (if empty, the account default protectionKey key will be used)
+          type: string
+          x-go-name: ProtectionKey
+        max-versions:
+          description: Set the maximum number of versions, limited by the account
+            settings defaults.
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        new-name:
+          description: New target name
+          type: string
+          x-go-name: NewTargetName
+        organization-id:
+          description: Organization ID in Sectigo account
+          format: int64
+          type: integer
+          x-go-name: OrganizationId
+        password:
+          description: Password of the Sectigo account user
+          type: string
+          x-go-name: Password
+        timeout:
+          default: 5m
+          description: Timeout waiting for certificate validation in Duration format
+            (1h - 1 Hour, 20m - 20 Minutes, 33m3s - 33 Minutes and 3 Seconds), maximum
+            1h.
+          type: string
+          x-go-name: Timeout
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: The universal identity token, Required only for universal_identity
+            authentication
+          type: string
+          x-go-name: UIDToken
+        username:
+          description: Username of the Sectigo account
+          type: string
+          x-go-name: Username
+      required:
+      - certificate-profile-id
+      - customer-uri
+      - external-requester
+      - name
+      - organization-id
+      - password
+      - username
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     targetUpdateSsh:
       description: targetUpdateSsh is a command that updates an existing ssh target
       properties:
@@ -94867,6 +95617,8 @@ components:
       - tokenizer-name
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    tokenizeBatchOutput:
+      $ref: '#/components/schemas/BatchTokenizationResponse'
     tokenizeOutput:
       example:
         result: result
@@ -95799,6 +96551,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-aws-account-id
       - name
@@ -95967,6 +96725,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - bound-tenant-id
       - name
@@ -96274,6 +97038,12 @@ components:
             authentication
           type: string
           x-go-name: UIDToken
+        unique-identifier:
+          description: A unique identifier (ID) value which is a "sub claim" name
+            that contains details uniquely identifying that resource. This "sub claim"
+            is used to distinguish between different identities.
+          type: string
+          x-go-name: UniqueIdentifier
       required:
       - audience
       - name
@@ -99935,6 +100705,11 @@ components:
           description: Enable/Disable secure remote access [true/false]
           type: string
           x-go-name: SecureAccessEnabled
+        secure-access-enforce-hosts-restriction:
+          description: Enable this flag to enforce connections only to the hosts listed
+            in --secure-access-host
+          type: boolean
+          x-go-name: EnforceHostsRestriction
         secure-access-host:
           description: Target servers for connections (In case of Linked Target association,
             host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
@@ -100271,7 +101046,8 @@ components:
           x-go-name: CustomFields
         format:
           default: text
-          description: Secret format [text/json] (relevant only for type 'generic')
+          description: Secret format [text/json/key-value] (relevant only for type
+            'generic')
           type: string
           x-go-name: Format
         inject-url:

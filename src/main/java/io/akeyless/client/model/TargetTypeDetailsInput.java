@@ -44,6 +44,7 @@ import io.akeyless.client.model.PingTargetDetails;
 import io.akeyless.client.model.RabbitMQTargetDetails;
 import io.akeyless.client.model.SSHTargetDetails;
 import io.akeyless.client.model.SalesforceTargetDetails;
+import io.akeyless.client.model.SectigoTargetDetails;
 import io.akeyless.client.model.VenafiTargetDetails;
 import io.akeyless.client.model.WebTargetDetails;
 import io.akeyless.client.model.WindowsTargetDetails;
@@ -148,6 +149,10 @@ public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_SALESFORCE_TARGET_DETAILS = "salesforce_target_details";
   @SerializedName(SERIALIZED_NAME_SALESFORCE_TARGET_DETAILS)
   private SalesforceTargetDetails salesforceTargetDetails;
+
+  public static final String SERIALIZED_NAME_SECTIGO_TARGET_DETAILS = "sectigo_target_details";
+  @SerializedName(SERIALIZED_NAME_SECTIGO_TARGET_DETAILS)
+  private SectigoTargetDetails sectigoTargetDetails;
 
   public static final String SERIALIZED_NAME_SSH_TARGET_DETAILS = "ssh_target_details";
   @SerializedName(SERIALIZED_NAME_SSH_TARGET_DETAILS)
@@ -701,6 +706,29 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput sectigoTargetDetails(SectigoTargetDetails sectigoTargetDetails) {
+    
+    this.sectigoTargetDetails = sectigoTargetDetails;
+    return this;
+  }
+
+   /**
+   * Get sectigoTargetDetails
+   * @return sectigoTargetDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SectigoTargetDetails getSectigoTargetDetails() {
+    return sectigoTargetDetails;
+  }
+
+
+  public void setSectigoTargetDetails(SectigoTargetDetails sectigoTargetDetails) {
+    this.sectigoTargetDetails = sectigoTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput sshTargetDetails(SSHTargetDetails sshTargetDetails) {
     
     this.sshTargetDetails = sshTargetDetails;
@@ -848,6 +876,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.pingTargetDetails, targetTypeDetailsInput.pingTargetDetails) &&
         Objects.equals(this.rabbitMqTargetDetails, targetTypeDetailsInput.rabbitMqTargetDetails) &&
         Objects.equals(this.salesforceTargetDetails, targetTypeDetailsInput.salesforceTargetDetails) &&
+        Objects.equals(this.sectigoTargetDetails, targetTypeDetailsInput.sectigoTargetDetails) &&
         Objects.equals(this.sshTargetDetails, targetTypeDetailsInput.sshTargetDetails) &&
         Objects.equals(this.venafiTargetDetails, targetTypeDetailsInput.venafiTargetDetails) &&
         Objects.equals(this.webTargetDetails, targetTypeDetailsInput.webTargetDetails) &&
@@ -857,7 +886,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -887,6 +916,7 @@ public class TargetTypeDetailsInput {
     sb.append("    pingTargetDetails: ").append(toIndentedString(pingTargetDetails)).append("\n");
     sb.append("    rabbitMqTargetDetails: ").append(toIndentedString(rabbitMqTargetDetails)).append("\n");
     sb.append("    salesforceTargetDetails: ").append(toIndentedString(salesforceTargetDetails)).append("\n");
+    sb.append("    sectigoTargetDetails: ").append(toIndentedString(sectigoTargetDetails)).append("\n");
     sb.append("    sshTargetDetails: ").append(toIndentedString(sshTargetDetails)).append("\n");
     sb.append("    venafiTargetDetails: ").append(toIndentedString(venafiTargetDetails)).append("\n");
     sb.append("    webTargetDetails: ").append(toIndentedString(webTargetDetails)).append("\n");

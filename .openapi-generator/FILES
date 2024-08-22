@@ -18,6 +18,8 @@ docs/ActiveDirectoryPayload.md
 docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
 docs/AkeylessGatewayConfig.md
+docs/AliasDetails.md
+docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
 docs/AllowedAccess.md
 docs/AllowedAccessOld.md
@@ -73,6 +75,8 @@ docs/BastionListEntry.md
 docs/BastionsList.md
 docs/BatchEncryptionRequestLine.md
 docs/BatchEncryptionResponseLine.md
+docs/BatchTokenizationRequestLine.md
+docs/BatchTokenizationResponseLine.md
 docs/CFConfigPart.md
 docs/CacheConfigPart.md
 docs/CertAccessRules.md
@@ -773,6 +777,7 @@ docs/SSHCertificateIssueDetails.md
 docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
 docs/SecretInfo.md
+docs/SectigoTargetDetails.md
 docs/SecureRemoteAccess.md
 docs/ServerInventoryMigration.md
 docs/ServerInventoryPayload.md
@@ -826,6 +831,7 @@ docs/TargetCreateOutput.md
 docs/TargetCreatePing.md
 docs/TargetCreateRabbitMq.md
 docs/TargetCreateSalesforce.md
+docs/TargetCreateSectigo.md
 docs/TargetCreateSsh.md
 docs/TargetCreateWeb.md
 docs/TargetCreateWindows.md
@@ -859,6 +865,7 @@ docs/TargetUpdateOutput.md
 docs/TargetUpdatePing.md
 docs/TargetUpdateRabbitMq.md
 docs/TargetUpdateSalesforce.md
+docs/TargetUpdateSectigo.md
 docs/TargetUpdateSsh.md
 docs/TargetUpdateWeb.md
 docs/TargetUpdateWindows.md
@@ -1051,6 +1058,8 @@ src/main/java/io/akeyless/client/model/ActiveDirectoryPayload.java
 src/main/java/io/akeyless/client/model/AddGatewayAllowedAccessId.java
 src/main/java/io/akeyless/client/model/AdminsConfigPart.java
 src/main/java/io/akeyless/client/model/AkeylessGatewayConfig.java
+src/main/java/io/akeyless/client/model/AliasDetails.java
+src/main/java/io/akeyless/client/model/AliasDetailsOutput.java
 src/main/java/io/akeyless/client/model/AllAnalyticsData.java
 src/main/java/io/akeyless/client/model/AllowedAccess.java
 src/main/java/io/akeyless/client/model/AllowedAccessOld.java
@@ -1106,6 +1115,8 @@ src/main/java/io/akeyless/client/model/BastionListEntry.java
 src/main/java/io/akeyless/client/model/BastionsList.java
 src/main/java/io/akeyless/client/model/BatchEncryptionRequestLine.java
 src/main/java/io/akeyless/client/model/BatchEncryptionResponseLine.java
+src/main/java/io/akeyless/client/model/BatchTokenizationRequestLine.java
+src/main/java/io/akeyless/client/model/BatchTokenizationResponseLine.java
 src/main/java/io/akeyless/client/model/CFConfigPart.java
 src/main/java/io/akeyless/client/model/CacheConfigPart.java
 src/main/java/io/akeyless/client/model/CertAccessRules.java
@@ -1806,6 +1817,7 @@ src/main/java/io/akeyless/client/model/SSHCertificateIssueDetails.java
 src/main/java/io/akeyless/client/model/SSHTargetDetails.java
 src/main/java/io/akeyless/client/model/SalesforceTargetDetails.java
 src/main/java/io/akeyless/client/model/SecretInfo.java
+src/main/java/io/akeyless/client/model/SectigoTargetDetails.java
 src/main/java/io/akeyless/client/model/SecureRemoteAccess.java
 src/main/java/io/akeyless/client/model/ServerInventoryMigration.java
 src/main/java/io/akeyless/client/model/ServerInventoryPayload.java
@@ -1859,6 +1871,7 @@ src/main/java/io/akeyless/client/model/TargetCreateOutput.java
 src/main/java/io/akeyless/client/model/TargetCreatePing.java
 src/main/java/io/akeyless/client/model/TargetCreateRabbitMq.java
 src/main/java/io/akeyless/client/model/TargetCreateSalesforce.java
+src/main/java/io/akeyless/client/model/TargetCreateSectigo.java
 src/main/java/io/akeyless/client/model/TargetCreateSsh.java
 src/main/java/io/akeyless/client/model/TargetCreateWeb.java
 src/main/java/io/akeyless/client/model/TargetCreateWindows.java
@@ -1892,6 +1905,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateOutput.java
 src/main/java/io/akeyless/client/model/TargetUpdatePing.java
 src/main/java/io/akeyless/client/model/TargetUpdateRabbitMq.java
 src/main/java/io/akeyless/client/model/TargetUpdateSalesforce.java
+src/main/java/io/akeyless/client/model/TargetUpdateSectigo.java
 src/main/java/io/akeyless/client/model/TargetUpdateSsh.java
 src/main/java/io/akeyless/client/model/TargetUpdateWeb.java
 src/main/java/io/akeyless/client/model/TargetUpdateWindows.java
@@ -2042,5 +2056,10 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/BatchEncryptionRequestLineTest.java
-src/test/java/io/akeyless/client/model/BatchEncryptionResponseLineTest.java
+src/test/java/io/akeyless/client/model/AliasDetailsOutputTest.java
+src/test/java/io/akeyless/client/model/AliasDetailsTest.java
+src/test/java/io/akeyless/client/model/BatchTokenizationRequestLineTest.java
+src/test/java/io/akeyless/client/model/BatchTokenizationResponseLineTest.java
+src/test/java/io/akeyless/client/model/SectigoTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/TargetCreateSectigoTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateSectigoTest.java

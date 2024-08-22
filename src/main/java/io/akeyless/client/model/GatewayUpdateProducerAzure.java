@@ -84,6 +84,10 @@ public class GatewayUpdateProducerAzure {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  private String secureAccessUrl;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   private Boolean secureAccessWeb = true;
@@ -438,6 +442,29 @@ public class GatewayUpdateProducerAzure {
   }
 
 
+  public GatewayUpdateProducerAzure secureAccessUrl(String secureAccessUrl) {
+    
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+   /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Destination URL to inject secrets")
+
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+
+  public void setSecureAccessUrl(String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
   public GatewayUpdateProducerAzure secureAccessWeb(Boolean secureAccessWeb) {
     
     this.secureAccessWeb = secureAccessWeb;
@@ -767,6 +794,7 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.passwordLength, gatewayUpdateProducerAzure.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerAzure.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerAzure.secureAccessEnable) &&
+        Objects.equals(this.secureAccessUrl, gatewayUpdateProducerAzure.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerAzure.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, gatewayUpdateProducerAzure.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, gatewayUpdateProducerAzure.secureAccessWebProxy) &&
@@ -784,7 +812,7 @@ public class GatewayUpdateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureClientId, azureClientSecret, azureTenantId, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -804,6 +832,7 @@ public class GatewayUpdateProducerAzure {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");

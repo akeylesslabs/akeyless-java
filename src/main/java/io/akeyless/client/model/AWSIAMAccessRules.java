@@ -55,6 +55,10 @@ public class AWSIAMAccessRules {
   @SerializedName(SERIALIZED_NAME_STS_ENDPOINT)
   private String stsEndpoint;
 
+  public static final String SERIALIZED_NAME_UNIQUE_IDENTIFIER = "unique_identifier";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_IDENTIFIER)
+  private String uniqueIdentifier;
+
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private List<String> userId = null;
@@ -244,6 +248,29 @@ public class AWSIAMAccessRules {
   }
 
 
+  public AWSIAMAccessRules uniqueIdentifier(String uniqueIdentifier) {
+    
+    this.uniqueIdentifier = uniqueIdentifier;
+    return this;
+  }
+
+   /**
+   * A unique identifier to distinguish different users
+   * @return uniqueIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique identifier to distinguish different users")
+
+  public String getUniqueIdentifier() {
+    return uniqueIdentifier;
+  }
+
+
+  public void setUniqueIdentifier(String uniqueIdentifier) {
+    this.uniqueIdentifier = uniqueIdentifier;
+  }
+
+
   public AWSIAMAccessRules userId(List<String> userId) {
     
     this.userId = userId;
@@ -321,13 +348,14 @@ public class AWSIAMAccessRules {
         Objects.equals(this.roleId, awSIAMAccessRules.roleId) &&
         Objects.equals(this.roleName, awSIAMAccessRules.roleName) &&
         Objects.equals(this.stsEndpoint, awSIAMAccessRules.stsEndpoint) &&
+        Objects.equals(this.uniqueIdentifier, awSIAMAccessRules.uniqueIdentifier) &&
         Objects.equals(this.userId, awSIAMAccessRules.userId) &&
         Objects.equals(this.userName, awSIAMAccessRules.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, arn, resourceId, roleId, roleName, stsEndpoint, userId, userName);
+    return Objects.hash(accountId, arn, resourceId, roleId, roleName, stsEndpoint, uniqueIdentifier, userId, userName);
   }
 
   @Override
@@ -340,6 +368,7 @@ public class AWSIAMAccessRules {
     sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    stsEndpoint: ").append(toIndentedString(stsEndpoint)).append("\n");
+    sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
