@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **k8sServiceAccount** | **String** | K8S ServiceAccount to extract token from. |  [optional]
 **k8sServiceAccountType** | **String** | K8S ServiceAccount type [fixed, dynamic]. |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]

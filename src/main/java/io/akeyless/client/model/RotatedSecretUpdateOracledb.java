@@ -95,6 +95,10 @@ public class RotatedSecretUpdateOracledb {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -514,6 +518,37 @@ public class RotatedSecretUpdateOracledb {
   }
 
 
+  public RotatedSecretUpdateOracledb rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateOracledb addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateOracledb rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -731,6 +766,7 @@ public class RotatedSecretUpdateOracledb {
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateOracledb.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateOracledb.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretUpdateOracledb.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateOracledb.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateOracledb.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateOracledb.rotationInterval) &&
         Objects.equals(this.secureAccessDbName, rotatedSecretUpdateOracledb.secureAccessDbName) &&
@@ -743,7 +779,7 @@ public class RotatedSecretUpdateOracledb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, token, uidToken);
   }
 
   @Override
@@ -766,6 +802,7 @@ public class RotatedSecretUpdateOracledb {
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");

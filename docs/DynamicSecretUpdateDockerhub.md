@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **dockerhubUsername** | **String** | DockerhubUsername is the name of the user in dockerhub |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]

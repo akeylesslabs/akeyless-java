@@ -35,6 +35,10 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_ALG)
   private String alg;
 
+  public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
+  @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
+  private String autoRotate;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_COMMON_NAME = "certificate-common-name";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_COMMON_NAME)
   private String certificateCommonName;
@@ -83,6 +87,10 @@ public class CreateDFCKey {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  private List<String> expirationEventIn = null;
+
   public static final String SERIALIZED_NAME_GENERATE_SELF_SIGNED_CERTIFICATE = "generate-self-signed-certificate";
   @SerializedName(SERIALIZED_NAME_GENERATE_SELF_SIGNED_CERTIFICATE)
   private Boolean generateSelfSignedCertificate;
@@ -98,6 +106,14 @@ public class CreateDFCKey {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
+  public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation-interval";
+  @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
+  private String rotationInterval;
 
   public static final String SERIALIZED_NAME_SPLIT_LEVEL = "split-level";
   @SerializedName(SERIALIZED_NAME_SPLIT_LEVEL)
@@ -138,6 +154,29 @@ public class CreateDFCKey {
 
   public void setAlg(String alg) {
     this.alg = alg;
+  }
+
+
+  public CreateDFCKey autoRotate(String autoRotate) {
+    
+    this.autoRotate = autoRotate;
+    return this;
+  }
+
+   /**
+   * Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false]
+   * @return autoRotate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false]")
+
+  public String getAutoRotate() {
+    return autoRotate;
+  }
+
+
+  public void setAutoRotate(String autoRotate) {
+    this.autoRotate = autoRotate;
   }
 
 
@@ -417,6 +456,37 @@ public class CreateDFCKey {
   }
 
 
+  public CreateDFCKey expirationEventIn(List<String> expirationEventIn) {
+    
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public CreateDFCKey addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<String>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the expiration of the certificate would you like to be notified.")
+
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+
+  public void setExpirationEventIn(List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+  }
+
+
   public CreateDFCKey generateSelfSignedCertificate(Boolean generateSelfSignedCertificate) {
     
     this.generateSelfSignedCertificate = generateSelfSignedCertificate;
@@ -506,6 +576,60 @@ public class CreateDFCKey {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateDFCKey rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public CreateDFCKey addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
+  public CreateDFCKey rotationInterval(String rotationInterval) {
+    
+    this.rotationInterval = rotationInterval;
+    return this;
+  }
+
+   /**
+   * The number of days to wait between every automatic rotation (7-365)
+   * @return rotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of days to wait between every automatic rotation (7-365)")
+
+  public String getRotationInterval() {
+    return rotationInterval;
+  }
+
+
+  public void setRotationInterval(String rotationInterval) {
+    this.rotationInterval = rotationInterval;
   }
 
 
@@ -619,6 +743,7 @@ public class CreateDFCKey {
     }
     CreateDFCKey createDFCKey = (CreateDFCKey) o;
     return Objects.equals(this.alg, createDFCKey.alg) &&
+        Objects.equals(this.autoRotate, createDFCKey.autoRotate) &&
         Objects.equals(this.certificateCommonName, createDFCKey.certificateCommonName) &&
         Objects.equals(this.certificateCountry, createDFCKey.certificateCountry) &&
         Objects.equals(this.certificateDigestAlgo, createDFCKey.certificateDigestAlgo) &&
@@ -631,10 +756,13 @@ public class CreateDFCKey {
         Objects.equals(this.customerFrgId, createDFCKey.customerFrgId) &&
         Objects.equals(this.deleteProtection, createDFCKey.deleteProtection) &&
         Objects.equals(this.description, createDFCKey.description) &&
+        Objects.equals(this.expirationEventIn, createDFCKey.expirationEventIn) &&
         Objects.equals(this.generateSelfSignedCertificate, createDFCKey.generateSelfSignedCertificate) &&
         Objects.equals(this.json, createDFCKey.json) &&
         Objects.equals(this.metadata, createDFCKey.metadata) &&
         Objects.equals(this.name, createDFCKey.name) &&
+        Objects.equals(this.rotationEventIn, createDFCKey.rotationEventIn) &&
+        Objects.equals(this.rotationInterval, createDFCKey.rotationInterval) &&
         Objects.equals(this.splitLevel, createDFCKey.splitLevel) &&
         Objects.equals(this.tag, createDFCKey.tag) &&
         Objects.equals(this.token, createDFCKey.token) &&
@@ -643,7 +771,7 @@ public class CreateDFCKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, generateSelfSignedCertificate, json, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, autoRotate, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, json, metadata, name, rotationEventIn, rotationInterval, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -651,6 +779,7 @@ public class CreateDFCKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDFCKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
+    sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    certificateCommonName: ").append(toIndentedString(certificateCommonName)).append("\n");
     sb.append("    certificateCountry: ").append(toIndentedString(certificateCountry)).append("\n");
     sb.append("    certificateDigestAlgo: ").append(toIndentedString(certificateDigestAlgo)).append("\n");
@@ -663,10 +792,13 @@ public class CreateDFCKey {
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
+    sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

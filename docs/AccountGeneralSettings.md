@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **invalidCharacters** | **String** | InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention |  [optional]
 **itemUsageEvent** | [**UsageEventSetting**](UsageEventSetting.md) |  |  [optional]
 **lockDefaultKey** | **Boolean** | LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty |  [optional]
+**passwordExpirationInfo** | [**PasswordExpirationInfo**](PasswordExpirationInfo.md) |  |  [optional]
 **passwordPolicy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional]
 **protectItemsByDefault** | **Boolean** |  |  [optional]
 **rotationSecretMaxInterval** | [**RotationSecretMaxInterval**](RotationSecretMaxInterval.md) |  |  [optional]

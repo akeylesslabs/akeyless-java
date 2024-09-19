@@ -55,6 +55,10 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  private List<String> expirationEventIn = null;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -229,6 +233,37 @@ public class UploadRSA {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public UploadRSA expirationEventIn(List<String> expirationEventIn) {
+    
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public UploadRSA addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<String>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the expiration of the certificate would you like to be notified.")
+
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+
+  public void setExpirationEventIn(List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
   }
 
 
@@ -462,6 +497,7 @@ public class UploadRSA {
         Objects.equals(this.customerFrgId, uploadRSA.customerFrgId) &&
         Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
         Objects.equals(this.description, uploadRSA.description) &&
+        Objects.equals(this.expirationEventIn, uploadRSA.expirationEventIn) &&
         Objects.equals(this.json, uploadRSA.json) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
@@ -475,7 +511,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, certificateFormat, customerFrgId, deleteProtection, description, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, certificateFormat, customerFrgId, deleteProtection, description, expirationEventIn, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -488,6 +524,7 @@ public class UploadRSA {
     sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

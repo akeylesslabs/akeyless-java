@@ -95,6 +95,10 @@ public class RotatedSecretUpdateSsh {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -538,6 +542,37 @@ public class RotatedSecretUpdateSsh {
   }
 
 
+  public RotatedSecretUpdateSsh rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateSsh addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateSsh rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -893,6 +928,7 @@ public class RotatedSecretUpdateSsh {
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateSsh.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateSsh.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretUpdateSsh.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateSsh.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateSsh.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateSsh.rotationInterval) &&
         Objects.equals(this.rotatorCustomCmd, rotatedSecretUpdateSsh.rotatorCustomCmd) &&
@@ -911,7 +947,7 @@ public class RotatedSecretUpdateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, token, uidToken);
   }
 
   @Override
@@ -934,6 +970,7 @@ public class RotatedSecretUpdateSsh {
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorCustomCmd: ").append(toIndentedString(rotatorCustomCmd)).append("\n");

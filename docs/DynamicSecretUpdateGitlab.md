@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **installationOrganization** | **String** | Gitlab project name, required for access-type&#x3D;project |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional]
 **targetName** | **String** | Target name |  [optional]
 **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional]

@@ -522,11 +522,11 @@ public class DynamicSecretUpdateMongoDb {
   }
 
    /**
-   * Dynamic secret new name
+   * Dynamic secret name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dynamic secret new name")
+  @ApiModelProperty(value = "Dynamic secret name")
 
   public String getNewName() {
     return newName;

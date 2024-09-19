@@ -186,11 +186,11 @@ public class UpdateTarget {
   }
 
    /**
-   * New Target name
+   * New target name
    * @return newName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "New Target name")
+  @ApiModelProperty(value = "New target name")
 
   public String getNewName() {
     return newName;

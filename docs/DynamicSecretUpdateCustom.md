@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **enableAdminRotation** | **Boolean** | Should admin credentials be rotated |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **payload** | **String** | Secret payload to be sent with each create/revoke webhook request |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **revokeSyncUrl** | **String** | URL of an endpoint that implements /sync/revoke method, for example https://webhook.example.com/sync/revoke | 

@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * EmailPassAccessRules
@@ -44,6 +45,10 @@ public class EmailPassAccessRules {
   public static final String SERIALIZED_NAME_HASH_PASS = "hash_pass";
   @SerializedName(SERIALIZED_NAME_HASH_PASS)
   private String hashPass;
+
+  public static final String SERIALIZED_NAME_LAST_RESET_PASSWORD = "last_reset_password";
+  @SerializedName(SERIALIZED_NAME_LAST_RESET_PASSWORD)
+  private OffsetDateTime lastResetPassword;
 
   public EmailPassAccessRules() { 
   }
@@ -140,6 +145,29 @@ public class EmailPassAccessRules {
   }
 
 
+  public EmailPassAccessRules lastResetPassword(OffsetDateTime lastResetPassword) {
+    
+    this.lastResetPassword = lastResetPassword;
+    return this;
+  }
+
+   /**
+   * The last password change date
+   * @return lastResetPassword
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The last password change date")
+
+  public OffsetDateTime getLastResetPassword() {
+    return lastResetPassword;
+  }
+
+
+  public void setLastResetPassword(OffsetDateTime lastResetPassword) {
+    this.lastResetPassword = lastResetPassword;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,12 +180,13 @@ public class EmailPassAccessRules {
     return Objects.equals(this.alg, emailPassAccessRules.alg) &&
         Objects.equals(this.email, emailPassAccessRules.email) &&
         Objects.equals(this.encEmailWithSharedKey, emailPassAccessRules.encEmailWithSharedKey) &&
-        Objects.equals(this.hashPass, emailPassAccessRules.hashPass);
+        Objects.equals(this.hashPass, emailPassAccessRules.hashPass) &&
+        Objects.equals(this.lastResetPassword, emailPassAccessRules.lastResetPassword);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, email, encEmailWithSharedKey, hashPass);
+    return Objects.hash(alg, email, encEmailWithSharedKey, hashPass, lastResetPassword);
   }
 
   @Override
@@ -168,6 +197,7 @@ public class EmailPassAccessRules {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    encEmailWithSharedKey: ").append(toIndentedString(encEmailWithSharedKey)).append("\n");
     sb.append("    hashPass: ").append(toIndentedString(hashPass)).append("\n");
+    sb.append("    lastResetPassword: ").append(toIndentedString(lastResetPassword)).append("\n");
     sb.append("}");
     return sb.toString();
   }

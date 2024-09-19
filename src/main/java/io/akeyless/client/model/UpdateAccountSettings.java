@@ -79,6 +79,10 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_ENABLE_ITEM_SHARING)
   private String enableItemSharing;
 
+  public static final String SERIALIZED_NAME_ENABLE_PASSWORD_EXPIRATION = "enable-password-expiration";
+  @SerializedName(SERIALIZED_NAME_ENABLE_PASSWORD_EXPIRATION)
+  private String enablePasswordExpiration;
+
   public static final String SERIALIZED_NAME_FORCE_NEW_VERSIONS = "force-new-versions";
   @SerializedName(SERIALIZED_NAME_FORCE_NEW_VERSIONS)
   private String forceNewVersions;
@@ -138,6 +142,14 @@ public class UpdateAccountSettings {
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   private String maxVersions;
+
+  public static final String SERIALIZED_NAME_PASSWORD_EXPIRATION_DAYS = "password-expiration-days";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_EXPIRATION_DAYS)
+  private String passwordExpirationDays;
+
+  public static final String SERIALIZED_NAME_PASSWORD_EXPIRATION_NOTIFICATION_DAYS = "password-expiration-notification-days";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_EXPIRATION_NOTIFICATION_DAYS)
+  private String passwordExpirationNotificationDays;
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -471,6 +483,29 @@ public class UpdateAccountSettings {
 
   public void setEnableItemSharing(String enableItemSharing) {
     this.enableItemSharing = enableItemSharing;
+  }
+
+
+  public UpdateAccountSettings enablePasswordExpiration(String enablePasswordExpiration) {
+    
+    this.enablePasswordExpiration = enablePasswordExpiration;
+    return this;
+  }
+
+   /**
+   * Enable password expiration policy [true/false]
+   * @return enablePasswordExpiration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable password expiration policy [true/false]")
+
+  public String getEnablePasswordExpiration() {
+    return enablePasswordExpiration;
+  }
+
+
+  public void setEnablePasswordExpiration(String enablePasswordExpiration) {
+    this.enablePasswordExpiration = enablePasswordExpiration;
   }
 
 
@@ -827,6 +862,52 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings passwordExpirationDays(String passwordExpirationDays) {
+    
+    this.passwordExpirationDays = passwordExpirationDays;
+    return this;
+  }
+
+   /**
+   * Specifies the number of days that a password is valid before it must be changed. A default value of 90 days is used.
+   * @return passwordExpirationDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the number of days that a password is valid before it must be changed. A default value of 90 days is used.")
+
+  public String getPasswordExpirationDays() {
+    return passwordExpirationDays;
+  }
+
+
+  public void setPasswordExpirationDays(String passwordExpirationDays) {
+    this.passwordExpirationDays = passwordExpirationDays;
+  }
+
+
+  public UpdateAccountSettings passwordExpirationNotificationDays(String passwordExpirationNotificationDays) {
+    
+    this.passwordExpirationNotificationDays = passwordExpirationNotificationDays;
+    return this;
+  }
+
+   /**
+   * Specifies the number of days before a user receives notification that their password will expire. A default value of 14 days is used.
+   * @return passwordExpirationNotificationDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the number of days before a user receives notification that their password will expire. A default value of 14 days is used.")
+
+  public String getPasswordExpirationNotificationDays() {
+    return passwordExpirationNotificationDays;
+  }
+
+
+  public void setPasswordExpirationNotificationDays(String passwordExpirationNotificationDays) {
+    this.passwordExpirationNotificationDays = passwordExpirationNotificationDays;
+  }
+
+
   public UpdateAccountSettings passwordLength(Long passwordLength) {
     
     this.passwordLength = passwordLength;
@@ -1124,6 +1205,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.dynamicSecretMaxTtl, updateAccountSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
         Objects.equals(this.enableItemSharing, updateAccountSettings.enableItemSharing) &&
+        Objects.equals(this.enablePasswordExpiration, updateAccountSettings.enablePasswordExpiration) &&
         Objects.equals(this.forceNewVersions, updateAccountSettings.forceNewVersions) &&
         Objects.equals(this.gwBoundIps, updateAccountSettings.gwBoundIps) &&
         Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
@@ -1139,6 +1221,8 @@ public class UpdateAccountSettings {
         Objects.equals(this.maxRotationInterval, updateAccountSettings.maxRotationInterval) &&
         Objects.equals(this.maxRotationIntervalEnable, updateAccountSettings.maxRotationIntervalEnable) &&
         Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
+        Objects.equals(this.passwordExpirationDays, updateAccountSettings.passwordExpirationDays) &&
+        Objects.equals(this.passwordExpirationNotificationDays, updateAccountSettings.passwordExpirationNotificationDays) &&
         Objects.equals(this.passwordLength, updateAccountSettings.passwordLength) &&
         Objects.equals(this.phone, updateAccountSettings.phone) &&
         Objects.equals(this.postalCode, updateAccountSettings.postalCode) &&
@@ -1155,7 +1239,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, boundIps, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableItemSharing, forceNewVersions, gwBoundIps, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
+    return Objects.hash(address, boundIps, city, companyName, country, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useLowerLetters, useNumbers, useSpecialCharacters, useCapitalLetters);
   }
 
   @Override
@@ -1174,6 +1258,7 @@ public class UpdateAccountSettings {
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
     sb.append("    enableItemSharing: ").append(toIndentedString(enableItemSharing)).append("\n");
+    sb.append("    enablePasswordExpiration: ").append(toIndentedString(enablePasswordExpiration)).append("\n");
     sb.append("    forceNewVersions: ").append(toIndentedString(forceNewVersions)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
@@ -1189,6 +1274,8 @@ public class UpdateAccountSettings {
     sb.append("    maxRotationInterval: ").append(toIndentedString(maxRotationInterval)).append("\n");
     sb.append("    maxRotationIntervalEnable: ").append(toIndentedString(maxRotationIntervalEnable)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
+    sb.append("    passwordExpirationDays: ").append(toIndentedString(passwordExpirationDays)).append("\n");
+    sb.append("    passwordExpirationNotificationDays: ").append(toIndentedString(passwordExpirationNotificationDays)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");

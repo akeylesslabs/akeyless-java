@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] |  [optional]
 **rotatedPassword** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) |  [optional]
 **rotatedUsername** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) |  [optional]
+**rotationEventIn** | **List&lt;String&gt;** | How many days before the rotation of the item would you like to be notified |  [optional]
 **rotationHour** | **Integer** | The Hour of the rotation in UTC |  [optional]
 **rotationInterval** | **String** | The number of days to wait between every automatic key rotation (1-365) |  [optional]
 **rotatorCustomCmd** | **String** | Custom rotation command |  [optional]

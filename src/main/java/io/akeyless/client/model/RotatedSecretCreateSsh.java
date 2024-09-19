@@ -79,6 +79,10 @@ public class RotatedSecretCreateSsh {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -419,6 +423,37 @@ public class RotatedSecretCreateSsh {
 
   public void setRotatedUsername(String rotatedUsername) {
     this.rotatedUsername = rotatedUsername;
+  }
+
+
+  public RotatedSecretCreateSsh rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretCreateSsh addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
   }
 
 
@@ -827,6 +862,7 @@ public class RotatedSecretCreateSsh {
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateSsh.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, rotatedSecretCreateSsh.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretCreateSsh.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretCreateSsh.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateSsh.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateSsh.rotationInterval) &&
         Objects.equals(this.rotatorCustomCmd, rotatedSecretCreateSsh.rotatorCustomCmd) &&
@@ -847,7 +883,7 @@ public class RotatedSecretCreateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -866,6 +902,7 @@ public class RotatedSecretCreateSsh {
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorCustomCmd: ").append(toIndentedString(rotatorCustomCmd)).append("\n");

@@ -36,6 +36,10 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_ALG)
   private String alg;
 
+  public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
+  @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
+  private String autoRotate;
+
   public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
@@ -84,6 +88,10 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  private List<String> expirationEventIn = null;
+
   public static final String SERIALIZED_NAME_GENERATE_SELF_SIGNED_CERTIFICATE = "generate-self-signed-certificate";
   @SerializedName(SERIALIZED_NAME_GENERATE_SELF_SIGNED_CERTIFICATE)
   private Boolean generateSelfSignedCertificate;
@@ -111,6 +119,14 @@ public class CreateClassicKey {
   public static final String SERIALIZED_NAME_PROTECTION_KEY_NAME = "protection-key-name";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY_NAME)
   private String protectionKeyName;
+
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
+  public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation-interval";
+  @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
+  private String rotationInterval;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -147,6 +163,29 @@ public class CreateClassicKey {
 
   public void setAlg(String alg) {
     this.alg = alg;
+  }
+
+
+  public CreateClassicKey autoRotate(String autoRotate) {
+    
+    this.autoRotate = autoRotate;
+    return this;
+  }
+
+   /**
+   * Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false]
+   * @return autoRotate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false]")
+
+  public String getAutoRotate() {
+    return autoRotate;
+  }
+
+
+  public void setAutoRotate(String autoRotate) {
+    this.autoRotate = autoRotate;
   }
 
 
@@ -426,6 +465,37 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey expirationEventIn(List<String> expirationEventIn) {
+    
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public CreateClassicKey addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<String>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the expiration of the certificate would you like to be notified.")
+
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+
+  public void setExpirationEventIn(List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+  }
+
+
   public CreateClassicKey generateSelfSignedCertificate(Boolean generateSelfSignedCertificate) {
     
     this.generateSelfSignedCertificate = generateSelfSignedCertificate;
@@ -587,6 +657,60 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public CreateClassicKey addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
+  public CreateClassicKey rotationInterval(String rotationInterval) {
+    
+    this.rotationInterval = rotationInterval;
+    return this;
+  }
+
+   /**
+   * The number of days to wait between every automatic rotation (1-365)
+   * @return rotationInterval
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of days to wait between every automatic rotation (1-365)")
+
+  public String getRotationInterval() {
+    return rotationInterval;
+  }
+
+
+  public void setRotationInterval(String rotationInterval) {
+    this.rotationInterval = rotationInterval;
+  }
+
+
   public CreateClassicKey tags(List<String> tags) {
     
     this.tags = tags;
@@ -674,6 +798,7 @@ public class CreateClassicKey {
     }
     CreateClassicKey createClassicKey = (CreateClassicKey) o;
     return Objects.equals(this.alg, createClassicKey.alg) &&
+        Objects.equals(this.autoRotate, createClassicKey.autoRotate) &&
         Objects.equals(this.certFileData, createClassicKey.certFileData) &&
         Objects.equals(this.certificateCommonName, createClassicKey.certificateCommonName) &&
         Objects.equals(this.certificateCountry, createClassicKey.certificateCountry) &&
@@ -686,6 +811,7 @@ public class CreateClassicKey {
         Objects.equals(this.confFileData, createClassicKey.confFileData) &&
         Objects.equals(this.deleteProtection, createClassicKey.deleteProtection) &&
         Objects.equals(this.description, createClassicKey.description) &&
+        Objects.equals(this.expirationEventIn, createClassicKey.expirationEventIn) &&
         Objects.equals(this.generateSelfSignedCertificate, createClassicKey.generateSelfSignedCertificate) &&
         Objects.equals(this.gpgAlg, createClassicKey.gpgAlg) &&
         Objects.equals(this.json, createClassicKey.json) &&
@@ -693,6 +819,8 @@ public class CreateClassicKey {
         Objects.equals(this.metadata, createClassicKey.metadata) &&
         Objects.equals(this.name, createClassicKey.name) &&
         Objects.equals(this.protectionKeyName, createClassicKey.protectionKeyName) &&
+        Objects.equals(this.rotationEventIn, createClassicKey.rotationEventIn) &&
+        Objects.equals(this.rotationInterval, createClassicKey.rotationInterval) &&
         Objects.equals(this.tags, createClassicKey.tags) &&
         Objects.equals(this.token, createClassicKey.token) &&
         Objects.equals(this.uidToken, createClassicKey.uidToken);
@@ -700,7 +828,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, tags, token, uidToken);
+    return Objects.hash(alg, autoRotate, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, rotationEventIn, rotationInterval, tags, token, uidToken);
   }
 
   @Override
@@ -708,6 +836,7 @@ public class CreateClassicKey {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateClassicKey {\n");
     sb.append("    alg: ").append(toIndentedString(alg)).append("\n");
+    sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    certificateCommonName: ").append(toIndentedString(certificateCommonName)).append("\n");
     sb.append("    certificateCountry: ").append(toIndentedString(certificateCountry)).append("\n");
@@ -720,6 +849,7 @@ public class CreateClassicKey {
     sb.append("    confFileData: ").append(toIndentedString(confFileData)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
     sb.append("    gpgAlg: ").append(toIndentedString(gpgAlg)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -727,6 +857,8 @@ public class CreateClassicKey {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
+    sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

@@ -87,6 +87,10 @@ public class RotatedSecretCreateLdap {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -477,6 +481,37 @@ public class RotatedSecretCreateLdap {
 
   public void setRotatedUsername(String rotatedUsername) {
     this.rotatedUsername = rotatedUsername;
+  }
+
+
+  public RotatedSecretCreateLdap rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretCreateLdap addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
   }
 
 
@@ -918,6 +953,7 @@ public class RotatedSecretCreateLdap {
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateLdap.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, rotatedSecretCreateLdap.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretCreateLdap.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretCreateLdap.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateLdap.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateLdap.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretCreateLdap.rotatorType) &&
@@ -939,7 +975,7 @@ public class RotatedSecretCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorType, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -960,6 +996,7 @@ public class RotatedSecretCreateLdap {
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");

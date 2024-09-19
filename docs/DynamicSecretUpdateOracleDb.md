@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the object |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **oracleHost** | **String** | Oracle Host |  [optional]
 **oraclePassword** | **String** | Oracle Password |  [optional]
 **oraclePort** | **String** | Oracle Port |  [optional]

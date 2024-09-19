@@ -95,6 +95,10 @@ public class RotatedSecretUpdateGcp {
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   private List<String> rmTag = null;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -502,6 +506,37 @@ public class RotatedSecretUpdateGcp {
   }
 
 
+  public RotatedSecretUpdateGcp rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateGcp addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateGcp rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -642,6 +677,7 @@ public class RotatedSecretUpdateGcp {
         Objects.equals(this.newName, rotatedSecretUpdateGcp.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateGcp.passwordLength) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateGcp.rmTag) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateGcp.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateGcp.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateGcp.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretUpdateGcp.rotatorType) &&
@@ -651,7 +687,7 @@ public class RotatedSecretUpdateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationHour, rotationInterval, rotatorType, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, token, uidToken);
   }
 
   @Override
@@ -674,6 +710,7 @@ public class RotatedSecretUpdateGcp {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");

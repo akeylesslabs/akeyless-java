@@ -59,6 +59,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description = "default_metadata";
 
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  private List<String> expirationEventIn = null;
+
   public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
   @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
   private String hostProvider;
@@ -368,6 +372,37 @@ public class UpdateItem {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public UpdateItem expirationEventIn(List<String> expirationEventIn) {
+    
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public UpdateItem addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<String>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the expiration of the certificate would you like to be notified.")
+
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+
+  public void setExpirationEventIn(List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
   }
 
 
@@ -1224,6 +1259,7 @@ public class UpdateItem {
         Objects.equals(this.changeEvent, updateItem.changeEvent) &&
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
         Objects.equals(this.description, updateItem.description) &&
+        Objects.equals(this.expirationEventIn, updateItem.expirationEventIn) &&
         Objects.equals(this.hostProvider, updateItem.hostProvider) &&
         Objects.equals(this.json, updateItem.json) &&
         Objects.equals(this.maxVersions, updateItem.maxVersions) &&
@@ -1263,7 +1299,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, certFileData, changeEvent, deleteProtection, description, hostProvider, json, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(providerType, accessibility, addTag, certFileData, changeEvent, deleteProtection, description, expirationEventIn, hostProvider, json, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
   @Override
@@ -1277,6 +1313,7 @@ public class UpdateItem {
     sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");

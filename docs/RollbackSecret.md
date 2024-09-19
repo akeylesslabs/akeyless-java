@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessibility** | **String** | for personal password manager |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Secret name | 
 **oldVersion** | **Integer** | Old secret version to rollback to | 

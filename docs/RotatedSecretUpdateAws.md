@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
 **rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional]
 **rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] |  [optional]
+**rotationEventIn** | **List&lt;String&gt;** | How many days before the rotation of the item would you like to be notified |  [optional]
 **rotationHour** | **Integer** | The Hour of the rotation in UTC |  [optional]
 **rotationInterval** | **String** | The number of days to wait between every automatic key rotation (1-365) |  [optional]
 **secureAccessAwsAccountId** | **String** | The AWS account id |  [optional]

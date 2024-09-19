@@ -83,6 +83,10 @@ public class RotatedSecretCreateAzure {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   private String rotateAfterDisconnect = "false";
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -442,6 +446,37 @@ public class RotatedSecretCreateAzure {
 
   public void setRotateAfterDisconnect(String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public RotatedSecretCreateAzure rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretCreateAzure addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
   }
 
 
@@ -820,6 +855,7 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.name, rotatedSecretCreateAzure.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateAzure.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateAzure.rotateAfterDisconnect) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretCreateAzure.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateAzure.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateAzure.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretCreateAzure.rotatorType) &&
@@ -839,7 +875,7 @@ public class RotatedSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, tags, targetName, token, uidToken, username);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, tags, targetName, token, uidToken, username);
   }
 
   @Override
@@ -859,6 +895,7 @@ public class RotatedSecretCreateAzure {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");

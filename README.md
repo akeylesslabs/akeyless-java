@@ -105,7 +105,7 @@ All URIs are relative to *https://api.akeyless.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*V2Api* | [**aliasDetails**](docs/V2Api.md#aliasDetails) | **GET** /alias-details | 
+*V2Api* | [**aliasDetails**](docs/V2Api.md#aliasDetails) | **POST** /alias-details | 
 *V2Api* | [**assocRoleAuthMethod**](docs/V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am | 
 *V2Api* | [**assocTargetItem**](docs/V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
 *V2Api* | [**auth**](docs/V2Api.md#auth) | **POST** /auth | 
@@ -347,6 +347,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayGetLogForwarding**](docs/V2Api.md#gatewayGetLogForwarding) | **POST** /gateway-get-log-forwarding | 
 *V2Api* | [**gatewayGetMigration**](docs/V2Api.md#gatewayGetMigration) | **POST** /gateway-get-migration | 
 *V2Api* | [**gatewayGetProducer**](docs/V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
+*V2Api* | [**gatewayGetRemoteAccess**](docs/V2Api.md#gatewayGetRemoteAccess) | **POST** /gateway-get-remote-access | 
 *V2Api* | [**gatewayGetTmpUsers**](docs/V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
 *V2Api* | [**gatewayListCustomerFragments**](docs/V2Api.md#gatewayListCustomerFragments) | **POST** /gateway-list-customer-fragments | 
 *V2Api* | [**gatewayListMigration**](docs/V2Api.md#gatewayListMigration) | **POST** /gateway-list-migration | 
@@ -402,6 +403,8 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateProducerRedshift**](docs/V2Api.md#gatewayUpdateProducerRedshift) | **POST** /gateway-update-producer-redshift | 
 *V2Api* | [**gatewayUpdateProducerSnowflake**](docs/V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
 *V2Api* | [**gatewayUpdateProducerVenafi**](docs/V2Api.md#gatewayUpdateProducerVenafi) | **POST** /gateway-update-producer-certificate-automation | 
+*V2Api* | [**gatewayUpdateRemoteAccess**](docs/V2Api.md#gatewayUpdateRemoteAccess) | **POST** /gateway-update-remote-access | 
+*V2Api* | [**gatewayUpdateRemoteAccessRdpRecordings**](docs/V2Api.md#gatewayUpdateRemoteAccessRdpRecordings) | **POST** /gateway-update-remote-access-rdp-recording | 
 *V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
 *V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
@@ -424,6 +427,17 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getTags**](docs/V2Api.md#getTags) | **POST** /get-tags | 
 *V2Api* | [**getTarget**](docs/V2Api.md#getTarget) | **POST** /get-target | 
 *V2Api* | [**getTargetDetails**](docs/V2Api.md#getTargetDetails) | **POST** /get-target-details | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsAwsS3**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsAwsS3) | **POST** /gateway-update-remote-access-session-forwarding-aws-s3 | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsAzureAnalytics**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsAzureAnalytics) | **POST** /gateway-update-remote-access-session-forwarding-azure-analytics | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsDatadog**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsDatadog) | **POST** /gateway-update-remote-access-session-forwarding-datadog | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsElasticsearch**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsElasticsearch) | **POST** /gateway-update-remote-access-session-forwarding-elasticsearch | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsGoogleChronicle**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsGoogleChronicle) | **POST** /gateway-update-remote-access-session-forwarding-google-chronicle | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsLogstash**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsLogstash) | **POST** /gateway-update-remote-access-session-forwarding-logstash | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsLogzIo**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsLogzIo) | **POST** /gateway-update-remote-access-session-forwarding-logz-io | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsSplunk**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsSplunk) | **POST** /gateway-update-remote-access-session-forwarding-splunk | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsStdout**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsStdout) | **POST** /gateway-update-remote-access-session-forwarding-stdout | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsSumologic**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsSumologic) | **POST** /gateway-update-remote-access-session-forwarding-sumologic | 
+*V2Api* | [**gwUpdateRemoteAccessSessionLogsSyslog**](docs/V2Api.md#gwUpdateRemoteAccessSessionLogsSyslog) | **POST** /gateway-update-remote-access-session-forwarding-syslog | 
 *V2Api* | [**hmac**](docs/V2Api.md#hmac) | **POST** /hmac | 
 *V2Api* | [**importPasswords**](docs/V2Api.md#importPasswords) | **POST** /import-passwords | 
 *V2Api* | [**kmipClientDeleteRule**](docs/V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 
@@ -709,11 +723,15 @@ Class | Method | HTTP request | Description
  - [AuthMethodUpdateUniversalIdentity](docs/AuthMethodUpdateUniversalIdentity.md)
  - [AuthOutput](docs/AuthOutput.md)
  - [AwsS3LogForwardingConfig](docs/AwsS3LogForwardingConfig.md)
+ - [AwsStorage](docs/AwsStorage.md)
  - [AzureADAccessRules](docs/AzureADAccessRules.md)
  - [AzureKeyVaultMigration](docs/AzureKeyVaultMigration.md)
  - [AzureLogAnalyticsForwardingConfig](docs/AzureLogAnalyticsForwardingConfig.md)
  - [AzurePayload](docs/AzurePayload.md)
+ - [AzureStorage](docs/AzureStorage.md)
  - [AzureTargetDetails](docs/AzureTargetDetails.md)
+ - [BastionConfigReplyObj](docs/BastionConfigReplyObj.md)
+ - [BastionGlobalConf](docs/BastionGlobalConf.md)
  - [BastionListEntry](docs/BastionListEntry.md)
  - [BastionsList](docs/BastionsList.md)
  - [BatchEncryptionRequestLine](docs/BatchEncryptionRequestLine.md)
@@ -1096,6 +1114,7 @@ Class | Method | HTTP request | Description
  - [GatewayGetLogForwarding](docs/GatewayGetLogForwarding.md)
  - [GatewayGetMigration](docs/GatewayGetMigration.md)
  - [GatewayGetProducer](docs/GatewayGetProducer.md)
+ - [GatewayGetRemoteAccess](docs/GatewayGetRemoteAccess.md)
  - [GatewayGetTmpUsers](docs/GatewayGetTmpUsers.md)
  - [GatewayListCustomerFragments](docs/GatewayListCustomerFragments.md)
  - [GatewayListMigration](docs/GatewayListMigration.md)
@@ -1194,6 +1213,8 @@ Class | Method | HTTP request | Description
  - [GatewayUpdateProducerSnowflakeOutput](docs/GatewayUpdateProducerSnowflakeOutput.md)
  - [GatewayUpdateProducerVenafi](docs/GatewayUpdateProducerVenafi.md)
  - [GatewayUpdateProducerVenafiOutput](docs/GatewayUpdateProducerVenafiOutput.md)
+ - [GatewayUpdateRemoteAccess](docs/GatewayUpdateRemoteAccess.md)
+ - [GatewayUpdateRemoteAccessRdpRecordings](docs/GatewayUpdateRemoteAccessRdpRecordings.md)
  - [GatewayUpdateTlsCert](docs/GatewayUpdateTlsCert.md)
  - [GatewayUpdateTlsCertOutput](docs/GatewayUpdateTlsCertOutput.md)
  - [GatewayUpdateTmpUsers](docs/GatewayUpdateTmpUsers.md)
@@ -1240,6 +1261,17 @@ Class | Method | HTTP request | Description
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
  - [Group](docs/Group.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
+ - [GwUpdateRemoteAccessSessionLogsAwsS3](docs/GwUpdateRemoteAccessSessionLogsAwsS3.md)
+ - [GwUpdateRemoteAccessSessionLogsAzureAnalytics](docs/GwUpdateRemoteAccessSessionLogsAzureAnalytics.md)
+ - [GwUpdateRemoteAccessSessionLogsDatadog](docs/GwUpdateRemoteAccessSessionLogsDatadog.md)
+ - [GwUpdateRemoteAccessSessionLogsElasticsearch](docs/GwUpdateRemoteAccessSessionLogsElasticsearch.md)
+ - [GwUpdateRemoteAccessSessionLogsGoogleChronicle](docs/GwUpdateRemoteAccessSessionLogsGoogleChronicle.md)
+ - [GwUpdateRemoteAccessSessionLogsLogstash](docs/GwUpdateRemoteAccessSessionLogsLogstash.md)
+ - [GwUpdateRemoteAccessSessionLogsLogzIo](docs/GwUpdateRemoteAccessSessionLogsLogzIo.md)
+ - [GwUpdateRemoteAccessSessionLogsSplunk](docs/GwUpdateRemoteAccessSessionLogsSplunk.md)
+ - [GwUpdateRemoteAccessSessionLogsStdout](docs/GwUpdateRemoteAccessSessionLogsStdout.md)
+ - [GwUpdateRemoteAccessSessionLogsSumologic](docs/GwUpdateRemoteAccessSessionLogsSumologic.md)
+ - [GwUpdateRemoteAccessSessionLogsSyslog](docs/GwUpdateRemoteAccessSessionLogsSyslog.md)
  - [HashiMigration](docs/HashiMigration.md)
  - [HashiPayload](docs/HashiPayload.md)
  - [HashiVaultTargetDetails](docs/HashiVaultTargetDetails.md)
@@ -1324,6 +1356,7 @@ Class | Method | HTTP request | Description
  - [MoveObjects](docs/MoveObjects.md)
  - [Name](docs/Name.md)
  - [NativeK8sTargetDetails](docs/NativeK8sTargetDetails.md)
+ - [NextAutoRotationEvent](docs/NextAutoRotationEvent.md)
  - [NotiForwarder](docs/NotiForwarder.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
@@ -1335,6 +1368,7 @@ Class | Method | HTTP request | Description
  - [OnePasswordMigration](docs/OnePasswordMigration.md)
  - [OnePasswordPayload](docs/OnePasswordPayload.md)
  - [PKICertificateIssueDetails](docs/PKICertificateIssueDetails.md)
+ - [PasswordExpirationInfo](docs/PasswordExpirationInfo.md)
  - [PasswordPolicyInfo](docs/PasswordPolicyInfo.md)
  - [PathRule](docs/PathRule.md)
  - [PingTargetDetails](docs/PingTargetDetails.md)
@@ -1352,6 +1386,8 @@ Class | Method | HTTP request | Description
  - [RequestAccess](docs/RequestAccess.md)
  - [RequestAccessOutput](docs/RequestAccessOutput.md)
  - [RequiredActivity](docs/RequiredActivity.md)
+ - [ResetAccessKey](docs/ResetAccessKey.md)
+ - [ResetAuthMethodAccessKeyOutput](docs/ResetAuthMethodAccessKeyOutput.md)
  - [ReverseRBAC](docs/ReverseRBAC.md)
  - [ReverseRBACClient](docs/ReverseRBACClient.md)
  - [ReverseRBACOutput](docs/ReverseRBACOutput.md)
@@ -1445,6 +1481,8 @@ Class | Method | HTTP request | Description
  - [SmInfo](docs/SmInfo.md)
  - [SplunkLogForwardingConfig](docs/SplunkLogForwardingConfig.md)
  - [SraInfo](docs/SraInfo.md)
+ - [SshBastionConf](docs/SshBastionConf.md)
+ - [SshBastionSessionTermination](docs/SshBastionSessionTermination.md)
  - [StaticCredsAuth](docs/StaticCredsAuth.md)
  - [StaticCredsAuthOutput](docs/StaticCredsAuthOutput.md)
  - [StaticSecretDetailsInfo](docs/StaticSecretDetailsInfo.md)
@@ -1653,6 +1691,9 @@ Class | Method | HTTP request | Description
  - [VerifyPKICertOutput](docs/VerifyPKICertOutput.md)
  - [VerifyPKICertWithClassicKey](docs/VerifyPKICertWithClassicKey.md)
  - [VerifyRsaSsaPss](docs/VerifyRsaSsaPss.md)
+ - [WebBastionConf](docs/WebBastionConf.md)
+ - [WebBastionGuacamole](docs/WebBastionGuacamole.md)
+ - [WebBastionRdpRecord](docs/WebBastionRdpRecord.md)
  - [WebHookNotiForwarderPublicDetails](docs/WebHookNotiForwarderPublicDetails.md)
  - [WebTargetDetails](docs/WebTargetDetails.md)
  - [WindowsService](docs/WindowsService.md)

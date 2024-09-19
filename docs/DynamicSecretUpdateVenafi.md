@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **enableAdminRotation** | **Boolean** | Automatic admin credentials rotation |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **rootFirstInChain** | **Boolean** | Root first in chain |  [optional]
 **signUsingAkeylessPki** | **Boolean** | Use Akeyless PKI issuer or Venafi issuer |  [optional]

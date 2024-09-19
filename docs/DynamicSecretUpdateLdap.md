@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ldapCaCert** | **String** | CA Certificate File Content |  [optional]
 **ldapUrl** | **String** | LDAP Server URL |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional]

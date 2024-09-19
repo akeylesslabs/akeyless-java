@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * updateRotationSettings is a command that updates rotations settings of an existing key
@@ -41,6 +43,10 @@ public class UpdateRotationSettings {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
 
   public static final String SERIALIZED_NAME_ROTATION_INTERVAL = "rotation-interval";
   @SerializedName(SERIALIZED_NAME_ROTATION_INTERVAL)
@@ -126,6 +132,37 @@ public class UpdateRotationSettings {
   }
 
 
+  public UpdateRotationSettings rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public UpdateRotationSettings addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public UpdateRotationSettings rotationInterval(Long rotationInterval) {
     
     this.rotationInterval = rotationInterval;
@@ -207,6 +244,7 @@ public class UpdateRotationSettings {
     return Objects.equals(this.autoRotate, updateRotationSettings.autoRotate) &&
         Objects.equals(this.json, updateRotationSettings.json) &&
         Objects.equals(this.name, updateRotationSettings.name) &&
+        Objects.equals(this.rotationEventIn, updateRotationSettings.rotationEventIn) &&
         Objects.equals(this.rotationInterval, updateRotationSettings.rotationInterval) &&
         Objects.equals(this.token, updateRotationSettings.token) &&
         Objects.equals(this.uidToken, updateRotationSettings.uidToken);
@@ -214,7 +252,7 @@ public class UpdateRotationSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, json, name, rotationInterval, token, uidToken);
+    return Objects.hash(autoRotate, json, name, rotationEventIn, rotationInterval, token, uidToken);
   }
 
   @Override
@@ -224,6 +262,7 @@ public class UpdateRotationSettings {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");

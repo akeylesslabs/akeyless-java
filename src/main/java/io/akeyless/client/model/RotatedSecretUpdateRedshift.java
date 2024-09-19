@@ -95,6 +95,10 @@ public class RotatedSecretUpdateRedshift {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -510,6 +514,37 @@ public class RotatedSecretUpdateRedshift {
   }
 
 
+  public RotatedSecretUpdateRedshift rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateRedshift addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateRedshift rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -704,6 +739,7 @@ public class RotatedSecretUpdateRedshift {
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateRedshift.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateRedshift.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretUpdateRedshift.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateRedshift.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateRedshift.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateRedshift.rotationInterval) &&
         Objects.equals(this.secureAccessDbName, rotatedSecretUpdateRedshift.secureAccessDbName) &&
@@ -715,7 +751,7 @@ public class RotatedSecretUpdateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, token, uidToken);
   }
 
   @Override
@@ -738,6 +774,7 @@ public class RotatedSecretUpdateRedshift {
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");

@@ -4,7 +4,7 @@ All URIs are relative to *https://api.akeyless.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**aliasDetails**](V2Api.md#aliasDetails) | **GET** /alias-details | 
+[**aliasDetails**](V2Api.md#aliasDetails) | **POST** /alias-details | 
 [**assocRoleAuthMethod**](V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am | 
 [**assocTargetItem**](V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
 [**auth**](V2Api.md#auth) | **POST** /auth | 
@@ -246,6 +246,7 @@ Method | HTTP request | Description
 [**gatewayGetLogForwarding**](V2Api.md#gatewayGetLogForwarding) | **POST** /gateway-get-log-forwarding | 
 [**gatewayGetMigration**](V2Api.md#gatewayGetMigration) | **POST** /gateway-get-migration | 
 [**gatewayGetProducer**](V2Api.md#gatewayGetProducer) | **POST** /gateway-get-producer | 
+[**gatewayGetRemoteAccess**](V2Api.md#gatewayGetRemoteAccess) | **POST** /gateway-get-remote-access | 
 [**gatewayGetTmpUsers**](V2Api.md#gatewayGetTmpUsers) | **POST** /gateway-get-producer-tmp-creds | 
 [**gatewayListCustomerFragments**](V2Api.md#gatewayListCustomerFragments) | **POST** /gateway-list-customer-fragments | 
 [**gatewayListMigration**](V2Api.md#gatewayListMigration) | **POST** /gateway-list-migration | 
@@ -301,6 +302,8 @@ Method | HTTP request | Description
 [**gatewayUpdateProducerRedshift**](V2Api.md#gatewayUpdateProducerRedshift) | **POST** /gateway-update-producer-redshift | 
 [**gatewayUpdateProducerSnowflake**](V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
 [**gatewayUpdateProducerVenafi**](V2Api.md#gatewayUpdateProducerVenafi) | **POST** /gateway-update-producer-certificate-automation | 
+[**gatewayUpdateRemoteAccess**](V2Api.md#gatewayUpdateRemoteAccess) | **POST** /gateway-update-remote-access | 
+[**gatewayUpdateRemoteAccessRdpRecordings**](V2Api.md#gatewayUpdateRemoteAccessRdpRecordings) | **POST** /gateway-update-remote-access-rdp-recording | 
 [**gatewayUpdateTlsCert**](V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 [**gatewayUpdateTmpUsers**](V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
 [**generateCsr**](V2Api.md#generateCsr) | **POST** /generate-csr | 
@@ -323,6 +326,17 @@ Method | HTTP request | Description
 [**getTags**](V2Api.md#getTags) | **POST** /get-tags | 
 [**getTarget**](V2Api.md#getTarget) | **POST** /get-target | 
 [**getTargetDetails**](V2Api.md#getTargetDetails) | **POST** /get-target-details | 
+[**gwUpdateRemoteAccessSessionLogsAwsS3**](V2Api.md#gwUpdateRemoteAccessSessionLogsAwsS3) | **POST** /gateway-update-remote-access-session-forwarding-aws-s3 | 
+[**gwUpdateRemoteAccessSessionLogsAzureAnalytics**](V2Api.md#gwUpdateRemoteAccessSessionLogsAzureAnalytics) | **POST** /gateway-update-remote-access-session-forwarding-azure-analytics | 
+[**gwUpdateRemoteAccessSessionLogsDatadog**](V2Api.md#gwUpdateRemoteAccessSessionLogsDatadog) | **POST** /gateway-update-remote-access-session-forwarding-datadog | 
+[**gwUpdateRemoteAccessSessionLogsElasticsearch**](V2Api.md#gwUpdateRemoteAccessSessionLogsElasticsearch) | **POST** /gateway-update-remote-access-session-forwarding-elasticsearch | 
+[**gwUpdateRemoteAccessSessionLogsGoogleChronicle**](V2Api.md#gwUpdateRemoteAccessSessionLogsGoogleChronicle) | **POST** /gateway-update-remote-access-session-forwarding-google-chronicle | 
+[**gwUpdateRemoteAccessSessionLogsLogstash**](V2Api.md#gwUpdateRemoteAccessSessionLogsLogstash) | **POST** /gateway-update-remote-access-session-forwarding-logstash | 
+[**gwUpdateRemoteAccessSessionLogsLogzIo**](V2Api.md#gwUpdateRemoteAccessSessionLogsLogzIo) | **POST** /gateway-update-remote-access-session-forwarding-logz-io | 
+[**gwUpdateRemoteAccessSessionLogsSplunk**](V2Api.md#gwUpdateRemoteAccessSessionLogsSplunk) | **POST** /gateway-update-remote-access-session-forwarding-splunk | 
+[**gwUpdateRemoteAccessSessionLogsStdout**](V2Api.md#gwUpdateRemoteAccessSessionLogsStdout) | **POST** /gateway-update-remote-access-session-forwarding-stdout | 
+[**gwUpdateRemoteAccessSessionLogsSumologic**](V2Api.md#gwUpdateRemoteAccessSessionLogsSumologic) | **POST** /gateway-update-remote-access-session-forwarding-sumologic | 
+[**gwUpdateRemoteAccessSessionLogsSyslog**](V2Api.md#gwUpdateRemoteAccessSessionLogsSyslog) | **POST** /gateway-update-remote-access-session-forwarding-syslog | 
 [**hmac**](V2Api.md#hmac) | **POST** /hmac | 
 [**importPasswords**](V2Api.md#importPasswords) | **POST** /import-passwords | 
 [**kmipClientDeleteRule**](V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 
@@ -15306,6 +15320,67 @@ No authorization required
 **200** | gatewayGetProducerResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayGetRemoteAccess"></a>
+# **gatewayGetRemoteAccess**
+> BastionConfigReplyObj gatewayGetRemoteAccess(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayGetRemoteAccess body = new GatewayGetRemoteAccess(); // GatewayGetRemoteAccess | 
+    try {
+      BastionConfigReplyObj result = apiInstance.gatewayGetRemoteAccess(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayGetRemoteAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayGetRemoteAccess**](GatewayGetRemoteAccess.md)|  |
+
+### Return type
+
+[**BastionConfigReplyObj**](BastionConfigReplyObj.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayGetRemoteAccessResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayGetTmpUsers"></a>
 # **gatewayGetTmpUsers**
 > List&lt;TmpUserData&gt; gatewayGetTmpUsers(body)
@@ -18660,6 +18735,124 @@ No authorization required
 **201** | gatewayUpdateProducerVenafiResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="gatewayUpdateRemoteAccess"></a>
+# **gatewayUpdateRemoteAccess**
+> Object gatewayUpdateRemoteAccess()
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    try {
+      Object result = apiInstance.gatewayUpdateRemoteAccess();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateRemoteAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayUpdateRemoteAccessResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gatewayUpdateRemoteAccessRdpRecordings"></a>
+# **gatewayUpdateRemoteAccessRdpRecordings**
+> Object gatewayUpdateRemoteAccessRdpRecordings(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateRemoteAccessRdpRecordings body = new GatewayUpdateRemoteAccessRdpRecordings(); // GatewayUpdateRemoteAccessRdpRecordings | 
+    try {
+      Object result = apiInstance.gatewayUpdateRemoteAccessRdpRecordings(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateRemoteAccessRdpRecordings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateRemoteAccessRdpRecordings**](GatewayUpdateRemoteAccessRdpRecordings.md)|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | gatewayUpdateRemoteAccessRdpRecordingsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="gatewayUpdateTlsCert"></a>
 # **gatewayUpdateTlsCert**
 > GatewayUpdateTlsCertOutput gatewayUpdateTlsCert(body)
@@ -19995,6 +20188,677 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | getTargetDetailsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsAwsS3"></a>
+# **gwUpdateRemoteAccessSessionLogsAwsS3**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsAwsS3(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsAwsS3 body = new GwUpdateRemoteAccessSessionLogsAwsS3(); // GwUpdateRemoteAccessSessionLogsAwsS3 | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsAwsS3(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsAwsS3");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsAwsS3**](GwUpdateRemoteAccessSessionLogsAwsS3.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsAzureAnalytics"></a>
+# **gwUpdateRemoteAccessSessionLogsAzureAnalytics**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsAzureAnalytics(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsAzureAnalytics body = new GwUpdateRemoteAccessSessionLogsAzureAnalytics(); // GwUpdateRemoteAccessSessionLogsAzureAnalytics | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsAzureAnalytics(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsAzureAnalytics");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsAzureAnalytics**](GwUpdateRemoteAccessSessionLogsAzureAnalytics.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsDatadog"></a>
+# **gwUpdateRemoteAccessSessionLogsDatadog**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsDatadog(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsDatadog body = new GwUpdateRemoteAccessSessionLogsDatadog(); // GwUpdateRemoteAccessSessionLogsDatadog | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsDatadog(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsDatadog");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsDatadog**](GwUpdateRemoteAccessSessionLogsDatadog.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsElasticsearch"></a>
+# **gwUpdateRemoteAccessSessionLogsElasticsearch**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsElasticsearch(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsElasticsearch body = new GwUpdateRemoteAccessSessionLogsElasticsearch(); // GwUpdateRemoteAccessSessionLogsElasticsearch | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsElasticsearch(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsElasticsearch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsElasticsearch**](GwUpdateRemoteAccessSessionLogsElasticsearch.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsGoogleChronicle"></a>
+# **gwUpdateRemoteAccessSessionLogsGoogleChronicle**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsGoogleChronicle(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsGoogleChronicle body = new GwUpdateRemoteAccessSessionLogsGoogleChronicle(); // GwUpdateRemoteAccessSessionLogsGoogleChronicle | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsGoogleChronicle(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsGoogleChronicle");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsGoogleChronicle**](GwUpdateRemoteAccessSessionLogsGoogleChronicle.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsLogstash"></a>
+# **gwUpdateRemoteAccessSessionLogsLogstash**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsLogstash(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsLogstash body = new GwUpdateRemoteAccessSessionLogsLogstash(); // GwUpdateRemoteAccessSessionLogsLogstash | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsLogstash(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsLogstash");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsLogstash**](GwUpdateRemoteAccessSessionLogsLogstash.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsLogzIo"></a>
+# **gwUpdateRemoteAccessSessionLogsLogzIo**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsLogzIo(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsLogzIo body = new GwUpdateRemoteAccessSessionLogsLogzIo(); // GwUpdateRemoteAccessSessionLogsLogzIo | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsLogzIo(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsLogzIo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsLogzIo**](GwUpdateRemoteAccessSessionLogsLogzIo.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsSplunk"></a>
+# **gwUpdateRemoteAccessSessionLogsSplunk**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsSplunk(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsSplunk body = new GwUpdateRemoteAccessSessionLogsSplunk(); // GwUpdateRemoteAccessSessionLogsSplunk | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsSplunk(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsSplunk");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsSplunk**](GwUpdateRemoteAccessSessionLogsSplunk.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsStdout"></a>
+# **gwUpdateRemoteAccessSessionLogsStdout**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsStdout(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsStdout body = new GwUpdateRemoteAccessSessionLogsStdout(); // GwUpdateRemoteAccessSessionLogsStdout | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsStdout(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsStdout");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsStdout**](GwUpdateRemoteAccessSessionLogsStdout.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsSumologic"></a>
+# **gwUpdateRemoteAccessSessionLogsSumologic**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsSumologic(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsSumologic body = new GwUpdateRemoteAccessSessionLogsSumologic(); // GwUpdateRemoteAccessSessionLogsSumologic | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsSumologic(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsSumologic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsSumologic**](GwUpdateRemoteAccessSessionLogsSumologic.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="gwUpdateRemoteAccessSessionLogsSyslog"></a>
+# **gwUpdateRemoteAccessSessionLogsSyslog**
+> GatewayUpdateLogForwardingOutput gwUpdateRemoteAccessSessionLogsSyslog(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GwUpdateRemoteAccessSessionLogsSyslog body = new GwUpdateRemoteAccessSessionLogsSyslog(); // GwUpdateRemoteAccessSessionLogsSyslog | 
+    try {
+      GatewayUpdateLogForwardingOutput result = apiInstance.gwUpdateRemoteAccessSessionLogsSyslog(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gwUpdateRemoteAccessSessionLogsSyslog");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GwUpdateRemoteAccessSessionLogsSyslog**](GwUpdateRemoteAccessSessionLogsSyslog.md)|  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | gwUpdateRemoteAccessSessionLogsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="hmac"></a>

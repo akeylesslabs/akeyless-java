@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **changeEvent** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
+**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional]
 **hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional]

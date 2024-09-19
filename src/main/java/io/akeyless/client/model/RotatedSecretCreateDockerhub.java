@@ -67,6 +67,10 @@ public class RotatedSecretCreateDockerhub {
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   private String passwordLength;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -301,6 +305,37 @@ public class RotatedSecretCreateDockerhub {
   }
 
 
+  public RotatedSecretCreateDockerhub rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretCreateDockerhub addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretCreateDockerhub rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -465,6 +500,7 @@ public class RotatedSecretCreateDockerhub {
         Objects.equals(this.maxVersions, rotatedSecretCreateDockerhub.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateDockerhub.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateDockerhub.passwordLength) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretCreateDockerhub.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateDockerhub.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateDockerhub.rotationInterval) &&
         Objects.equals(this.tags, rotatedSecretCreateDockerhub.tags) &&
@@ -475,7 +511,7 @@ public class RotatedSecretCreateDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotationHour, rotationInterval, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotationEventIn, rotationHour, rotationInterval, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -491,6 +527,7 @@ public class RotatedSecretCreateDockerhub {
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

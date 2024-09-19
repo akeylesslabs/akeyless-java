@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **mssqlRevocationStatements** | **String** | MSSQL Revocation statements |  [optional]
 **mssqlUsername** | **String** | MSSQL Username |  [optional]
 **name** | **String** | Dynamic secret name | 
-**newName** | **String** | Dynamic secret new name |  [optional]
+**newName** | **String** | Dynamic secret name |  [optional]
 **passwordLength** | **String** | The length of the password to be generated |  [optional]
 **producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional]
 **secureAccessBastionIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion |  [optional]

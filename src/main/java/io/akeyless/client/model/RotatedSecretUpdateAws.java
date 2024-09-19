@@ -103,6 +103,10 @@ public class RotatedSecretUpdateAws {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   private String rotateAfterDisconnect = "false";
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -568,6 +572,37 @@ public class RotatedSecretUpdateAws {
   }
 
 
+  public RotatedSecretUpdateAws rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateAws addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateAws rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -779,6 +814,7 @@ public class RotatedSecretUpdateAws {
         Objects.equals(this.passwordLength, rotatedSecretUpdateAws.passwordLength) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateAws.rmTag) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateAws.rotateAfterDisconnect) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateAws.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateAws.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateAws.rotationInterval) &&
         Objects.equals(this.secureAccessAwsAccountId, rotatedSecretUpdateAws.secureAccessAwsAccountId) &&
@@ -791,7 +827,7 @@ public class RotatedSecretUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, token, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessEnable, token, uidToken);
   }
 
   @Override
@@ -816,6 +852,7 @@ public class RotatedSecretUpdateAws {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");

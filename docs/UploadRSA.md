@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **customerFrgId** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) |  [optional]
 **deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional]
 **description** | **String** | Description of the object |  [optional]
+**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]
 **metadata** | **String** | Deprecated - use description |  [optional]
 **name** | **String** | Name of key to be created | 

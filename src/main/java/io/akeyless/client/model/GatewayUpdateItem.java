@@ -124,6 +124,10 @@ public class GatewayUpdateItem {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour = 0;
@@ -696,6 +700,37 @@ public class GatewayUpdateItem {
   }
 
 
+  public GatewayUpdateItem rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public GatewayUpdateItem addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public GatewayUpdateItem rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -866,6 +901,7 @@ public class GatewayUpdateItem {
         Objects.equals(this.rmTag, gatewayUpdateItem.rmTag) &&
         Objects.equals(this.rotatedPassword, gatewayUpdateItem.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, gatewayUpdateItem.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, gatewayUpdateItem.rotationEventIn) &&
         Objects.equals(this.rotationHour, gatewayUpdateItem.rotationHour) &&
         Objects.equals(this.rotationInterval, gatewayUpdateItem.rotationInterval) &&
         Objects.equals(this.rotatorCredsType, gatewayUpdateItem.rotatorCredsType) &&
@@ -876,7 +912,7 @@ public class GatewayUpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, appId, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
+    return Objects.hash(addTag, apiId, apiKey, appId, autoRotate, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, json, keepPrevVersion, key, name, newMetadata, newName, newVersion, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCredsType, token, type, uidToken);
   }
 
   @Override
@@ -906,6 +942,7 @@ public class GatewayUpdateItem {
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorCredsType: ").append(toIndentedString(rotatorCredsType)).append("\n");

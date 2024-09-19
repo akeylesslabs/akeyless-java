@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AllowedIpSettings;
 import io.akeyless.client.model.DataProtectionSection;
 import io.akeyless.client.model.DynamicSecretMaxTtl;
+import io.akeyless.client.model.PasswordExpirationInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.RotationSecretMaxInterval;
 import io.akeyless.client.model.SharingPolicyInfo;
@@ -80,6 +81,10 @@ public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_LOCK_DEFAULT_KEY = "lock_default_key";
   @SerializedName(SERIALIZED_NAME_LOCK_DEFAULT_KEY)
   private Boolean lockDefaultKey;
+
+  public static final String SERIALIZED_NAME_PASSWORD_EXPIRATION_INFO = "password_expiration_info";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_EXPIRATION_INFO)
+  private PasswordExpirationInfo passwordExpirationInfo;
 
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
@@ -353,6 +358,29 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings passwordExpirationInfo(PasswordExpirationInfo passwordExpirationInfo) {
+    
+    this.passwordExpirationInfo = passwordExpirationInfo;
+    return this;
+  }
+
+   /**
+   * Get passwordExpirationInfo
+   * @return passwordExpirationInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PasswordExpirationInfo getPasswordExpirationInfo() {
+    return passwordExpirationInfo;
+  }
+
+
+  public void setPasswordExpirationInfo(PasswordExpirationInfo passwordExpirationInfo) {
+    this.passwordExpirationInfo = passwordExpirationInfo;
+  }
+
+
   public AccountGeneralSettings passwordPolicy(PasswordPolicyInfo passwordPolicy) {
     
     this.passwordPolicy = passwordPolicy;
@@ -465,6 +493,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.invalidCharacters, accountGeneralSettings.invalidCharacters) &&
         Objects.equals(this.itemUsageEvent, accountGeneralSettings.itemUsageEvent) &&
         Objects.equals(this.lockDefaultKey, accountGeneralSettings.lockDefaultKey) &&
+        Objects.equals(this.passwordExpirationInfo, accountGeneralSettings.passwordExpirationInfo) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
         Objects.equals(this.rotationSecretMaxInterval, accountGeneralSettings.rotationSecretMaxInterval) &&
@@ -473,7 +502,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, allowedClientsIps, allowedGatewaysIps, authUsageEvent, dataProtectionSection, dynamicSecretMaxTtl, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordPolicy, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, allowedClientsIps, allowedGatewaysIps, authUsageEvent, dataProtectionSection, dynamicSecretMaxTtl, enableRequestForAccess, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -491,6 +520,7 @@ public class AccountGeneralSettings {
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
     sb.append("    itemUsageEvent: ").append(toIndentedString(itemUsageEvent)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
+    sb.append("    passwordExpirationInfo: ").append(toIndentedString(passwordExpirationInfo)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
     sb.append("    rotationSecretMaxInterval: ").append(toIndentedString(rotationSecretMaxInterval)).append("\n");

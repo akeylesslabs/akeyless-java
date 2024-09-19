@@ -75,6 +75,10 @@ public class RotatedSecretCreateCustom {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   private String rotateAfterDisconnect = "false";
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -400,6 +404,37 @@ public class RotatedSecretCreateCustom {
 
   public void setRotateAfterDisconnect(String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public RotatedSecretCreateCustom rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretCreateCustom addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
   }
 
 
@@ -853,6 +888,7 @@ public class RotatedSecretCreateCustom {
         Objects.equals(this.name, rotatedSecretCreateCustom.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateCustom.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateCustom.rotateAfterDisconnect) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretCreateCustom.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateCustom.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateCustom.rotationInterval) &&
         Objects.equals(this.secureAccessAllowExternalUser, rotatedSecretCreateCustom.secureAccessAllowExternalUser) &&
@@ -875,7 +911,7 @@ public class RotatedSecretCreateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, customPayload, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, timeoutSec, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, customPayload, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, timeoutSec, token, uidToken);
   }
 
   @Override
@@ -893,6 +929,7 @@ public class RotatedSecretCreateCustom {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");

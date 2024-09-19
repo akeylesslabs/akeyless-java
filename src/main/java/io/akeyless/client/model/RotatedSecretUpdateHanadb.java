@@ -91,6 +91,10 @@ public class RotatedSecretUpdateHanadb {
   @SerializedName(SERIALIZED_NAME_ROTATED_USERNAME)
   private String rotatedUsername;
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -471,6 +475,37 @@ public class RotatedSecretUpdateHanadb {
   }
 
 
+  public RotatedSecretUpdateHanadb rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateHanadb addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateHanadb rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -587,6 +622,7 @@ public class RotatedSecretUpdateHanadb {
         Objects.equals(this.rmTag, rotatedSecretUpdateHanadb.rmTag) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateHanadb.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretUpdateHanadb.rotatedUsername) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateHanadb.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateHanadb.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateHanadb.rotationInterval) &&
         Objects.equals(this.token, rotatedSecretUpdateHanadb.token) &&
@@ -595,7 +631,7 @@ public class RotatedSecretUpdateHanadb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, token, uidToken);
   }
 
   @Override
@@ -617,6 +653,7 @@ public class RotatedSecretUpdateHanadb {
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RollbackSecret {
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility = "regular";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
@@ -51,6 +55,29 @@ public class RollbackSecret {
 
   public RollbackSecret() { 
   }
+
+  public RollbackSecret accessibility(String accessibility) {
+    
+    this.accessibility = accessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return accessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getAccessibility() {
+    return accessibility;
+  }
+
+
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
+  }
+
 
   public RollbackSecret json(Boolean json) {
     
@@ -176,7 +203,8 @@ public class RollbackSecret {
       return false;
     }
     RollbackSecret rollbackSecret = (RollbackSecret) o;
-    return Objects.equals(this.json, rollbackSecret.json) &&
+    return Objects.equals(this.accessibility, rollbackSecret.accessibility) &&
+        Objects.equals(this.json, rollbackSecret.json) &&
         Objects.equals(this.name, rollbackSecret.name) &&
         Objects.equals(this.oldVersion, rollbackSecret.oldVersion) &&
         Objects.equals(this.token, rollbackSecret.token) &&
@@ -185,13 +213,14 @@ public class RollbackSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, oldVersion, token, uidToken);
+    return Objects.hash(accessibility, json, name, oldVersion, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RollbackSecret {\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oldVersion: ").append(toIndentedString(oldVersion)).append("\n");

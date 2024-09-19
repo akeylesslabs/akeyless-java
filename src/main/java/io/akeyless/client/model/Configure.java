@@ -63,6 +63,18 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_CERT_DATA)
   private String certData;
 
+  public static final String SERIALIZED_NAME_CERT_ISSUER_NAME = "cert-issuer-name";
+  @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
+  private String certIssuerName;
+
+  public static final String SERIALIZED_NAME_CERT_USERNAME = "cert-username";
+  @SerializedName(SERIALIZED_NAME_CERT_USERNAME)
+  private String certUsername;
+
+  public static final String SERIALIZED_NAME_DEFAULT_LOCATION_PREFIX = "default-location-prefix";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_LOCATION_PREFIX)
+  private String defaultLocationPrefix;
+
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience = "akeyless.io";
@@ -78,6 +90,10 @@ public class Configure {
   public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
+
+  public static final String SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME = "legacy-signing-alg-name";
+  @SerializedName(SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME)
+  private Boolean legacySigningAlgName;
 
   public static final String SERIALIZED_NAME_OCI_AUTH_TYPE = "oci-auth-type";
   @SerializedName(SERIALIZED_NAME_OCI_AUTH_TYPE)
@@ -274,6 +290,75 @@ public class Configure {
   }
 
 
+  public Configure certIssuerName(String certIssuerName) {
+    
+    this.certIssuerName = certIssuerName;
+    return this;
+  }
+
+   /**
+   * Certificate Issuer Name
+   * @return certIssuerName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Certificate Issuer Name")
+
+  public String getCertIssuerName() {
+    return certIssuerName;
+  }
+
+
+  public void setCertIssuerName(String certIssuerName) {
+    this.certIssuerName = certIssuerName;
+  }
+
+
+  public Configure certUsername(String certUsername) {
+    
+    this.certUsername = certUsername;
+    return this;
+  }
+
+   /**
+   * The username to sign in the SSH certificate (use a comma-separated list for more than one username)
+   * @return certUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The username to sign in the SSH certificate (use a comma-separated list for more than one username)")
+
+  public String getCertUsername() {
+    return certUsername;
+  }
+
+
+  public void setCertUsername(String certUsername) {
+    this.certUsername = certUsername;
+  }
+
+
+  public Configure defaultLocationPrefix(String defaultLocationPrefix) {
+    
+    this.defaultLocationPrefix = defaultLocationPrefix;
+    return this;
+  }
+
+   /**
+   * Default path prefix for name of items, targets and auth methods
+   * @return defaultLocationPrefix
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Default path prefix for name of items, targets and auth methods")
+
+  public String getDefaultLocationPrefix() {
+    return defaultLocationPrefix;
+  }
+
+
+  public void setDefaultLocationPrefix(String defaultLocationPrefix) {
+    this.defaultLocationPrefix = defaultLocationPrefix;
+  }
+
+
   public Configure gcpAudience(String gcpAudience) {
     
     this.gcpAudience = gcpAudience;
@@ -366,6 +451,29 @@ public class Configure {
   }
 
 
+  public Configure legacySigningAlgName(Boolean legacySigningAlgName) {
+    
+    this.legacySigningAlgName = legacySigningAlgName;
+    return this;
+  }
+
+   /**
+   * Set this option to output legacy (&#39;ssh-rsa-cert-v01@openssh.com&#39;) signing algorithm name in the certificate.
+   * @return legacySigningAlgName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the certificate.")
+
+  public Boolean getLegacySigningAlgName() {
+    return legacySigningAlgName;
+  }
+
+
+  public void setLegacySigningAlgName(Boolean legacySigningAlgName) {
+    this.legacySigningAlgName = legacySigningAlgName;
+  }
+
+
   public Configure ociAuthType(String ociAuthType) {
     
     this.ociAuthType = ociAuthType;
@@ -437,17 +545,21 @@ public class Configure {
         Objects.equals(this.adminPassword, configure.adminPassword) &&
         Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
         Objects.equals(this.certData, configure.certData) &&
+        Objects.equals(this.certIssuerName, configure.certIssuerName) &&
+        Objects.equals(this.certUsername, configure.certUsername) &&
+        Objects.equals(this.defaultLocationPrefix, configure.defaultLocationPrefix) &&
         Objects.equals(this.gcpAudience, configure.gcpAudience) &&
         Objects.equals(this.json, configure.json) &&
         Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName) &&
         Objects.equals(this.keyData, configure.keyData) &&
+        Objects.equals(this.legacySigningAlgName, configure.legacySigningAlgName) &&
         Objects.equals(this.ociAuthType, configure.ociAuthType) &&
         Objects.equals(this.ociGroupOcid, configure.ociGroupOcid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, gcpAudience, json, k8sAuthConfigName, keyData, ociAuthType, ociGroupOcid);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, certIssuerName, certUsername, defaultLocationPrefix, gcpAudience, json, k8sAuthConfigName, keyData, legacySigningAlgName, ociAuthType, ociGroupOcid);
   }
 
   @Override
@@ -462,10 +574,14 @@ public class Configure {
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
+    sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
+    sb.append("    certUsername: ").append(toIndentedString(certUsername)).append("\n");
+    sb.append("    defaultLocationPrefix: ").append(toIndentedString(defaultLocationPrefix)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
+    sb.append("    legacySigningAlgName: ").append(toIndentedString(legacySigningAlgName)).append("\n");
     sb.append("    ociAuthType: ").append(toIndentedString(ociAuthType)).append("\n");
     sb.append("    ociGroupOcid: ").append(toIndentedString(ociGroupOcid)).append("\n");
     sb.append("}");

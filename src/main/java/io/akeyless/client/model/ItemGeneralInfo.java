@@ -21,11 +21,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateChainInfo;
+import io.akeyless.client.model.CertificateExpirationEvent;
 import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.CertificateTemplateInfo;
 import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
 import io.akeyless.client.model.ImporterInfo;
+import io.akeyless.client.model.NextAutoRotationEvent;
 import io.akeyless.client.model.OidcClientInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.RotatedSecretDetailsInfo;
@@ -35,6 +37,8 @@ import io.akeyless.client.model.TokenizerInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ItemGeneralInfo
@@ -73,9 +77,17 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_PRODUCER_DETAILS)
   private DynamicSecretProducerInfo dynamicSecretProducerDetails;
 
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
+  private List<CertificateExpirationEvent> expirationEvents = null;
+
   public static final String SERIALIZED_NAME_IMPORTER_INFO = "importer_info";
   @SerializedName(SERIALIZED_NAME_IMPORTER_INFO)
   private ImporterInfo importerInfo;
+
+  public static final String SERIALIZED_NAME_NEXT_ROTATION_EVENTS = "next_rotation_events";
+  @SerializedName(SERIALIZED_NAME_NEXT_ROTATION_EVENTS)
+  private List<NextAutoRotationEvent> nextRotationEvents = null;
 
   public static final String SERIALIZED_NAME_OIDC_CLIENT_INFO = "oidc_client_info";
   @SerializedName(SERIALIZED_NAME_OIDC_CLIENT_INFO)
@@ -288,6 +300,37 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo expirationEvents(List<CertificateExpirationEvent> expirationEvents) {
+    
+    this.expirationEvents = expirationEvents;
+    return this;
+  }
+
+  public ItemGeneralInfo addExpirationEventsItem(CertificateExpirationEvent expirationEventsItem) {
+    if (this.expirationEvents == null) {
+      this.expirationEvents = new ArrayList<CertificateExpirationEvent>();
+    }
+    this.expirationEvents.add(expirationEventsItem);
+    return this;
+  }
+
+   /**
+   * Get expirationEvents
+   * @return expirationEvents
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<CertificateExpirationEvent> getExpirationEvents() {
+    return expirationEvents;
+  }
+
+
+  public void setExpirationEvents(List<CertificateExpirationEvent> expirationEvents) {
+    this.expirationEvents = expirationEvents;
+  }
+
+
   public ItemGeneralInfo importerInfo(ImporterInfo importerInfo) {
     
     this.importerInfo = importerInfo;
@@ -308,6 +351,37 @@ public class ItemGeneralInfo {
 
   public void setImporterInfo(ImporterInfo importerInfo) {
     this.importerInfo = importerInfo;
+  }
+
+
+  public ItemGeneralInfo nextRotationEvents(List<NextAutoRotationEvent> nextRotationEvents) {
+    
+    this.nextRotationEvents = nextRotationEvents;
+    return this;
+  }
+
+  public ItemGeneralInfo addNextRotationEventsItem(NextAutoRotationEvent nextRotationEventsItem) {
+    if (this.nextRotationEvents == null) {
+      this.nextRotationEvents = new ArrayList<NextAutoRotationEvent>();
+    }
+    this.nextRotationEvents.add(nextRotationEventsItem);
+    return this;
+  }
+
+   /**
+   * Get nextRotationEvents
+   * @return nextRotationEvents
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<NextAutoRotationEvent> getNextRotationEvents() {
+    return nextRotationEvents;
+  }
+
+
+  public void setNextRotationEvents(List<NextAutoRotationEvent> nextRotationEvents) {
+    this.nextRotationEvents = nextRotationEvents;
   }
 
 
@@ -466,7 +540,9 @@ public class ItemGeneralInfo {
         Objects.equals(this.clusterGwUrl, itemGeneralInfo.clusterGwUrl) &&
         Objects.equals(this.displayMetadata, itemGeneralInfo.displayMetadata) &&
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
+        Objects.equals(this.expirationEvents, itemGeneralInfo.expirationEvents) &&
         Objects.equals(this.importerInfo, itemGeneralInfo.importerInfo) &&
+        Objects.equals(this.nextRotationEvents, itemGeneralInfo.nextRotationEvents) &&
         Objects.equals(this.oidcClientInfo, itemGeneralInfo.oidcClientInfo) &&
         Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
         Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails) &&
@@ -477,7 +553,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, importerInfo, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, nextRotationEvents, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
@@ -492,7 +568,9 @@ public class ItemGeneralInfo {
     sb.append("    clusterGwUrl: ").append(toIndentedString(clusterGwUrl)).append("\n");
     sb.append("    displayMetadata: ").append(toIndentedString(displayMetadata)).append("\n");
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
+    sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    importerInfo: ").append(toIndentedString(importerInfo)).append("\n");
+    sb.append("    nextRotationEvents: ").append(toIndentedString(nextRotationEvents)).append("\n");
     sb.append("    oidcClientInfo: ").append(toIndentedString(oidcClientInfo)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");

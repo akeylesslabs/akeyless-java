@@ -99,6 +99,10 @@ public class RotatedSecretUpdateAzure {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   private String rotateAfterDisconnect = "false";
 
+  public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
+  @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
+  private List<String> rotationEventIn = null;
+
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation-hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
   private Integer rotationHour;
@@ -557,6 +561,37 @@ public class RotatedSecretUpdateAzure {
   }
 
 
+  public RotatedSecretUpdateAzure rotationEventIn(List<String> rotationEventIn) {
+    
+    this.rotationEventIn = rotationEventIn;
+    return this;
+  }
+
+  public RotatedSecretUpdateAzure addRotationEventInItem(String rotationEventInItem) {
+    if (this.rotationEventIn == null) {
+      this.rotationEventIn = new ArrayList<String>();
+    }
+    this.rotationEventIn.add(rotationEventInItem);
+    return this;
+  }
+
+   /**
+   * How many days before the rotation of the item would you like to be notified
+   * @return rotationEventIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many days before the rotation of the item would you like to be notified")
+
+  public List<String> getRotationEventIn() {
+    return rotationEventIn;
+  }
+
+
+  public void setRotationEventIn(List<String> rotationEventIn) {
+    this.rotationEventIn = rotationEventIn;
+  }
+
+
   public RotatedSecretUpdateAzure rotationHour(Integer rotationHour) {
     
     this.rotationHour = rotationHour;
@@ -859,6 +894,7 @@ public class RotatedSecretUpdateAzure {
         Objects.equals(this.passwordLength, rotatedSecretUpdateAzure.passwordLength) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateAzure.rmTag) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateAzure.rotateAfterDisconnect) &&
+        Objects.equals(this.rotationEventIn, rotatedSecretUpdateAzure.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateAzure.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateAzure.rotationInterval) &&
         Objects.equals(this.secureAccessDisableConcurrentConnections, rotatedSecretUpdateAzure.secureAccessDisableConcurrentConnections) &&
@@ -875,7 +911,7 @@ public class RotatedSecretUpdateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, username);
+    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, username);
   }
 
   @Override
@@ -899,6 +935,7 @@ public class RotatedSecretUpdateAzure {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    secureAccessDisableConcurrentConnections: ").append(toIndentedString(secureAccessDisableConcurrentConnections)).append("\n");
